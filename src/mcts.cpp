@@ -2,6 +2,7 @@
 #include "mcts.h"
 #include <cmath>
 #include <algorithm>
+#include <numeric>
 
 MCTS::MCTS(const MCTSConfig& config,
            std::shared_ptr<BatchingNNInterface> nn,
@@ -72,6 +73,10 @@ Node* MCTS::select_node(Node* root) const {
             }
         }
         current = bestChild;
+        if (bestChild == nullptr) {
+            // Either break out of loop or return current node
+            break;  // or: return current;
+        }
     }
     return current;
 }
@@ -130,8 +135,23 @@ void MCTS::expand_and_evaluate(Node* leaf) {
 
     // Expand
     auto validMoves = st.get_valid_moves();
-    // Suppose policy.size() == validMoves.size()
-    leaf->expand(validMoves, policy);
+    std::vector<float> validPolicies;
+    validPolicies.reserve(validMoves.size());
+    for (int move : validMoves) {
+        if (move >= 0 && move < policy.size()) {
+            validPolicies.push_back(policy[move]);
+        } else {
+            validPolicies.push_back(1.0f / validMoves.size());  // Default for out-of-bounds
+        }
+    }
+    // Renormalize
+    float sum = std::accumulate(validPolicies.begin(), validPolicies.end(), 0.0f);
+    if (sum > 0) {
+        for (auto& p : validPolicies) {
+            p /= sum;
+        }
+    }
+    leaf->expand(validMoves, validPolicies);
 
     // Backup
     backup(leaf, value);
