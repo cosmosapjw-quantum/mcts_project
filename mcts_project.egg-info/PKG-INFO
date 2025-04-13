@@ -1,0 +1,5 @@
+Metadata-Version: 2.1
+Name: mcts_project
+Version: 0.1.0
+Summary: MCTS with Gomoku & Attack-Defense, plus Python self-play/arena
+Requires-Dist: pybind11
