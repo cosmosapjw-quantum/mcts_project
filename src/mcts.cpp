@@ -93,70 +93,16 @@ void MCTS::add_dirichlet_noise(std::vector<float>& priors) {
 }
 
 void MCTS::run_search(const Gamestate& rootState) {
-    threads_.clear();
-    root_.reset();
+    MCTS_DEBUG("Starting MCTS search");
     
-    if (config_.num_threads > 1) {
-        run_parallel_search(rootState);
-    } else {
-        root_ = std::make_unique<Node>(rootState);
-        simulations_done_ = 0;
-        
-        for (int i = 0; i < config_.num_simulations; i++) {
-            try {
-                Node* leaf = select_node(root_.get());
-                if (!leaf) continue;
-                expand_and_evaluate(leaf);
-            } catch (const std::exception& e) {
-                // Silent error handling
-            }
-        }
-    }
-}
-
-void MCTS::run_parallel_search(const Gamestate& rootState) {
+    // Always use single-threaded search for now
     root_ = std::make_unique<Node>(rootState);
     simulations_done_ = 0;
-    search_done_ = false;
-
-    auto validMoves = rootState.get_valid_moves();
-    if (!validMoves.empty()) {
-        std::vector<float> priors(validMoves.size(), 1.0f / validMoves.size());
-        add_dirichlet_noise(priors);
-        root_->expand(validMoves, priors);
-    }
     
-    int num_threads = config_.num_threads;
-    int num_simulations = config_.num_simulations;
-    int leaf_batch_size = config_.parallel_leaf_batch_size > 0 ? 
-                          config_.parallel_leaf_batch_size : 4;
-    
-    {
-        std::lock_guard<std::mutex> lock(queue_mutex_);
-        while (!leaf_queue_.empty()) {
-            leaf_queue_.pop();
-        }
-    }
-    
-    threads_.clear();
-    for (int i = 0; i < num_threads; i++) {
-        threads_.emplace_back(&MCTS::leaf_evaluation_worker, this);
-    }
-    
-    int queued_leaves = 0;
-    int nodes_expanded = 0;
-    std::vector<Node*> leaf_buffer;
-    leaf_buffer.reserve(leaf_batch_size * 2);
-    
-    auto start_time = std::chrono::steady_clock::now();
-    
-    for (int i = 0; i < num_simulations; i++) {
+    for (int i = 0; i < config_.num_simulations; i++) {
         try {
             Node* leaf = select_node(root_.get());
-            
-            if (!leaf) {
-                continue;
-            }
+            if (!leaf) continue;
             
             if (leaf->get_state().is_terminal()) {
                 float value = 0.0f;
@@ -172,51 +118,93 @@ void MCTS::run_parallel_search(const Gamestate& rootState) {
                 }
                 
                 backup(leaf, value);
-                nodes_expanded++;
             } else {
-                leaf_buffer.push_back(leaf);
-                
-                if (leaf_buffer.size() >= leaf_batch_size) {
-                    for (Node* l : leaf_buffer) {
-                        queue_leaf_for_evaluation(l);
-                        queued_leaves++;
-                    }
-                    leaf_buffer.clear();
-                }
+                expand_and_evaluate(leaf);
             }
-            
-            if (i > 0 && i % 100 == 0) {
-                std::unique_lock<std::mutex> lock(queue_mutex_);
-                if (leaf_queue_.size() > leaf_batch_size * num_threads * 2) {
-                    queue_cv_.wait(lock, [this, leaf_batch_size, num_threads]() {
-                        return leaf_queue_.size() <= leaf_batch_size * num_threads;
-                    });
-                }
-            }
-            
         } catch (const std::exception& e) {
             // Silent error handling
         }
     }
     
-    for (Node* l : leaf_buffer) {
-        queue_leaf_for_evaluation(l);
-        queued_leaves++;
+    MCTS_DEBUG("MCTS search completed");
+}
+
+void MCTS::run_parallel_search(const Gamestate& rootState) {
+    MCTS_DEBUG("Starting parallel MCTS search");
+    root_ = std::make_unique<Node>(rootState);
+    simulations_done_ = 0;
+    shutdown_flag_ = false;
+    
+    auto validMoves = rootState.get_valid_moves();
+    MCTS_DEBUG("Root has " << validMoves.size() << " valid moves");
+    
+    if (!validMoves.empty()) {
+        std::vector<float> priors(validMoves.size(), 1.0f / validMoves.size());
+        MCTS_DEBUG("Adding Dirichlet noise to root node priors");
+        add_dirichlet_noise(priors);
+        root_->expand(validMoves, priors);
     }
     
-    {
-        std::unique_lock<std::mutex> lock(queue_mutex_);
-        queue_cv_.wait(lock, [this]() { return leaf_queue_.empty(); });
-    }
-    
-    search_done_ = true;
-    queue_cv_.notify_all();
-    
+    // Clear previous threads
     for (auto& t : threads_) {
-        if (t.joinable()) {
-            t.join();
+        if (t.joinable()) t.detach();
+    }
+    threads_.clear();
+    
+    MCTS_DEBUG("Running " << config_.num_simulations << " parallel simulations");
+    
+    // Run simulations with a fixed number of parallel threads
+    const int num_threads = std::min(16, config_.num_threads);
+    
+    // Create a pool of simulations
+    std::vector<int> simulation_indices(config_.num_simulations);
+    std::iota(simulation_indices.begin(), simulation_indices.end(), 0);
+    
+    // Distribute simulations to threads
+    std::vector<std::thread> sim_threads;
+    for (int i = 0; i < num_threads; i++) {
+        int start = i * (simulation_indices.size() / num_threads);
+        int end = (i == num_threads - 1) ? simulation_indices.size() : 
+                 (i + 1) * (simulation_indices.size() / num_threads);
+        
+        if (start < end) {
+            MCTS_DEBUG("Starting thread " << i << " with simulations " << start << " to " << end);
+            sim_threads.emplace_back([this, start, end, &simulation_indices]() {
+                for (int j = start; j < end; j++) {
+                    if (shutdown_flag_) break;
+                    run_single_simulation(simulation_indices[j]);
+                }
+            });
         }
     }
+    
+    // Wait up to 10 seconds for threads to complete
+    auto start_time = std::chrono::steady_clock::now();
+    const auto max_wait = std::chrono::seconds(10);
+    
+    while (simulations_done_.load() < config_.num_simulations) {
+        auto current_time = std::chrono::steady_clock::now();
+        if (current_time - start_time > max_wait) {
+            MCTS_DEBUG("Search timeout reached, forcing termination");
+            shutdown_flag_ = true;
+            break;
+        }
+        
+        // Check periodically
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        
+        MCTS_DEBUG("Simulations completed: " << simulations_done_.load() << "/" << config_.num_simulations);
+    }
+    
+    // Ensure we're definitely done
+    shutdown_flag_ = true;
+    
+    // Detach all simulation threads - don't try to join
+    for (auto& t : sim_threads) {
+        if (t.joinable()) t.detach();
+    }
+    
+    MCTS_DEBUG("Parallel search completed with " << simulations_done_.load() << " simulations");
 }
 
 void MCTS::queue_leaf_for_evaluation(Node* leaf) {
@@ -235,40 +223,58 @@ void MCTS::queue_leaf_for_evaluation(Node* leaf) {
 }
 
 void MCTS::leaf_evaluation_worker() {
-    const int local_batch_size = 4;
-    std::vector<LeafTask> batch;
-    batch.reserve(local_batch_size);
+    MCTS_DEBUG("Worker thread started");
+    const int local_batch_size = 4;  // Use a fixed small batch size for reliability
     
-    while (!search_done_) {
-        batch.clear();
+    while (!search_done_) {  // Only continue if search is not done
+        // Process at most one batch then check if we should exit
+        std::vector<LeafTask> batch;
+        batch.reserve(local_batch_size);
         
+        // Get tasks from the queue - with minimal locking
         {
-            std::unique_lock<std::mutex> lock(queue_mutex_);
+            std::lock_guard<std::mutex> lock(queue_mutex_);
             
-            queue_cv_.wait(lock, [this]() { 
-                return !leaf_queue_.empty() || search_done_; 
-            });
+            // Check if should exit immediately after acquiring lock
+            if (search_done_) break;
             
-            if (search_done_ && leaf_queue_.empty()) {
-                break;
-            }
-            
-            while (!leaf_queue_.empty() && batch.size() < local_batch_size) {
+            // Take up to local_batch_size items from queue
+            int count = 0;
+            while (!leaf_queue_.empty() && count < local_batch_size) {
                 batch.push_back(leaf_queue_.front());
                 leaf_queue_.pop();
+                count++;
             }
         }
         
+        // Process the batch outside the lock if we got any items
         if (!batch.empty()) {
             try {
-                evaluate_leaf_batch(batch);
+                for (const auto& task : batch) {
+                    // Process each task individually for better responsiveness
+                    if (search_done_) break;  // Exit early if search done
+                    
+                    // Individual processing of leaves
+                    try {
+                        evaluate_leaf(task.leaf, task.state, task.chosen_move);
+                        simulations_done_.fetch_add(1, std::memory_order_relaxed);
+                    } catch (const std::exception& e) {
+                        MCTS_DEBUG("Error evaluating leaf: " << e.what());
+                    }
+                }
             } catch (const std::exception& e) {
-                // Silent error handling
+                MCTS_DEBUG("Error in batch processing: " << e.what());
             }
             
+            // Notify any waiting threads that we've processed some items
             queue_cv_.notify_all();
+        } else {
+            // No work - sleep a tiny bit to avoid spinning
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
         }
     }
+    
+    MCTS_DEBUG("Worker thread exiting");
 }
 
 void MCTS::evaluate_leaf(Node* leaf, const Gamestate& state, int chosen_move) {
@@ -446,15 +452,87 @@ void MCTS::worker_thread() {
 
 void MCTS::run_single_simulation(int sim_index) {
     try {
-        Node* root_ptr = root_.get();
-        if (!root_ptr) return;
+        // Skip if we should terminate
+        if (shutdown_flag_) return;
         
-        Node* leaf = select_node(root_ptr);
+        if (sim_index % 10 == 0) {
+            MCTS_DEBUG("Running simulation " << sim_index);
+        }
+        
+        Node* leaf = select_node(root_.get());
         if (!leaf) return;
         
-        expand_and_evaluate(leaf);
+        if (leaf->get_state().is_terminal()) {
+            float value = 0.0f;
+            int winner = leaf->get_state().get_winner();
+            int current_player = leaf->get_state().current_player;
+            
+            if (winner == current_player) {
+                value = 1.0f;
+            } else if (winner == 0) {
+                value = 0.0f;
+            } else {
+                value = -1.0f;
+            }
+            
+            backup(leaf, value);
+        } else {
+            // Directly evaluate the leaf - no worker queue
+            int chosen_move = leaf->get_move_from_parent();
+            if (chosen_move < 0) {
+                auto valid_moves = leaf->get_state().get_valid_moves();
+                if (!valid_moves.empty()) {
+                    chosen_move = valid_moves[0];
+                } else {
+                    chosen_move = 0;
+                }
+            }
+            
+            std::vector<std::vector<int>> board2D = leaf->get_state().get_board();
+            std::vector<std::vector<std::vector<int>>> board_batch = {board2D};
+            std::vector<int> chosen_moves = {chosen_move};
+            std::vector<int> player_batch = {leaf->get_state().current_player};
+            
+            auto [attackVec, defenseVec] = attackDefense_.compute_bonuses(
+                board_batch, chosen_moves, player_batch);
+                
+            float attack = attackVec[0];
+            float defense = defenseVec[0];
+            
+            std::vector<float> policy;
+            float value = 0.0f;
+            
+            // Direct neural network evaluation
+            nn_->request_inference(leaf->get_state(), chosen_move, attack, defense, policy, value);
+            
+            auto validMoves = leaf->get_state().get_valid_moves();
+            std::vector<float> validPriors;
+            validPriors.reserve(validMoves.size());
+            
+            for (int move : validMoves) {
+                if (move >= 0 && move < static_cast<int>(policy.size())) {
+                    validPriors.push_back(policy[move]);
+                } else {
+                    validPriors.push_back(1.0f / validMoves.size());
+                }
+            }
+            
+            float sum = std::accumulate(validPriors.begin(), validPriors.end(), 0.0f);
+            if (sum > 0) {
+                for (auto& p : validPriors) {
+                    p /= sum;
+                }
+            }
+            
+            leaf->expand(validMoves, validPriors);
+            backup(leaf, value);
+        }
+        
+        // Increment the simulation counter
+        simulations_done_.fetch_add(1, std::memory_order_relaxed);
+        
     } catch (const std::exception& e) {
-        // Silent error handling
+        MCTS_DEBUG("Error in simulation " << sim_index << ": " << e.what());
     }
 }
 

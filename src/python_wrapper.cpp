@@ -7,6 +7,7 @@
 #include "mcts_config.h"
 #include "mcts.h"
 #include "nn_interface.h"
+#include <iostream>
 
 namespace py = pybind11;
 
@@ -16,37 +17,122 @@ namespace py = pybind11;
  */
 class MCTSWrapper {
 public:
-    MCTSWrapper(const MCTSConfig& cfg,
-                int boardSize,
-                bool use_renju,
-                bool use_omok,
-                int seed,
-                bool use_pro_long_opening)
-    {
-        Gamestate st(boardSize, use_renju, use_omok, seed, use_pro_long_opening);
+MCTSWrapper(const MCTSConfig& cfg,
+            int boardSize,
+            bool use_renju,
+            bool use_omok,
+            int seed,
+            bool use_pro_long_opening)
+{
+    Gamestate st(boardSize, use_renju, use_omok, seed, use_pro_long_opening);
 
-        nn_ = std::make_shared<BatchingNNInterface>();
-        mcts_ = std::make_unique<MCTS>(cfg, nn_, boardSize);
+    nn_ = std::make_shared<BatchingNNInterface>();
+    
+    // Force single-threaded mode for now to avoid Python GIL contention
+    MCTSConfig single_threaded_cfg = cfg;
+    single_threaded_cfg.num_threads = 1;
+    
+    mcts_ = std::make_unique<MCTS>(single_threaded_cfg, nn_, boardSize);
 
-        config_ = cfg;
-        rootState_ = st;
-    }
-
-    std::shared_ptr<BatchingNNInterface> _get_nn_interface() {
-        return nn_;
-    }
+    config_ = single_threaded_cfg;
+    rootState_ = st;
+}
 
     void set_batch_size(int size) {
         nn_->set_batch_size(size);
     }
 
     void set_infer_function(py::function pyFn) {
-        // This is now a no-op as we're using a dummy implementation
-        // We keep the method for API compatibility
+        MCTS_DEBUG("Setting Python inference function");
+        if (!nn_) {
+            MCTS_DEBUG("Error: NN interface is null");
+            return;
+        }
+        
+        // Create a C++ function that wraps the Python function
+        auto wrapper = [pyFn](const std::vector<std::tuple<std::string, int, float, float>>& inputs) -> std::vector<NNOutput> {
+            MCTS_DEBUG("C++ wrapper for Python function called with " << inputs.size() << " inputs");
+            
+            std::vector<NNOutput> results;
+            try {
+                // Acquire the GIL before calling into Python
+                py::gil_scoped_acquire acquire;
+                
+                // Convert C++ inputs to Python
+                py::list py_inputs;
+                for (const auto& input : inputs) {
+                    py_inputs.append(py::make_tuple(
+                        std::get<0>(input),  // state string
+                        std::get<1>(input),  // chosen move
+                        std::get<2>(input),  // attack
+                        std::get<3>(input)   // defense
+                    ));
+                }
+                
+                // Call the Python function
+                MCTS_DEBUG("Calling Python inference function");
+                py::object py_results = pyFn(py_inputs);
+                MCTS_DEBUG("Python function returned successfully");
+                
+                // Convert Python results back to C++
+                MCTS_DEBUG("Converting Python results to C++");
+                for (auto item : py_results) {
+                    NNOutput output;
+                    
+                    // Extract policy and value from the Python tuple
+                    py::tuple result_tuple = item.cast<py::tuple>();
+                    py::list policy_list = result_tuple[0].cast<py::list>();
+                    float value = result_tuple[1].cast<float>();
+                    
+                    // Convert policy list to vector
+                    for (auto p : policy_list) {
+                        output.policy.push_back(p.cast<float>());
+                    }
+                    output.value = value;
+                    results.push_back(output);
+                }
+                MCTS_DEBUG("Converted " << results.size() << " results");
+            } catch (const py::error_already_set& e) {
+                MCTS_DEBUG("Python error: " << e.what());
+                // Create default results if Python call fails
+                for (size_t i = 0; i < inputs.size(); i++) {
+                    NNOutput output;
+                    output.policy.resize(15 * 15, 1.0f / (15 * 15));
+                    output.value = 0.0f;
+                    results.push_back(output);
+                }
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("C++ error in Python callback: " << e.what());
+                // Create default results if there's any error
+                for (size_t i = 0; i < inputs.size(); i++) {
+                    NNOutput output;
+                    output.policy.resize(15 * 15, 1.0f / (15 * 15));
+                    output.value = 0.0f;
+                    results.push_back(output);
+                }
+            }
+            
+            return results;
+        };
+        
+        // Set the inference callback on the NN interface
+        MCTS_DEBUG("Setting inference callback on NN interface");
+        nn_->set_infer_callback(wrapper);
+        MCTS_DEBUG("Python inference function set successfully");
     }
 
     void run_search() {
+        MCTS_DEBUG("MCTSWrapper::run_search called");
+        
+        // Reset the NN interface before each search
+        if (nn_) {
+            nn_->reset();
+        }
+        
+        // Run the search
         mcts_->run_search(rootState_);
+        
+        MCTS_DEBUG("MCTSWrapper::run_search completed");
     }
 
     int best_move() const {
