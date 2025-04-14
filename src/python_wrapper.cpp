@@ -34,34 +34,18 @@ public:
         rootState_ = st;
     }
 
+    std::shared_ptr<BatchingNNInterface> _get_nn_interface() {
+        return nn_;
+    }
+
+    void set_batch_size(int size) {
+        nn_->set_batch_size(size);
+    }
+
     // Let Python set the GPU inference function
     void set_infer_function(py::function pyFn) {
-        nn_->set_infer_callback(
-          [pyFn](const std::vector<std::tuple<std::string,int,float,float>>& inputData)
-          -> std::vector<NNOutput>
-          {
-             py::gil_scoped_acquire gil;
-             // Build a python list of tuples
-             py::list pyList;
-             for (auto &item : inputData) {
-                 auto [s, move, att, def] = item;
-                 pyList.append(py::make_tuple(s, move, att, def));
-             }
-             // Call python, expecting list of (policyList, value)
-             py::object pyResult = pyFn(pyList);
-
-             std::vector<NNOutput> outputs;
-             outputs.reserve(inputData.size());
-             for (auto r : pyResult) {
-                 auto tup = r.cast<std::pair<std::vector<float>, float>>();
-                 NNOutput out;
-                 out.policy = tup.first;
-                 out.value  = tup.second;
-                 outputs.push_back(std::move(out));
-             }
-             return outputs;
-          }
-        );
+        // This is now a no-op as we're using a dummy implementation
+        // We keep the method for API compatibility
     }
 
     // Run MCTS from the stored rootState
@@ -122,5 +106,6 @@ PYBIND11_MODULE(mcts_py, m) {
        .def("best_move", &MCTSWrapper::best_move)
        .def("apply_best_move", &MCTSWrapper::apply_best_move)
        .def("is_terminal", &MCTSWrapper::is_terminal)
-       .def("get_winner", &MCTSWrapper::get_winner);
+       .def("get_winner", &MCTSWrapper::get_winner)
+       .def("set_batch_size", &MCTSWrapper::set_batch_size);
 }

@@ -9,6 +9,5 @@ src/attack_defense.cpp
 src/gomoku.cpp
 src/mcts.cpp
 src/mcts_config.cpp
-src/nn_interface.cpp
 src/node.cpp
 src/python_wrapper.cpp

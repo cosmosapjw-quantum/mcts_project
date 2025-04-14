@@ -11,8 +11,6 @@ sources = [
     "src/mcts.cpp",
     "src/node.cpp",
     "src/mcts_config.cpp",
-    "src/nn_interface.cpp",
-    # your original modules:
     "src/gomoku.cpp",
     "src/attack_defense.cpp",
 ]
