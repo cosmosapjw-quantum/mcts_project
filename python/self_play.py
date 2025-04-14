@@ -3,7 +3,8 @@ import mcts_py
 import torch
 import torch.nn.functional as F
 import numpy as np
-from model import SimpleGomokuNet
+# Import the enhanced model class
+from model import EnhancedGomokuNet
 
 # A toy in-memory buffer for demonstration
 global_data_buffer = []
@@ -11,22 +12,32 @@ global_data_buffer = []
 # Check for CUDA availability
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Create the neural network and move it to GPU if available
+# Create the neural network with configurable history moves parameter
 board_size = 15
 policy_dim = board_size * board_size
-net = SimpleGomokuNet(board_size=board_size, policy_dim=policy_dim)
+num_history_moves = 7  # Configure this as needed
+
+# Create the enhanced network
+net = EnhancedGomokuNet(board_size=board_size, policy_dim=policy_dim, num_history_moves=num_history_moves)
 net.to(device)
 
+# Store the history parameter for easy access in the callback
+net.num_history_moves = num_history_moves
+
+# self_play.py update
 def my_inference_callback(batch_input):
     """
-    Enhanced callback using the actual game state
+    Enhanced callback using the actual game state with player flag and move history
     """
     try:
         batch_size = len(batch_input)
         
-        # Convert input to proper format for neural network
-        board_size = 15
-        input_dim = board_size*board_size + 3
+        # Get the history moves parameter from the net
+        num_history_moves = net.num_history_moves if hasattr(net, 'num_history_moves') else 3
+        
+        # Calculate input dimension with history moves
+        # board_size*board_size (board) + 1 (player flag) + 2*num_history_moves (history) + 2 (attack/defense)
+        input_dim = board_size*board_size + 1 + 2*num_history_moves + 2
         
         # Build input tensor
         x_input = np.zeros((batch_size, input_dim), dtype=np.float32)
@@ -35,6 +46,8 @@ def my_inference_callback(batch_input):
             # Parse the board state from stateStr
             board_info = {}
             state_string = None
+            current_moves_list = []
+            opponent_moves_list = []
             
             # Split the string by semicolons
             parts = stateStr.split(';')
@@ -43,6 +56,12 @@ def my_inference_callback(batch_input):
                     key, value = part.split(':', 1)
                     if key == 'State':
                         state_string = value
+                    elif key == 'CurrentMoves':
+                        if value:
+                            current_moves_list = [int(m) for m in value.split(',') if m]
+                    elif key == 'OpponentMoves':
+                        if value:
+                            opponent_moves_list = [int(m) for m in value.split(',') if m]
                     else:
                         board_info[key] = value
             
@@ -62,11 +81,27 @@ def my_inference_callback(batch_input):
                     elif cell_value != 0:
                         board_array[j] = 2  # Opponent's stone
             
-            # Fill the input tensor
+            # Fill the input tensor with board state
             x_input[i, :bs*bs] = board_array
             
-            # Add the move, attack, and defense features
-            x_input[i, -3] = float(move) / (bs*bs)  # Normalize move position
+            # Add player flag (1 for BLACK=1, 0 for WHITE=2)
+            x_input[i, bs*bs] = 1.0 if current_player == 1 else 0.0
+            
+            # Add previous moves for current player (one-hot encoding)
+            offset = bs*bs + 1
+            for j, prev_move in enumerate(current_moves_list[:num_history_moves]):
+                if prev_move >= 0:  # Valid move
+                    # Normalize the move position
+                    x_input[i, offset + j] = float(prev_move) / (bs*bs)
+            
+            # Add previous moves for opponent
+            offset = bs*bs + 1 + num_history_moves
+            for j, prev_move in enumerate(opponent_moves_list[:num_history_moves]):
+                if prev_move >= 0:  # Valid move
+                    # Normalize the move position
+                    x_input[i, offset + j] = float(prev_move) / (bs*bs)
+            
+            # Add attack and defense scores
             x_input[i, -2] = attack
             x_input[i, -1] = defense
             
@@ -92,6 +127,7 @@ def my_inference_callback(batch_input):
             
         return outputs
     except Exception as e:
+        print(f"Error in inference callback: {e}")
         # Return reasonable defaults on error
         return [([1.0/225] * 225, 0.0)] * len(batch_input)
 
@@ -110,11 +146,15 @@ def self_play_game():
     wrapper.set_infer_function(my_inference_callback)
     wrapper.set_batch_size(8)
     
+    # Configure the history moves to match our neural network
+    wrapper.set_num_history_moves(num_history_moves)
+    
     # Set exploration parameters
     wrapper.set_exploration_parameters(dirichlet_alpha=0.3, noise_weight=0.25)
     
     states_actions = []
     attack_defense_values = []
+    history_moves = []  # New array to track move history for training
     move_count = 0
     
     # Temperature schedule for first 30 moves
@@ -139,11 +179,22 @@ def self_play_game():
             
         move_count += 1
         
+        # Record move in history for training data
+        if len(history_moves) < move_count:
+            history_moves.append(mv)
+        else:
+            history_moves[move_count - 1] = mv
+        
         # Record state, action, and attack/defense values for training
         board_state = None  # In a full implementation, store the actual board state
-        attack = 0.0  # Placeholder
+        attack = 0.0  # Placeholder (in real implementation, get from attack/defense module)
         defense = 0.0  # Placeholder
-        states_actions.append((board_state, mv))
+        
+        # Store the current position, move, and history data
+        current_player_history = history_moves[::2][-num_history_moves:] if move_count % 2 == 1 else history_moves[1::2][-num_history_moves:]
+        opponent_history = history_moves[1::2][-num_history_moves:] if move_count % 2 == 1 else history_moves[::2][-num_history_moves:]
+        
+        states_actions.append((board_state, mv, current_player_history, opponent_history))
         attack_defense_values.append((attack, defense))
         
         # Apply the move with temperature
@@ -152,13 +203,15 @@ def self_play_game():
     # Game results statistics
     w = wrapper.get_winner()
     
-    # Store to global data buffer
-    for i, (st, mv) in enumerate(states_actions):
+    # Store to global data buffer with enhanced data
+    for i, (st, mv, curr_hist, opp_hist) in enumerate(states_actions):
         attack, defense = attack_defense_values[i]
-        global_data_buffer.append((st, mv, w, attack, defense))
+        # Include both player's move history in the training data
+        global_data_buffer.append((st, mv, w, attack, defense, curr_hist, opp_hist))
     
     return w
 
+# Main function remains unchanged
 def main():
     num_games = 2  # Reduce to 2 games for testing
     for i in range(num_games):

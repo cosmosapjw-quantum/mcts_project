@@ -1,22 +1,27 @@
-# model.py
+# model.py update
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class SimpleGomokuNet(nn.Module):
-    def __init__(self, board_size=15, policy_dim=225):
+class EnhancedGomokuNet(nn.Module):
+    def __init__(self, board_size=15, policy_dim=225, num_history_moves=3):
         super().__init__()
         self.board_size = board_size
-        # We'll pretend each board is flattened: board_size*board_size 
-        # plus 3 extra floats (chosenMove, attack, defense) => total input size
-        input_dim = board_size*board_size + 3
+        self.num_history_moves = num_history_moves
+        
+        # New input dimensions: 
+        # board_size*board_size (current board)
+        # + 1 (player flag)
+        # + 2*num_history_moves (previous N moves for both players)
+        # + 2 (attack/defense scores)
+        input_dim = board_size*board_size + 1 + 2*num_history_moves + 2
         
         hidden_dim = 256
         self.fc1 = nn.Linear(input_dim, hidden_dim)
         self.fc2 = nn.Linear(hidden_dim, hidden_dim)
         # Output heads:
         self.policy_head = nn.Linear(hidden_dim, policy_dim)
-        self.value_head  = nn.Linear(hidden_dim, 1)
+        self.value_head = nn.Linear(hidden_dim, 1)
     
     def forward(self, x):
         # x shape: [batch, input_dim]

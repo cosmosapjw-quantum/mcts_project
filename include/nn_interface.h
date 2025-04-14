@@ -35,10 +35,11 @@ public:
  */
 class BatchingNNInterface : public NNInterface {
 public:
-    BatchingNNInterface() 
+    BatchingNNInterface(int num_history_moves = 3) 
         : rng_(std::random_device{}()), 
           use_dummy_(true),
-          batch_size_(8)
+          batch_size_(8),
+          num_history_moves_(num_history_moves)
     {}
     
     void set_infer_callback(std::function<std::vector<NNOutput>(const std::vector<std::tuple<std::string, int, float, float>>&)> cb) {
@@ -50,6 +51,15 @@ public:
     void set_batch_size(int size) {
         std::lock_guard<std::mutex> lock(mutex_);
         batch_size_ = std::max(1, size);
+    }
+    
+    void set_num_history_moves(int num_moves) {
+        std::lock_guard<std::mutex> lock(mutex_);
+        num_history_moves_ = std::max(0, num_moves);
+    }
+    
+    int get_num_history_moves() const {
+        return num_history_moves_;
     }
 
     void request_inference(const Gamestate& state,
@@ -80,6 +90,24 @@ public:
             }
         }
         
+        // Get previous moves for both players - for current player and opponent
+        auto current_player_moves = state.get_previous_moves(state.current_player, num_history_moves_);
+        auto opponent_player_moves = state.get_previous_moves(3 - state.current_player, num_history_moves_);
+        
+        // Convert moves to string representation
+        std::string current_moves_str = ";CurrentMoves:";
+        for (int move : current_player_moves) {
+            current_moves_str += std::to_string(move) + ",";
+        }
+        
+        std::string opponent_moves_str = ";OpponentMoves:";
+        for (int move : opponent_player_moves) {
+            opponent_moves_str += std::to_string(move) + ",";
+        }
+        
+        // Append to state string
+        stateStr += current_moves_str + opponent_moves_str;
+        
         batch_inputs_.push_back({stateStr, chosen_move, attack, defense});
         size_t request_idx = batch_outputs_.size();
         batch_outputs_.push_back({});
@@ -108,6 +136,7 @@ private:
     std::mt19937 rng_;
     bool use_dummy_;
     int batch_size_;
+    int num_history_moves_; // Number of previous moves to include for each player
     std::mutex mutex_;
     std::function<std::vector<NNOutput>(const std::vector<std::tuple<std::string,int,float,float>> &)> python_infer_;
 

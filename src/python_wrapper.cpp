@@ -84,6 +84,14 @@ public:
         mcts_->set_noise_weight(noise_weight);
     }
 
+    void set_num_history_moves(int num_moves) {
+        nn_->set_num_history_moves(num_moves);
+    }
+    
+    int get_num_history_moves() const {
+        return nn_->get_num_history_moves();
+    }
+
 private:
     MCTSConfig config_;
     std::shared_ptr<BatchingNNInterface> nn_;
@@ -117,6 +125,8 @@ PYBIND11_MODULE(mcts_py, m) {
        .def("is_terminal", &MCTSWrapper::is_terminal)
        .def("get_winner", &MCTSWrapper::get_winner)
        .def("set_batch_size", &MCTSWrapper::set_batch_size)
+       .def("set_num_history_moves", &MCTSWrapper::set_num_history_moves)
+       .def("get_num_history_moves", &MCTSWrapper::get_num_history_moves)
        .def("best_move_with_temperature", &MCTSWrapper::best_move_with_temperature,
             py::arg("temperature") = 1.0f)
         .def("apply_best_move_with_temperature", &MCTSWrapper::apply_best_move_with_temperature,
