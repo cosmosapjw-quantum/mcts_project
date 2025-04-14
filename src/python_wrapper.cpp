@@ -75,6 +75,25 @@ public:
         return rootState_.get_winner();
     }
 
+    // Add temperature-based move selection
+    int best_move_with_temperature(float temperature = 1.0f) const {
+        return mcts_->select_move_with_temperature(temperature);
+    }
+    
+    // Apply the move selected with temperature
+    void apply_best_move_with_temperature(float temperature = 1.0f) {
+        int mv = mcts_->select_move_with_temperature(temperature);
+        if (mv >= 0) {
+            rootState_.make_move(mv, rootState_.current_player);
+        }
+    }
+    
+    // Set Dirichlet noise parameters
+    void set_exploration_parameters(float dirichlet_alpha, float noise_weight) {
+        mcts_->set_dirichlet_alpha(dirichlet_alpha);
+        mcts_->set_noise_weight(noise_weight);
+    }
+
 private:
     MCTSConfig config_;
     std::shared_ptr<BatchingNNInterface> nn_;
@@ -107,5 +126,11 @@ PYBIND11_MODULE(mcts_py, m) {
        .def("apply_best_move", &MCTSWrapper::apply_best_move)
        .def("is_terminal", &MCTSWrapper::is_terminal)
        .def("get_winner", &MCTSWrapper::get_winner)
-       .def("set_batch_size", &MCTSWrapper::set_batch_size);
+       .def("set_batch_size", &MCTSWrapper::set_batch_size)
+       .def("best_move_with_temperature", &MCTSWrapper::best_move_with_temperature,
+            py::arg("temperature") = 1.0f)
+        .def("apply_best_move_with_temperature", &MCTSWrapper::apply_best_move_with_temperature,
+            py::arg("temperature") = 1.0f)
+        .def("set_exploration_parameters", &MCTSWrapper::set_exploration_parameters,
+            py::arg("dirichlet_alpha") = 0.03f, py::arg("noise_weight") = 0.25f);
 }

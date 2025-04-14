@@ -3,6 +3,7 @@ import mcts_py
 import torch
 import torch.nn.functional as F
 import random
+import time
 import numpy as np
 
 from model import SimpleGomokuNet
@@ -45,9 +46,8 @@ def my_inference_callback(batch_input):
             parts = stateStr.split(';')
             for part in parts:
                 if ':' in part:
-                    key, value = part.split(':', 1)  # Split on first colon only
+                    key, value = part.split(':', 1)
                     if key == 'State':
-                        # Get the board state string
                         state_string = value
                     else:
                         board_info[key] = value
@@ -57,7 +57,6 @@ def my_inference_callback(batch_input):
             current_player = int(board_info.get('Player', '1'))
             
             # Create the board representation
-            # 0 = empty, 1 = current player, 2 = opponent
             board_array = np.zeros(bs*bs, dtype=np.float32)
             
             # Fill the board array from the state string
@@ -77,10 +76,6 @@ def my_inference_callback(batch_input):
             x_input[i, -2] = attack
             x_input[i, -1] = defense
             
-            # Print a summary of the board state
-            stone_count = np.sum(board_array > 0)
-            print(f"Input {i}: move={move}, stones={stone_count}, attack={attack:.2f}, defense={defense:.2f}")
-        
         # Convert numpy array to PyTorch tensor and move to GPU
         with torch.no_grad():
             t_input = torch.from_numpy(x_input).to(device)
@@ -100,8 +95,7 @@ def my_inference_callback(batch_input):
         outputs = []
         for i in range(batch_size):
             outputs.append((policy_probs[i].tolist(), float(values[i])))
-            print(f"Output {i}: value={float(values[i]):.4f}")
-        
+            
         return outputs
     except Exception as e:
         print(f"ERROR in neural network inference: {e}")
@@ -111,48 +105,89 @@ def my_inference_callback(batch_input):
         return [([1.0/225] * 225, 0.0)] * len(batch_input)
 
 def self_play_game():
+    # Configure MCTS
     cfg = mcts_py.MCTSConfig()
-    cfg.num_simulations = 50
+    cfg.num_simulations = 200  # More simulations for better quality
     cfg.c_puct = 1.0
-    cfg.num_threads = 1
-    wrapper = mcts_py.MCTSWrapper(cfg, boardSize=board_size)
-    wrapper.set_infer_function(my_inference_callback)
-    wrapper.set_batch_size(8)  # Process 8 requests at a time
-
-    states_actions = []
-    move_count = 0
-    print("Starting a new game")
+    cfg.num_threads = 4  # Use 4 threads 
+    cfg.parallel_leaf_batch_size = 8  # Process 8 leaves per batch
     
-    while not wrapper.is_terminal() and move_count < 225:  # Add a move limit for safety
-        # run MCTS
+    # Create wrapper
+    wrapper = mcts_py.MCTSWrapper(cfg, boardSize=board_size)
+    
+    # Set neural network callback and batch size
+    wrapper.set_infer_function(my_inference_callback)
+    wrapper.set_batch_size(8)
+    
+    # Set exploration parameters
+    wrapper.set_exploration_parameters(dirichlet_alpha=0.3, noise_weight=0.25)
+    
+    states_actions = []
+    attack_defense_values = []
+    move_count = 0
+    start_time = time.time()
+    
+    print(f"Starting a new game with {cfg.num_threads} threads and {cfg.num_simulations} simulations")
+    
+    # Temperature schedule for first 30 moves
+    def get_temperature(move_num):
+        if move_num < 10:
+            return 1.0  # High temperature for first 10 moves (exploration)
+        elif move_num < 20:
+            return 0.5  # Medium temperature for next 10 moves
+        else:
+            return 0.1  # Low temperature for remaining moves (exploitation)
+    
+    while not wrapper.is_terminal() and move_count < board_size*board_size:
+        # Track time for each move
+        move_start = time.time()
+        
+        # Run MCTS search
         print(f"Running search for move {move_count}...")
         wrapper.run_search()
-        mv = wrapper.best_move()
+        
+        # Get temperature for current move
+        temp = get_temperature(move_count)
+        mv = wrapper.best_move_with_temperature(temp)
         
         if mv < 0:
             print("Error: Invalid move returned")
             break
             
-        print(f"Move {move_count}: {mv // board_size},{mv % board_size}")
+        # Calculate search speed
+        move_end = time.time()
+        move_time = move_end - move_start
+        search_speed = cfg.num_simulations / move_time
+        
+        print(f"Move {move_count}: {mv // board_size},{mv % board_size} "
+              f"(temp={temp:.2f}, completed in {move_time:.2f}s, {search_speed:.1f} sims/sec)")
+        
         move_count += 1
         
-        # record state, action for training
-        # In a real implementation, we'd store the actual board state
-        board_state = None  # Placeholder for actual board state
+        # Record state, action, and attack/defense values for training
+        board_state = None  # In a full implementation, store the actual board state
+        attack = 0.0  # Placeholder
+        defense = 0.0  # Placeholder
         states_actions.append((board_state, mv))
+        attack_defense_values.append((attack, defense))
         
-        wrapper.apply_best_move()
-
-    # once done, get winner
-    w = wrapper.get_winner()
-    print(f"Game finished. Winner: {w} after {move_count} moves")
+        # Apply the move with temperature
+        wrapper.apply_best_move_with_temperature(temp)
     
-    # store to global data buffer with attack-defense information
-    for (st, mv) in states_actions:
-        # In a real implementation, we'd compute attack-defense for each move
-        attack = 0.0  # Placeholder for attack bonus
-        defense = 0.0  # Placeholder for defense bonus
+    # Game results statistics
+    w = wrapper.get_winner()
+    total_time = time.time() - start_time
+    avg_time_per_move = total_time / max(1, move_count)
+    
+    print(f"Game finished. Winner: {w} after {move_count} moves")
+    print(f"Total time: {total_time:.1f}s, avg time per move: {avg_time_per_move:.2f}s")
+    
+    # Store to global data buffer
+    for i, (st, mv) in enumerate(states_actions):
+        attack, defense = attack_defense_values[i]
         global_data_buffer.append((st, mv, w, attack, defense))
+    
+    return w
 
 def main():
     num_games = 2  # Reduce to 2 games for testing

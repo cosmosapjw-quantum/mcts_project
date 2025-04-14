@@ -13,7 +13,25 @@
  */
 class Node {
 public:
-    Node(const Gamestate& state, int moveFromParent=-1, float prior=0.0f);
+    // Add static counter for debugging
+    static std::atomic<int> total_nodes_;
+    
+    // Update constructor to increment counter
+    Node(const Gamestate& state, int moveFromParent=-1, float prior=0.0f) 
+        : state_(state),
+          parent_(nullptr),
+          prior_(prior),
+          total_value_(0.0f),
+          visit_count_(0),
+          move_from_parent_(moveFromParent)
+    {
+        total_nodes_.fetch_add(1, std::memory_order_relaxed);
+    }
+    
+    // Update destructor to decrement counter
+    ~Node() {
+        total_nodes_.fetch_sub(1, std::memory_order_relaxed);
+    }
 
     // Basic MCTS stats
     float get_q_value() const;
@@ -32,6 +50,27 @@ public:
     int get_move_from_parent() const { return move_from_parent_; }
     std::vector<Node*> get_children() const;
 
+    void limit_tree_depth(int current_depth, int max_depth) {
+        if (current_depth >= max_depth) {
+            // Truncate children at max depth
+            std::lock_guard<std::mutex> lock(expand_mutex_);
+            children_.clear();
+            return;
+        }
+        
+        // Recursively limit children depth
+        std::vector<Node*> kids = get_children();
+        for (Node* child : kids) {
+            if (child) {
+                child->limit_tree_depth(current_depth + 1, max_depth);
+            }
+        }
+    }
+
+    // Add these methods for virtual loss
+    void add_virtual_loss();
+    void remove_virtual_loss();
+
 private:
     Gamestate state_;            // The game state at this node
     Node* parent_;               // pointer to parent
@@ -44,4 +83,9 @@ private:
 
     std::vector<std::unique_ptr<Node>> children_;
     mutable std::mutex expand_mutex_;
+    // Instead of using raw parent pointer, let's track if node is owned by another node
+    bool is_owned_ = false;
+
+    // Add atomic counter for virtual losses
+    std::atomic<int> virtual_losses_{0};
 };

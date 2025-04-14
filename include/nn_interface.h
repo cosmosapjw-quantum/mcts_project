@@ -1,10 +1,11 @@
-// nn_interface.h
+// nn_interface.h - Simplified thread-safe version
 #pragma once
 
 #include <pybind11/pybind11.h>
 #include <random>
 #include <vector>
 #include <iostream>
+#include <mutex>
 #include "gomoku.h"
 
 /**
@@ -31,8 +32,9 @@ public:
 };
 
 /**
- * Simplified dummy implementation that doesn't call into Python
+ * Simplified thread-safe implementation
  */
+// nn_interface.h
 class BatchingNNInterface : public NNInterface {
 public:
     BatchingNNInterface() 
@@ -42,54 +44,29 @@ public:
     {}
     
     void set_infer_callback(std::function<std::vector<NNOutput>(const std::vector<std::tuple<std::string, int, float, float>>&)> cb) {
-        std::lock_guard<std::mutex> lock(batch_mutex_);
+        std::lock_guard<std::mutex> lock(mutex_);
         python_infer_ = cb;
         use_dummy_ = false;  // When a callback is set, use it instead of dummy
     }
     
     void set_batch_size(int size) {
+        std::lock_guard<std::mutex> lock(mutex_);
         batch_size_ = std::max(1, size);
     }
 
     void request_inference(const Gamestate& state,
-                                            int chosen_move,
-                                            float attack,
-                                            float defense,
-                                            std::vector<float>& outPolicy,
-                                            float& outValue) {
+                        int chosen_move,
+                        float attack,
+                        float defense,
+                        std::vector<float>& outPolicy,
+                        float& outValue) {
+        std::lock_guard<std::mutex> lock(mutex_);
+        
         // If no Python function is set or dummy mode is enabled, use random values
         if (use_dummy_ || !python_infer_) {
-            std::cerr << "Using dummy NN with random policy/value" << std::endl;
-            
             // Generate uniform random policy
-            outPolicy.resize(state.board_size * state.board_size);
-            std::uniform_real_distribution<float> dist(0.0f, 1.0f);
-            
-            // Fill with random values
-            for (size_t i = 0; i < outPolicy.size(); i++) {
-                outPolicy[i] = dist(rng_);
-            }
-            
-            // Normalize
-            float sum = 0.0f;
-            for (float p : outPolicy) {
-                sum += p;
-            }
-            if (sum > 0) {
-                for (float& p : outPolicy) {
-                    p /= sum;
-                }
-            } else {
-                // Uniform if sum is 0
-                float val = 1.0f / outPolicy.size();
-                for (float& p : outPolicy) {
-                    p = val;
-                }
-            }
-            
-            // Random value between -1 and 1
-            std::uniform_real_distribution<float> val_dist(-1.0f, 1.0f);
-            outValue = val_dist(rng_);
+            outPolicy.resize(state.board_size * state.board_size, 1.0f/(state.board_size * state.board_size));
+            outValue = 0.0f;
             return;
         }
         
@@ -110,93 +87,81 @@ public:
             }
         }
         
-        // Check if we should process immediately or batch
-        if (batch_size_ <= 1) {
-            // Process single request
-            std::vector<std::tuple<std::string,int,float,float>> inputVec;
-            inputVec.push_back({stateStr, chosen_move, attack, defense});
-            
-            pybind11::gil_scoped_acquire acquire;
-            auto results = python_infer_(inputVec);
-            
-            if (!results.empty()) {
-                outPolicy = results[0].policy;
-                outValue = results[0].value;
-            } else {
-                // Fallback
-                outPolicy.resize(state.board_size * state.board_size, 1.0f/(state.board_size * state.board_size));
-                outValue = 0.0f;
-            }
+        // Add to batch queue
+        batch_inputs_.push_back({stateStr, chosen_move, attack, defense});
+        size_t request_idx = batch_outputs_.size();
+        batch_outputs_.push_back({});
+        
+        // Process batch if full or force immediate processing for now
+        // (In a more sophisticated implementation, we could delay processing)
+        bool should_process = (batch_inputs_.size() >= batch_size_);
+        
+        if (should_process) {
+            process_batch();
         } else {
-            // Create a batch request
-            std::lock_guard<std::mutex> lock(batch_mutex_);
-            
-            // Add to pending batch
-            BatchRequest req;
-            req.state_str = stateStr;
-            req.chosen_move = chosen_move;
-            req.attack = attack;
-            req.defense = defense;
-            req.out_policy = &outPolicy;
-            req.out_value = &outValue;
-            
-            batch_requests_.push_back(req);
-            
-            // Process batch if we've reached the batch size
-            if (batch_requests_.size() >= batch_size_) {
-                process_batch();
-            } else {
-                // Just use a default value for now
-                outPolicy.resize(state.board_size * state.board_size, 1.0f/(state.board_size * state.board_size));
-                outValue = 0.0f;
-            }
-        }
-    }
-    
-    // Should be called after MCTS search completes to process any remaining batched requests
-    void flush_batch() {
-        std::lock_guard<std::mutex> lock(batch_mutex_);
-        if (!batch_requests_.empty()) {
+            // Process immediately for simplicity
             process_batch();
         }
+        
+        // Copy result
+        if (request_idx < batch_outputs_.size()) {
+            const auto& result = batch_outputs_[request_idx];
+            outPolicy = result.policy;
+            outValue = result.value;
+        } else {
+            // Fallback values
+            outPolicy.resize(state.board_size * state.board_size, 1.0f/(state.board_size * state.board_size));
+            outValue = 0.0f;
+        }
     }
+    
+    // No need for flush_batch with leaf parallelization
+    void flush_batch() {}
     
 private:
-    struct BatchRequest {
-        std::string state_str;
-        int chosen_move;
-        float attack;
-        float defense;
-        std::vector<float>* out_policy;
-        float* out_value;
-    };
-    
-    void process_batch() {
-        if (batch_requests_.empty()) return;
-        
-        std::vector<std::tuple<std::string,int,float,float>> inputVec;
-        for (const auto& req : batch_requests_) {
-            inputVec.push_back({req.state_str, req.chosen_move, req.attack, req.defense});
-        }
-        
-        std::cerr << "Processing batch of " << batch_requests_.size() << " requests" << std::endl;
-        
-        pybind11::gil_scoped_acquire acquire;
-        auto results = python_infer_(inputVec);
-        
-        // Update the output policy and value for each request
-        for (size_t i = 0; i < batch_requests_.size() && i < results.size(); i++) {
-            *(batch_requests_[i].out_policy) = results[i].policy;
-            *(batch_requests_[i].out_value) = results[i].value;
-        }
-        
-        batch_requests_.clear();
-    }
-    
     std::mt19937 rng_;
     bool use_dummy_;
     int batch_size_;
-    std::mutex batch_mutex_;
-    std::vector<BatchRequest> batch_requests_;
+    std::mutex mutex_;
     std::function<std::vector<NNOutput>(const std::vector<std::tuple<std::string,int,float,float>> &)> python_infer_;
+
+    void process_batch() {
+        if (batch_inputs_.empty()) return;
+        
+        // Copy inputs to temporary vector
+        auto inputs_copy = batch_inputs_;
+        
+        // Clear inputs for next batch
+        batch_inputs_.clear();
+        
+        // Release lock during Python call
+        mutex_.unlock();
+        
+        // Call Python with GIL
+        std::vector<NNOutput> results;
+        try {
+            pybind11::gil_scoped_acquire acquire;
+            results = python_infer_(inputs_copy);
+        } catch (const std::exception& e) {
+            std::cerr << "NN_INTERFACE: Python error: " << e.what() << std::endl;
+        }
+        
+        // Reacquire lock
+        mutex_.lock();
+        
+        // Store results
+        batch_outputs_ = results;
+        
+        // If sizes don't match, fill with defaults
+        while (batch_outputs_.size() < inputs_copy.size()) {
+            NNOutput default_output;
+            default_output.policy.resize(15 * 15, 1.0f/(15 * 15));
+            default_output.value = 0.0f;
+            batch_outputs_.push_back(default_output);
+        }
+    }
+    
+    // Batch processing members
+    std::vector<std::tuple<std::string,int,float,float>> batch_inputs_;
+    std::vector<NNOutput> batch_outputs_;
 };
