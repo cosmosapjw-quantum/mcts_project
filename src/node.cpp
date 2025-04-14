@@ -13,7 +13,6 @@ void Node::remove_virtual_loss() {
     virtual_losses_.fetch_sub(1, std::memory_order_relaxed);
 }
 
-// Update get_q_value to account for virtual losses
 float Node::get_q_value() const {
     int vc = visit_count_.load(std::memory_order_acquire);
     int vl = virtual_losses_.load(std::memory_order_acquire);
@@ -56,7 +55,6 @@ void Node::expand(const std::vector<int>& moves, const std::vector<float>& prior
     
     // Check if we should limit nodes
     if (total_nodes_.load() > 4000) { // Approach limit
-        std::cerr << "WARNING: Approaching node limit, limiting expansion" << std::endl;
         // Create only a few children
         size_t max_to_create = std::min<size_t>(5, moves.size());
         
@@ -93,13 +91,8 @@ void Node::expand(const std::vector<int>& moves, const std::vector<float>& prior
             child->parent_ = this;
             children_.push_back(std::move(child));
         } catch (const std::exception& e) {
-            std::cerr << "Error creating child node: " << e.what() << std::endl;
+            // Silent error handling
         }
-    }
-    
-    // Log how many nodes we have
-    if (total_nodes_.load() % 500 == 0) {
-        std::cerr << "MEMORY: Total nodes: " << total_nodes_.load() << std::endl;
     }
 }
 

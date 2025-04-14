@@ -2,10 +2,7 @@
 import mcts_py
 import torch
 import torch.nn.functional as F
-import random
-import time
 import numpy as np
-
 from model import SimpleGomokuNet
 
 # A toy in-memory buffer for demonstration
@@ -13,14 +10,12 @@ global_data_buffer = []
 
 # Check for CUDA availability
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"Using device: {device}")
 
 # Create the neural network and move it to GPU if available
 board_size = 15
 policy_dim = board_size * board_size
 net = SimpleGomokuNet(board_size=board_size, policy_dim=policy_dim)
-net.to(device)  # Move model to GPU if available
-print("Neural network initialized and moved to device")
+net.to(device)
 
 def my_inference_callback(batch_input):
     """
@@ -28,7 +23,6 @@ def my_inference_callback(batch_input):
     """
     try:
         batch_size = len(batch_input)
-        print(f"Processing batch of {batch_size} neural network inputs")
         
         # Convert input to proper format for neural network
         board_size = 15
@@ -98,19 +92,16 @@ def my_inference_callback(batch_input):
             
         return outputs
     except Exception as e:
-        print(f"ERROR in neural network inference: {e}")
-        import traceback
-        traceback.print_exc()
-        # Return reasonable defaults
+        # Return reasonable defaults on error
         return [([1.0/225] * 225, 0.0)] * len(batch_input)
 
 def self_play_game():
     # Configure MCTS
     cfg = mcts_py.MCTSConfig()
-    cfg.num_simulations = 200  # More simulations for better quality
+    cfg.num_simulations = 200
     cfg.c_puct = 1.0
-    cfg.num_threads = 4  # Use 4 threads 
-    cfg.parallel_leaf_batch_size = 8  # Process 8 leaves per batch
+    cfg.num_threads = 4
+    cfg.parallel_leaf_batch_size = 8
     
     # Create wrapper
     wrapper = mcts_py.MCTSWrapper(cfg, boardSize=board_size)
@@ -125,9 +116,6 @@ def self_play_game():
     states_actions = []
     attack_defense_values = []
     move_count = 0
-    start_time = time.time()
-    
-    print(f"Starting a new game with {cfg.num_threads} threads and {cfg.num_simulations} simulations")
     
     # Temperature schedule for first 30 moves
     def get_temperature(move_num):
@@ -139,11 +127,7 @@ def self_play_game():
             return 0.1  # Low temperature for remaining moves (exploitation)
     
     while not wrapper.is_terminal() and move_count < board_size*board_size:
-        # Track time for each move
-        move_start = time.time()
-        
         # Run MCTS search
-        print(f"Running search for move {move_count}...")
         wrapper.run_search()
         
         # Get temperature for current move
@@ -151,17 +135,8 @@ def self_play_game():
         mv = wrapper.best_move_with_temperature(temp)
         
         if mv < 0:
-            print("Error: Invalid move returned")
             break
             
-        # Calculate search speed
-        move_end = time.time()
-        move_time = move_end - move_start
-        search_speed = cfg.num_simulations / move_time
-        
-        print(f"Move {move_count}: {mv // board_size},{mv % board_size} "
-              f"(temp={temp:.2f}, completed in {move_time:.2f}s, {search_speed:.1f} sims/sec)")
-        
         move_count += 1
         
         # Record state, action, and attack/defense values for training
@@ -176,11 +151,6 @@ def self_play_game():
     
     # Game results statistics
     w = wrapper.get_winner()
-    total_time = time.time() - start_time
-    avg_time_per_move = total_time / max(1, move_count)
-    
-    print(f"Game finished. Winner: {w} after {move_count} moves")
-    print(f"Total time: {total_time:.1f}s, avg time per move: {avg_time_per_move:.2f}s")
     
     # Store to global data buffer
     for i, (st, mv) in enumerate(states_actions):
@@ -192,9 +162,7 @@ def self_play_game():
 def main():
     num_games = 2  # Reduce to 2 games for testing
     for i in range(num_games):
-        print(f"\n===== Game {i+1} =====")
         self_play_game()
-    print(f"Collected {len(global_data_buffer)} samples in the buffer.")
 
 if __name__ == "__main__":
     main()
