@@ -354,11 +354,20 @@ void MCTS::analyze_search_result() {
         int move = child->get_move_from_parent();
         int x = move / root_->get_state().board_size;
         int y = move % root_->get_state().board_size;
+
+        float denom = std::max(1, simulations_done_.load());
+        float posterior = 0.0f;
+        if (denom > 0) {
+            posterior = float(visits) / denom;
+        } else {
+            MCTS_DEBUG("Simulations done is zero, setting posterior to 0");
+            posterior = 0.0f;
+        }
         
         MCTS_DEBUG("  Move " << i+1 << ": (" << x << "," << y << "), "
                   << visits << " visits, value=" << value 
                   << ", prior=" << prior
-                  << ", posterior=" << static_cast<float>(visits) / simulations_done_.load());
+                  << ", posterior=" << posterior);
     }
     
     // Calculate search confidence and stability
