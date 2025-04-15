@@ -28,13 +28,28 @@ MCTSWrapper(const MCTSConfig& cfg,
 
     nn_ = std::make_shared<BatchingNNInterface>();
     
-    // Force single-threaded mode for now to avoid Python GIL contention
-    MCTSConfig single_threaded_cfg = cfg;
-    single_threaded_cfg.num_threads = 1;
+    // Use the original config but limit max threads to avoid excessive GIL contention
+    MCTSConfig adjusted_cfg = cfg;
     
-    mcts_ = std::make_unique<MCTS>(single_threaded_cfg, nn_, boardSize);
+    // Get available CPU cores from the system
+    unsigned int max_threads = std::thread::hardware_concurrency();
+    if (max_threads == 0) max_threads = 4; // Fallback if detection fails
+    
+    // Reserve one thread for Python and one for the main thread
+    max_threads = std::max(1u, max_threads - 2);
+    
+    // Ensure we don't exceed the configuration
+    adjusted_cfg.num_threads = std::min(static_cast<int>(max_threads), cfg.num_threads);
+    
+    // Always use at least 2 threads (one for search, one for evaluation)
+    adjusted_cfg.num_threads = std::max(2, adjusted_cfg.num_threads);
+    
+    MCTS_DEBUG("Creating MCTS with " << adjusted_cfg.num_threads << " threads "
+              << "(requested: " << cfg.num_threads << ", system max: " << max_threads << ")");
+    
+    mcts_ = std::make_unique<MCTS>(adjusted_cfg, nn_, boardSize);
 
-    config_ = single_threaded_cfg;
+    config_ = adjusted_cfg;
     rootState_ = st;
 }
 
@@ -49,7 +64,7 @@ MCTSWrapper(const MCTSConfig& cfg,
             return;
         }
         
-        // Create a C++ function that wraps the Python function
+        // Create a C++ function that wraps the Python function with proper GIL handling
         auto batch_inference_wrapper = [pyFn](const std::vector<std::tuple<std::string, int, float, float>>& inputs) 
             -> std::vector<NNOutput> {
             
@@ -66,6 +81,7 @@ MCTSWrapper(const MCTSConfig& cfg,
                 // Convert C++ inputs to Python
                 py::list py_inputs;
                 
+                // Build the input list - THIS MUST HAPPEN BEFORE GIL ACQUISITION
                 for (const auto& input : inputs) {
                     py_inputs.append(py::make_tuple(
                         std::get<0>(input),  // state string
@@ -75,35 +91,65 @@ MCTSWrapper(const MCTSConfig& cfg,
                     ));
                 }
                 
-                // Acquire the GIL before calling into Python
+                MCTS_DEBUG("Acquiring GIL for Python function call");
+                
+                // Acquire the GIL explicitly before calling into Python
                 py::gil_scoped_acquire acquire;
                 
-                // Call the Python function
+                // Call the Python function with a timeout
                 MCTS_DEBUG("Calling Python function");
-                py::object py_results = pyFn(py_inputs);
-                MCTS_DEBUG("Python function returned");
+                
+                // Call Python function
+                py::object py_results;
+                try {
+                    py_results = pyFn(py_inputs);
+                    MCTS_DEBUG("Python function returned successfully");
+                }
+                catch (const py::error_already_set& e) {
+                    MCTS_DEBUG("Python error during function call: " << e.what());
+                    // Return empty results - we'll handle defaults later
+                    throw;
+                }
                 
                 // Convert Python results back to C++
-                for (auto item : py_results) {
-                    NNOutput output;
-                    
-                    // Extract policy and value from the Python tuple
-                    py::tuple result_tuple = item.cast<py::tuple>();
-                    py::list policy_list = result_tuple[0].cast<py::list>();
-                    float value = result_tuple[1].cast<float>();
-                    
-                    // Convert policy list to vector
-                    output.policy.reserve(policy_list.size());
-                    for (auto p : policy_list) {
-                        output.policy.push_back(p.cast<float>());
+                try {
+                    if (!py_results || py_results.is_none()) {
+                        MCTS_DEBUG("Python function returned None");
+                        return {};
                     }
-                    output.value = value;
-                    results.push_back(std::move(output));
+                    
+                    for (auto item : py_results) {
+                        NNOutput output;
+                        
+                        // Extract policy and value from the Python tuple
+                        py::tuple result_tuple = item.cast<py::tuple>();
+                        py::list policy_list = result_tuple[0].cast<py::list>();
+                        float value = result_tuple[1].cast<float>();
+                        
+                        // Convert policy list to vector
+                        output.policy.reserve(policy_list.size());
+                        for (auto p : policy_list) {
+                            output.policy.push_back(p.cast<float>());
+                        }
+                        output.value = value;
+                        results.push_back(std::move(output));
+                    }
+                    
+                    MCTS_DEBUG("Converted " << results.size() << " results from Python");
                 }
-            } catch (const py::error_already_set& e) {
+                catch (const std::exception& e) {
+                    MCTS_DEBUG("Error converting Python results: " << e.what());
+                    // Return empty results
+                    return {};
+                }
+                
+                // GIL is automatically released when acquire goes out of scope
+            } 
+            catch (const py::error_already_set& e) {
                 MCTS_DEBUG("Python error: " << e.what());
                 // Return empty results - BatchingNNInterface will handle defaults
-            } catch (const std::exception& e) {
+            } 
+            catch (const std::exception& e) {
                 MCTS_DEBUG("C++ error in Python callback: " << e.what());
                 // Return empty results - BatchingNNInterface will handle defaults
             }

@@ -95,7 +95,7 @@ void MCTS::add_dirichlet_noise(std::vector<float>& priors) {
 }
 
 void MCTS::run_search(const Gamestate& rootState) {
-    MCTS_DEBUG("Starting MCTS search with simplified approach");
+    MCTS_DEBUG("Starting MCTS search with parallel approach");
     
     // Ensure any previous search is cleaned up
     shutdown_flag_ = true;
@@ -160,54 +160,121 @@ void MCTS::run_search(const Gamestate& rootState) {
         root_->expand(validMoves, uniformPriors);
     }
     
-    // Run simpler single-threaded search for now
-    MCTS_DEBUG("Running simplified single-threaded search for " << config_.num_simulations << " simulations");
+    // Define max search time to prevent indefinite stalls
+    const int MAX_SEARCH_TIME_MS = 15000; // 15 seconds max
+    auto search_start_time = std::chrono::steady_clock::now();
     
-    for (int i = 0; i < config_.num_simulations; i++) {
-        // Select a leaf node
-        Node* leaf = select_node(root_.get());
-        if (!leaf) continue;
-        
-        // Check if leaf is terminal
-        if (leaf->get_state().is_terminal()) {
-            float value = 0.0f;
-            int winner = leaf->get_state().get_winner();
-            int current_player = leaf->get_state().current_player;
-            
-            if (winner == current_player) {
-                value = 1.0f;
-            } else if (winner == 0) {
-                value = 0.0f;
-            } else {
-                value = -1.0f;
-            }
-            
-            backup(leaf, value);
-        } else {
-            // Expand with uniform policy
-            auto valid_moves = leaf->get_state().get_valid_moves();
-            if (!valid_moves.empty()) {
-                std::vector<float> uniform_policy(valid_moves.size(), 1.0f / valid_moves.size());
-                leaf->expand(valid_moves, uniform_policy);
-                backup(leaf, 0.0f);
-            } else {
-                // Remove virtual losses
-                Node* current = leaf;
-                while (current) {
-                    current->remove_virtual_loss();
-                    current = current->get_parent();
-                }
-            }
-        }
-        
-        simulations_done_++;
-        
-        if (i % 100 == 0) {
-            MCTS_DEBUG("Completed " << i << " simulations");
-        }
+    // Start leaf evaluation thread
+    threads_.emplace_back(&MCTS::leaf_evaluation_thread, this);
+    
+    // Start search worker threads - utilize available CPU cores
+    int num_workers = std::max(1, config_.num_threads - 1); // Reserve one thread for leaf evaluation
+    MCTS_DEBUG("Starting " << num_workers << " search worker threads");
+    
+    for (int i = 0; i < num_workers; i++) {
+        threads_.emplace_back(&MCTS::search_worker_thread, this);
     }
     
-    MCTS_DEBUG("MCTS search completed with " << simulations_done_.load() << " simulations");
+    // Wait for search to complete with additional safety conditions
+    bool timeout_occurred = false;
+    int last_sim_count = 0;
+    int stall_counter = 0;
+    
+    while (!shutdown_flag_) {
+        // Check for simulation completion
+        int current_sims = simulations_done_.load(std::memory_order_acquire);
+        
+        // Debug progress periodically
+        if (current_sims % 50 == 0 && current_sims != last_sim_count) {
+            int leaf_count = leaves_in_flight_.load(std::memory_order_acquire);
+            MCTS_DEBUG("Search progress: " << current_sims << "/" << config_.num_simulations 
+                      << ", leaves in flight: " << leaf_count);
+            last_sim_count = current_sims;
+        }
+        
+        // Check for search completion
+        if (current_sims >= config_.num_simulations) {
+            MCTS_DEBUG("Search complete: target simulations reached");
+            break;
+        }
+        
+        // Check for timeout
+        auto current_time = std::chrono::steady_clock::now();
+        auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+            current_time - search_start_time).count();
+            
+        if (elapsed_ms > MAX_SEARCH_TIME_MS) {
+            MCTS_DEBUG("Search timeout reached after " << elapsed_ms << "ms");
+            timeout_occurred = true;
+            break;
+        }
+        
+        // Check for search stall (no progress for a while)
+        if (current_sims == last_sim_count) {
+            stall_counter++;
+            
+            // If stalled for too long (1 second with no progress), break
+            if (stall_counter >= 100) {
+                MCTS_DEBUG("Search appears stalled - no progress for ~1 second");
+                break;
+            }
+        } else {
+            // Reset stall counter if we're making progress
+            stall_counter = 0;
+        }
+        
+        // Brief sleep before checking again
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    
+    // Signal threads to stop
+    MCTS_DEBUG("Setting shutdown flag to terminate all threads");
+    shutdown_flag_ = true;
+    
+    // Notify all waiting threads
+    {
+        std::lock_guard<std::mutex> lock(queue_mutex_);
+        queue_cv_.notify_all();
+    }
+    
+    // Allow time for threads to finish
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    
+    // Check if we still have leaves in flight
+    int remaining_leaves = leaves_in_flight_.load(std::memory_order_acquire);
+    if (remaining_leaves > 0) {
+        MCTS_DEBUG("WARNING: " << remaining_leaves << " leaves still in flight during shutdown");
+    }
+    
+    // Join threads with timeout handling
+    MCTS_DEBUG("Joining " << threads_.size() << " threads");
+    for (auto& t : threads_) {
+        if (t.joinable()) {
+            try {
+                auto thread_future = std::async(std::launch::async, [&t]() {
+                    t.join();
+                });
+                
+                // Wait with timeout
+                if (thread_future.wait_for(std::chrono::milliseconds(500)) != std::future_status::ready) {
+                    MCTS_DEBUG("Thread join timeout - thread will be detached");
+                    t.detach();
+                }
+            } catch (...) {
+                // If join fails, detach the thread
+                t.detach();
+            }
+        }
+    }
+    threads_.clear();
+    
+    // Final status report
+    if (timeout_occurred) {
+        MCTS_DEBUG("MCTS search terminated due to timeout. Completed " 
+                  << simulations_done_.load() << "/" << config_.num_simulations << " simulations");
+    } else {
+        MCTS_DEBUG("MCTS search completed with " << simulations_done_.load() << " simulations");
+    }
 }
 
 void MCTS::run_parallel_search(const Gamestate& rootState) {
@@ -358,22 +425,37 @@ void MCTS::leaf_evaluation_thread() {
     
     MCTS_DEBUG("Using batch size: " << batch_size);
     
+    // Track last activity time for stall detection
+    auto last_activity_time = std::chrono::steady_clock::now();
+    
     while (!shutdown_flag_) {
+        // Check termination conditions first - this is crucial
+        // If we've reached simulation limit, exit even if queue isn't empty
+        if (simulations_done_.load(std::memory_order_acquire) >= config_.num_simulations) {
+            MCTS_DEBUG("Simulation limit reached in leaf evaluation thread, exiting");
+            break;
+        }
+        
         // Collect a batch of leaves to evaluate
         std::vector<LeafTask> current_batch;
         current_batch.reserve(batch_size);
         
         // Critical section: get leaves from the queue
+        bool got_tasks = false;
         {
             std::unique_lock<std::mutex> lock(queue_mutex_);
             
             // Wait for leaves or shutdown signal with a short timeout
             auto wait_status = queue_cv_.wait_for(lock, std::chrono::milliseconds(10),
-                [this] { return !leaf_queue_.empty() || shutdown_flag_; });
+                [this] { 
+                    // Check both shutdown flag AND simulation count
+                    return !leaf_queue_.empty() || shutdown_flag_ || 
+                        simulations_done_.load(std::memory_order_acquire) >= config_.num_simulations; 
+                });
             
-            // Check shutdown flag again after wait
-            if (shutdown_flag_) {
-                MCTS_DEBUG("Shutdown detected in leaf evaluation thread, exiting");
+            // Check termination conditions after wait
+            if (shutdown_flag_ || simulations_done_.load(std::memory_order_acquire) >= config_.num_simulations) {
+                MCTS_DEBUG("Termination condition detected in leaf evaluation thread after wait");
                 break;
             }
             
@@ -383,7 +465,28 @@ void MCTS::leaf_evaluation_thread() {
                 current_batch.push_back(std::move(leaf_queue_.front()));
                 leaf_queue_.pop();
                 count++;
+                got_tasks = true;
             }
+        }
+        
+        // Update activity timestamp if we got tasks
+        if (got_tasks) {
+            last_activity_time = std::chrono::steady_clock::now();
+        }
+        
+        // Check for thread starvation (no activity for too long)
+        auto current_time = std::chrono::steady_clock::now();
+        auto inactivity_duration = std::chrono::duration_cast<std::chrono::milliseconds>(
+            current_time - last_activity_time).count();
+            
+        // If no activity for 5 seconds and search isn't complete, report potential stall
+        if (inactivity_duration > 5000 && 
+            simulations_done_.load(std::memory_order_acquire) < config_.num_simulations) {
+            
+            MCTS_DEBUG("WARNING: Leaf evaluation thread inactive for " << inactivity_duration 
+                      << "ms - possible stall detected");
+            // Reset the timer to avoid spamming logs
+            last_activity_time = current_time;
         }
         
         // If no leaves and not shutting down, just loop again with short sleep
@@ -392,30 +495,146 @@ void MCTS::leaf_evaluation_thread() {
             continue;
         }
         
-        // Process the batch
-        MCTS_DEBUG("Processing batch of " << current_batch.size() << " leaves");
+        // Process the batch (rest of the code same as before)
+        MCTS_DEBUG("Processing batch of " << current_batch.size() << " leaves using neural network");
         
-        // Handle each leaf individually for better responsiveness
-        for (auto& task : current_batch) {
-            // Check shutdown flag before each leaf
-            if (shutdown_flag_) {
-                MCTS_DEBUG("Shutdown detected during batch processing, completing remaining tasks with defaults");
-                break;
+        try {
+            // Prepare data for attack/defense module and neural network
+            std::vector<std::vector<std::vector<int>>> board_batch;
+            std::vector<int> chosen_moves;
+            std::vector<int> player_batch;
+            
+            for (const auto& task : current_batch) {
+                board_batch.push_back(task.state.get_board());
+                chosen_moves.push_back(task.chosen_move);
+                player_batch.push_back(task.state.current_player);
             }
             
-            try {
-                // Create default policy
-                std::vector<float> default_policy(task.state.board_size * task.state.board_size, 
-                                                1.0f / (task.state.board_size * task.state.board_size));
+            // Compute attack/defense bonuses
+            MCTS_DEBUG("Computing attack/defense bonuses for batch");
+            auto [attackVec, defenseVec] = attackDefense_.compute_bonuses(
+                board_batch, chosen_moves, player_batch);
+            
+            // Prepare neural network inputs
+            std::vector<std::tuple<std::string, int, float, float>> nn_inputs;
+            for (size_t i = 0; i < current_batch.size(); i++) {
+                std::string stateStr = nn_->create_state_string(
+                    current_batch[i].state, 
+                    chosen_moves[i],
+                    attackVec[i], 
+                    defenseVec[i]);
                 
-                // Just use defaults for now to avoid neural network issues
-                task.result_promise.set_value({default_policy, 0.0f});
+                nn_inputs.emplace_back(stateStr, chosen_moves[i], attackVec[i], defenseVec[i]);
+            }
+            
+            // Call neural network for batch inference
+            MCTS_DEBUG("Calling neural network for batch inference");
+            std::vector<NNOutput> results;
+            bool success = false;
+            
+            try {
+                auto start_time = std::chrono::steady_clock::now();
+                
+                // Use BatchingNNInterface for batch inference
+                results = nn_->batch_inference(nn_inputs);
+                
+                auto end_time = std::chrono::steady_clock::now();
+                auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+                
+                MCTS_DEBUG("Neural network batch inference completed in " << duration << "ms");
+                success = !results.empty();
+            }
+            catch (const std::exception& e) {
+                MCTS_DEBUG("Error in neural network batch inference: " << e.what());
+                success = false;
+            }
+            
+            // Process results and fulfill promises
+            MCTS_DEBUG("Processing neural network results");
+            for (size_t i = 0; i < current_batch.size(); i++) {
+                try {
+                    // Check termination condition again for responsiveness
+                    if (shutdown_flag_ || simulations_done_.load(std::memory_order_acquire) >= config_.num_simulations) {
+                        MCTS_DEBUG("Termination condition detected during result processing");
+                        // Just use defaults for remaining items
+                        for (size_t j = i; j < current_batch.size(); j++) {
+                            auto valid_moves = current_batch[j].state.get_valid_moves();
+                            std::vector<float> default_policy(valid_moves.size(), 1.0f / valid_moves.size());
+                            current_batch[j].result_promise.set_value({default_policy, 0.0f});
+                            leaves_in_flight_.fetch_sub(1, std::memory_order_relaxed);
+                        }
+                        break;
+                    }
+                    
+                    if (success && i < results.size()) {
+                        // Get valid moves for this state
+                        auto valid_moves = current_batch[i].state.get_valid_moves();
+                        
+                        // Extract policy for valid moves
+                        std::vector<float> valid_policy;
+                        valid_policy.reserve(valid_moves.size());
+                        
+                        for (int move : valid_moves) {
+                            if (move >= 0 && move < static_cast<int>(results[i].policy.size())) {
+                                valid_policy.push_back(results[i].policy[move]);
+                            } else {
+                                valid_policy.push_back(1.0f / valid_moves.size());
+                            }
+                        }
+                        
+                        // Normalize policy
+                        float sum = std::accumulate(valid_policy.begin(), valid_policy.end(), 0.0f);
+                        if (sum > 0) {
+                            for (auto& p : valid_policy) {
+                                p /= sum;
+                            }
+                        } else {
+                            // Uniform policy if sum is zero
+                            for (auto& p : valid_policy) {
+                                p = 1.0f / valid_policy.size();
+                            }
+                        }
+                        
+                        // Fulfill promise with policy and value
+                        current_batch[i].result_promise.set_value({valid_policy, results[i].value});
+                    } else {
+                        // Use default values on error
+                        auto valid_moves = current_batch[i].state.get_valid_moves();
+                        std::vector<float> default_policy(valid_moves.size(), 1.0f / valid_moves.size());
+                        current_batch[i].result_promise.set_value({default_policy, 0.0f});
+                    }
+                }
+                catch (const std::exception& e) {
+                    MCTS_DEBUG("Error processing neural network result for leaf " << i << ": " << e.what());
+                    try {
+                        // Ensure promise is fulfilled even on error
+                        auto valid_moves = current_batch[i].state.get_valid_moves();
+                        std::vector<float> default_policy(valid_moves.size(), 1.0f / valid_moves.size());
+                        current_batch[i].result_promise.set_value({default_policy, 0.0f});
+                    }
+                    catch (...) {
+                        // Promise might already be fulfilled
+                    }
+                }
                 
                 // Decrement counter for leaves in flight
                 leaves_in_flight_.fetch_sub(1, std::memory_order_relaxed);
-            } catch (...) {
-                // Promise might already be fulfilled
-                MCTS_DEBUG("Error setting promise value");
+            }
+        }
+        catch (const std::exception& e) {
+            MCTS_DEBUG("Error processing batch: " << e.what());
+            
+            // Handle each leaf with default values on error
+            for (auto& task : current_batch) {
+                try {
+                    auto valid_moves = task.state.get_valid_moves();
+                    std::vector<float> default_policy(valid_moves.size(), 1.0f / valid_moves.size());
+                    task.result_promise.set_value({default_policy, 0.0f});
+                    leaves_in_flight_.fetch_sub(1, std::memory_order_relaxed);
+                }
+                catch (...) {
+                    // Promise might already be fulfilled
+                }
             }
         }
     }
@@ -432,10 +651,11 @@ void MCTS::leaf_evaluation_thread() {
         }
     }
     
+    MCTS_DEBUG("Processing " << remaining_tasks.size() << " remaining tasks");
     for (auto& task : remaining_tasks) {
         try {
-            std::vector<float> default_policy(task.state.board_size * task.state.board_size, 
-                                            1.0f / (task.state.board_size * task.state.board_size));
+            auto valid_moves = task.state.get_valid_moves();
+            std::vector<float> default_policy(valid_moves.size(), 1.0f / valid_moves.size());
             task.result_promise.set_value({default_policy, 0.0f});
             leaves_in_flight_.fetch_sub(1, std::memory_order_relaxed);
         } catch (...) {
@@ -652,26 +872,73 @@ void MCTS::search_worker_thread() {
                 continue;
             }
             
-            // Special case - just use uniform random policy for now
-            // This avoids potential hanging with neural network calls
-            auto valid_moves = leaf->get_state().get_valid_moves();
-            if (!valid_moves.empty()) {
-                std::vector<float> uniform_policy(valid_moves.size(), 1.0f / valid_moves.size());
+            // 3. Queue the leaf for neural network evaluation
+            try {
+                // Queue the leaf node for evaluation and get a future for the result
+                std::future<std::pair<std::vector<float>, float>> future = queue_leaf_for_evaluation(leaf);
                 
-                // Expand with uniform policy
-                leaf->expand(valid_moves, uniform_policy);
+                // Wait for the result with timeout
+                auto status = future.wait_for(std::chrono::milliseconds(1000)); // 1 second timeout
                 
-                // Use value of 0 (neutral)
-                backup(leaf, 0.0f);
+                if (status == std::future_status::ready) {
+                    // Get the policy and value from the future
+                    auto [policy, value] = future.get();
+                    
+                    // Get valid moves for this state
+                    auto valid_moves = leaf->get_state().get_valid_moves();
+                    
+                    // Check if we have a valid policy
+                    if (!policy.empty() && valid_moves.size() == policy.size()) {
+                        // Expand with the policy from neural network
+                        leaf->expand(valid_moves, policy);
+                        
+                        // Backup the value from neural network
+                        backup(leaf, value);
+                        
+                        // Count this as a completed simulation
+                        simulations_done_.fetch_add(1, std::memory_order_relaxed);
+                    } else {
+                        // Fallback to uniform policy if the sizes don't match
+                        std::vector<float> uniform_policy(valid_moves.size(), 1.0f / valid_moves.size());
+                        leaf->expand(valid_moves, uniform_policy);
+                        backup(leaf, value);
+                        simulations_done_.fetch_add(1, std::memory_order_relaxed);
+                    }
+                } else {
+                    // Timeout occurred, use uniform policy as fallback
+                    MCTS_DEBUG("Neural network evaluation timeout");
+                    auto valid_moves = leaf->get_state().get_valid_moves();
+                    if (!valid_moves.empty()) {
+                        std::vector<float> uniform_policy(valid_moves.size(), 1.0f / valid_moves.size());
+                        leaf->expand(valid_moves, uniform_policy);
+                        backup(leaf, 0.0f);
+                        simulations_done_.fetch_add(1, std::memory_order_relaxed);
+                    } else {
+                        // Remove virtual losses if we can't expand
+                        Node* current = leaf;
+                        while (current) {
+                            current->remove_virtual_loss();
+                            current = current->get_parent();
+                        }
+                    }
+                }
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error in neural network evaluation: " << e.what());
                 
-                // Count this as a completed simulation
-                simulations_done_.fetch_add(1, std::memory_order_relaxed);
-            } else {
-                // Remove virtual losses if we can't expand
-                Node* current = leaf;
-                while (current) {
-                    current->remove_virtual_loss();
-                    current = current->get_parent();
+                // Fallback to uniform policy on error
+                auto valid_moves = leaf->get_state().get_valid_moves();
+                if (!valid_moves.empty()) {
+                    std::vector<float> uniform_policy(valid_moves.size(), 1.0f / valid_moves.size());
+                    leaf->expand(valid_moves, uniform_policy);
+                    backup(leaf, 0.0f);
+                    simulations_done_.fetch_add(1, std::memory_order_relaxed);
+                } else {
+                    // Remove virtual losses if we can't expand
+                    Node* current = leaf;
+                    while (current) {
+                        current->remove_virtual_loss();
+                        current = current->get_parent();
+                    }
                 }
             }
         } catch (const std::exception& e) {

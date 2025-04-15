@@ -4,6 +4,8 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 import threading
+import re  # Add this import for regex pattern matching
+
 # Import the enhanced model class
 from model import EnhancedGomokuNet
 
@@ -50,6 +52,10 @@ def my_inference_callback(batch_input):
     list of tuples
         Each tuple contains (policy, value)
     """
+    # Log the start of the callback to track GIL issues
+    print("[PYTHON] Inference callback called with batch size", len(batch_input))
+    sys.stdout.flush()  # Ensure output is flushed
+    
     batch_size = len(batch_input)
     debug_print(f"Inference callback received batch of size {batch_size}")
     
@@ -67,7 +73,20 @@ def my_inference_callback(batch_input):
             
             elapsed = time.time() - start_time
             debug_print(f"Dummy inference completed in {elapsed:.3f}s")
+            print(f"[PYTHON] Returning {len(outputs)} dummy outputs")
+            sys.stdout.flush()
             return outputs
+        
+        # Extract the board size from the first input
+        board_size = 15  # default
+        if batch_size > 0:
+            first_state = batch_input[0][0]  # Get first state string
+            board_size_match = re.search(r'Board:(\d+)', first_state)
+            if board_size_match:
+                board_size = int(board_size_match.group(1))
+        
+        print(f"[PYTHON] Processing batch with board size {board_size}")
+        sys.stdout.flush()
         
         # Get the history moves parameter from the net
         num_history_moves = getattr(net, 'num_history_moves', 3)
@@ -155,13 +174,15 @@ def my_inference_callback(batch_input):
                 x_input[i, -1] = min(max(defense, -1.0), 1.0)  # Clamp to [-1, 1]
                 
             except Exception as e:
-                debug_print(f"Error parsing input {i}: {str(e)}")
+                print(f"[PYTHON] Error parsing input {i}: {str(e)}")
+                sys.stdout.flush()
                 parsing_errors.append(i)
                 # Continue with next input, this one will get default values later
         
         # If we had parsing errors for all inputs, return defaults
         if len(parsing_errors) == batch_size:
-            debug_print("All inputs had parsing errors, returning defaults")
+            print("[PYTHON] All inputs had parsing errors, returning defaults")
+            sys.stdout.flush()
             outputs = []
             for _ in range(batch_size):
                 policy = [1.0/225] * 225
@@ -169,7 +190,8 @@ def my_inference_callback(batch_input):
                 outputs.append((policy, value))
             return outputs
         
-        debug_print(f"Converting input tensor to PyTorch and running neural network")
+        print(f"[PYTHON] Converting input tensor to PyTorch and running neural network")
+        sys.stdout.flush()
         
         # Convert numpy array to PyTorch tensor and move to device
         with torch.no_grad():
@@ -177,13 +199,18 @@ def my_inference_callback(batch_input):
             
             # Forward pass through the neural network
             try:
+                print(f"[PYTHON] Running forward pass on tensor shape {t_input.shape}")
+                sys.stdout.flush()
                 policy_logits, value_out = net(t_input)
                 
                 # Move results back to CPU for returning to C++
                 policy_logits = policy_logits.cpu()
                 value_out = value_out.cpu()
+                print(f"[PYTHON] Forward pass complete, policy shape: {policy_logits.shape}, value shape: {value_out.shape}")
+                sys.stdout.flush()
             except Exception as e:
-                debug_print(f"Error in neural network forward pass: {str(e)}")
+                print(f"[PYTHON] Error in neural network forward pass: {str(e)}")
+                sys.stdout.flush()
                 # Return defaults
                 outputs = []
                 for _ in range(batch_size):
@@ -210,14 +237,17 @@ def my_inference_callback(batch_input):
         
         elapsed = time.time() - start_time
         debug_print(f"Batch inference completed in {elapsed:.3f}s ({elapsed/batch_size:.4f}s per input)")
+        print(f"[PYTHON] Returning {len(outputs)} outputs (took {elapsed:.3f}s)")
+        sys.stdout.flush()
         
         return outputs
     
     except Exception as e:
         # Catch-all error handler
         import traceback
-        debug_print(f"Unexpected error in inference callback: {str(e)}")
-        debug_print(traceback.format_exc())
+        print(f"[PYTHON] Unexpected error in inference callback: {str(e)}")
+        print(traceback.format_exc())
+        sys.stdout.flush()
         
         # Return reasonable defaults
         outputs = []
@@ -245,10 +275,10 @@ def self_play_game():
     import multiprocessing
     available_cores = multiprocessing.cpu_count()
     # Reserve 1 core for Python/neural network and 1 for system
-    cfg.num_threads = max(1, min(available_cores - 2, 8))
+    cfg.num_threads = 16 #max(1, min(available_cores - 2, 8))
     
     # Set batch size for leaf parallelization
-    cfg.parallel_leaf_batch_size = 16  # Larger batches for better GPU utilization
+    cfg.parallel_leaf_batch_size = 128 #16  # Larger batches for better GPU utilization
     
     debug_print(f"MCTS configuration: {cfg.num_simulations} simulations, "
                f"{cfg.num_threads} threads, {cfg.parallel_leaf_batch_size} batch size, "

@@ -241,34 +241,45 @@ private:
         
         try {
             MCTS_DEBUG("Calling Python inference with " << inputs.size() << " inputs");
-                    
-            // Direct approach - no conversion to Python list needed
-            // Call the C++ callback function directly with the original inputs
-            {
-                // Acquire the GIL only for the actual Python call
-                pybind11::gil_scoped_acquire gil;
-                
-                MCTS_DEBUG("Acquired GIL, calling inference function directly");
+            
+            // CRITICAL GIL FIX: We need to ensure Python has the GIL before calling
+            // Acquire the GIL explicitly before the function call
+            pybind11::gil_scoped_acquire gil;
+            
+            // Call the inference function now that we have the GIL
+            MCTS_DEBUG("GIL acquired, making Python callback");
+            try {
                 results = python_infer_(inputs);
-                MCTS_DEBUG("Inference function returned " << results.size() << " results");
+                MCTS_DEBUG("Python callback returned " << results.size() << " results");
             }
-            // GIL is released here
+            catch (const pybind11::error_already_set& e) {
+                // This is a Python exception
+                MCTS_DEBUG("Python exception during inference: " << e.what());
+                // Release GIL before falling back to default values
+            }
+            catch (const std::exception& e) {
+                // This is a C++ exception
+                MCTS_DEBUG("C++ exception during Python inference call: " << e.what());
+            }
             
-            auto end_time = std::chrono::steady_clock::now();
-            auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
-            
-            MCTS_DEBUG("Batch inference completed in " << duration_ms << "ms");
-            
-            // Track inference statistics
-            inference_count_++;
-            total_inference_time_ms_ += duration_ms;
-        } catch (const std::exception& e) {
+            // GIL is automatically released when gil goes out of scope
+        }
+        catch (const std::exception& e) {
             MCTS_DEBUG("Error in batch_inference_internal: " << e.what());
             return create_default_outputs(inputs);
         }
         
+        auto end_time = std::chrono::steady_clock::now();
+        auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+        
+        MCTS_DEBUG("Batch inference completed in " << duration_ms << "ms");
+        
+        // Track inference statistics
+        inference_count_++;
+        total_inference_time_ms_ += duration_ms;
+        
         // Verify results
-        if (results.size() != inputs.size()) {
+        if (results.empty() || results.size() != inputs.size()) {
             MCTS_DEBUG("Result size mismatch: got " << results.size() << ", expected " << inputs.size());
             return create_default_outputs(inputs);
         }
