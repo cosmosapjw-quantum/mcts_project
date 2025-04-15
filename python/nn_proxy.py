@@ -104,7 +104,7 @@ def model_worker(device="cuda"):
             requests = []
             try:
                 # Wait for at least one request
-                requests.append(request_queue.get(timeout=0.1))
+                requests.append(request_queue.get(timeout=0.01))  # Reduced from 0.1s to 0.01s
                 
                 # Collect any additional pending requests
                 while len(requests) < MAX_BATCH_SIZE:
@@ -150,7 +150,7 @@ def model_worker(device="cuda"):
         except Exception as e:
             debug_print(f"Error in model worker: {e}")
             debug_print(traceback.format_exc())
-            time.sleep(0.1)  # Brief pause to avoid tight loop on errors
+            time.sleep(0.01)  # Reduced from 0.1s to 0.01s
 
 def process_batch_with_model(requests):
     """

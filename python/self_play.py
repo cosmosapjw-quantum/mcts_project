@@ -51,10 +51,10 @@ def self_play_game():
     import multiprocessing
     available_cores = multiprocessing.cpu_count()
     # Reserve 1 core for Python/neural network and 1 for system
-    cfg.num_threads = max(1, min(available_cores - 2, 8))
+    cfg.num_threads = 16 #max(1, min(available_cores - 2, 8))
     
     # Set batch size for leaf parallelization
-    cfg.parallel_leaf_batch_size = 16  # Larger batches for better GPU utilization
+    cfg.parallel_leaf_batch_size = 128  # Larger batches for better GPU utilization
     
     debug_print(f"MCTS configuration: {cfg.num_simulations} simulations, "
                f"{cfg.num_threads} threads, {cfg.parallel_leaf_batch_size} batch size, "
@@ -201,7 +201,7 @@ def main():
     
     # Configure and print system information
     import torch
-    num_games = 10  # Number of games to play for training data
+    num_games = 4  # Number of games to play for training data
     
     debug_print(f"System configuration:")
     debug_print(f"  PyTorch version: {torch.__version__}")

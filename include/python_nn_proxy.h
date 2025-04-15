@@ -328,7 +328,7 @@ private:
     std::atomic<int64_t> total_inference_time_ms_;
     
     // Inference timeout
-    static constexpr int INFERENCE_TIMEOUT_MS = 2000;
+    static constexpr int INFERENCE_TIMEOUT_MS = 500;  // Reduced from 2000ms to 500ms
     
     /**
      * Create default outputs for the given inputs.
@@ -425,7 +425,7 @@ private:
                 // Check timeout
                 auto current_time = std::chrono::steady_clock::now();
                 auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>
-                              (current_time - start_time).count();
+                             (current_time - start_time).count();
                               
                 if (elapsed > INFERENCE_TIMEOUT_MS) {
                     MCTS_DEBUG("Timeout waiting for inference results after " << elapsed << "ms");
@@ -505,7 +505,9 @@ private:
                 }
                 
                 // Brief sleep to avoid tight loop
-                std::this_thread::sleep_for(std::chrono::milliseconds(1));
+                if (elapsed % 10 == 0) {  // Only sleep every 10ms of elapsed time
+                    std::this_thread::sleep_for(std::chrono::microseconds(100));  // Use 0.1ms instead of 1ms
+                }
             }
             
             // Fill missing results with defaults

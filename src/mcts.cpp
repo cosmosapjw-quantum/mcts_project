@@ -269,11 +269,17 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
             }
         }
         
-        // Process batch if needed (either max size reached or no more pending slots)
+        // Add this before the batch processing check:
+        static auto last_batch_time = std::chrono::steady_clock::now();
+        auto time_since_last_batch = std::chrono::duration_cast<std::chrono::milliseconds>(
+            current_time - last_batch_time).count();
+        
+        // Modified condition to also process if we've waited too long
         if ((batch_inputs.size() >= MAX_BATCH_SIZE) || 
-            (batch_inputs.size() > 0 && pending_evals.size() >= max_pending)) {
-            
-            MCTS_DEBUG("Processing batch of " << batch_inputs.size() << " leaves");
+            (batch_inputs.size() > 0 && pending_evals.size() >= max_pending) ||
+            (batch_inputs.size() > 0 && time_since_last_batch > 100)) {  // Process at least every 100ms
+        
+        MCTS_DEBUG("Processing batch of " << batch_inputs.size() << " leaves");
             
             // Request batch inference
             std::vector<NNOutput> results = nn_->batch_inference(batch_inputs);
@@ -397,7 +403,10 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
         
         // If we have nothing to do, sleep briefly
         if (pending_evals.empty() && batch_inputs.empty()) {
-            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+            static int sleep_count = 0;
+            if (++sleep_count % 10 == 0) {  // Only sleep every 10 iterations
+                std::this_thread::sleep_for(std::chrono::microseconds(100));  // 0.1ms instead of 1ms
+            }
         }
         
         // Log progress periodically
