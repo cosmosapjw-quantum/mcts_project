@@ -4,15 +4,14 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 import threading
-import re  # Add this import for regex pattern matching
-
-# Import the enhanced model class
-from model import EnhancedGomokuNet
-
 import time
 import sys
+import re
+# Import the enhanced model class
+from model import EnhancedGomokuNet
+# Import our new nn_proxy module
+import nn_proxy
 
-# Create a debug print function
 def debug_print(message):
     timestamp = time.strftime("%H:%M:%S", time.localtime())
     print(f"[DEBUG {timestamp}] {message}", flush=True)
@@ -32,231 +31,8 @@ num_history_moves = 7  # Configure this as needed
 net = EnhancedGomokuNet(board_size=board_size, policy_dim=policy_dim, num_history_moves=num_history_moves)
 net.to(device)
 
-# Store the history parameter for easy access in the callback
+# Store the history parameter for easy access
 net.num_history_moves = num_history_moves
-
-# Add this to the top of self_play.py
-USE_DUMMY_INFERENCE = False  # Set to False later for real inference
-
-def my_inference_callback(batch_input):
-    """
-    Enhanced callback for efficient batch inference with proper error handling
-    
-    Parameters:
-    -----------
-    batch_input : list of tuples
-        Each tuple contains (state_str, chosen_move, attack, defense)
-    
-    Returns:
-    --------
-    list of tuples
-        Each tuple contains (policy, value)
-    """
-    # Log the start of the callback to track GIL issues
-    print("[PYTHON] Inference callback called with batch size", len(batch_input))
-    sys.stdout.flush()  # Ensure output is flushed
-    
-    batch_size = len(batch_input)
-    debug_print(f"Inference callback received batch of size {batch_size}")
-    
-    start_time = time.time()
-    
-    try:
-        # If USE_DUMMY_INFERENCE is enabled, return fast dummy values
-        if USE_DUMMY_INFERENCE:
-            debug_print("Using dummy inference mode")
-            outputs = []
-            for _ in range(batch_size):
-                policy = [1.0/225] * 225  # Uniform policy for 15x15 board
-                value = 0.0  # Neutral value
-                outputs.append((policy, value))
-            
-            elapsed = time.time() - start_time
-            debug_print(f"Dummy inference completed in {elapsed:.3f}s")
-            print(f"[PYTHON] Returning {len(outputs)} dummy outputs")
-            sys.stdout.flush()
-            return outputs
-        
-        # Extract the board size from the first input
-        board_size = 15  # default
-        if batch_size > 0:
-            first_state = batch_input[0][0]  # Get first state string
-            board_size_match = re.search(r'Board:(\d+)', first_state)
-            if board_size_match:
-                board_size = int(board_size_match.group(1))
-        
-        print(f"[PYTHON] Processing batch with board size {board_size}")
-        sys.stdout.flush()
-        
-        # Get the history moves parameter from the net
-        num_history_moves = getattr(net, 'num_history_moves', 3)
-        
-        debug_print(f"Processing batch with {num_history_moves} history moves")
-        
-        # Calculate input dimension with history moves
-        # board_size*board_size (board) + 1 (player flag) + 2*num_history_moves (history) + 2 (attack/defense)
-        input_dim = board_size*board_size + 1 + 2*num_history_moves + 2
-        
-        # Build input tensor
-        x_input = np.zeros((batch_size, input_dim), dtype=np.float32)
-        
-        # Track any parsing errors
-        parsing_errors = []
-        
-        # Process each input in the batch
-        for i, (state_str, chosen_move, attack, defense) in enumerate(batch_input):
-            try:
-                debug_print(f"Processing input {i}/{batch_size}: move={chosen_move}, attack={attack:.3f}, defense={defense:.3f}")
-                
-                # Parse the board state from state_str
-                board_info = {}
-                state_string = None
-                current_moves_list = []
-                opponent_moves_list = []
-                
-                # Split the string by semicolons
-                parts = state_str.split(';')
-                for part in parts:
-                    if ':' in part:
-                        key, value = part.split(':', 1)
-                        if key == 'State':
-                            state_string = value
-                        elif key == 'CurrentMoves':
-                            if value:
-                                current_moves_list = [int(m) for m in value.split(',') if m]
-                        elif key == 'OpponentMoves':
-                            if value:
-                                opponent_moves_list = [int(m) for m in value.split(',') if m]
-                        elif key in ['Attack', 'Defense']:
-                            # These are already provided as separate parameters
-                            pass
-                        else:
-                            board_info[key] = value
-                
-                # Get the board size and current player
-                bs = int(board_info.get('Board', str(board_size)))
-                current_player = int(board_info.get('Player', '1'))
-                
-                # Create the board representation (flattened)
-                board_array = np.zeros(bs*bs, dtype=np.float32)
-                
-                # Fill the board array from the state string
-                if state_string and len(state_string) == bs*bs:
-                    for j, c in enumerate(state_string):
-                        cell_value = int(c)
-                        if cell_value == current_player:
-                            board_array[j] = 1.0  # Current player's stone
-                        elif cell_value != 0:
-                            board_array[j] = -1.0  # Opponent's stone (normalized to -1)
-                
-                # Fill the input tensor with board state
-                x_input[i, :bs*bs] = board_array
-                
-                # Add player flag (1.0 for BLACK=1, 0.0 for WHITE=2)
-                x_input[i, bs*bs] = 1.0 if current_player == 1 else 0.0
-                
-                # Add previous moves for current player (normalize positions)
-                offset = bs*bs + 1
-                for j, prev_move in enumerate(current_moves_list[:num_history_moves]):
-                    if prev_move >= 0 and j < num_history_moves:  # Valid move and within history limit
-                        # Normalize the move position
-                        x_input[i, offset + j] = float(prev_move) / (bs*bs)
-                
-                # Add previous moves for opponent
-                offset = bs*bs + 1 + num_history_moves
-                for j, prev_move in enumerate(opponent_moves_list[:num_history_moves]):
-                    if prev_move >= 0 and j < num_history_moves:  # Valid move and within history limit
-                        # Normalize the move position
-                        x_input[i, offset + j] = float(prev_move) / (bs*bs)
-                
-                # Add attack and defense scores (normalized)
-                x_input[i, -2] = min(max(attack, -1.0), 1.0)  # Clamp to [-1, 1]
-                x_input[i, -1] = min(max(defense, -1.0), 1.0)  # Clamp to [-1, 1]
-                
-            except Exception as e:
-                print(f"[PYTHON] Error parsing input {i}: {str(e)}")
-                sys.stdout.flush()
-                parsing_errors.append(i)
-                # Continue with next input, this one will get default values later
-        
-        # If we had parsing errors for all inputs, return defaults
-        if len(parsing_errors) == batch_size:
-            print("[PYTHON] All inputs had parsing errors, returning defaults")
-            sys.stdout.flush()
-            outputs = []
-            for _ in range(batch_size):
-                policy = [1.0/225] * 225
-                value = 0.0
-                outputs.append((policy, value))
-            return outputs
-        
-        print(f"[PYTHON] Converting input tensor to PyTorch and running neural network")
-        sys.stdout.flush()
-        
-        # Convert numpy array to PyTorch tensor and move to device
-        with torch.no_grad():
-            t_input = torch.from_numpy(x_input).to(device)
-            
-            # Forward pass through the neural network
-            try:
-                print(f"[PYTHON] Running forward pass on tensor shape {t_input.shape}")
-                sys.stdout.flush()
-                policy_logits, value_out = net(t_input)
-                
-                # Move results back to CPU for returning to C++
-                policy_logits = policy_logits.cpu()
-                value_out = value_out.cpu()
-                print(f"[PYTHON] Forward pass complete, policy shape: {policy_logits.shape}, value shape: {value_out.shape}")
-                sys.stdout.flush()
-            except Exception as e:
-                print(f"[PYTHON] Error in neural network forward pass: {str(e)}")
-                sys.stdout.flush()
-                # Return defaults
-                outputs = []
-                for _ in range(batch_size):
-                    policy = [1.0/225] * 225
-                    value = 0.0
-                    outputs.append((policy, value))
-                return outputs
-        
-        # Convert to probabilities using softmax
-        policy_probs = F.softmax(policy_logits, dim=1).numpy()
-        values = value_out.squeeze(-1).numpy()
-        
-        # Build output
-        outputs = []
-        for i in range(batch_size):
-            if i in parsing_errors:
-                # Use default values for inputs that had parsing errors
-                policy = [1.0/225] * 225
-                value = 0.0
-            else:
-                policy = policy_probs[i].tolist()
-                value = float(values[i])
-            outputs.append((policy, value))
-        
-        elapsed = time.time() - start_time
-        debug_print(f"Batch inference completed in {elapsed:.3f}s ({elapsed/batch_size:.4f}s per input)")
-        print(f"[PYTHON] Returning {len(outputs)} outputs (took {elapsed:.3f}s)")
-        sys.stdout.flush()
-        
-        return outputs
-    
-    except Exception as e:
-        # Catch-all error handler
-        import traceback
-        print(f"[PYTHON] Unexpected error in inference callback: {str(e)}")
-        print(traceback.format_exc())
-        sys.stdout.flush()
-        
-        # Return reasonable defaults
-        outputs = []
-        for _ in range(batch_size):
-            policy = [1.0/225] * 225
-            value = 0.0
-            outputs.append((policy, value))
-        
-        return outputs
 
 def self_play_game():
     debug_print("Starting self-play game")
@@ -275,10 +51,10 @@ def self_play_game():
     import multiprocessing
     available_cores = multiprocessing.cpu_count()
     # Reserve 1 core for Python/neural network and 1 for system
-    cfg.num_threads = 16 #max(1, min(available_cores - 2, 8))
+    cfg.num_threads = max(1, min(available_cores - 2, 8))
     
     # Set batch size for leaf parallelization
-    cfg.parallel_leaf_batch_size = 128 #16  # Larger batches for better GPU utilization
+    cfg.parallel_leaf_batch_size = 16  # Larger batches for better GPU utilization
     
     debug_print(f"MCTS configuration: {cfg.num_simulations} simulations, "
                f"{cfg.num_threads} threads, {cfg.parallel_leaf_batch_size} batch size, "
@@ -288,9 +64,11 @@ def self_play_game():
     debug_print("Creating MCTS wrapper")
     wrapper = mcts_py.MCTSWrapper(cfg, boardSize=board_size)
     
-    # Set neural network callback and batch size
-    debug_print("Setting inference function and batch size")
-    wrapper.set_infer_function(my_inference_callback)
+    # Pass the neural network model directly to the wrapper
+    debug_print("Setting neural network model")
+    wrapper.set_infer_function(net)
+    
+    # Set batch size
     wrapper.set_batch_size(cfg.parallel_leaf_batch_size)
     
     # Configure the history moves to match our neural network
@@ -337,6 +115,10 @@ def self_play_game():
             
             search_elapsed = time.time() - search_start
             debug_print(f"MCTS search completed in {search_elapsed:.3f} seconds")
+            
+            # Print stats
+            stats = wrapper.get_stats()
+            debug_print("Search statistics:\n" + stats)
         except Exception as e:
             debug_print(f"Error during MCTS search: {e}")
             break
@@ -360,7 +142,7 @@ def self_play_game():
         
         move_count += 1
         
-        # Record move in history for training data
+        # Record move in history for training
         history_moves.append(mv)
         
         # Get the board state for training

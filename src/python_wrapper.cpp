@@ -6,6 +6,7 @@
 #include "attack_defense.h"
 #include "mcts_config.h"
 #include "mcts.h"
+#include "python_nn_proxy.h"
 #include "nn_interface.h"
 #include <iostream>
 
@@ -24,152 +25,89 @@ MCTSWrapper(const MCTSConfig& cfg,
             int seed,
             bool use_pro_long_opening)
 {
-    Gamestate st(boardSize, use_renju, use_omok, seed, use_pro_long_opening);
-
-    nn_ = std::make_shared<BatchingNNInterface>();
-    
-    // Use the original config but limit max threads to avoid excessive GIL contention
-    MCTSConfig adjusted_cfg = cfg;
-    
-    // Get available CPU cores from the system
-    unsigned int max_threads = std::thread::hardware_concurrency();
-    if (max_threads == 0) max_threads = 4; // Fallback if detection fails
-    
-    // Reserve one thread for Python and one for the main thread
-    max_threads = std::max(1u, max_threads - 2);
-    
-    // Ensure we don't exceed the configuration
-    adjusted_cfg.num_threads = std::min(static_cast<int>(max_threads), cfg.num_threads);
-    
-    // Always use at least 2 threads (one for search, one for evaluation)
-    adjusted_cfg.num_threads = std::max(2, adjusted_cfg.num_threads);
-    
-    MCTS_DEBUG("Creating MCTS with " << adjusted_cfg.num_threads << " threads "
-              << "(requested: " << cfg.num_threads << ", system max: " << max_threads << ")");
-    
-    mcts_ = std::make_unique<MCTS>(adjusted_cfg, nn_, boardSize);
-
-    config_ = adjusted_cfg;
-    rootState_ = st;
+    try {
+        // Initialize board state
+        Gamestate st(boardSize, use_renju, use_omok, seed, use_pro_long_opening);
+        
+        // Create neural network proxy
+        nn_ = std::make_shared<PythonNNProxy>();
+        
+        // Use a limited number of threads - start conservatively
+        MCTSConfig adjusted_cfg = cfg;
+        
+        // Limit threads to a reasonable number (2-8) based on total available
+        unsigned int max_system_threads = std::thread::hardware_concurrency();
+        if (max_system_threads == 0) max_system_threads = 4; // Fallback
+        
+        // Use at most half of available threads, minimum 2, maximum 8
+        int suggested_threads = std::max(2, static_cast<int>(max_system_threads / 2));
+        suggested_threads = std::min(suggested_threads, 8);
+        
+        // Cap at user-requested thread count
+        adjusted_cfg.num_threads = std::min(suggested_threads, cfg.num_threads);
+        
+        // Ensure reasonable batch size
+        if (adjusted_cfg.parallel_leaf_batch_size <= 0) {
+            adjusted_cfg.parallel_leaf_batch_size = 16;
+        } else {
+            // Cap at a reasonable maximum
+            adjusted_cfg.parallel_leaf_batch_size = std::min(adjusted_cfg.parallel_leaf_batch_size, 64);
+        }
+        
+        MCTS_DEBUG("Creating MCTS with semi-parallel mode: " << adjusted_cfg.num_threads 
+                  << " threads, batch size " << adjusted_cfg.parallel_leaf_batch_size);
+        
+        // Create MCTS engine
+        mcts_ = std::make_unique<MCTS>(adjusted_cfg, nn_, boardSize);
+        
+        // Store configuration
+        config_ = adjusted_cfg;
+        rootState_ = st;
+    }
+    catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in MCTSWrapper constructor: " << e.what());
+        throw;
+    }
 }
 
-    void set_batch_size(int size) {
-        nn_->set_batch_size(size);
-    }
-
-    void set_infer_function(py::function pyFn) {
-        MCTS_DEBUG("Setting Python inference function");
+    void set_infer_function(py::object model) {
+        MCTS_DEBUG("Setting neural network model");
+        
         if (!nn_) {
-            MCTS_DEBUG("Error: NN interface is null");
+            MCTS_DEBUG("Error: NN proxy is null");
             return;
         }
         
-        // Create a C++ function that wraps the Python function with proper GIL handling
-        auto batch_inference_wrapper = [pyFn](const std::vector<std::tuple<std::string, int, float, float>>& inputs) 
-            -> std::vector<NNOutput> {
+        try {
+            // Initialize the neural network proxy with the model
+            bool success = nn_->initialize(model, config_.parallel_leaf_batch_size);
             
-            if (inputs.empty()) {
-                MCTS_DEBUG("Empty inputs provided to batch_inference_wrapper");
-                return {};
+            if (success) {
+                MCTS_DEBUG("Neural network model set successfully");
+            } else {
+                MCTS_DEBUG("Failed to initialize neural network proxy");
             }
-            
-            MCTS_DEBUG("Batch inference wrapper called with " << inputs.size() << " inputs");
-            
-            std::vector<NNOutput> results;
-            
-            try {
-                // Convert C++ inputs to Python
-                py::list py_inputs;
-                
-                // Build the input list - THIS MUST HAPPEN BEFORE GIL ACQUISITION
-                for (const auto& input : inputs) {
-                    py_inputs.append(py::make_tuple(
-                        std::get<0>(input),  // state string
-                        std::get<1>(input),  // chosen move
-                        std::get<2>(input),  // attack
-                        std::get<3>(input)   // defense
-                    ));
-                }
-                
-                MCTS_DEBUG("Acquiring GIL for Python function call");
-                
-                // Acquire the GIL explicitly before calling into Python
-                py::gil_scoped_acquire acquire;
-                
-                // Call the Python function with a timeout
-                MCTS_DEBUG("Calling Python function");
-                
-                // Call Python function
-                py::object py_results;
-                try {
-                    py_results = pyFn(py_inputs);
-                    MCTS_DEBUG("Python function returned successfully");
-                }
-                catch (const py::error_already_set& e) {
-                    MCTS_DEBUG("Python error during function call: " << e.what());
-                    // Return empty results - we'll handle defaults later
-                    throw;
-                }
-                
-                // Convert Python results back to C++
-                try {
-                    if (!py_results || py_results.is_none()) {
-                        MCTS_DEBUG("Python function returned None");
-                        return {};
-                    }
-                    
-                    for (auto item : py_results) {
-                        NNOutput output;
-                        
-                        // Extract policy and value from the Python tuple
-                        py::tuple result_tuple = item.cast<py::tuple>();
-                        py::list policy_list = result_tuple[0].cast<py::list>();
-                        float value = result_tuple[1].cast<float>();
-                        
-                        // Convert policy list to vector
-                        output.policy.reserve(policy_list.size());
-                        for (auto p : policy_list) {
-                            output.policy.push_back(p.cast<float>());
-                        }
-                        output.value = value;
-                        results.push_back(std::move(output));
-                    }
-                    
-                    MCTS_DEBUG("Converted " << results.size() << " results from Python");
-                }
-                catch (const std::exception& e) {
-                    MCTS_DEBUG("Error converting Python results: " << e.what());
-                    // Return empty results
-                    return {};
-                }
-                
-                // GIL is automatically released when acquire goes out of scope
-            } 
-            catch (const py::error_already_set& e) {
-                MCTS_DEBUG("Python error: " << e.what());
-                // Return empty results - BatchingNNInterface will handle defaults
-            } 
-            catch (const std::exception& e) {
-                MCTS_DEBUG("C++ error in Python callback: " << e.what());
-                // Return empty results - BatchingNNInterface will handle defaults
-            }
-            
-            return results;
-        };
+        }
+        catch (const std::exception& e) {
+            MCTS_DEBUG("Error setting neural network model: " << e.what());
+        }
+    }
+
+    void set_batch_size(int size) {
+        if (!nn_) {
+            MCTS_DEBUG("Error: NN proxy is null");
+            return;
+        }
         
-        // Set the inference callback on the NN interface
-        MCTS_DEBUG("Setting inference callback on NN interface");
-        nn_->set_infer_callback(batch_inference_wrapper);
-        MCTS_DEBUG("Python inference function set successfully");
+        int capped_size = std::min(std::max(1, size), 64);  // Between 1 and 64
+        MCTS_DEBUG("Setting batch size to " << capped_size);
+        
+        // Also update the MCTS config
+        config_.parallel_leaf_batch_size = capped_size;
     }
 
     void run_search() {
         MCTS_DEBUG("MCTSWrapper::run_search called");
-        
-        // Reset the NN interface before each search
-        if (nn_) {
-            nn_->reset();
-        }
         
         // Run the search
         mcts_->run_search(rootState_);
@@ -213,6 +151,12 @@ MCTSWrapper(const MCTSConfig& cfg,
     }
 
     void set_num_history_moves(int num_moves) {
+        if (!nn_) {
+            MCTS_DEBUG("Error: NN proxy is null");
+            return;
+        }
+        
+        MCTS_DEBUG("Setting history moves to " << num_moves);
         nn_->set_num_history_moves(num_moves);
     }
     
@@ -220,9 +164,29 @@ MCTSWrapper(const MCTSConfig& cfg,
         return nn_->get_num_history_moves();
     }
 
+    std::string get_stats() const {
+        std::string stats = "MCTSWrapper stats:\n";
+        
+        // Add configuration information
+        stats += "  Threads: " + std::to_string(config_.num_threads) + "\n";
+        stats += "  Batch size: " + std::to_string(config_.parallel_leaf_batch_size) + "\n";
+        stats += "  C_puct: " + std::to_string(config_.c_puct) + "\n";
+        
+        // Add board state information
+        stats += "  Board size: " + std::to_string(rootState_.board_size) + "\n";
+        stats += "  Current player: " + std::to_string(rootState_.current_player) + "\n";
+        
+        // Add neural network stats if available
+        if (nn_) {
+            stats += nn_->get_stats();
+        }
+        
+        return stats;
+    }
+
 private:
     MCTSConfig config_;
-    std::shared_ptr<BatchingNNInterface> nn_;
+    std::shared_ptr<PythonNNProxy> nn_;  // Changed from BatchingNNInterface
     std::unique_ptr<MCTS> mcts_;
 
     Gamestate rootState_;
@@ -246,6 +210,7 @@ PYBIND11_MODULE(mcts_py, m) {
             py::arg("seed")=0,
             py::arg("use_pro_long_opening")=false
        )
+       // Changed from set_infer_function to accept a model object directly
        .def("set_infer_function", &MCTSWrapper::set_infer_function)
        .def("run_search", &MCTSWrapper::run_search)
        .def("best_move", &MCTSWrapper::best_move)
@@ -257,8 +222,9 @@ PYBIND11_MODULE(mcts_py, m) {
        .def("get_num_history_moves", &MCTSWrapper::get_num_history_moves)
        .def("best_move_with_temperature", &MCTSWrapper::best_move_with_temperature,
             py::arg("temperature") = 1.0f)
-        .def("apply_best_move_with_temperature", &MCTSWrapper::apply_best_move_with_temperature,
+       .def("apply_best_move_with_temperature", &MCTSWrapper::apply_best_move_with_temperature,
             py::arg("temperature") = 1.0f)
-        .def("set_exploration_parameters", &MCTSWrapper::set_exploration_parameters,
-            py::arg("dirichlet_alpha") = 0.03f, py::arg("noise_weight") = 0.25f);
+       .def("set_exploration_parameters", &MCTSWrapper::set_exploration_parameters,
+            py::arg("dirichlet_alpha") = 0.03f, py::arg("noise_weight") = 0.25f)
+       .def("get_stats", &MCTSWrapper::get_stats);  // Add stats method binding
 }

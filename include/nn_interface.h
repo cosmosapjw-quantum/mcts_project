@@ -11,6 +11,9 @@
 #include "gomoku.h"
 #include "debug.h"
 
+// Add namespace alias at the top, after the includes
+namespace py = pybind11;
+
 /**
  * We store the final policy + value from the NN
  */
@@ -133,7 +136,64 @@ public:
     // New batch inference method for leaf parallelization
     std::vector<NNOutput> batch_inference(const std::vector<std::tuple<std::string, int, float, float>>& inputs) {
         MCTS_DEBUG("Batch inference requested with " << inputs.size() << " inputs");
-        return batch_inference_internal(inputs);
+        
+        if (inputs.empty()) {
+            MCTS_DEBUG("Empty batch, returning no results");
+            return {};
+        }
+        
+        if (use_dummy_) {
+            MCTS_DEBUG("Using dummy values for batch inference (no callback set)");
+            return create_default_outputs(inputs);
+        }
+        
+        // Track timing
+        auto start_time = std::chrono::steady_clock::now();
+        
+        // Call the Python inference function with proper GIL handling
+        std::vector<NNOutput> results;
+        
+        try {
+            // Acquire the GIL explicitly before calling into Python
+            py::gil_scoped_acquire gil;
+            
+            MCTS_DEBUG("Acquired GIL, calling Python inference function");
+            
+            try {
+                // Call the Python function and store results directly
+                results = python_infer_(inputs);
+                
+                // Process the results if needed
+                MCTS_DEBUG("Successfully received " << results.size() << " results");
+            }
+            catch (const pybind11::error_already_set& e) {
+                MCTS_DEBUG("Python error during inference: " << e.what());
+                results.clear();  // Ensure we return default values
+            }
+            
+            // GIL is automatically released when gil goes out of scope
+        }
+        catch (const std::exception& e) {
+            MCTS_DEBUG("Error in batch inference: " << e.what());
+            results.clear();
+        }
+        
+        auto end_time = std::chrono::steady_clock::now();
+        auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+        
+        // Track inference statistics
+        inference_count_++;
+        total_inference_time_ms_ += duration_ms;
+        
+        MCTS_DEBUG("Batch inference completed in " << duration_ms << "ms");
+        
+        // If results are empty or mismatched, use defaults
+        if (results.empty() || results.size() != inputs.size()) {
+            MCTS_DEBUG("Empty or mismatched results, using defaults");
+            return create_default_outputs(inputs);
+        }
+        
+        return results;
     }
     
     // Make state string creation public for leaf parallelization
@@ -249,17 +309,15 @@ private:
             // Call the inference function now that we have the GIL
             MCTS_DEBUG("GIL acquired, making Python callback");
             try {
+                // Call the Python function and store results directly
                 results = python_infer_(inputs);
-                MCTS_DEBUG("Python callback returned " << results.size() << " results");
+                
+                // Process the results if needed
+                MCTS_DEBUG("Successfully received " << results.size() << " results");
             }
             catch (const pybind11::error_already_set& e) {
-                // This is a Python exception
-                MCTS_DEBUG("Python exception during inference: " << e.what());
-                // Release GIL before falling back to default values
-            }
-            catch (const std::exception& e) {
-                // This is a C++ exception
-                MCTS_DEBUG("C++ exception during Python inference call: " << e.what());
+                MCTS_DEBUG("Python error during inference: " << e.what());
+                results.clear();  // Ensure we return default values
             }
             
             // GIL is automatically released when gil goes out of scope

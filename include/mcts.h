@@ -11,6 +11,8 @@
 #include <random>  // Ensure this is included
 #include "mcts_config.h"
 #include "nn_interface.h"
+#include "python_nn_proxy.h"
+#include "leaf_gatherer.h"
 #include "node.h"
 #include "attack_defense.h"
 #include "debug.h"
@@ -23,8 +25,8 @@
 class MCTS {
 public:
     MCTS(const MCTSConfig& config,
-         std::shared_ptr<BatchingNNInterface> nn,
-         int boardSize);
+        std::shared_ptr<PythonNNProxy> nn,
+        int boardSize);
 
     void run_search(const Gamestate& rootState);
     void run_parallel_search(const Gamestate& rootState);
@@ -50,7 +52,7 @@ private:
 
 private:
     MCTSConfig config_;
-    std::shared_ptr<BatchingNNInterface> nn_;
+    std::shared_ptr<PythonNNProxy> nn_;  // Changed from BatchingNNInterface
     std::unique_ptr<Node> root_;
     std::vector<std::thread> threads_;
     std::atomic<int> simulations_done_;
@@ -70,7 +72,7 @@ private:
         Node* leaf;
         Gamestate state;
         int chosen_move;
-        std::promise<std::pair<std::vector<float>, float>> result_promise;
+        std::shared_ptr<std::promise<std::pair<std::vector<float>, float>>> result_promise;
     };
     
     std::queue<LeafTask> leaf_queue_;
@@ -85,4 +87,13 @@ private:
     void search_worker_thread();
 
     mutable std::mt19937 rng_; // Random number generator
+
+    void force_shutdown();
+    void run_simple_search(int num_simulations);
+
+    // Add leaf gatherer for parallel evaluation
+    std::unique_ptr<LeafGatherer> leaf_gatherer_;
+    
+    // Method for semi-parallel search
+    void run_semi_parallel_search(int num_simulations);
 };

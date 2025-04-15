@@ -36,13 +36,23 @@ public:
     float get_prior() const;
 
     void update_stats(float value);
+    
+    // Update expand to safely handle children
     void expand(const std::vector<int>& moves, const std::vector<float>& priors);
 
-    bool is_leaf() const { return children_.empty(); }
+    bool is_leaf() const { 
+        std::lock_guard<std::mutex> lock(expand_mutex_);
+        return children_.empty(); 
+    }
+    
     const Gamestate& get_state() const { return state_; }
+    
+    // Updated to return nullptr if no parent
     Node* get_parent() const { return parent_; }
 
     int get_move_from_parent() const { return move_from_parent_; }
+    
+    // Updated to make a copy of the children pointers to avoid lifetime issues
     std::vector<Node*> get_children() const;
 
     void limit_tree_depth(int current_depth, int max_depth) {

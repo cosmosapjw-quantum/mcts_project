@@ -77,15 +77,21 @@ void Node::expand(const std::vector<int>& moves, const std::vector<float>& prior
         
         children_.reserve(max_to_create);
         
-        for (size_t i = 0; i < max_to_create; i++) {
-            Gamestate childState = state_.copy();
-            childState.make_move(moves[i], state_.current_player);
-            
-            auto child = std::make_unique<Node>(childState, moves[i], 
-                (i < priors.size()) ? priors[i] : 1.0f/max_to_create);
+        for (size_t i = 0; i < max_to_create && i < moves.size(); i++) {
+            try {
+                Gamestate childState = state_.copy();
+                childState.make_move(moves[i], state_.current_player);
                 
-            child->parent_ = this;
-            children_.push_back(std::move(child));
+                auto child = std::make_unique<Node>(childState, moves[i], 
+                    (i < priors.size()) ? priors[i] : 1.0f/max_to_create);
+                    
+                child->parent_ = this;
+                children_.push_back(std::move(child));
+            }
+            catch (const std::exception& e) {
+                // Log error and continue
+                std::cerr << "Error creating child node: " << e.what() << std::endl;
+            }
         }
         
         return;
@@ -97,7 +103,7 @@ void Node::expand(const std::vector<int>& moves, const std::vector<float>& prior
     
     children_.reserve(num_children);
     
-    for (size_t i = 0; i < num_children; i++) {
+    for (size_t i = 0; i < num_children && i < moves.size(); i++) {
         try {
             Gamestate childState = state_.copy();
             childState.make_move(moves[i], state_.current_player);
@@ -108,7 +114,8 @@ void Node::expand(const std::vector<int>& moves, const std::vector<float>& prior
             child->parent_ = this;
             children_.push_back(std::move(child));
         } catch (const std::exception& e) {
-            // Silent error handling
+            // Log error and continue
+            std::cerr << "Error creating child node: " << e.what() << std::endl;
         }
     }
 }
