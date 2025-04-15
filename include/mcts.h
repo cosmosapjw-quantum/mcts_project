@@ -1,35 +1,19 @@
 // mcts.h
 #pragma once
 
-#define DEBUG_MCTS 1  // Set to 0 to disable debug prints
-
-#if DEBUG_MCTS
-#include <iostream>
-#include <chrono>
-#include <iomanip>
-#include <sstream>
-#define MCTS_DEBUG(msg) do { \
-    auto now = std::chrono::system_clock::now(); \
-    auto time = std::chrono::system_clock::to_time_t(now); \
-    std::tm tm = *std::localtime(&time); \
-    std::ostringstream oss; \
-    oss << "[C++ " << std::put_time(&tm, "%H:%M:%S") << "] " << msg << std::endl; \
-    std::cout << oss.str() << std::flush; \
-} while(0)
-#else
-#define MCTS_DEBUG(msg)
-#endif
-
 #include <memory>
 #include <vector>
 #include <atomic>
 #include <thread>
 #include <queue>
 #include <condition_variable>
+#include <future>  // Added for std::promise/future
+#include <random>  // Ensure this is included
 #include "mcts_config.h"
 #include "nn_interface.h"
 #include "node.h"
 #include "attack_defense.h"
+#include "debug.h"
 
 /**
  * MCTS class that uses multi-threading. 
@@ -81,21 +65,24 @@ private:
     std::atomic<int> nodes_created_{0};
     bool reached_node_limit() const { return nodes_created_.load() >= MAX_NODES; }
 
+    // New fields for leaf parallelization
     struct LeafTask {
         Node* leaf;
         Gamestate state;
         int chosen_move;
+        std::promise<std::pair<std::vector<float>, float>> result_promise;
     };
     
     std::queue<LeafTask> leaf_queue_;
     std::mutex queue_mutex_;
     std::condition_variable queue_cv_;
-    std::atomic<bool> search_done_{false};
+    std::atomic<int> leaves_in_flight_{0};
     
-    void queue_leaf_for_evaluation(Node* leaf);
-    void leaf_evaluation_worker();
-    void evaluate_leaf(Node* leaf, const Gamestate& state, int chosen_move);
-    void evaluate_leaf_batch(const std::vector<LeafTask>& batch);
-    
-    mutable std::mt19937 rng_;
+    // New methods for leaf parallelization
+    std::future<std::pair<std::vector<float>, float>> queue_leaf_for_evaluation(Node* leaf);
+    void leaf_evaluation_thread();
+    void process_leaf_batch(std::vector<LeafTask>& batch);
+    void search_worker_thread();
+
+    mutable std::mt19937 rng_; // Random number generator
 };

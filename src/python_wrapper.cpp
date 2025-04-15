@@ -50,16 +50,22 @@ MCTSWrapper(const MCTSConfig& cfg,
         }
         
         // Create a C++ function that wraps the Python function
-        auto wrapper = [pyFn](const std::vector<std::tuple<std::string, int, float, float>>& inputs) -> std::vector<NNOutput> {
-            MCTS_DEBUG("C++ wrapper for Python function called with " << inputs.size() << " inputs");
+        auto batch_inference_wrapper = [pyFn](const std::vector<std::tuple<std::string, int, float, float>>& inputs) 
+            -> std::vector<NNOutput> {
+            
+            if (inputs.empty()) {
+                MCTS_DEBUG("Empty inputs provided to batch_inference_wrapper");
+                return {};
+            }
+            
+            MCTS_DEBUG("Batch inference wrapper called with " << inputs.size() << " inputs");
             
             std::vector<NNOutput> results;
+            
             try {
-                // Acquire the GIL before calling into Python
-                py::gil_scoped_acquire acquire;
-                
                 // Convert C++ inputs to Python
                 py::list py_inputs;
+                
                 for (const auto& input : inputs) {
                     py_inputs.append(py::make_tuple(
                         std::get<0>(input),  // state string
@@ -69,13 +75,15 @@ MCTSWrapper(const MCTSConfig& cfg,
                     ));
                 }
                 
+                // Acquire the GIL before calling into Python
+                py::gil_scoped_acquire acquire;
+                
                 // Call the Python function
-                MCTS_DEBUG("Calling Python inference function");
+                MCTS_DEBUG("Calling Python function");
                 py::object py_results = pyFn(py_inputs);
-                MCTS_DEBUG("Python function returned successfully");
+                MCTS_DEBUG("Python function returned");
                 
                 // Convert Python results back to C++
-                MCTS_DEBUG("Converting Python results to C++");
                 for (auto item : py_results) {
                     NNOutput output;
                     
@@ -85,31 +93,19 @@ MCTSWrapper(const MCTSConfig& cfg,
                     float value = result_tuple[1].cast<float>();
                     
                     // Convert policy list to vector
+                    output.policy.reserve(policy_list.size());
                     for (auto p : policy_list) {
                         output.policy.push_back(p.cast<float>());
                     }
                     output.value = value;
-                    results.push_back(output);
+                    results.push_back(std::move(output));
                 }
-                MCTS_DEBUG("Converted " << results.size() << " results");
             } catch (const py::error_already_set& e) {
                 MCTS_DEBUG("Python error: " << e.what());
-                // Create default results if Python call fails
-                for (size_t i = 0; i < inputs.size(); i++) {
-                    NNOutput output;
-                    output.policy.resize(15 * 15, 1.0f / (15 * 15));
-                    output.value = 0.0f;
-                    results.push_back(output);
-                }
+                // Return empty results - BatchingNNInterface will handle defaults
             } catch (const std::exception& e) {
                 MCTS_DEBUG("C++ error in Python callback: " << e.what());
-                // Create default results if there's any error
-                for (size_t i = 0; i < inputs.size(); i++) {
-                    NNOutput output;
-                    output.policy.resize(15 * 15, 1.0f / (15 * 15));
-                    output.value = 0.0f;
-                    results.push_back(output);
-                }
+                // Return empty results - BatchingNNInterface will handle defaults
             }
             
             return results;
@@ -117,7 +113,7 @@ MCTSWrapper(const MCTSConfig& cfg,
         
         // Set the inference callback on the NN interface
         MCTS_DEBUG("Setting inference callback on NN interface");
-        nn_->set_infer_callback(wrapper);
+        nn_->set_infer_callback(batch_inference_wrapper);
         MCTS_DEBUG("Python inference function set successfully");
     }
 

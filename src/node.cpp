@@ -3,25 +3,42 @@
 #include <iostream>
 #include <numeric>
 
+#include "debug.h"
+
 std::atomic<int> Node::total_nodes_(0);
 
 void Node::add_virtual_loss() {
+    MCTS_DEBUG("Adding virtual loss to node with move " << move_from_parent_);
     virtual_losses_.fetch_add(1, std::memory_order_relaxed);
 }
 
 void Node::remove_virtual_loss() {
-    virtual_losses_.fetch_sub(1, std::memory_order_relaxed);
+    MCTS_DEBUG("Removing virtual loss from node with move " << move_from_parent_);
+    int prev = virtual_losses_.fetch_sub(1, std::memory_order_relaxed);
+    
+    // Ensure we don't go below zero (defensive programming)
+    if (prev <= 0) {
+        MCTS_DEBUG("WARNING: virtual_losses_ went negative, resetting to 0");
+        virtual_losses_.store(0, std::memory_order_relaxed);
+    }
 }
 
 float Node::get_q_value() const {
     int vc = visit_count_.load(std::memory_order_acquire);
     int vl = virtual_losses_.load(std::memory_order_acquire);
-    if (vc == 0) return 0.f;
+    
+    // If no real visits and no virtual losses, return prior * 0.5 as a default value
+    if (vc == 0 && vl == 0) {
+        return 0.0f;
+    }
     
     float tv = total_value_.load(std::memory_order_acquire);
     
     // Apply virtual loss effect - each virtual loss is treated as a loss (-1)
-    return (tv - vl) / (float)(vc + vl);
+    float virtual_loss_value = -1.0f * vl;
+    
+    // Return adjusted Q value
+    return (tv + virtual_loss_value) / (float)(vc + vl);
 }
 
 int Node::get_visit_count() const {

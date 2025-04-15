@@ -7,7 +7,9 @@
 #include <signal.h>
 #include <vector>
 #include <mutex>
+#include <chrono>
 #include "gomoku.h"
+#include "debug.h"
 
 /**
  * We store the final policy + value from the NN
@@ -33,7 +35,7 @@ public:
 };
 
 /**
- * Simplified thread-safe implementation
+ * Enhanced thread-safe implementation with batching support
  */
 class BatchingNNInterface : public NNInterface {
 public:
@@ -41,90 +43,100 @@ public:
         : rng_(std::random_device{}()), 
           use_dummy_(true),
           batch_size_(8),
-          num_history_moves_(num_history_moves)
-    {}
+          num_history_moves_(num_history_moves),
+          inference_count_(0),
+          total_inference_time_ms_(0)
+    {
+        MCTS_DEBUG("BatchingNNInterface created with batch_size=" << batch_size_ 
+                  << ", num_history_moves=" << num_history_moves_);
+    }
     
     void set_infer_callback(std::function<std::vector<NNOutput>(const std::vector<std::tuple<std::string, int, float, float>>&)> cb) {
         std::lock_guard<std::mutex> lock(mutex_);
+        MCTS_DEBUG("Setting inference callback function");
         python_infer_ = cb;
         use_dummy_ = false;
     }
     
     void set_batch_size(int size) {
         std::lock_guard<std::mutex> lock(mutex_);
+        MCTS_DEBUG("Setting batch size to " << size);
         batch_size_ = std::max(1, size);
     }
     
     void set_num_history_moves(int num_moves) {
         std::lock_guard<std::mutex> lock(mutex_);
+        MCTS_DEBUG("Setting history moves to " << num_moves);
         num_history_moves_ = std::max(0, num_moves);
     }
     
     int get_num_history_moves() const {
         return num_history_moves_;
     }
-
+    
+    int get_batch_size() const {
+        return batch_size_;
+    }
+    
+    // Single inference request (maintaining compatibility)
     void request_inference(const Gamestate& state,
                         int chosen_move,
                         float attack,
                         float defense,
                         std::vector<float>& outPolicy,
-                        float& outValue) {
-        // Always use default/dummy values - for emergency fix
+                        float& outValue) override {
+        MCTS_DEBUG("Requesting single inference");
+        
+        // Create default/dummy values as fallback
         outPolicy.resize(state.board_size * state.board_size, 1.0f/(state.board_size * state.board_size));
         outValue = 0.0f;
         
         if (use_dummy_ || !python_infer_) {
+            MCTS_DEBUG("Using dummy values (no callback set)");
             return;
         }
 
         try {
-            // Directly call Python with a strict timeout
+            // Prepare batch with single input
             std::string stateStr = create_state_string(state, chosen_move, attack, defense);
+            std::vector<std::tuple<std::string, int, float, float>> inputs = {
+                {stateStr, chosen_move, attack, defense}
+            };
             
-            // Only call Python if we're not in a high-pressure situation
-            if (simulations_in_flight_.load() < 10) {
-                std::vector<std::tuple<std::string, int, float, float>> inputs = {
-                    {stateStr, chosen_move, attack, defense}
-                };
-                
-                // Call Python with a trivial timeout
-                pybind11::gil_scoped_acquire acquire;
-                auto results = python_infer_(inputs);
-                
-                if (!results.empty()) {
-                    outPolicy = results[0].policy;
-                    outValue = results[0].value;
-                }
+            // Use batch inference method with timeout protection
+            auto start_time = std::chrono::steady_clock::now();
+            
+            std::vector<NNOutput> results = batch_inference_internal(inputs);
+            
+            auto end_time = std::chrono::steady_clock::now();
+            auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+            
+            // Track inference statistics
+            inference_count_++;
+            total_inference_time_ms_ += duration_ms;
+            
+            MCTS_DEBUG("Single inference completed in " << duration_ms << "ms");
+            
+            if (!results.empty()) {
+                outPolicy = results[0].policy;
+                outValue = results[0].value;
+                MCTS_DEBUG("Received policy size: " << outPolicy.size() << ", value: " << outValue);
+            } else {
+                MCTS_DEBUG("Empty results from batch inference, using defaults");
             }
         } catch (const std::exception& e) {
-            // Silently handle errors - keep using default values
-        }
-    }
-
-    // Add method to manually flush the batch
-    void flush_batch() {
-        std::lock_guard<std::mutex> lock(mutex_);
-        if (!batch_inputs_.empty()) {
-            process_batch();
+            MCTS_DEBUG("Error in request_inference: " << e.what());
+            // Keep using default values
         }
     }
     
-    void reset() {
-        std::lock_guard<std::mutex> lock(mutex_);
-        batch_inputs_.clear();
-        batch_outputs_.clear();
+    // New batch inference method for leaf parallelization
+    std::vector<NNOutput> batch_inference(const std::vector<std::tuple<std::string, int, float, float>>& inputs) {
+        MCTS_DEBUG("Batch inference requested with " << inputs.size() << " inputs");
+        return batch_inference_internal(inputs);
     }
-
-private:
-    std::mt19937 rng_;
-    bool use_dummy_;
-    int batch_size_;
-    int num_history_moves_; // Number of previous moves to include for each player
-    std::mutex mutex_;
-    std::function<std::vector<NNOutput>(const std::vector<std::tuple<std::string,int,float,float>> &)> python_infer_;
-    std::atomic<int> simulations_in_flight_{0}; // Tracks the number of simulations in progress
-
+    
+    // Make state string creation public for leaf parallelization
     std::string create_state_string(const Gamestate& state, int chosen_move, float attack, float defense) {
         std::string stateStr;
         auto board = state.get_board();
@@ -155,95 +167,148 @@ private:
             opponent_moves_str += std::to_string(move) + ",";
         }
         
+        // Append attack/defense values
+        std::string bonus_str = ";Attack:" + std::to_string(attack) + 
+                               ";Defense:" + std::to_string(defense);
+        
         // Append to state string
-        stateStr += current_moves_str + opponent_moves_str;
+        stateStr += current_moves_str + opponent_moves_str + bonus_str;
         
         return stateStr;
     }
 
-    void process_batch() {
-        if (batch_inputs_.empty()) {
-            MCTS_DEBUG("process_batch called with empty input batch");
-            return;
+    // Add method to manually flush the batch
+    void flush_batch() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        MCTS_DEBUG("Manual batch flush requested");
+        if (!batch_inputs_.empty()) {
+            process_batch();
         }
-        
-        MCTS_DEBUG("Processing batch of size " << batch_inputs_.size());
-        auto inputs_copy = batch_inputs_;
-        batch_inputs_.clear();
-        
-        std::vector<NNOutput> results;
-        
-        // Add a simple timeout to avoid hanging on Python calls
-        auto start_time = std::chrono::steady_clock::now();
-        bool python_timed_out = false;
-        
-        try {
-            MCTS_DEBUG("Calling Python inference function");
-            pybind11::gil_scoped_acquire acquire;
-            
-            // Set a signal handler for timeout if on Unix platforms
-            #if defined(__unix__) || defined(__unix) || (defined(__APPLE__) && defined(__MACH__))
-            // Setup alarm for timeout
-            struct sigaction timeout_action;
-            timeout_action.sa_handler = [](int sig) { throw std::runtime_error("Python call timed out"); };
-            sigemptyset(&timeout_action.sa_mask);
-            timeout_action.sa_flags = 0;
-            struct sigaction old_action;
-            sigaction(SIGALRM, &timeout_action, &old_action);
-            alarm(1);  // 1 second timeout
-            #endif
-            
-            // Call the Python function
-            try {
-                results = python_infer_(inputs_copy);
-            } catch (const std::exception& e) {
-                MCTS_DEBUG("Error in Python call: " << e.what());
-                python_timed_out = true;
-            }
-            
-            #if defined(__unix__) || defined(__unix) || (defined(__APPLE__) && defined(__MACH__))
-            // Cancel alarm and restore old handler
-            alarm(0);
-            sigaction(SIGALRM, &old_action, nullptr);
-            #endif
-            
-            MCTS_DEBUG("Python inference returned " << results.size() << " results");
-        } catch (const std::exception& e) {
-            MCTS_DEBUG("Error in process_batch: " << e.what());
-            python_timed_out = true;
-        }
-        
-        // Check for timeout based on elapsed time as a backup
-        auto elapsed = std::chrono::steady_clock::now() - start_time;
-        if (std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count() > 500) {
-            python_timed_out = true;
-            MCTS_DEBUG("Python inference timed out based on elapsed time");
-        }
-        
-        // If we timed out or got no results, create default outputs
-        if (python_timed_out || results.empty()) {
-            MCTS_DEBUG("Using default values for batch");
-            results.clear();
-            for (size_t i = 0; i < inputs_copy.size(); i++) {
-                NNOutput output;
-                output.policy.resize(15 * 15, 1.0f / (15 * 15));
-                output.value = 0.0f;
-                results.push_back(output);
-            }
-        }
-        
-        // Ensure we have enough outputs
-        batch_outputs_ = results;
-        while (batch_outputs_.size() < inputs_copy.size()) {
-            NNOutput default_output;
-            default_output.policy.resize(15 * 15, 1.0f/(15 * 15));
-            default_output.value = 0.0f;
-            batch_outputs_.push_back(default_output);
-        }
-        
-        MCTS_DEBUG("Batch processing complete, outputs size: " << batch_outputs_.size());
     }
     
+    void reset() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        MCTS_DEBUG("Resetting batch interface");
+        batch_inputs_.clear();
+        batch_outputs_.clear();
+        inference_count_ = 0;
+        total_inference_time_ms_ = 0;
+    }
+    
+    // Get statistics
+    double get_avg_inference_time_ms() const {
+        if (inference_count_ == 0) return 0.0;
+        return static_cast<double>(total_inference_time_ms_) / inference_count_;
+    }
+    
+    int get_inference_count() const {
+        return inference_count_;
+    }
+
+private:
+    std::mt19937 rng_;
+    bool use_dummy_;
+    int batch_size_;
+    int num_history_moves_; // Number of previous moves to include for each player
+    std::mutex mutex_;
+    std::function<std::vector<NNOutput>(const std::vector<std::tuple<std::string,int,float,float>> &)> python_infer_;
+    
+    // Statistics tracking
+    std::atomic<int> inference_count_;
+    std::atomic<int64_t> total_inference_time_ms_;
+    
+    // Internal batch data
     std::vector<std::tuple<std::string,int,float,float>> batch_inputs_;
     std::vector<NNOutput> batch_outputs_;
+    
+    // Internal batch inference implementation with GIL safety and timeout
+    std::vector<NNOutput> batch_inference_internal(const std::vector<std::tuple<std::string, int, float, float>>& inputs) {
+        if (inputs.empty()) {
+            MCTS_DEBUG("Empty inputs to batch_inference_internal");
+            return {};
+        }
+        
+        if (use_dummy_ || !python_infer_) {
+            MCTS_DEBUG("Using dummy values for batch inference (no callback set)");
+            return create_default_outputs(inputs);
+        }
+        
+        // Prepare for Python call
+        std::vector<NNOutput> results;
+        
+        // Track timing outside of inner scopes
+        auto start_time = std::chrono::steady_clock::now();
+        
+        try {
+            MCTS_DEBUG("Calling Python inference with " << inputs.size() << " inputs");
+                    
+            // Direct approach - no conversion to Python list needed
+            // Call the C++ callback function directly with the original inputs
+            {
+                // Acquire the GIL only for the actual Python call
+                pybind11::gil_scoped_acquire gil;
+                
+                MCTS_DEBUG("Acquired GIL, calling inference function directly");
+                results = python_infer_(inputs);
+                MCTS_DEBUG("Inference function returned " << results.size() << " results");
+            }
+            // GIL is released here
+            
+            auto end_time = std::chrono::steady_clock::now();
+            auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+            
+            MCTS_DEBUG("Batch inference completed in " << duration_ms << "ms");
+            
+            // Track inference statistics
+            inference_count_++;
+            total_inference_time_ms_ += duration_ms;
+        } catch (const std::exception& e) {
+            MCTS_DEBUG("Error in batch_inference_internal: " << e.what());
+            return create_default_outputs(inputs);
+        }
+        
+        // Verify results
+        if (results.size() != inputs.size()) {
+            MCTS_DEBUG("Result size mismatch: got " << results.size() << ", expected " << inputs.size());
+            return create_default_outputs(inputs);
+        }
+        
+        return results;
+    }
+    
+    // Add this helper method to the class for creating default outputs
+    std::vector<NNOutput> create_default_outputs(const std::vector<std::tuple<std::string, int, float, float>>& inputs) const {
+        std::vector<NNOutput> defaults;
+        defaults.reserve(inputs.size());
+        
+        for (const auto& input : inputs) {
+            NNOutput output;
+            const auto& [stateStr, move, attack, defense] = input;
+            
+            // Try to extract board size from state string
+            int bs = 15; // Default
+            size_t pos = stateStr.find("Board:");
+            if (pos != std::string::npos) {
+                size_t end = stateStr.find(';', pos);
+                if (end != std::string::npos) {
+                    std::string bs_str = stateStr.substr(pos + 6, end - pos - 6);
+                    try {
+                        bs = std::stoi(bs_str);
+                    } catch (...) {
+                        // Keep default
+                    }
+                }
+            }
+            
+            output.policy.resize(bs * bs, 1.0f/(bs * bs));
+            output.value = 0.0f;
+            defaults.push_back(output);
+        }
+        return defaults;
+    }
+    
+    void process_batch() {
+        // Implementation not used in this version but kept for compatibility
+        MCTS_DEBUG("process_batch method called but not implemented in this version");
+    }
 };

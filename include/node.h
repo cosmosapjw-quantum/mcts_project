@@ -21,7 +21,8 @@ public:
           prior_(prior),
           total_value_(0.0f),
           visit_count_(0),
-          move_from_parent_(moveFromParent)
+          move_from_parent_(moveFromParent),
+          virtual_losses_(0)
     {
         total_nodes_.fetch_add(1, std::memory_order_relaxed);
     }
@@ -61,6 +62,13 @@ public:
 
     void add_virtual_loss();
     void remove_virtual_loss();
+
+    int get_virtual_losses() const { 
+        return virtual_losses_.load(std::memory_order_acquire); 
+    }
+    
+    // Access the expand mutex for thread-safe operations
+    std::mutex& get_expand_mutex() const { return expand_mutex_; }
 
 private:
     Gamestate state_;
