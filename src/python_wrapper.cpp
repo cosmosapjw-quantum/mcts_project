@@ -9,6 +9,7 @@
 #include "python_nn_proxy.h"
 #include "nn_interface.h"
 #include <iostream>
+#include <csignal>
 
 namespace py = pybind11;
 
@@ -18,57 +19,92 @@ namespace py = pybind11;
  */
 class MCTSWrapper {
 public:
-MCTSWrapper(const MCTSConfig& cfg,
-            int boardSize,
-            bool use_renju,
-            bool use_omok,
-            int seed,
-            bool use_pro_long_opening)
-{
-    try {
-        // Initialize board state
-        Gamestate st(boardSize, use_renju, use_omok, seed, use_pro_long_opening);
-        
-        // Create neural network proxy
-        nn_ = std::make_shared<PythonNNProxy>();
-        
-        // Use a limited number of threads - start conservatively
-        MCTSConfig adjusted_cfg = cfg;
-        
-        // Limit threads to a reasonable number (2-8) based on total available
-        unsigned int max_system_threads = std::thread::hardware_concurrency();
-        if (max_system_threads == 0) max_system_threads = 4; // Fallback
-        
-        // Use at most half of available threads, minimum 2, maximum 8
-        int suggested_threads = std::max(2, static_cast<int>(max_system_threads / 2));
-        suggested_threads = std::min(suggested_threads, 8);
-        
-        // Cap at user-requested thread count
-        adjusted_cfg.num_threads = std::min(suggested_threads, cfg.num_threads);
-        
-        // Ensure reasonable batch size
-        if (adjusted_cfg.parallel_leaf_batch_size <= 0) {
-            adjusted_cfg.parallel_leaf_batch_size = 16;
-        } else {
-            // Cap at a reasonable maximum
-            adjusted_cfg.parallel_leaf_batch_size = std::min(adjusted_cfg.parallel_leaf_batch_size, 64);
+    MCTSWrapper(const MCTSConfig& cfg,
+                int boardSize,
+                bool use_renju,
+                bool use_omok,
+                int seed,
+                bool use_pro_long_opening)
+    {
+        try {
+            // Initialize board state
+            Gamestate st(boardSize, use_renju, use_omok, seed, use_pro_long_opening);
+            
+            // Create neural network proxy
+            nn_ = std::make_shared<PythonNNProxy>();
+            
+            // Use a limited number of threads - start conservatively
+            MCTSConfig adjusted_cfg = cfg;
+            
+            // Limit threads to a reasonable number (2-8) based on total available
+            unsigned int max_system_threads = std::thread::hardware_concurrency();
+            if (max_system_threads == 0) max_system_threads = 4; // Fallback
+            
+            // Use at most half of available threads, minimum 2, maximum 8
+            int suggested_threads = std::max(2, static_cast<int>(max_system_threads / 2));
+            suggested_threads = std::min(suggested_threads, 8);
+            
+            // Cap at user-requested thread count
+            adjusted_cfg.num_threads = std::min(suggested_threads, cfg.num_threads);
+            
+            // Ensure reasonable batch size
+            if (adjusted_cfg.parallel_leaf_batch_size <= 0) {
+                adjusted_cfg.parallel_leaf_batch_size = 16;
+            } else {
+                // Cap at a reasonable maximum
+                adjusted_cfg.parallel_leaf_batch_size = std::min(adjusted_cfg.parallel_leaf_batch_size, 64);
+            }
+            
+            MCTS_DEBUG("Creating MCTS with semi-parallel mode: " << adjusted_cfg.num_threads 
+                    << " threads, batch size " << adjusted_cfg.parallel_leaf_batch_size);
+            
+            // Create MCTS engine
+            mcts_ = std::make_unique<MCTS>(adjusted_cfg, nn_, boardSize);
+            
+            // Store configuration
+            config_ = adjusted_cfg;
+            rootState_ = st;
         }
-        
-        MCTS_DEBUG("Creating MCTS with semi-parallel mode: " << adjusted_cfg.num_threads 
-                  << " threads, batch size " << adjusted_cfg.parallel_leaf_batch_size);
-        
-        // Create MCTS engine
-        mcts_ = std::make_unique<MCTS>(adjusted_cfg, nn_, boardSize);
-        
-        // Store configuration
-        config_ = adjusted_cfg;
-        rootState_ = st;
+        catch (const std::exception& e) {
+            MCTS_DEBUG("Exception in MCTSWrapper constructor: " << e.what());
+            throw;
+        }
     }
-    catch (const std::exception& e) {
-        MCTS_DEBUG("Exception in MCTSWrapper constructor: " << e.what());
-        throw;
+
+    ~MCTSWrapper() {
+        MCTS_DEBUG("MCTSWrapper destructor called");
+        
+        // Explicit shutdown in the correct order
+        try {
+            // First, set flags to stop any ongoing search
+            if (mcts_) {
+                MCTS_DEBUG("Setting MCTS shutdown flag");
+                mcts_->set_shutdown_flag(true);
+            }
+            
+            // Clear the leaf gatherer first (if it exists)
+            if (mcts_ && mcts_->get_leaf_gatherer()) {
+                MCTS_DEBUG("Shutting down leaf gatherer first");
+                mcts_->clear_leaf_gatherer();
+            }
+            
+            // Clear the MCTS engine next
+            MCTS_DEBUG("Clearing MCTS engine");
+            mcts_.reset();
+            
+            // Finally, shutdown the neural network after all consumers are gone
+            MCTS_DEBUG("Shutting down neural network interface");
+            nn_.reset();
+            
+            MCTS_DEBUG("MCTSWrapper shutdown complete");
+        } 
+        catch (const std::exception& e) {
+            MCTS_DEBUG("Exception in MCTSWrapper destructor: " << e.what());
+        }
+        catch (...) {
+            MCTS_DEBUG("Unknown exception in MCTSWrapper destructor");
+        }
     }
-}
 
     void set_infer_function(py::object model) {
         MCTS_DEBUG("Setting neural network model");
@@ -184,6 +220,13 @@ MCTSWrapper(const MCTSConfig& cfg,
         return stats;
     }
 
+    // Signal handler for graceful termination
+    static std::atomic<bool> global_shutdown_requested;
+    static void signal_handler(int sig) {
+        MCTS_DEBUG("Received signal " << sig << ", initiating graceful shutdown");
+        global_shutdown_requested.store(true, std::memory_order_release);
+    }
+
 private:
     MCTSConfig config_;
     std::shared_ptr<PythonNNProxy> nn_;  // Changed from BatchingNNInterface
@@ -192,6 +235,8 @@ private:
     Gamestate rootState_;
 };
 
+// Define and initialize the static member
+std::atomic<bool> MCTSWrapper::global_shutdown_requested{false};
 
 PYBIND11_MODULE(mcts_py, m) {
     py::class_<MCTSConfig>(m, "MCTSConfig")
@@ -227,4 +272,16 @@ PYBIND11_MODULE(mcts_py, m) {
        .def("set_exploration_parameters", &MCTSWrapper::set_exploration_parameters,
             py::arg("dirichlet_alpha") = 0.03f, py::arg("noise_weight") = 0.25f)
        .def("get_stats", &MCTSWrapper::get_stats);  // Add stats method binding
+
+    // Register signal handlers for graceful termination
+    m.def("register_signal_handlers", []() {
+        std::signal(SIGINT, MCTSWrapper::signal_handler);  // Qualify with MCTSWrapper::
+        std::signal(SIGTERM, MCTSWrapper::signal_handler); // Qualify with MCTSWrapper::
+        MCTS_DEBUG("Signal handlers registered for graceful shutdown");
+    });
+
+    // Add a shutdown check function
+    m.def("check_shutdown_requested", []() {
+        return MCTSWrapper::global_shutdown_requested.load(std::memory_order_acquire); // Qualify with MCTSWrapper::
+    });
 }

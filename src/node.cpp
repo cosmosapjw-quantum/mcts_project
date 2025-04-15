@@ -1,136 +1,133 @@
-// node.cpp
+// node.cpp - Optimized implementation
 #include "node.h"
 #include <iostream>
 #include <numeric>
+#include <algorithm>
+#include <map>
 
 #include "debug.h"
 
+// Define the static member
 std::atomic<int> Node::total_nodes_(0);
 
-void Node::add_virtual_loss() {
-    MCTS_DEBUG("Adding virtual loss to node with move " << move_from_parent_);
-    virtual_losses_.fetch_add(1, std::memory_order_relaxed);
+// Add memory tracking functionality
+size_t Node::get_memory_usage_kb() {
+    size_t total_bytes = get_approx_memory_usage();
+    return total_bytes / 1024;
 }
 
-void Node::remove_virtual_loss() {
-    MCTS_DEBUG("Removing virtual loss from node with move " << move_from_parent_);
-    int prev = virtual_losses_.fetch_sub(1, std::memory_order_relaxed);
+// Add tree statistics collection
+std::map<std::string, int> Node::collect_tree_stats() const {
+    std::map<std::string, int> stats;
+    stats["total_nodes"] = total_nodes_.load(std::memory_order_acquire);
+    stats["depth"] = 0;
+    stats["branching_factor"] = 0;
+    stats["max_visits"] = visit_count_.load(std::memory_order_acquire);
     
-    // Ensure we don't go below zero (defensive programming)
-    if (prev <= 0) {
-        MCTS_DEBUG("WARNING: virtual_losses_ went negative, resetting to 0");
-        virtual_losses_.store(0, std::memory_order_relaxed);
-    }
-}
-
-float Node::get_q_value() const {
-    int vc = visit_count_.load(std::memory_order_acquire);
-    int vl = virtual_losses_.load(std::memory_order_acquire);
+    // Calculate average branching factor and maximum depth
+    int total_branches = 0;
+    int branch_count = 0;
+    int max_depth = 0;
     
-    // If no real visits and no virtual losses, return prior * 0.5 as a default value
-    if (vc == 0 && vl == 0) {
-        return 0.0f;
-    }
-    
-    float tv = total_value_.load(std::memory_order_acquire);
-    
-    // Apply virtual loss effect - each virtual loss is treated as a loss (-1)
-    float virtual_loss_value = -1.0f * vl;
-    
-    // Return adjusted Q value
-    return (tv + virtual_loss_value) / (float)(vc + vl);
-}
-
-int Node::get_visit_count() const {
-    return visit_count_.load(std::memory_order_acquire);
-}
-
-float Node::get_prior() const {
-    return prior_;
-}
-
-void Node::update_stats(float value) {
-    visit_count_.fetch_add(1, std::memory_order_acq_rel);
-    
-    // For atomic<float>, we need to use compare_exchange_weak
-    float current = total_value_.load(std::memory_order_acquire);
-    float desired = current + value;
-    while (!total_value_.compare_exchange_weak(current, desired,
-                                              std::memory_order_acq_rel,
-                                              std::memory_order_acquire)) {
-        desired = current + value;
-    }
-}
-
-void Node::expand(const std::vector<int>& moves, const std::vector<float>& priors) {
-    std::lock_guard<std::mutex> lock(expand_mutex_);
-    
-    // Already expanded - early return
-    if (!children_.empty()) {
-        return;
-    }
-    
-    // Check if we should limit nodes
-    if (total_nodes_.load() > 4000) { // Approach limit
-        // Create only a few children
-        size_t max_to_create = std::min<size_t>(5, moves.size());
+    // Helper function for recursive traversal
+    std::function<void(const Node*, int)> traverse = [&](const Node* node, int depth) {
+        if (!node) return;
         
-        children_.reserve(max_to_create);
+        max_depth = std::max(max_depth, depth);
         
-        for (size_t i = 0; i < max_to_create && i < moves.size(); i++) {
-            try {
-                Gamestate childState = state_.copy();
-                childState.make_move(moves[i], state_.current_player);
-                
-                auto child = std::make_unique<Node>(childState, moves[i], 
-                    (i < priors.size()) ? priors[i] : 1.0f/max_to_create);
-                    
-                child->parent_ = this;
-                children_.push_back(std::move(child));
+        auto children = node->get_children();
+        if (!children.empty()) {
+            total_branches += children.size();
+            branch_count++;
+        }
+        
+        stats["max_visits"] = std::max(stats["max_visits"], 
+                                      node->get_visit_count());
+        
+        for (Node* child : children) {
+            if (child) {
+                traverse(child, depth + 1);
             }
-            catch (const std::exception& e) {
-                // Log error and continue
-                std::cerr << "Error creating child node: " << e.what() << std::endl;
+        }
+    };
+    
+    // Start traversal from this node
+    traverse(this, 0);
+    
+    // Calculate average branching factor
+    stats["depth"] = max_depth;
+    stats["branching_factor"] = branch_count > 0 ? total_branches / branch_count : 0;
+    
+    return stats;
+}
+
+// Helper method to identify the most critical nodes
+std::vector<Node*> Node::get_critical_path() const {
+    std::vector<Node*> path;
+    const Node* current = this;
+    
+    while (current) {
+        path.push_back(const_cast<Node*>(current));
+        
+        // Get children
+        auto children = current->get_children();
+        if (children.empty()) break;
+        
+        // Find child with highest visit count
+        Node* best_child = nullptr;
+        int max_visits = -1;
+        
+        for (Node* child : children) {
+            if (child) {
+                int visits = child->get_visit_count();
+                if (visits > max_visits) {
+                    max_visits = visits;
+                    best_child = child;
+                }
             }
         }
         
-        return;
+        current = best_child;
     }
     
-    // Normal expansion but with strict limits
-    const size_t MAX_CHILDREN = 10; // Very strict limit
-    size_t num_children = std::min(moves.size(), MAX_CHILDREN);
-    
-    children_.reserve(num_children);
-    
-    for (size_t i = 0; i < num_children && i < moves.size(); i++) {
-        try {
-            Gamestate childState = state_.copy();
-            childState.make_move(moves[i], state_.current_player);
-            
-            auto child = std::make_unique<Node>(childState, moves[i], 
-                (i < priors.size()) ? priors[i] : 1.0f/num_children);
-                
-            child->parent_ = this;
-            children_.push_back(std::move(child));
-        } catch (const std::exception& e) {
-            // Log error and continue
-            std::cerr << "Error creating child node: " << e.what() << std::endl;
-        }
-    }
+    return path;
 }
 
-std::vector<Node*> Node::get_children() const {
-    std::lock_guard<std::mutex> lock(expand_mutex_);
+// Add transposition awareness to avoid duplicate states
+bool Node::is_transposition(const Gamestate& state) const {
+    // In Gomoku, a transposition would be the same board state
+    // This is a simplified check - for a full implementation, you'd need proper
+    // game-specific transposition detection
+    const auto& my_board = state_.get_board();
+    const auto& other_board = state.get_board();
     
-    std::vector<Node*> result;
-    result.reserve(children_.size());
+    // Simple board comparison
+    if (my_board.size() != other_board.size()) return false;
     
-    for (const auto& c : children_) {
-        if (c) {  // Add null check to be defensive
-            result.push_back(c.get());
+    for (size_t i = 0; i < my_board.size(); ++i) {
+        if (my_board[i].size() != other_board[i].size()) return false;
+        
+        for (size_t j = 0; j < my_board[i].size(); ++j) {
+            if (my_board[i][j] != other_board[i][j]) return false;
         }
     }
     
-    return result;
+    return true;
+}
+
+// Add memory-efficient tree pruning
+int Node::prune_tree(float visit_threshold) {
+    int pruned = 0;
+    
+    // First prune this node's children
+    pruned += prune_low_visit_branches(visit_threshold);
+    
+    // Then recursively prune all children
+    for (auto& child_ptr : children_) {
+        if (child_ptr) {
+            pruned += child_ptr->prune_tree(visit_threshold);
+        }
+    }
+    
+    return pruned;
 }

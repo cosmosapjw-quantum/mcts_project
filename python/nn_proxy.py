@@ -1,4 +1,5 @@
-# python/nn_proxy.py
+# python/nn_proxy.py - Optimized version for GPU utilization
+
 import queue
 import threading
 import time
@@ -18,9 +19,10 @@ is_initialized = False
 is_running = False
 debug_mode = True  # Set to False in production
 
-# Constants
-MAX_BATCH_SIZE = 16
+# Constants - OPTIMIZED FOR 3060 Ti 8GB
+MAX_BATCH_SIZE = 256  # Increased from 16 to 256 for better GPU utilization
 DEFAULT_TIMEOUT = 1.0  # seconds
+USE_MIXED_PRECISION = True  # Use FP16 for faster inference
 
 def debug_print(message):
     """Print a debug message with timestamp"""
@@ -28,21 +30,50 @@ def debug_print(message):
         timestamp = time.strftime("%H:%M:%S", time.localtime())
         print(f"[PYMODEL {timestamp}] {message}", flush=True)
 
-def initialize_neural_network(model, batch_size=16, device="cuda"):
+def initialize_neural_network(model, batch_size=256, device="cuda"):
     """
-    Initialize the neural network proxy system.
+    Initialize the neural network proxy system with optimizations for GPU.
     
     Args:
         model: The neural network model instance
-        batch_size: Maximum batch size for evaluation
+        batch_size: Maximum batch size for evaluation (default: 256 for better GPU utilization)
         device: Device to run the model on ('cuda' or 'cpu')
     """
-    global model_thread, request_queue, response_queue, model_instance, is_initialized, is_running, MAX_BATCH_SIZE
+    global model_thread, request_queue, response_queue, model_instance, is_initialized, is_running, MAX_BATCH_SIZE, USE_MIXED_PRECISION
     
     # Only initialize once
     if is_initialized:
         debug_print("Neural network proxy already initialized")
         return
+    
+    # Configure batch size based on device and available memory
+    if device == "cuda" and torch.cuda.is_available():
+        # Get GPU properties
+        gpu_name = torch.cuda.get_device_name(0)
+        gpu_memory = torch.cuda.get_device_properties(0).total_memory / (1024**3)  # GB
+        
+        debug_print(f"Detected GPU: {gpu_name} with {gpu_memory:.1f}GB VRAM")
+        
+        # Optimize batch size based on GPU memory
+        # For 3060 Ti (8GB), use larger batches
+        if "3060 Ti" in gpu_name or "3070" in gpu_name or gpu_memory >= 8.0:
+            if batch_size < 128:
+                batch_size = 256
+                debug_print(f"Automatically increased batch size to {batch_size} for {gpu_name}")
+            
+            # Enable CUDA optimizations
+            torch.backends.cudnn.benchmark = True  # Optimize for fixed input sizes
+            debug_print("Enabled cuDNN benchmark for performance optimization")
+            
+            # Log mixed precision status
+            if USE_MIXED_PRECISION:
+                debug_print("Mixed precision (FP16) enabled for faster inference")
+            
+    else:
+        # If using CPU, use smaller batches
+        batch_size = min(64, batch_size)
+        USE_MIXED_PRECISION = False
+        debug_print(f"Using CPU mode with batch size {batch_size}")
     
     debug_print(f"Initializing neural network proxy with batch_size={batch_size}, device={device}")
     
@@ -62,7 +93,8 @@ def initialize_neural_network(model, batch_size=16, device="cuda"):
     model_thread = threading.Thread(target=model_worker, args=(device,), daemon=True)
     model_thread.start()
     
-    debug_print("Neural network proxy initialized successfully")
+    debug_print(f"Neural network proxy initialized successfully with batch size {MAX_BATCH_SIZE}")
+    debug_print(f"Inference configuration: device={device}, mixed_precision={USE_MIXED_PRECISION}")
 
 def shutdown():
     """Shutdown the neural network proxy system"""
@@ -83,7 +115,7 @@ def shutdown():
 
 def model_worker(device="cuda"):
     """Worker function that runs in a dedicated thread and owns the neural network model"""
-    global model_instance, is_running
+    global model_instance, is_running, USE_MIXED_PRECISION
     
     debug_print(f"Model worker thread starting on device: {device}")
     
@@ -91,6 +123,13 @@ def model_worker(device="cuda"):
     if model_instance is not None:
         model_instance.to(torch.device(device))
         model_instance.eval()  # Set to evaluation mode
+        
+        # Notify user of model size (parameter count)
+        param_count = sum(p.numel() for p in model_instance.parameters())
+        debug_print(f"Model has {param_count:,} parameters")
+    
+    # Initialize mixed precision scaler if using mixed precision
+    scaler = torch.cuda.amp.GradScaler() if USE_MIXED_PRECISION and device == "cuda" else None
     
     # Statistics
     total_batches = 0
@@ -122,7 +161,7 @@ def model_worker(device="cuda"):
             batch_start = time.time()
             
             # Process batch with model
-            results = process_batch_with_model(requests)
+            results = process_batch_with_model(requests, scaler, device)
             
             # Calculate elapsed time
             batch_time = time.time() - batch_start
@@ -152,17 +191,20 @@ def model_worker(device="cuda"):
             debug_print(traceback.format_exc())
             time.sleep(0.01)  # Reduced from 0.1s to 0.01s
 
-def process_batch_with_model(requests):
+def process_batch_with_model(requests, scaler=None, device="cuda"):
     """
     Process a batch of requests with the neural network model.
+    Uses mixed precision for faster inference when available.
     
     Args:
         requests: List of (request_id, state_str, chosen_move, attack, defense) tuples
+        scaler: GradScaler for mixed precision if enabled
+        device: Device to run inference on
     
     Returns:
         List of (policy, value) tuples
     """
-    global model_instance
+    global model_instance, USE_MIXED_PRECISION
     
     # Check if model is available
     if model_instance is None:
@@ -195,10 +237,12 @@ def process_batch_with_model(requests):
         # Calculate input dimension
         input_dim = board_size*board_size + 1 + 2*num_history_moves + 2
         
-        # Create input tensor
+        # Create input tensor - use float16 for inputs if using mixed precision
+        dtype = torch.float16 if USE_MIXED_PRECISION and device == "cuda" else torch.float32
         x_input = np.zeros((batch_size, input_dim), dtype=np.float32)
         
         # Process each input
+        parse_start = time.time()
         for i, (state_str, chosen_move, attack, defense) in enumerate(inputs):
             try:
                 # Parse the board state from state_str
@@ -270,21 +314,32 @@ def process_batch_with_model(requests):
                 debug_print(f"Error parsing input {i}: {str(e)}")
                 # Continue with zeros for this input
         
+        parse_time = time.time() - parse_start
+        debug_print(f"Input parsing completed in {parse_time:.3f}s")
+        
         # Convert to PyTorch tensor
         debug_print(f"Input tensor created with shape {x_input.shape}")
-        t_input = torch.from_numpy(x_input).to(next(model_instance.parameters()).device)
+        t_input = torch.tensor(x_input, dtype=dtype, device=torch.device(device))
         
-        # Run forward pass
+        # Run forward pass with mixed precision if enabled
         with torch.no_grad():
             debug_print("Running model forward pass")
             start_forward = time.time()
-            policy_logits, value_out = model_instance(t_input)
+            
+            if USE_MIXED_PRECISION and device == "cuda":
+                # Use autocast for mixed precision inference
+                with torch.cuda.amp.autocast():
+                    policy_logits, value_out = model_instance(t_input)
+            else:
+                # Regular inference
+                policy_logits, value_out = model_instance(t_input)
+            
             forward_time = time.time() - start_forward
             debug_print(f"Forward pass completed in {forward_time:.3f}s")
             
-            # Move results to CPU
-            policy_logits = policy_logits.cpu()
-            value_out = value_out.cpu()
+            # Move results to CPU and convert to appropriate precision
+            policy_logits = policy_logits.cpu().float()
+            value_out = value_out.cpu().float()
         
         # Convert to probabilities using softmax
         policy_probs = F.softmax(policy_logits, dim=1).numpy()

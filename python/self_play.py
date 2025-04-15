@@ -23,7 +23,7 @@ global_data_buffer = []
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Create the neural network with configurable history moves parameter
-board_size = 15
+board_size = 9
 policy_dim = board_size * board_size
 num_history_moves = 7  # Configure this as needed
 
@@ -42,7 +42,7 @@ def self_play_game():
     cfg = mcts_py.MCTSConfig()
     
     # Set simulation count based on desired quality
-    cfg.num_simulations = 400  # Increased for better play quality
+    cfg.num_simulations = 100  # Increased for better play quality
     
     # Set exploration parameter
     cfg.c_puct = 1.5  # Slightly increased for more exploration
@@ -201,7 +201,7 @@ def main():
     
     # Configure and print system information
     import torch
-    num_games = 4  # Number of games to play for training data
+    num_games = 3  # Number of games to play for training data
     
     debug_print(f"System configuration:")
     debug_print(f"  PyTorch version: {torch.__version__}")

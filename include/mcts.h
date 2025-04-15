@@ -41,6 +41,31 @@ public:
     void add_dirichlet_noise(std::vector<float>& priors);
     int select_move_with_temperature(float temperature = 1.0f) const;
 
+    void set_shutdown_flag(bool flag) {
+        shutdown_flag_ = flag;
+    }
+    
+    std::shared_ptr<LeafGatherer> get_leaf_gatherer() {
+        return std::shared_ptr<LeafGatherer>(leaf_gatherer_.release());
+    }
+    
+    void clear_leaf_gatherer() {
+        // Gracefully shutdown leaf gatherer
+        if (leaf_gatherer_) {
+            try {
+                MCTS_DEBUG("MCTS explicitly shutting down leaf gatherer");
+                leaf_gatherer_->shutdown();
+                MCTS_DEBUG("Leaf gatherer shutdown complete, clearing reference");
+                leaf_gatherer_.reset();
+            }
+            catch (const std::exception& e) {
+                MCTS_DEBUG("Error shutting down leaf gatherer: " << e.what());
+                // Force reset anyway
+                leaf_gatherer_.reset();
+            }
+        }
+    }
+
 private:
     void worker_thread();
     void run_single_simulation(int sim_index);
@@ -96,4 +121,5 @@ private:
     
     // Method for semi-parallel search
     void run_semi_parallel_search(int num_simulations);
+    void analyze_search_result();
 };
