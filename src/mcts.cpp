@@ -1270,7 +1270,14 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
         }
         
         // Select new leaves
+        bool any_selection_successful = false;
         for (int i = 0; i < leaves_to_select; i++) {
+            // Safety check - avoid infinite loop if select_node keeps returning nullptr
+            if (!any_selection_successful && i > 0) {
+                MCTS_DEBUG("Multiple selection failures, taking a short break");
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
+            }
+            
             // Select a leaf node
             Node* leaf = select_node(root_.get());
             if (!leaf) {
@@ -1278,7 +1285,32 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                 continue;
             }
             
+            any_selection_successful = true;
             leaf_count++;
+            
+            // Track leaf selection to prevent infinite loops
+            static std::unordered_map<Node*, int> selection_count;
+            int& times_selected = selection_count[leaf];
+            times_selected++;
+            
+            // If the same leaf is selected multiple times in a row, something is wrong
+            if (times_selected > 3) {
+                MCTS_DEBUG("WARNING: Same leaf selected " << times_selected << " times, forcing expansion");
+                
+                // Force immediate evaluation instead of queuing
+                try {
+                    expand_and_evaluate(leaf);
+                    simulations_completed++;
+                    simulations_done_.store(simulations_completed, std::memory_order_relaxed);
+                    
+                    // Reset selection count after successful expansion
+                    times_selected = 0;
+                    continue;
+                } catch (const std::exception& e) {
+                    MCTS_DEBUG("Error in forced expansion: " << e.what());
+                    // Continue with normal flow
+                }
+            }
             
             // Handle terminal nodes immediately
             if (leaf->get_state().is_terminal()) {
@@ -2676,12 +2708,18 @@ Node* MCTS::select_node(Node* root) const {
     std::vector<Node*> path;
     
     // Track the path from root to leaf with a maximum depth
-    const int MAX_SEARCH_DEPTH = 200; // Reduced from 500 for safety
+    const int MAX_SEARCH_DEPTH = 200; // Reduced for safety
     int depth = 0;
+    
+    // CRITICAL FIX: Track already selected unvisited nodes to prevent loops
+    std::set<Node*> selected_this_iteration;
     
     while (current && depth < MAX_SEARCH_DEPTH) {
         try {
             path.push_back(current);
+            
+            // Add to our set of selected nodes
+            selected_this_iteration.insert(current);
         }
         catch (const std::exception& e) {
             MCTS_DEBUG("Error adding node to path: " << e.what());
@@ -2699,7 +2737,6 @@ Node* MCTS::select_node(Node* root) const {
         }
         
         if (is_terminal) {
-            MCTS_DEBUG("Found terminal state during selection");
             break;
         }
         
@@ -2714,7 +2751,6 @@ Node* MCTS::select_node(Node* root) const {
         }
         
         if (is_leaf) {
-            // MCTS_DEBUG("Found leaf node (unexpanded) during selection");
             break;
         }
         
@@ -2732,122 +2768,87 @@ Node* MCTS::select_node(Node* root) const {
             break;
         }
         
-        // Find child with best UCT score
-        float bestScore = -std::numeric_limits<float>::infinity();
-        Node* bestChild = nullptr;
-        
-        // First, filter out null children to avoid issues
+        // First, filter out null children and nodes already selected this iteration
         std::vector<Node*> valid_children;
         valid_children.reserve(children.size());
         
         for (Node* child : children) {
-            if (child) {
-                valid_children.push_back(child);
+            if (child && selected_this_iteration.find(child) == selected_this_iteration.end()) {
+                // Extra safety check: verify child state is accessible
+                try {
+                    const Gamestate& child_state = child->get_state();
+                    int board_size = child_state.board_size;
+                    
+                    // Basic validation
+                    if (board_size > 0 && board_size <= 25) {
+                        valid_children.push_back(child);
+                    }
+                } catch (...) {
+                    // Skip invalid children
+                }
             }
         }
         
-        // If no valid children, break
+        // If no valid children, break to avoid loops
         if (valid_children.empty()) {
-            MCTS_DEBUG("No valid children found during selection");
+            MCTS_DEBUG("No more valid children to select (preventing loop), returning current node");
             break;
         }
         
-        // Safety check - ADDED TO FIX SEGFAULT
-        // Verify children are still valid after filtering (defensive)
-        bool has_invalid_child = false;
+        // Look for unvisited nodes - but track if we've already selected them before
+        std::vector<Node*> unvisited_children;
         for (Node* child : valid_children) {
-            if (!child) {
-                has_invalid_child = true;
-                break;
-            }
-            
-            // Extra safety check: verify child state is accessible
             try {
-                const Gamestate& child_state = child->get_state();
-                int board_size = child_state.board_size;
-                int player = child_state.current_player;
-                
-                // If board_size or player is invalid, consider the child invalid
-                if (board_size <= 0 || board_size > 25 || (player != 1 && player != 2)) {
-                    MCTS_DEBUG("Invalid child state detected: board_size=" << board_size 
-                              << ", player=" << player);
-                    has_invalid_child = true;
-                    break;
+                if (child->get_visit_count() == 0) {
+                    unvisited_children.push_back(child);
                 }
             } catch (...) {
-                has_invalid_child = true;
-                MCTS_DEBUG("Exception accessing child state");
-                break;
+                // Skip on error
             }
         }
         
-        if (has_invalid_child) {
-            MCTS_DEBUG("Invalid child detected during selection, stopping traversal");
-            break;
-        }
-        
-        // Selection phase 1: Filter nodes with disproportionate visit counts
-        // This prevents one branch from being overly explored
-        std::vector<Node*> candidate_children;
-        
-        // Get parent visit count
-        int parent_visits = current->get_visit_count();
-        
-        // First pass: find any nodes with very low visit counts
-        const int MIN_VISITS = 3;  // Minimum visits for consideration
-        bool has_low_visit_nodes = false;
-        
-        for (Node* child : valid_children) {
-            // Safety check - ADDED TO FIX SEGFAULT
-            if (!child) continue;
+        // If we have unvisited children, prioritize them
+        if (!unvisited_children.empty()) {
+            // Select unvisited child with highest prior
+            Node* best_unvisited = nullptr;
+            float best_prior = -std::numeric_limits<float>::infinity();
             
-            int visit_count = 0;
-            try {
-                visit_count = child->get_visit_count();
-            } catch (...) {
-                MCTS_DEBUG("Exception getting visit count");
+            for (Node* child : unvisited_children) {
+                try {
+                    float prior = child->get_prior();
+                    if (prior > best_prior) {
+                        best_prior = prior;
+                        best_unvisited = child;
+                    }
+                } catch (...) {
+                    // Skip on error
+                }
+            }
+            
+            // If found, use this child
+            if (best_unvisited) {
+                // Log selection of unvisited node
+                if (depth < 1) {
+                    try {
+                        MCTS_DEBUG("Selected unvisited child with move " << best_unvisited->get_move_from_parent() 
+                                  << ", prior: " << best_unvisited->get_prior());
+                    } catch (...) {
+                        // Ignore logging errors
+                    }
+                }
+                
+                current = best_unvisited;
+                depth++;
                 continue;
             }
-            
-            if (visit_count < MIN_VISITS) {
-                has_low_visit_nodes = true;
-                break;
-            }
         }
         
-        // If we have low-visit nodes, prioritize them to ensure exploration
-        if (has_low_visit_nodes) {
-            for (Node* child : valid_children) {
-                // Safety check - ADDED TO FIX SEGFAULT
-                if (!child) continue;
-                
-                int visit_count = 0;
-                try {
-                    visit_count = child->get_visit_count();
-                } catch (...) {
-                    continue;
-                }
-                
-                if (visit_count < MIN_VISITS) {
-                    candidate_children.push_back(child);
-                }
-            }
-        } else {
-            // Otherwise, use all children as candidates
-            candidate_children = valid_children;
-        }
+        // If we reach here, we need to select from visited nodes
+        float bestScore = -std::numeric_limits<float>::infinity();
+        Node* bestChild = nullptr;
         
-        // Extra safety check - ADDED TO FIX SEGFAULT
-        if (candidate_children.empty()) {
-            MCTS_DEBUG("No valid candidate children found");
-            break;
-        }
-        
-        // Selection phase 2: Choose best node from candidates using UCT score
-        for (Node* child : candidate_children) {
-            // Safety check - ADDED TO FIX SEGFAULT
-            if (!child) continue;
-            
+        // Calculate UCT scores for all valid children
+        for (Node* child : valid_children) {
             float score = -std::numeric_limits<float>::infinity();
             try {
                 score = uct_score(current, child);
@@ -2873,14 +2874,8 @@ Node* MCTS::select_node(Node* root) const {
             }
         }
         
-        // Safety check if bestChild is still valid - ADDED TO FIX SEGFAULT
-        if (!bestChild) {
-            MCTS_DEBUG("Best child is null after selection, breaking traversal");
-            break;
-        }
-        
         // Log selected child
-        if (depth < 1) {  // Only log the first level for less noise
+        if (depth < 1) {
             try {
                 int visit_count = bestChild->get_visit_count();
                 float q_val = bestChild->get_q_value();
@@ -2892,9 +2887,8 @@ Node* MCTS::select_node(Node* root) const {
                           << ", Q: " << q_val
                           << ", prior: " << prior);
             }
-            catch (const std::exception& e) {
-                MCTS_DEBUG("Error logging selection: " << e.what());
-                // Continue anyway
+            catch (...) {
+                // Ignore logging errors
             }
         }
         
@@ -2907,15 +2901,14 @@ Node* MCTS::select_node(Node* root) const {
         return nullptr;
     }
     
-    // Apply virtual loss to entire path for thread diversity
+    // Apply virtual loss to entire path
     for (Node* node : path) {
         if (node) {
             try {
                 node->add_virtual_loss();
             }
-            catch (const std::exception& e) {
-                MCTS_DEBUG("Error adding virtual loss: " << e.what());
-                // Continue anyway
+            catch (...) {
+                // Ignore virtual loss errors
             }
         }
     }
@@ -2924,75 +2917,150 @@ Node* MCTS::select_node(Node* root) const {
 }
 
 void MCTS::expand_and_evaluate(Node* leaf) {
-    Gamestate st = leaf->get_state();
-    
-    if (st.is_terminal()) {
-        float r = 0.f;
-        int winner = st.get_winner();
-        if (winner == st.current_player) {
-            r = 1.f;
-        } else if (winner == 0) {
-            r = 0.f;
-        } else {
-            r = -1.f;
-        }
-        backup(leaf, r);
+    if (!leaf) {
+        MCTS_DEBUG("expand_and_evaluate called with null leaf");
         return;
     }
-
-    int chosenMove = leaf->get_move_from_parent();
-    if (chosenMove < 0) {
-        std::vector<int> valid_moves = st.get_valid_moves();
-        if (!valid_moves.empty()) {
-            chosenMove = valid_moves[0];
+    
+    try {
+        Gamestate st = leaf->get_state();
+        
+        if (st.is_terminal()) {
+            float r = 0.f;
+            int winner = st.get_winner();
+            if (winner == st.current_player) {
+                r = 1.f;
+            } else if (winner == 0) {
+                r = 0.f;
+            } else {
+                r = -1.f;
+            }
+            backup(leaf, r);
+            return;
+        }
+    
+        int chosenMove = leaf->get_move_from_parent();
+        if (chosenMove < 0) {
+            std::vector<int> valid_moves = st.get_valid_moves();
+            if (!valid_moves.empty()) {
+                chosenMove = valid_moves[0];
+            } else {
+                chosenMove = 0;
+            }
+        }
+    
+        std::vector<std::vector<int>> board2D = st.get_board(); 
+        std::vector<std::vector<std::vector<int>>> board_batch;
+        board_batch.push_back(board2D);
+        
+        std::vector<int> chosen_moves;
+        chosen_moves.push_back(chosenMove);
+        
+        std::vector<int> player_batch;
+        player_batch.push_back(st.current_player);
+        
+        // Compute attack/defense bonuses safely
+        std::vector<float> attackVec;
+        std::vector<float> defenseVec;
+        try {
+            auto [a_vec, d_vec] = attackDefense_.compute_bonuses(
+                board_batch, chosen_moves, player_batch);
+            attackVec = a_vec;
+            defenseVec = d_vec;
+        } catch (const std::exception& e) {
+            MCTS_DEBUG("Error computing attack/defense bonuses: " << e.what());
+            // Use defaults on error
+            attackVec = {0.0f};
+            defenseVec = {0.0f};
+        }
+    
+        float attack = attackVec.empty() ? 0.0f : attackVec[0];
+        float defense = defenseVec.empty() ? 0.0f : defenseVec[0];
+    
+        std::vector<float> policy;
+        float value = 0.f;
+        
+        // Neural network evaluation with safety
+        try {
+            nn_->request_inference(st, chosenMove, attack, defense, policy, value);
+        } catch (const std::exception& e) {
+            MCTS_DEBUG("Error in neural network inference: " << e.what());
+            // Use default values on error
+            auto validMoves = st.get_valid_moves();
+            policy.resize(validMoves.size(), 1.0f / validMoves.size());
+            value = 0.0f;
+        }
+    
+        auto validMoves = st.get_valid_moves();
+        std::vector<float> validPolicies;
+        validPolicies.reserve(validMoves.size());
+        
+        // Process policy with safety checks
+        if (policy.size() == validMoves.size()) {
+            // Policy is already aligned with valid moves
+            validPolicies = policy;
         } else {
-            chosenMove = 0;
+            // Need to extract or create policy for valid moves
+            for (int move : validMoves) {
+                if (move >= 0 && move < static_cast<int>(policy.size())) {
+                    validPolicies.push_back(policy[move]);
+                } else {
+                    validPolicies.push_back(1.0f / validMoves.size());
+                }
+            }
         }
-    }
-
-    std::vector<std::vector<int>> board2D = st.get_board(); 
-    std::vector<std::vector<std::vector<int>>> board_batch;
-    board_batch.push_back(board2D);
-    
-    std::vector<int> chosen_moves;
-    chosen_moves.push_back(chosenMove);
-    
-    std::vector<int> player_batch;
-    player_batch.push_back(st.current_player);
-    
-    auto [attackVec, defenseVec] = attackDefense_.compute_bonuses(
-        board_batch, chosen_moves, player_batch);
-
-    float attack = attackVec[0];
-    float defense = defenseVec[0];
-
-    std::vector<float> policy;
-    float value = 0.f;
-    
-    nn_->request_inference(st, chosenMove, attack, defense, policy, value);
-
-    auto validMoves = st.get_valid_moves();
-    std::vector<float> validPolicies;
-    validPolicies.reserve(validMoves.size());
-    
-    for (int move : validMoves) {
-        if (move >= 0 && move < static_cast<int>(policy.size())) {
-            validPolicies.push_back(policy[move]);
+        
+        // Normalize policy
+        float sum = 0.0f;
+        for (float p : validPolicies) {
+            sum += p;
+        }
+        
+        if (sum > 0) {
+            for (auto& p : validPolicies) {
+                p /= sum;
+            }
         } else {
-            validPolicies.push_back(1.0f / validMoves.size());
+            // Uniform policy if sum is zero
+            for (auto& p : validPolicies) {
+                p = 1.0f / validPolicies.size();
+            }
+        }
+        
+        // Expand node and mark as visited
+        try {
+            leaf->expand(validMoves, validPolicies);
+        } catch (const std::exception& e) {
+            MCTS_DEBUG("Error expanding leaf: " << e.what());
+            // Try fallback expansion with uniform policy
+            std::vector<float> uniform(validMoves.size(), 1.0f / validMoves.size());
+            leaf->expand(validMoves, uniform);
+        }
+    
+        // Backup value
+        backup(leaf, value);
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in expand_and_evaluate: " << e.what());
+        
+        // Emergency recovery - try to ensure node is marked as visited
+        try {
+            auto validMoves = leaf->get_state().get_valid_moves();
+            if (!validMoves.empty() && leaf->is_leaf()) {
+                std::vector<float> uniform(validMoves.size(), 1.0f / validMoves.size());
+                leaf->expand(validMoves, uniform);
+                leaf->update_stats(0.0f); // Mark as visited with neutral value
+            }
+        } catch (...) {
+            // Last-resort fallback - at least remove virtual losses
+            try {
+                Node* current = leaf;
+                while (current) {
+                    current->remove_virtual_loss();
+                    current = current->get_parent();
+                }
+            } catch (...) {}
         }
     }
-    
-    float sum = std::accumulate(validPolicies.begin(), validPolicies.end(), 0.0f);
-    if (sum > 0) {
-        for (auto& p : validPolicies) {
-            p /= sum;
-        }
-    }
-    
-    leaf->expand(validMoves, validPolicies);
-
-    backup(leaf, value);
 }
 
 void MCTS::backup(Node* leaf, float value) {
@@ -3099,42 +3167,81 @@ float MCTS::uct_score(const Node* parent, const Node* child) const {
 
     // Use a try-catch block to handle any exceptions
     try {
-        // Safely access all needed values with null checks at each step
+        // CRITICAL FIX: Special handling for zero-visit nodes
+        int childVisits = 0;
+        try {
+            childVisits = child->get_visit_count();
+        } catch (...) {
+            MCTS_DEBUG("uct_score: Exception getting child visits, defaulting to 0");
+            childVisits = 0;
+        }
+        
+        // Zero-visit case: use exploration-only score with some randomness to break ties
+        if (childVisits == 0) {
+            float P = 0.0f;
+            try {
+                P = child->get_prior();
+            } catch (...) {
+                MCTS_DEBUG("uct_score: Exception getting prior, using default");
+                P = 0.01f; // Small default prior
+            }
+            
+            int parentVisits = 1;
+            try {
+                parentVisits = std::max(1, parent->get_visit_count());
+            } catch (...) {
+                MCTS_DEBUG("uct_score: Exception getting parent visits, using default");
+            }
+            
+            // Use a safer exploration formula for unvisited nodes
+            float exploration = config_.c_puct * P * std::sqrt(parentVisits) / 1.0f;
+            
+            // Add small random factor to break ties (but keep it deterministic based on move)
+            int move = child->get_move_from_parent();
+            int board_size = parent->get_state().board_size;
+            
+            // Use move as a seed for a simple hash
+            float tie_breaker = 0.0001f * ((move * 123) % 1000) / 1000.0f;
+            
+            return exploration + tie_breaker;
+        }
+        
+        // For visited nodes, use standard formula with safety checks
         float Q = 0.0f;
         try {
             Q = child->get_q_value();
+            // Clamp Q to reasonable bounds to prevent extreme values
+            Q = std::max(std::min(Q, 1.0f), -1.0f);
         } catch (...) {
             MCTS_DEBUG("uct_score: Exception getting Q value");
-            return -std::numeric_limits<float>::infinity();
+            Q = 0.0f; // Neutral score on error
         }
         
         float P = 0.0f;
         try {
             P = child->get_prior();
+            // Ensure prior is positive and reasonable
+            P = std::max(0.001f, std::min(P, 1.0f));
         } catch (...) {
             MCTS_DEBUG("uct_score: Exception getting prior");
-            return -std::numeric_limits<float>::infinity();
+            P = 0.01f; // Small default prior
         }
         
         int parentVisits = 0;
         try {
             parentVisits = parent->get_visit_count();
+            // Ensure parent visits is positive
+            parentVisits = std::max(1, parentVisits);
         } catch (...) {
             MCTS_DEBUG("uct_score: Exception getting parent visits");
-            return -std::numeric_limits<float>::infinity();
-        }
-        
-        int childVisits = 0;
-        try {
-            childVisits = child->get_visit_count();
-        } catch (...) {
-            MCTS_DEBUG("uct_score: Exception getting child visits");
-            return -std::numeric_limits<float>::infinity();
+            parentVisits = 1; // Default to 1 on error
         }
         
         int virtual_losses = 0;
         try {
             virtual_losses = child->get_virtual_losses();
+            // Ensure virtual losses is non-negative
+            virtual_losses = std::max(0, virtual_losses);
         } catch (...) {
             MCTS_DEBUG("uct_score: Exception getting virtual losses");
             virtual_losses = 0; // Default to 0 on error
@@ -3142,52 +3249,16 @@ float MCTS::uct_score(const Node* parent, const Node* child) const {
         
         // Add virtual losses to the child visit count for exploration term
         int effective_child_visits = childVisits + virtual_losses;
-        
-        // Ensure valid values - be extra defensive
-        if (parentVisits < 0) parentVisits = 0;
-        if (effective_child_visits < 0) effective_child_visits = 0;
-        if (std::isnan(Q) || std::isinf(Q)) Q = 0.0f;
-        if (std::isnan(P) || std::isinf(P)) P = 1.0f / parent->get_children().size();
+        effective_child_visits = std::max(1, effective_child_visits); // Ensure it's at least 1
         
         // Base PUCT constant
         float c_base = config_.c_puct;
         
-        // Calculate FPU (First Play Urgency) value for unvisited nodes
-        float fpu_reduction = 0.2f;  // Reduction from parent value
-        float parent_q = 0.0f;  // Default value
+        // Calculate exploration term with numeric stability 
+        float parentSqrt = std::sqrt(static_cast<float>(parentVisits));
         
-        // If parent has visits, use its Q-value
-        if (parentVisits > 0) {
-            // Try to get parent's Q-value for FPU calculation
-            try {
-                parent_q = parent->get_q_value();
-            } catch (...) {
-                // Ignore errors, use default
-            }
-        }
-        
-        // Apply FPU for unvisited nodes
-        if (childVisits == 0) {
-            Q = parent_q - fpu_reduction;  // Reduced optimism for unvisited nodes
-        }
-        
-        // Dynamic c_puct - decreases as child visits increase for better exploitation
-        float c_init = c_base; 
-        float c_final = c_base * 0.5f;  // End at half the initial value
-        float decay_factor = 50.0f;  // Controls how quickly c_puct decreases
-        
-        float adjusted_c = c_init;
-        if (effective_child_visits > 0) {
-            // Gradually decay from c_init to c_final as visits increase
-            float visit_factor = std::min(1.0f, effective_child_visits / decay_factor);
-            adjusted_c = c_init - (c_init - c_final) * visit_factor;
-        }
-        
-        // Safety check to prevent square root of negative number
-        float parentSqrt = std::sqrt(std::max(1e-8f, static_cast<float>(parentVisits)));
-        
-        // Calculate exploration term with numeric stability and progressive bias
-        float U = adjusted_c * P * parentSqrt / (1.0f + effective_child_visits);
+        // Ensure the exploration term is reasonable
+        float U = c_base * P * parentSqrt / static_cast<float>(effective_child_visits);
         
         // Final safety check for NaN or infinity
         float final_score = Q + U;
@@ -3202,10 +3273,10 @@ float MCTS::uct_score(const Node* parent, const Node* child) const {
     }
     catch (const std::exception& e) {
         MCTS_DEBUG("Error calculating UCT score: " << e.what());
-        return -std::numeric_limits<float>::infinity();
+        return 0.0f; // Return neutral value on exception
     }
     catch (...) {
         MCTS_DEBUG("Unknown error calculating UCT score");
-        return -std::numeric_limits<float>::infinity();
+        return 0.0f; // Return neutral value on exception
     }
 }

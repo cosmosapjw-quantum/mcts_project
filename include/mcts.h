@@ -133,7 +133,7 @@ private:
     void analyze_search_result();
 
     // helper method to MCTS class to create center-biased policies
-    std::vector<float> create_center_biased_policy(const std::vector<int>& valid_moves, int board_size) {
+    std::vector<float> create_center_biased_policy(const std::vector<int>& valid_moves, int board_size) const {
         std::vector<float> policy(valid_moves.size(), 1.0f / valid_moves.size());
         
         // Apply slight bias toward center for better initial play
