@@ -731,6 +731,43 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
     
     MCTS_DEBUG("Using batch size: " << MAX_BATCH_SIZE);
     
+    // Helper function to create a center-biased policy
+    auto create_center_biased_policy = [](const std::vector<int>& valid_moves, int board_size) -> std::vector<float> {
+        std::vector<float> policy(valid_moves.size(), 1.0f / valid_moves.size());
+        
+        // Apply slight bias toward center for better initial play
+        if (policy.size() > 4) {
+            const float CENTER_BIAS = 1.2f;  // 20% boost for center moves
+            float center_row = (board_size - 1) / 2.0f;
+            float center_col = (board_size - 1) / 2.0f;
+            float max_dist = std::sqrt(center_row * center_row + center_col * center_col);
+            
+            float sum = 0.0f;
+            for (size_t i = 0; i < valid_moves.size(); i++) {
+                int move = valid_moves[i];
+                int row = move / board_size;
+                int col = move % board_size;
+                
+                // Calculate distance from center (normalized to [0,1])
+                float dist = std::sqrt(std::pow(row - center_row, 2) + std::pow(col - center_col, 2));
+                float norm_dist = dist / max_dist;
+                
+                // Closer to center gets higher prior
+                policy[i] *= (1.0f + (CENTER_BIAS - 1.0f) * (1.0f - norm_dist));
+                sum += policy[i];
+            }
+            
+            // Renormalize
+            if (sum > 0) {
+                for (auto& p : policy) {
+                    p /= sum;
+                }
+            }
+        }
+        
+        return policy;
+    };
+    
     // Helper to process completed futures with timeout protection
     auto process_completed_futures = [&]() {
         // Make a local copy of pending evals
@@ -756,8 +793,15 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                 if (status == std::future_status::ready) {
                     completed_indices.push_back(i);
                 }
-                // Consider a future timed out if waiting over 1 second
-                else if (wait_time > 1000) {
+                
+                // Use adaptive timeout based on current load
+                // - More pending evals = longer timeout
+                // - More time since start = longer timeout (avoid timeouts at end of search)
+                int dynamic_timeout = 
+                    std::min(3000, 1000 + static_cast<int>(pending_evals.size()) * 50);
+                
+                // Consider a future timed out if waiting over the dynamic timeout
+                if (wait_time > dynamic_timeout) {
                     timeout_indices.push_back(i);
                     eval_timeouts++;
                 }
@@ -797,7 +841,7 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                 auto queue_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
                     now - eval.submit_time).count();
                     
-                if (queue_ms > 500) {
+                if (queue_ms > 1000) {
                     MCTS_DEBUG("Leaf evaluation took " << queue_ms << "ms");
                 }
                 
@@ -820,7 +864,8 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                 float value = 0.0f;
                 bool use_default = false;
                 
-                auto wait_status = eval.future.wait_for(std::chrono::milliseconds(1));
+                // Use a longer final timeout for pending futures
+                auto wait_status = eval.future.wait_for(std::chrono::milliseconds(50));
                 if (wait_status == std::future_status::ready) {
                     try {
                         // Get the result
@@ -836,44 +881,14 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                 }
                 else {
                     use_default = true;
-                    MCTS_DEBUG("Future not ready, using default values");
+                    MCTS_DEBUG("Future not ready after final wait, using default values");
                     eval_timeouts++;
                 }
                 
-                // Use uniform policy if needed
+                // Use center-biased policy for better defaults
                 if (use_default || policy.empty() || policy.size() != valid_moves.size()) {
-                    // Create uniform policy with a slight positive bias for the center
-                    policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
-                    
-                    // Apply slight bias toward center for better initial play
-                    if (policy.size() > 9) {
-                        const float CENTER_BIAS = 1.1f;  // 10% boost for center moves
-                        int board_size = leaf->get_state().board_size;
-                        
-                        for (size_t i = 0; i < valid_moves.size(); i++) {
-                            int move = valid_moves[i];
-                            int row = move / board_size;
-                            int col = move % board_size;
-                            
-                            // Calculate distance from center (normalized to [0,1])
-                            float center_row = (board_size - 1) / 2.0f;
-                            float center_col = (board_size - 1) / 2.0f;
-                            float dist = std::sqrt(std::pow(row - center_row, 2) + std::pow(col - center_col, 2));
-                            float max_dist = std::sqrt(std::pow(board_size, 2));
-                            float norm_dist = dist / max_dist;
-                            
-                            // Closer to center gets higher prior
-                            policy[i] *= (1.0f + (CENTER_BIAS - 1.0f) * (1.0f - norm_dist));
-                        }
-                        
-                        // Renormalize after applying bias
-                        float sum = std::accumulate(policy.begin(), policy.end(), 0.0f);
-                        if (sum > 0) {
-                            for (auto& p : policy) {
-                                p /= sum;
-                            }
-                        }
-                    }
+                    // Create center-biased policy instead of completely uniform
+                    policy = create_center_biased_policy(valid_moves, leaf->get_state().board_size);
                 }
                 
                 // Expand the node with policy
@@ -956,11 +971,11 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                     
                     processed_count++;
                 } else {
-                    // Fallback to uniform policy
-                    MCTS_DEBUG("Invalid result at index " << i << ", using uniform policy");
-                    std::vector<float> uniform_policy(valid_moves.size(), 1.0f / valid_moves.size());
+                    // Fallback to center-biased policy
+                    MCTS_DEBUG("Invalid result at index " << i << ", using center-biased policy");
+                    std::vector<float> policy = create_center_biased_policy(valid_moves, leaf->get_state().board_size);
                     
-                    leaf->expand(valid_moves, uniform_policy);
+                    leaf->expand(valid_moves, policy);
                     
                     // Use 0.0 as default value
                     backup(leaf, 0.0f);
@@ -1114,7 +1129,7 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
     // Calculate optimal parallelism based on hardware
     int max_pending = std::max(8, config_.num_threads * 2);
     
-    // On Ryzen 9 5900X with 24 threads, allow more parallelism
+    // On high-thread CPUs, allow more parallelism
     unsigned int hw_threads = std::thread::hardware_concurrency();
     if (hw_threads >= 16) {
         max_pending = std::min(static_cast<int>(hw_threads * 1.5), 32);
@@ -2661,7 +2676,7 @@ Node* MCTS::select_node(Node* root) const {
     std::vector<Node*> path;
     
     // Track the path from root to leaf with a maximum depth
-    const int MAX_SEARCH_DEPTH = 500; // Reduced from 1000 to prevent excessive recursion
+    const int MAX_SEARCH_DEPTH = 200; // Reduced from 500 for safety
     int depth = 0;
     
     while (current && depth < MAX_SEARCH_DEPTH) {
@@ -2737,6 +2752,40 @@ Node* MCTS::select_node(Node* root) const {
             break;
         }
         
+        // Safety check - ADDED TO FIX SEGFAULT
+        // Verify children are still valid after filtering (defensive)
+        bool has_invalid_child = false;
+        for (Node* child : valid_children) {
+            if (!child) {
+                has_invalid_child = true;
+                break;
+            }
+            
+            // Extra safety check: verify child state is accessible
+            try {
+                const Gamestate& child_state = child->get_state();
+                int board_size = child_state.board_size;
+                int player = child_state.current_player;
+                
+                // If board_size or player is invalid, consider the child invalid
+                if (board_size <= 0 || board_size > 25 || (player != 1 && player != 2)) {
+                    MCTS_DEBUG("Invalid child state detected: board_size=" << board_size 
+                              << ", player=" << player);
+                    has_invalid_child = true;
+                    break;
+                }
+            } catch (...) {
+                has_invalid_child = true;
+                MCTS_DEBUG("Exception accessing child state");
+                break;
+            }
+        }
+        
+        if (has_invalid_child) {
+            MCTS_DEBUG("Invalid child detected during selection, stopping traversal");
+            break;
+        }
+        
         // Selection phase 1: Filter nodes with disproportionate visit counts
         // This prevents one branch from being overly explored
         std::vector<Node*> candidate_children;
@@ -2749,7 +2798,17 @@ Node* MCTS::select_node(Node* root) const {
         bool has_low_visit_nodes = false;
         
         for (Node* child : valid_children) {
-            int visit_count = child->get_visit_count();
+            // Safety check - ADDED TO FIX SEGFAULT
+            if (!child) continue;
+            
+            int visit_count = 0;
+            try {
+                visit_count = child->get_visit_count();
+            } catch (...) {
+                MCTS_DEBUG("Exception getting visit count");
+                continue;
+            }
+            
             if (visit_count < MIN_VISITS) {
                 has_low_visit_nodes = true;
                 break;
@@ -2759,7 +2818,16 @@ Node* MCTS::select_node(Node* root) const {
         // If we have low-visit nodes, prioritize them to ensure exploration
         if (has_low_visit_nodes) {
             for (Node* child : valid_children) {
-                int visit_count = child->get_visit_count();
+                // Safety check - ADDED TO FIX SEGFAULT
+                if (!child) continue;
+                
+                int visit_count = 0;
+                try {
+                    visit_count = child->get_visit_count();
+                } catch (...) {
+                    continue;
+                }
+                
                 if (visit_count < MIN_VISITS) {
                     candidate_children.push_back(child);
                 }
@@ -2769,8 +2837,17 @@ Node* MCTS::select_node(Node* root) const {
             candidate_children = valid_children;
         }
         
+        // Extra safety check - ADDED TO FIX SEGFAULT
+        if (candidate_children.empty()) {
+            MCTS_DEBUG("No valid candidate children found");
+            break;
+        }
+        
         // Selection phase 2: Choose best node from candidates using UCT score
         for (Node* child : candidate_children) {
+            // Safety check - ADDED TO FIX SEGFAULT
+            if (!child) continue;
+            
             float score = -std::numeric_limits<float>::infinity();
             try {
                 score = uct_score(current, child);
@@ -2794,6 +2871,12 @@ Node* MCTS::select_node(Node* root) const {
             } else {
                 break;
             }
+        }
+        
+        // Safety check if bestChild is still valid - ADDED TO FIX SEGFAULT
+        if (!bestChild) {
+            MCTS_DEBUG("Best child is null after selection, breaking traversal");
+            break;
         }
         
         // Log selected child
@@ -2835,24 +2918,6 @@ Node* MCTS::select_node(Node* root) const {
                 // Continue anyway
             }
         }
-    }
-    
-    if (current) {
-        // Only log first-level nodes to reduce noise
-        if (path.size() <= 2) {
-            try {
-                MCTS_DEBUG("Selected path length: " << path.size() 
-                          << ", returning leaf with move: " 
-                          << current->get_move_from_parent());
-            }
-            catch (const std::exception& e) {
-                MCTS_DEBUG("Error logging selected path: " << e.what());
-                // Continue anyway
-            }
-        }
-    }
-    else {
-        MCTS_DEBUG("WARNING: Returning null leaf from selection");
     }
     
     return current;
@@ -3021,24 +3086,68 @@ void MCTS::backup(Node* leaf, float value) {
 }
 
 float MCTS::uct_score(const Node* parent, const Node* child) const {
-    // Null checks
-    if (!parent || !child) {
+    // Enhanced null checks with detailed logging
+    if (!parent) {
+        MCTS_DEBUG("uct_score: Parent node is null");
+        return -std::numeric_limits<float>::infinity();
+    }
+    
+    if (!child) {
+        MCTS_DEBUG("uct_score: Child node is null");
         return -std::numeric_limits<float>::infinity();
     }
 
+    // Use a try-catch block to handle any exceptions
     try {
-        float Q = child->get_q_value(); // This already accounts for virtual losses
-        float P = child->get_prior();
-        int parentVisits = parent->get_visit_count();
-        int childVisits = child->get_visit_count();
+        // Safely access all needed values with null checks at each step
+        float Q = 0.0f;
+        try {
+            Q = child->get_q_value();
+        } catch (...) {
+            MCTS_DEBUG("uct_score: Exception getting Q value");
+            return -std::numeric_limits<float>::infinity();
+        }
+        
+        float P = 0.0f;
+        try {
+            P = child->get_prior();
+        } catch (...) {
+            MCTS_DEBUG("uct_score: Exception getting prior");
+            return -std::numeric_limits<float>::infinity();
+        }
+        
+        int parentVisits = 0;
+        try {
+            parentVisits = parent->get_visit_count();
+        } catch (...) {
+            MCTS_DEBUG("uct_score: Exception getting parent visits");
+            return -std::numeric_limits<float>::infinity();
+        }
+        
+        int childVisits = 0;
+        try {
+            childVisits = child->get_visit_count();
+        } catch (...) {
+            MCTS_DEBUG("uct_score: Exception getting child visits");
+            return -std::numeric_limits<float>::infinity();
+        }
+        
+        int virtual_losses = 0;
+        try {
+            virtual_losses = child->get_virtual_losses();
+        } catch (...) {
+            MCTS_DEBUG("uct_score: Exception getting virtual losses");
+            virtual_losses = 0; // Default to 0 on error
+        }
         
         // Add virtual losses to the child visit count for exploration term
-        int virtual_losses = child->get_virtual_losses();
         int effective_child_visits = childVisits + virtual_losses;
         
-        // Ensure valid values
+        // Ensure valid values - be extra defensive
         if (parentVisits < 0) parentVisits = 0;
         if (effective_child_visits < 0) effective_child_visits = 0;
+        if (std::isnan(Q) || std::isinf(Q)) Q = 0.0f;
+        if (std::isnan(P) || std::isinf(P)) P = 1.0f / parent->get_children().size();
         
         // Base PUCT constant
         float c_base = config_.c_puct;
@@ -3051,9 +3160,7 @@ float MCTS::uct_score(const Node* parent, const Node* child) const {
         if (parentVisits > 0) {
             // Try to get parent's Q-value for FPU calculation
             try {
-                if (parent->get_visit_count() > 0) {
-                    parent_q = parent->get_q_value();
-                }
+                parent_q = parent->get_q_value();
             } catch (...) {
                 // Ignore errors, use default
             }
@@ -3082,11 +3189,23 @@ float MCTS::uct_score(const Node* parent, const Node* child) const {
         // Calculate exploration term with numeric stability and progressive bias
         float U = adjusted_c * P * parentSqrt / (1.0f + effective_child_visits);
         
+        // Final safety check for NaN or infinity
+        float final_score = Q + U;
+        if (std::isnan(final_score) || std::isinf(final_score)) {
+            MCTS_DEBUG("uct_score: Invalid final score: " << final_score 
+                     << " (Q=" << Q << ", U=" << U << ")");
+            return 0.0f; // Default to neutral score
+        }
+        
         // Return combined score (Q-value + exploration bonus)
-        return Q + U;
+        return final_score;
     }
     catch (const std::exception& e) {
         MCTS_DEBUG("Error calculating UCT score: " << e.what());
+        return -std::numeric_limits<float>::infinity();
+    }
+    catch (...) {
+        MCTS_DEBUG("Unknown error calculating UCT score");
         return -std::numeric_limits<float>::infinity();
     }
 }

@@ -42,44 +42,70 @@ Node::~Node() {
 }
 
 float Node::get_q_value() const {
-    // Read-only operation - use shared lock
-    std::shared_lock<std::shared_mutex> lock(rw_mutex_);
-    
-    int vc = visit_count_.load(std::memory_order_acquire);
-    int vl = virtual_losses_.load(std::memory_order_acquire);
-    
-    // If no real visits and no virtual losses, return prior * 0.5 as a default value
-    if (vc == 0 && vl == 0) {
-        return 0.0f;
+    try {
+        // Read-only operation - use shared lock
+        std::shared_lock<std::shared_mutex> lock(rw_mutex_);
+        
+        int vc = visit_count_.load(std::memory_order_acquire);
+        int vl = virtual_losses_.load(std::memory_order_acquire);
+        
+        // If no real visits and no virtual losses, return 0.0 as default
+        if (vc == 0 && vl == 0) {
+            return 0.0f;
+        }
+        
+        float tv = total_value_.load(std::memory_order_acquire);
+        
+        // Apply virtual loss effect - each virtual loss is treated as a loss (-1)
+        float virtual_loss_value = -1.0f * vl;
+        
+        // Return adjusted Q value
+        return (tv + virtual_loss_value) / (float)(vc + vl);
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in get_q_value: " << e.what());
+        return 0.0f; // Default value on error
     }
-    
-    float tv = total_value_.load(std::memory_order_acquire);
-    
-    // Apply virtual loss effect - each virtual loss is treated as a loss (-1)
-    float virtual_loss_value = -1.0f * vl;
-    
-    // Return adjusted Q value
-    return (tv + virtual_loss_value) / (float)(vc + vl);
 }
 
 int Node::get_visit_count() const {
-    return visit_count_.load(std::memory_order_acquire);
+    try {
+        return visit_count_.load(std::memory_order_acquire);
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in get_visit_count: " << e.what());
+        return 0; // Default value on error
+    }
 }
 
 float Node::get_prior() const {
-    // Prior is immutable, no lock needed
-    return prior_;
+    try {
+        // Prior is immutable, but add a try-catch for safety
+        return prior_;
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in get_prior: " << e.what());
+        return 0.0f; // Default value on error
+    }
 }
 
 bool Node::is_leaf() const { 
-    // Read-only operation - use shared lock
-    std::shared_lock<std::shared_mutex> lock(expand_mutex_);
-    return children_.empty(); 
+    try {
+        // Read-only operation - use shared lock
+        std::shared_lock<std::shared_mutex> lock(expand_mutex_);
+        return children_.empty();
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in is_leaf: " << e.what());
+        return true; // Assume it's a leaf on error (safer)
+    }
 }
 
 const Gamestate& Node::get_state() const { 
-    // State is immutable after construction, no lock needed
-    return state_; 
+    try {
+        // State is immutable after construction, no lock needed
+        return state_;
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in get_state: " << e.what());
+        static Gamestate dummy; // Static default state to return on error
+        return dummy;
+    }
 }
 
 Node* Node::get_parent() const { 
@@ -197,54 +223,77 @@ void Node::expand(const std::vector<int>& moves, const std::vector<float>& prior
 
 // Thread-safe access to children
 std::vector<Node*> Node::get_children() const {
-    std::shared_lock<std::shared_mutex> lock(expand_mutex_);
-    
-    std::vector<Node*> result;
-    result.reserve(children_.size());
-    
-    for (const auto& c : children_) {
-        if (c) {  // Add null check to be defensive
-            result.push_back(c.get());
+    // Use a try-catch block to handle potential exceptions during lock acquisition
+    try {
+        std::shared_lock<std::shared_mutex> lock(expand_mutex_);
+        
+        std::vector<Node*> result;
+        result.reserve(children_.size());
+        
+        for (const auto& c : children_) {
+            if (c) {  // Add null check to be defensive
+                result.push_back(c.get());
+            }
         }
+        
+        return result;
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in get_children: " << e.what());
+        return std::vector<Node*>(); // Return empty vector on error
     }
-    
-    return result;
 }
 
 // Improved virtual loss handling with atomic operations
 void Node::add_virtual_loss() {
-    // Atomic increment, no lock needed
-    virtual_losses_.fetch_add(1, std::memory_order_acq_rel);
+    try {
+        // Atomic increment, no lock needed
+        virtual_losses_.fetch_add(1, std::memory_order_acq_rel);
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in add_virtual_loss: " << e.what());
+    }
 }
 
 void Node::remove_virtual_loss() {
-    // Atomic decrement with floor check
-    int prev = virtual_losses_.fetch_sub(1, std::memory_order_acq_rel);
-    
-    // Ensure we don't go below zero (defensive programming)
-    if (prev <= 0) {
-        virtual_losses_.store(0, std::memory_order_release);
+    try {
+        // Atomic decrement with floor check
+        int prev = virtual_losses_.fetch_sub(1, std::memory_order_acq_rel);
+        
+        // Ensure we don't go below zero (defensive programming)
+        if (prev <= 0) {
+            virtual_losses_.store(0, std::memory_order_release);
+        }
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in remove_virtual_loss: " << e.what());
     }
 }
 
 int Node::get_virtual_losses() const { 
-    return virtual_losses_.load(std::memory_order_acquire); 
+    try {
+        return virtual_losses_.load(std::memory_order_acquire);
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in get_virtual_losses: " << e.what());
+        return 0; // Default value on error
+    }
 }
 
 // Update node statistics with improved thread safety
 void Node::update_stats(float value) {
-    // Use exclusive lock for writing
-    std::unique_lock<std::shared_mutex> lock(rw_mutex_);
-    
-    visit_count_.fetch_add(1, std::memory_order_acq_rel);
-    
-    // For atomic<float>, we need to use compare_exchange_weak in a loop
-    float current = total_value_.load(std::memory_order_acquire);
-    float desired = current + value;
-    while (!total_value_.compare_exchange_weak(current, desired,
-                                             std::memory_order_acq_rel,
-                                             std::memory_order_acquire)) {
-        desired = current + value;
+    try {
+        // Use exclusive lock for writing
+        std::unique_lock<std::shared_mutex> lock(rw_mutex_);
+        
+        visit_count_.fetch_add(1, std::memory_order_acq_rel);
+        
+        // For atomic<float>, we need to use compare_exchange_weak in a loop
+        float current = total_value_.load(std::memory_order_acquire);
+        float desired = current + value;
+        while (!total_value_.compare_exchange_weak(current, desired,
+                                                 std::memory_order_acq_rel,
+                                                 std::memory_order_acquire)) {
+            desired = current + value;
+        }
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in update_stats: " << e.what());
     }
 }
 

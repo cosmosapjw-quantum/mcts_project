@@ -131,4 +131,41 @@ private:
     bool perform_tree_pruning();
     std::string get_tree_stats() const;
     void analyze_search_result();
+
+    // helper method to MCTS class to create center-biased policies
+    std::vector<float> create_center_biased_policy(const std::vector<int>& valid_moves, int board_size) {
+        std::vector<float> policy(valid_moves.size(), 1.0f / valid_moves.size());
+        
+        // Apply slight bias toward center for better initial play
+        if (policy.size() > 4) {
+            const float CENTER_BIAS = 1.2f;  // 20% boost for center moves
+            float center_row = (board_size - 1) / 2.0f;
+            float center_col = (board_size - 1) / 2.0f;
+            float max_dist = sqrt(center_row * center_row + center_col * center_col);
+            
+            float sum = 0.0f;
+            for (size_t i = 0; i < valid_moves.size(); i++) {
+                int move = valid_moves[i];
+                int row = move / board_size;
+                int col = move % board_size;
+                
+                // Calculate distance from center (normalized to [0,1])
+                float dist = sqrt(pow(row - center_row, 2) + pow(col - center_col, 2));
+                float norm_dist = dist / max_dist;
+                
+                // Closer to center gets higher prior
+                policy[i] *= (1.0f + (CENTER_BIAS - 1.0f) * (1.0f - norm_dist));
+                sum += policy[i];
+            }
+            
+            // Renormalize
+            if (sum > 0) {
+                for (auto& p : policy) {
+                    p /= sum;
+                }
+            }
+        }
+        
+        return policy;
+    }
 };

@@ -74,35 +74,140 @@ public:
     ~MCTSWrapper() {
         MCTS_DEBUG("MCTSWrapper destructor called");
         
-        // Explicit shutdown in the correct order
+        // Explicit shutdown in the correct order with timeouts
         try {
+            // Set global shutdown flag to stop any ongoing operations
+            global_shutdown_requested.store(true, std::memory_order_release);
+            
             // First, set flags to stop any ongoing search
             if (mcts_) {
                 MCTS_DEBUG("Setting MCTS shutdown flag");
                 mcts_->set_shutdown_flag(true);
             }
             
-            // Clear the leaf gatherer first (if it exists)
+            // Clear the leaf gatherer first with timeout
             if (mcts_ && mcts_->get_leaf_gatherer()) {
-                MCTS_DEBUG("Shutting down leaf gatherer first");
-                mcts_->clear_leaf_gatherer();
+                MCTS_DEBUG("Shutting down leaf gatherer");
+                
+                // Use a thread with timeout to shutdown the leaf gatherer
+                std::atomic<bool> leaf_shutdown_complete{false};
+                std::thread leaf_shutdown_thread([&](){
+                    try {
+                        mcts_->clear_leaf_gatherer();
+                        leaf_shutdown_complete.store(true, std::memory_order_release);
+                    } catch (const std::exception& e) {
+                        MCTS_DEBUG("Error in leaf gatherer shutdown: " << e.what());
+                    }
+                });
+                
+                // Wait for leaf gatherer shutdown with timeout
+                const int LEAF_SHUTDOWN_TIMEOUT_MS = 1000;  // 1 second timeout
+                auto deadline = std::chrono::steady_clock::now() + 
+                    std::chrono::milliseconds(LEAF_SHUTDOWN_TIMEOUT_MS);
+                
+                while (std::chrono::steady_clock::now() < deadline && 
+                       !leaf_shutdown_complete.load(std::memory_order_acquire)) {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                }
+                
+                // Detach thread if it didn't complete in time
+                if (leaf_shutdown_thread.joinable()) {
+                    MCTS_DEBUG("Leaf gatherer shutdown timed out, detaching thread");
+                    leaf_shutdown_thread.detach();
+                } else {
+                    MCTS_DEBUG("Leaf gatherer shutdown completed successfully");
+                }
             }
             
-            // Clear the MCTS engine next
+            // Clear the MCTS engine next with timeout
             MCTS_DEBUG("Clearing MCTS engine");
-            mcts_.reset();
+            std::atomic<bool> mcts_reset_complete{false};
+            std::thread mcts_reset_thread([&](){
+                try {
+                    mcts_.reset();
+                    mcts_reset_complete.store(true, std::memory_order_release);
+                } catch (const std::exception& e) {
+                    MCTS_DEBUG("Error resetting MCTS engine: " << e.what());
+                }
+            });
             
-            // Finally, shutdown the neural network after all consumers are gone
+            // Wait for MCTS reset with timeout
+            const int MCTS_RESET_TIMEOUT_MS = 500;  // 500ms timeout
+            auto mcts_deadline = std::chrono::steady_clock::now() + 
+                std::chrono::milliseconds(MCTS_RESET_TIMEOUT_MS);
+            
+            while (std::chrono::steady_clock::now() < mcts_deadline && 
+                   !mcts_reset_complete.load(std::memory_order_acquire)) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
+            }
+            
+            // Detach thread if it didn't complete in time
+            if (mcts_reset_thread.joinable()) {
+                MCTS_DEBUG("MCTS reset timed out, detaching thread");
+                mcts_reset_thread.detach();
+                
+                // Force nullptr to ensure destructor continues
+                mcts_ = nullptr;
+            } else {
+                MCTS_DEBUG("MCTS reset completed successfully");
+            }
+            
+            // Finally, shutdown the neural network with timeout
             MCTS_DEBUG("Shutting down neural network interface");
-            nn_.reset();
+            std::atomic<bool> nn_reset_complete{false};
+            std::thread nn_reset_thread([&](){
+                try {
+                    nn_.reset();
+                    nn_reset_complete.store(true, std::memory_order_release);
+                } catch (const std::exception& e) {
+                    MCTS_DEBUG("Error shutting down neural network: " << e.what());
+                }
+            });
+            
+            // Wait for NN reset with timeout
+            const int NN_RESET_TIMEOUT_MS = 1000;  // 1 second timeout
+            auto nn_deadline = std::chrono::steady_clock::now() + 
+                std::chrono::milliseconds(NN_RESET_TIMEOUT_MS);
+            
+            while (std::chrono::steady_clock::now() < nn_deadline && 
+                   !nn_reset_complete.load(std::memory_order_acquire)) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
+            }
+            
+            // Detach thread if it didn't complete in time
+            if (nn_reset_thread.joinable()) {
+                MCTS_DEBUG("Neural network shutdown timed out, detaching thread");
+                nn_reset_thread.detach();
+                
+                // Force nullptr to ensure destructor continues
+                nn_ = nullptr;
+            } else {
+                MCTS_DEBUG("Neural network shutdown completed successfully");
+            }
             
             MCTS_DEBUG("MCTSWrapper shutdown complete");
         } 
         catch (const std::exception& e) {
             MCTS_DEBUG("Exception in MCTSWrapper destructor: " << e.what());
+            
+            // Force cleanup to avoid memory leaks
+            try {
+                mcts_ = nullptr;
+                nn_ = nullptr;
+            } catch (...) {
+                MCTS_DEBUG("Error during forced cleanup");
+            }
         }
         catch (...) {
             MCTS_DEBUG("Unknown exception in MCTSWrapper destructor");
+            
+            // Force cleanup to avoid memory leaks
+            try {
+                mcts_ = nullptr;
+                nn_ = nullptr;
+            } catch (...) {
+                MCTS_DEBUG("Error during forced cleanup");
+            }
         }
     }
 

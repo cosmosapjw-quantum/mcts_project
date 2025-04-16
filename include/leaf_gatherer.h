@@ -233,9 +233,25 @@ public:
             return;  // Already shutting down
         }
         
-        // Stop health monitor
+        // Stop health monitor with timeout
         if (health_thread_.joinable()) {
-            health_thread_.join();
+            auto health_join_start = std::chrono::steady_clock::now();
+            const int HEALTH_JOIN_TIMEOUT_MS = 100;  // 100ms timeout
+            
+            std::thread([&]() {
+                health_thread_.join();
+            }).detach();
+            
+            // Wait briefly for health thread to join
+            std::this_thread::sleep_for(std::chrono::milliseconds(HEALTH_JOIN_TIMEOUT_MS));
+            
+            // If still joinable after timeout, detach it
+            if (health_thread_.joinable()) {
+                MCTS_DEBUG("Health monitor thread didn't join within timeout, detaching");
+                health_thread_.detach();
+            } else {
+                MCTS_DEBUG("Health monitor thread joined successfully");
+            }
         }
         
         MCTS_DEBUG("LeafGatherer notifying all workers");
@@ -246,117 +262,83 @@ public:
             queue_cv_.notify_all();
         }
         
-        // Track worker join status
-        std::vector<bool> joined(worker_threads_.size(), false);
-        
-        // Join worker threads with timeout to prevent deadlocks
-        MCTS_DEBUG("Waiting for " << worker_threads_.size() << " workers to exit (with timeout)");
-        
-        const auto join_start = std::chrono::steady_clock::now();
-        const int JOIN_TIMEOUT_MS = 500;  // 500ms timeout for all threads
-        int joined_count = 0;
-        
-        // First try to join all threads with a timeout
-        auto timeout_point = std::chrono::steady_clock::now() + 
-            std::chrono::milliseconds(JOIN_TIMEOUT_MS);
-            
-        while (std::chrono::steady_clock::now() < timeout_point) {
-            bool all_joined = true;
-            
-            for (size_t i = 0; i < worker_threads_.size(); ++i) {
-                if (!joined[i] && worker_threads_[i].joinable()) {
-                    // Try to join with a very short timeout
-                    if (worker_threads_[i].joinable()) {
-                        auto status = worker_threads_[i].native_handle();
-                        if (status) {
-                            try {
-                                MCTS_DEBUG("Worker " << i << " joined successfully");
-                                worker_threads_[i].join();
-                                joined[i] = true;
-                                joined_count++;
-                            } catch (const std::exception& e) {
-                                // Join failed, will try again or detach later
-                                all_joined = false;
-                            }
-                        }
-                    }
-                }
-            }
-            
-            if (all_joined) {
-                break;
-            }
-            
-            // Short sleep before trying again
-            std::this_thread::sleep_for(std::chrono::milliseconds(5));
-        }
-        
-        // Detach any threads that couldn't be joined
-        for (size_t i = 0; i < worker_threads_.size(); ++i) {
-            if (!joined[i] && worker_threads_[i].joinable()) {
-                MCTS_DEBUG("Worker " << i << " failed to join, detaching");
-                worker_threads_[i].detach();
-            }
-        }
-        
-        // Clear worker threads vector
-        worker_threads_.clear();
-        
-        // Process remaining items with timeout protection
-        MCTS_DEBUG("Processing remaining items in queue");
-        
-        std::queue<LeafEvalRequest> remaining;
-        
-        // Get remaining items with lock to prevent race conditions
+        // Clear any requests in the queue first
+        int cleared_requests = 0;
         {
             std::lock_guard<std::mutex> lock(queue_mutex_);
-            remaining.swap(request_queue_);
-        }
-        
-        // Process a limited number of remaining items to avoid stalling forever
-        const int MAX_ITEMS_TO_PROCESS = 50;
-        int processed = 0;
-        
-        while (!remaining.empty() && processed < MAX_ITEMS_TO_PROCESS) {
-            try {
-                auto& request = remaining.front();
+            
+            // Fulfill all promises with default values
+            while (!request_queue_.empty()) {
+                auto request = std::move(request_queue_.front());
+                request_queue_.pop();
                 
                 if (request.result_promise) {
                     std::vector<float> default_policy;
-                    
                     if (!request.state.is_terminal()) {
                         auto valid_moves = request.state.get_valid_moves();
                         default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
                     }
                     
-                    request.result_promise->set_value({default_policy, 0.0f});
-                    processed++;
+                    try {
+                        request.result_promise->set_value({default_policy, 0.0f});
+                        cleared_requests++;
+                    } catch (...) {
+                        // Promise might already be fulfilled
+                    }
                 }
-            } catch (const std::exception& e) {
-                MCTS_DEBUG("Error fulfilling promise: " << e.what());
             }
-            
-            remaining.pop();
         }
         
-        // Report if we couldn't process all items
-        if (!remaining.empty()) {
-            MCTS_DEBUG("WARNING: " << remaining.size() << " items left unprocessed after max limit");
-            // Clear remaining items to avoid memory leaks
-            std::queue<LeafEvalRequest>().swap(remaining);
+        if (cleared_requests > 0) {
+            MCTS_DEBUG("Cleared " << cleared_requests << " pending requests with default values");
+        }
+        
+        // Make a local copy of worker threads to avoid race conditions
+        std::vector<std::thread> workers_to_join;
+        {
+            std::lock_guard<std::mutex> lock(queue_mutex_);
+            workers_to_join = std::move(worker_threads_);
+            worker_threads_.clear();
+        }
+        
+        // Join worker threads with individual timeouts - CRITICAL CHANGE
+        MCTS_DEBUG("Waiting for " << workers_to_join.size() << " workers to exit (with timeout)");
+        
+        const int JOIN_TIMEOUT_PER_THREAD_MS = 100;  // 100ms timeout per thread
+        std::vector<bool> joined(workers_to_join.size(), false);
+        int joined_count = 0;
+        
+        for (size_t i = 0; i < workers_to_join.size(); ++i) {
+            if (workers_to_join[i].joinable()) {
+                // Create a detached thread to attempt joining with timeout
+                std::thread joiner([i, &workers_to_join, &joined, &joined_count]() {
+                    if (workers_to_join[i].joinable()) {
+                        workers_to_join[i].join();
+                        joined[i] = true;
+                        joined_count++;
+                        MCTS_DEBUG("Worker " << i << " joined successfully");
+                    }
+                });
+                
+                // Wait for the joining to complete with timeout
+                joiner.detach();
+                
+                // Wait for the thread to join with timeout
+                std::this_thread::sleep_for(std::chrono::milliseconds(JOIN_TIMEOUT_PER_THREAD_MS));
+                
+                // If the thread is still joinable, detach it
+                if (workers_to_join[i].joinable()) {
+                    MCTS_DEBUG("Worker " << i << " failed to join within timeout, detaching");
+                    workers_to_join[i].detach();
+                }
+            }
         }
         
         // Reset active workers count
         active_workers_.store(0, std::memory_order_release);
         
-        // Calculate shutdown duration
-        auto shutdown_end = std::chrono::steady_clock::now();
-        auto shutdown_duration = std::chrono::duration_cast<std::chrono::milliseconds>(
-            shutdown_end - join_start).count();
-        
-        MCTS_DEBUG("LeafGatherer shutdown completed in " << shutdown_duration << "ms, "
-                  << "processed " << processed << " remaining items, "
-                  << "joined " << joined_count << "/" << worker_threads_.size() << " threads");
+        MCTS_DEBUG("LeafGatherer shutdown completed, joined " 
+                  << joined_count << "/" << workers_to_join.size() << " threads");
     }
     
     // Get total leaves processed
@@ -468,23 +450,77 @@ private:
     
     // Start worker threads
     void startWorkers() {
-        std::lock_guard<std::mutex> lock(queue_mutex_);
+        // Use a double-lock pattern to ensure thread safety
+        std::unique_lock<std::mutex> lock(queue_mutex_);
         
-        // Clear existing threads if any
-        for (auto& thread : worker_threads_) {
+        // Additional atomic flag to track if workers are being started
+        static std::atomic<bool> starting_workers(false);
+        
+        // If another thread is starting workers, wait briefly then return
+        if (starting_workers.exchange(true)) {
+            lock.unlock();
+            MCTS_DEBUG("Another thread is already starting workers, skipping");
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            starting_workers.store(false);
+            return;
+        }
+        
+        // Guard to ensure starting_workers is reset on function exit
+        struct StartingWorkersGuard {
+            StartingWorkersGuard() {}
+            ~StartingWorkersGuard() { starting_workers.store(false); }
+        } guard;
+        
+        // First, ensure all existing threads are properly terminated
+        bool had_active_threads = false;
+        
+        // Set shutdown flag to terminate existing workers
+        shutdown_.store(true, std::memory_order_release);
+        
+        // Notify all workers to check the flag
+        queue_cv_.notify_all();
+        
+        // Release the lock while waiting for threads to exit
+        lock.unlock();
+        
+        // Wait briefly for worker threads to notice shutdown flag
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        
+        // Detach all threads - use a local copy to avoid race conditions
+        std::vector<std::thread> threads_to_detach;
+        {
+            std::lock_guard<std::mutex> detach_lock(queue_mutex_);
+            threads_to_detach = std::move(worker_threads_);
+            worker_threads_.clear();
+        }
+        
+        for (auto& thread : threads_to_detach) {
             if (thread.joinable()) {
-                thread.detach(); // Detach instead of join to avoid blocking
+                thread.detach(); // Detach to avoid blocking
+                had_active_threads = true;
             }
         }
-        worker_threads_.clear();
         
-        // Reset shutdown flag
+        if (had_active_threads) {
+            MCTS_DEBUG("Detached " << threads_to_detach.size() << " existing worker threads");
+            // Wait a bit longer after detaching threads
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        }
+        
+        // Re-acquire the lock for the rest of the setup
+        lock.lock();
+        
+        // Reset active worker count
+        active_workers_.store(0, std::memory_order_release);
+        
+        // Reset shutdown flag before starting new workers
         shutdown_.store(false, std::memory_order_release);
         
         // Initialize last activity time
         last_activity_time_ = std::chrono::steady_clock::now();
         
-        // Start new worker threads
+        // Start new worker threads - ensure vector is empty first
+        worker_threads_.clear();
         worker_threads_.reserve(max_workers_);
         
         MCTS_DEBUG("Starting " << max_workers_ << " worker threads");
@@ -493,47 +529,19 @@ private:
             worker_threads_.emplace_back(&LeafGatherer::worker_function, this, i);
         }
         
-        active_workers_.store(max_workers_, std::memory_order_release);
-    }
+        // No need to update active_workers_ here, each thread will increment it
+    }    
     
     // Restart workers if they appear to be stuck
     void restartWorkers() {
         MCTS_DEBUG("Restarting worker threads");
         
-        // Detach existing threads - done under lock to avoid race conditions
-        {
-            std::lock_guard<std::mutex> lock(queue_mutex_);
-            
-            // First, update shutdown flag to signal workers to exit
-            shutdown_.store(true, std::memory_order_release);
-            
-            // Notify all workers to check the flag
-            queue_cv_.notify_all();
-            
-            // Detach all threads
-            for (auto& thread : worker_threads_) {
-                if (thread.joinable()) {
-                    thread.detach(); // Detach to avoid blocking
-                }
-            }
-            worker_threads_.clear();
-            
-            // Reset active worker count
-            active_workers_.store(0, std::memory_order_release);
-            
-            // Reset shutdown flag before starting new workers
-            shutdown_.store(false, std::memory_order_release);
-        }
-        
-        // Short delay to allow threads to notice the shutdown flag
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        
-        // Start fresh workers
+        // Simply call startWorkers which will properly handle cleanup and restart
         startWorkers();
         
         MCTS_DEBUG("Worker threads restarted");
     }
-    
+
     // Worker thread function with thread ID
     void worker_function(int thread_id) {
         MCTS_DEBUG("LeafGatherer worker " << thread_id << " started");
@@ -543,6 +551,10 @@ private:
         
         // Report as active
         active_workers_.fetch_add(1, std::memory_order_relaxed);
+        
+        // Set up thread-local timeout monitoring
+        auto last_activity = std::chrono::steady_clock::now();
+        const int ACTIVITY_TIMEOUT_MS = 5000;  // 5 seconds max processing time
         
         // Use a try/catch block to handle all exceptions
         try {
@@ -555,6 +567,17 @@ private:
             
             // Main worker loop
             while (!shutdown_.load(std::memory_order_acquire)) {
+                // Periodically check if we've been stuck too long in any operation
+                auto current_time = std::chrono::steady_clock::now();
+                auto stuck_time = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    current_time - last_activity).count();
+                    
+                if (stuck_time > ACTIVITY_TIMEOUT_MS) {
+                    MCTS_DEBUG("Worker " << my_thread_id << " appears stuck for " << stuck_time 
+                              << "ms, self-terminating");
+                    break;  // Break out of worker loop if stuck
+                }
+                
                 // Clear batch for this iteration
                 batch.clear();
                 
@@ -562,8 +585,8 @@ private:
                 {
                     std::unique_lock<std::mutex> lock(queue_mutex_);
                     
-                    // Wait with short timeout to check shutdown flag frequently
-                    auto wait_result = queue_cv_.wait_for(lock, std::chrono::milliseconds(50), 
+                    // Wait with very short timeout to check shutdown flag frequently
+                    auto wait_result = queue_cv_.wait_for(lock, std::chrono::milliseconds(20), 
                         [this] { 
                             return !request_queue_.empty() || shutdown_.load(std::memory_order_acquire); 
                         });
@@ -576,6 +599,7 @@ private:
                     
                     // If queue is empty after timeout, continue checking shutdown flag
                     if (request_queue_.empty()) {
+                        last_activity = std::chrono::steady_clock::now();  // Update activity time
                         continue;
                     }
                     
@@ -586,11 +610,29 @@ private:
                     // Always process at least one item
                     optimal_batch = std::max(1, optimal_batch);
                     
-                    // Collect batch
+                    // Collect batch with timeout monitoring
+                    auto collect_start = std::chrono::steady_clock::now();
+                    const int MAX_COLLECT_MS = 50;  // Maximum time to spend collecting
+                    
                     for (int i = 0; i < optimal_batch && !request_queue_.empty(); ++i) {
                         batch.push_back(std::move(request_queue_.front()));
                         request_queue_.pop();
+                        
+                        // Periodically check if collection is taking too long
+                        if (i % 10 == 0) {
+                            auto now = std::chrono::steady_clock::now();
+                            auto collect_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                                now - collect_start).count();
+                            if (collect_ms > MAX_COLLECT_MS) {
+                                MCTS_DEBUG("Worker " << my_thread_id << " collection taking too long (" 
+                                          << collect_ms << "ms), breaking early");
+                                break;
+                            }
+                        }
                     }
+                    
+                    // Update activity time after collection
+                    last_activity = std::chrono::steady_clock::now();
                 }
                 
                 // Check shutdown flag before processing
@@ -622,23 +664,82 @@ private:
                         // Start timing
                         auto batch_start = std::chrono::steady_clock::now();
                         
-                        // Process the batch
-                        process_batch(batch, my_thread_id);
+                        // Process the batch with timeout protection
+                        auto processing_thread = std::thread([this, &batch, my_thread_id]() {
+                            try {
+                                process_batch(batch, my_thread_id);
+                            } catch (const std::exception& e) {
+                                MCTS_DEBUG("Worker " << my_thread_id << " exception in processing thread: " << e.what());
+                            }
+                        });
                         
-                        // Update last activity time and processed count
-                        last_activity_time_ = std::chrono::steady_clock::now();
-                        total_processed_.fetch_add(batch.size(), std::memory_order_relaxed);
-                        
-                        // Calculate batch processing time
-                        auto batch_time = std::chrono::duration_cast<std::chrono::milliseconds>(
-                            last_activity_time_ - batch_start).count();
+                        // Wait for processing to complete with timeout
+                        const int PROCESS_TIMEOUT_MS = 3000;  // 3 seconds max processing time
+                        auto deadline = std::chrono::steady_clock::now() + 
+                            std::chrono::milliseconds(PROCESS_TIMEOUT_MS);
                             
-                        if (batch.size() > 1) {
-                            MCTS_DEBUG("Worker " << my_thread_id << " processed batch of " 
-                                   << batch.size() << " items in " << batch_time << "ms");
+                        // Non-blocking join with timeout
+                        while (std::chrono::steady_clock::now() < deadline && processing_thread.joinable()) {
+                            // Try to join with short timeout
+                            if (processing_thread.joinable()) {
+                                auto status = processing_thread.native_handle();
+                                if (status) {
+                                    try {
+                                        // Try to join with short timeout
+                                        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+                                        if (!processing_thread.joinable()) {
+                                            break;  // Successfully joined
+                                        }
+                                    } catch (...) {
+                                        // Ignore join errors
+                                    }
+                                }
+                            }
+                            
+                            // Check shutdown flag during wait
+                            if (shutdown_.load(std::memory_order_acquire)) {
+                                MCTS_DEBUG("Worker " << my_thread_id << " shutdown detected during processing wait");
+                                break;
+                            }
+                            
+                            // Short sleep to avoid tight loop
+                            std::this_thread::sleep_for(std::chrono::milliseconds(10));
                         }
                         
-                        // Update last batch time
+                        // If processing timed out, detach the thread
+                        if (processing_thread.joinable()) {
+                            MCTS_DEBUG("Worker " << my_thread_id << " processing timed out after " 
+                                      << PROCESS_TIMEOUT_MS << "ms, detaching thread");
+                            processing_thread.detach();
+                            
+                            // Complete all promises with default values since processing timed out
+                            for (auto& item : batch) {
+                                try {
+                                    if (item.result_promise) {
+                                        std::vector<float> default_policy;
+                                        if (!item.state.is_terminal()) {
+                                            auto valid_moves = item.state.get_valid_moves();
+                                            default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
+                                        }
+                                        item.result_promise->set_value({default_policy, 0.0f});
+                                    }
+                                } catch (...) {
+                                    // Ignore errors in default value setting
+                                }
+                            }
+                        } else {
+                            // Processing completed successfully
+                            auto batch_time = std::chrono::duration_cast<std::chrono::milliseconds>(
+                                std::chrono::steady_clock::now() - batch_start).count();
+                                
+                            if (batch.size() > 1) {
+                                MCTS_DEBUG("Worker " << my_thread_id << " processed batch of " 
+                                       << batch.size() << " items in " << batch_time << "ms");
+                            }
+                        }
+                        
+                        // Update activity time after processing
+                        last_activity = std::chrono::steady_clock::now();
                         last_batch_time = std::chrono::steady_clock::now();
                     }
                     catch (const std::exception& e) {
@@ -655,10 +756,13 @@ private:
                                     }
                                     item.result_promise->set_value({default_policy, 0.0f});
                                 }
-                            } catch (const std::exception& e) {
-                                MCTS_DEBUG("Error fulfilling promise after batch error: " << e.what());
+                            } catch (...) {
+                                // Ignore errors in default value setting
                             }
                         }
+                        
+                        // Update activity time even after error
+                        last_activity = std::chrono::steady_clock::now();
                     }
                 }
             }
