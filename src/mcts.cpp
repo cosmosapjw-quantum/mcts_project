@@ -19,7 +19,138 @@ rng_(std::random_device{}()) // Initialize rng_
 
 MCTS::~MCTS() {
     MCTS_DEBUG("MCTS destructor called");
-    force_clear();
+    
+    // Set shutdown flag immediately to stop any ongoing operations
+    shutdown_flag_ = true;
+    
+    // First handle leaf gatherer shutdown with timeout
+    if (leaf_gatherer_) {
+        MCTS_DEBUG("Shutting down LeafGatherer");
+        
+        // Use a separate thread with timeout
+        std::atomic<bool> gatherer_shutdown_complete{false};
+        std::thread gatherer_thread([this, &gatherer_shutdown_complete]() {
+            try {
+                leaf_gatherer_->shutdown();
+                gatherer_shutdown_complete.store(true, std::memory_order_release);
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error in leaf gatherer shutdown: " << e.what());
+            }
+        });
+        
+        // Wait for gatherer shutdown with short timeout
+        auto shutdown_start = std::chrono::steady_clock::now();
+        const int GATHERER_TIMEOUT_MS = 300; // 300ms max wait
+        
+        while (!gatherer_shutdown_complete.load(std::memory_order_acquire)) {
+            auto now = std::chrono::steady_clock::now();
+            auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                now - shutdown_start).count();
+                
+            if (elapsed_ms > GATHERER_TIMEOUT_MS) {
+                MCTS_DEBUG("LeafGatherer shutdown timeout after " << elapsed_ms << "ms");
+                break;
+            }
+            
+            std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        }
+        
+        // Detach thread if still running (don't join)
+        if (gatherer_thread.joinable()) {
+            MCTS_DEBUG("Detaching leaf gatherer shutdown thread");
+            gatherer_thread.detach();
+        }
+        
+        // Reset pointer regardless
+        leaf_gatherer_.reset();
+    }
+    
+    // Process any pending leaf futures with default values
+    MCTS_DEBUG("Processing pending leaves");
+    {
+        std::lock_guard<std::mutex> lock(queue_mutex_);
+        
+        // Process any pending leaves with default values
+        int cleared = 0;
+        while (!leaf_queue_.empty()) {
+            auto& task = leaf_queue_.front();
+            if (task.result_promise) {
+                try {
+                    std::vector<float> default_policy;
+                    float default_value = 0.0f;
+                    
+                    // Get valid moves for policy
+                    auto valid_moves = task.state.get_valid_moves();
+                    default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
+                    
+                    // Set default value
+                    task.result_promise->set_value({default_policy, default_value});
+                    cleared++;
+                } catch (...) {
+                    // Ignore errors in cleanup
+                }
+            }
+            leaf_queue_.pop();
+        }
+        
+        MCTS_DEBUG("Cleared " << cleared << " pending leaves");
+    }
+    
+    // Immediately detach any running worker threads instead of joining
+    MCTS_DEBUG("Detaching worker threads");
+    for (auto& t : threads_) {
+        if (t.joinable()) {
+            t.detach();
+        }
+    }
+    threads_.clear();
+    
+    // Reset the root node with timeout
+    MCTS_DEBUG("Clearing root node");
+    try {
+        // Use a separate thread with timeout for root reset
+        std::atomic<bool> root_reset_complete{false};
+        std::thread root_thread([this, &root_reset_complete]() {
+            try {
+                root_.reset();
+                root_reset_complete.store(true, std::memory_order_release);
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error resetting root: " << e.what());
+            }
+        });
+        
+        // Wait for root reset with short timeout
+        auto reset_start = std::chrono::steady_clock::now();
+        const int ROOT_TIMEOUT_MS = 200; // 200ms max wait
+        
+        while (!root_reset_complete.load(std::memory_order_acquire)) {
+            auto now = std::chrono::steady_clock::now();
+            auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                now - reset_start).count();
+                
+            if (elapsed_ms > ROOT_TIMEOUT_MS) {
+                MCTS_DEBUG("Root reset timeout after " << elapsed_ms << "ms");
+                break;
+            }
+            
+            std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        }
+        
+        // Detach thread if still running (don't join)
+        if (root_thread.joinable()) {
+            MCTS_DEBUG("Detaching root reset thread");
+            root_thread.detach();
+            
+            // Force reset of the unique_ptr to ensure destructor completes
+            root_ = nullptr;
+        }
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception during root reset: " << e.what());
+        
+        // Force reset
+        root_ = nullptr;
+    }
+    
     MCTS_DEBUG("MCTS resources cleared");
 }
 
@@ -74,27 +205,6 @@ std::string MCTS::get_leaf_gatherer_stats() const {
         return leaf_gatherer_->get_stats();
     }
     return "LeafGatherer not available";
-}
-
-bool MCTS::check_and_restart_leaf_gatherer() {
-    if (!leaf_gatherer_) {
-        MCTS_DEBUG("LeafGatherer not available, creating new one");
-        create_or_reset_leaf_gatherer();
-        return leaf_gatherer_ != nullptr;
-    }
-    
-    // Check if gatherer appears stalled
-    int queue_size = leaf_gatherer_->get_queue_size();
-    int active_workers = leaf_gatherer_->get_active_workers();
-    
-    if (queue_size > 10 && active_workers == 0) {
-        MCTS_DEBUG("LeafGatherer appears stuck (queue_size=" << queue_size 
-                  << ", active_workers=" << active_workers << "), restarting");
-        create_or_reset_leaf_gatherer();
-        return leaf_gatherer_ != nullptr;
-    }
-    
-    return true;
 }
 
 int MCTS::select_move_with_temperature(float temperature) const {
@@ -1099,157 +1209,147 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
         MCTS_DEBUG("Processing batch of " << batch_inputs.size() << " leaves directly");
         batch_count++;
         
-        // Request batch inference
+        // Request batch inference with timeout protection
         std::vector<NNOutput> results;
+        bool inference_completed = false;
         
-        try {
-            results = nn_->batch_inference(batch_inputs);
-        } catch (const std::exception& e) {
-            MCTS_DEBUG("Error in batch inference: " << e.what());
-            // We'll handle this by checking results.size() below
+        // Use a separate thread with timeout for batch inference
+        std::atomic<bool> inference_done{false};
+        std::thread inference_thread([&]() {
+            try {
+                results = nn_->batch_inference(batch_inputs);
+                inference_done.store(true, std::memory_order_release);
+                inference_completed = true;
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error in batch inference thread: " << e.what());
+            }
+        });
+        
+        // Wait for inference with timeout
+        const int INFERENCE_TIMEOUT_MS = 500; // 500ms max wait time
+        auto inference_start = std::chrono::steady_clock::now();
+        
+        while (!inference_done.load(std::memory_order_acquire)) {
+            auto now = std::chrono::steady_clock::now();
+            auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                now - inference_start).count();
+            
+            if (elapsed_ms > INFERENCE_TIMEOUT_MS) {
+                MCTS_DEBUG("Batch inference timeout after " << elapsed_ms << "ms");
+                break;
+            }
+            
+            // Brief sleep to avoid tight loop
+            std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
         
-        // ADDED: Sanity check on results size and match with batch
-        if (results.size() != batch_leaves.size()) {
-            MCTS_DEBUG("Results size mismatch: got " << results.size() 
-                      << ", expected " << batch_leaves.size());
+        // Handle thread cleanup
+        if (inference_thread.joinable()) {
+            if (inference_done.load(std::memory_order_acquire)) {
+                inference_thread.join();
+            } else {
+                MCTS_DEBUG("Detaching inference thread after timeout");
+                inference_thread.detach();
+                
+                // Create default results if timed out
+                if (!inference_completed) {
+                    // Create default outputs
+                    MCTS_DEBUG("Using default values after inference timeout");
+                    results.clear();
+                }
+            }
         }
-        
-        // Process results
-        int processed_count = 0;
         
         // CRITICAL FIX: Make local copies of the batch vectors to prevent use-after-free
         auto local_batch_leaves = batch_leaves;  // Create local copy
+        auto local_batch_inputs = batch_inputs;  // Create local copy
         
         // Clear global batches immediately to prevent reuse
         batch_inputs.clear();
         batch_leaves.clear();
+        
+        // Process results - even if inference failed we'll use default policies
+        int processed_count = 0;
         
         for (size_t i = 0; i < local_batch_leaves.size(); i++) {
             Node* leaf = local_batch_leaves[i];
             if (!leaf) continue;
             
             try {
-                if (leaf->is_being_expanded() || !leaf->is_leaf()) {
-                    MCTS_DEBUG("Node at index " << i << " is already being expanded or is no longer a leaf");
+                // Double-check node hasn't changed state
+                if (!leaf->is_leaf()) {
+                    MCTS_DEBUG("Node at index " << i << " is no longer a leaf, skipping expansion");
                     
-                    // IMPROVED: Still fulfill the promise even if skipping expansion
-                    std::vector<float> default_policy;
-                    float default_value = 0.0f;
-                    
-                    // Create appropriate default values
-                    try {
-                        const Gamestate& state = leaf->get_state();
-                        if (state.is_terminal()) {
-                            // For terminal nodes, calculate appropriate value
-                            int winner = state.get_winner();
-                            int current_player = state.current_player;
-                            
-                            if (winner == current_player) {
-                                default_value = 1.0f;
-                            } else if (winner == 0) {
-                                default_value = 0.0f; // Draw
-                            } else {
-                                default_value = -1.0f; // Loss
-                            }
-                            
-                            // Create policy for terminal state
-                            auto valid_moves = state.get_valid_moves();
-                            default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
-                        } else {
-                            // For non-terminal nodes, use uniform policy
-                            auto valid_moves = state.get_valid_moves();
-                            default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
-                        }
-                    } catch (const std::exception& e) {
-                        MCTS_DEBUG("Error creating default values: " << e.what());
-                        // Use empty policy and neutral value as ultimate fallback
-                        default_policy.clear();
-                        default_value = 0.0f;
-                    }
-                    
-                    // Remove virtual losses
-                    Node* current = leaf;
-                    while (current) {
-                        try {
-                            current->remove_virtual_loss();
-                            current = current->get_parent();
-                        } catch (...) {
-                            // Ignore errors in cleanup
-                            break;
-                        }
-                    }
+                    // Still need to clean up virtual losses
+                    leaf->clear_all_virtual_losses();
+                    processed_count++;
                     continue;
                 }
                 
-                // ADDED: Try to mark for expansion first
+                // Verify node isn't being expanded by another thread
+                if (leaf->is_being_expanded()) {
+                    MCTS_DEBUG("Node at index " << i << " is already being expanded, skipping");
+                    
+                    // Clean up virtual losses
+                    leaf->clear_all_virtual_losses();
+                    processed_count++;
+                    continue;
+                }
+                
+                // Try to mark for expansion
                 if (!leaf->mark_for_expansion()) {
                     MCTS_DEBUG("Cannot mark node at index " << i << " for expansion, skipping");
                     
-                    // Remove virtual losses
-                    Node* current = leaf;
-                    while (current) {
-                        try {
-                            current->remove_virtual_loss();
-                            current = current->get_parent();
-                        } catch (...) {
-                            // Ignore errors in cleanup
-                        }
-                    }
+                    // Clean up virtual losses
+                    leaf->clear_all_virtual_losses();
+                    processed_count++;
                     continue;
                 }
                 
+                // Get valid moves with safety check
                 auto valid_moves = leaf->get_state().get_valid_moves();
-                
                 if (valid_moves.empty()) {
-                    MCTS_DEBUG("Leaf has no valid moves, can't expand");
-                    // Remove virtual losses
-                    Node* current = leaf;
-                    while (current) {
-                        try {
-                            current->remove_virtual_loss();
-                            current = current->get_parent();
-                        } catch (...) {
-                            // Ignore errors in cleanup
-                        }
-                    }
-                    
-                    // Clear expansion flag
+                    MCTS_DEBUG("Node at index " << i << " has no valid moves, skipping");
                     leaf->clear_expansion_flag();
+                    leaf->clear_all_virtual_losses();
+                    processed_count++;
                     continue;
                 }
                 
-                // Check if we have a valid result for this leaf
+                // Prepare policy and value
                 std::vector<float> policy;
                 float value = 0.0f;
                 
-                if (i < results.size() && !results[i].policy.empty() && 
-                    valid_moves.size() == results[i].policy.size()) {
-                    
-                    // Expand with the policy from neural network
-                    policy = results[i].policy;
-                    value = results[i].value;
+                // Check if we have a result from neural network
+                if (i < results.size() && !results[i].policy.empty()) {
+                    // Make sure policy size matches valid moves
+                    if (results[i].policy.size() == valid_moves.size()) {
+                        policy = results[i].policy;
+                        value = results[i].value;
+                    } else {
+                        MCTS_DEBUG("Policy size mismatch at index " << i 
+                                 << ": got " << results[i].policy.size() 
+                                 << ", expected " << valid_moves.size());
+                        
+                        // Create center-biased policy
+                        policy = create_center_biased_policy(valid_moves, leaf->get_state().board_size);
+                    }
                 } else {
-                    // Fallback to center-biased policy
                     MCTS_DEBUG("Invalid result at index " << i << ", using center-biased policy");
                     policy = create_center_biased_policy(valid_moves, leaf->get_state().board_size);
                 }
                 
+                // Expand the node - double-check it's still a leaf first
+                if (!leaf->is_leaf()) {
+                    MCTS_DEBUG("Node is no longer a leaf (race condition), skipping expansion");
+                    leaf->clear_expansion_flag();
+                    leaf->clear_all_virtual_losses();
+                    processed_count++;
+                    continue;
+                }
+                
                 try {
-                    // Double-check node is still a leaf
-                    if (!leaf->is_leaf()) {
-                        MCTS_DEBUG("Node is no longer a leaf, skipping expansion");
-                        
-                        // Clear expansion flag
-                        leaf->clear_expansion_flag();
-                        
-                        // But still backup value
-                        backup(leaf, value);
-                        processed_count++;
-                        continue;
-                    }
-                    
-                    // Expand with the policy
+                    // Expand with policy
                     leaf->expand(valid_moves, policy);
                     
                     // Backup the value
@@ -1258,41 +1358,31 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                 } catch (const std::exception& e) {
                     MCTS_DEBUG("Error expanding node at index " << i << ": " << e.what());
                     
-                    // Try best-effort backup
+                    // Try best-effort backup anyway
                     try {
                         backup(leaf, value);
                     } catch (...) {
                         // Ignore errors in backup
                     }
                     
-                    // Count as processed anyway
-                    processed_count++;
+                    processed_count++; // Count as processed
                 }
                 
-                // Clear expansion flag regardless of success or failure
+                // Clear expansion flag regardless of success/failure
                 leaf->clear_expansion_flag();
                 
             } catch (const std::exception& e) {
                 MCTS_DEBUG("Error processing batch result for leaf " << i << ": " << e.what());
                 eval_failures++;
                 
-                // Remove virtual losses and clear flags for cleanup
+                // Clean up for safety
                 try {
-                    // Clear expansion flag if set
-                    leaf->clear_expansion_flag();
-                    
-                    // Clean up virtual losses
-                    Node* current = leaf;
-                    while (current) {
-                        try {
-                            current->remove_virtual_loss();
-                            current = current->get_parent();
-                        } catch (...) {
-                            // Ignore errors in cleanup
-                        }
+                    if (leaf) {
+                        leaf->clear_expansion_flag();
+                        leaf->clear_all_virtual_losses();
                     }
                 } catch (...) {
-                    // Ignore errors in cleanup
+                    // Ignore cleanup errors
                 }
             }
         }
@@ -1316,112 +1406,33 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
     
     // Helper to check for search stall
     auto check_stalled = [&]() -> bool {
-        auto current_time = std::chrono::steady_clock::now();
-        auto stall_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-            current_time - last_progress_time).count();
+        return watchdog_.check_stalled(simulations_done_.load(), [&]() {
+            // Recovery actions
+            MCTS_DEBUG("Stall recovery action: restarting leaf gatherer");
+            create_or_reset_leaf_gatherer();
             
-        int current_count = simulations_done_.load(std::memory_order_relaxed);
-        
-        // If we've made progress, update the timestamp
-        if (current_count > last_progress_count) {
-            last_progress_time = current_time;
-            last_progress_count = current_count;
-            return false;
-        }
-        
-        // Check if we've been stalled for too long - increase to 5 seconds (from 3)
-        if (stall_ms > 5000) {
-            MCTS_DEBUG("Search appears stalled for " << stall_ms << "ms");
-            
-            // If we have pending evals but no progress, consider stalled
-            int pending_size = 0;
+            // Clear any pending evaluations - they might be stuck
             {
                 std::lock_guard<std::mutex> lock(pending_mutex);
-                pending_size = pending_evals.size();
-            }
-            
-            if (pending_size > 0) {
-                MCTS_DEBUG("Stalled with " << pending_size << " pending evaluations");
                 
-                // If we've already tried recovery multiple times, consider search failed
-                // Increase from 2 to 3 recovery attempts
-                if (stall_recovery_attempts >= 3) {
-                    MCTS_DEBUG("Multiple recovery attempts failed, aborting search");
-                    return true;
-                }
-                
-                // Attempt recovery by timing out oldest evaluations
-                // Reduce number timed out from 8 to 4 at a time
-                int timeout_count = std::min(pending_size, 4);
-                
-                std::lock_guard<std::mutex> lock(pending_mutex);
-                std::sort(pending_evals.begin(), pending_evals.end(), 
-                          [](const PendingEval& a, const PendingEval& b) {
-                              return a.submit_time < b.submit_time;
-                          });
-                          
-                for (int i = 0; i < timeout_count && i < static_cast<int>(pending_evals.size()); i++) {
-                    // Remove virtual losses from timed out nodes
-                    Node* leaf = pending_evals[i].leaf;
-                    if (leaf) {
-                        Node* current = leaf;
-                        while (current) {
-                            current->remove_virtual_loss();
-                            current = current->get_parent();
-                        }
+                int cleared = 0;
+                for (auto& eval : pending_evals) {
+                    if (eval.leaf) {
+                        eval.leaf->clear_all_virtual_losses();
+                        cleared++;
                     }
                 }
                 
-                // Only remove the first few entries to avoid vector shifting cost
-                if (!pending_evals.empty()) {
-                    pending_evals.erase(pending_evals.begin(), 
-                                      pending_evals.begin() + std::min(timeout_count, 
-                                                                     static_cast<int>(pending_evals.size())));
-                }
-                
-                MCTS_DEBUG("Timed out " << timeout_count << " oldest pending evaluations");
-                eval_timeouts += timeout_count;
-                stall_recovery_attempts++;
-                
-                // Update last progress time to give more time for recovery
-                // Increase wait time from 0 to 2 seconds
-                last_progress_time = std::chrono::steady_clock::now() + 
-                                    std::chrono::milliseconds(2000);
-                return false;  // Allow search to continue
+                MCTS_DEBUG("Cleared virtual losses for " << cleared << " pending evaluations");
+                pending_evals.clear();
             }
             
-            // If leaf gatherer queue is non-empty but stuck, consider stalled
-            if (leaf_gatherer_ && leaf_gatherer_->get_queue_size() > 0 && 
-                leaf_gatherer_->get_active_workers() == 0) {
-                MCTS_DEBUG("Leaf gatherer appears stuck, restarting workers");
-                
-                // Instead of returning, try to recover by recreating the leaf gatherer
-                // Increase from 2 to 3 recovery attempts
-                if (stall_recovery_attempts < 3) {
-                    try {
-                        create_or_reset_leaf_gatherer();
-                        stall_recovery_attempts++;
-                        
-                        // Update last progress time to give more time for recovery
-                        // Increase wait time from 0 to 3 seconds
-                        last_progress_time = std::chrono::steady_clock::now() + 
-                                            std::chrono::milliseconds(3000);
-                        return false;  // Continue with new leaf gatherer
-                    }
-                    catch (const std::exception& e) {
-                        MCTS_DEBUG("Error restarting leaf gatherer: " << e.what());
-                        return true;  // Give up if we can't restart
-                    }
-                } else {
-                    MCTS_DEBUG("Multiple leaf gatherer restarts failed, aborting search");
-                    return true;
-                }
+            // Process any existing batch to prevent stale data
+            if (!batch_inputs.empty()) {
+                MCTS_DEBUG("Processing potentially stale batch of " << batch_inputs.size() << " items");
+                process_batch();
             }
-            
-            return true;  // Stalled and no recovery options
-        }
-        
-        return false;
+        });
     };
     
     // Initialize progress tracking
@@ -1440,6 +1451,11 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
     
     int simulations_completed = simulations_done_.load(std::memory_order_relaxed);
     int target_simulations = simulations_completed + num_simulations;
+
+    // Check if we should restart the leaf gatherer
+    if (simulations_completed % 50 == 0) {
+        check_and_restart_leaf_gatherer();
+    }
 
     // Reserve space for batch processing
     batch_inputs.reserve(MAX_BATCH_SIZE);
@@ -1594,81 +1610,139 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
             int& times_selected = selection_count[leaf];
             times_selected++;
 
-            // If the same leaf is selected multiple times in a row, something is wrong
-            if (times_selected > 3) {
-                MCTS_DEBUG("WARNING: Same leaf selected " << times_selected << " times, attempting forced expansion");
+        // If the same leaf is selected multiple times in a row, something is wrong
+        if (times_selected > 3) {
+            MCTS_DEBUG("WARNING: Same leaf selected " << times_selected << " times, attempting forced expansion");
+            
+            // ADDED: Only proceed if we can safely mark this node for expansion
+            if (!leaf->mark_for_expansion()) {
+                MCTS_DEBUG("Node already being expanded by another thread, skipping forced expansion");
                 
-                // ADDED: Only proceed if we can safely mark this node for expansion
-                if (!leaf->mark_for_expansion()) {
-                    MCTS_DEBUG("Node already being expanded by another thread, skipping forced expansion");
-                    
-                    // ADDED: We still need to remove virtual losses for this path 
-                    // to prevent future selection of this node
-                    Node* current = leaf;
-                    while (current) {
-                        try {
-                            current->remove_virtual_loss();
-                            current = current->get_parent();
-                        } catch (...) {
-                            break;  // Stop on error
-                        }
-                    }
-                    
-                    // Reset selection count to avoid repeated warnings
-                    selection_count[leaf] = 0;
-                    
-                    // CRITICAL: Add an artificial visit to discourage immediate re-selection
+                // ADDED: We still need to remove virtual losses for this path 
+                // to prevent future selection of this node
+                Node* current = leaf;
+                while (current) {
                     try {
-                        leaf->update_stats(0.0f); // Neutral value, just to increment visit count
-                    } catch(...) {
-                        // Ignore errors
+                        current->remove_virtual_loss();
+                        current = current->get_parent();
+                    } catch (...) {
+                        break;  // Stop on error
                     }
-                    
-                    // Skip this iteration and try with a new node next time
-                    continue;
                 }
                 
-                // Force immediate evaluation instead of queuing
+                // Reset selection count to avoid repeated warnings
+                selection_count[leaf] = 0;
+                
+                // CRITICAL: Add an artificial visit to discourage immediate re-selection
                 try {
-                    expand_and_evaluate(leaf);
+                    leaf->update_stats(0.0f); // Neutral value, just to increment visit count
+                } catch(...) {
+                    // Ignore errors
+                }
+                
+                // Skip this iteration and try with a new node next time
+                continue;
+            }
+            
+            // Force immediate evaluation instead of queuing
+            try {
+                // CRITICAL FIX: Add a timeout for forced expansion
+                bool expansion_success = false;
+                
+                // Use a separate thread with timeout to handle expansion
+                std::atomic<bool> expansion_done{false};
+                std::thread expansion_thread([&]() {
+                    try {
+                        expand_and_evaluate(leaf);
+                        expansion_done.store(true, std::memory_order_release);
+                        expansion_success = true;
+                    } catch (const std::exception& e) {
+                        MCTS_DEBUG("Error in expansion thread: " << e.what());
+                    }
+                });
+                
+                // Wait for expansion with a reasonable timeout
+                const int EXPANSION_TIMEOUT_MS = 500; // 500ms timeout
+                auto start_time = std::chrono::steady_clock::now();
+                
+                while (!expansion_done.load(std::memory_order_acquire)) {
+                    auto now = std::chrono::steady_clock::now();
+                    auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                        now - start_time).count();
+                    
+                    if (elapsed_ms > EXPANSION_TIMEOUT_MS) {
+                        MCTS_DEBUG("Expansion timeout after " << elapsed_ms << "ms");
+                        break;
+                    }
+                    
+                    // Brief sleep to avoid tight loop
+                    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                }
+                
+                // If thread is still running, detach it
+                if (expansion_thread.joinable()) {
+                    if (expansion_done.load(std::memory_order_acquire)) {
+                        expansion_thread.join();
+                    } else {
+                        MCTS_DEBUG("Detaching expansion thread after timeout");
+                        expansion_thread.detach();
+                    }
+                }
+                
+                // Only increment simulation counter on success
+                if (expansion_success) {
                     simulations_completed++;
                     simulations_done_.store(simulations_completed, std::memory_order_relaxed);
+                }
+                
+                // Reset selection count after expansion attempt
+                selection_count[leaf] = 0;
+                
+                // ADDED: Clear expansion flag regardless of success/failure
+                leaf->clear_expansion_flag();
+                
+                // CRITICAL: If expansion failed or timed out, make sure virtual losses are removed
+                if (!expansion_success) {
+                    MCTS_DEBUG("Removing virtual losses after failed expansion");
+                    leaf->clear_all_virtual_losses();
                     
-                    // Reset selection count after successful expansion
-                    selection_count[leaf] = 0;
-                    
-                    // ADDED: Clear expansion flag
-                    leaf->clear_expansion_flag();
-                    
-                    continue;
-                } catch (const std::exception& e) {
-                    MCTS_DEBUG("Error in forced expansion: " << e.what());
-                    
-                    // ADDED: Clear expansion flag on error
-                    leaf->clear_expansion_flag();
-                    
-                    // ADDED: Always remove virtual losses on error to prevent repeated selection
-                    Node* current = leaf;
-                    while (current) {
-                        try {
-                            current->remove_virtual_loss();
-                            current = current->get_parent();
-                        } catch (...) {
-                            break;  // Stop on error
-                        }
-                    }
-                    
-                    // CRITICAL: Add an artificial visit to discourage immediate re-selection
+                    // Add a visit to prevent immediate reselection
                     try {
-                        leaf->update_stats(0.0f); // Neutral value, just to increment visit count
-                    } catch(...) {
+                        leaf->update_stats(0.0f);
+                    } catch (...) {
                         // Ignore errors
                     }
-                    
-                    // Reset selection count to avoid repeated warnings
-                    selection_count[leaf] = 0;
                 }
+                
+                continue;
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error in forced expansion: " << e.what());
+                
+                // ADDED: Clear expansion flag on error
+                leaf->clear_expansion_flag();
+                
+                // ADDED: Always remove virtual losses on error to prevent repeated selection
+                Node* current = leaf;
+                while (current) {
+                    try {
+                        current->remove_virtual_loss();
+                        current = current->get_parent();
+                    } catch (...) {
+                        break;  // Stop on error
+                    }
+                }
+                
+                // CRITICAL: Add an artificial visit to discourage immediate re-selection
+                try {
+                    leaf->update_stats(0.0f); // Neutral value, just to increment visit count
+                } catch(...) {
+                    // Ignore errors
+                }
+                
+                // Reset selection count to avoid repeated warnings
+                selection_count[leaf] = 0;
             }
+        }
             
             // Handle terminal nodes immediately
             if (leaf->get_state().is_terminal()) {

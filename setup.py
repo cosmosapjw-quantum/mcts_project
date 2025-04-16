@@ -13,6 +13,7 @@ sources = [
     "src/mcts_config.cpp",
     "src/gomoku.cpp",
     "src/attack_defense.cpp",
+    "src/python_nn_proxy.cpp",  # Add this new source file
 ]
 
 include_dirs = [

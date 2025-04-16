@@ -70,6 +70,27 @@ public:
         }
     }
 
+    bool check_and_restart_leaf_gatherer() {
+        if (!leaf_gatherer_) {
+            MCTS_DEBUG("LeafGatherer not available, creating new one");
+            create_or_reset_leaf_gatherer();
+            return leaf_gatherer_ != nullptr;
+        }
+        
+        // Check if gatherer appears stalled
+        int queue_size = leaf_gatherer_->get_queue_size();
+        int active_workers = leaf_gatherer_->get_active_workers();
+        
+        if (queue_size > 10 && active_workers == 0) {
+            MCTS_DEBUG("LeafGatherer appears stuck (queue_size=" << queue_size 
+                      << ", active_workers=" << active_workers << "), restarting");
+            create_or_reset_leaf_gatherer();
+            return leaf_gatherer_ != nullptr;
+        }
+        
+        return true;
+    }
+
     void force_clear() {
         // Set shutdown flag
         shutdown_flag_ = true;
@@ -100,7 +121,6 @@ public:
 
     void create_or_reset_leaf_gatherer();
     std::string get_leaf_gatherer_stats() const;
-    bool check_and_restart_leaf_gatherer();
 
 private:
     void worker_thread();
@@ -199,4 +219,51 @@ private:
         
         return policy;
     }
+
+    struct ThreadWatchdog {
+        std::atomic<int> last_simulation_count{0};
+        std::chrono::steady_clock::time_point last_progress_time;
+        int stall_recovery_attempts{0};
+        
+        ThreadWatchdog() : last_progress_time(std::chrono::steady_clock::now()) {}
+        
+        // Check if search is stalled and attempt recovery
+        bool check_stalled(int current_sim_count, const std::function<void()>& recovery_action) {
+            auto current_time = std::chrono::steady_clock::now();
+            auto stall_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                current_time - last_progress_time).count();
+            
+            // If we've made progress, update the timestamp
+            if (current_sim_count > last_simulation_count) {
+                last_progress_time = current_time;
+                last_simulation_count = current_sim_count;
+                return false;
+            }
+            
+            // Check if we've been stalled for too long - reduced to 3 seconds
+            if (stall_ms > 3000) {
+                MCTS_DEBUG("Search appears stalled for " << stall_ms << "ms");
+                
+                // If we've already tried recovery multiple times, consider search failed
+                if (stall_recovery_attempts >= 2) {
+                    MCTS_DEBUG("Multiple recovery attempts failed, aborting search");
+                    return true;
+                }
+                
+                // Try the recovery action
+                MCTS_DEBUG("Attempting stall recovery...");
+                recovery_action();
+                
+                // Update recovery attempt counter and last progress time
+                stall_recovery_attempts++;
+                last_progress_time = std::chrono::steady_clock::now();
+                
+                // Give the recovery action time to work
+                return false;
+            }
+            
+            return false;
+        }
+    };
+    ThreadWatchdog watchdog_;
 };

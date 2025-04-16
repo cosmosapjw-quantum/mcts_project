@@ -79,134 +79,92 @@ public:
             // Set global shutdown flag to stop any ongoing operations
             global_shutdown_requested.store(true, std::memory_order_release);
             
+            // Also set the Python shutdown flag if available
+            if (nn_) {
+                // Cast to PythonNNProxy to access shutdown flag
+                auto python_nn = dynamic_cast<PythonNNProxy*>(nn_.get());
+                if (python_nn) {
+                    // Trigger the shutdown flag in Python proxy
+                    shutdown_in_progress.store(true, std::memory_order_release);
+                }
+            }
+            
             // First, set flags to stop any ongoing search
             if (mcts_) {
                 MCTS_DEBUG("Setting MCTS shutdown flag");
                 mcts_->set_shutdown_flag(true);
-            }
-            
-            // Clear the leaf gatherer first with timeout
-            if (mcts_ && mcts_->get_leaf_gatherer()) {
-                MCTS_DEBUG("Shutting down leaf gatherer");
                 
-                // Use a thread with timeout to shutdown the leaf gatherer
-                std::atomic<bool> leaf_shutdown_complete{false};
-                std::thread leaf_shutdown_thread([&](){
-                    try {
-                        mcts_->clear_leaf_gatherer();
-                        leaf_shutdown_complete.store(true, std::memory_order_release);
-                    } catch (const std::exception& e) {
-                        MCTS_DEBUG("Error in leaf gatherer shutdown: " << e.what());
+                // Clear the leaf gatherer first with very short timeout
+                if (mcts_->get_leaf_gatherer()) {
+                    MCTS_DEBUG("Shutting down leaf gatherer");
+                    
+                    // Use a thread with timeout to shutdown the leaf gatherer
+                    std::atomic<bool> leaf_shutdown_complete{false};
+                    std::thread leaf_shutdown_thread([this, &leaf_shutdown_complete](){
+                        try {
+                            mcts_->clear_leaf_gatherer();
+                            leaf_shutdown_complete.store(true, std::memory_order_release);
+                        } catch (...) {
+                            // Ignore errors
+                        }
+                    });
+                    
+                    // Very short wait - mostly fire and forget
+                    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+                    
+                    // Detach thread regardless - don't join
+                    if (leaf_shutdown_thread.joinable()) {
+                        MCTS_DEBUG("Detaching leaf gatherer shutdown thread");
+                        leaf_shutdown_thread.detach();
                     }
-                });
-                
-                // Wait for leaf gatherer shutdown with timeout
-                const int LEAF_SHUTDOWN_TIMEOUT_MS = 1000;  // 1 second timeout
-                auto deadline = std::chrono::steady_clock::now() + 
-                    std::chrono::milliseconds(LEAF_SHUTDOWN_TIMEOUT_MS);
-                
-                while (std::chrono::steady_clock::now() < deadline && 
-                       !leaf_shutdown_complete.load(std::memory_order_acquire)) {
-                    std::this_thread::sleep_for(std::chrono::milliseconds(10));
-                }
-                
-                // Detach thread if it didn't complete in time
-                if (leaf_shutdown_thread.joinable()) {
-                    MCTS_DEBUG("Leaf gatherer shutdown timed out, detaching thread");
-                    leaf_shutdown_thread.detach();
-                } else {
-                    MCTS_DEBUG("Leaf gatherer shutdown completed successfully");
                 }
             }
             
-            // Clear the MCTS engine next with timeout
+            // Clear MCTS with fire-and-forget approach
             MCTS_DEBUG("Clearing MCTS engine");
-            std::atomic<bool> mcts_reset_complete{false};
-            std::thread mcts_reset_thread([&](){
+            std::thread mcts_thread([this](){
                 try {
                     mcts_.reset();
-                    mcts_reset_complete.store(true, std::memory_order_release);
-                } catch (const std::exception& e) {
-                    MCTS_DEBUG("Error resetting MCTS engine: " << e.what());
+                } catch (...) {
+                    // Ignore errors
                 }
             });
             
-            // Wait for MCTS reset with timeout
-            const int MCTS_RESET_TIMEOUT_MS = 500;  // 500ms timeout
-            auto mcts_deadline = std::chrono::steady_clock::now() + 
-                std::chrono::milliseconds(MCTS_RESET_TIMEOUT_MS);
+            // Don't wait - just detach
+            MCTS_DEBUG("Detaching MCTS reset thread to avoid deadlocks");
+            mcts_thread.detach();
             
-            while (std::chrono::steady_clock::now() < mcts_deadline && 
-                   !mcts_reset_complete.load(std::memory_order_acquire)) {
-                std::this_thread::sleep_for(std::chrono::milliseconds(10));
-            }
+            // Force the pointer to null to ensure destructor continues
+            mcts_ = nullptr;
             
-            // Detach thread if it didn't complete in time
-            if (mcts_reset_thread.joinable()) {
-                MCTS_DEBUG("MCTS reset timed out, detaching thread");
-                mcts_reset_thread.detach();
-                
-                // Force nullptr to ensure destructor continues
-                mcts_ = nullptr;
-            } else {
-                MCTS_DEBUG("MCTS reset completed successfully");
-            }
-            
-            // Finally, shutdown the neural network with timeout
+            // Finally, shutdown neural network with fire-and-forget approach
             MCTS_DEBUG("Shutting down neural network interface");
-            std::atomic<bool> nn_reset_complete{false};
-            std::thread nn_reset_thread([&](){
+            std::thread nn_thread([this](){
                 try {
                     nn_.reset();
-                    nn_reset_complete.store(true, std::memory_order_release);
-                } catch (const std::exception& e) {
-                    MCTS_DEBUG("Error shutting down neural network: " << e.what());
+                } catch (...) {
+                    // Ignore errors
                 }
             });
             
-            // Wait for NN reset with timeout
-            const int NN_RESET_TIMEOUT_MS = 1000;  // 1 second timeout
-            auto nn_deadline = std::chrono::steady_clock::now() + 
-                std::chrono::milliseconds(NN_RESET_TIMEOUT_MS);
+            // Don't wait - just detach
+            MCTS_DEBUG("Detaching neural network shutdown thread to avoid deadlocks");
+            nn_thread.detach();
             
-            while (std::chrono::steady_clock::now() < nn_deadline && 
-                   !nn_reset_complete.load(std::memory_order_acquire)) {
-                std::this_thread::sleep_for(std::chrono::milliseconds(10));
-            }
-            
-            // Detach thread if it didn't complete in time
-            if (nn_reset_thread.joinable()) {
-                MCTS_DEBUG("Neural network shutdown timed out, detaching thread");
-                nn_reset_thread.detach();
-                
-                // Force nullptr to ensure destructor continues
-                nn_ = nullptr;
-            } else {
-                MCTS_DEBUG("Neural network shutdown completed successfully");
-            }
+            // Force the pointer to null to ensure destructor continues
+            nn_ = nullptr;
             
             MCTS_DEBUG("MCTSWrapper shutdown complete");
         } 
-        catch (const std::exception& e) {
-            MCTS_DEBUG("Exception in MCTSWrapper destructor: " << e.what());
-            
-            // Force cleanup to avoid memory leaks
-            try {
-                mcts_ = nullptr;
-                nn_ = nullptr;
-            } catch (...) {
-                MCTS_DEBUG("Error during forced cleanup");
-            }
-        }
         catch (...) {
-            MCTS_DEBUG("Unknown exception in MCTSWrapper destructor");
+            MCTS_DEBUG("Exception in MCTSWrapper destructor");
             
             // Force cleanup to avoid memory leaks
             try {
                 mcts_ = nullptr;
                 nn_ = nullptr;
             } catch (...) {
-                MCTS_DEBUG("Error during forced cleanup");
+                // Last resort - ignore errors
             }
         }
     }
@@ -220,8 +178,16 @@ public:
         }
         
         try {
-            // CRITICAL: Don't acquire GIL here, let the nn_->initialize method handle it
-            // This avoids nested GIL acquisitions that could lead to inconsistent state
+            // First, make sure any previous neural network is properly shut down
+            auto python_nn = dynamic_cast<PythonNNProxy*>(nn_.get());
+            if (python_nn) {
+                // Explicitly shut down before setting a new model
+                MCTS_DEBUG("Shutting down previous neural network model");
+                python_nn->shutdown();
+            }
+            
+            // Wait a brief moment to ensure cleanup is complete
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
             
             // Initialize the neural network proxy with the model
             bool success = nn_->initialize(model, config_.parallel_leaf_batch_size);
@@ -234,6 +200,42 @@ public:
         }
         catch (const std::exception& e) {
             MCTS_DEBUG("Error setting neural network model: " << e.what());
+        }
+    }
+
+    void reset_neural_network() {
+        MCTS_DEBUG("Resetting neural network");
+        
+        try {
+            // Create a new neural network proxy
+            auto new_nn = std::make_shared<PythonNNProxy>();
+            
+            // Preserve any settings from the old proxy
+            if (nn_) {
+                auto old_nn = dynamic_cast<PythonNNProxy*>(nn_.get());
+                if (old_nn) {
+                    new_nn->set_num_history_moves(old_nn->get_num_history_moves());
+                }
+            }
+            
+            // Shut down the old proxy
+            if (nn_) {
+                MCTS_DEBUG("Shutting down old neural network");
+                auto old_nn = dynamic_cast<PythonNNProxy*>(nn_.get());
+                if (old_nn) {
+                    old_nn->shutdown();
+                }
+            }
+            
+            // Wait a brief moment to ensure cleanup is complete
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            
+            // Replace with the new proxy
+            nn_ = new_nn;
+            MCTS_DEBUG("Neural network reset complete");
+        }
+        catch (const std::exception& e) {
+            MCTS_DEBUG("Error resetting neural network: " << e.what());
         }
     }
 
@@ -379,6 +381,7 @@ PYBIND11_MODULE(mcts_py, m) {
             py::arg("temperature") = 1.0f)
        .def("set_exploration_parameters", &MCTSWrapper::set_exploration_parameters,
             py::arg("dirichlet_alpha") = 0.03f, py::arg("noise_weight") = 0.25f)
+        .def("reset_neural_network", &MCTSWrapper::reset_neural_network)
        .def("get_stats", &MCTSWrapper::get_stats);  // Add stats method binding
 
     // Register signal handlers for graceful termination

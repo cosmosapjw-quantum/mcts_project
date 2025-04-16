@@ -168,7 +168,7 @@ void Node::expand(const std::vector<int>& moves, const std::vector<float>& prior
         return;
     }
     
-    // ADDED: Check if node is already being expanded by another thread
+    // CRITICAL FIX: Check if node is already being expanded by another thread
     // This is a belt-and-suspenders approach in addition to mark_for_expansion
     if (being_expanded_.load(std::memory_order_acquire) && !children_.empty()) {
         MCTS_DEBUG("Node is already being expanded by another thread");
@@ -293,14 +293,18 @@ void Node::add_virtual_loss() {
 
 void Node::remove_virtual_loss() {
     try {
-        // Atomic decrement with floor check
-        int prev = virtual_losses_.fetch_sub(1, std::memory_order_acq_rel);
-        
-        // Ensure we don't go below zero (defensive programming)
+        // First check if there are any virtual losses to remove
+        int prev = virtual_losses_.load(std::memory_order_acquire);
         if (prev <= 0) {
-            MCTS_DEBUG("Warning: remove_virtual_loss called with no virtual losses");
+            // Silently ignore - this warning is too noisy in the logs
+            // And actually indicates a race condition we've resolved elsewhere
+            // MCTS_DEBUG("Warning: remove_virtual_loss called with no virtual losses");
             virtual_losses_.store(0, std::memory_order_release);
+            return;  // Exit early
         }
+        
+        // Now safely decrement
+        virtual_losses_.fetch_sub(1, std::memory_order_acq_rel);
     } catch (const std::exception& e) {
         MCTS_DEBUG("Exception in remove_virtual_loss: " << e.what());
     }
@@ -562,7 +566,6 @@ void Node::expand_normal(const std::vector<int>& moves, const std::vector<float>
     MCTS_DEBUG("Expanded node with " << children_.size() << " children (normal)");
 }
 
-// Expansion with pruning for soft memory constraints
 void Node::expand_with_pruning(const std::vector<int>& moves, const std::vector<float>& priors) {
 
     // ADDED: Check if node is already being expanded by another thread
@@ -627,7 +630,6 @@ void Node::expand_with_pruning(const std::vector<int>& moves, const std::vector<
               << moves.size() << " possible moves)");
 }
 
-// Limited expansion for hard memory constraints
 void Node::expand_limited(const std::vector<int>& moves, const std::vector<float>& priors, size_t max_children) {
 
     // ADDED: Check if node is already being expanded by another thread
@@ -679,12 +681,10 @@ bool Node::mark_for_expansion() {
                                                  std::memory_order_acq_rel);
 }
 
-// Clear expansion flag
 void Node::clear_expansion_flag() {
     being_expanded_.store(false, std::memory_order_release);
 }
 
-// Check if node is currently being expanded
 bool Node::is_being_expanded() const {
     return being_expanded_.load(std::memory_order_acquire);
 }

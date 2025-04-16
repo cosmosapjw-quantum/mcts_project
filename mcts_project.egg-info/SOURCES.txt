@@ -10,4 +10,5 @@ src/gomoku.cpp
 src/mcts.cpp
 src/mcts_config.cpp
 src/node.cpp
+src/python_nn_proxy.cpp
 src/python_wrapper.cpp

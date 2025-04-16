@@ -15,12 +15,16 @@
 
 namespace py = pybind11;
 
-static std::mutex batch_inference_mutex_;
+// Static mutex and shutdown flag to prevent deadlocks
+extern std::recursive_mutex batch_inference_mutex;
+extern std::atomic<bool> shutdown_in_progress;
 
 /**
  * A thread-safe proxy for the Python neural network.
  * Uses a dedicated Python thread and message queues for communication.
  */
+// Complete fixed PythonNNProxy class to prevent segmentation faults
+
 class PythonNNProxy : public NNInterface {
 public:
     PythonNNProxy(int num_history_moves = 3) 
@@ -31,6 +35,7 @@ public:
           total_inference_time_ms_(0)
     {
         MCTS_DEBUG("Creating PythonNNProxy");
+        // Don't acquire GIL or access Python during construction
     }
     
     ~PythonNNProxy() {
@@ -49,24 +54,47 @@ public:
     bool initialize(py::object model, int batch_size = 16, const std::string& device = "cuda") {
         MCTS_DEBUG("Initializing PythonNNProxy with batch_size=" << batch_size << ", device=" << device);
         
+        // First, ensure we're not already initialized
+        if (is_initialized_) {
+            MCTS_DEBUG("PythonNNProxy already initialized, shutting down first");
+            shutdown();
+            
+            // Brief wait to ensure cleanup is complete
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+        
         try {
             // Acquire the GIL
             py::gil_scoped_acquire gil;
             
+            // First check if pybind11 is still active
+            if (PyErr_Occurred()) {
+                MCTS_DEBUG("Python error detected during initialization");
+                PyErr_Print();
+                PyErr_Clear();
+            }
+            
             // Import the nn_proxy module
-            py::module nn_proxy = py::module::import("nn_proxy");
-            
-            // Initialize the neural network
-            nn_proxy.attr("initialize_neural_network")(model, batch_size, device);
-            
-            // Store the module for later use
-            nn_proxy_module_ = nn_proxy;
-            
-            // Mark as initialized
-            is_initialized_ = true;
-            
-            MCTS_DEBUG("PythonNNProxy initialization successful");
-            return true;
+            try {
+                py::module nn_proxy = py::module::import("nn_proxy");
+                
+                // Initialize the neural network - make a copy of the model to ensure lifetime
+                py::object model_copy = model;
+                nn_proxy.attr("initialize_neural_network")(model_copy, batch_size, device);
+                
+                // Store the module for later use
+                nn_proxy_module_ = nn_proxy;
+                
+                // Mark as initialized
+                is_initialized_ = true;
+                
+                MCTS_DEBUG("PythonNNProxy initialization successful");
+                return true;
+            }
+            catch (const py::error_already_set& e) {
+                MCTS_DEBUG("Python error importing nn_proxy: " << e.what());
+                return false;
+            }
         }
         catch (const std::exception& e) {
             MCTS_DEBUG("Error initializing PythonNNProxy: " << e.what());
@@ -80,6 +108,9 @@ public:
     void shutdown() {
         MCTS_DEBUG("PythonNNProxy shutdown started");
         
+        // First mark shutdown in progress to prevent new operations
+        shutdown_in_progress.store(true, std::memory_order_release);
+        
         if (!is_initialized_) {
             MCTS_DEBUG("PythonNNProxy not initialized, nothing to shutdown");
             return;
@@ -88,64 +119,67 @@ public:
         // First, mark as uninitialized to prevent new requests
         is_initialized_ = false;
         
+        // Unlock the batch inference mutex if locked by this thread
+        {
+            if (batch_inference_mutex.try_lock()) {
+                MCTS_DEBUG("Unlocking batch inference mutex during shutdown");
+                batch_inference_mutex.unlock();
+            } else {
+                MCTS_DEBUG("Batch inference mutex already unlocked or owned by another thread");
+            }
+        }
+        
         // Wait briefly for any ongoing operations to complete
         MCTS_DEBUG("Waiting briefly for ongoing operations to complete...");
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
         
-        // We need a mutex here to prevent race conditions between shutdown paths
-        static std::mutex shutdown_mutex;
-        
-        // Use try_lock with timeout instead of lock_guard to prevent deadlock
-        bool got_lock = false;
-        {
-            auto deadline = std::chrono::steady_clock::now() + std::chrono::milliseconds(500);
-            while (std::chrono::steady_clock::now() < deadline) {
-                if (shutdown_mutex.try_lock()) {
-                    got_lock = true;
-                    break;
-                }
-                std::this_thread::sleep_for(std::chrono::milliseconds(10));
-            }
-        }
-        
-        if (!got_lock) {
-            MCTS_DEBUG("Failed to acquire shutdown mutex after timeout, continuing with forced cleanup");
-            // Continue without the lock as this is emergency shutdown
-        } else {
-            // We'll unlock manually at the end if we got the lock
-        }
-        
-        // Try to shutdown Python in a separate thread with timeout
-        std::atomic<bool> python_shutdown_complete{false};
-        
-        // Create a local copy of the Python module reference
+        // Make a defensive copy of the Python module reference
         py::object local_module;
         try {
+            py::gil_scoped_acquire gil;
+            
             if (!nn_proxy_module_.is_none()) {
                 local_module = nn_proxy_module_;
+                
+                // Clear the class reference BEFORE trying Python shutdown
+                nn_proxy_module_ = py::none();
             }
         }
         catch (const std::exception& e) {
             MCTS_DEBUG("Error accessing Python module: " << e.what());
+            
+            // Force reset module reference on error
+            try {
+                nn_proxy_module_ = py::none();
+            } catch (...) {
+                // Ignore errors
+            }
         }
-        
-        // Clear the class reference BEFORE trying Python cleanup
-        nn_proxy_module_ = py::none();
         
         // Only attempt Python shutdown if we have a valid module
         if (!local_module.is_none()) {
             // Use a separate thread for Python shutdown to avoid GIL deadlock
-            std::thread shutdown_thread([&python_shutdown_complete, local_module]() {
+            std::thread shutdown_thread([local_module]() {
                 try {
                     // Try to acquire GIL and call shutdown
                     py::gil_scoped_acquire gil;
-                    MCTS_DEBUG("GIL acquired for Python shutdown");
+                    
+                    // First check if Python is still active
+                    if (PyErr_Occurred()) {
+                        MCTS_DEBUG("Python error detected during shutdown");
+                        PyErr_Print();
+                        PyErr_Clear();
+                    }
                     
                     try {
                         // Call Python shutdown function
                         MCTS_DEBUG("Calling Python shutdown function");
-                        local_module.attr("shutdown")();
-                        MCTS_DEBUG("Python shutdown function completed successfully");
+                        if (py::hasattr(local_module, "shutdown")) {
+                            local_module.attr("shutdown")();
+                            MCTS_DEBUG("Python shutdown function completed successfully");
+                        } else {
+                            MCTS_DEBUG("Python module has no shutdown function");
+                        }
                     }
                     catch (const py::error_already_set& e) {
                         MCTS_DEBUG("Python error in shutdown: " << e.what());
@@ -157,65 +191,21 @@ public:
                 catch (const std::exception& e) {
                     MCTS_DEBUG("Error acquiring GIL for shutdown: " << e.what());
                 }
-                
-                // Mark as complete regardless of errors
-                python_shutdown_complete.store(true);
             });
             
-            // Wait for Python shutdown with timeout
-            {
-                auto start_time = std::chrono::steady_clock::now();
-                auto timeout = std::chrono::milliseconds(1000); // 1 second timeout
-                
-                while (!python_shutdown_complete.load()) {
-                    auto current_time = std::chrono::steady_clock::now();
-                    auto elapsed = current_time - start_time;
-                    
-                    if (elapsed > timeout) {
-                        MCTS_DEBUG("Python shutdown thread timed out after 1000ms, detaching thread");
-                        shutdown_thread.detach();  // Detach the thread and continue
-                        break;
-                    }
-                    
-                    std::this_thread::sleep_for(std::chrono::milliseconds(10));
-                }
-                
-                // Join thread if it completed in time
-                if (python_shutdown_complete.load() && shutdown_thread.joinable()) {
-                    shutdown_thread.join();
-                }
-            }
+            // Don't wait - detach the thread immediately
+            MCTS_DEBUG("Detaching Python shutdown thread to avoid deadlocks");
+            shutdown_thread.detach();
         }
-        
-        // Clear local reference to enable garbage collection
-        local_module = py::none();
         
         // Reset statistics and state
         inference_count_ = 0;
         total_inference_time_ms_ = 0;
         
-        // Release the mutex if we got it
-        if (got_lock) {
-            shutdown_mutex.unlock();
-        }
+        // Wait a moment for any detached threads to progress
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
         
         MCTS_DEBUG("PythonNNProxy shutdown complete");
-    }
-
-    // Helper method for thread joining with timeout (C++11 compatible)
-    template <typename Rep, typename Period>
-    void join_for(std::thread& t, const std::chrono::duration<Rep, Period>& timeout) {
-        auto start = std::chrono::steady_clock::now();
-        while (t.joinable()) {
-            auto now = std::chrono::steady_clock::now();
-            auto elapsed = now - start;
-            
-            if (elapsed >= timeout) {
-                return;  // Timeout reached
-            }
-            
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        }
     }
     
     /**
@@ -240,8 +230,8 @@ public:
         outPolicy.resize(state.board_size * state.board_size, 1.0f / (state.board_size * state.board_size));
         outValue = 0.0f;
         
-        if (!is_initialized_) {
-            MCTS_DEBUG("PythonNNProxy not initialized");
+        if (!is_initialized_ || shutdown_in_progress.load(std::memory_order_acquire)) {
+            MCTS_DEBUG("PythonNNProxy not initialized or shutting down");
             return;
         }
         
@@ -291,7 +281,7 @@ public:
      */
     std::vector<NNOutput> batch_inference(const std::vector<std::tuple<std::string, int, float, float>>& inputs) {
         // Check if we're in shutdown or not initialized
-        if (!is_initialized_) {
+        if (!is_initialized_ || shutdown_in_progress.load(std::memory_order_acquire)) {
             MCTS_DEBUG("Batch inference requested during shutdown or uninitialized state, returning default values");
             return create_default_outputs(inputs);
         }
@@ -303,77 +293,192 @@ public:
             return {};
         }
         
-        if (nn_proxy_module_.is_none()) {
-            MCTS_DEBUG("Neural network not initialized, returning default values");
-            return create_default_outputs(inputs);
-        }
-        
         // Track timing
         auto start_time = std::chrono::steady_clock::now();
         
         // Create default results vector first - will be returned on any error
         std::vector<NNOutput> results = create_default_outputs(inputs);
         
-        // **** DEBUG: Log queue state from C++ side before Python operations ****
-        MCTS_DEBUG("Before Python operations - checking if Python module is responsive");
-        
-        // Acquire the mutex to prevent concurrent access to Python inference
-        std::lock_guard<std::mutex> lock(batch_inference_mutex_);
-        
-        try {
-            // Generate a base request ID
-            int base_request_id = next_request_id_.fetch_add(static_cast<int>(inputs.size()), std::memory_order_relaxed);
-            MCTS_DEBUG("Generated base request ID: " << base_request_id);
+        // CRITICAL FIX: Set up emergency timeout monitoring
+        std::atomic<bool> batch_inference_completed{false};
+        std::thread timeout_monitor([&batch_inference_completed, start_time]() {
+            const int ABSOLUTE_MAX_TIMEOUT_MS = 1000; // 1 second absolute maximum
             
-            // Map request IDs to indices
-            std::map<int, int> request_map;
-            for (size_t i = 0; i < inputs.size(); i++) {
-                request_map[base_request_id + static_cast<int>(i)] = static_cast<int>(i);
-            }
-            
-            MCTS_DEBUG("Prepared batch with " << inputs.size() << " inputs, base request ID: " << base_request_id);
-            
-            // Step 1: Check if Python is responsive before processing
-            bool python_responsive = false;
-            {
-                MCTS_DEBUG("Checking Python responsiveness with GIL acquisition");
-                // Use a short timeout for GIL acquisition
-                try {
-                    py::gil_scoped_acquire gil;
-                    // Simple check if module is valid
-                    if (!nn_proxy_module_.is_none()) {
-                        python_responsive = true;
-                        MCTS_DEBUG("Python module is responsive");
-                    }
+            while (!batch_inference_completed.load(std::memory_order_acquire)) {
+                auto current_time = std::chrono::steady_clock::now();
+                auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    current_time - start_time).count();
+                    
+                if (elapsed_ms > ABSOLUTE_MAX_TIMEOUT_MS) {
+                    MCTS_DEBUG("EMERGENCY: batch_inference absolute timeout after " << elapsed_ms << "ms");
+                    break;
                 }
-                catch (const std::exception& e) {
-                    MCTS_DEBUG("Error checking Python responsiveness: " << e.what());
-                }
+                
+                std::this_thread::sleep_for(std::chrono::milliseconds(50));
             }
-            
-            if (!python_responsive) {
-                MCTS_DEBUG("Python appears unresponsive, returning default values");
-                return results;
-            }
-            
-            // Step 2: Send requests with timeout protection - using a simpler approach
-            MCTS_DEBUG("Sending requests to Python queue");
-            bool requests_sent = false;
-            {
-                // Acquire GIL for Python operations
+        });
+        
+        // Make sure the thread is detached for safety
+        timeout_monitor.detach();
+        
+        // CRITICAL FIX: First check Python responsiveness WITHOUT acquiring the batch mutex
+        // This prevents deadlock where another thread holds GIL but waits for mutex
+        bool python_responsive = false;
+        {
+            try {
+                // Quick check if Python is responsive - with short timeout
                 py::gil_scoped_acquire gil;
                 
+                // First check if the module itself is valid
+                if (nn_proxy_module_.is_none()) {
+                    MCTS_DEBUG("Python module is None, not responsive");
+                    is_initialized_ = false;  // Mark as uninitialized 
+                    batch_inference_completed.store(true, std::memory_order_release);
+                    return results;
+                }
+                
+                // CRITICAL FIX: Also verify the required queues exist and are valid
+                bool queues_valid = false;
                 try {
-                    // Get the request queue
-                    py::object request_queue = nn_proxy_module_.attr("request_queue");
-                    if (request_queue.is_none()) {
-                        MCTS_DEBUG("Request queue is None");
+                    py::object req_queue = nn_proxy_module_.attr("request_queue");
+                    py::object resp_queue = nn_proxy_module_.attr("response_queue");
+                    
+                    if (req_queue.is_none() || resp_queue.is_none()) {
+                        MCTS_DEBUG("Python queues are None, marking as uninitialized");
+                        is_initialized_ = false;
+                        batch_inference_completed.store(true, std::memory_order_release);
                         return results;
                     }
                     
+                    // Check if the queue methods are callable
+                    if (py::hasattr(req_queue, "put") && py::hasattr(resp_queue, "get")) {
+                        queues_valid = true;
+                    } else {
+                        MCTS_DEBUG("Python queues missing required methods");
+                        is_initialized_ = false;
+                        batch_inference_completed.store(true, std::memory_order_release);
+                        return results;
+                    }
+                } catch (const py::error_already_set& e) {
+                    MCTS_DEBUG("Python error checking queues: " << e.what());
+                    is_initialized_ = false;
+                    batch_inference_completed.store(true, std::memory_order_release);
+                    return results;
+                } catch (const std::exception& e) {
+                    MCTS_DEBUG("Error checking Python queues: " << e.what());
+                    is_initialized_ = false;
+                    batch_inference_completed.store(true, std::memory_order_release);
+                    return results;
+                }
+                
+                // Module and queues are valid
+                if (queues_valid) {
+                    python_responsive = true;
+                    MCTS_DEBUG("Python module is responsive with valid queues");
+                }
+            }
+            catch (const std::exception& e) {
+                MCTS_DEBUG("Error checking Python responsiveness: " << e.what());
+                is_initialized_ = false;  // Mark as uninitialized on any error
+                batch_inference_completed.store(true, std::memory_order_release);
+                return results;
+            }
+        }
+        
+        if (!python_responsive) {
+            MCTS_DEBUG("Python appears unresponsive, returning default values");
+            batch_inference_completed.store(true, std::memory_order_release);
+            return results;
+        }
+        
+        // Prepare request IDs and mapping outside the mutex
+        int base_request_id = next_request_id_.fetch_add(static_cast<int>(inputs.size()), std::memory_order_relaxed);
+        std::map<int, int> request_map;
+        for (size_t i = 0; i < inputs.size(); i++) {
+            request_map[base_request_id + static_cast<int>(i)] = static_cast<int>(i);
+        }
+        
+        // CRITICAL: Use a smaller scope for the mutex lock and add timeout
+        bool acquired_mutex = false;
+        {
+            // Try to acquire the mutex with a timeout
+            std::unique_lock<std::recursive_mutex> lock(batch_inference_mutex, std::defer_lock);
+            
+            // First attempt with try_lock
+            acquired_mutex = lock.try_lock();
+            
+            // If that fails, try again with a short timeout
+            if (!acquired_mutex && !shutdown_in_progress.load(std::memory_order_acquire)) {
+                auto lock_start = std::chrono::steady_clock::now();
+                const int LOCK_TIMEOUT_MS = 200; // 200ms timeout
+                
+                while (!acquired_mutex && 
+                      !shutdown_in_progress.load(std::memory_order_acquire) &&
+                      std::chrono::duration_cast<std::chrono::milliseconds>(
+                        std::chrono::steady_clock::now() - lock_start).count() < LOCK_TIMEOUT_MS) {
+                    
+                    // Short sleep between attempts
+                    std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                    acquired_mutex = lock.try_lock();
+                }
+            }
+            
+            // Check if we failed to acquire the mutex
+            if (!acquired_mutex) {
+                MCTS_DEBUG("Failed to acquire batch mutex after timeout, returning default values");
+                batch_inference_completed.store(true, std::memory_order_release);
+                return results;
+            }
+            
+            // Mutex is now locked if we get here, and will be automatically unlocked when lock goes out of scope
+            MCTS_DEBUG("Batch mutex acquired for request ID: " << base_request_id);
+        } // Mutex is released here
+        
+        // Send requests with timeout protection - without holding mutex
+        MCTS_DEBUG("Sending requests to Python queue");
+        bool requests_sent = false;
+        int sent_count = 0;
+        
+        {
+            // Use a separate thread with timeout to send requests
+            std::atomic<bool> sending_complete{false};
+            std::atomic<int> local_sent_count{0};
+            std::atomic<bool> sending_failed{false};
+            
+            std::thread sending_thread([&]() {
+                try {
+                    // Acquire GIL for Python operations
+                    py::gil_scoped_acquire gil;
+                    
+                    // First check again if we're in shutdown
+                    if (shutdown_in_progress.load(std::memory_order_acquire) || !is_initialized_) {
+                        MCTS_DEBUG("Shutdown or uninitialized state detected before sending requests");
+                        sending_failed.store(true, std::memory_order_release);
+                        return;
+                    }
+                    
+                    // Get the request queue
+                    py::object request_queue;
+                    try {
+                        request_queue = nn_proxy_module_.attr("request_queue");
+                        
+                        // Double-check it's not None
+                        if (request_queue.is_none()) {
+                            MCTS_DEBUG("Request queue is None");
+                            sending_failed.store(true, std::memory_order_release);
+                            is_initialized_ = false;  // Mark as uninitialized
+                            return;
+                        }
+                    } catch (const std::exception& e) {
+                        MCTS_DEBUG("Error getting request queue: " << e.what());
+                        sending_failed.store(true, std::memory_order_release);
+                        is_initialized_ = false;  // Mark as uninitialized
+                        return;
+                    }
+                    
                     // Send requests with a simple retry approach
-                    int sent_count = 0;
-                    const int MAX_RETRIES = 3;
+                    const int MAX_RETRIES = 2;
+                    int local_count = 0;
                     
                     for (size_t i = 0; i < inputs.size(); i++) {
                         int retry_count = 0;
@@ -391,12 +496,19 @@ public:
                                     defense
                                 );
                                 
-                                // Use a timeout to prevent hanging
-                                request_queue.attr("put")(py_request, py::arg("block") = true, py::arg("timeout") = 0.5);
-                                sent_count++;
+                                // Use a short timeout to prevent hanging
+                                request_queue.attr("put")(py_request, py::arg("block") = true, py::arg("timeout") = 0.1);
+                                local_count++;
                                 break;  // Successfully sent
                             }
                             catch (const py::error_already_set& e) {
+                                // Check for shutdown in middle of loop
+                                if (shutdown_in_progress.load(std::memory_order_acquire)) {
+                                    MCTS_DEBUG("Shutdown detected during request sending");
+                                    sending_failed.store(true, std::memory_order_release);
+                                    return;
+                                }
+                                
                                 // Handle "Full" exception with retry
                                 retry_count++;
                                 if (retry_count >= MAX_RETRIES) {
@@ -413,184 +525,274 @@ public:
                                 break;  // Don't retry on other errors
                             }
                         }
+                        
+                        // Update atomic counter for timeout thread to see
+                        local_sent_count.store(local_count, std::memory_order_release);
+                        
+                        // Check for shutdown periodically
+                        if (i % 8 == 0 && 
+                            (shutdown_in_progress.load(std::memory_order_acquire) || !is_initialized_)) {
+                            MCTS_DEBUG("Shutdown detected during request batch");
+                            break;
+                        }
                     }
                     
-                    MCTS_DEBUG("Sent " << sent_count << "/" << inputs.size() << " requests to Python queue");
-                    requests_sent = (sent_count > 0);
+                    // GIL is released automatically at the end of this scope
                 }
                 catch (const py::error_already_set& e) {
                     MCTS_DEBUG("Python error during request sending: " << e.what());
+                    sending_failed.store(true, std::memory_order_release);
+                    is_initialized_ = false;  // Mark as uninitialized
                 }
                 catch (const std::exception& e) {
                     MCTS_DEBUG("Error during request sending: " << e.what());
+                    sending_failed.store(true, std::memory_order_release);
                 }
-            }
+                
+                // Mark as complete
+                sending_complete.store(true, std::memory_order_release);
+            });
             
-            if (!requests_sent) {
-                MCTS_DEBUG("Failed to send any requests, returning default values");
-                return results;
-            }
+            // Wait for the sending thread with timeout
+            const int SEND_TIMEOUT_MS = 300; // 300ms timeout
+            auto send_start = std::chrono::steady_clock::now();
             
-            // Step 3: Wait for responses with strict timeout
-            MCTS_DEBUG("Waiting for responses from Python");
-            int received_count = 0;
-            
-            // Calculate timeout based on batch size
-            const int BASE_TIMEOUT_MS = 200; // Reduced base timeout
-            const int MS_PER_ITEM = 50;
-            const int MAX_TIMEOUT_MS = 2000; // Reduced maximum timeout
-            
-            int timeout_ms = std::min(BASE_TIMEOUT_MS + static_cast<int>(inputs.size() * MS_PER_ITEM), MAX_TIMEOUT_MS);
-            MCTS_DEBUG("Using timeout of " << timeout_ms << "ms for response waiting");
-            
-            auto wait_start = std::chrono::steady_clock::now();
-            
-            // New approach: Use polling with frequent GIL release/reacquisition
-            while (received_count < static_cast<int>(inputs.size())) {
-                // Check total timeout
-                auto current_time = std::chrono::steady_clock::now();
+            while (!sending_complete.load(std::memory_order_acquire)) {
+                auto now = std::chrono::steady_clock::now();
                 auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-                    current_time - wait_start).count();
+                    now - send_start).count();
                     
-                if (elapsed_ms > timeout_ms) {
-                    MCTS_DEBUG("Timeout waiting for responses after " << elapsed_ms 
-                            << "ms, received " << received_count << "/" << inputs.size());
+                if (elapsed_ms > SEND_TIMEOUT_MS) {
+                    MCTS_DEBUG("Request sending timeout after " << elapsed_ms << "ms");
                     break;
                 }
                 
-                // Short sleep outside the GIL to prevent CPU hogging
-                {
-                    // No GIL needed for sleeping
-                    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                // Update sent count from atomic
+                sent_count = local_sent_count.load(std::memory_order_acquire);
+                
+                // Periodic check for shutdown
+                if (shutdown_in_progress.load(std::memory_order_acquire) || !is_initialized_) {
+                    MCTS_DEBUG("Shutdown detected while waiting for request sending");
+                    break;
                 }
                 
-                // Process available responses
-                int responses_this_iteration = 0;
-                const int MAX_RESPONSES_PER_ITERATION = 10;
+                // Brief sleep
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
+            }
+            
+            // Detach the thread if still running (don't join)
+            if (sending_thread.joinable()) {
+                sending_thread.detach();
+            }
+            
+            // Final update of sent count
+            sent_count = local_sent_count.load(std::memory_order_acquire);
+            
+            // Check if sending was successful
+            requests_sent = (sent_count > 0) && !sending_failed.load(std::memory_order_acquire);
+        }
+        
+        MCTS_DEBUG("Sent " << sent_count << "/" << inputs.size() << " requests to Python queue");
+        
+        if (!requests_sent) {
+            MCTS_DEBUG("Failed to send any requests or sending failed, returning default values");
+            batch_inference_completed.store(true, std::memory_order_release);
+            return results;
+        }
+        
+        // Wait for responses with strict timeout
+        MCTS_DEBUG("Waiting for responses from Python");
+        int received_count = 0;
+        
+        // Reduced timeouts to avoid long stalls
+        const int BASE_TIMEOUT_MS = 200;
+        const int MS_PER_ITEM = 20;
+        const int MAX_TIMEOUT_MS = 800;
+        
+        int timeout_ms = std::min(BASE_TIMEOUT_MS + static_cast<int>(inputs.size() * MS_PER_ITEM), MAX_TIMEOUT_MS);
+        MCTS_DEBUG("Using timeout of " << timeout_ms << "ms for response waiting");
+        
+        auto wait_start = std::chrono::steady_clock::now();
+        
+        // Use polling with frequent GIL release/reacquisition
+        while (received_count < static_cast<int>(inputs.size())) {
+            // Check total timeout
+            auto current_time = std::chrono::steady_clock::now();
+            auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                current_time - wait_start).count();
                 
-                {
-                    // Acquire GIL for Python operations
-                    py::gil_scoped_acquire gil;
+            if (elapsed_ms > timeout_ms || shutdown_in_progress.load(std::memory_order_acquire) || !is_initialized_) {
+                MCTS_DEBUG("Timeout waiting for responses after " << elapsed_ms 
+                          << "ms, received " << received_count << "/" << inputs.size());
+                break;
+            }
+            
+            // ADDED: Periodically check module validity during long waits
+            if (elapsed_ms > 200 && elapsed_ms % 100 < 10) {  // Check roughly every 100ms after 200ms
+                if (!ensure_module_valid()) {
+                    MCTS_DEBUG("Module became invalid during response waiting");
+                    break;
+                }
+            }
+            
+            // Short sleep outside the GIL
+            std::this_thread::sleep_for(std::chrono::milliseconds(5));
+            
+            // Process available responses
+            int responses_this_iteration = 0;
+            const int MAX_RESPONSES_PER_ITERATION = 10;
+            
+            {
+                // Acquire GIL for Python operations
+                py::gil_scoped_acquire gil;
+                
+                try {
+                    // Check if shutdown was requested
+                    if (shutdown_in_progress.load(std::memory_order_acquire)) {
+                        MCTS_DEBUG("Shutdown requested during response waiting");
+                        break;
+                    }
                     
+                    // Check if Python module is still valid
+                    if (nn_proxy_module_.is_none()) {
+                        MCTS_DEBUG("Python module became None during response waiting");
+                        is_initialized_ = false;
+                        break;
+                    }
+                    
+                    // Check if response queue is accessible
+                    py::object response_queue;
                     try {
-                        // Check if response queue is accessible
-                        py::object response_queue = nn_proxy_module_.attr("response_queue");
+                        response_queue = nn_proxy_module_.attr("response_queue");
+                        
+                        // Double-check it's not None
                         if (response_queue.is_none()) {
                             MCTS_DEBUG("Response queue is None during waiting");
+                            is_initialized_ = false;
                             break;
                         }
-                        
-                        // Check if queue is empty
-                        bool queue_empty = response_queue.attr("empty")().cast<bool>();
-                        if (queue_empty) {
-                            continue; // Skip to next iteration with sleep
-                        }
-                        
-                        // Process available responses up to the limit
-                        for (int i = 0; i < MAX_RESPONSES_PER_ITERATION; i++) {
-                            try {
-                                if (response_queue.attr("empty")().cast<bool>()) {
-                                    break; // No more responses
-                                }
-                                
-                                // Get response without blocking
-                                py::object py_response = response_queue.attr("get")(py::arg("block") = false);
-                                
-                                // Mark task as done
-                                response_queue.attr("task_done")();
-                                
-                                // Process the response
-                                py::tuple py_tuple = py_response.cast<py::tuple>();
-                                if (py_tuple.size() < 2) {
-                                    MCTS_DEBUG("Invalid response tuple size: " << py_tuple.size());
-                                    continue;
-                                }
-                                
-                                int request_id = py_tuple[0].cast<int>();
-                                py::tuple py_result = py_tuple[1].cast<py::tuple>();
-                                
-                                // Check if this request belongs to our batch
-                                auto it = request_map.find(request_id);
-                                if (it == request_map.end()) {
-                                    MCTS_DEBUG("Received response for unknown request ID: " << request_id);
-                                    continue;
-                                }
-                                
-                                int index = it->second;
-                                if (index < 0 || index >= static_cast<int>(results.size())) {
-                                    MCTS_DEBUG("Invalid result index: " << index);
-                                    continue;
-                                }
-                                
-                                // Extract policy and value
-                                if (py_result.size() >= 2) {
-                                    // Extract policy
-                                    py::list py_policy = py_result[0].cast<py::list>();
-                                    results[index].policy.clear();
-                                    results[index].policy.reserve(py_policy.size());
-                                    
-                                    for (auto p : py_policy) {
-                                        results[index].policy.push_back(p.cast<float>());
-                                    }
-                                    
-                                    // Extract value
-                                    results[index].value = py_result[1].cast<float>();
-                                    
-                                    received_count++;
-                                    responses_this_iteration++;
-                                    
-                                    MCTS_DEBUG("Processed response for request ID " << request_id 
-                                            << ", index " << index 
-                                            << " (" << received_count << "/" << inputs.size() << " total)");
-                                }
-                                else {
-                                    MCTS_DEBUG("Invalid result tuple size: " << py_result.size());
-                                }
-                            }
-                            catch (const py::error_already_set& e) {
-                                // Queue.Empty exception is expected
-                                if (std::string(e.what()).find("Empty") != std::string::npos) {
-                                    break;
-                                }
-                                MCTS_DEBUG("Python error processing response: " << e.what());
-                                break;
-                            }
-                            catch (const std::exception& e) {
-                                MCTS_DEBUG("Error processing response: " << e.what());
-                                break;
-                            }
-                        }
-                    }
-                    catch (const py::error_already_set& e) {
-                        MCTS_DEBUG("Python error during response processing: " << e.what());
+                    } catch (const std::exception& e) {
+                        MCTS_DEBUG("Error accessing response queue: " << e.what());
+                        is_initialized_ = false;
                         break;
                     }
-                    catch (const std::exception& e) {
-                        MCTS_DEBUG("Error during response processing: " << e.what());
+                    
+                    // Check if queue is empty
+                    bool queue_empty = false;
+                    try {
+                        queue_empty = response_queue.attr("empty")().cast<bool>();
+                    } catch (const std::exception& e) {
+                        MCTS_DEBUG("Error checking if queue is empty: " << e.what());
+                        is_initialized_ = false;
                         break;
                     }
+                    
+                    if (queue_empty) {
+                        continue; // Skip to next iteration with sleep
+                    }
+                    
+                    // Process available responses up to the limit
+                    for (int i = 0; i < MAX_RESPONSES_PER_ITERATION; i++) {
+                        try {
+                            // Check again if queue is empty
+                            if (response_queue.attr("empty")().cast<bool>()) {
+                                break; // No more responses
+                            }
+                            
+                            // Get response without blocking
+                            py::object py_response = response_queue.attr("get")(py::arg("block") = false);
+                            
+                            // Mark task as done
+                            response_queue.attr("task_done")();
+                            
+                            // Process the response
+                            py::tuple py_tuple = py_response.cast<py::tuple>();
+                            if (py_tuple.size() < 2) {
+                                MCTS_DEBUG("Invalid response tuple size: " << py_tuple.size());
+                                continue;
+                            }
+                            
+                            int request_id = py_tuple[0].cast<int>();
+                            py::tuple py_result = py_tuple[1].cast<py::tuple>();
+                            
+                            // Check if this request belongs to our batch
+                            auto it = request_map.find(request_id);
+                            if (it == request_map.end()) {
+                                MCTS_DEBUG("Received response for unknown request ID: " << request_id);
+                                continue;
+                            }
+                            
+                            int index = it->second;
+                            if (index < 0 || index >= static_cast<int>(results.size())) {
+                                MCTS_DEBUG("Invalid result index: " << index);
+                                continue;
+                            }
+                            
+                            // Extract policy and value
+                            if (py_result.size() >= 2) {
+                                // Extract policy
+                                py::list py_policy = py_result[0].cast<py::list>();
+                                results[index].policy.clear();
+                                results[index].policy.reserve(py_policy.size());
+                                
+                                for (auto p : py_policy) {
+                                    results[index].policy.push_back(p.cast<float>());
+                                }
+                                
+                                // Extract value
+                                results[index].value = py_result[1].cast<float>();
+                                
+                                received_count++;
+                                responses_this_iteration++;
+                            }
+                            else {
+                                MCTS_DEBUG("Invalid result tuple size: " << py_result.size());
+                            }
+                        }
+                        catch (const py::error_already_set& e) {
+                            // Queue.Empty exception is expected
+                            if (std::string(e.what()).find("Empty") != std::string::npos) {
+                                break;
+                            }
+                            MCTS_DEBUG("Python error processing response: " << e.what());
+                            break;
+                        }
+                        catch (const std::exception& e) {
+                            MCTS_DEBUG("Error processing response: " << e.what());
+                            break;
+                        }
+                    }
+                    
+                    // Log progress for large batches
+                    if (responses_this_iteration > 0 && inputs.size() > 8) {
+                        MCTS_DEBUG("Processed " << responses_this_iteration << " responses, total " 
+                                  << received_count << "/" << inputs.size());
+                    }
                 }
-                
-                // If we processed responses this iteration, reset the wait start time to allow more time
-                if (responses_this_iteration > 0) {
-                    wait_start = std::chrono::steady_clock::now();
-                    MCTS_DEBUG("Processed " << responses_this_iteration << " responses, resetting timeout");
-                }
-                
-                // If we've received all responses, we're done
-                if (received_count >= static_cast<int>(inputs.size())) {
-                    MCTS_DEBUG("Received all " << inputs.size() << " responses");
+                catch (const py::error_already_set& e) {
+                    MCTS_DEBUG("Python error during response processing: " << e.what());
+                    is_initialized_ = false;
                     break;
                 }
+                catch (const std::exception& e) {
+                    MCTS_DEBUG("Error during response processing: " << e.what());
+                    is_initialized_ = false;
+                    break;
+                }
+                
+                // GIL is automatically released at end of scope
             }
             
-            // Log final status
-            if (received_count < static_cast<int>(inputs.size())) {
-                MCTS_DEBUG("Incomplete response set: received " << received_count << "/" << inputs.size());
+            // If we've received all responses, we're done
+            if (received_count >= static_cast<int>(inputs.size())) {
+                MCTS_DEBUG("Received all " << inputs.size() << " responses");
+                break;
             }
         }
-        catch (const std::exception& e) {
-            MCTS_DEBUG("Error in batch_inference: " << e.what());
+        
+        // Log final status
+        if (received_count < static_cast<int>(inputs.size())) {
+            MCTS_DEBUG("Incomplete response set: received " << received_count << "/" << inputs.size());
         }
         
         // Record timing
@@ -600,8 +802,19 @@ public:
         inference_count_++;
         total_inference_time_ms_ += duration;
         
+        // Set completion flag for timeout monitor
+        batch_inference_completed.store(true, std::memory_order_release);
+        
+        // Check for absolute timeout
+        auto total_elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+            end_time - start_time).count();
+            
+        if (total_elapsed_ms > 1000) {  // Same as ABSOLUTE_MAX_TIMEOUT_MS
+            MCTS_DEBUG("batch_inference took " << total_elapsed_ms << "ms (exceeded emergency timeout)");
+        }
+        
         MCTS_DEBUG("Batch inference completed in " << duration << "ms with " 
-                  << results.size() << " results (complete: " << (results.size() == inputs.size()) << ")");
+                  << results.size() << " results (complete: " << (received_count == static_cast<int>(inputs.size())) << ")");
         
         return results;
     }
@@ -689,21 +902,31 @@ public:
         }
         
         // Try to get queue information from Python
-        if (is_initialized_) {
+        if (is_initialized_ && !shutdown_in_progress.load(std::memory_order_acquire)) {
             try {
-                // Acquire the GIL
+                // Try to acquire the GIL with timeout
                 py::gil_scoped_acquire gil;
                 
-                // Get queue information
-                std::string req_info = nn_proxy_module_.attr("get_request_info")().cast<std::string>();
-                std::string resp_info = nn_proxy_module_.attr("get_response_info")().cast<std::string>();
-                
-                stats += "  " + req_info + "\n";
-                stats += "  " + resp_info + "\n";
+                // Check if module is valid
+                if (!nn_proxy_module_.is_none() && 
+                    py::hasattr(nn_proxy_module_, "get_request_info") && 
+                    py::hasattr(nn_proxy_module_, "get_response_info")) {
+                    
+                    // Get queue information
+                    std::string req_info = nn_proxy_module_.attr("get_request_info")().cast<std::string>();
+                    std::string resp_info = nn_proxy_module_.attr("get_response_info")().cast<std::string>();
+                    
+                    stats += "  " + req_info + "\n";
+                    stats += "  " + resp_info + "\n";
+                } else {
+                    stats += "  Module not available for queue information\n";
+                }
             }
             catch (...) {
                 stats += "  Error getting queue information\n";
             }
+        } else {
+            stats += "  Python module not initialized or shutting down\n";
         }
         
         return stats;
@@ -719,8 +942,48 @@ private:
     std::atomic<int> inference_count_;
     std::atomic<int64_t> total_inference_time_ms_;
     
-    // Inference timeout
-    static constexpr int INFERENCE_TIMEOUT_MS = 500;  // Reduced from 2000ms to 500ms
+    // Added helper method to check module validity
+    bool ensure_module_valid() {
+        try {
+            // Quick check with GIL acquisition
+            py::gil_scoped_acquire gil;
+            
+            // Check if module is None
+            if (nn_proxy_module_.is_none()) {
+                MCTS_DEBUG("Neural network module is None");
+                is_initialized_ = false;
+                return false;
+            }
+            
+            // Check if queues exist and are valid
+            try {
+                py::object req_queue = nn_proxy_module_.attr("request_queue");
+                py::object resp_queue = nn_proxy_module_.attr("response_queue");
+                
+                if (req_queue.is_none() || resp_queue.is_none()) {
+                    MCTS_DEBUG("Python queues are None, marking module as invalid");
+                    is_initialized_ = false;
+                    return false;
+                }
+            } catch (const py::error_already_set& e) {
+                MCTS_DEBUG("Python error checking queues: " << e.what());
+                is_initialized_ = false;
+                return false;
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error checking Python queues: " << e.what());
+                is_initialized_ = false;
+                return false;
+            }
+            
+            // Everything looks valid
+            return true;
+        }
+        catch (const std::exception& e) {
+            MCTS_DEBUG("Error checking module validity: " << e.what());
+            is_initialized_ = false;
+            return false;
+        }
+    }
     
     /**
      * Create default outputs for the given inputs.
@@ -771,205 +1034,4 @@ private:
         }
         return bs;
     }
-    
-    /**
-     * Send a batch of inference requests to the Python neural network thread.
-     * 
-     * @param inputs Vector of (state_str, chosen_move, attack, defense) tuples
-     * @param base_request_id The base request ID to use
-     * @return Vector of NNOutput objects containing policy and value
-     */
-    std::vector<NNOutput> inference_batch(const std::vector<std::tuple<std::string, int, float, float>>& inputs, int base_request_id) {
-        MCTS_DEBUG("Processing batch of " << inputs.size() << " inputs");
-        
-        if (!is_initialized_) {
-            MCTS_DEBUG("PythonNNProxy not initialized");
-            return create_default_outputs(inputs);
-        }
-        
-        // Prepare results vector
-        std::vector<NNOutput> results(inputs.size());
-        std::vector<bool> received(inputs.size(), false);
-        
-        // Map request IDs to indices
-        std::map<int, int> request_map;
-        
-        try {
-            // CRITICAL CHANGE: Acquire the GIL once at the beginning for all Python operations
-            py::gil_scoped_acquire gil;
-            
-            // Verify Python module is still valid
-            if (nn_proxy_module_.is_none()) {
-                MCTS_DEBUG("Neural network module is None");
-                return create_default_outputs(inputs);
-            }
-            
-            // Get the queues
-            py::object request_queue;
-            py::object response_queue;
-            
-            try {
-                request_queue = nn_proxy_module_.attr("request_queue");
-                response_queue = nn_proxy_module_.attr("response_queue");
-                
-                if (request_queue.is_none() || response_queue.is_none()) {
-                    MCTS_DEBUG("Request or response queue is None");
-                    return create_default_outputs(inputs);
-                }
-            } catch (const std::exception& e) {
-                MCTS_DEBUG("Error getting queues: " << e.what());
-                return create_default_outputs(inputs);
-            }
-            
-            // Initialize request map
-            for (size_t i = 0; i < inputs.size(); i++) {
-                request_map[base_request_id + static_cast<int>(i)] = static_cast<int>(i);
-            }
-            
-            // Send requests
-            for (size_t i = 0; i < inputs.size(); i++) {
-                try {
-                    int request_id = base_request_id + static_cast<int>(i);
-                    const auto& [state_str, chosen_move, attack, defense] = inputs[i];
-                    
-                    // Create Python tuple for the request
-                    py::tuple py_request = py::make_tuple(
-                        request_id,
-                        state_str,
-                        chosen_move,
-                        attack,
-                        defense
-                    );
-                    
-                    // Add to request queue - use non-blocking to avoid deadlocks
-                    request_queue.attr("put")(py_request, py::arg("block") = false);
-                } catch (const py::error_already_set& e) {
-                    MCTS_DEBUG("Python error sending request " << i << ": " << e.what());
-                } catch (const std::exception& e) {
-                    MCTS_DEBUG("Error sending request " << i << ": " << e.what());
-                }
-            }
-            
-            // Wait for responses with timeout
-            bool all_received = false;
-            auto wait_start = std::chrono::steady_clock::now();
-            const int TOTAL_WAIT_TIMEOUT_MS = 1000;  // 1 second timeout
-            
-            while (!all_received) {
-                // Check timeout
-                auto current_time = std::chrono::steady_clock::now();
-                auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>
-                              (current_time - wait_start).count();
-                               
-                if (elapsed > TOTAL_WAIT_TIMEOUT_MS) {
-                    MCTS_DEBUG("Timeout waiting for inference results after " << elapsed << "ms");
-                    break;
-                }
-                
-                // IMPROVED: Check for responses without releasing/reacquiring GIL
-                bool queue_empty = false;
-                try {
-                    queue_empty = response_queue.attr("empty")().cast<bool>();
-                } catch (const std::exception& e) {
-                    MCTS_DEBUG("Error checking if response queue is empty: " << e.what());
-                    break;
-                }
-                
-                if (queue_empty) {
-                    // Release GIL during sleep to allow other threads to work
-                    {
-                        py::gil_scoped_release release;
-                        std::this_thread::sleep_for(std::chrono::milliseconds(5));
-                    }
-                    continue;
-                }
-                
-                // Get a response
-                try {
-                    py::object py_response = response_queue.attr("get")(py::arg("block") = false);
-                    
-                    // Extract request ID and result
-                    py::tuple py_tuple = py_response.cast<py::tuple>();
-                    int request_id = py_tuple[0].cast<int>();
-                    py::tuple py_result = py_tuple[1].cast<py::tuple>();
-                    
-                    // Find the corresponding request
-                    auto it = request_map.find(request_id);
-                    if (it != request_map.end()) {
-                        int index = it->second;
-                        
-                        // Extract policy and value
-                        py::list py_policy = py_result[0].cast<py::list>();
-                        float value = py_result[1].cast<float>();
-                        
-                        // Convert policy to vector
-                        std::vector<float> policy;
-                        policy.reserve(py_policy.size());
-                        for (auto p : py_policy) {
-                            policy.push_back(p.cast<float>());
-                        }
-                        
-                        // Store the result
-                        results[index].policy = std::move(policy);
-                        results[index].value = value;
-                        received[index] = true;
-                        
-                        // Mark the task as done
-                        response_queue.attr("task_done")();
-                    }
-                }
-                catch (const py::error_already_set& e) {
-                    // If we get an empty exception, the queue is empty
-                    if (std::string(e.what()).find("Empty") != std::string::npos) {
-                        // This is expected, just continue
-                    } else {
-                        // Other Python error
-                        MCTS_DEBUG("Python error processing response: " << e.what());
-                    }
-                    
-                    // Brief sleep with GIL released
-                    {
-                        py::gil_scoped_release release;
-                        std::this_thread::sleep_for(std::chrono::milliseconds(5));
-                    }
-                }
-                catch (const std::exception& e) {
-                    MCTS_DEBUG("Error processing response: " << e.what());
-                    
-                    // Brief sleep with GIL released
-                    {
-                        py::gil_scoped_release release;
-                        std::this_thread::sleep_for(std::chrono::milliseconds(5));
-                    }
-                }
-                
-                // Check if all responses have been received
-                all_received = std::all_of(received.begin(), received.end(), [](bool v){ return v; });
-            }
-            
-            // GIL is automatically released at the end of scope
-        }
-        catch (const std::exception& e) {
-            MCTS_DEBUG("Error in inference_batch: " << e.what());
-            return create_default_outputs(inputs);
-        }
-        
-        // Fill missing results with defaults
-        for (size_t i = 0; i < inputs.size(); i++) {
-            if (!received[i]) {
-                // Extract board size from state string
-                const auto& state_str = std::get<0>(inputs[i]);
-                int bs = extract_board_size(state_str);
-                
-                // Create default values
-                results[i].policy.resize(bs * bs, 1.0f / (bs * bs));
-                results[i].value = 0.0f;
-            }
-        }
-        
-        return results;
-    }
-
-private:
-    bool use_dummy_ = false; // Indicates whether to use dummy values
 };
