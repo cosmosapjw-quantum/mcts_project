@@ -237,34 +237,6 @@ public:
         return stateStr;
     }
 
-    // Add method to manually flush the batch
-    void flush_batch() {
-        std::lock_guard<std::mutex> lock(mutex_);
-        MCTS_DEBUG("Manual batch flush requested");
-        if (!batch_inputs_.empty()) {
-            process_batch();
-        }
-    }
-    
-    void reset() {
-        std::lock_guard<std::mutex> lock(mutex_);
-        MCTS_DEBUG("Resetting batch interface");
-        batch_inputs_.clear();
-        batch_outputs_.clear();
-        inference_count_ = 0;
-        total_inference_time_ms_ = 0;
-    }
-    
-    // Get statistics
-    double get_avg_inference_time_ms() const {
-        if (inference_count_ == 0) return 0.0;
-        return static_cast<double>(total_inference_time_ms_) / inference_count_;
-    }
-    
-    int get_inference_count() const {
-        return inference_count_;
-    }
-
 private:
     std::mt19937 rng_;
     bool use_dummy_;
@@ -374,10 +346,5 @@ private:
             defaults.push_back(output);
         }
         return defaults;
-    }
-    
-    void process_batch() {
-        // Implementation not used in this version but kept for compatibility
-        MCTS_DEBUG("process_batch method called but not implemented in this version");
     }
 };

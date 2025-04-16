@@ -341,11 +341,6 @@ public:
                   << joined_count << "/" << workers_to_join.size() << " threads");
     }
     
-    // Get total leaves processed
-    int get_total_processed() const {
-        return total_processed_.load(std::memory_order_acquire);
-    }
-    
     // Get current queue size
     int get_queue_size() const {
         std::lock_guard<std::mutex> lock(queue_mutex_);
