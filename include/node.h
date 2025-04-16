@@ -52,6 +52,7 @@ public:
     void add_virtual_loss();
     void remove_virtual_loss();
     int get_virtual_losses() const;
+    void clear_all_virtual_losses();
     
     // Memory management and optimization
     static size_t get_memory_usage_kb();
@@ -60,6 +61,11 @@ public:
     std::vector<int> get_principal_variation() const;
     int prune_low_visit_branches(float visit_threshold = PRUNE_THRESHOLD);
     int prune_tree(float visit_threshold = PRUNE_THRESHOLD);
+
+    // ADDED: Methods for expansion synchronization
+    bool mark_for_expansion();
+    void clear_expansion_flag();
+    bool is_being_expanded() const;
 
 private:
     Gamestate state_;
@@ -77,6 +83,9 @@ private:
     mutable std::shared_mutex rw_mutex_;      // Reader-writer lock for stats
     
     std::atomic<int> virtual_losses_{0};
+    
+    // ADDED: Flag to track if node is currently being expanded
+    std::atomic<bool> being_expanded_{false};
     
     // Track node creation time for age-based pruning if needed
     std::chrono::steady_clock::time_point creation_timestamp_;

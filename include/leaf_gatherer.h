@@ -262,35 +262,43 @@ public:
             queue_cv_.notify_all();
         }
         
-        // Clear any requests in the queue first
+        // CRITICAL FIX: First, fulfill all promises with default values
         int cleared_requests = 0;
         {
             std::lock_guard<std::mutex> lock(queue_mutex_);
             
-            // Fulfill all promises with default values
+            std::vector<LeafEvalRequest> remaining_requests;
             while (!request_queue_.empty()) {
-                auto request = std::move(request_queue_.front());
+                remaining_requests.push_back(std::move(request_queue_.front()));
                 request_queue_.pop();
-                
+            }
+            
+            // First clear the queue
+            MCTS_DEBUG("Cleared " << remaining_requests.size() << " requests from queue");
+            
+            // Now fulfill promises without accessing the queue again
+            for (auto& request : remaining_requests) {
                 if (request.result_promise) {
-                    std::vector<float> default_policy;
-                    if (!request.state.is_terminal()) {
-                        auto valid_moves = request.state.get_valid_moves();
-                        default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
-                    }
-                    
                     try {
+                        std::vector<float> default_policy;
+                        if (!request.state.is_terminal()) {
+                            auto valid_moves = request.state.get_valid_moves();
+                            default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
+                        }
+                        
                         request.result_promise->set_value({default_policy, 0.0f});
                         cleared_requests++;
+                    } catch (const std::exception& e) {
+                        MCTS_DEBUG("Error setting promise value during shutdown: " << e.what());
                     } catch (...) {
-                        // Promise might already be fulfilled
+                        MCTS_DEBUG("Unknown error setting promise value during shutdown");
                     }
                 }
             }
         }
         
         if (cleared_requests > 0) {
-            MCTS_DEBUG("Cleared " << cleared_requests << " pending requests with default values");
+            MCTS_DEBUG("Fulfilled " << cleared_requests << " promises during shutdown");
         }
         
         // Make a local copy of worker threads to avoid race conditions
@@ -305,31 +313,35 @@ public:
         MCTS_DEBUG("Waiting for " << workers_to_join.size() << " workers to exit (with timeout)");
         
         const int JOIN_TIMEOUT_PER_THREAD_MS = 100;  // 100ms timeout per thread
-        std::vector<bool> joined(workers_to_join.size(), false);
         int joined_count = 0;
         
         for (size_t i = 0; i < workers_to_join.size(); ++i) {
             if (workers_to_join[i].joinable()) {
                 // Create a detached thread to attempt joining with timeout
-                std::thread joiner([i, &workers_to_join, &joined, &joined_count]() {
-                    if (workers_to_join[i].joinable()) {
-                        workers_to_join[i].join();
-                        joined[i] = true;
-                        joined_count++;
-                        MCTS_DEBUG("Worker " << i << " joined successfully");
+                std::thread([i, &workers_to_join, &joined_count]() {
+                    try {
+                        if (workers_to_join[i].joinable()) {
+                            workers_to_join[i].join();
+                            joined_count++;
+                        }
+                    } catch (const std::exception& e) {
+                        MCTS_DEBUG("Error joining worker thread: " << e.what());
+                    } catch (...) {
+                        MCTS_DEBUG("Unknown error joining worker thread");
                     }
-                });
+                }).detach();
                 
                 // Wait for the joining to complete with timeout
-                joiner.detach();
-                
-                // Wait for the thread to join with timeout
                 std::this_thread::sleep_for(std::chrono::milliseconds(JOIN_TIMEOUT_PER_THREAD_MS));
                 
                 // If the thread is still joinable, detach it
                 if (workers_to_join[i].joinable()) {
-                    MCTS_DEBUG("Worker " << i << " failed to join within timeout, detaching");
-                    workers_to_join[i].detach();
+                    try {
+                        MCTS_DEBUG("Worker " << i << " failed to join within timeout, detaching");
+                        workers_to_join[i].detach();
+                    } catch (...) {
+                        // Ignore any detach errors
+                    }
                 }
             }
         }

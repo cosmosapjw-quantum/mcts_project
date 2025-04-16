@@ -33,12 +33,35 @@ Node::Node(const Gamestate& state, int moveFromParent, float prior)
 
 // Destructor to properly clean up
 Node::~Node() {
+    // CRITICAL FIX: Clear virtual losses before destruction
+    try {
+        virtual_losses_.store(0, std::memory_order_release);
+    } catch (...) {
+        // Ignore errors during cleanup
+    }
+    
+    // CRITICAL FIX: Explicitly clear children first
+    try {
+        std::vector<std::unique_ptr<Node>> empty_children;
+        {
+            std::unique_lock<std::shared_mutex> lock(expand_mutex_);
+            children_.swap(empty_children);
+        }
+        // Let empty_children be destroyed here, with each child's destructor called
+    } catch (...) {
+        // Ignore errors during cleanup
+    }
+    
     // Decrement counter with atomic operation
     total_nodes_.fetch_sub(1, std::memory_order_relaxed);
     
     // Approximate memory freed
-    size_t this_node_size = sizeof(Node) + state_.approximate_memory_usage();
-    total_memory_bytes_.fetch_sub(this_node_size, std::memory_order_relaxed);
+    try {
+        size_t this_node_size = sizeof(Node) + state_.approximate_memory_usage();
+        total_memory_bytes_.fetch_sub(this_node_size, std::memory_order_relaxed);
+    } catch (...) {
+        // Ignore errors during cleanup
+    }
 }
 
 float Node::get_q_value() const {
@@ -48,6 +71,14 @@ float Node::get_q_value() const {
         
         int vc = visit_count_.load(std::memory_order_acquire);
         int vl = virtual_losses_.load(std::memory_order_acquire);
+        
+        // CRITICAL FIX: Special case for nodes with no visits but virtual losses
+        // This was causing Q value of -1 for 0-visit nodes in the log
+        if (vc == 0 && vl > 0) {
+            // Return a negative value but not extreme -1
+            // to discourage selection while allowing exploration
+            return -0.5f;
+        }
         
         // If no real visits and no virtual losses, return 0.0 as default
         if (vc == 0 && vl == 0) {
@@ -134,6 +165,13 @@ void Node::expand(const std::vector<int>& moves, const std::vector<float>& prior
     
     // Progressive widening: don't expand too many children too quickly
     if (!children_.empty() && !should_add_child_progressive_widening()) {
+        return;
+    }
+    
+    // ADDED: Check if node is already being expanded by another thread
+    // This is a belt-and-suspenders approach in addition to mark_for_expansion
+    if (being_expanded_.load(std::memory_order_acquire) && !children_.empty()) {
+        MCTS_DEBUG("Node is already being expanded by another thread");
         return;
     }
     
@@ -260,6 +298,7 @@ void Node::remove_virtual_loss() {
         
         // Ensure we don't go below zero (defensive programming)
         if (prev <= 0) {
+            MCTS_DEBUG("Warning: remove_virtual_loss called with no virtual losses");
             virtual_losses_.store(0, std::memory_order_release);
         }
     } catch (const std::exception& e) {
@@ -273,6 +312,18 @@ int Node::get_virtual_losses() const {
     } catch (const std::exception& e) {
         MCTS_DEBUG("Exception in get_virtual_losses: " << e.what());
         return 0; // Default value on error
+    }
+}
+
+// IMPORTANT: Add a new method to help avoid race conditions
+void Node::clear_all_virtual_losses() {
+    try {
+        int prev = virtual_losses_.exchange(0, std::memory_order_acq_rel);
+        if (prev > 0) {
+            MCTS_DEBUG("Cleared " << prev << " virtual losses");
+        }
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Exception in clear_all_virtual_losses: " << e.what());
     }
 }
 
@@ -472,6 +523,13 @@ void Node::expand_normal(const std::vector<int>& moves, const std::vector<float>
     const size_t MAX_CHILDREN = MAX_CHILDREN_DEFAULT;
     size_t num_children = std::min(moves.size(), MAX_CHILDREN);
     
+    // ADDED: Check if node is already being expanded by another thread
+    // This is a belt-and-suspenders approach in addition to mark_for_expansion
+    if (being_expanded_.load(std::memory_order_acquire)) {
+        MCTS_DEBUG("Node is already being expanded by another thread");
+        return;
+    }
+
     children_.reserve(num_children);
     
     for (size_t i = 0; i < num_children; i++) {
@@ -495,6 +553,14 @@ void Node::expand_normal(const std::vector<int>& moves, const std::vector<float>
 
 // Expansion with pruning for soft memory constraints
 void Node::expand_with_pruning(const std::vector<int>& moves, const std::vector<float>& priors) {
+
+    // ADDED: Check if node is already being expanded by another thread
+    // This is a belt-and-suspenders approach in addition to mark_for_expansion
+    if (being_expanded_.load(std::memory_order_acquire)) {
+        MCTS_DEBUG("Node is already being expanded by another thread");
+        return;
+    }
+
     // Find total prior sum and calculate threshold
     float total_prior = 0.0f;
     for (size_t i = 0; i < priors.size(); i++) {
@@ -552,6 +618,14 @@ void Node::expand_with_pruning(const std::vector<int>& moves, const std::vector<
 
 // Limited expansion for hard memory constraints
 void Node::expand_limited(const std::vector<int>& moves, const std::vector<float>& priors, size_t max_children) {
+
+    // ADDED: Check if node is already being expanded by another thread
+    // This is a belt-and-suspenders approach in addition to mark_for_expansion
+    if (being_expanded_.load(std::memory_order_acquire)) {
+        MCTS_DEBUG("Node is already being expanded by another thread");
+        return;
+    }
+
     // Sort moves by prior probability
     std::vector<std::pair<int, float>> move_priors;
     move_priors.reserve(moves.size());
@@ -585,4 +659,21 @@ void Node::expand_limited(const std::vector<int>& moves, const std::vector<float
     
     MCTS_DEBUG("Expanded node with " << children_.size() << " children (hard limit, "
               << "total nodes: " << total_nodes_.load() << ")");
+}
+
+// Mark node as being expanded - returns false if already being expanded
+bool Node::mark_for_expansion() {
+    bool expected = false;
+    return being_expanded_.compare_exchange_strong(expected, true, 
+                                                 std::memory_order_acq_rel);
+}
+
+// Clear expansion flag
+void Node::clear_expansion_flag() {
+    being_expanded_.store(false, std::memory_order_release);
+}
+
+// Check if node is currently being expanded
+bool Node::is_being_expanded() const {
+    return being_expanded_.load(std::memory_order_acquire);
 }

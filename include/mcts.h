@@ -27,6 +27,7 @@ public:
     MCTS(const MCTSConfig& config,
         std::shared_ptr<PythonNNProxy> nn,
         int boardSize);
+    ~MCTS();
 
     void run_search(const Gamestate& rootState);
     void run_parallel_search(const Gamestate& rootState);
@@ -69,6 +70,34 @@ public:
         }
     }
 
+    void force_clear() {
+        // Set shutdown flag
+        shutdown_flag_ = true;
+        
+        // Clear leaf gatherer first
+        if (leaf_gatherer_) {
+            try {
+                leaf_gatherer_->shutdown();
+            } catch (...) {
+                // Ignore errors
+            }
+            leaf_gatherer_.reset();
+        }
+        
+        // Clear root and free all nodes
+        root_.reset();
+        
+        // Clear other resources
+        {
+            std::lock_guard<std::mutex> lock(queue_mutex_);
+            leaf_queue_ = std::queue<LeafTask>();  // Replace with empty queue
+        }
+        
+        // Reset counters
+        leaves_in_flight_ = 0;
+        simulations_done_ = 0;
+    }    
+
     void create_or_reset_leaf_gatherer();
     std::string get_leaf_gatherer_stats() const;
     bool check_and_restart_leaf_gatherer();
@@ -101,9 +130,11 @@ private:
 
     // New fields for leaf parallelization
     struct LeafTask {
+        // Non-owning pointer - doesn't delete the Node
         Node* leaf;
         Gamestate state;
         int chosen_move;
+        // Use shared_ptr for promise to ensure proper cleanup
         std::shared_ptr<std::promise<std::pair<std::vector<float>, float>>> result_promise;
     };
     
