@@ -99,6 +99,11 @@ public:
     
     // Compute and update hash signature
     uint64_t compute_hash_signature() const;
+
+    size_t approximate_memory_usage() const;
+
+    // Get the total number of moves made
+    int get_move_count() const;
     
 private:
     // Directions array
@@ -174,6 +179,8 @@ private:
     
     // Refresh winner cache
     void _refresh_winner_cache() const;
+
+    std::vector<std::vector<int>> board; // 2D board representation
 };
 
 #endif // GOMOKU_H

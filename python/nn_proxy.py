@@ -46,6 +46,8 @@ def initialize_neural_network(model, batch_size=256, device="cuda"):
         debug_print("Neural network proxy already initialized")
         return
     
+    debug_print(f"Initializing neural network proxy with batch_size={batch_size}, device={device}")
+    
     # Configure batch size based on device and available memory
     if device == "cuda" and torch.cuda.is_available():
         # Get GPU properties
@@ -54,20 +56,18 @@ def initialize_neural_network(model, batch_size=256, device="cuda"):
         
         debug_print(f"Detected GPU: {gpu_name} with {gpu_memory:.1f}GB VRAM")
         
-        # Optimize batch size based on GPU memory
-        # For 3060 Ti (8GB), use larger batches
-        if "3060 Ti" in gpu_name or "3070" in gpu_name or gpu_memory >= 8.0:
-            if batch_size < 128:
-                batch_size = 256
-                debug_print(f"Automatically increased batch size to {batch_size} for {gpu_name}")
-            
-            # Enable CUDA optimizations
-            torch.backends.cudnn.benchmark = True  # Optimize for fixed input sizes
-            debug_print("Enabled cuDNN benchmark for performance optimization")
-            
-            # Log mixed precision status
-            if USE_MIXED_PRECISION:
-                debug_print("Mixed precision (FP16) enabled for faster inference")
+        # Optimize batch size based on GPU model for RTX 3060 Ti
+        if "3060 Ti" in gpu_name and batch_size < 256:
+            batch_size = 256
+            debug_print(f"Automatically increased batch size to {batch_size} for {gpu_name}")
+        
+        # Enable CUDA optimizations
+        torch.backends.cudnn.benchmark = True  # Optimize for fixed input sizes
+        debug_print("Enabled cuDNN benchmark for performance optimization")
+        
+        # Enable mixed precision (FP16) for faster inference
+        USE_MIXED_PRECISION = True
+        debug_print("Mixed precision (FP16) enabled for faster inference")
             
     else:
         # If using CPU, use smaller batches
@@ -75,15 +75,13 @@ def initialize_neural_network(model, batch_size=256, device="cuda"):
         USE_MIXED_PRECISION = False
         debug_print(f"Using CPU mode with batch size {batch_size}")
     
-    debug_print(f"Initializing neural network proxy with batch_size={batch_size}, device={device}")
-    
     # Store the model
     model_instance = model
     MAX_BATCH_SIZE = batch_size
     
-    # Create thread-safe queues
-    request_queue = queue.Queue()
-    response_queue = queue.Queue()
+    # Create thread-safe queues with increased size limits
+    request_queue = queue.Queue(maxsize=10000)  # Increased from default to handle more requests
+    response_queue = queue.Queue(maxsize=10000)
     
     # Mark as initialized and running
     is_initialized = True
@@ -95,6 +93,9 @@ def initialize_neural_network(model, batch_size=256, device="cuda"):
     
     debug_print(f"Neural network proxy initialized successfully with batch size {MAX_BATCH_SIZE}")
     debug_print(f"Inference configuration: device={device}, mixed_precision={USE_MIXED_PRECISION}")
+    
+    # Wait a brief moment to ensure thread has started
+    time.sleep(0.1)
 
 def shutdown():
     """Shutdown the neural network proxy system"""
@@ -124,17 +125,43 @@ def model_worker(device="cuda"):
         model_instance.to(torch.device(device))
         model_instance.eval()  # Set to evaluation mode
         
-        # Notify user of model size (parameter count)
-        param_count = sum(p.numel() for p in model_instance.parameters())
-        debug_print(f"Model has {param_count:,} parameters")
+        # Enable CUDA optimizations for better performance
+        if device == "cuda" and torch.cuda.is_available():
+            # Use cudnn benchmarking for optimized convolution algorithms
+            torch.backends.cudnn.benchmark = True
+            
+            # Print model summary
+            param_count = sum(p.numel() for p in model_instance.parameters())
+            debug_print(f"Model has {param_count:,} parameters")
+            debug_print(f"CUDA memory: {torch.cuda.get_device_properties(0).total_memory / (1024**3):.1f}GB total")
+            debug_print(f"Mixed precision: {USE_MIXED_PRECISION}")
+    else:
+        debug_print("WARNING: No model instance available")
+        return
     
     # Initialize mixed precision scaler if using mixed precision
-    scaler = torch.cuda.amp.GradScaler() if USE_MIXED_PRECISION and device == "cuda" else None
+    scaler = None
+    if USE_MIXED_PRECISION and device == "cuda":
+        try:
+            # Use the new style for PyTorch 2.0+
+            scaler = torch.amp.GradScaler('cuda')
+        except TypeError:
+            # Fallback for older PyTorch versions
+            scaler = torch.cuda.amp.GradScaler()
+        debug_print("Created GradScaler for mixed precision")
     
     # Statistics
     total_batches = 0
     total_samples = 0
     total_time = 0
+    
+    # Prefetch some tensors to avoid memory allocation during inference
+    input_tensors = {}
+    
+    # Precompute batch sizes
+    optimal_batch_sizes = [1, 8, 16, 32, 64, 128, 256]
+    
+    debug_print("Model worker ready to process requests")
     
     # Main worker loop
     while is_running:
@@ -142,54 +169,104 @@ def model_worker(device="cuda"):
             # Get batch of requests (non-blocking with timeout)
             requests = []
             try:
-                # Wait for at least one request
-                requests.append(request_queue.get(timeout=0.01))  # Reduced from 0.1s to 0.01s
+                # Short timeout to remain responsive
+                requests.append(request_queue.get(timeout=0.005))
+                request_queue.task_done()  # Mark as done immediately to avoid deadlocks
                 
-                # Collect any additional pending requests
-                while len(requests) < MAX_BATCH_SIZE:
+                # Get current queue size for stats
+                current_size = request_queue.qsize()
+                if current_size > 0:
+                    debug_print(f"Current queue size: {current_size}")
+                
+                # Quickly collect more requests in current batch if available
+                start_collection = time.time()
+                collection_timeout = 0.002  # 2ms max collection time
+                
+                # Determine target batch size based on queue size
+                target_size = 1
+                for size in optimal_batch_sizes:
+                    if current_size >= size:
+                        target_size = size
+                
+                # Cap at MAX_BATCH_SIZE
+                target_size = min(target_size, MAX_BATCH_SIZE)
+                
+                # Collect up to target_size or until collection timeout
+                while len(requests) < target_size:
                     try:
-                        requests.append(request_queue.get_nowait())
+                        # Use non-blocking get with very short timeout
+                        req = request_queue.get(block=False)
+                        requests.append(req)
+                        request_queue.task_done()  # Mark as done immediately
+                        
+                        # Check if we've spent too long collecting
+                        if time.time() - start_collection > collection_timeout:
+                            break
                     except queue.Empty:
                         break
                 
-                debug_print(f"Processing batch of {len(requests)} requests")
+                actual_batch_size = len(requests)
+                if actual_batch_size > 1:
+                    debug_print(f"Collected batch of {actual_batch_size} requests in {(time.time() - start_collection)*1000:.1f}ms")
+                
             except queue.Empty:
                 # No requests available, just continue loop
+                time.sleep(0.001)  # Short sleep to prevent CPU spinning
                 continue
             
             # Start timing the batch processing
             batch_start = time.time()
             
             # Process batch with model
-            results = process_batch_with_model(requests, scaler, device)
+            try:
+                results = process_batch_with_model(requests, scaler, device)
+                
+                # Calculate elapsed time
+                batch_time = time.time() - batch_start
+                
+                # Update statistics
+                total_batches += 1
+                total_samples += len(requests)
+                total_time += batch_time
+                
+                # Log performance for medium to large batches
+                if len(requests) > 8:
+                    debug_print(f"Batch of {len(requests)} processed in {batch_time:.3f}s ({batch_time/len(requests)*1000:.1f}ms per sample)")
+                
+                # Periodically log overall statistics
+                if total_batches % 20 == 0:
+                    avg_time = total_time/total_batches if total_batches > 0 else 0
+                    avg_per_sample = total_time/total_samples if total_samples > 0 else 0
+                    debug_print(f"Stats: {total_batches} batches, {total_samples} samples, "
+                              f"avg {avg_time:.3f}s per batch, {avg_per_sample*1000:.1f}ms per sample")
+                
+                # Return results
+                for i, result in enumerate(results):
+                    if i < len(requests):
+                        request_id = requests[i][0]
+                        response_queue.put((request_id, result))
             
-            # Calculate elapsed time
-            batch_time = time.time() - batch_start
-            
-            # Update statistics
-            total_batches += 1
-            total_samples += len(requests)
-            total_time += batch_time
-            
-            # Log performance
-            debug_print(f"Batch processed in {batch_time:.3f}s ({batch_time/len(requests):.3f}s per sample)")
-            
-            # Periodically log overall statistics
-            if total_batches % 10 == 0:
-                debug_print(f"Stats: {total_batches} batches, {total_samples} samples, "
-                          f"avg {total_time/total_batches:.3f}s per batch")
-            
-            # Return results
-            for i, result in enumerate(results):
-                if i < len(requests):
-                    request_id = requests[i][0]
-                    response_queue.put((request_id, result))
-                    request_queue.task_done()
+            except Exception as e:
+                debug_print(f"Error processing batch: {str(e)}")
+                debug_print(traceback.format_exc())
+                
+                # Create default responses for all requests in batch
+                for req in requests:
+                    try:
+                        request_id = req[0]
+                        # Default policy (uniform) and value (0)
+                        default_result = (np.ones(225)/225, 0.0)
+                        response_queue.put((request_id, default_result))
+                        debug_print(f"Sent default response for request {request_id} after error")
+                    except Exception as err:
+                        debug_print(f"Error creating default response: {str(err)}")
         
         except Exception as e:
-            debug_print(f"Error in model worker: {e}")
+            debug_print(f"Error in model worker main loop: {str(e)}")
             debug_print(traceback.format_exc())
-            time.sleep(0.01)  # Reduced from 0.1s to 0.01s
+            time.sleep(0.01)  # Brief sleep after error
+
+    debug_print("Model worker thread exiting")
 
 def process_batch_with_model(requests, scaler=None, device="cuda"):
     """
@@ -237,7 +314,7 @@ def process_batch_with_model(requests, scaler=None, device="cuda"):
         # Calculate input dimension
         input_dim = board_size*board_size + 1 + 2*num_history_moves + 2
         
-        # Create input tensor - use float16 for inputs if using mixed precision
+        # Create input tensor with appropriate precision
         dtype = torch.float16 if USE_MIXED_PRECISION and device == "cuda" else torch.float32
         x_input = np.zeros((batch_size, input_dim), dtype=np.float32)
         
@@ -295,15 +372,13 @@ def process_batch_with_model(requests, scaler=None, device="cuda"):
                 # Add previous moves for current player (normalize positions)
                 offset = bs*bs + 1
                 for j, prev_move in enumerate(current_moves_list[:num_history_moves]):
-                    if prev_move >= 0 and j < num_history_moves:  # Valid move and within history limit
-                        # Normalize the move position
+                    if prev_move >= 0 and j < num_history_moves:
                         x_input[i, offset + j] = float(prev_move) / (bs*bs)
                 
                 # Add previous moves for opponent
                 offset = bs*bs + 1 + num_history_moves
                 for j, prev_move in enumerate(opponent_moves_list[:num_history_moves]):
-                    if prev_move >= 0 and j < num_history_moves:  # Valid move and within history limit
-                        # Normalize the move position
+                    if prev_move >= 0 and j < num_history_moves:
                         x_input[i, offset + j] = float(prev_move) / (bs*bs)
                 
                 # Add attack and defense scores (normalized)
@@ -315,27 +390,52 @@ def process_batch_with_model(requests, scaler=None, device="cuda"):
                 # Continue with zeros for this input
         
         parse_time = time.time() - parse_start
-        debug_print(f"Input parsing completed in {parse_time:.3f}s")
+        if batch_size > 1:
+            debug_print(f"Input parsing completed in {parse_time:.3f}s")
         
         # Convert to PyTorch tensor
-        debug_print(f"Input tensor created with shape {x_input.shape}")
+        if batch_size > 16:
+            debug_print(f"Created input tensor with shape {x_input.shape}")
+        
         t_input = torch.tensor(x_input, dtype=dtype, device=torch.device(device))
         
         # Run forward pass with mixed precision if enabled
         with torch.no_grad():
-            debug_print("Running model forward pass")
             start_forward = time.time()
             
-            if USE_MIXED_PRECISION and device == "cuda":
-                # Use autocast for mixed precision inference
-                with torch.cuda.amp.autocast():
+            try:
+                if USE_MIXED_PRECISION and device == "cuda":
+                    # Use autocast for mixed precision inference
+                    try:
+                        # New PyTorch 2.0+ style
+                        with torch.amp.autocast('cuda'):
+                            policy_logits, value_out = model_instance(t_input)
+                    except TypeError:
+                        # Fallback for older PyTorch
+                        with torch.cuda.amp.autocast():
+                            policy_logits, value_out = model_instance(t_input)
+                else:
+                    # Regular inference
                     policy_logits, value_out = model_instance(t_input)
-            else:
-                # Regular inference
-                policy_logits, value_out = model_instance(t_input)
+            except RuntimeError as e:
+                if "CUDA out of memory" in str(e):
+                    # Handle CUDA OOM by clearing cache and retrying with reduced precision
+                    debug_print("CUDA OOM detected, clearing cache and retrying with reduced precision")
+                    torch.cuda.empty_cache()
+                    
+                    # Force float16 for OOM recovery
+                    t_input = t_input.half()
+                    
+                    # Retry with reduced precision
+                    with torch.cuda.amp.autocast():
+                        policy_logits, value_out = model_instance(t_input)
+                else:
+                    # Re-raise other runtime errors
+                    raise
             
             forward_time = time.time() - start_forward
-            debug_print(f"Forward pass completed in {forward_time:.3f}s")
+            if batch_size > 1:
+                debug_print(f"Forward pass completed in {forward_time:.3f}s")
             
             # Move results to CPU and convert to appropriate precision
             policy_logits = policy_logits.cpu().float()
@@ -352,8 +452,9 @@ def process_batch_with_model(requests, scaler=None, device="cuda"):
             value = float(values[i])
             results.append((policy, value))
         
-        processing_time = time.time() - start_time
-        debug_print(f"Total processing time: {processing_time:.3f}s")
+        if batch_size > 16:
+            processing_time = time.time() - start_time
+            debug_print(f"Total processing time: {processing_time:.3f}s")
         
         return results
         

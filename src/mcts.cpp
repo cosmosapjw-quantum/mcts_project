@@ -17,53 +17,190 @@ rng_(std::random_device{}()) // Initialize rng_
 // We'll create the leaf gatherer on demand in run_search
 }
 
+void MCTS::create_or_reset_leaf_gatherer() {
+    MCTS_DEBUG("Creating/resetting LeafGatherer");
+    
+    try {
+        // Get batch size from config, increase for better GPU utilization
+        int batch_size = std::max(256, config_.parallel_leaf_batch_size);
+        
+        // For Ryzen 9 5900X (24 threads), use 4-6 worker threads
+        // Fewer workers than before to reduce contention
+        int num_workers = 4;
+        
+        // Adjust based on hardware if possible
+        unsigned int hw_threads = std::thread::hardware_concurrency();
+        if (hw_threads > 0) {
+            // Use approximately 1/6 of available threads for leaf gathering
+            // This leaves threads for the main search and Python NN inference
+            num_workers = std::max(2, static_cast<int>(hw_threads / 6));
+            num_workers = std::min(num_workers, 6);  // Cap at 6 workers max
+        }
+        
+        MCTS_DEBUG("LeafGatherer configuration: batch_size=" << batch_size 
+                   << ", workers=" << num_workers);
+        
+        // If leaf gatherer exists, shut it down first
+        if (leaf_gatherer_) {
+            try {
+                MCTS_DEBUG("Shutting down existing LeafGatherer");
+                leaf_gatherer_->shutdown();
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error shutting down LeafGatherer: " << e.what());
+            }
+        }
+        
+        // Create new LeafGatherer
+        leaf_gatherer_ = std::make_unique<LeafGatherer>(
+            nn_, attackDefense_, batch_size, num_workers);
+            
+        MCTS_DEBUG("LeafGatherer created successfully");
+    } catch (const std::exception& e) {
+        MCTS_DEBUG("Error creating LeafGatherer: " << e.what());
+        
+        // Fall back to nullptr if creation fails
+        leaf_gatherer_.reset();
+    }
+}
+
+std::string MCTS::get_leaf_gatherer_stats() const {
+    if (leaf_gatherer_) {
+        return leaf_gatherer_->get_stats();
+    }
+    return "LeafGatherer not available";
+}
+
+bool MCTS::check_and_restart_leaf_gatherer() {
+    if (!leaf_gatherer_) {
+        MCTS_DEBUG("LeafGatherer not available, creating new one");
+        create_or_reset_leaf_gatherer();
+        return leaf_gatherer_ != nullptr;
+    }
+    
+    // Check if gatherer appears stalled
+    int queue_size = leaf_gatherer_->get_queue_size();
+    int active_workers = leaf_gatherer_->get_active_workers();
+    
+    if (queue_size > 10 && active_workers == 0) {
+        MCTS_DEBUG("LeafGatherer appears stuck (queue_size=" << queue_size 
+                  << ", active_workers=" << active_workers << "), restarting");
+        create_or_reset_leaf_gatherer();
+        return leaf_gatherer_ != nullptr;
+    }
+    
+    return true;
+}
+
 int MCTS::select_move_with_temperature(float temperature) const {
     if (!root_) {
+        MCTS_DEBUG("select_move_with_temperature called with null root");
         return -1;
     }
     
     std::vector<Node*> children = root_->get_children();
     if (children.empty()) {
+        MCTS_DEBUG("Root has no children in select_move_with_temperature");
         return -1;
     }
     
     std::vector<float> distribution;
     std::vector<int> moves;
     
+    // Filter out nodes with zero visits to avoid potential issues
+    std::vector<std::pair<Node*, int>> valid_children;
     for (Node* child : children) {
         if (!child) continue;
         
-        moves.push_back(child->get_move_from_parent());
-        
-        float count = static_cast<float>(child->get_visit_count());
-        if (temperature > 0) {
-            distribution.push_back(std::pow(count, 1.0f / temperature));
-        } else {
-            distribution.push_back(count);
+        int visits = child->get_visit_count();
+        if (visits > 0) { // Only consider nodes with at least one visit
+            valid_children.emplace_back(child, visits);
         }
     }
     
-    if (temperature <= 0) {
+    // If no children have visits, fall back to uniform selection
+    if (valid_children.empty()) {
+        MCTS_DEBUG("No children with visits, using prior-based selection");
+        for (Node* child : children) {
+            if (!child) continue;
+            moves.push_back(child->get_move_from_parent());
+            distribution.push_back(child->get_prior());  // Use prior instead of visit count
+        }
+    } else {
+        // Sort children by visit count for logging
+        std::sort(valid_children.begin(), valid_children.end(), 
+                [](const auto& a, const auto& b) { return a.second > b.second; });
+        
+        // Calculate distribution based on temperature
+        for (const auto& [child, visits] : valid_children) {
+            moves.push_back(child->get_move_from_parent());
+            
+            if (temperature <= 0.01f) {
+                // With zero temperature, select most visited move deterministically
+                distribution.push_back(visits);
+            } else if (temperature >= 100.0f) {
+                // With very high temperature, use uniform distribution
+                distribution.push_back(1.0f);
+            } else {
+                // Apply temperature scaling to visit counts
+                distribution.push_back(std::pow(static_cast<float>(visits), 1.0f / temperature));
+            }
+        }
+        
+        // Log distribution for top moves
+        if (valid_children.size() >= 2) {
+            std::ostringstream oss;
+            oss << "Move selection (temp=" << temperature << "): ";
+            
+            int top_moves = std::min(3, static_cast<int>(valid_children.size()));
+            for (int i = 0; i < top_moves; i++) {
+                Node* child = valid_children[i].first;
+                int visits = valid_children[i].second;
+                int move = child->get_move_from_parent();
+                int x = move / root_->get_state().board_size;
+                int y = move % root_->get_state().board_size;
+                
+                oss << "(" << x << "," << y << "):" << visits << " ";
+            }
+            MCTS_DEBUG(oss.str());
+        }
+    }
+    
+    // Handle special temperature cases
+    if (temperature <= 0.01f && !distribution.empty()) {
+        // Deterministic selection of best move
         int best_idx = std::distance(distribution.begin(), 
                                    std::max_element(distribution.begin(), distribution.end()));
         return moves[best_idx];
     }
     
+    // Normalize distribution
     float sum = std::accumulate(distribution.begin(), distribution.end(), 0.0f);
     if (sum > 0) {
         for (float& d : distribution) {
             d /= sum;
         }
     } else {
+        // Fallback to uniform if sum is zero
         for (float& d : distribution) {
             d = 1.0f / distribution.size();
         }
     }
     
+    // Sample from distribution
     std::discrete_distribution<int> dist(distribution.begin(), distribution.end());
     int selected_idx = dist(rng_);
     
-    return moves[selected_idx];
+    // Log the selected move
+    if (selected_idx >= 0 && selected_idx < static_cast<int>(moves.size())) {
+        int selected_move = moves[selected_idx];
+        int x = selected_move / root_->get_state().board_size;
+        int y = selected_move % root_->get_state().board_size;
+        
+        MCTS_DEBUG("Selected move (" << x << "," << y << ") with temperature " << temperature);
+    }
+    
+    return selected_idx >= 0 && selected_idx < static_cast<int>(moves.size()) ? 
+           moves[selected_idx] : -1;
 }
 
 void MCTS::add_dirichlet_noise(std::vector<float>& priors) {
@@ -94,6 +231,130 @@ void MCTS::add_dirichlet_noise(std::vector<float>& priors) {
             p /= sum;
         }
     }
+}
+
+/**
+ * Get a dynamically adjusted exploration parameter (c_puct) based on search progress.
+ * 
+ * This method returns a c_puct value that starts high for better exploration
+ * early in the search and gradually decreases for better exploitation later.
+ * 
+ * @param simulations_done Current number of completed simulations
+ * @param total_simulations Target number of simulations
+ * @return Adjusted c_puct value
+ */
+float MCTS::get_dynamic_cpuct(int simulations_done, int total_simulations) const {
+    // Base c_puct from config
+    float base_cpuct = config_.c_puct;
+    
+    // Ensure simulations_done is in valid range
+    simulations_done = std::max(0, std::min(simulations_done, total_simulations));
+    
+    // Calculate progress ratio (0.0 to 1.0)
+    float progress = static_cast<float>(simulations_done) / std::max(1, total_simulations);
+    
+    // Early stage: use higher c_puct for exploration (up to 20% more)
+    // Late stage: use lower c_puct for exploitation (down to 50% less)
+    float scaling_factor;
+    if (progress < 0.3f) {
+        // Early stage: 1.0 -> 1.2
+        scaling_factor = 1.0f + 0.2f * (1.0f - progress / 0.3f);
+    } else if (progress > 0.7f) {
+        // Late stage: 1.0 -> 0.5
+        scaling_factor = 1.0f - 0.5f * ((progress - 0.7f) / 0.3f);
+    } else {
+        // Middle stage: constant base value
+        scaling_factor = 1.0f;
+    }
+    
+    // Apply scaling to base value
+    float adjusted_cpuct = base_cpuct * scaling_factor;
+    
+    // Further adjust based on tree size for large trees
+    int node_count = Node::total_nodes_.load(std::memory_order_acquire);
+    if (node_count > 10000) {
+        // Gradually reduce c_puct for very large trees to focus on exploitation
+        float tree_scaling = std::max(0.7f, 1.0f - 0.3f * (node_count - 10000) / 90000.0f);
+        adjusted_cpuct *= tree_scaling;
+    }
+    
+    return adjusted_cpuct;
+}
+
+/**
+ * Get optimal temperature for move selection based on game phase and search confidence.
+ * 
+ * Higher temperature -> more exploration
+ * Lower temperature -> more exploitation
+ * 
+ * @param move_num Current move number
+ * @param board_size Size of the board
+ * @return Appropriate temperature for move selection
+ */
+float MCTS::get_optimal_temperature(int move_num, int board_size) const {
+    // Default temperature
+    float temp = 1.0f;
+    
+    // Calculate game phase (0.0 to 1.0)
+    float max_moves = board_size * board_size;
+    float game_progress = std::min(1.0f, move_num / max_moves);
+    
+    // Early game: high temperature (1.0)
+    // Mid game: medium temperature (0.5)
+    // Late game: low temperature (0.1)
+    if (game_progress < 0.2f) {
+        // Early game: encourage exploration
+        temp = 1.0f;
+    } else if (game_progress < 0.7f) {
+        // Mid game: gradual decrease
+        float mid_progress = (game_progress - 0.2f) / 0.5f;  // 0.0 to 1.0 in mid game
+        temp = 1.0f - 0.9f * mid_progress;  // 1.0 down to 0.1
+    } else {
+        // Late game: exploit best moves
+        temp = 0.1f;
+    }
+    
+    // Further adjust based on search confidence
+    if (root_) {
+        auto children = root_->get_children();
+        if (children.size() >= 2) {
+            // Sort by visit count
+            std::vector<std::pair<Node*, int>> sorted_children;
+            for (Node* child : children) {
+                if (child) {
+                    sorted_children.emplace_back(child, child->get_visit_count());
+                }
+            }
+            
+            std::sort(sorted_children.begin(), sorted_children.end(),
+                     [](const auto& a, const auto& b) { return a.second > b.second; });
+            
+            if (sorted_children.size() >= 2) {
+                float top_visits = sorted_children[0].second;
+                float second_visits = sorted_children[1].second;
+                
+                // Calculate confidence as ratio between top and second-best
+                float confidence = 0.0f;
+                if (top_visits + second_visits > 0) {
+                    confidence = top_visits / (top_visits + second_visits);
+                }
+                
+                // If high confidence (> 80%), reduce temperature further
+                if (confidence > 0.8f) {
+                    temp *= 0.5f;  // Cut temperature in half for high confidence
+                }
+                // If low confidence (< 60%), increase temperature
+                else if (confidence < 0.6f) {
+                    temp *= 1.5f;  // Increase temperature for low confidence
+                }
+            }
+        }
+    }
+    
+    // Clamp to reasonable range
+    temp = std::max(0.1f, std::min(temp, 2.0f));
+    
+    return temp;
 }
 
 void MCTS::force_shutdown() {
@@ -192,25 +453,6 @@ void MCTS::run_search(const Gamestate& rootState) {
     
     MCTS_DEBUG("Root has " << validMoves.size() << " valid moves");
     
-    // Configure CPU thread affinity for better performance on Ryzen CPUs
-    bool threadAffinitySet = false;
-    
-    // Try to detect AMD Ryzen CPU and apply optimal thread settings
-    try {
-        unsigned int hw_threads = std::thread::hardware_concurrency();
-        bool is_high_core_count = (hw_threads >= 16);
-        
-        if (is_high_core_count) {
-            MCTS_DEBUG("Detected high core count CPU (" << hw_threads << " threads), optimizing thread settings");
-            
-            // Attempt to set thread affinity (implementation would depend on platform)
-            // This is a placeholder - actual implementation would be platform-specific
-            threadAffinitySet = true;
-        }
-    } catch (const std::exception& e) {
-        MCTS_DEBUG("Error detecting CPU info: " << e.what());
-    }
-    
     // Use uniform priors
     std::vector<float> uniformPriors(validMoves.size(), 1.0f / validMoves.size());
     
@@ -227,39 +469,9 @@ void MCTS::run_search(const Gamestate& rootState) {
         return;
     }
     
-    // Create LeafGatherer if needed or reconfigure existing one
-    try {
-        if (!leaf_gatherer_) {
-            MCTS_DEBUG("Creating new LeafGatherer");
-            
-            // Get batch size from config, increase for better GPU utilization
-            int batch_size = std::max(256, config_.parallel_leaf_batch_size);
-            
-            // For Ryzen 9 5900X (24 threads), use 6-8 worker threads
-            int num_workers = 6;
-            
-            // Adjust based on hardware if possible
-            unsigned int hw_threads = std::thread::hardware_concurrency();
-            if (hw_threads > 0) {
-                // Use approximately 1/4 of available threads for leaf gathering
-                // This leaves threads for the main search and Python NN inference
-                num_workers = std::max(4, static_cast<int>(hw_threads / 4));
-            }
-            
-            MCTS_DEBUG("LeafGatherer configuration: batch_size=" << batch_size 
-                       << ", workers=" << num_workers);
-            
-            leaf_gatherer_ = std::make_unique<LeafGatherer>(
-                nn_, attackDefense_, batch_size, num_workers);
-        } else {
-            MCTS_DEBUG("Reusing existing LeafGatherer: " << leaf_gatherer_->get_stats());
-        }
-    } catch (const std::exception& e) {
-        MCTS_DEBUG("Error creating LeafGatherer: " << e.what());
-        
-        // Fall back to direct batch processing if LeafGatherer creation fails
-        MCTS_DEBUG("Falling back to direct batch processing");
-        leaf_gatherer_.reset();
+    // Create or check LeafGatherer
+    if (!check_and_restart_leaf_gatherer()) {
+        MCTS_DEBUG("Failed to create LeafGatherer, continuing without it");
     }
     
     // Configure search parameters
@@ -315,7 +527,81 @@ void MCTS::run_search(const Gamestate& rootState) {
     }
 }
 
-// New helper method to analyze search results
+// Perform periodic tree pruning to conserve memory
+bool MCTS::perform_tree_pruning() {
+    if (!root_) {
+        return false;
+    }
+    
+    // Get current memory usage
+    size_t memory_kb = Node::get_memory_usage_kb();
+    int num_nodes = Node::total_nodes_.load();
+    
+    // Only prune if we're using significant memory or have lots of nodes
+    if (memory_kb < 50 * 1024 && num_nodes < 50000) {  // Less than 50MB and 50K nodes
+        return false;
+    }
+    
+    MCTS_DEBUG("Starting tree pruning, current memory: " << memory_kb / 1024 << "MB, nodes: " << num_nodes);
+    
+    // Calculate pruning threshold based on memory pressure
+    float pruning_threshold = 0.01f;  // Default 1%
+    
+    if (memory_kb > 500 * 1024) {  // > 500MB
+        pruning_threshold = 0.05f;  // More aggressive 5% 
+    } else if (memory_kb > 200 * 1024) {  // > 200MB
+        pruning_threshold = 0.03f;  // Medium 3%
+    }
+    
+    // Perform pruning
+    int pruned = root_->prune_tree(pruning_threshold);
+    
+    // Get new stats
+    size_t new_memory_kb = Node::get_memory_usage_kb();
+    int new_num_nodes = Node::total_nodes_.load();
+    
+    MCTS_DEBUG("Tree pruning complete, pruned " << pruned << " nodes");
+    MCTS_DEBUG("Memory after pruning: " << new_memory_kb / 1024 << "MB, nodes: " << new_num_nodes);
+    MCTS_DEBUG("Memory reduction: " << (memory_kb - new_memory_kb) / 1024 << "MB");
+    
+    return pruned > 0;
+}
+
+// Add tree statistics analysis
+std::string MCTS::get_tree_stats() const {
+    if (!root_) {
+        return "Tree not initialized";
+    }
+    
+    std::ostringstream oss;
+    auto stats = root_->collect_tree_stats();
+    
+    oss << "Tree statistics:" << std::endl;
+    oss << "  Total nodes: " << stats["total_nodes"] << std::endl;
+    oss << "  Memory usage: " << stats["memory_kb"] / 1024 << " MB" << std::endl;
+    oss << "  Tree depth: " << stats["depth"] << std::endl;
+    oss << "  Avg branching factor: " << stats["branching_factor"] << std::endl;
+    oss << "  Max visit count: " << stats["max_visits"] << std::endl;
+    
+    // Get principal variation
+    std::vector<int> pv = root_->get_principal_variation();
+    
+    if (!pv.empty()) {
+        oss << "  Principal variation:";
+        
+        for (int move : pv) {
+            int x = move / root_->get_state().board_size;
+            int y = move % root_->get_state().board_size;
+            oss << " (" << x << "," << y << ")";
+        }
+        
+        oss << std::endl;
+    }
+    
+    return oss.str();
+}
+
+// analyze_search_result method to include memory information
 void MCTS::analyze_search_result() {
     if (!root_) {
         MCTS_DEBUG("No root node available for analysis");
@@ -360,7 +646,6 @@ void MCTS::analyze_search_result() {
         if (denom > 0) {
             posterior = float(visits) / denom;
         } else {
-            MCTS_DEBUG("Simulations done is zero, setting posterior to 0");
             posterior = 0.0f;
         }
         
@@ -382,23 +667,38 @@ void MCTS::analyze_search_result() {
         
         MCTS_DEBUG("Search confidence: " << confidence * 100.0f << "%");
     }
+    
+    // Log memory usage
+    int total_nodes = Node::total_nodes_.load();
+    size_t memory_kb = Node::get_memory_usage_kb();
+    
+    MCTS_DEBUG("Memory usage: " << memory_kb / 1024 << " MB (" << total_nodes << " nodes)");
 }
 
 void MCTS::run_semi_parallel_search(int num_simulations) {
     MCTS_DEBUG("Running semi-parallel search for " << num_simulations << " simulations");
     
-    // Define max search time with appropriate timeout 
+    // Dynamic exploration parameters
+    float base_cpuct = config_.c_puct;
+    bool use_dynamic_cpuct = true;  // Enable dynamic exploration parameter
+    
+    // Store the original c_puct for restoration after search
+    float original_cpuct = config_.c_puct;
+
+    // Define search parameters with appropriate timeout 
     const auto start_time = std::chrono::steady_clock::now();
-    const int MAX_SEARCH_TIME_MS = 30000; // 30 seconds max (increased from 10 seconds)
+    const int MAX_SEARCH_TIME_MS = 5000;  // 5 seconds max (reduced from 30 seconds)
     
     // Track search statistics
     std::atomic<int> batch_count{0};
     std::atomic<int> leaf_count{0};
     std::atomic<int> eval_failures{0};
+    std::atomic<int> eval_timeouts{0};
     
     // Track health of search
     auto last_progress_time = std::chrono::steady_clock::now();
     int last_progress_count = 0;
+    int stall_recovery_attempts = 0;
     
     // For thread safety, use a thread-safe queue for pending evaluations
     struct PendingEval {
@@ -424,83 +724,166 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
     std::vector<std::tuple<std::string, int, float, float>> batch_inputs;
     std::vector<Node*> batch_leaves;
     
-    // Use the batch size from the enhanced LeafGatherer
-    const int MAX_BATCH_SIZE = leaf_gatherer_ ? leaf_gatherer_->get_batch_size() : config_.parallel_leaf_batch_size;
+    // Use the batch size from the enhanced LeafGatherer or config
+    const int MAX_BATCH_SIZE = leaf_gatherer_ ? 
+        leaf_gatherer_->get_batch_size() : 
+        std::max(8, config_.parallel_leaf_batch_size);
     
-    // Hold locks for shorter durations by creating local copies
+    MCTS_DEBUG("Using batch size: " << MAX_BATCH_SIZE);
+    
+    // Helper to process completed futures with timeout protection
     auto process_completed_futures = [&]() {
         // Make a local copy of pending evals
         std::vector<PendingEval> local_pending;
         std::vector<size_t> completed_indices;
+        std::vector<size_t> timeout_indices;
         
         {
             std::lock_guard<std::mutex> lock(pending_mutex);
             
-            // Find completed futures
-            for (size_t i = 0; i < pending_evals.size(); i++) {
-                auto status = pending_evals[i].future.wait_for(std::chrono::milliseconds(0));
-                if (status == std::future_status::ready) {
-                    completed_indices.push_back(i);
-                }
-            }
-            
-            // If no completed futures, return early
-            if (completed_indices.empty()) {
+            if (pending_evals.empty()) {
                 return 0;
             }
             
-            // Extract completed futures (in reverse order to avoid shifting indices)
-            for (auto it = completed_indices.rbegin(); it != completed_indices.rend(); ++it) {
-                local_pending.push_back(std::move(pending_evals[*it]));
-                pending_evals.erase(pending_evals.begin() + *it);
+            // Find completed and timed out futures
+            for (size_t i = 0; i < pending_evals.size(); i++) {
+                auto current_time = std::chrono::steady_clock::now();
+                auto wait_time = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    current_time - pending_evals[i].submit_time).count();
+                    
+                auto status = pending_evals[i].future.wait_for(std::chrono::milliseconds(0));
+                
+                if (status == std::future_status::ready) {
+                    completed_indices.push_back(i);
+                }
+                // Consider a future timed out if waiting over 1 second
+                else if (wait_time > 1000) {
+                    timeout_indices.push_back(i);
+                    eval_timeouts++;
+                }
+            }
+            
+            // If no completed or timed out futures, return early
+            if (completed_indices.empty() && timeout_indices.empty()) {
+                return 0;
+            }
+            
+            // Copy all indices (completed and timed out) to process
+            std::vector<size_t> all_indices = completed_indices;
+            all_indices.insert(all_indices.end(), timeout_indices.begin(), timeout_indices.end());
+            
+            // Sort indices in descending order to safely erase
+            std::sort(all_indices.begin(), all_indices.end(), std::greater<size_t>());
+            
+            // Extract futures to process (in reverse order to avoid shifting indices)
+            for (auto idx : all_indices) {
+                local_pending.push_back(std::move(pending_evals[idx]));
+                pending_evals.erase(pending_evals.begin() + idx);
             }
         }
         
-        // Process completed futures without holding the lock
+        // Process copied futures without holding the lock
         int processed_count = 0;
         
         for (auto& eval : local_pending) {
             try {
-                // Get the result
-                auto [policy, value] = eval.future.get();
                 Node* leaf = eval.leaf;
+                if (!leaf) {
+                    continue;
+                }
                 
-                if (leaf) {
-                    // Measure time in queue
-                    auto now = std::chrono::steady_clock::now();
-                    auto queue_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-                        now - eval.submit_time).count();
-                        
-                    if (queue_ms > 1000) {
-                        MCTS_DEBUG("WARNING: Leaf evaluation took " << queue_ms << "ms");
+                // Measure time in queue
+                auto now = std::chrono::steady_clock::now();
+                auto queue_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    now - eval.submit_time).count();
+                    
+                if (queue_ms > 500) {
+                    MCTS_DEBUG("Leaf evaluation took " << queue_ms << "ms");
+                }
+                
+                // Get valid moves here before future.get() which might throw
+                auto valid_moves = leaf->get_state().get_valid_moves();
+                
+                if (valid_moves.empty()) {
+                    MCTS_DEBUG("Leaf has no valid moves, can't expand");
+                    // Remove virtual losses
+                    Node* current = leaf;
+                    while (current) {
+                        current->remove_virtual_loss();
+                        current = current->get_parent();
                     }
+                    continue;
+                }
+                
+                // Try to get result with timeout protection
+                std::vector<float> policy;
+                float value = 0.0f;
+                bool use_default = false;
+                
+                auto wait_status = eval.future.wait_for(std::chrono::milliseconds(1));
+                if (wait_status == std::future_status::ready) {
+                    try {
+                        // Get the result
+                        auto [p, v] = eval.future.get();
+                        policy = std::move(p);
+                        value = v;
+                    }
+                    catch (const std::exception& e) {
+                        MCTS_DEBUG("Error getting future result: " << e.what());
+                        use_default = true;
+                        eval_failures++;
+                    }
+                }
+                else {
+                    use_default = true;
+                    MCTS_DEBUG("Future not ready, using default values");
+                    eval_timeouts++;
+                }
+                
+                // Use uniform policy if needed
+                if (use_default || policy.empty() || policy.size() != valid_moves.size()) {
+                    // Create uniform policy with a slight positive bias for the center
+                    policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
                     
-                    // Expand with policy
-                    auto valid_moves = leaf->get_state().get_valid_moves();
-                    
-                    if (!valid_moves.empty() && valid_moves.size() == policy.size()) {
-                        leaf->expand(valid_moves, policy);
-                        backup(leaf, value);
-                        processed_count++;
-                    } else if (!valid_moves.empty()) {
-                        // Sizes don't match - create uniform policy
-                        MCTS_DEBUG("Policy size mismatch: expected " << valid_moves.size() 
-                                  << ", got " << policy.size() << ", using uniform");
-                        std::vector<float> uniform_policy(valid_moves.size(), 1.0f / valid_moves.size());
-                        leaf->expand(valid_moves, uniform_policy);
-                        backup(leaf, value);
-                        processed_count++;
-                    } else {
-                        // Remove virtual losses if we can't expand
-                        MCTS_DEBUG("Leaf has no valid moves, can't expand");
-                        Node* current = leaf;
-                        while (current) {
-                            current->remove_virtual_loss();
-                            current = current->get_parent();
+                    // Apply slight bias toward center for better initial play
+                    if (policy.size() > 9) {
+                        const float CENTER_BIAS = 1.1f;  // 10% boost for center moves
+                        int board_size = leaf->get_state().board_size;
+                        
+                        for (size_t i = 0; i < valid_moves.size(); i++) {
+                            int move = valid_moves[i];
+                            int row = move / board_size;
+                            int col = move % board_size;
+                            
+                            // Calculate distance from center (normalized to [0,1])
+                            float center_row = (board_size - 1) / 2.0f;
+                            float center_col = (board_size - 1) / 2.0f;
+                            float dist = std::sqrt(std::pow(row - center_row, 2) + std::pow(col - center_col, 2));
+                            float max_dist = std::sqrt(std::pow(board_size, 2));
+                            float norm_dist = dist / max_dist;
+                            
+                            // Closer to center gets higher prior
+                            policy[i] *= (1.0f + (CENTER_BIAS - 1.0f) * (1.0f - norm_dist));
+                        }
+                        
+                        // Renormalize after applying bias
+                        float sum = std::accumulate(policy.begin(), policy.end(), 0.0f);
+                        if (sum > 0) {
+                            for (auto& p : policy) {
+                                p /= sum;
+                            }
                         }
                     }
                 }
-            } catch (const std::exception& e) {
+                
+                // Expand the node with policy
+                leaf->expand(valid_moves, policy);
+                
+                // Backup the value
+                backup(leaf, value);
+                processed_count++;
+            } 
+            catch (const std::exception& e) {
                 MCTS_DEBUG("Error processing future: " << e.what());
                 eval_failures++;
                 
@@ -637,8 +1020,8 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
             return false;
         }
         
-        // Check if we've been stalled for too long (5 seconds)
-        if (stall_ms > 5000) {
+        // Check if we've been stalled for too long (3 seconds)
+        if (stall_ms > 3000) {
             MCTS_DEBUG("Search appears stalled for " << stall_ms << "ms");
             
             // If we have pending evals but no progress, consider stalled
@@ -650,15 +1033,76 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
             
             if (pending_size > 0) {
                 MCTS_DEBUG("Stalled with " << pending_size << " pending evaluations");
-                return true;
+                
+                // If we've already tried recovery multiple times, consider search failed
+                if (stall_recovery_attempts >= 2) {
+                    MCTS_DEBUG("Multiple recovery attempts failed, aborting search");
+                    return true;
+                }
+                
+                // Attempt recovery by timing out oldest evaluations
+                int timeout_count = std::min(pending_size, 8);  // Time out up to 8 at once
+                
+                std::lock_guard<std::mutex> lock(pending_mutex);
+                std::sort(pending_evals.begin(), pending_evals.end(), 
+                          [](const PendingEval& a, const PendingEval& b) {
+                              return a.submit_time < b.submit_time;
+                          });
+                          
+                for (int i = 0; i < timeout_count && i < static_cast<int>(pending_evals.size()); i++) {
+                    // Remove virtual losses from timed out nodes
+                    Node* leaf = pending_evals[i].leaf;
+                    if (leaf) {
+                        Node* current = leaf;
+                        while (current) {
+                            current->remove_virtual_loss();
+                            current = current->get_parent();
+                        }
+                    }
+                }
+                
+                // Only remove the first few entries to avoid vector shifting cost
+                if (!pending_evals.empty()) {
+                    pending_evals.erase(pending_evals.begin(), 
+                                      pending_evals.begin() + std::min(timeout_count, 
+                                                                     static_cast<int>(pending_evals.size())));
+                }
+                
+                MCTS_DEBUG("Timed out " << timeout_count << " oldest pending evaluations");
+                eval_timeouts += timeout_count;
+                stall_recovery_attempts++;
+                
+                // Update last progress time to give more time for recovery
+                last_progress_time = std::chrono::steady_clock::now();
+                return false;  // Allow search to continue
             }
             
             // If leaf gatherer queue is non-empty but stuck, consider stalled
             if (leaf_gatherer_ && leaf_gatherer_->get_queue_size() > 0 && 
                 leaf_gatherer_->get_active_workers() == 0) {
-                MCTS_DEBUG("Leaf gatherer appears stuck");
-                return true;
+                MCTS_DEBUG("Leaf gatherer appears stuck, restarting workers");
+                
+                // Instead of returning, try to recover by recreating the leaf gatherer
+                if (stall_recovery_attempts < 2) {
+                    try {
+                        create_or_reset_leaf_gatherer();
+                        stall_recovery_attempts++;
+                        
+                        // Update last progress time to give more time for recovery
+                        last_progress_time = std::chrono::steady_clock::now();
+                        return false;  // Continue with new leaf gatherer
+                    }
+                    catch (const std::exception& e) {
+                        MCTS_DEBUG("Error restarting leaf gatherer: " << e.what());
+                        return true;  // Give up if we can't restart
+                    }
+                } else {
+                    MCTS_DEBUG("Multiple leaf gatherer restarts failed, aborting search");
+                    return true;
+                }
             }
+            
+            return true;  // Stalled and no recovery options
         }
         
         return false;
@@ -668,27 +1112,42 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
     last_progress_count = simulations_done_.load(std::memory_order_relaxed);
     
     // Calculate optimal parallelism based on hardware
-    int max_pending = config_.num_threads * 2;
+    int max_pending = std::max(8, config_.num_threads * 2);
     
     // On Ryzen 9 5900X with 24 threads, allow more parallelism
     unsigned int hw_threads = std::thread::hardware_concurrency();
     if (hw_threads >= 16) {
-        max_pending = std::min(static_cast<int>(hw_threads), 24);
+        max_pending = std::min(static_cast<int>(hw_threads * 1.5), 32);
         MCTS_DEBUG("Detected high thread count CPU (" << hw_threads 
                    << "), increasing parallel evals to " << max_pending);
     }
     
-    // Main search loop
     int simulations_completed = simulations_done_.load(std::memory_order_relaxed);
     int target_simulations = simulations_completed + num_simulations;
-    
+
     // Reserve space for batch processing
     batch_inputs.reserve(MAX_BATCH_SIZE);
     batch_leaves.reserve(MAX_BATCH_SIZE);
     
     MCTS_DEBUG("Starting search with target of " << target_simulations << " simulations");
     
+    // Track when to perform memory pruning
+    auto last_pruning_time = std::chrono::steady_clock::now();
+    const int PRUNING_INTERVAL_MS = 1000;  // Prune at most once per second
+    bool pruning_enabled = true;   // Enable or disable pruning
+
+    MCTS_DEBUG("Starting search with dynamic exploration: "
+        << "base_cpuct=" << base_cpuct
+        << ", target=" << target_simulations << " simulations");
+
+    // Main search loop
     while (simulations_completed < target_simulations) {
+
+        // Update exploration parameter based on search progress
+        if (use_dynamic_cpuct) {
+            config_.c_puct = get_dynamic_cpuct(simulations_completed, target_simulations);
+        }
+
         // Check for timeout or stall
         if (check_timeout() || check_stalled()) {
             break;
@@ -701,9 +1160,10 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
             simulations_done_.store(simulations_completed, std::memory_order_relaxed);
             
             // Log progress periodically
-            if (simulations_completed % 100 == 0) {
+            if (simulations_completed % 10 == 0 || processed > 5) {
                 MCTS_DEBUG("Completed " << simulations_completed << "/" << target_simulations
-                           << " simulations, " << eval_failures << " failures");
+                        << " simulations, " << eval_failures << " failures, "
+                        << eval_timeouts << " timeouts");
                 
                 // Log leaf gatherer stats if available
                 if (leaf_gatherer_) {
@@ -714,6 +1174,25 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
             // If we've reached the target, break early
             if (simulations_completed >= target_simulations) {
                 break;
+            }
+        }
+        
+        // Periodically check if tree pruning is needed
+        if (pruning_enabled) {
+            auto current_time = std::chrono::steady_clock::now();
+            auto elapsed_since_pruning = std::chrono::duration_cast<std::chrono::milliseconds>(
+                current_time - last_pruning_time).count();
+                
+            if (elapsed_since_pruning > PRUNING_INTERVAL_MS) {
+                // Perform memory-based pruning if needed
+                bool pruned = perform_tree_pruning();
+                
+                if (pruned) {
+                    MCTS_DEBUG("Performed tree pruning during search");
+                }
+                
+                // Update timestamp regardless of whether pruning occurred
+                last_pruning_time = std::chrono::steady_clock::now();
             }
         }
         
@@ -743,7 +1222,7 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
             auto batch_wait_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
                 current_time - last_batch_time).count();
                 
-            if (batch_wait_ms > 100) {  // Process at least every 100ms
+            if (batch_wait_ms > 50) {  // Process at least every 50ms
                 should_process_batch = true;
                 last_batch_time = current_time;
             }
@@ -766,98 +1245,114 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
         );
         
         // Don't try to select too many at once
-        leaves_to_select = std::min(leaves_to_select, 10);
+        leaves_to_select = std::min(leaves_to_select, 8);
         
-        // Select new leaves if needed
-        if (leaves_to_select > 0) {
-            for (int i = 0; i < leaves_to_select; i++) {
-                // Select a leaf node
-                Node* leaf = select_node(root_.get());
-                if (!leaf) {
-                    MCTS_DEBUG("Failed to select leaf, skipping");
-                    continue;
+        // If we can't select more leaves right now, do a quick check for completed evals
+        if (leaves_to_select <= 0) {
+            // Small sleep to avoid tight loop
+            std::this_thread::sleep_for(std::chrono::microseconds(200));
+            continue;
+        }
+        
+        // Select new leaves
+        for (int i = 0; i < leaves_to_select; i++) {
+            // Select a leaf node
+            Node* leaf = select_node(root_.get());
+            if (!leaf) {
+                MCTS_DEBUG("Failed to select leaf, skipping");
+                continue;
+            }
+            
+            leaf_count++;
+            
+            // Handle terminal nodes immediately
+            if (leaf->get_state().is_terminal()) {
+                float value = 0.0f;
+                int winner = leaf->get_state().get_winner();
+                int current_player = leaf->get_state().current_player;
+                
+                if (winner == current_player) {
+                    value = 1.0f;
+                } else if (winner == 0) {
+                    value = 0.0f;  // Draw
+                } else {
+                    value = -1.0f;  // Loss
                 }
                 
-                leaf_count++;
+                backup(leaf, value);
+                simulations_completed++;
+                simulations_done_.store(simulations_completed, std::memory_order_relaxed);
+                continue;
+            }
+            
+            // Add to batch or use LeafGatherer
+            try {
+                const Gamestate& state = leaf->get_state();
+                int chosen_move = leaf->get_move_from_parent();
                 
-                // Handle terminal nodes immediately
-                if (leaf->get_state().is_terminal()) {
-                    float value = 0.0f;
-                    int winner = leaf->get_state().get_winner();
-                    int current_player = leaf->get_state().current_player;
-                    
-                    if (winner == current_player) {
-                        value = 1.0f;
-                    } else if (winner == 0) {
-                        value = 0.0f;  // Draw
+                if (chosen_move < 0) {
+                    auto valid_moves = state.get_valid_moves();
+                    if (!valid_moves.empty()) {
+                        chosen_move = valid_moves[0];
                     } else {
-                        value = -1.0f;  // Loss
+                        chosen_move = 0;
                     }
-                    
-                    backup(leaf, value);
-                    simulations_completed++;
-                    simulations_done_.store(simulations_completed, std::memory_order_relaxed);
-                    continue;
                 }
                 
-                // Add to batch or use LeafGatherer
-                try {
-                    const Gamestate& state = leaf->get_state();
-                    int chosen_move = leaf->get_move_from_parent();
-                    
-                    if (chosen_move < 0) {
-                        auto valid_moves = state.get_valid_moves();
-                        if (!valid_moves.empty()) {
-                            chosen_move = valid_moves[0];
-                        } else {
-                            chosen_move = 0;
-                        }
-                    }
-                    
-                    if (leaf_gatherer_) {
-                        // Use LeafGatherer for evaluation
+                // Check if LeafGatherer is operational first
+                bool use_leaf_gatherer = leaf_gatherer_ && 
+                    leaf_gatherer_->get_active_workers() > 0 &&
+                    pending_size < max_pending / 2;  // Only use gatherer if we have capacity
+                
+                if (use_leaf_gatherer) {
+                    // Use LeafGatherer for evaluation
+                    try {
                         auto future = leaf_gatherer_->queue_leaf(leaf);
                         
-                        // Store in pending evaluations
+                        // Store in pending evaluations with timeout tracking
                         {
                             std::lock_guard<std::mutex> lock(pending_mutex);
                             pending_evals.emplace_back(leaf, std::move(future));
                         }
-                    } else {
-                        // Direct batch processing
-                        // Calculate attack/defense
-                        std::vector<std::vector<std::vector<int>>> board_batch = {state.get_board()};
-                        std::vector<int> chosen_moves = {chosen_move};
-                        std::vector<int> player_batch = {state.current_player};
-                        
-                        auto [attackVec, defenseVec] = attackDefense_.compute_bonuses(
-                            board_batch, chosen_moves, player_batch);
-                        
-                        float attack = attackVec.empty() ? 0.0f : attackVec[0];
-                        float defense = defenseVec.empty() ? 0.0f : defenseVec[0];
-                        
-                        // Create state string
-                        std::string state_str = nn_->create_state_string(state, chosen_move, attack, defense);
-                        
-                        // Add to batch
-                        batch_inputs.emplace_back(state_str, chosen_move, attack, defense);
-                        batch_leaves.push_back(leaf);
                     }
-                } catch (const std::exception& e) {
-                    MCTS_DEBUG("Error preparing leaf for evaluation: " << e.what());
-                    eval_failures++;
-                    
-                    // Remove virtual losses
-                    Node* current = leaf;
-                    while (current) {
-                        current->remove_virtual_loss();
-                        current = current->get_parent();
+                    catch (const std::exception& e) {
+                        MCTS_DEBUG("Error queuing leaf in gatherer: " << e.what() << ", falling back to direct batch");
+                        use_leaf_gatherer = false;  // Fall through to direct batch
                     }
                 }
+                
+                // If we're not using the leaf gatherer, add to direct batch
+                if (!use_leaf_gatherer) {
+                    // Calculate attack/defense for direct batch processing
+                    std::vector<std::vector<std::vector<int>>> board_batch = {state.get_board()};
+                    std::vector<int> chosen_moves = {chosen_move};
+                    std::vector<int> player_batch = {state.current_player};
+                    
+                    auto [attackVec, defenseVec] = attackDefense_.compute_bonuses(
+                        board_batch, chosen_moves, player_batch);
+                        
+                    float attack = attackVec.empty() ? 0.0f : attackVec[0];
+                    float defense = defenseVec.empty() ? 0.0f : defenseVec[0];
+                    
+                    // Create state string
+                    std::string state_str = nn_->create_state_string(state, chosen_move, attack, defense);
+                    
+                    // Add to batch
+                    batch_inputs.emplace_back(state_str, chosen_move, attack, defense);
+                    batch_leaves.push_back(leaf);
+                }
+                
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error preparing leaf for evaluation: " << e.what());
+                eval_failures++;
+                
+                // Remove virtual losses
+                Node* current = leaf;
+                while (current) {
+                    current->remove_virtual_loss();
+                    current = current->get_parent();
+                }
             }
-        } else {
-            // If we can't select new leaves, sleep briefly
-            std::this_thread::sleep_for(std::chrono::microseconds(100));
         }
     }
     
@@ -873,7 +1368,7 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
     
     // Wait for pending evaluations with timeout
     auto wait_start = std::chrono::steady_clock::now();
-    const int MAX_WAIT_MS = 2000; // 2 second timeout for cleanup
+    const int MAX_WAIT_MS = 1000; // 1 second timeout for cleanup (reduced from 2000ms)
     
     MCTS_DEBUG("Waiting for remaining evaluations to complete");
     
@@ -917,21 +1412,25 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
         // Brief sleep
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
+
+    // Restore original c_puct
+    config_.c_puct = original_cpuct;
     
     // Calculate final statistics
     auto search_end = std::chrono::steady_clock::now();
     auto search_duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
         search_end - start_time).count();
     
-    auto leaves_per_sec = leaf_count * 1000.0 / search_duration_ms;
-    auto sims_per_sec = simulations_completed * 1000.0 / search_duration_ms;
+    auto leaves_per_sec = leaf_count * 1000.0 / std::max(1, static_cast<int>(search_duration_ms));
+    auto sims_per_sec = simulations_completed * 1000.0 / std::max(1, static_cast<int>(search_duration_ms));
     
     MCTS_DEBUG("Semi-parallel search completed with " << simulations_completed << " simulations");
     MCTS_DEBUG("Performance: " << search_duration_ms << "ms total, "
               << leaves_per_sec << " leaves/sec, "
               << sims_per_sec << " simulations/sec, "
               << batch_count << " batches, "
-              << eval_failures << " evaluation failures");
+              << eval_failures << " failures, "
+              << eval_timeouts << " timeouts");
 }
 
 void MCTS::run_simple_search(int num_simulations) {
@@ -2128,75 +2627,23 @@ int MCTS::select_move() const {
     }
     
     try {
-        std::vector<Node*> children = root_->get_children();
-        if (children.empty()) {
-            MCTS_DEBUG("Root has no children");
-            return -1;
-        }
+        // Get optimal temperature for current game state
+        int move_count = 0;
+        int board_size = root_->get_state().board_size;
         
-        // Create a list of (child, visit_count) pairs
-        std::vector<std::pair<Node*, int>> visited_children;
-        visited_children.reserve(children.size());
+        // Estimate move count from position
+        const Gamestate& state = root_->get_state();
+        move_count = state.get_move_count();
         
-        MCTS_DEBUG("Selecting best move from " << children.size() << " children");
+        // Get optimal temperature
+        float temp = get_optimal_temperature(move_count, board_size);
         
-        // Collect all children with their visit counts
-        for (Node* c : children) {
-            if (!c) continue;
-            
-            // Safe get_visit_count
-            int visit_count = 0;
-            try {
-                visit_count = c->get_visit_count();
-            }
-            catch (const std::exception& e) {
-                MCTS_DEBUG("Error getting visit count: " << e.what());
-                continue;
-            }
-            
-            // Safe get_move_from_parent
-            int move = -1;
-            try {
-                move = c->get_move_from_parent();
-            }
-            catch (const std::exception& e) {
-                MCTS_DEBUG("Error getting move: " << e.what());
-                continue;
-            }
-            
-            // Only consider valid moves
-            if (move >= 0) {
-                visited_children.push_back({c, visit_count});
-            }
-        }
+        MCTS_DEBUG("Using optimal temperature " << temp 
+                  << " for move " << move_count
+                  << " (game progress: " << (float)move_count/(board_size*board_size) << ")");
         
-        if (visited_children.empty()) {
-            MCTS_DEBUG("No valid children found");
-            return -1;
-        }
-        
-        // Sort by visit count
-        std::sort(visited_children.begin(), visited_children.end(), 
-                  [](const auto& a, const auto& b) { return a.second > b.second; });
-        
-        // Get the best child
-        Node* bestChild = visited_children[0].first;
-        int bestMove = -1;
-        
-        try {
-            bestMove = bestChild->get_move_from_parent();
-            int visits = bestChild->get_visit_count();
-            float value = bestChild->get_q_value();
-            
-            MCTS_DEBUG("Selected best move: " << bestMove << " with " 
-                      << visits << " visits and value " << value);
-        }
-        catch (const std::exception& e) {
-            MCTS_DEBUG("Error getting best move info: " << e.what());
-            return -1;
-        }
-        
-        return bestMove;
+        // Select move with appropriate temperature
+        return select_move_with_temperature(temp);
     }
     catch (const std::exception& e) {
         MCTS_DEBUG("Exception in select_move: " << e.what());
@@ -2214,7 +2661,7 @@ Node* MCTS::select_node(Node* root) const {
     std::vector<Node*> path;
     
     // Track the path from root to leaf with a maximum depth
-    const int MAX_SEARCH_DEPTH = 1000; // Prevent infinite loops
+    const int MAX_SEARCH_DEPTH = 500; // Reduced from 1000 to prevent excessive recursion
     int depth = 0;
     
     while (current && depth < MAX_SEARCH_DEPTH) {
@@ -2227,14 +2674,17 @@ Node* MCTS::select_node(Node* root) const {
         }
         
         // Check for terminal state
+        bool is_terminal = false;
         try {
-            if (current->get_state().is_terminal()) {
-                MCTS_DEBUG("Found terminal state during selection");
-                break;
-            }
+            is_terminal = current->get_state().is_terminal();
         }
         catch (const std::exception& e) {
             MCTS_DEBUG("Error checking terminal state: " << e.what());
+            break;
+        }
+        
+        if (is_terminal) {
+            MCTS_DEBUG("Found terminal state during selection");
             break;
         }
         
@@ -2249,7 +2699,7 @@ Node* MCTS::select_node(Node* root) const {
         }
         
         if (is_leaf) {
-            MCTS_DEBUG("Found leaf node (unexpanded) during selection");
+            // MCTS_DEBUG("Found leaf node (unexpanded) during selection");
             break;
         }
         
@@ -2271,9 +2721,56 @@ Node* MCTS::select_node(Node* root) const {
         float bestScore = -std::numeric_limits<float>::infinity();
         Node* bestChild = nullptr;
         
+        // First, filter out null children to avoid issues
+        std::vector<Node*> valid_children;
+        valid_children.reserve(children.size());
+        
         for (Node* child : children) {
-            if (!child) continue;
-            
+            if (child) {
+                valid_children.push_back(child);
+            }
+        }
+        
+        // If no valid children, break
+        if (valid_children.empty()) {
+            MCTS_DEBUG("No valid children found during selection");
+            break;
+        }
+        
+        // Selection phase 1: Filter nodes with disproportionate visit counts
+        // This prevents one branch from being overly explored
+        std::vector<Node*> candidate_children;
+        
+        // Get parent visit count
+        int parent_visits = current->get_visit_count();
+        
+        // First pass: find any nodes with very low visit counts
+        const int MIN_VISITS = 3;  // Minimum visits for consideration
+        bool has_low_visit_nodes = false;
+        
+        for (Node* child : valid_children) {
+            int visit_count = child->get_visit_count();
+            if (visit_count < MIN_VISITS) {
+                has_low_visit_nodes = true;
+                break;
+            }
+        }
+        
+        // If we have low-visit nodes, prioritize them to ensure exploration
+        if (has_low_visit_nodes) {
+            for (Node* child : valid_children) {
+                int visit_count = child->get_visit_count();
+                if (visit_count < MIN_VISITS) {
+                    candidate_children.push_back(child);
+                }
+            }
+        } else {
+            // Otherwise, use all children as candidates
+            candidate_children = valid_children;
+        }
+        
+        // Selection phase 2: Choose best node from candidates using UCT score
+        for (Node* child : candidate_children) {
             float score = -std::numeric_limits<float>::infinity();
             try {
                 score = uct_score(current, child);
@@ -2290,23 +2787,32 @@ Node* MCTS::select_node(Node* root) const {
         
         if (!bestChild) {
             MCTS_DEBUG("Could not find best child during selection");
-            break;
+            // As a fallback, use first valid child
+            if (!valid_children.empty()) {
+                bestChild = valid_children[0];
+                MCTS_DEBUG("Using fallback child");
+            } else {
+                break;
+            }
         }
         
-        try {
-            int visit_count = bestChild->get_visit_count();
-            float q_val = bestChild->get_q_value();
-            float prior = bestChild->get_prior();
-            
-            MCTS_DEBUG("Selected child with move " << bestChild->get_move_from_parent() 
-                      << ", score: " << bestScore 
-                      << ", visits: " << visit_count
-                      << ", Q: " << q_val
-                      << ", prior: " << prior);
-        }
-        catch (const std::exception& e) {
-            MCTS_DEBUG("Error logging selection: " << e.what());
-            // Continue anyway
+        // Log selected child
+        if (depth < 1) {  // Only log the first level for less noise
+            try {
+                int visit_count = bestChild->get_visit_count();
+                float q_val = bestChild->get_q_value();
+                float prior = bestChild->get_prior();
+                
+                MCTS_DEBUG("Selected child with move " << bestChild->get_move_from_parent() 
+                          << ", score: " << bestScore 
+                          << ", visits: " << visit_count
+                          << ", Q: " << q_val
+                          << ", prior: " << prior);
+            }
+            catch (const std::exception& e) {
+                MCTS_DEBUG("Error logging selection: " << e.what());
+                // Continue anyway
+            }
         }
         
         current = bestChild;
@@ -2332,14 +2838,17 @@ Node* MCTS::select_node(Node* root) const {
     }
     
     if (current) {
-        try {
-            MCTS_DEBUG("Selected path length: " << path.size() 
-                      << ", returning leaf with move: " 
-                      << current->get_move_from_parent());
-        }
-        catch (const std::exception& e) {
-            MCTS_DEBUG("Error logging selected path: " << e.what());
-            // Continue anyway
+        // Only log first-level nodes to reduce noise
+        if (path.size() <= 2) {
+            try {
+                MCTS_DEBUG("Selected path length: " << path.size() 
+                          << ", returning leaf with move: " 
+                          << current->get_move_from_parent());
+            }
+            catch (const std::exception& e) {
+                MCTS_DEBUG("Error logging selected path: " << e.what());
+                // Continue anyway
+            }
         }
     }
     else {
@@ -2427,7 +2936,7 @@ void MCTS::backup(Node* leaf, float value) {
         return;
     }
     
-    MCTS_DEBUG("Backing up value " << value << " from leaf with move " << leaf->get_move_from_parent());
+    // MCTS_DEBUG("Backing up value " << value << " from leaf with move " << leaf->get_move_from_parent());
     
     Node* current = leaf;
     int leafPlayer = leaf->get_state().current_player;
@@ -2436,11 +2945,35 @@ void MCTS::backup(Node* leaf, float value) {
     const int MAX_BACKUP_DEPTH = 100;
     int depth = 0;
     
+    // Keep track of the path for error reporting
+    std::vector<int> move_path;
+    
     while (current && depth < MAX_BACKUP_DEPTH) {
-        int nodePlayer = current->get_state().current_player;
+        // Record the path for error reporting
+        try {
+            move_path.push_back(current->get_move_from_parent());
+        } catch (...) {
+            // Ignore errors in move recording
+        }
+        
+        int nodePlayer = 0;
+        try {
+            nodePlayer = current->get_state().current_player;
+        } catch (const std::exception& e) {
+            MCTS_DEBUG("Error getting node player: " << e.what());
+            break;
+        }
         
         // Flip the sign for opponent's turns
-        float adjusted_value = (nodePlayer == leafPlayer) ? value : -value;
+        float adjusted_value = 0.0f;
+        
+        // Protect against invalid player values
+        if (nodePlayer == 1 || nodePlayer == 2) {
+            adjusted_value = (nodePlayer == leafPlayer) ? value : -value;
+        } else {
+            MCTS_DEBUG("Warning: Invalid player value: " << nodePlayer);
+            adjusted_value = value;  // Default to original value
+        }
         
         // Update node statistics
         try {
@@ -2477,9 +3010,14 @@ void MCTS::backup(Node* leaf, float value) {
     
     if (depth >= MAX_BACKUP_DEPTH) {
         MCTS_DEBUG("WARNING: Max backup depth reached, possible loop in tree");
+        
+        // Print the path that caused the loop
+        std::string path_str = "";
+        for (int move : move_path) {
+            path_str += std::to_string(move) + " -> ";
+        }
+        MCTS_DEBUG("Backup path: " << path_str);
     }
-    
-    MCTS_DEBUG("Backup complete");
 }
 
 float MCTS::uct_score(const Node* parent, const Node* child) const {
@@ -2502,15 +3040,49 @@ float MCTS::uct_score(const Node* parent, const Node* child) const {
         if (parentVisits < 0) parentVisits = 0;
         if (effective_child_visits < 0) effective_child_visits = 0;
         
-        float c = config_.c_puct;
+        // Base PUCT constant
+        float c_base = config_.c_puct;
         
-        // Safety check to prevent square root of negative number (shouldn't happen, but just in case)
+        // Calculate FPU (First Play Urgency) value for unvisited nodes
+        float fpu_reduction = 0.2f;  // Reduction from parent value
+        float parent_q = 0.0f;  // Default value
+        
+        // If parent has visits, use its Q-value
+        if (parentVisits > 0) {
+            // Try to get parent's Q-value for FPU calculation
+            try {
+                if (parent->get_visit_count() > 0) {
+                    parent_q = parent->get_q_value();
+                }
+            } catch (...) {
+                // Ignore errors, use default
+            }
+        }
+        
+        // Apply FPU for unvisited nodes
+        if (childVisits == 0) {
+            Q = parent_q - fpu_reduction;  // Reduced optimism for unvisited nodes
+        }
+        
+        // Dynamic c_puct - decreases as child visits increase for better exploitation
+        float c_init = c_base; 
+        float c_final = c_base * 0.5f;  // End at half the initial value
+        float decay_factor = 50.0f;  // Controls how quickly c_puct decreases
+        
+        float adjusted_c = c_init;
+        if (effective_child_visits > 0) {
+            // Gradually decay from c_init to c_final as visits increase
+            float visit_factor = std::min(1.0f, effective_child_visits / decay_factor);
+            adjusted_c = c_init - (c_init - c_final) * visit_factor;
+        }
+        
+        // Safety check to prevent square root of negative number
         float parentSqrt = std::sqrt(std::max(1e-8f, static_cast<float>(parentVisits)));
         
-        // Calculate exploration term with numeric stability
-        float U = c * P * parentSqrt / (1.0f + effective_child_visits);
+        // Calculate exploration term with numeric stability and progressive bias
+        float U = adjusted_c * P * parentSqrt / (1.0f + effective_child_visits);
         
-        // Return combined score
+        // Return combined score (Q-value + exploration bonus)
         return Q + U;
     }
     catch (const std::exception& e) {

@@ -1017,9 +1017,6 @@ std::vector<int> Gamestate::_find_three_to_four_placements(const std::set<int>& 
     }
     
     // Sort coordinates to find the pattern direction
-    std::sort(coords.begin(), coords.end());
-    
-    // Determine if pattern is horizontal, vertical, or diagonal
     bool is_horizontal = true;
     bool is_vertical = true;
     bool is_diag_down = true;
@@ -1707,6 +1704,31 @@ bool Gamestate::_is_pro_long_move_ok(int action, int stone_count) const {
     return true;
 }
 
+/**
+ * Estimates the approximate memory usage of this Gamestate.
+ * This helps track memory consumption during search.
+ * 
+ * @return Approximate memory usage in bytes
+ */
+size_t Gamestate::approximate_memory_usage() const {
+    size_t base_size = sizeof(*this);
+
+    // Calculate board memory
+    size_t board_size = 0;
+    for (const auto& row : board) {
+        board_size += row.size() * sizeof(int);
+    }
+
+    // Calculate history memory
+    size_t history_size = move_history.size() * sizeof(int);
+
+    return base_size + board_size + history_size;
+}
+
+int Gamestate::get_move_count() const {
+    return static_cast<int>(move_history.size());
+}
+
 PYBIND11_MODULE(gomoku, m) {
     m.doc() = "Pybind11 bindings for the Gomoku game logic";
 
@@ -1729,6 +1751,7 @@ PYBIND11_MODULE(gomoku, m) {
         .def("to_tensor", &Gamestate::to_tensor, "Convert the game state to a tensor for AI training")
         .def("get_action", &Gamestate::get_action, "Get the move that led from the current state to a child state")
         .def("is_five_in_a_row", &Gamestate::is_five_in_a_row, "Check if there is a five-in-a-row from the given cell")
+        .def("get_move_count", &Gamestate::get_move_count, "Get the total number of moves made in the game")
         // Expose some key public fields so that Python can inspect them:
         .def_readwrite("board_size", &Gamestate::board_size)
         .def_readwrite("current_player", &Gamestate::current_player)

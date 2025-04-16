@@ -41,6 +41,9 @@ public:
     void add_dirichlet_noise(std::vector<float>& priors);
     int select_move_with_temperature(float temperature = 1.0f) const;
 
+    float get_dynamic_cpuct(int simulations_done, int total_simulations) const;
+    float get_optimal_temperature(int move_num, int board_size) const;
+
     void set_shutdown_flag(bool flag) {
         shutdown_flag_ = flag;
     }
@@ -65,6 +68,10 @@ public:
             }
         }
     }
+
+    void create_or_reset_leaf_gatherer();
+    std::string get_leaf_gatherer_stats() const;
+    bool check_and_restart_leaf_gatherer();
 
 private:
     void worker_thread();
@@ -121,5 +128,7 @@ private:
     
     // Method for semi-parallel search
     void run_semi_parallel_search(int num_simulations);
+    bool perform_tree_pruning();
+    std::string get_tree_stats() const;
     void analyze_search_result();
 };
