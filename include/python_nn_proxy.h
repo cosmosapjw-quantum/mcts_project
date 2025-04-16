@@ -229,11 +229,11 @@ public:
      * @param outValue Output parameter for the value
      */
     void request_inference(const Gamestate& state,
-                           int chosen_move,
-                           float attack,
-                           float defense,
-                           std::vector<float>& outPolicy,
-                           float& outValue) override {
+                        int chosen_move,
+                        float attack,
+                        float defense,
+                        std::vector<float>& outPolicy,
+                        float& outValue) override {
         MCTS_DEBUG("Single inference request");
         
         // Fill with default values in case of error
@@ -255,12 +255,13 @@ public:
             // Generate a request ID
             int request_id = next_request_id_.fetch_add(1, std::memory_order_relaxed);
             
-            // Use the batch inference method with a single input
+            // Use the batch inference method with a single input for consistency
             std::vector<std::tuple<std::string, int, float, float>> inputs = {
                 std::make_tuple(state_str, chosen_move, attack, defense)
             };
             
-            auto results = inference_batch(inputs, request_id);
+            // CRITICAL: Use batch_inference with consistent GIL management
+            auto results = batch_inference(inputs);
             
             if (!results.empty()) {
                 outPolicy = results[0].policy;
@@ -313,12 +314,16 @@ public:
         // Create default results vector first - will be returned on any error
         std::vector<NNOutput> results = create_default_outputs(inputs);
         
+        // **** DEBUG: Log queue state from C++ side before Python operations ****
+        MCTS_DEBUG("Before Python operations - checking if Python module is responsive");
+        
         // Acquire the mutex to prevent concurrent access to Python inference
         std::lock_guard<std::mutex> lock(batch_inference_mutex_);
         
         try {
             // Generate a base request ID
             int base_request_id = next_request_id_.fetch_add(static_cast<int>(inputs.size()), std::memory_order_relaxed);
+            MCTS_DEBUG("Generated base request ID: " << base_request_id);
             
             // Map request IDs to indices
             std::map<int, int> request_map;
@@ -328,358 +333,277 @@ public:
             
             MCTS_DEBUG("Prepared batch with " << inputs.size() << " inputs, base request ID: " << base_request_id);
             
-            // First phase: Send requests with minimal GIL holding
-            bool request_send_success = false;
+            // Step 1: Check if Python is responsive before processing
+            bool python_responsive = false;
             {
-                // Safety check for initialization before acquiring GIL
-                if (!is_initialized_) {
-                    MCTS_DEBUG("Detected uninitialized state before sending requests, returning default values");
-                    return results;
+                MCTS_DEBUG("Checking Python responsiveness with GIL acquisition");
+                // Use a short timeout for GIL acquisition
+                try {
+                    py::gil_scoped_acquire gil;
+                    // Simple check if module is valid
+                    if (!nn_proxy_module_.is_none()) {
+                        python_responsive = true;
+                        MCTS_DEBUG("Python module is responsive");
+                    }
                 }
-                
-                // Explicitly acquire the GIL for Python operations
+                catch (const std::exception& e) {
+                    MCTS_DEBUG("Error checking Python responsiveness: " << e.what());
+                }
+            }
+            
+            if (!python_responsive) {
+                MCTS_DEBUG("Python appears unresponsive, returning default values");
+                return results;
+            }
+            
+            // Step 2: Send requests with timeout protection - using a simpler approach
+            MCTS_DEBUG("Sending requests to Python queue");
+            bool requests_sent = false;
+            {
+                // Acquire GIL for Python operations
                 py::gil_scoped_acquire gil;
                 
                 try {
-                    // Check again if Python module is still valid
-                    if (nn_proxy_module_.is_none()) {
-                        MCTS_DEBUG("Python module is None, cannot send requests");
+                    // Get the request queue
+                    py::object request_queue = nn_proxy_module_.attr("request_queue");
+                    if (request_queue.is_none()) {
+                        MCTS_DEBUG("Request queue is None");
                         return results;
                     }
                     
-                    // Get the queue - with extra safety checks
-                    py::object request_queue;
-                    try {
-                        request_queue = nn_proxy_module_.attr("request_queue");
-                        if (request_queue.is_none()) {
-                            MCTS_DEBUG("Request queue is None");
-                            return results;
-                        }
-                    } catch (const std::exception& e) {
-                        MCTS_DEBUG("Error getting request queue: " << e.what());
-                        return results;
-                    }
-                    
-                    // Send all requests in batches
+                    // Send requests with a simple retry approach
                     int sent_count = 0;
-                    const int CHUNK_SIZE = 32; // Send 32 requests at a time to avoid holding GIL too long
+                    const int MAX_RETRIES = 3;
                     
-                    while (sent_count < static_cast<int>(inputs.size())) {
-                        int end_idx = std::min(sent_count + CHUNK_SIZE, static_cast<int>(inputs.size()));
-                        int chunk_retry_count = 0;
-                        const int MAX_RETRIES_PER_CHUNK = 3;
-                        
-                        while (sent_count < end_idx && chunk_retry_count < MAX_RETRIES_PER_CHUNK) {
+                    for (size_t i = 0; i < inputs.size(); i++) {
+                        int retry_count = 0;
+                        while (retry_count < MAX_RETRIES) {
                             try {
-                                for (int i = sent_count; i < end_idx; i++) {
-                                    int request_id = base_request_id + i;
-                                    const auto& [state_str, chosen_move, attack, defense] = inputs[i];
-                                    
-                                    // Create Python tuple for the request
-                                    py::tuple py_request = py::make_tuple(
-                                        request_id,
-                                        state_str,
-                                        chosen_move,
-                                        attack,
-                                        defense
-                                    );
-                                    
-                                    // Try to add to request queue with short timeout
-                                    request_queue.attr("put")(py_request, py::arg("block") = true, py::arg("timeout") = 0.05);
-                                    sent_count++;
+                                int request_id = base_request_id + static_cast<int>(i);
+                                const auto& [state_str, chosen_move, attack, defense] = inputs[i];
+                                
+                                // Create Python tuple for the request
+                                py::tuple py_request = py::make_tuple(
+                                    request_id,
+                                    state_str,
+                                    chosen_move,
+                                    attack,
+                                    defense
+                                );
+                                
+                                // Use a timeout to prevent hanging
+                                request_queue.attr("put")(py_request, py::arg("block") = true, py::arg("timeout") = 0.5);
+                                sent_count++;
+                                break;  // Successfully sent
+                            }
+                            catch (const py::error_already_set& e) {
+                                // Handle "Full" exception with retry
+                                retry_count++;
+                                if (retry_count >= MAX_RETRIES) {
+                                    MCTS_DEBUG("Failed to send request " << i << " after " << MAX_RETRIES << " retries");
                                 }
-                                break; // Successful sending, exit retry loop for this chunk
-                            } catch (const py::error_already_set& e) {
-                                // Queue full or timeout
-                                if (std::string(e.what()).find("Full") != std::string::npos) {
-                                    MCTS_DEBUG("Queue full, sent " << sent_count << "/" << end_idx 
-                                            << " requests (total: " << inputs.size() << ")");
-                                    chunk_retry_count++;
-                                    
-                                    // Short sleep before retry - need to temporarily release GIL
-                                    {
-                                        // Temporarily release GIL
-                                        py::gil_scoped_release release;
-                                        std::this_thread::sleep_for(std::chrono::milliseconds(10));
-                                    }
-                                } else {
-                                    MCTS_DEBUG("Python error during request sending: " << e.what());
-                                    // Don't break the outer loop, just move to the next chunk
-                                    sent_count = end_idx;
-                                    break;
+                                else {
+                                    // Very brief sleep between retries
+                                    py::gil_scoped_release release;
+                                    std::this_thread::sleep_for(std::chrono::milliseconds(5));
                                 }
-                            } catch (const std::exception& e) {
-                                MCTS_DEBUG("Error sending request: " << e.what());
-                                // Don't break the outer loop, just move to the next chunk
-                                sent_count = end_idx;
-                                break;
+                            }
+                            catch (const std::exception& e) {
+                                MCTS_DEBUG("Error sending request " << i << ": " << e.what());
+                                break;  // Don't retry on other errors
                             }
                         }
-                        
-                        // If we've retried this chunk too many times, just skip to the next chunk
-                        if (sent_count < end_idx) {
-                            MCTS_DEBUG("Failed to send chunk after " << MAX_RETRIES_PER_CHUNK 
-                                    << " retries, skipping to next chunk");
-                            sent_count = end_idx;
-                        }
-                        
-                        // Periodically yield GIL between chunks to avoid starving other Python threads
-                        if (sent_count < static_cast<int>(inputs.size())) {
-                            py::gil_scoped_release release;
-                            std::this_thread::sleep_for(std::chrono::milliseconds(1));
-                        }
                     }
                     
-                    request_send_success = (sent_count > 0);
                     MCTS_DEBUG("Sent " << sent_count << "/" << inputs.size() << " requests to Python queue");
+                    requests_sent = (sent_count > 0);
                 }
                 catch (const py::error_already_set& e) {
                     MCTS_DEBUG("Python error during request sending: " << e.what());
                 }
                 catch (const std::exception& e) {
-                    MCTS_DEBUG("C++ error during request sending: " << e.what());
+                    MCTS_DEBUG("Error during request sending: " << e.what());
                 }
-                
-                // GIL automatically released when exiting scope
             }
             
-            // If we couldn't send any requests, return default values
-            if (!request_send_success) {
+            if (!requests_sent) {
                 MCTS_DEBUG("Failed to send any requests, returning default values");
                 return results;
             }
             
-            // Second phase: Wait for responses with timeout - using multiple short GIL acquisitions
-            auto wait_start = std::chrono::steady_clock::now();
+            // Step 3: Wait for responses with strict timeout
+            MCTS_DEBUG("Waiting for responses from Python");
+            int received_count = 0;
             
-            // Calculate adaptive timeout based on batch size and device
-            const int BASE_TIMEOUT_MS = 500;       // Increased base timeout
-            const int MS_PER_ITEM = 20;            // Time per item
-            const int MAX_TIMEOUT_MS = 5000;       // Maximum 5 second timeout
+            // Calculate timeout based on batch size
+            const int BASE_TIMEOUT_MS = 200; // Reduced base timeout
+            const int MS_PER_ITEM = 50;
+            const int MAX_TIMEOUT_MS = 2000; // Reduced maximum timeout
             
             int timeout_ms = std::min(BASE_TIMEOUT_MS + static_cast<int>(inputs.size() * MS_PER_ITEM), MAX_TIMEOUT_MS);
+            MCTS_DEBUG("Using timeout of " << timeout_ms << "ms for response waiting");
             
-            MCTS_DEBUG("Waiting for responses with timeout of " << timeout_ms << "ms");
+            auto wait_start = std::chrono::steady_clock::now();
             
-            // Wait loop with timeout using multiple short GIL acquisitions
-            std::vector<bool> received(inputs.size(), false);
-            int received_count = 0;
-            const int MAX_RESPONSE_BATCH = 10;  // Process up to 10 responses at once
-            
+            // New approach: Use polling with frequent GIL release/reacquisition
             while (received_count < static_cast<int>(inputs.size())) {
-                // Check timeout first
+                // Check total timeout
                 auto current_time = std::chrono::steady_clock::now();
                 auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
                     current_time - wait_start).count();
                     
-                if (elapsed_ms > timeout_ms || !is_initialized_) {
-                    if (elapsed_ms > timeout_ms) {
-                        // Log with info about what we've received so far
-                        MCTS_DEBUG("Timeout waiting for inference results after " << elapsed_ms << "ms. "
-                                << "Received " << received_count << "/" << inputs.size() << " responses.");
-                    } else {
-                        MCTS_DEBUG("Uninitialized state detected while waiting for responses");
-                    }
+                if (elapsed_ms > timeout_ms) {
+                    MCTS_DEBUG("Timeout waiting for responses after " << elapsed_ms 
+                            << "ms, received " << received_count << "/" << inputs.size());
                     break;
                 }
                 
-                // Periodic progress reporting for long waits
-                if (elapsed_ms > 1000 && elapsed_ms % 1000 < 10 && received_count > 0) {
-                    MCTS_DEBUG("Still waiting for responses: " << received_count << "/" 
-                            << inputs.size() << " received, elapsed: " << elapsed_ms << "ms");
-                }
-                
-                // Brief sleep to avoid tight loop
+                // Short sleep outside the GIL to prevent CPU hogging
                 {
-                    py::gil_scoped_release release;  // Release GIL during sleep
+                    // No GIL needed for sleeping
                     std::this_thread::sleep_for(std::chrono::milliseconds(10));
                 }
                 
-                // Acquire GIL for a short period to check for responses
+                // Process available responses
+                int responses_this_iteration = 0;
+                const int MAX_RESPONSES_PER_ITERATION = 10;
+                
                 {
+                    // Acquire GIL for Python operations
                     py::gil_scoped_acquire gil;
                     
                     try {
-                        // Check if Python module is still valid
-                        if (nn_proxy_module_.is_none()) {
-                            MCTS_DEBUG("Python module is None during response check");
+                        // Check if response queue is accessible
+                        py::object response_queue = nn_proxy_module_.attr("response_queue");
+                        if (response_queue.is_none()) {
+                            MCTS_DEBUG("Response queue is None during waiting");
                             break;
                         }
                         
-                        // Get response queue with error handling
-                        py::object response_queue;
-                        try {
-                            response_queue = nn_proxy_module_.attr("response_queue");
-                            if (response_queue.is_none()) {
-                                MCTS_DEBUG("Response queue is None");
-                                break;
-                            }
-                        } catch (const std::exception& e) {
-                            MCTS_DEBUG("Error getting response queue: " << e.what());
-                            break;
-                        }
-                        
-                        // Check if the queue is empty
-                        bool queue_empty = false;
-                        try {
-                            queue_empty = response_queue.attr("empty")().cast<bool>();
-                        } catch (const std::exception& e) {
-                            MCTS_DEBUG("Error checking if queue is empty: " << e.what());
-                            break;
-                        }
-                        
+                        // Check if queue is empty
+                        bool queue_empty = response_queue.attr("empty")().cast<bool>();
                         if (queue_empty) {
-                            continue;  // No responses yet
+                            continue; // Skip to next iteration with sleep
                         }
                         
-                        // Process a limited number of responses to keep GIL acquisition short
-                        int responses_processed = 0;
-                        
-                        while (!response_queue.attr("empty")().cast<bool>() && 
-                            responses_processed < MAX_RESPONSE_BATCH) {
-                            
+                        // Process available responses up to the limit
+                        for (int i = 0; i < MAX_RESPONSES_PER_ITERATION; i++) {
                             try {
-                                // Get a response without blocking
+                                if (response_queue.attr("empty")().cast<bool>()) {
+                                    break; // No more responses
+                                }
+                                
+                                // Get response without blocking
                                 py::object py_response = response_queue.attr("get")(py::arg("block") = false);
                                 
-                                // Mark task as done immediately to avoid queue blocking
+                                // Mark task as done
                                 response_queue.attr("task_done")();
                                 
                                 // Process the response
-                                py::tuple py_tuple;
-                                try {
-                                    py_tuple = py_response.cast<py::tuple>();
-                                } catch (const std::exception& e) {
-                                    MCTS_DEBUG("Error casting response to tuple: " << e.what());
-                                    continue;
-                                }
-                                
+                                py::tuple py_tuple = py_response.cast<py::tuple>();
                                 if (py_tuple.size() < 2) {
                                     MCTS_DEBUG("Invalid response tuple size: " << py_tuple.size());
                                     continue;
                                 }
                                 
-                                // Extract request ID
-                                int request_id;
-                                try {
-                                    request_id = py_tuple[0].cast<int>();
-                                } catch (const std::exception& e) {
-                                    MCTS_DEBUG("Error extracting request ID: " << e.what());
-                                    continue;
-                                }
+                                int request_id = py_tuple[0].cast<int>();
+                                py::tuple py_result = py_tuple[1].cast<py::tuple>();
                                 
-                                // Find the corresponding request
+                                // Check if this request belongs to our batch
                                 auto it = request_map.find(request_id);
                                 if (it == request_map.end()) {
-                                    // Instead of silently dropping, re-queue responses that don't belong to us
-                                    MCTS_DEBUG("Received response for request ID " << request_id 
-                                            << " that doesn't belong to this batch, re-queueing");
-                                    try {
-                                        // Re-queue the response for another thread to process
-                                        response_queue.attr("put")(py_response, py::arg("block") = false);
-                                    } catch (...) {
-                                        // If re-queueing fails, just continue
-                                    }
+                                    MCTS_DEBUG("Received response for unknown request ID: " << request_id);
                                     continue;
                                 }
                                 
                                 int index = it->second;
                                 if (index < 0 || index >= static_cast<int>(results.size())) {
-                                    MCTS_DEBUG("Invalid response index: " << index);
+                                    MCTS_DEBUG("Invalid result index: " << index);
                                     continue;
                                 }
                                 
-                                // Extract result
-                                py::tuple py_result;
-                                try {
-                                    py_result = py_tuple[1].cast<py::tuple>();
-                                } catch (const std::exception& e) {
-                                    MCTS_DEBUG("Error extracting result tuple: " << e.what());
-                                    continue;
-                                }
-                                
-                                if (py_result.size() < 2) {
-                                    MCTS_DEBUG("Invalid result tuple size: " << py_result.size());
-                                    continue;
-                                }
-                                
-                                // Extract policy and value with error handling
-                                std::vector<float> policy;
-                                float value = 0.0f;
-                                
-                                try {
+                                // Extract policy and value
+                                if (py_result.size() >= 2) {
                                     // Extract policy
                                     py::list py_policy = py_result[0].cast<py::list>();
-                                    policy.reserve(py_policy.size());
+                                    results[index].policy.clear();
+                                    results[index].policy.reserve(py_policy.size());
+                                    
                                     for (auto p : py_policy) {
-                                        policy.push_back(p.cast<float>());
+                                        results[index].policy.push_back(p.cast<float>());
                                     }
                                     
                                     // Extract value
-                                    value = py_result[1].cast<float>();
-                                } catch (const std::exception& e) {
-                                    MCTS_DEBUG("Error extracting policy/value: " << e.what());
-                                    continue;
-                                }
-                                
-                                // Store the result
-                                results[index].policy = std::move(policy);
-                                results[index].value = value;
-                                
-                                if (!received[index]) {
-                                    received[index] = true;
+                                    results[index].value = py_result[1].cast<float>();
+                                    
                                     received_count++;
+                                    responses_this_iteration++;
+                                    
+                                    MCTS_DEBUG("Processed response for request ID " << request_id 
+                                            << ", index " << index 
+                                            << " (" << received_count << "/" << inputs.size() << " total)");
                                 }
-                                
-                                responses_processed++;
-                            } catch (const py::error_already_set& e) {
-                                // If Queue.Empty exception, break the loop
+                                else {
+                                    MCTS_DEBUG("Invalid result tuple size: " << py_result.size());
+                                }
+                            }
+                            catch (const py::error_already_set& e) {
+                                // Queue.Empty exception is expected
                                 if (std::string(e.what()).find("Empty") != std::string::npos) {
                                     break;
                                 }
-                                MCTS_DEBUG("Python error processing responses: " << e.what());
+                                MCTS_DEBUG("Python error processing response: " << e.what());
                                 break;
-                            } catch (const std::exception& e) {
+                            }
+                            catch (const std::exception& e) {
                                 MCTS_DEBUG("Error processing response: " << e.what());
                                 break;
                             }
                         }
                     }
                     catch (const py::error_already_set& e) {
-                        MCTS_DEBUG("Python error checking responses: " << e.what());
+                        MCTS_DEBUG("Python error during response processing: " << e.what());
+                        break;
                     }
                     catch (const std::exception& e) {
-                        MCTS_DEBUG("Error checking responses: " << e.what());
+                        MCTS_DEBUG("Error during response processing: " << e.what());
+                        break;
                     }
                 }
                 
-                // If we received all responses, break early
+                // If we processed responses this iteration, reset the wait start time to allow more time
+                if (responses_this_iteration > 0) {
+                    wait_start = std::chrono::steady_clock::now();
+                    MCTS_DEBUG("Processed " << responses_this_iteration << " responses, resetting timeout");
+                }
+                
+                // If we've received all responses, we're done
                 if (received_count >= static_cast<int>(inputs.size())) {
                     MCTS_DEBUG("Received all " << inputs.size() << " responses");
                     break;
                 }
             }
             
-            // Record timing
-            auto end_time = std::chrono::steady_clock::now();
-            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
-            
-            inference_count_++;
-            total_inference_time_ms_ += duration;
-            
-            int missing = static_cast<int>(inputs.size()) - received_count;
-            if (missing > 0) {
-                MCTS_DEBUG("Batch inference completed in " << duration << "ms, missing " << missing << " responses");
-            } else {
-                MCTS_DEBUG("Batch inference completed in " << duration << "ms with all responses received");
+            // Log final status
+            if (received_count < static_cast<int>(inputs.size())) {
+                MCTS_DEBUG("Incomplete response set: received " << received_count << "/" << inputs.size());
             }
-            
-            return results;
         }
         catch (const std::exception& e) {
             MCTS_DEBUG("Error in batch_inference: " << e.what());
-            return results;  // Return the pre-filled default results
         }
+        
+        // Record timing
+        auto end_time = std::chrono::steady_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+        
+        inference_count_++;
+        total_inference_time_ms_ += duration;
+        
+        MCTS_DEBUG("Batch inference completed in " << duration << "ms with " 
+                  << results.size() << " results (complete: " << (results.size() == inputs.size()) << ")");
+        
+        return results;
     }
     
     /**
@@ -871,37 +795,65 @@ private:
         std::map<int, int> request_map;
         
         try {
-            // Acquire the GIL
+            // CRITICAL CHANGE: Acquire the GIL once at the beginning for all Python operations
             py::gil_scoped_acquire gil;
             
+            // Verify Python module is still valid
+            if (nn_proxy_module_.is_none()) {
+                MCTS_DEBUG("Neural network module is None");
+                return create_default_outputs(inputs);
+            }
+            
             // Get the queues
-            py::object request_queue = nn_proxy_module_.attr("request_queue");
-            py::object response_queue = nn_proxy_module_.attr("response_queue");
+            py::object request_queue;
+            py::object response_queue;
+            
+            try {
+                request_queue = nn_proxy_module_.attr("request_queue");
+                response_queue = nn_proxy_module_.attr("response_queue");
+                
+                if (request_queue.is_none() || response_queue.is_none()) {
+                    MCTS_DEBUG("Request or response queue is None");
+                    return create_default_outputs(inputs);
+                }
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error getting queues: " << e.what());
+                return create_default_outputs(inputs);
+            }
+            
+            // Initialize request map
+            for (size_t i = 0; i < inputs.size(); i++) {
+                request_map[base_request_id + static_cast<int>(i)] = static_cast<int>(i);
+            }
             
             // Send requests
             for (size_t i = 0; i < inputs.size(); i++) {
-                int request_id = base_request_id + static_cast<int>(i);
-                request_map[request_id] = static_cast<int>(i);
-                
-                const auto& [state_str, chosen_move, attack, defense] = inputs[i];
-                
-                // Create Python tuple for the request
-                py::tuple py_request = py::make_tuple(
-                    request_id,
-                    state_str,
-                    chosen_move,
-                    attack,
-                    defense
-                );
-                
-                // Add to request queue
-                request_queue.attr("put")(py_request);
+                try {
+                    int request_id = base_request_id + static_cast<int>(i);
+                    const auto& [state_str, chosen_move, attack, defense] = inputs[i];
+                    
+                    // Create Python tuple for the request
+                    py::tuple py_request = py::make_tuple(
+                        request_id,
+                        state_str,
+                        chosen_move,
+                        attack,
+                        defense
+                    );
+                    
+                    // Add to request queue - use non-blocking to avoid deadlocks
+                    request_queue.attr("put")(py_request, py::arg("block") = false);
+                } catch (const py::error_already_set& e) {
+                    MCTS_DEBUG("Python error sending request " << i << ": " << e.what());
+                } catch (const std::exception& e) {
+                    MCTS_DEBUG("Error sending request " << i << ": " << e.what());
+                }
             }
             
             // Wait for responses with timeout
             bool all_received = false;
             auto wait_start = std::chrono::steady_clock::now();
-            const int TOTAL_WAIT_TIMEOUT_MS = 5000;  // 5 seconds total timeout (increased from 1s)
+            const int TOTAL_WAIT_TIMEOUT_MS = 1000;  // 1 second timeout
             
             while (!all_received) {
                 // Check timeout
@@ -914,116 +866,105 @@ private:
                     break;
                 }
                 
-                // Acquire the GIL for processing responses
-                py::gil_scoped_acquire new_gil;
-                
-                // Check for responses
-                int batch_responses = 0;
+                // IMPROVED: Check for responses without releasing/reacquiring GIL
                 bool queue_empty = false;
+                try {
+                    queue_empty = response_queue.attr("empty")().cast<bool>();
+                } catch (const std::exception& e) {
+                    MCTS_DEBUG("Error checking if response queue is empty: " << e.what());
+                    break;
+                }
                 
-                while (!queue_empty && batch_responses < 10) {  // Process up to 10 responses at a time
-                    try {
-                        // Check if the queue is empty
-                        if (response_queue.attr("empty")().cast<bool>()) {
-                            queue_empty = true;
-                            break;
-                        }
-                        
-                        // Get a response without blocking
-                        py::object py_response = response_queue.attr("get")(py::arg("block") = false);
-                        
-                        // Extract request ID and result
-                        py::tuple py_tuple = py_response.cast<py::tuple>();
-                        int request_id = py_tuple[0].cast<int>();
-                        py::tuple py_result = py_tuple[1].cast<py::tuple>();
-                        
-                        // Find the corresponding request
-                        auto it = request_map.find(request_id);
-                        if (it != request_map.end()) {
-                            int index = it->second;
-                            
-                            // Extract policy and value
-                            py::list py_policy = py_result[0].cast<py::list>();
-                            float value = py_result[1].cast<float>();
-                            
-                            // Convert policy to vector
-                            std::vector<float> policy;
-                            policy.reserve(py_policy.size());
-                            for (auto p : py_policy) {
-                                policy.push_back(p.cast<float>());
-                            }
-                            
-                            // Store the result
-                            results[index].policy = std::move(policy);
-                            results[index].value = value;
-                            received[index] = true;
-                            
-                            // Mark the task as done
-                            response_queue.attr("task_done")();
-                            
-                            batch_responses++;
-                        }
+                if (queue_empty) {
+                    // Release GIL during sleep to allow other threads to work
+                    {
+                        py::gil_scoped_release release;
+                        std::this_thread::sleep_for(std::chrono::milliseconds(5));
                     }
-                    catch (const py::error_already_set& e) {
-                        // If we get an empty exception, the queue is empty
-                        if (std::string(e.what()).find("Empty") != std::string::npos) {
-                            queue_empty = true;
-                            break;
-                        } else {
-                            // Other Python error
-                            MCTS_DEBUG("Python error processing response: " << e.what());
+                    continue;
+                }
+                
+                // Get a response
+                try {
+                    py::object py_response = response_queue.attr("get")(py::arg("block") = false);
+                    
+                    // Extract request ID and result
+                    py::tuple py_tuple = py_response.cast<py::tuple>();
+                    int request_id = py_tuple[0].cast<int>();
+                    py::tuple py_result = py_tuple[1].cast<py::tuple>();
+                    
+                    // Find the corresponding request
+                    auto it = request_map.find(request_id);
+                    if (it != request_map.end()) {
+                        int index = it->second;
+                        
+                        // Extract policy and value
+                        py::list py_policy = py_result[0].cast<py::list>();
+                        float value = py_result[1].cast<float>();
+                        
+                        // Convert policy to vector
+                        std::vector<float> policy;
+                        policy.reserve(py_policy.size());
+                        for (auto p : py_policy) {
+                            policy.push_back(p.cast<float>());
                         }
+                        
+                        // Store the result
+                        results[index].policy = std::move(policy);
+                        results[index].value = value;
+                        received[index] = true;
+                        
+                        // Mark the task as done
+                        response_queue.attr("task_done")();
                     }
-                    catch (const std::exception& e) {
-                        MCTS_DEBUG("Error processing response: " << e.what());
+                }
+                catch (const py::error_already_set& e) {
+                    // If we get an empty exception, the queue is empty
+                    if (std::string(e.what()).find("Empty") != std::string::npos) {
+                        // This is expected, just continue
+                    } else {
+                        // Other Python error
+                        MCTS_DEBUG("Python error processing response: " << e.what());
+                    }
+                    
+                    // Brief sleep with GIL released
+                    {
+                        py::gil_scoped_release release;
+                        std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                    }
+                }
+                catch (const std::exception& e) {
+                    MCTS_DEBUG("Error processing response: " << e.what());
+                    
+                    // Brief sleep with GIL released
+                    {
+                        py::gil_scoped_release release;
+                        std::this_thread::sleep_for(std::chrono::milliseconds(5));
                     }
                 }
                 
                 // Check if all responses have been received
                 all_received = std::all_of(received.begin(), received.end(), [](bool v){ return v; });
-                
-                if (all_received) {
-                    break;
-                }
-                
-                // Brief sleep to avoid tight loop
-                {
-                    // Release GIL during sleep
-                    py::gil_scoped_release release;
-                    std::this_thread::sleep_for(std::chrono::microseconds(500));  // 0.5ms sleep
-                }
             }
             
-            // Fill missing results with defaults
-            for (size_t i = 0; i < inputs.size(); i++) {
-                if (!received[i]) {
-                    MCTS_DEBUG("Missing result for input " << i);
-                    
-                    // Extract board size from state string
-                    const auto& state_str = std::get<0>(inputs[i]);
-                    int bs = 15; // Default
-                    size_t pos = state_str.find("Board:");
-                    if (pos != std::string::npos) {
-                        size_t end = state_str.find(';', pos);
-                        if (end != std::string::npos) {
-                            std::string bs_str = state_str.substr(pos + 6, end - pos - 6);
-                            try {
-                                bs = std::stoi(bs_str);
-                            } catch (...) {
-                                // Keep default
-                            }
-                        }
-                    }
-                    
-                    // Create default values
-                    results[i].policy.resize(bs * bs, 1.0f / (bs * bs));
-                    results[i].value = 0.0f;
-                }
-            }
+            // GIL is automatically released at the end of scope
         }
         catch (const std::exception& e) {
             MCTS_DEBUG("Error in inference_batch: " << e.what());
             return create_default_outputs(inputs);
+        }
+        
+        // Fill missing results with defaults
+        for (size_t i = 0; i < inputs.size(); i++) {
+            if (!received[i]) {
+                // Extract board size from state string
+                const auto& state_str = std::get<0>(inputs[i]);
+                int bs = extract_board_size(state_str);
+                
+                // Create default values
+                results[i].policy.resize(bs * bs, 1.0f / (bs * bs));
+                results[i].value = 0.0f;
+            }
         }
         
         return results;

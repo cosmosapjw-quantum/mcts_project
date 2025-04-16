@@ -220,6 +220,9 @@ public:
         }
         
         try {
+            // CRITICAL: Don't acquire GIL here, let the nn_->initialize method handle it
+            // This avoids nested GIL acquisitions that could lead to inconsistent state
+            
             // Initialize the neural network proxy with the model
             bool success = nn_->initialize(model, config_.parallel_leaf_batch_size);
             
