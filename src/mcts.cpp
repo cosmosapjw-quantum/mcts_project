@@ -737,9 +737,14 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
     // Store the original c_puct for restoration after search
     float original_cpuct = config_.c_puct;
 
-    // Define search parameters with appropriate timeout 
+    // Define search parameters with adaptive timeout based on simulation count
     const auto start_time = std::chrono::steady_clock::now();
-    const int MAX_SEARCH_TIME_MS = 5000;  // 5 seconds max (reduced from 30 seconds)
+    // Increased and adaptive max search time - more simulations get more time
+    const int BASE_SEARCH_TIME_MS = 5000;  // 5 seconds base (from 5s fixed)
+    const int MAX_SEARCH_TIME_MS = std::min(30000, BASE_SEARCH_TIME_MS + 
+                                           num_simulations * 50);  // 50ms per simulation
+    
+    MCTS_DEBUG("Using adaptive max search time of " << MAX_SEARCH_TIME_MS << "ms");
     
     // Track search statistics
     std::atomic<int> batch_count{0};
@@ -1125,9 +1130,43 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
             if (!leaf) continue;
             
             try {
-                // ADDED: Skip if node is being expanded or is no longer a leaf
                 if (leaf->is_being_expanded() || !leaf->is_leaf()) {
-                    MCTS_DEBUG("Node at index " << i << " is already being expanded or is no longer a leaf, skipping");
+                    MCTS_DEBUG("Node at index " << i << " is already being expanded or is no longer a leaf");
+                    
+                    // IMPROVED: Still fulfill the promise even if skipping expansion
+                    std::vector<float> default_policy;
+                    float default_value = 0.0f;
+                    
+                    // Create appropriate default values
+                    try {
+                        const Gamestate& state = leaf->get_state();
+                        if (state.is_terminal()) {
+                            // For terminal nodes, calculate appropriate value
+                            int winner = state.get_winner();
+                            int current_player = state.current_player;
+                            
+                            if (winner == current_player) {
+                                default_value = 1.0f;
+                            } else if (winner == 0) {
+                                default_value = 0.0f; // Draw
+                            } else {
+                                default_value = -1.0f; // Loss
+                            }
+                            
+                            // Create policy for terminal state
+                            auto valid_moves = state.get_valid_moves();
+                            default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
+                        } else {
+                            // For non-terminal nodes, use uniform policy
+                            auto valid_moves = state.get_valid_moves();
+                            default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
+                        }
+                    } catch (const std::exception& e) {
+                        MCTS_DEBUG("Error creating default values: " << e.what());
+                        // Use empty policy and neutral value as ultimate fallback
+                        default_policy.clear();
+                        default_value = 0.0f;
+                    }
                     
                     // Remove virtual losses
                     Node* current = leaf;
@@ -1137,6 +1176,7 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                             current = current->get_parent();
                         } catch (...) {
                             // Ignore errors in cleanup
+                            break;
                         }
                     }
                     continue;
@@ -1289,8 +1329,8 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
             return false;
         }
         
-        // Check if we've been stalled for too long (3 seconds)
-        if (stall_ms > 3000) {
+        // Check if we've been stalled for too long - increase to 5 seconds (from 3)
+        if (stall_ms > 5000) {
             MCTS_DEBUG("Search appears stalled for " << stall_ms << "ms");
             
             // If we have pending evals but no progress, consider stalled
@@ -1304,13 +1344,15 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                 MCTS_DEBUG("Stalled with " << pending_size << " pending evaluations");
                 
                 // If we've already tried recovery multiple times, consider search failed
-                if (stall_recovery_attempts >= 2) {
+                // Increase from 2 to 3 recovery attempts
+                if (stall_recovery_attempts >= 3) {
                     MCTS_DEBUG("Multiple recovery attempts failed, aborting search");
                     return true;
                 }
                 
                 // Attempt recovery by timing out oldest evaluations
-                int timeout_count = std::min(pending_size, 8);  // Time out up to 8 at once
+                // Reduce number timed out from 8 to 4 at a time
+                int timeout_count = std::min(pending_size, 4);
                 
                 std::lock_guard<std::mutex> lock(pending_mutex);
                 std::sort(pending_evals.begin(), pending_evals.end(), 
@@ -1342,7 +1384,9 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                 stall_recovery_attempts++;
                 
                 // Update last progress time to give more time for recovery
-                last_progress_time = std::chrono::steady_clock::now();
+                // Increase wait time from 0 to 2 seconds
+                last_progress_time = std::chrono::steady_clock::now() + 
+                                    std::chrono::milliseconds(2000);
                 return false;  // Allow search to continue
             }
             
@@ -1352,13 +1396,16 @@ void MCTS::run_semi_parallel_search(int num_simulations) {
                 MCTS_DEBUG("Leaf gatherer appears stuck, restarting workers");
                 
                 // Instead of returning, try to recover by recreating the leaf gatherer
-                if (stall_recovery_attempts < 2) {
+                // Increase from 2 to 3 recovery attempts
+                if (stall_recovery_attempts < 3) {
                     try {
                         create_or_reset_leaf_gatherer();
                         stall_recovery_attempts++;
                         
                         // Update last progress time to give more time for recovery
-                        last_progress_time = std::chrono::steady_clock::now();
+                        // Increase wait time from 0 to 3 seconds
+                        last_progress_time = std::chrono::steady_clock::now() + 
+                                            std::chrono::milliseconds(3000);
                         return false;  // Continue with new leaf gatherer
                     }
                     catch (const std::exception& e) {

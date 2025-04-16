@@ -318,9 +318,20 @@ int Node::get_virtual_losses() const {
 // IMPORTANT: Add a new method to help avoid race conditions
 void Node::clear_all_virtual_losses() {
     try {
+        // First, clear this node's virtual losses
         int prev = virtual_losses_.exchange(0, std::memory_order_acq_rel);
         if (prev > 0) {
-            MCTS_DEBUG("Cleared " << prev << " virtual losses");
+            MCTS_DEBUG("Cleared " << prev << " virtual losses from node " << move_from_parent_);
+        }
+        
+        // Then clear any expansion flags
+        being_expanded_.store(false, std::memory_order_release);
+        
+        // For safety, also clear virtual losses in the parent path
+        Node* current = parent_;
+        while (current) {
+            current->virtual_losses_.store(0, std::memory_order_release);
+            current = current->get_parent();
         }
     } catch (const std::exception& e) {
         MCTS_DEBUG("Exception in clear_all_virtual_losses: " << e.what());

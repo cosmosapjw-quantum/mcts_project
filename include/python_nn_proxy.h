@@ -15,6 +15,8 @@
 
 namespace py = pybind11;
 
+static std::mutex batch_inference_mutex_;
+
 /**
  * A thread-safe proxy for the Python neural network.
  * Uses a dedicated Python thread and message queues for communication.
@@ -279,7 +281,7 @@ public:
             // Default values will be used
         }
     }
-    
+
     /**
      * Request batch inference for multiple states.
      * 
@@ -310,6 +312,9 @@ public:
         
         // Create default results vector first - will be returned on any error
         std::vector<NNOutput> results = create_default_outputs(inputs);
+        
+        // Acquire the mutex to prevent concurrent access to Python inference
+        std::lock_guard<std::mutex> lock(batch_inference_mutex_);
         
         try {
             // Generate a base request ID
@@ -355,58 +360,78 @@ public:
                         return results;
                     }
                     
-                    // Attempt to send up to 5 requests with retries
+                    // Send all requests in batches
                     int sent_count = 0;
-                    int retry_count = 0;
-                    const int MAX_RETRIES = 3;
-                    const int MAX_TO_SEND = std::min(5, static_cast<int>(inputs.size()));
+                    const int CHUNK_SIZE = 32; // Send 32 requests at a time to avoid holding GIL too long
                     
-                    while (sent_count < MAX_TO_SEND && retry_count < MAX_RETRIES) {
-                        try {
-                            for (int i = sent_count; i < MAX_TO_SEND; i++) {
-                                int request_id = base_request_id + i;
-                                const auto& [state_str, chosen_move, attack, defense] = inputs[i];
-                                
-                                // Create Python tuple for the request
-                                py::tuple py_request = py::make_tuple(
-                                    request_id,
-                                    state_str,
-                                    chosen_move,
-                                    attack,
-                                    defense
-                                );
-                                
-                                // Try to add to request queue with very short timeout
-                                request_queue.attr("put")(py_request, py::arg("block") = true, py::arg("timeout") = 0.01);
-                                sent_count++;
-                            }
-                            break; // Successful sending, exit retry loop
-                        } catch (const py::error_already_set& e) {
-                            // Queue full or timeout
-                            if (std::string(e.what()).find("Full") != std::string::npos) {
-                                MCTS_DEBUG("Queue full, sent " << sent_count << "/" << MAX_TO_SEND << " requests");
-                                retry_count++;
-                                
-                                // Short sleep before retry - need to temporarily release GIL
-                                // IMPORTANT: Don't manually release GIL, create a nested scope instead
-                                {
-                                    // Temporarily release GIL
-                                    py::gil_scoped_release release;
-                                    std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                    while (sent_count < static_cast<int>(inputs.size())) {
+                        int end_idx = std::min(sent_count + CHUNK_SIZE, static_cast<int>(inputs.size()));
+                        int chunk_retry_count = 0;
+                        const int MAX_RETRIES_PER_CHUNK = 3;
+                        
+                        while (sent_count < end_idx && chunk_retry_count < MAX_RETRIES_PER_CHUNK) {
+                            try {
+                                for (int i = sent_count; i < end_idx; i++) {
+                                    int request_id = base_request_id + i;
+                                    const auto& [state_str, chosen_move, attack, defense] = inputs[i];
+                                    
+                                    // Create Python tuple for the request
+                                    py::tuple py_request = py::make_tuple(
+                                        request_id,
+                                        state_str,
+                                        chosen_move,
+                                        attack,
+                                        defense
+                                    );
+                                    
+                                    // Try to add to request queue with short timeout
+                                    request_queue.attr("put")(py_request, py::arg("block") = true, py::arg("timeout") = 0.05);
+                                    sent_count++;
                                 }
-                                // GIL is automatically re-acquired when the above scope ends
-                            } else {
-                                MCTS_DEBUG("Python error during request sending: " << e.what());
+                                break; // Successful sending, exit retry loop for this chunk
+                            } catch (const py::error_already_set& e) {
+                                // Queue full or timeout
+                                if (std::string(e.what()).find("Full") != std::string::npos) {
+                                    MCTS_DEBUG("Queue full, sent " << sent_count << "/" << end_idx 
+                                            << " requests (total: " << inputs.size() << ")");
+                                    chunk_retry_count++;
+                                    
+                                    // Short sleep before retry - need to temporarily release GIL
+                                    {
+                                        // Temporarily release GIL
+                                        py::gil_scoped_release release;
+                                        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                                    }
+                                } else {
+                                    MCTS_DEBUG("Python error during request sending: " << e.what());
+                                    // Don't break the outer loop, just move to the next chunk
+                                    sent_count = end_idx;
+                                    break;
+                                }
+                            } catch (const std::exception& e) {
+                                MCTS_DEBUG("Error sending request: " << e.what());
+                                // Don't break the outer loop, just move to the next chunk
+                                sent_count = end_idx;
                                 break;
                             }
-                        } catch (const std::exception& e) {
-                            MCTS_DEBUG("Error sending request: " << e.what());
-                            break;
+                        }
+                        
+                        // If we've retried this chunk too many times, just skip to the next chunk
+                        if (sent_count < end_idx) {
+                            MCTS_DEBUG("Failed to send chunk after " << MAX_RETRIES_PER_CHUNK 
+                                    << " retries, skipping to next chunk");
+                            sent_count = end_idx;
+                        }
+                        
+                        // Periodically yield GIL between chunks to avoid starving other Python threads
+                        if (sent_count < static_cast<int>(inputs.size())) {
+                            py::gil_scoped_release release;
+                            std::this_thread::sleep_for(std::chrono::milliseconds(1));
                         }
                     }
                     
                     request_send_success = (sent_count > 0);
-                    MCTS_DEBUG("Sent " << sent_count << "/" << MAX_TO_SEND << " requests to Python queue");
+                    MCTS_DEBUG("Sent " << sent_count << "/" << inputs.size() << " requests to Python queue");
                 }
                 catch (const py::error_already_set& e) {
                     MCTS_DEBUG("Python error during request sending: " << e.what());
@@ -428,9 +453,9 @@ public:
             auto wait_start = std::chrono::steady_clock::now();
             
             // Calculate adaptive timeout based on batch size and device
-            const int BASE_TIMEOUT_MS = 100;       // Reduced base timeout
-            const int MS_PER_ITEM = 10;            // Reduced per-item timeout
-            const int MAX_TIMEOUT_MS = 1000;       // Maximum 1 second timeout
+            const int BASE_TIMEOUT_MS = 500;       // Increased base timeout
+            const int MS_PER_ITEM = 20;            // Time per item
+            const int MAX_TIMEOUT_MS = 5000;       // Maximum 5 second timeout
             
             int timeout_ms = std::min(BASE_TIMEOUT_MS + static_cast<int>(inputs.size() * MS_PER_ITEM), MAX_TIMEOUT_MS);
             
@@ -439,7 +464,7 @@ public:
             // Wait loop with timeout using multiple short GIL acquisitions
             std::vector<bool> received(inputs.size(), false);
             int received_count = 0;
-            const int MAX_RESPONSE_BATCH = 5;  // Process at most 5 responses at once
+            const int MAX_RESPONSE_BATCH = 10;  // Process up to 10 responses at once
             
             while (received_count < static_cast<int>(inputs.size())) {
                 // Check timeout first
@@ -449,15 +474,26 @@ public:
                     
                 if (elapsed_ms > timeout_ms || !is_initialized_) {
                     if (elapsed_ms > timeout_ms) {
-                        MCTS_DEBUG("Timeout waiting for inference results after " << elapsed_ms << "ms");
+                        // Log with info about what we've received so far
+                        MCTS_DEBUG("Timeout waiting for inference results after " << elapsed_ms << "ms. "
+                                << "Received " << received_count << "/" << inputs.size() << " responses.");
                     } else {
                         MCTS_DEBUG("Uninitialized state detected while waiting for responses");
                     }
                     break;
                 }
                 
+                // Periodic progress reporting for long waits
+                if (elapsed_ms > 1000 && elapsed_ms % 1000 < 10 && received_count > 0) {
+                    MCTS_DEBUG("Still waiting for responses: " << received_count << "/" 
+                            << inputs.size() << " received, elapsed: " << elapsed_ms << "ms");
+                }
+                
                 // Brief sleep to avoid tight loop
-                std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                {
+                    py::gil_scoped_release release;  // Release GIL during sleep
+                    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                }
                 
                 // Acquire GIL for a short period to check for responses
                 {
@@ -500,7 +536,7 @@ public:
                         int responses_processed = 0;
                         
                         while (!response_queue.attr("empty")().cast<bool>() && 
-                               responses_processed < MAX_RESPONSE_BATCH) {
+                            responses_processed < MAX_RESPONSE_BATCH) {
                             
                             try {
                                 // Get a response without blocking
@@ -535,7 +571,16 @@ public:
                                 // Find the corresponding request
                                 auto it = request_map.find(request_id);
                                 if (it == request_map.end()) {
-                                    continue;  // Not one of our requests
+                                    // Instead of silently dropping, re-queue responses that don't belong to us
+                                    MCTS_DEBUG("Received response for request ID " << request_id 
+                                            << " that doesn't belong to this batch, re-queueing");
+                                    try {
+                                        // Re-queue the response for another thread to process
+                                        response_queue.attr("put")(py_response, py::arg("block") = false);
+                                    } catch (...) {
+                                        // If re-queueing fails, just continue
+                                    }
+                                    continue;
                                 }
                                 
                                 int index = it->second;
@@ -854,16 +899,17 @@ private:
             }
             
             // Wait for responses with timeout
-            auto start_time = std::chrono::steady_clock::now();
             bool all_received = false;
+            auto wait_start = std::chrono::steady_clock::now();
+            const int TOTAL_WAIT_TIMEOUT_MS = 5000;  // 5 seconds total timeout (increased from 1s)
             
             while (!all_received) {
                 // Check timeout
                 auto current_time = std::chrono::steady_clock::now();
                 auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>
-                             (current_time - start_time).count();
-                              
-                if (elapsed > INFERENCE_TIMEOUT_MS) {
+                              (current_time - wait_start).count();
+                               
+                if (elapsed > TOTAL_WAIT_TIMEOUT_MS) {
                     MCTS_DEBUG("Timeout waiting for inference results after " << elapsed << "ms");
                     break;
                 }
@@ -941,8 +987,10 @@ private:
                 }
                 
                 // Brief sleep to avoid tight loop
-                if (elapsed % 10 == 0) {  // Only sleep every 10ms of elapsed time
-                    std::this_thread::sleep_for(std::chrono::microseconds(100));  // Use 0.1ms instead of 1ms
+                {
+                    // Release GIL during sleep
+                    py::gil_scoped_release release;
+                    std::this_thread::sleep_for(std::chrono::microseconds(500));  // 0.5ms sleep
                 }
             }
             

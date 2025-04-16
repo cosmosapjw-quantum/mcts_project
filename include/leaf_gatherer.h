@@ -28,32 +28,26 @@ class LeafGatherer {
 public:
     // Initialize with neural network interface, attack/defense module, and thread configuration
     LeafGatherer(std::shared_ptr<PythonNNProxy> nn, 
-                 AttackDefenseModule& attack_defense,
-                 int batch_size = 256,        // Default increased to match NN batch size
-                 int num_workers = 4)         // Default worker threads
+                AttackDefenseModule& attack_defense,
+                int batch_size = 256,
+                int num_workers = 1)  // Changed from 4 to 1
         : nn_(nn),
-          attack_defense_(attack_defense),
-          batch_size_(batch_size),
-          shutdown_(false),
-          total_processed_(0),
-          active_workers_(0),
-          max_workers_(num_workers),
-          health_check_passed_(true)
+        attack_defense_(attack_defense),
+        batch_size_(batch_size),
+        shutdown_(false),
+        total_processed_(0),
+        active_workers_(0),
+        max_workers_(num_workers),
+        health_check_passed_(true)
     {
         MCTS_DEBUG("Creating LeafGatherer with batch size " << batch_size << " and " << num_workers << " workers");
         
-        // Determine optimal number of workers if not specified
+        // Use 1 worker by default, regardless of hardware
         if (num_workers <= 0) {
-            // Auto-detect based on hardware
-            unsigned int hw_threads = std::thread::hardware_concurrency();
-            if (hw_threads == 0) hw_threads = 8; // Fallback if detection fails
-            
-            // For Ryzen 9 5900X with 24 threads, we want to leave some threads
-            // for the main search process and Python NN inference
-            max_workers_ = std::min<int>(hw_threads / 3, 8); // Use at most 1/3 of threads or 8
-            MCTS_DEBUG("Auto-configured worker count to " << max_workers_ << " based on hardware");
+            max_workers_ = 1;  // Changed to always use 1 worker
+            MCTS_DEBUG("Auto-configured worker count to " << max_workers_);
         } else {
-            max_workers_ = num_workers;
+            max_workers_ = std::min(num_workers, 1);  // Cap at 1 worker
         }
         
         // Cap batch size to reasonable limits
@@ -100,13 +94,30 @@ public:
             MCTS_DEBUG("LeafGatherer shutting down, returning default values");
             auto promise = std::make_shared<std::promise<std::pair<std::vector<float>, float>>>();
             
+            // IMPROVED: Create appropriate default values based on state
             std::vector<float> default_policy;
-            if (leaf && !leaf->get_state().is_terminal()) {
+            float default_value = 0.0f;
+            
+            // Handle terminal nodes specifically
+            if (leaf && leaf->get_state().is_terminal()) {
+                // For terminal nodes, return empty policy and appropriate value
+                int winner = leaf->get_state().get_winner();
+                int current_player = leaf->get_state().current_player;
+                
+                if (winner == current_player) {
+                    default_value = 1.0f;
+                } else if (winner == 0) {
+                    default_value = 0.0f; // Draw
+                } else {
+                    default_value = -1.0f; // Loss
+                }
+            } else if (leaf && !leaf->get_state().is_terminal()) {
+                // For non-terminal nodes, use uniform policy over valid moves
                 auto valid_moves = leaf->get_state().get_valid_moves();
                 default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
             }
             
-            promise->set_value({default_policy, 0.0f});
+            promise->set_value({default_policy, default_value});
             return promise->get_future();
         }
         
@@ -178,13 +189,31 @@ public:
             const int MAX_QUEUE_SIZE = 1000;
             if (request_queue_.size() >= MAX_QUEUE_SIZE) {
                 MCTS_DEBUG("Queue full (" << request_queue_.size() << " items), returning default values");
+                
+                // IMPROVED: Create appropriate default values based on state
                 std::vector<float> default_policy;
-                if (leaf && !leaf->get_state().is_terminal()) {
+                float default_value = 0.0f;
+                
+                // Handle terminal nodes specifically
+                if (leaf && leaf->get_state().is_terminal()) {
+                    // For terminal nodes, return empty policy and appropriate value
+                    int winner = leaf->get_state().get_winner();
+                    int current_player = leaf->get_state().current_player;
+                    
+                    if (winner == current_player) {
+                        default_value = 1.0f;
+                    } else if (winner == 0) {
+                        default_value = 0.0f; // Draw
+                    } else {
+                        default_value = -1.0f; // Loss
+                    }
+                } else if (leaf && !leaf->get_state().is_terminal()) {
+                    // For non-terminal nodes, use uniform policy over valid moves
                     auto valid_moves = leaf->get_state().get_valid_moves();
                     default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
                 }
                 
-                request.result_promise->set_value({default_policy, 0.0f});
+                request.result_promise->set_value({default_policy, default_value});
                 
                 // Log queue statistics to help diagnose issues
                 MCTS_DEBUG("Queue health: active workers=" << active_workers_ 
@@ -262,7 +291,7 @@ public:
             queue_cv_.notify_all();
         }
         
-        // CRITICAL FIX: First, fulfill all promises with default values
+        // IMPROVED: First, fulfill all promises with default values
         int cleared_requests = 0;
         {
             std::lock_guard<std::mutex> lock(queue_mutex_);
@@ -280,14 +309,39 @@ public:
             for (auto& request : remaining_requests) {
                 if (request.result_promise) {
                     try {
+                        // IMPROVED: Handle terminal states properly
                         std::vector<float> default_policy;
-                        if (!request.state.is_terminal()) {
+                        float default_value = 0.0f;
+                        
+                        if (request.state.is_terminal()) {
+                            // For terminal nodes, return empty policy and appropriate value
+                            int winner = request.state.get_winner();
+                            int current_player = request.state.current_player;
+                            
+                            if (winner == current_player) {
+                                default_value = 1.0f;
+                            } else if (winner == 0) {
+                                default_value = 0.0f; // Draw
+                            } else {
+                                default_value = -1.0f; // Loss
+                            }
+                        } else {
+                            // For non-terminal nodes, use uniform policy over valid moves
                             auto valid_moves = request.state.get_valid_moves();
                             default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
                         }
                         
-                        request.result_promise->set_value({default_policy, 0.0f});
+                        request.result_promise->set_value({default_policy, default_value});
                         cleared_requests++;
+                        
+                        // If this has a leaf node, clean up its virtual losses too
+                        if (request.leaf) {
+                            Node* current = request.leaf;
+                            while (current) {
+                                current->clear_all_virtual_losses();  // Use our improved method
+                                current = current->get_parent();
+                            }
+                        }
                     } catch (const std::exception& e) {
                         MCTS_DEBUG("Error setting promise value during shutdown: " << e.what());
                     } catch (...) {
@@ -553,15 +607,12 @@ private:
     void worker_function(int thread_id) {
         MCTS_DEBUG("LeafGatherer worker " << thread_id << " started");
         
-        // Store thread ID for debugging
-        thread_local int my_thread_id = thread_id;
-        
         // Report as active
         active_workers_.fetch_add(1, std::memory_order_relaxed);
         
         // Set up thread-local timeout monitoring
         auto last_activity = std::chrono::steady_clock::now();
-        const int ACTIVITY_TIMEOUT_MS = 5000;  // 5 seconds max processing time
+        const int ACTIVITY_TIMEOUT_MS = 10000;  // Increased to 10 seconds max inactivity time
         
         // Use a try/catch block to handle all exceptions
         try {
@@ -569,38 +620,35 @@ private:
             std::vector<LeafEvalRequest> batch;
             batch.reserve(batch_size_);
             
-            // Track last batch time for adaptive processing
-            auto last_batch_time = std::chrono::steady_clock::now();
-            
             // Main worker loop
             while (!shutdown_.load(std::memory_order_acquire)) {
-                // Periodically check if we've been stuck too long in any operation
+                // Periodically check if we've been inactive too long
                 auto current_time = std::chrono::steady_clock::now();
-                auto stuck_time = std::chrono::duration_cast<std::chrono::milliseconds>(
+                auto inactive_time = std::chrono::duration_cast<std::chrono::milliseconds>(
                     current_time - last_activity).count();
                     
-                if (stuck_time > ACTIVITY_TIMEOUT_MS) {
-                    MCTS_DEBUG("Worker " << my_thread_id << " appears stuck for " << stuck_time 
+                if (inactive_time > ACTIVITY_TIMEOUT_MS) {
+                    MCTS_DEBUG("Worker " << thread_id << " inactive for " << inactive_time 
                               << "ms, self-terminating");
-                    break;  // Break out of worker loop if stuck
+                    break;  // Break out of worker loop if inactive too long
                 }
                 
                 // Clear batch for this iteration
                 batch.clear();
                 
-                // First phase: collect items for batch
+                // Collect items for batch
                 {
                     std::unique_lock<std::mutex> lock(queue_mutex_);
                     
-                    // Wait with very short timeout to check shutdown flag frequently
-                    auto wait_result = queue_cv_.wait_for(lock, std::chrono::milliseconds(20), 
+                    // Wait with timeout to check shutdown flag
+                    auto wait_result = queue_cv_.wait_for(lock, std::chrono::milliseconds(100), 
                         [this] { 
                             return !request_queue_.empty() || shutdown_.load(std::memory_order_acquire); 
                         });
                     
                     // Check shutdown flag with lock held
                     if (shutdown_.load(std::memory_order_acquire)) {
-                        MCTS_DEBUG("Worker " << my_thread_id << " shutdown detected during wait");
+                        MCTS_DEBUG("Worker " << thread_id << " shutdown detected during wait");
                         break;
                     }
                     
@@ -612,26 +660,26 @@ private:
                     
                     // Determine optimal batch size based on queue contents
                     int queue_size = request_queue_.size();
-                    int optimal_batch = std::min(std::min(queue_size, batch_size_), 32);
+                    int optimal_batch = std::min(std::min(queue_size, batch_size_), 256); // Increased max
                     
                     // Always process at least one item
                     optimal_batch = std::max(1, optimal_batch);
                     
                     // Collect batch with timeout monitoring
                     auto collect_start = std::chrono::steady_clock::now();
-                    const int MAX_COLLECT_MS = 50;  // Maximum time to spend collecting
+                    const int MAX_COLLECT_MS = 100;  // Increased time to collect batch
                     
                     for (int i = 0; i < optimal_batch && !request_queue_.empty(); ++i) {
                         batch.push_back(std::move(request_queue_.front()));
                         request_queue_.pop();
                         
                         // Periodically check if collection is taking too long
-                        if (i % 10 == 0) {
+                        if (i % 32 == 0) {  // Check less frequently
                             auto now = std::chrono::steady_clock::now();
                             auto collect_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
                                 now - collect_start).count();
                             if (collect_ms > MAX_COLLECT_MS) {
-                                MCTS_DEBUG("Worker " << my_thread_id << " collection taking too long (" 
+                                MCTS_DEBUG("Worker " << thread_id << " collection taking too long (" 
                                           << collect_ms << "ms), breaking early");
                                 break;
                             }
@@ -644,7 +692,7 @@ private:
                 
                 // Check shutdown flag before processing
                 if (shutdown_.load(std::memory_order_acquire)) {
-                    MCTS_DEBUG("Worker " << my_thread_id << " shutdown detected before processing batch");
+                    MCTS_DEBUG("Worker " << thread_id << " shutdown detected before processing batch");
                     
                     // Complete all promises with default values
                     for (auto& item : batch) {
@@ -665,92 +713,30 @@ private:
                     break;
                 }
                 
-                // Second phase: process batch
+                // Process batch directly (no thread spawning)
                 if (!batch.empty()) {
                     try {
                         // Start timing
                         auto batch_start = std::chrono::steady_clock::now();
                         
-                        // Process the batch with timeout protection
-                        auto processing_thread = std::thread([this, &batch, my_thread_id]() {
-                            try {
-                                process_batch(batch, my_thread_id);
-                            } catch (const std::exception& e) {
-                                MCTS_DEBUG("Worker " << my_thread_id << " exception in processing thread: " << e.what());
-                            }
-                        });
+                        // Process the batch directly
+                        process_batch(batch, thread_id);
                         
-                        // Wait for processing to complete with timeout
-                        const int PROCESS_TIMEOUT_MS = 3000;  // 3 seconds max processing time
-                        auto deadline = std::chrono::steady_clock::now() + 
-                            std::chrono::milliseconds(PROCESS_TIMEOUT_MS);
+                        // Track timing
+                        auto batch_end = std::chrono::steady_clock::now();
+                        auto batch_time = std::chrono::duration_cast<std::chrono::milliseconds>(
+                            batch_end - batch_start).count();
                             
-                        // Non-blocking join with timeout
-                        while (std::chrono::steady_clock::now() < deadline && processing_thread.joinable()) {
-                            // Try to join with short timeout
-                            if (processing_thread.joinable()) {
-                                auto status = processing_thread.native_handle();
-                                if (status) {
-                                    try {
-                                        // Try to join with short timeout
-                                        std::this_thread::sleep_for(std::chrono::milliseconds(50));
-                                        if (!processing_thread.joinable()) {
-                                            break;  // Successfully joined
-                                        }
-                                    } catch (...) {
-                                        // Ignore join errors
-                                    }
-                                }
-                            }
-                            
-                            // Check shutdown flag during wait
-                            if (shutdown_.load(std::memory_order_acquire)) {
-                                MCTS_DEBUG("Worker " << my_thread_id << " shutdown detected during processing wait");
-                                break;
-                            }
-                            
-                            // Short sleep to avoid tight loop
-                            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-                        }
-                        
-                        // If processing timed out, detach the thread
-                        if (processing_thread.joinable()) {
-                            MCTS_DEBUG("Worker " << my_thread_id << " processing timed out after " 
-                                      << PROCESS_TIMEOUT_MS << "ms, detaching thread");
-                            processing_thread.detach();
-                            
-                            // Complete all promises with default values since processing timed out
-                            for (auto& item : batch) {
-                                try {
-                                    if (item.result_promise) {
-                                        std::vector<float> default_policy;
-                                        if (!item.state.is_terminal()) {
-                                            auto valid_moves = item.state.get_valid_moves();
-                                            default_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
-                                        }
-                                        item.result_promise->set_value({default_policy, 0.0f});
-                                    }
-                                } catch (...) {
-                                    // Ignore errors in default value setting
-                                }
-                            }
-                        } else {
-                            // Processing completed successfully
-                            auto batch_time = std::chrono::duration_cast<std::chrono::milliseconds>(
-                                std::chrono::steady_clock::now() - batch_start).count();
-                                
-                            if (batch.size() > 1) {
-                                MCTS_DEBUG("Worker " << my_thread_id << " processed batch of " 
-                                       << batch.size() << " items in " << batch_time << "ms");
-                            }
+                        if (batch.size() > 1) {
+                            MCTS_DEBUG("Worker " << thread_id << " processed batch of " 
+                                     << batch.size() << " items in " << batch_time << "ms");
                         }
                         
                         // Update activity time after processing
                         last_activity = std::chrono::steady_clock::now();
-                        last_batch_time = std::chrono::steady_clock::now();
                     }
                     catch (const std::exception& e) {
-                        MCTS_DEBUG("Worker " << my_thread_id << " exception during process_batch: " << e.what());
+                        MCTS_DEBUG("Worker " << thread_id << " exception during process_batch: " << e.what());
                         
                         // Complete all promises with default values
                         for (auto& item : batch) {
@@ -775,24 +761,25 @@ private:
             }
         }
         catch (const std::exception& e) {
-            MCTS_DEBUG("Worker " << my_thread_id << " terminated with exception: " << e.what());
+            MCTS_DEBUG("Worker " << thread_id << " terminated with exception: " << e.what());
         }
         catch (...) {
-            MCTS_DEBUG("Worker " << my_thread_id << " terminated with unknown exception");
+            MCTS_DEBUG("Worker " << thread_id << " terminated with unknown exception");
         }
         
         // Report as inactive before exiting
         active_workers_.fetch_sub(1, std::memory_order_relaxed);
         
-        MCTS_DEBUG("LeafGatherer worker " << my_thread_id << " exiting");
+        MCTS_DEBUG("LeafGatherer worker " << thread_id << " exiting");
     }
     
-    // Process a batch of requests
-    void process_batch(std::vector<LeafEvalRequest>& batch, int thread_id) {
+    // Process a batch of requests directly without spawning a thread
+    void process_batch(const std::vector<LeafEvalRequest>& batch, int thread_id) {
         if (batch.empty()) {
             return;
         }
         
+        // Log batch processing
         if (batch.size() > 1) {
             MCTS_DEBUG("Worker " << thread_id << " processing batch of " << batch.size() << " leaves");
         }
@@ -828,9 +815,9 @@ private:
             auto attack_defense_duration = std::chrono::duration_cast<std::chrono::milliseconds>(
                 attack_defense_end - attack_defense_start).count();
                 
-            if (batch.size() > 4) {
+            if (batch.size() > 4 && attack_defense_duration > 10) {
                 MCTS_DEBUG("Worker " << thread_id << " computed attack/defense bonuses in " 
-                           << attack_defense_duration << "ms");
+                        << attack_defense_duration << "ms");
             }
         } catch (const std::exception& e) {
             MCTS_DEBUG("Worker " << thread_id << " error computing attack/defense bonuses: " << e.what());
@@ -847,8 +834,17 @@ private:
             float attack = (i < attack_vec.size()) ? attack_vec[i] : 0.0f;
             float defense = (i < defense_vec.size()) ? defense_vec[i] : 0.0f;
             
-            std::string state_str = nn_->create_state_string(
-                batch[i].state, chosen_moves[i], attack, defense);
+            std::string state_str;
+            try {
+                state_str = nn_->create_state_string(
+                    batch[i].state, chosen_moves[i], attack, defense);
+            } catch (const std::exception& e) {
+                MCTS_DEBUG("Error creating state string: " << e.what());
+                // Create a minimal valid state string
+                state_str = "Board:" + std::to_string(batch[i].state.board_size) + 
+                        ";Player:" + std::to_string(batch[i].state.current_player) + 
+                        ";State:";
+            }
                 
             nn_inputs.emplace_back(state_str, chosen_moves[i], attack, defense);
         }
@@ -866,12 +862,18 @@ private:
             
             if (batch.size() > 4) {
                 MCTS_DEBUG("Worker " << thread_id << " neural network batch inference completed in " << nn_duration 
-                           << "ms for " << batch.size() << " leaves");
+                        << "ms for " << batch.size() << " leaves");
             }
         } catch (const std::exception& e) {
             MCTS_DEBUG("Worker " << thread_id << " error in neural network batch inference: " << e.what());
             results.clear();
         }
+        
+        // Update total processed count
+        total_processed_.fetch_add(batch.size(), std::memory_order_relaxed);
+        
+        // Update last activity timestamp
+        last_activity_time_ = std::chrono::steady_clock::now();
         
         // Process results and fulfill promises
         for (size_t i = 0; i < batch.size(); i++) {
@@ -882,50 +884,107 @@ private:
                 
                 auto valid_moves = batch[i].state.get_valid_moves();
                 
-                if (valid_moves.empty()) {
+                if (valid_moves.empty() || batch[i].state.is_terminal()) {
                     // Terminal state or no valid moves
-                    batch[i].result_promise->set_value({std::vector<float>(), 0.0f});
+                    float value = 0.0f;
+                    int winner = batch[i].state.get_winner();
+                    int current_player = batch[i].state.current_player;
+                    
+                    if (winner == current_player) {
+                        value = 1.0f;
+                    } else if (winner == 0) {
+                        value = 0.0f; // Draw
+                    } else {
+                        value = -1.0f; // Loss
+                    }
+                    
+                    batch[i].result_promise->set_value({std::vector<float>(), value});
                     continue;
                 }
                 
-                std::vector<float> valid_policy;
+                // Check if we have a valid result for this leaf
+                std::vector<float> policy;
                 float value = 0.0f;
                 
                 if (i < results.size() && !results[i].policy.empty()) {
                     // Extract policy for valid moves
-                    const auto& policy = results[i].policy;
-                    valid_policy.reserve(valid_moves.size());
+                    const auto& full_policy = results[i].policy;
+                    policy.reserve(valid_moves.size());
                     
-                    for (int move : valid_moves) {
-                        if (move >= 0 && move < static_cast<int>(policy.size())) {
-                            valid_policy.push_back(policy[move]);
-                        } else {
-                            valid_policy.push_back(1.0f / valid_moves.size());
+                    // Policy might be for all possible moves, so extract just what we need
+                    if (full_policy.size() == valid_moves.size()) {
+                        // Policy is already aligned with valid moves
+                        policy = full_policy;
+                    } else {
+                        // Extract policy for each valid move
+                        for (int move : valid_moves) {
+                            if (move >= 0 && move < static_cast<int>(full_policy.size())) {
+                                policy.push_back(full_policy[move]);
+                            } else {
+                                policy.push_back(1.0f / valid_moves.size());
+                            }
                         }
                     }
                     
                     // Normalize the policy
-                    float sum = std::accumulate(valid_policy.begin(), valid_policy.end(), 0.0f);
+                    float sum = std::accumulate(policy.begin(), policy.end(), 0.0f);
                     if (sum > 0) {
-                        for (auto& p : valid_policy) {
+                        for (auto& p : policy) {
                             p /= sum;
                         }
                     } else {
                         // Uniform policy if sum is zero
-                        for (auto& p : valid_policy) {
-                            p = 1.0f / valid_policy.size();
+                        for (auto& p : policy) {
+                            p = 1.0f / policy.size();
                         }
                     }
                     
                     // Get value
                     value = results[i].value;
                 } else {
-                    // Use uniform policy if neural network failed
-                    valid_policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
+                    // Use center-biased policy if neural network failed
+                    MCTS_DEBUG("Invalid result at index " << i << ", using center-biased policy");
+                    
+                    policy.resize(valid_moves.size(), 1.0f / valid_moves.size());
+                    
+                    // Apply slight bias toward center for better default play
+                    if (policy.size() > 4) {
+                        const float CENTER_BIAS = 1.2f;  // 20% boost for center moves
+                        int board_size = batch[i].state.board_size;
+                        float center_row = (board_size - 1) / 2.0f;
+                        float center_col = (board_size - 1) / 2.0f;
+                        float max_dist = std::sqrt(center_row * center_row + center_col * center_col);
+                        
+                        float sum = 0.0f;
+                        for (size_t j = 0; j < valid_moves.size(); j++) {
+                            int move = valid_moves[j];
+                            int row = move / board_size;
+                            int col = move % board_size;
+                            
+                            // Calculate distance from center (normalized to [0,1])
+                            float dist = std::sqrt(std::pow(row - center_row, 2) + std::pow(col - center_col, 2));
+                            float norm_dist = dist / max_dist;
+                            
+                            // Closer to center gets higher prior
+                            policy[j] *= (1.0f + (CENTER_BIAS - 1.0f) * (1.0f - norm_dist));
+                            sum += policy[j];
+                        }
+                        
+                        // Renormalize
+                        if (sum > 0) {
+                            for (auto& p : policy) {
+                                p /= sum;
+                            }
+                        }
+                    }
+                    
+                    // Use neutral value
+                    value = 0.0f;
                 }
                 
-                // Fulfill the promise
-                batch[i].result_promise->set_value({valid_policy, value});
+                // Fulfill the promise with policy and value
+                batch[i].result_promise->set_value({policy, value});
+                
             } catch (const std::exception& e) {
                 MCTS_DEBUG("Worker " << thread_id << " error processing result for leaf " << i << ": " << e.what());
                 
