@@ -1,6 +1,6 @@
 # MQFT: MCTS statistical field-theory measurement package
 
-Research-only migration of the original MQFT / mcts_study project, RESTORE39.
+Research-only migration of the original MQFT / mcts_study project, RESTORE40 (trace/campaign/analysis v2).
 **Rust Quartz backend + Python analysis frontend**, with Rapfi as a separate external opponent.
 This repository's main branch is now dedicated to MQFT. Legacy implementation
 remains in Git history (previous main eb19e5f4ca9a502d645ccab45a8dcfbcc733f537).
@@ -61,7 +61,7 @@ submodule IDs are recorded in PROVENANCE.json; fetch them from upstream if
 building from source. Rapfi is a strong external proxy, not exact minimax or
 a source of MCTS internal statistics.
 
-## Future campaign workflow (not executed in RESTORE39)
+## Future campaign workflow (not executed in RESTORE40)
 
     mqft plan configs/commissioning_games.json runs/commissioning-plan.json
 
@@ -99,6 +99,20 @@ Report physical rollout samples, rollout plies, evaluator calls and wall time
 separately. For causal leaf-parallel comparison, add a serial control with
 matching samples_per_eval. Root replicas are not collapsed into a fictitious
 shared score or global chronology.
+
+## Opt-in causal root laws and pre-study checks
+
+See [three repair passes](docs/RESTORE40_AUDIT.md) and [framework audit](docs/FRAMEWORK_MATRIX.md).
+Default is unchanged baseline greedy PUCT with repaired statistics.
+For opt-in use configs/root_laws.template.json (planned only); IID, PL and
+reservation laws, P/Q/local/path proposals, actual root select/backup lock
+chronology. Only serial, leaf and wave are supported for stochastic root law.
+Record rollout actions with record_rollouts=true. Older v1 traces/receipts
+are not interchangeable with v2. Use mqft closure ANALYSIS SPLIT OUTPUT for
+fixed-protocol position-disjoint memory ablation; see closure.py for split
+fields. Use mqft preflight PLAN OUTPUT --backend EXE --rapfi DIR for software
+fixtures and Rapfi protocol, not research data. Full-game commissioning and
+sample size remain to be established.
 
 ## Conditional model panels
 

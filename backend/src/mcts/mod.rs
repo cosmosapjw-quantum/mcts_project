@@ -845,8 +845,8 @@ impl<G: GameState> MctsEngine<G> {
         profiling::record_elapsed_nanos(&EXPAND_EVAL_TIME_NANOS, expand_started);
 
         let backprop_started = profiling::maybe_start_timer();
-        backprop::<G>(&sel.path, leaf_value);
-        if let (Some(t),Some(selected)) = (&self.mqft_trace,mqft_selected) { t.finish(selected,leaf_value,crate::mqft_trace::take_eval(),mqft_terminal); }
+        let root_clock=backprop::<G>(&sel.path, leaf_value);
+        if let (Some(t),Some(selected)) = (&self.mqft_trace,mqft_selected) { t.finish(selected,leaf_value,crate::mqft_trace::take_eval(),mqft_terminal,root_clock); }
         profiling::record_elapsed_nanos(&BACKPROP_TIME_NANOS, backprop_started);
     }
 
@@ -898,8 +898,8 @@ impl<G: GameState> MctsEngine<G> {
         profiling::record_elapsed_nanos(&EXPAND_EVAL_TIME_NANOS, expand_started);
 
         let backprop_started = profiling::maybe_start_timer();
-        backprop::<G>(&sel.path, leaf_value);
-        if let (Some(t),Some(selected)) = (&self.mqft_trace,mqft_selected) { t.finish(selected,leaf_value,crate::mqft_trace::take_eval(),mqft_terminal); }
+        let root_clock=backprop::<G>(&sel.path, leaf_value);
+        if let (Some(t),Some(selected)) = (&self.mqft_trace,mqft_selected) { t.finish(selected,leaf_value,crate::mqft_trace::take_eval(),mqft_terminal,root_clock); }
         profiling::record_elapsed_nanos(&BACKPROP_TIME_NANOS, backprop_started);
         scratch.reset_to_root();
     }
@@ -960,10 +960,11 @@ impl<G: GameState> MctsEngine<G> {
         &self,
         path: Vec<crate::mcts::node::PathEdge<G::Move>>,
         leaf_value: f32,
-    ) {
+    ) -> u64 {
         let backprop_started = profiling::maybe_start_timer();
-        backprop::<G>(&path, leaf_value);
+        let clock=backprop::<G>(&path, leaf_value);
         profiling::record_elapsed_nanos(&BACKPROP_TIME_NANOS, backprop_started);
+        clock
     }
 
     pub fn complete_iteration_async(

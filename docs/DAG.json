@@ -1,6 +1,6 @@
 {
-  "revision": "RESTORE39_20261125",
-  "scope": "256 actual independent-seed repeats across eight prior roots; disjoint record versus cumulative decision; exact injectivity null, root-disjoint prediction and stopping not admitted; complex record reductions, explicit label-write isometry, conditional total-correlation and parity counterexample. Original 13 nodes and core retained.",
+  "revision": "RESTORE40_20261125",
+  "scope": "Three adversarial pre-study repair passes; no new science status promoted.",
   "entry": "REPLAN-01",
   "supersedes_next": "MQFT-RESTORE39-REPLAN03-ACTUAL-ADAPTIVE-ACTION-RESPONSE",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
@@ -580,5 +580,23 @@
     "fresh_research_backups": 0,
     "science_status_policy": "previous node execution statuses preserved; not promoted by software tests",
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED"
+  },
+  "pre_study_audit": {
+    "parent_dag_sha256": "156a41a449bb03cd288763771066a1c318a566016cba2c412654733eb1e50c29",
+    "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED",
+    "passes": [
+      "native_algorithm",
+      "campaign_lifecycle",
+      "framework_opt_in"
+    ],
+    "evidence": [
+      "docs/RESTORE40_AUDIT.md",
+      "docs/FRAMEWORK_MATRIX.md",
+      "docs/STAGE_LEDGER.md"
+    ],
+    "fresh_games": 0,
+    "fresh_research_backups": 0,
+    "next_stage": "RESTORE41_COMMISSIONING_AWAIT_AUTHORIZATION",
+    "next_contract": "docs/NEXT_DYNAMICS.md"
   }
 }

@@ -16,10 +16,11 @@ use std::sync::atomic::Ordering;
 use crate::game::GameState;
 use crate::mcts::node::{atomic_f64_add, atomic_f64_load, PathEdge};
 
-pub fn backprop<G: GameState>(path: &[PathEdge<G::Move>], leaf_value: f32) {
+pub fn backprop<G: GameState>(path: &[PathEdge<G::Move>], leaf_value: f32) -> u64 {
+    let mut clock = u64::MAX;
     let mut value = leaf_value;
 
-    for pe in path.iter().rev() {
+    for (depth, pe) in path.iter().enumerate().rev() {
         value = -value; // negamax: 부모 관점 부호 반전
 
         // Phase 7 C (2026-04-26): lock-free slab read.
@@ -54,6 +55,9 @@ pub fn backprop<G: GameState>(path: &[PathEdge<G::Move>], leaf_value: f32) {
 
         atomic_f64_add(&pe.parent.w_total, value as f64);
         pe.parent.n_total.fetch_add(1, Ordering::AcqRel);
+        if depth == 0 && pe.root_selection.is_some() {
+            clock = pe.parent.chronology.fetch_add(1, Ordering::Relaxed);
+        }
         let child = e.child;
         drop(guard);
         // Repeated edge visits are not necessarily transpositions. This is
@@ -62,4 +66,5 @@ pub fn backprop<G: GameState>(path: &[PathEdge<G::Move>], leaf_value: f32) {
             child.record_rtt_hit(value);
         }
     }
+    clock
 }

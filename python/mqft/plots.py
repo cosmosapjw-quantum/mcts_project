@@ -15,11 +15,11 @@ def rows(p):
         for line in f:yield json.loads(line)
 
 def group(r):
-    return (r["kind"],r["mode"],r["workers"],r["budget"],r["c_puct"],r["samples_per_eval"],r["opponent"],r["source_h"])
+    return (r["kind"],r["mode"],r["workers"],r["budget"],r["c_puct"],r["samples_per_eval"],r["opponent"],r["source_h"],r.get("law_id","legacy"))
 
 def label(g):
-    kind,mode,w,b,c,s,opp,h=g
-    return f"{kind}/{mode} W{w} B{b} c={c:g} L{s} {opp} h={h:g}"
+    kind,mode,w,b,c,s,opp,h,law=g
+    return f"{kind}/{mode} W{w} B{b} c={c:g} L{s} {opp} h={h:g} law={law}"
 
 def summarize(iterator,field,x,transform=None,predicate=lambda r:True):
     # Average within job first, then over jobs, never over plies as independent samples.
@@ -48,7 +48,7 @@ def draw(ax,b,ylabel,xlabel,logx=False):
 def render(indir,outdir):
     p=Path(indir);out=Path(outdir)
     m=json.loads((p/"manifest.json").read_text())
-    if m["schema"]!="mqft.analysis.v1" or not m["completed"]:raise ValueError("no valid analysis")
+    if m["schema"]!="mqft.analysis.v2" or not m["completed"]:raise ValueError("no valid analysis")
     if any(sha256(p/n)!=h for n,h in m["outputs"].items()):raise ValueError("analysis hash mismatch")
     out.mkdir(parents=True,exist_ok=False)
     registry=[]
@@ -118,6 +118,21 @@ def render(indir,outdir):
             it("source_response","measured","h","Measured d occupancy / dh","Source amplitude"),
             it("source_response","frozen_kkt","h","Frozen KKT finite response","Source amplitude"),
             it("source_response","residual","h","Measured - frozen response","Source amplitude",t=lambda r:r["measured"]-r["frozen_kkt"])],"A/C: Matched root source contrast, not FDT")
+    laws=list(rows(p/"law_summary.jsonl"))
+    if laws:
+        fig,axs=plt.subplots(3,1,figsize=(11,9),constrained_layout=True)
+        for j,r in enumerate(laws):
+            for k,target in enumerate(("p","q")):
+                x=j+(-.13 if k==0 else .13);z=r["targets"][target]
+                for ax,field in zip(axs,("weight_mean","ESS","response_IS")):
+                    if z[field] is not None:ax.scatter(x,z[field],label=target if j==0 else None,marker="o" if k==0 else "x")
+        axs[0].axhline(1,color="grey",ls=":");axs[0].set_ylabel("Mean path weight")
+        axs[1].set_ylabel("Path ESS (count)");axs[2].set_ylabel("IS score response")
+        for ax in axs:ax.set_xticks(range(len(laws)),[f"{r['position_id']} B{r['budget']} {r['law_id']} n={r['n_paths']}" for r in laws],rotation=90,fontsize=6);ax.grid(alpha=.2)
+        axs[0].legend();fig.suptitle("N/A: bounded path proposal, fixed-root replicates; not physical work")
+        for ext in ("png","pdf"):fig.savefig(out/("N_A_path_law."+ext),dpi=160,bbox_inches="tight")
+        plt.close(fig);registry.append(dict(name="N_A_path_law",status="observed"))
+    else:registry.append(dict(name="N_A_path_law",status="BLOCKED_NO_PATH_PROPOSAL_DATA"))
     rec=list(rows(p/"root_repeats.jsonl"))
     if rec:
         fig,ax=plt.subplots(figsize=(10,5),constrained_layout=True)
@@ -131,7 +146,7 @@ def render(indir,outdir):
         fig.savefig(out/"D_repeated_root_information.png",dpi=160,bbox_inches="tight");fig.savefig(out/"D_repeated_root_information.pdf",bbox_inches="tight");plt.close(fig)
         registry.append(dict(name="D_repeated_root_information",status="observed"))
     else:registry.append(dict(name="D_repeated_root_information",status="BLOCKED_NO_REPEATED_ROOTS"))
-    manifest=dict(schema="mqft.plots.v1",source_manifest_sha256=sha256(p/"manifest.json"),panels=registry,
+    manifest=dict(schema="mqft.plots.v2",source_manifest_sha256=sha256(p/"manifest.json"),panels=registry,
                   files={f.name:sha256(f) for f in sorted(out.iterdir()) if f.is_file()},
                   blocked=["physical temperature/heat/FDT/Crooks/Jarzynski without calibrated protocol","native quantum phase, rho, SBS, envariance, Lindblad or tunneling without declared map and controls","physical RG fixed points/exponents without scale-family and holdout","actual one-loop coefficient without measure and predictive test"])
     atomic_json(out/"manifest.json",manifest);return manifest

@@ -24,6 +24,13 @@ pub fn take_eval() -> Option<u64> {
 }
 
 #[derive(Clone, Debug, Serialize)]
+pub struct RootSelection {
+    pub clock: u64,
+    pub score: f32,
+    pub edge_index: usize,
+    pub law: Option<crate::mqft_law::Draw>,
+}
+#[derive(Clone, Debug, Serialize)]
 pub struct Selected {
     pub select_seq: u64,
     pub phase: u32,
@@ -34,12 +41,14 @@ pub struct Selected {
     pub leaf_hash: String,
     pub vl_visit: Vec<f32>,
     pub vl_value: Vec<f32>,
+    pub root_selection: Option<RootSelection>,
 }
 #[derive(Clone, Debug, Serialize)]
 pub struct Event {
     #[serde(flatten)]
     pub selection: Selected,
     pub complete_seq: u64,
+    pub root_backup_clock: u64,
     pub leaf_value: f32,
     pub root_value: f32,
     pub eval_id: Option<u64>,
@@ -66,6 +75,7 @@ impl Trace {
             leaf_hash: format!("{:016x}", root.tt_hash()),
             vl_visit: Vec::with_capacity(path.len()),
             vl_value: Vec::with_capacity(path.len()),
+            root_selection: path.first().and_then(|e| e.root_selection.clone()),
         };
         for e in path {
             let edge = &e.parent.read_edges()[e.edge_idx];
@@ -78,7 +88,14 @@ impl Trace {
         }
         s
     }
-    pub fn finish(&self, s: Selected, leaf_value: f32, eval_id: Option<u64>, terminal: bool) {
+    pub fn finish(
+        &self,
+        s: Selected,
+        leaf_value: f32,
+        eval_id: Option<u64>,
+        terminal: bool,
+        root_backup_clock: u64,
+    ) {
         // Sequence is observation order, not a claim of linearizable internal atomic writes.
         let mut a = self.events.lock();
         let v = if s.actions.len() % 2 == 0 {
@@ -90,6 +107,7 @@ impl Trace {
         a.push(Event {
             selection: s,
             complete_seq,
+            root_backup_clock,
             leaf_value,
             root_value: v,
             eval_id,

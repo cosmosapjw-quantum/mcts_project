@@ -1,33 +1,32 @@
-# RESTORE39 stage ledger
+# RESTORE40 theory and coding 10+10 execution ledger
 
-The user-directed package transition supersedes the prior next-step scientific
-execution. Source audit/theory and implementation overlapped where necessary;
-not claimed as literal serial 20 independent-agent calls. Native subagent
-dispatch was not exposed in this session; independent agent review NOT_RUN.
-Same-context adversarial review and separate numerical implementations used.
+Research transition: final pre-study software audit. Independent subagent not
+available. R/C activities interleaved where feedback required, not 20 independent
+sequential agent calls. All completed steps are scoped to audit/preparation.
 
-| Stage | Work and status |
+| Stage | Executed work |
 |---|---|
-| R1 | Original Q28/Q30 target and SSOT identities read; frozen scope |
-| R2 | Original code/function spans, mcts_study, Quartz, Rapfi source and literature reviewed |
-| R3 | Common game/ply/search/replica/worker/backup and player-frame contract |
-| R4 | Distinguish schedules, physical vs native and conditional estimands |
-| R5 | Moment pooling, shifted KKT, tangent response, score balance and conditional bath equations |
-| R6 | CAS/finite-difference and scope counterchecks; no independent agent |
-| R7 | Mathematical fixtures only; actual research discrimination deferred per user |
-| R8 | Provenance and original panel support classification, no new physics claim |
-| R9 | THEORY.md and 121 source-target rows, input/output contracts |
-| R10 | Drift watchdog, DAG and next commissioning scope |
-| C1 | Pin source commits, target parent and exact source archives |
-| C2 | Extract native Quartz Rust source and Rapfi source, inspect legacy defects |
-| C3 | JSONL, explicit schedules, replica/moment and storage contracts |
-| C4 | Planned sharded games and fixed roots, budget/resource guards |
-| C5 | Native engine adapters, trace, Python analysis/plot and conditional model functions |
-| C6 | Release build, targeted Rust tests, Python unit/bridge/receipt/render fixtures |
-| C7 | Native and physical interpretation audited; actual campaign validation NOT_RUN |
-| C8 | Count/moment, KKT, conditional entropy and input hash checks; throughput NOT_RUN |
-| C9 | Same-context code review; original legality failure repaired, no independent agent |
-| C10 | Git main publication and backup; see external publication/backup receipts |
+| R1 | Freeze original SSOT/catalog, RESTORE39 source and current DAG |
+| R2 | Read original policies, RESTORE28–38 source evidence and primary MCTS literature |
+| R3 | Specify count, sum, S2, negamax, legal support and clocks |
+| R4 | Distinguish schedule and stochastic estimands; restore P/Q/local/path |
+| R5 | Derive raw moment pooling, path mixture posterior and Fisher contraction |
+| R6 | CAS and independent replay; full support, trace, PSD/CP and boundary checks |
+| R7 | Finite-wave, full-rollout and group closure software discrimination; research NOT_RUN |
+| R8 | Preserve negative admissions; categorize active/conditional/blocked |
+| R9 | FRAMEWORK_MATRIX and explicit model, source and likelihood contracts |
+| R10 | Rebuild original catalog, drift watchdog and next commissioning criteria |
+| C1 | Pin clean main and create dedicated audit worktree |
+| C2 | Repair pass 1 native locks, S2, expansion and ticketing |
+| C3 | Pass 1 regression and ASan |
+| C4 | Pass 2 campaign durability, identity and subprocess protocol |
+| C5 | Pass 2 actual Rapfi probe, tiny runner/restart and receipt tests |
+| C6 | Pass 3 opt-in stochastic root and augmented rollout law, v2 schema |
+| C7 | Pass 3 conditional primitives, closure/IS summary, original renderers |
+| C8 | Integration test found duplicated summary; corrected and full test/ASan rerun |
+| C9 | Local environment, preflight and exact planning metadata; no full campaign |
+| C10 | Preserve original DAG nodes/edges; commit, publication, backup and verified cleanup receipts |
 
-No research data generation. No automatic training. Only ephemeral fixed-board
-software fixtures and mathematical test fixtures; no complete game produced.
+No new research data or finished game; no claimed new strength, temperature,
+critical exponent, native phase or physical entropy production. No universal
+proof of absence of algorithm defects.

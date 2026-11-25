@@ -103,7 +103,7 @@ class ReceiptFixture(unittest.TestCase):
             atomic_json(folder/"run_lock.json",dict(plan_hash=p["plan_hash"],backend_sha=h,external=None))
             f=folder/(j["id"]+".jsonl.gz")
             with gzip.open(f,"wt") as g:
-                for row in (dict(type="header",job=j,plan_hash=p["plan_hash"],backend_sha=h,backend=identity,external=None),dict(type="root",moves=j["opening"],trace=tr),dict(type="end",status="root_complete",moves=j["opening"],backups=2,searched_records=1,terminal=False,winner=None)):
+                for row in (dict(type="header",schema=p["schema"],job=j,plan_hash=p["plan_hash"],backend_sha=h,backend=identity,external=None),dict(type="root",moves=j["opening"],trace=tr),dict(type="end",status="root_complete",moves=j["opening"],backups=2,searched_records=1,terminal=False,winner=None)):
                     g.write(json.dumps(row)+"\n")
             atomic_json(folder/(j["id"]+".receipt.json"),dict(job_id=j["id"],job_hash=digest(j),plan_hash=p["plan_hash"],backend_sha=h,status="root_complete",sha256=sha256(f),file=f.name,bytes=f.stat().st_size,backups=2,records=1))
             a=analyze(p,folder,out);self.assertEqual(a["completed"],1)
@@ -140,3 +140,107 @@ class Lifecycle(unittest.TestCase):
             b=execute(p,out,os.environ["MQFT_TEST_BACKEND"],authorized=True)
             self.assertEqual(a,b)
             self.assertEqual(analyze(p,out,t/"analysis")["completed"],1)
+
+@unittest.skipUnless(os.environ.get("MQFT_TEST_BACKEND"),"set MQFT_TEST_BACKEND")
+class RootLaw(unittest.TestCase):
+    def test_native_stochastic_laws(self):
+        from mqft.path_law import replay
+        with Backend(os.environ["MQFT_TEST_BACKEND"],30) as b:
+            for kind in ("iid","pl","reserve"):
+                for prop in ("p","q","local","path"):
+                    with self.subTest(kind=kind,proposal=prop):
+                        law=dict(kind=kind,beta_p=[.8],beta_q=[3.2],proposal=prop,logit_h=.2)
+                        spec=dict(mode="wave",workers=4,budget=9,cuts=[1,5,9],seed=42,c_puct=1.4,rollout_depth=3,samples_per_eval=1,prior="local",source_action=111,source_h=0.,root_law=law,record_rollouts=True)
+                        tr=b.search([112,113],spec);z=check_trace(tr,[112,113],spec)
+                        a=z["path_laws"][0];self.assertEqual(a["root_operations"],18)
+                        if prop=="path":self.assertAlmostEqual(a["weight_p"]+a["weight_q"],2.)
+                        if kind=="pl":
+                            from collections import defaultdict
+                            phases=defaultdict(list)
+                            for e in tr["replicas"][0]["events"]:phases[e["phase"]].append(e["actions"][0])
+                            self.assertTrue(all(len(x)==len(set(x)) for x in phases.values()))
+                        bad=copy.deepcopy(tr);bad["replicas"][0]["events"][0]["root_selection"]["law"]["p"][0]+=.01
+                        with self.assertRaises(ValueError):check_trace(bad,[112,113],spec)
+    def test_illegal_stochastic_mode(self):
+        with Backend(os.environ["MQFT_TEST_BACKEND"],20) as b:
+            spec=dict(mode="tree",workers=4,budget=4,cuts=[4],seed=1,c_puct=1.4,rollout_depth=1,samples_per_eval=1,prior="local",source_action=None,source_h=0.,root_law=dict(kind="iid",beta_p=[1.],beta_q=[2.],proposal="path"))
+            with self.assertRaises(ValueError):b.search([112],spec)
+
+class Framework(unittest.TestCase):
+    def test_complex_gram_instrument_and_qfi(self):
+        from mqft.framework import gram_density,gram_from_environment,purify,instrument,coarse_density,qfi,phase_probe,negativity,gibbs,unitary
+        p=[.5,.5];r=gram_density(p,[0,np.pi/2],np.ones((2,2)))
+        Y=np.array([[0,-1j],[1j,0]])
+        self.assertAlmostEqual(phase_probe(r,Y),1.)
+        X,meta=purify(r);self.assertEqual(meta["numerical_rank"],1);np.testing.assert_allclose(X@X.conj().T,r,atol=1e-12)
+        f=gram_from_environment([np.eye(2),Y],np.eye(2)/2);np.testing.assert_allclose(f,np.eye(2))
+        branches=instrument(r,[[np.diag([1,0])],[np.diag([0,1])]])
+        self.assertAlmostEqual(sum(x[0] for x in branches),1.)
+        with self.assertRaises(ValueError):instrument(r,[[np.eye(2)/2]])
+        np.testing.assert_allclose(coarse_density(r,[0,0],[0,1]),[[1.]])
+        self.assertAlmostEqual(qfi(np.diag([.5,.5]),np.diag([1.,-1.])),4.)
+        v=np.array([1,0,0,1j])/np.sqrt(2);self.assertAlmostEqual(negativity(np.outer(v,v.conj()),2,2),.5)
+        rho,therm=gibbs(np.diag([0.,1.]),1.);self.assertGreater(therm["C_over_kB"],0)
+        U=unitary(Y,.4,1.);np.testing.assert_allclose(U.conj().T@U,np.eye(2),atol=1e-12)
+        with self.assertRaises(ValueError):gram_density(p,[0,0],[[1,2],[2,1]])
+    def test_exact_wave_fisher_projection(self):
+        from mqft.framework import exact_wave,pushforward,graph_reduction
+        from mqft.path_law import categorical_characteristic,path_weight_statistics
+        for mode in ("iid","pl","reserve"):
+            x=exact_wave([1,2,0],[.1,-.2,0],[.2,.3,.5],1.4,1.,2,mode,source=1)
+            d=pushforward(x["p"],x["counts"],x["score"])
+            np.testing.assert_allclose(d["fine_Fisher"],d["coarse_Fisher"]+d["missing_Fisher"],atol=1e-10)
+            z,mu,cov=categorical_characteristic(x["p"],np.array(x["counts"]),[0,0,0])
+            self.assertAlmostEqual(z.real,1.);self.assertAlmostEqual(mu.sum(),2.);np.testing.assert_allclose(cov@np.ones(3),0,atol=1e-10)
+        d=graph_reduction([[0,1,0],[1,0,2],[0,2,0]],[1,2,3],[0,0,1],.5,.3)
+        np.testing.assert_allclose(d["isometry"].T@d["isometry"],np.eye(2))
+        self.assertGreaterEqual(np.linalg.eigvalsh(d["memory_defect"]).min(),-1e-9)
+        z=path_weight_statistics([dict(proposal="path",weight_p=1.5,weight_q=.5,mean_mark=.5,score_p=.2,score_q=-.2,conditional_fisher_p=.2,conditional_fisher_q=.2)])
+        self.assertAlmostEqual(z["p"]["mark_IS"],.75)
+
+@unittest.skipUnless(os.environ.get("MQFT_TEST_BACKEND"),"set MQFT_TEST_BACKEND")
+class FullRolloutChronology(unittest.TestCase):
+    def test_full_rollouts(self):
+        with Backend(os.environ["MQFT_TEST_BACKEND"],30) as b:
+            for mode,w,s in (("serial",1,1),("root",4,1),("tree",8,1),("leaf",4,4),("wave",4,1)):
+                spec=dict(mode=mode,workers=w,budget=37,cuts=[1,9,37],seed=88,c_puct=1.4,rollout_depth=225,samples_per_eval=s,prior="local",source_action=None,source_h=0.,record_rollouts=True)
+                z=check_trace(b.search([112,113,97,127],spec),[112,113,97,127],spec)
+                self.assertEqual(z["global_rows"][-1]["k"],37)
+
+class ClosureFixture(unittest.TestCase):
+    def test_causal_group_ablation(self):
+        from mqft.closure import evaluate
+        rows=[]
+        for g in ("a","b","c"):
+            for j in range(18):
+                rows.append(dict(kind="roots",position_id=g,label=j%3,state=[float(j%2),0.],memory=[float(j%3)],geometry=[.1]))
+        a=evaluate(rows,[("roots","a"),("roots","b")],[("roots","c")])
+        self.assertEqual(a["test_events"],18)
+        self.assertLess(a["models"]["history"]["nll"],a["models"]["state"]["nll"])
+        with self.assertRaises(ValueError):evaluate(rows,[("roots","a")],[("roots","a")])
+
+class PreflightMath(unittest.TestCase):
+    def test_paired_block_sizing(self):
+        from mqft.preflight import paired_blocks
+        self.assertGreater(paired_blocks(1,.1),paired_blocks(1,.2))
+        with self.assertRaises(ValueError):paired_blocks(0,.1)
+
+@unittest.skipUnless(os.environ.get("MQFT_TEST_BACKEND"),"set MQFT_TEST_BACKEND")
+class LawAnalysisFixture(unittest.TestCase):
+    def test_stochastic_receipts_and_summary(self):
+        from mqft.campaign import execute
+        from mqft.analysis import analyze
+        from mqft.plots import render
+        cfg=dict(kind="roots",seed=3,replicates=2,budgets=[4],c_puct=[1.4],
+                 modes=[dict(mode="wave",workers=2,root_law=dict(kind="reserve",beta_p=[.5],beta_q=[2.],proposal="path",logit_h=.1))],
+                 positions=[dict(id="unit",moves=[112,113],source_action=111)],sources=[0.],
+                 rollout_depth=3,record_rollouts=True,jobs=1,cpu_limit=2,max_output_bytes=2097152)
+        p=make_plan(cfg)
+        with tempfile.TemporaryDirectory() as t:
+            t=Path(t);r=execute(p,t/"data",os.environ["MQFT_TEST_BACKEND"],authorized=True)
+            self.assertEqual(r["failures"],[]);analyze(p,t/"data",t/"analysis")
+            rr=[json.loads(x) for x in (t/"analysis/law_summary.jsonl").read_text().splitlines()]
+            self.assertEqual(len(rr),1);self.assertEqual(rr[0]["n_paths"],2)
+            self.assertAlmostEqual(rr[0]["targets"]["p"]["weight_mean"]+rr[0]["targets"]["q"]["weight_mean"],2.)
+            self.assertEqual(len((t/"analysis/history_features.jsonl").read_text().splitlines()),8)
+            z=render(t/"analysis",t/"plots");self.assertTrue(any(x["name"]=="N_A_path_law" and x["status"]=="observed" for x in z["panels"]))

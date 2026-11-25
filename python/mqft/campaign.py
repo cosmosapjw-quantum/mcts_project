@@ -13,7 +13,7 @@ from pathlib import Path
 from .client import Backend, sha256, digest, canonical
 from . import rapfi
 
-PLAN_SCHEMA="mqft.campaign.v1"
+PLAN_SCHEMA="mqft.campaign.v2"
 def read(path):return json.loads(Path(path).read_text())
 def atomic_json(path,obj):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
@@ -62,13 +62,14 @@ def finite(value,name,lo,hi):
     if type(value) not in (int,float) or not math.isfinite(value) or not lo<=value<=hi:raise ValueError(f"{name}: invalid number")
     return float(value)
 def make_plan(cfg):
-    allowed={"kind","seed","replicates","budgets","c_puct","modes","openings","opponents","positions","sources","rollout_depth","prior","samples_per_eval","move_temperature","max_plies","jobs","cpu_limit","max_output_bytes","search_timeout","rapfi_timeout_ms","rapfi_threads"}
+    allowed={"kind","seed","replicates","budgets","c_puct","modes","openings","opponents","positions","sources","rollout_depth","prior","samples_per_eval","move_temperature","max_plies","jobs","cpu_limit","max_output_bytes","search_timeout","rapfi_timeout_ms","rapfi_threads","record_rollouts"}
     if set(cfg)-allowed:raise ValueError(f"unknown config keys {sorted(set(cfg)-allowed)}")
     kind=cfg["kind"];reps=integer(cfg["replicates"],"replicates",1,100000);base=integer(cfg["seed"],"seed",0,2**64-1)
     if kind not in ("games","roots") or not 1<=reps<=100000:raise ValueError("kind/replicates")
     jobs=integer(cfg["jobs"],"jobs",1,64);cpus=integer(cfg["cpu_limit"],"cpu_limit",1,4096)
     if not 1<=jobs<=cpus:raise ValueError("invalid CPU budget")
     max_bytes=integer(cfg["max_output_bytes"],"max_output_bytes",1024,2**60)
+    if type(cfg.get("record_rollouts",False))!=bool:raise ValueError("record_rollouts must be boolean")
     if max_bytes<=0:raise ValueError("max_output_bytes required")
     max_plies=integer(cfg.get("max_plies",225),"max_plies",1,225);depth=integer(cfg.get("rollout_depth",225),"rollout_depth",1,225);temp=finite(cfg.get("move_temperature",1),"move_temperature",0,100)
     if not 1<=max_plies<=225 or not 1<=depth<=225 or not math.isfinite(temp) or temp<0:raise ValueError("invalid move/rollout limit")
@@ -97,10 +98,20 @@ def make_plan(cfg):
         if a is not None and (type(a)!=int or not 0<=a<225 or b[a]):raise ValueError("source_action must be legal")
         if any(h!=0 for h in sources) and a is None:raise ValueError("source action must be fixed before perturbation")
     for mode,budget,c,pos,opp,h,rep in itertools.product(modes,budgets,cs,positions,opponents,sources,range(reps)):
-        if set(mode)-{"mode","workers","samples_per_eval"}:raise ValueError("unknown mode keys")
+        if set(mode)-{"mode","workers","samples_per_eval","root_law"}:raise ValueError("unknown mode keys")
         name=mode["mode"];workers=integer(mode["workers"],"workers",1,64);samples=integer(mode.get("samples_per_eval",cfg.get("samples_per_eval",1)),"samples_per_eval",1,64)
         if name not in ("serial","root","tree","leaf","wave") or not 1<=workers<=64 or not 1<=samples<=64 or not 1<=budget<=65536 or (name=="root" and workers>budget) or (name=="serial" and workers!=1) or (name=="leaf" and samples<2):
             raise ValueError("invalid schedule")
+        law=mode.get("root_law")
+        if law is not None:
+            if name not in ("serial","wave","leaf") or not isinstance(law,dict) or set(law)-{"kind","beta_p","beta_q","proposal","logit_h"} or law.get("kind") not in ("iid","pl","reserve") or law.get("proposal") not in ("p","q","local","path"):raise ValueError("root law mode or kind")
+            for v in (law.get("beta_p"),law.get("beta_q")):
+                if not isinstance(v,list) or len(v) not in (1,budget):raise ValueError("beta schedule")
+                for z in v:finite(z,"beta",0,20)
+            hh=finite(law.get("logit_h",0),"logit_h",-20,20)
+            law={**law,"logit_h":hh}
+            if hh!=0 and pos.get("source_action") is None:raise ValueError("logit_h source not set")
+            if max(law["beta_p"]+law["beta_q"])*(2+c*math.sqrt(budget+workers))+abs(hh)>640:raise ValueError("root law full support bound")
         if jobs*max(workers,ext_threads if opp.startswith("rapfi") else 1)>cpus:raise ValueError("nested CPU oversubscription")
         if opp.startswith("rapfi") and timeout<=ext_ms/1000:raise ValueError("external timeout exceeds search timeout")
         finite(h,"source_h",-20,20)
@@ -110,10 +121,10 @@ def make_plan(cfg):
         meta=dict(kind=kind,position_id=pos["id"],opening=pos["moves"],replicate=rep,block=block,opponent=opp,
             max_plies=max_plies,move_temperature=temp,search_timeout=timeout,
             rapfi_timeout_ms=ext_ms,rapfi_threads=ext_threads)
-        spec=dict(mode=name,workers=workers,budget=budget,cuts=cuts,c_puct=c,rollout_depth=depth,samples_per_eval=samples,prior=cfg.get("prior","local"),source_action=pos.get("source_action"),source_h=h)
+        spec=dict(mode=name,workers=workers,budget=budget,cuts=cuts,c_puct=c,rollout_depth=depth,samples_per_eval=samples,prior=cfg.get("prior","local"),source_action=pos.get("source_action"),source_h=h,root_law=law,record_rollouts=cfg.get("record_rollouts",law is not None))
         job_id=digest([meta,spec,base])[:24]
         # Separate fixed streams; no reliance on Python salted hash. Source +/- share initial seed for paired finite differences.
-        spec["seed"]=seed(base,pos["id"],pos["moves"],rep,name,workers,budget,c,opp)
+        spec["seed"]=seed(base,pos["id"],pos["moves"],rep,name,workers,budget,c,opp,mode.get("root_law",{}).get("kind") if mode.get("root_law") else None)
         meta.update(id=job_id,spec=spec,game_seed=seed(base,job_id,"moves"))
         rows.append(meta)
     if not rows or len({x["id"] for x in rows})!=len(rows):raise ValueError("empty/duplicate grid")

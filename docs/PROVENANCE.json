@@ -77,11 +77,17 @@
   },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "changed_or_added_backend_files": {
-    "src/mqft_trace.rs": "f95fb1bfc9d2143051e2fcbdc7bdbda2dfac30d650dfc92c6e6be3540483fd2f",
-    "src/lib.rs": "3ab73dde2db3c9023776787384699e0f500e425ad9e672d515d7b6186cd233b8",
+    "src/mqft_trace.rs": "ea897867d6d1a3f93a5dbe701daa6b6fcfeee64be11a8f1d680f3b64b189a726",
+    "src/mqft_law.rs": "4e49eec8c2f6fd01e9911432d0f67e5ae61c2672761c65ed62e492fbeeea7147",
+    "src/lib.rs": "27fd2134a8ddb75ec9174b8c34dd1bd7b183845d4541b026ec3c435a62c9a91c",
     "src/main.rs": "1fb0e10011a45a4cc7e45614b740f5bc04930e57c58a690930f4fc6e9d99fd83",
-    "src/mqft.rs": "d9953b862a612e3a6805396b3e80a9e62eebeeac85afec2ffb81d43f77fce65b",
-    "src/mcts/mod.rs": "c034168f678d1b51e6300b5acf2f318abd64fe324531f7d7b9ea6c2930b08022",
+    "src/mqft.rs": "8c708e68ac73a5fe7d23f884b19a5bf6986f2ec21cae62e211c910c64388d22b",
+    "src/mcts/expand.rs": "9b67f852b3875f52c8e65bddacdf05040420a80bba4962a35ed23bf0422b4581",
+    "src/mcts/backup.rs": "6d564e48e8c94660650b0a35710c8f9349a603ee49533402b7863aad7835bc09",
+    "src/mcts/parallel.rs": "8059825b1a72525c099c4bb5bb8414046c65974c81e8518a202f2e9541dbbfe4",
+    "src/mcts/node.rs": "f1668be4358264ff19808b6a76517deefb79aaf4ccd039b18ba6a232fe825a65",
+    "src/mcts/mod.rs": "e4ed7b2be2d4eeecf70dd800c8c2617f096addfe14350aaae59750ba66f8be4d",
+    "src/mcts/select.rs": "ec3b0f4072ef68f863aece3e183055212ed978b1d9918f03ba98c642d19bf628",
     "src/mcts/tt.rs": "4c02bd361763b5dd3bc353bbfbc8eae87e9c05f10297b3b361262190d27b3156",
     "src/games/mod.rs": "48bc9147c4eed75ac43a6d6e601b2c5cdcfe26943a6205544520a4017e3d9970"
   },
@@ -90,5 +96,27 @@
     "functions": 94,
     "guide_only": 27,
     "sha256": "d5d58c6f48e1fb95a3b3a11f355a5260ce95744aa86bcfc988b65d9985155696"
+  },
+  "restore40": {
+    "parent_main": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "trace_schema": "mqft.quartz.trace.v2",
+    "policies": {
+      "QUANTUM_DYNAMICS_POLICY.md": "c0cd99ceb637a4bfa758bb9a9cb2e12d5fd8e9d1bae3f0007a536b4ce4744345",
+      "CORE_POLICY.md": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
+      "QUANTUM_REPRESENTATION_POLICY.md": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c"
+    },
+    "prior_theory_hashes": {
+      "28": "e65374d8e7dbe913b09c441920372ae0a92809135f96f9f63c42e335b7ee21b1",
+      "29": "32145946f8ee6ce32d8a9b48accf5bc977ee2ae175f37b00ea7861b9a7be3575",
+      "30": "961ad278728a8704c8e45c06925c1ebc54186ef14ec29b1c074ff43d1db7edf0",
+      "31": "0ad4710e185093fe3d824317dcb1d3c58c4d008b6c241c28a6ab30d301a76503",
+      "32": "ed4d734b629609dbf706862a4b8bcf815677c1c64dfc3278f330ff000269a9a4",
+      "33": "ffcc5af913aa148b3f8fa276f3125a1f265ad6b9f2574ed5c85a04567235045f",
+      "34": "c44dd31f5c1726a8cb12a05eb034f65fda18436686f15b8c4f662aecac36d72d",
+      "35": "51000fdeff1170bf21a2323ca85e7a7353940611d44be65237f203c7d99e2963",
+      "36": "7b316dc38631396ed804b048624dc967b6e3e47fbb692be1fa53b62d2ea5635c",
+      "37": "b1c778007a788e2c9ccba28e31af7d6738321e3bc18a5c43c2f413ffdf6d6dfa",
+      "38": "2dfdc4e0ea3cf9b28af6a382f2efda4e7d5f8a178685f327be803cef33ec100b"
+    }
   }
 }

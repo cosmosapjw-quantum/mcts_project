@@ -19,7 +19,7 @@ use std::sync::{
 };
 use std::time::Instant;
 
-pub const SCHEMA: &str = "mqft.quartz.trace.v1";
+pub const SCHEMA: &str = "mqft.quartz.trace.v2";
 const QUARTZ: &str = "65e7d3e9596ca259ebfe523b0c74058692b6a755";
 fn default_c() -> f32 {
     1.4
@@ -53,6 +53,10 @@ pub struct Spec {
     pub source_action: Option<usize>,
     #[serde(default)]
     pub source_h: f64,
+    #[serde(default)]
+    pub root_law: Option<crate::mqft_law::LawSpec>,
+    #[serde(default)]
+    pub record_rollouts: bool,
 }
 impl Spec {
     fn validate(&self) -> Result<(), String> {
@@ -76,7 +80,8 @@ impl Spec {
             return Err("sample or rollout depth bounds".into());
         }
         if !self.c_puct.is_finite()
-            || self.c_puct <= 0.
+            || self.c_puct < 1e-6
+            || self.c_puct > 1000.
             || !self.source_h.is_finite()
             || self.source_h.abs() > 20.
             || !["local", "uniform"].contains(&self.prior.as_str())
@@ -95,6 +100,21 @@ impl Spec {
         }
         if self.mode == "root" && self.workers > self.budget as usize {
             return Err("root budget must cover every replica".into());
+        }
+        if let Some(law) = &self.root_law {
+            law.validate(self.budget, &self.mode, self.source_action)?;
+            // Conservative representable-full-support contract, including pending VL.
+            let max_beta = law
+                .beta_p
+                .iter()
+                .chain(&law.beta_q)
+                .copied()
+                .fold(0., f64::max);
+            let span =
+                2. + self.c_puct as f64 * ((self.budget as f64 + self.workers as f64).sqrt());
+            if max_beta * span + law.logit_h.abs() > 640. {
+                return Err("root-law full support may underflow: reduce beta/c/budget".into());
+            }
         }
         Ok(())
     }
@@ -135,6 +155,8 @@ pub struct Sample {
     value: f32,
     plies: usize,
     terminal: bool,
+    actions: Option<Vec<usize>>,
+    log_path_prob: f64,
 }
 #[derive(Debug, Clone, Serialize)]
 pub struct Evaluation {
@@ -167,6 +189,8 @@ impl ResearchEval {
         let side = s.current_player();
         let mut rng = StdRng::seed_from_u64(seed);
         let mut plies = 0;
+        let mut actions = self.spec.record_rollouts.then(Vec::new);
+        let mut log_path_prob = 0.;
         while !s.is_terminal() && plies < self.spec.rollout_depth {
             // Same rollout policy in all schedules, independent draw per rollout.
             let legal = s.legal_moves();
@@ -174,6 +198,10 @@ impl ResearchEval {
                 break;
             }
             let m = legal[rng.gen_range(0..legal.len())];
+            log_path_prob -= (legal.len() as f64).ln();
+            if let Some(ref mut a) = actions {
+                a.push(m as usize);
+            }
             s.apply_move_in_place_no_undo(m);
             plies += 1;
         }
@@ -189,6 +217,8 @@ impl ResearchEval {
             value,
             plies,
             terminal,
+            actions,
+            log_path_prob,
         }
     }
     fn priors(&self, state: &Gomoku15) -> Vec<(u16, f32)> {
@@ -287,6 +317,7 @@ pub struct Replica {
     replica: usize,
     seed: String,
     cuts: Vec<Cut>,
+    root_order: Vec<usize>,
     events: Vec<Event>,
     evaluations: Vec<Evaluation>,
 }
@@ -319,6 +350,14 @@ impl Work {
         mqft_trace::clear_eval();
         let trace = Arc::new(Trace::default());
         engine.mqft_trace = Some(trace.clone());
+        engine.par_ctrl.mqft_record = true;
+        if let Some(law) = &spec.root_law {
+            engine.par_ctrl.mqft_sampler = Some(Mutex::new(crate::mqft_law::Sampler::new(
+                law.clone(),
+                spec.source_action,
+                mix(seed ^ 0x52_4f_4f_54),
+            )));
+        }
         Self {
             engine,
             eval,
@@ -387,8 +426,8 @@ impl Work {
                     if reason != ImmediateReason::TerminalNode {
                         return Err("unexpected capacity truncation".into());
                     }
-                    self.engine.apply_iteration_value_async(path, value);
-                    self.trace.finish(sel, value, None, true);
+                    let clock = self.engine.apply_iteration_value_async(path, value);
+                    self.trace.finish(sel, value, None, true, clock);
                 }
                 PreparedIteration::Pending(p) => {
                     let value = crate::mcts::expand::expand_with_result(
@@ -398,8 +437,8 @@ impl Work {
                         &self.engine.tt,
                         self.engine.config.pw.as_ref(),
                     );
-                    self.engine.apply_iteration_value_async(p.path, value);
-                    self.trace.finish(sel, value, id, false);
+                    let clock = self.engine.apply_iteration_value_async(p.path, value);
+                    self.trace.finish(sel, value, id, false, clock);
                 }
             }
         }
@@ -418,7 +457,13 @@ impl Work {
             }
             "wave" => {
                 while self.n() < target {
-                    self.step_wave(spec.workers.min((target - self.n()) as usize))?;
+                    let width = spec.workers.min((target - self.n()) as usize);
+                    let width = if spec.root_law.as_ref().is_some_and(|x| x.kind == "pl") {
+                        width.min(self.engine.root_state().legal_moves().len())
+                    } else {
+                        width
+                    };
+                    self.step_wave(width)?;
                 }
             }
             _ => {
@@ -577,6 +622,13 @@ impl Work {
             replica: id,
             seed: format!("{:016x}", self.seed),
             cuts: self.cuts,
+            root_order: self
+                .engine
+                .root
+                .read_edges()
+                .iter()
+                .map(|e| e.mv as usize)
+                .collect(),
             events,
             evaluations,
         }
@@ -669,7 +721,7 @@ fn request(line: &str) -> Result<Value, String> {
     let r: Request = serde_json::from_str(line).map_err(|e| e.to_string())?;
     match r {
         Request::Describe => Ok(
-            json!({"schema":SCHEMA,"quartz_commit":QUARTZ,"board_size":15,"rules":"freestyle","modes":["serial","root","tree","leaf","wave"],"evaluator":"seeded_uniform_rollout_with_uniform_or_local_prior","tt":"disabled_owned_arena","virtual_loss":"fixed tree/wave","native_phase":"observational sequence, not linearized atomic updates"}),
+            json!({"schema":SCHEMA,"quartz_commit":QUARTZ,"board_size":15,"rules":"freestyle","modes":["serial","root","tree","leaf","wave"],"evaluator":"seeded_uniform_rollout_with_uniform_or_local_prior","tt":"disabled_owned_arena","virtual_loss":"fixed tree/wave","native_phase":"root select/reserve and root backup linearized; descendant event completion order observational","root_laws":["iid","pl","reserve"],"root_proposals":["p","q","local","path"],"record_rollouts":"opt-in exact augmented uniform rollout path"}),
         ),
         Request::State { moves } => Ok(state_value(&from_moves(&moves)?)),
         Request::Search { moves, spec } => {
@@ -729,6 +781,8 @@ mod tests {
                 prior: "uniform".into(),
                 source_action: None,
                 source_h: 0.,
+                root_law: None,
+                record_rollouts: false,
             };
             let r = search(&[112, 113], spec).unwrap();
             assert_eq!(r.replicas.iter().map(|r| r.events.len()).sum::<usize>(), 5);
@@ -772,6 +826,8 @@ mod tests {
             prior: "local".into(),
             source_action: None,
             source_h: 0.,
+            root_law: None,
+            record_rollouts: false,
         };
         let moves = [112, 113, 97, 127];
         let a = search(&moves, spec.clone()).unwrap();
@@ -831,6 +887,8 @@ mod tests {
             prior: "uniform".into(),
             source_action: None,
             source_h: 0.,
+            root_law: None,
+            record_rollouts: false,
         };
         let r = search(&moves, spec).unwrap();
         assert!(r.replicas[0]
@@ -856,6 +914,8 @@ mod tests {
             prior: "uniform".into(),
             source_action: Some(111),
             source_h: 2.,
+            root_law: None,
+            record_rollouts: false,
         };
         let r = search(&[112, 113], spec).unwrap();
         let e = &r.replicas[0].cuts[0].edges;

@@ -1161,6 +1161,36 @@ where
             root_selection_trace_record = best_root_detail.map(|detail| detail.into_trace(n_edges));
         }
 
+        let mut root_selection=None;
+        if depth==0 && par_ctrl.mqft_record{
+            let mut law=None;
+            if let Some(ref sampler)=par_ctrl.mqft_sampler {
+                let mut sampler=sampler.lock();
+                let kind=sampler.spec.kind.as_str();
+                let mut actions=Vec::with_capacity(n_edges);
+                let mut scores=Vec::with_capacity(n_edges);
+                let mut active=Vec::with_capacity(n_edges);
+                for edge in edges {
+                    let pending=edge.virtual_losses.load(Ordering::Acquire);
+                    let ss=if kind=="reserve" && reserve_virtual_loss {
+                        snapshot_edge(edge,0.,false,false,false)
+                    }else{snapshot_edge_no_vl(edge,0.,false,false)};
+                    let parent=if kind=="reserve"&&reserve_virtual_loss{n_parent_eff}else{n_total};
+                    actions.push(cur_state.move_to_idx(edge.mv));
+                    scores.push(puct_score(ss.n_eff,ss.q_eff,ss.prior,0.,parent,c_puct));
+                    active.push(kind!="pl"||pending==0);
+                }
+                let (idx,draw)=sampler.draw(actions,scores,active);
+                best_idx=idx;best_score=draw.scores[idx];
+                best_has_pending=edges[idx].virtual_losses.load(Ordering::Acquire)>0;
+                law=Some(draw);
+            }
+            root_selection=Some(crate::mqft_trace::RootSelection{
+                clock:cur_node.chronology.fetch_add(1,Ordering::Relaxed),
+                score:best_score,edge_index:best_idx,law,
+            });
+        }
+
         // Parallelism telemetry: record pending count at this node
         if reserve_virtual_loss {
             par_ctrl.telemetry.record_select(vl_sum);
@@ -1205,6 +1235,7 @@ where
             parent: cur_node,
             edge_idx: best_idx,
             applied_vl: (vl_split.vvisit, vl_split.vvalue),
+            root_selection,
         });
         cur_node = next_node;
         depth += 1;

@@ -413,6 +413,8 @@ pub fn recommend_auto_threads(
 ///
 /// Thread-safe: all mutable state uses atomics.
 pub struct ParallelismController {
+    pub(crate) mqft_record: bool,
+    pub(crate) mqft_sampler: Option<parking_lot::Mutex<crate::mqft_law::Sampler>>,
     mode: VlMode,
     n_threads: AtomicU32,
     /// σ_Q from QUARTZ (updated periodically). Stored as f32 bits in AtomicU32.
@@ -427,6 +429,8 @@ pub struct ParallelismController {
 impl ParallelismController {
     pub fn new(mode: VlMode, n_threads: u32) -> Self {
         ParallelismController {
+            mqft_record:false,
+            mqft_sampler:None,
             mode,
             n_threads: AtomicU32::new(n_threads.max(1)),
             sigma_q: AtomicU32::new(0.3_f32.to_bits()),

@@ -5,5 +5,6 @@ mod mcts;
 mod simd_utils;
 pub mod mqft;
 mod mqft_trace;
+mod mqft_law;
 #[cfg(test)]
 mod ablation_refresh;

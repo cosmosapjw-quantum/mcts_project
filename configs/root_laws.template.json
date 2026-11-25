@@ -1,0 +1,230 @@
+{
+  "kind": "roots",
+  "seed": 40041,
+  "replicates": 4,
+  "budgets": [
+    32,
+    128
+  ],
+  "c_puct": [
+    1.4
+  ],
+  "modes": [
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "p",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "q",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "local",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "path",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "p",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "q",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "local",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "path",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "p",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "q",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "local",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          0.8
+        ],
+        "beta_q": [
+          3.2
+        ],
+        "proposal": "path",
+        "logit_h": 0.2
+      }
+    }
+  ],
+  "positions": [
+    {
+      "id": "example_A",
+      "moves": [
+        112,
+        113,
+        97,
+        127,
+        111,
+        128
+      ],
+      "source_action": 96
+    },
+    {
+      "id": "example_B",
+      "moves": [
+        112,
+        128,
+        96,
+        111,
+        98,
+        126
+      ],
+      "source_action": 113
+    }
+  ],
+  "sources": [
+    0.0
+  ],
+  "rollout_depth": 225,
+  "prior": "local",
+  "jobs": 2,
+  "cpu_limit": 8,
+  "max_output_bytes": 1073741824,
+  "search_timeout": 300,
+  "record_rollouts": true
+}

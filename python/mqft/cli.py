@@ -12,6 +12,8 @@ def main(argv=None):
     a=s.add_parser("analyze");a.add_argument("plan");a.add_argument("data");a.add_argument("output")
     a=s.add_parser("plot");a.add_argument("analysis");a.add_argument("output")
     a=s.add_parser("model-plot");a.add_argument("contract");a.add_argument("output")
+    a=s.add_parser("preflight");a.add_argument("plan");a.add_argument("output");a.add_argument("--backend",required=True);a.add_argument("--rapfi",required=True)
+    a=s.add_parser("closure");a.add_argument("analysis");a.add_argument("split");a.add_argument("output")
     a=s.add_parser("inspect");a.add_argument("--backend",required=True)
     a=s.add_parser("install-rapfi");a.add_argument("archive");a.add_argument("directory")
     a=s.add_parser("check-rapfi");a.add_argument("directory")
@@ -31,6 +33,12 @@ def main(argv=None):
     elif a.command=="model-plot":
         from .conditional import render_model
         r=render_model(a.contract,a.output)
+    elif a.command=="preflight":
+        from .preflight import run
+        r=run(a.plan,a.backend,a.rapfi,a.output)
+    elif a.command=="closure":
+        from .closure import run
+        r=run(a.analysis,a.split,a.output)
     elif a.command=="inspect":
         with Backend(a.backend,15) as be:r=be.identity
     elif a.command=="install-rapfi":r=rapfi.install(a.archive,a.directory)

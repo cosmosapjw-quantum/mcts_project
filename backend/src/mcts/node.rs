@@ -367,6 +367,7 @@ pub struct PathEdge<M> {
     pub edge_idx: usize,
     /// VL that was applied during select — must be removed during backup
     pub applied_vl: (f32, f32), // (vvisit, vvalue)
+    pub(crate) root_selection: Option<crate::mqft_trace::RootSelection>,
 }
 
 // ─────────────────────────────────────────────
@@ -412,6 +413,7 @@ pub struct MctsNode<M> {
 
     /// Serializes selection/reservation and backup at this parent node.
     pub(crate) stats_lock: PlMutex<()>,
+    pub(crate) chronology: AtomicU64,
     /// Separate lock for incoming-repeat statistics; never held across parent acquisition.
     rtt_lock: PlMutex<()>,
     pub n_total: AtomicU32,
@@ -444,6 +446,7 @@ impl<M: Copy + Send + Sync + 'static> MctsNode<M> {
             materialize_claim: AtomicU32::new(0),
             materialize_lock: PlMutex::new(()),
             stats_lock: PlMutex::new(()),
+            chronology: AtomicU64::new(0),
             rtt_lock: PlMutex::new(()),
             n_total: AtomicU32::new(0),
             w_total: AtomicU64::new(0),

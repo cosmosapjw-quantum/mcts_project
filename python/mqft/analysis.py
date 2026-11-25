@@ -8,7 +8,8 @@ from pathlib import Path
 import numpy as np
 from . import SCHEMA
 from .client import sha256,digest
-from .campaign import read,verify_state,valid_moves,choose,seed,atomic_json,win,win_at
+from .campaign import PLAN_SCHEMA,read,verify_state,valid_moves,choose,seed,atomic_json,win,win_at
+from .path_law import replay as replay_root_law,path_weight_statistics
 from .observables import root_observables,path_entropy,graph_and_coarse,marks,delta,empirical_mi,entropy,frozen_action
 
 def check_trace(tr,moves,spec):
@@ -23,12 +24,13 @@ def check_trace(tr,moves,spec):
     base_board=tr["root"]["board"];legal=tr["root"]["legal"];c=actual["c_puct"];cuts=actual["cuts"]
     replicas=tr["replicas"];nr=actual["workers"] if actual["mode"]=="root" else 1
     if len(replicas)!=nr or [r["replica"] for r in replicas]!=list(range(nr)):raise ValueError("replica identities")
-    local=[];prevs={};deltas=[];global_rows=[];frag=[]
+    local=[];prevs={};deltas=[];global_rows=[];frag=[];laws=[];features=[]
     for rep in replicas:
-        ri=rep["replica"];ev=rep["events"];evaluations={e["id"]:e for e in rep["evaluations"]}
+        ri=rep["replica"];ev=rep["events"];
+        law_audit=replay_root_law(rep,actual);features.extend(dict(replica=ri,**z) for z in law_audit.pop("history_features",[]));laws.append(dict(replica=ri,**law_audit));evaluations={e["id"]:e for e in rep["evaluations"]}
         if len(evaluations)!=len(rep["evaluations"]) or sorted(evaluations)!=list(range(len(evaluations))):raise ValueError("evaluator ids")
         if [e["complete_seq"] for e in ev]!=list(range(len(ev))) or sorted(e["select_seq"] for e in ev)!=list(range(len(ev))):raise ValueError("event sequence")
-        used=[]
+        used=[];eval_states={0:(base_board,len(moves))}
         for e in ev:
             word=e["actions"];v=e["leaf_value"];r=e["root_value"]
             if not word or not math.isfinite(v) or not -1<=v<=1 or r!=((-1)**len(word))*v:raise ValueError("negamax mark")
@@ -48,13 +50,30 @@ def check_trace(tr,moves,spec):
                 if eid is None or eid not in evaluations:raise ValueError("missing actual evaluation receipt")
                 a=evaluations[eid]
                 if a["state_hash"]!=e["leaf_hash"] or abs(a["value"]-v)>1e-7:raise ValueError("evaluation identity")
-                used.append(eid)
+                used.append(eid);eval_states[eid]=(b,len(moves)+len(word))
         if sorted(used)!=list(range(1,len(evaluations))) or evaluations[0]["state_hash"]!=tr["root"]["state_hash"]:
             raise ValueError("expected root expansion eval plus exact nonterminal eval bindings")
         for a in evaluations.values():
             sam=a["samples"]
             if len(sam)!=actual["samples_per_eval"] or any(s["value"] not in (-1.,0.,1.) or not 0<=s["plies"]<=actual["rollout_depth"] or (not s["terminal"] and s["value"]!=0.) for s in sam):raise ValueError("sample provenance")
             if abs(a["value"]-sum(s["value"] for s in sam)/len(sam))>1e-7:raise ValueError("leaf mean")
+            board,ply=eval_states[a["id"]]
+            if a["side"]!=(1 if ply%2==0 else -1):raise ValueError("evaluator frame")
+            for r in sam:
+                exact=-sum(math.log(225-ply-i) for i in range(r["plies"]))
+                if abs(r["log_path_prob"]-exact)>1e-8:raise ValueError("rollout log probability")
+                if actual.get("record_rollouts"):
+                    word=r["actions"]
+                    if not isinstance(word,list) or len(word)!=r["plies"]:raise ValueError("missing rollout path")
+                    z=board.copy();winner=None
+                    for i,move in enumerate(word):
+                        if winner is not None or type(move)!=int or not 0<=move<225 or z[move]:raise ValueError("illegal rollout path")
+                        z[move]=1+(ply+i)%2
+                        if win_at(z,move,z[move]):winner=1 if z[move]==1 else -1
+                    terminal=winner is not None or ply+len(word)==225
+                    val=winner*a["side"] if winner is not None else 0
+                    if terminal!=r["terminal"] or val!=r["value"] or (not terminal and len(word)!=actual["rollout_depth"]):raise ValueError("rollout mark replay")
+                elif r["actions"] is not None:raise ValueError("unregistered rollout path")
         if [x["global_k"] for x in rep["cuts"]]!=cuts:raise ValueError("cuts mismatch")
         for cut in rep["cuts"]:
             k=cut["local_k"];K=cut["global_k"];edges=cut["edges"]
@@ -105,7 +124,7 @@ def check_trace(tr,moves,spec):
             leaders=leaders,allocated_nodes=sum(x["allocated_nodes"] for x in es),eval_calls=sum(x["eval_calls"] for x in es),
             rollout_samples=sum(x["rollout_samples"] for x in es),rollout_plies=sum(x["rollout_plies"] for x in es)))
     if tr["move_counts"]!=[[a,n] for a,n in zip(global_rows[-1]["actions"],global_rows[-1]["counts"])]:raise ValueError("selected distribution not backed by events")
-    return dict(local=local,global_rows=global_rows,deltas=deltas,fragments=frag)
+    return dict(local=local,global_rows=global_rows,deltas=deltas,fragments=frag,path_laws=laws,history_features=features)
 
 def load_receipted(path,plan):
     folder=Path(path);lock=read(folder/"run_lock.json")
@@ -122,14 +141,14 @@ def load_receipted(path,plan):
 def analyze(plan,datadir,outdir):
     out=Path(outdir);out.mkdir(parents=True,exist_ok=True)
     if (out/"manifest.json").exists():raise FileExistsError("analysis directory already sealed")
-    files={name:(out/(name+".jsonl.part")).open("x") for name in ("local","global","deltas","fragments","games","root_repeats","source_response")}
-    completed=0;root_groups=defaultdict(list);all_status=Counter()
+    files={name:(out/(name+".jsonl.part")).open("x") for name in ("local","global","deltas","fragments","games","root_repeats","source_response","path_laws","history_features","law_summary")}
+    completed=0;root_groups=defaultdict(list);law_groups=defaultdict(list);all_status=Counter()
     def emit(name,r):files[name].write(json.dumps(r,allow_nan=False,separators=(",",":"))+"\n")
     try:
         for job,p,receipt,lock in load_receipted(datadir,plan):
             with gzip.open(p,"rt",encoding="utf-8") as f:
                 head=json.loads(next(f))
-                if head["type"]!="header" or head["job"]!=job or head["plan_hash"]!=plan["plan_hash"] or head["backend_sha"]!=receipt["backend_sha"]:raise ValueError("header provenance")
+                if head["type"]!="header" or head.get("schema")!=PLAN_SCHEMA or head["job"]!=job or head["plan_hash"]!=plan["plan_hash"] or head["backend_sha"]!=receipt["backend_sha"]:raise ValueError("header provenance")
                 moves=list(job["opening"]);rng=random.Random(job["game_seed"]);backups=records=0;end=None
                 for line in f:
                     row=json.loads(line);typ=row["type"]
@@ -154,10 +173,15 @@ def analyze(plan,datadir,outdir):
                         q=check_trace(tr,moves,spec);backups+=spec["budget"]
                         meta=dict(job=job["id"],block=job["block"],kind=job["kind"],position_id=job["position_id"],replicate=job["replicate"],
                                   mode=spec["mode"],workers=spec["workers"],budget=spec["budget"],samples_per_eval=spec["samples_per_eval"],
-                                  c_puct=spec["c_puct"],source_h=spec["source_h"],source_action=spec["source_action"],opponent=job["opponent"],ply=ply,
+                                  c_puct=spec["c_puct"],source_h=spec["source_h"],source_action=spec["source_action"],law_id=digest(spec.get("root_law"))[:12],opponent=job["opponent"],ply=ply,
                                   state_hash=tr["root"]["state_hash"],source_file=p.name,backend_sha=receipt["backend_sha"])
-                        for name in ("local","deltas","fragments"):
+                        for name in ("local","deltas","fragments","path_laws","history_features"):
                             for z in q[name]:emit(name,{**meta,**z})
+                        if typ=="root":
+                            for z in q["path_laws"]:
+                                if z.get("proposal")=="path":
+                                    key=tuple(meta[x] for x in ("position_id","state_hash","mode","workers","budget","samples_per_eval","c_puct","source_h","source_action","law_id"))
+                                    law_groups[key].append({**meta,**z})
                         for z in q["global_rows"]:
                             emit("global",{**meta,**z,"actual_move":row.get("action"),"wall_ns":tr["wall_ns"] if z["k"]==spec["budget"] else None})
                         if typ=="ply":
@@ -173,7 +197,7 @@ def analyze(plan,datadir,outdir):
                                     labs.append(min(a for a,n in cts.items() if n==max(cts.values())) if cts else -1)
                                 fr.append(tuple(labs))
                             fin=q["global_rows"][-1];decision=min(fin["leaders"])
-                            key=tuple(meta[x] for x in ("position_id","state_hash","mode","workers","budget","samples_per_eval","c_puct","source_h","source_action"))
+                            key=tuple(meta[x] for x in ("position_id","state_hash","mode","workers","budget","samples_per_eval","c_puct","source_h","source_action","law_id"))
                             root_groups[key].append(dict(meta=meta,decision=decision,fragments=fr,pi=fin["pi"],actions=fin["actions"],q=fin["q"],locals=[z for z in q["local"] if z["global_k"]==k]))
                     elif typ!="ply" or row["engine"]!="rapfi" or row["external"]["identity"]!=lock["external"] or row["external"]["action"]!=a:
                         raise ValueError("missing native trace or external identity")
@@ -191,6 +215,9 @@ def analyze(plan,datadir,outdir):
                 emit("games",dict(job=job["id"],block=job["block"],mode=job["spec"]["mode"],workers=job["spec"]["workers"],budget=job["spec"]["budget"],opponent=job["opponent"],kind=job["kind"],status=end["status"],winner=w,plies=len(moves),opening=job["opening"],moves=moves,backups=backups))
                 completed+=1;all_status[end["status"]]+=1
         if completed==0:raise ValueError("no receipted actual data")
+        for key,rr in law_groups.items():
+            emit("law_summary",{**dict(zip(("position_id","state_hash","mode","workers","budget","samples_per_eval","c_puct","source_h","source_action","law_id"),key)),"jobs":[r["job"] for r in rr],"n_paths":len(rr),"targets":path_weight_statistics(rr),
+                                "scope":"fixed-root replicated path proposal; no physical work identity"})
         for key,rr in root_groups.items():
             if len(rr)<2:continue
             meta=rr[0]["meta"].copy();meta.pop("job");meta.pop("block");meta.pop("replicate");meta.pop("source_file")
@@ -210,13 +237,13 @@ def analyze(plan,datadir,outdir):
         paired=defaultdict(dict)
         for key,rr in root_groups.items():paired[key[:7]+key[8:]][key[7]]=rr
         for key,groups in paired.items():
-            if 0 not in groups or key[-1] is None:continue
+            if 0 not in groups or key[-2] is None:continue
             for h in sorted(x for x in groups if x>0 and -x in groups):
                 by=[{x["meta"]["replicate"]:x for x in groups[g]} for g in (-h,0,h)]
                 common=sorted(set(by[0])&set(by[1])&set(by[2]))
                 for rep in common:
                     minus,base,plus=(d[rep] for d in by)
-                    a=key[-1];idx=base["actions"].index(a)
+                    a=key[-2];idx=base["actions"].index(a)
                     measured=(plus["pi"][idx]-minus["pi"][idx])/(2*h)
                     pred=[]
                     for hh in (-h,h):
@@ -232,7 +259,7 @@ def analyze(plan,datadir,outdir):
     outputs={}
     for name in files:
         src=out/(name+".jsonl.part");dst=out/(name+".jsonl");src.rename(dst);outputs[dst.name]=sha256(dst)
-    manifest=dict(schema="mqft.analysis.v1",plan_hash=plan["plan_hash"],completed=completed,expected=len(plan["jobs"]),statuses=dict(all_status),outputs=outputs,
+    manifest=dict(schema="mqft.analysis.v2",plan_hash=plan["plan_hash"],completed=completed,expected=len(plan["jobs"]),statuses=dict(all_status),outputs=outputs,
                   limitations=["partial campaigns remain partial","root replicas not pooled into a PUCT law","physical phase and temperature not identified","non-IID path/ply measurements"])
     atomic_json(out/"manifest.json",manifest)
     return manifest
