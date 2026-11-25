@@ -1,26 +1,29 @@
-# RESTORE53: prospective group-field precision and multicomponent response
-1. REPLAN-04.R/04.C/X-MEMORY: replicate informative group pulses on
-   fresh D4-distinct geometry blocks and peripheral variants, common
-   group masks defined by spatial coordinates, absolute Fisher and
-   expected hit calibration on separate h0 data. B16/B32 n8/n4
-   currently a pilot. Estimate paired LR/direct discrepancy precision
-   rather than significance hunting. Keep scalar and group distinct.
-2. Extend native field to independent 3D sector tangent directions
-   (or explicitly bounded vector profile), verify additive common
-   logit gauge and full Fisher/response matrix, mixed second derivatives.
-   Compare actual direct multi-direction response and prospective
-   retarded kernel. No full adaptive 1PI from rank-limited fits.
-3. REPLAN-03: conditional exact frozen wave determinant retained;
-   build explicit state-dependent dynamical closure against
-   independent multi-source data, no retuning failed prior fits.
-4. REPLAN-05/X-REP: conditional explicit complex entanglement/CHSH
-   and intervention-specific correlations; next distinguish
-   measurement order using nonorthogonal noncommuting probes and
-   physically justified independent coherent implementation.
-   Do not claim a native Bell experiment.
-5. REPLAN-06: continuous tilted generator verified for declared
-   Gibbs reset, next protocol-dependent fluctuation distribution
-   and controlled discretization/slow-driving expansion, not native
-   heat. Physical phase/energy still require independent model.
-6. Other four topic nodes and original outputs preserved; no
-   selector readmission, no forced QEC/barrier/training plots.
+# RESTORE54: vector-response precision, state dynamics and scale
+1. REPLAN-04.R/X-MEMORY: keep full native three-direction field and
+   all finite mixed data. Use observed paired discrepancy variance
+   to register a bounded precision tranche at selected informative
+   roots and fresh geometries; independent pilot and confirm.
+   Expand two untested mixed pairs (0,2),(1,2) and pulse clocks;
+   current mixed01 only. Use two h values and B32/64 where useful;
+   distinguish h truncation error, budget and spatial size.
+2. REPLAN-03: compare prospective state-dependent kernel or
+   projected memory closure to frozen propensity and zero-response
+   on independent geometry and seed groups. Do not promote inverse
+   covariance as native 1PI. Preserve prior exact lattice determinant
+   and negative heldout findings.
+3. REPLAN-04.C/02: repeat matched density/peripheral controls with
+   more independent cores and 13..21 family, B axis separate.
+   True spatial criticality needs scaling window and uncertainty;
+   no exponent from two sizes.
+4. REPLAN-05/X-REP: declared nonorthogonal environment intervention
+   order, explicit complex state and reduced entropy retained.
+   Next multi-time instrument tomography/operational memory witness
+   with matched classical models and independently justified readout.
+   No native phase claim without actual phase-sensitive mechanism.
+5. REPLAN-06: exact-clock work distribution, moment ODE and CF
+   compared; extend reverse path-distribution checks and protocol
+   asymptotics, distinguish zero-work mass from no-jump atom.
+   No native energy calibration inferred.
+6. Original REPLAN-07/X-BARRIER/X-STRUCT/X-TRAIN obligations remain;
+   no new plot nodes, no selector readmission. Same evaluator and
+   source schemas. Preserve all actual failures/retries.

@@ -607,3 +607,17 @@ class GroupPhysics52(unittest.TestCase):
         q=spatial_group(a)
         self.assertAlmostEqual(q["S0"],0.)
         self.assertAlmostEqual(sum(q["response"]),0.,places=10)
+
+class VectorPhysics53(unittest.TestCase):
+    def test_thermal_work_and_order(self):
+        from mqft.physics53 import thermal_work,ordered_environment
+        from mqft.physics52 import tilted_cycle
+        p=[[.1,.2,.3,.4],[.3,.2,.2,.3],[.25,.15,.2,.4]]
+        q,w=thermal_work(p,4,2048,5301)
+        self.assertAlmostEqual(q["moments"][1],tilted_cycle(p,4)["W"],places=8)
+        self.assertLess(abs(q["mc_mean"]-q["moments"][1]),5*q["mc_mean_se"])
+        r,_=thermal_work([p[0]]*3,4,64,5302)
+        self.assertLess(abs(r["variance"]),1e-10)
+        for a in (0.,np.pi/4,np.pi/2):
+            z=ordered_environment(1,2,a);self.assertLess(z["residual"],1e-10)
+        self.assertGreater(abs(ordered_environment(1,2,np.pi/4)["order_gap"]),.1)
