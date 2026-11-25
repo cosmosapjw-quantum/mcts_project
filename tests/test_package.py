@@ -308,3 +308,22 @@ class CommonArena(unittest.TestCase):
             self.assertEqual(r["failures"],[]);analyze(pl,p/"data",p/"analysis")
             rr=[json.loads(x) for x in (p/"analysis/source_response.jsonl").read_text().splitlines()]
             self.assertEqual(len(rr),1);self.assertTrue(np.isfinite(rr[0]["adaptive_kkt_diagnostic"]))
+
+class ProspectiveResponse(unittest.TestCase):
+    def test_frozen_features_and_bounded_model(self):
+        from mqft.prospective import field_features,predict,fit,evaluate
+        b=dict(prior=[.3,.4,.3],action_q=[.02,.01,-.02],pi=[.25,.5,.25],actions=[0,1,2],source_action=1,k=32,c_puct=1.4,mode="serial",budget=32,replicate=0,job="zero")
+        q,pi,i,X,w,opt=field_features(b,.2)
+        self.assertAlmostEqual(float(X[:,1].sum()),0.,places=10)
+        self.assertGreaterEqual(X[i,1],0.)
+        z=predict(b,.2,{"q_coef":[0.,0.],"gain":1.})
+        self.assertAlmostEqual(z["frozen"],z["prospective"],places=10)
+        self.assertAlmostEqual(z["frozen"],z["gain"],places=10)
+        a=dict(b,pi=[.25,.46875,.28125],action_q=[.02,-.01,-.02],job="minus")
+        c=dict(b,pi=[.25,.53125,.21875],action_q=[.02,.03,-.02],job="plus")
+        case=[(("r","s","serial",32,0,1),.2,a,b,c)]
+        model=fit(case);out=evaluate(case,model)
+        self.assertEqual(model["serial"]["n_train"],1)
+        self.assertAlmostEqual(out[0]["observed"],.15625)
+        self.assertTrue(np.isfinite(out[0]["prospective"]))
+        self.assertEqual(out[0]["baseline_job"],"zero")

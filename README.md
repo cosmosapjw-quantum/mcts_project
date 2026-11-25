@@ -1,6 +1,6 @@
 # MQFT: MCTS statistical field-theory measurement package
 
-Research-only migration of the original MQFT / mcts_study project, RESTORE42 (trace/campaign/analysis v2; explicit evaluator identity).
+Research-only migration of the original MQFT / mcts_study project, RESTORE43 (trace/campaign/analysis v2; explicit evaluator identity).
 **Rust Quartz backend + Python analysis frontend**, with Rapfi as a separate external opponent.
 This repository's main branch is now dedicated to MQFT. Legacy implementation
 remains in Git history (previous main eb19e5f4ca9a502d645ccab45a8dcfbcc733f537).
@@ -61,6 +61,15 @@ of reproducing the executable byte-for-byte from source. The three upstream
 submodule IDs are recorded in PROVENANCE.json; fetch them from upstream if
 building from source. Rapfi is a strong external proxy, not exact minimax or
 a source of MCTS internal statistics.
+
+## RESTORE43 crossed arena and prospective response
+
+configs/restore43_cross_A.json and cross_B fill the missing B32 cells.
+The prospective.py model uses only baseline features for predictions, with
+training coefficients frozen from RESTORE42. Held-out Q-field closure
+was not admitted. cost_root compares Root B61/B64 with Serial B64 at four
+actual roots, yielding exact 325 logical requests for Root61/Serial64.
+See [results](docs/RESTORE43_RESULTS.md), [theory](docs/RESTORE43_THEORY.md).
 
 ## Common MixNet matched-arena and source-response workflow (RESTORE42)
 

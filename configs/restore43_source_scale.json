@@ -1,0 +1,136 @@
+{
+  "kind": "roots",
+  "seed": 43002,
+  "replicates": 1,
+  "c_puct": [
+    1.4
+  ],
+  "modes": [
+    {
+      "mode": "serial",
+      "workers": 1,
+      "samples_per_eval": 4
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4
+    }
+  ],
+  "positions": [
+    {
+      "id": "opening1_leaf_p12",
+      "moves": [
+        112,
+        97,
+        114,
+        126,
+        96,
+        128,
+        129,
+        99,
+        143,
+        115,
+        83,
+        110
+      ],
+      "source_action": 159
+    },
+    {
+      "id": "opening1_leaf_p24",
+      "moves": [
+        112,
+        97,
+        114,
+        126,
+        96,
+        128,
+        129,
+        99,
+        143,
+        115,
+        83,
+        110,
+        159,
+        144,
+        158,
+        127,
+        125,
+        85,
+        113,
+        100,
+        130,
+        160,
+        173,
+        101
+      ],
+      "source_action": 98
+    },
+    {
+      "id": "opening0_leaf_p12",
+      "moves": [
+        112,
+        98,
+        126,
+        113,
+        83,
+        99,
+        97,
+        127,
+        85,
+        69,
+        114,
+        143
+      ],
+      "source_action": 158
+    },
+    {
+      "id": "opening0_leaf_p24",
+      "moves": [
+        112,
+        98,
+        126,
+        113,
+        83,
+        99,
+        97,
+        127,
+        85,
+        69,
+        114,
+        143,
+        158,
+        142,
+        141,
+        54,
+        159,
+        157,
+        172,
+        144,
+        171,
+        156,
+        170,
+        169
+      ],
+      "source_action": 84
+    }
+  ],
+  "rollout_depth": 1,
+  "prior": "local",
+  "evaluator": "rapfi_nnue_lookahead_v1",
+  "record_rollouts": true,
+  "paired_schedule_seed": true,
+  "jobs": 1,
+  "cpu_limit": 8,
+  "max_output_bytes": 1073741824,
+  "search_timeout": 90,
+  "budgets": [
+    32,
+    128
+  ],
+  "sources": [
+    -0.2,
+    0.0,
+    0.2
+  ]
+}

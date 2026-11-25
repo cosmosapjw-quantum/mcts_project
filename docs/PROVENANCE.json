@@ -77,7 +77,7 @@
   },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "changed_or_added_backend_files": {
-    "src/mqft_rapfi.rs": "efc717bab5f227bd53bf1050842389924a7c210c83de245efee2c4dc7d356549",
+    "src/mqft_rapfi.rs": "d87b92f1441f384bdf636ad667e13eca15cf39c8eb4d1faed059ccc46185db3f",
     "src/mqft_trace.rs": "ea897867d6d1a3f93a5dbe701daa6b6fcfeee64be11a8f1d680f3b64b189a726",
     "src/mqft_law.rs": "4e49eec8c2f6fd01e9911432d0f67e5ae61c2672761c65ed62e492fbeeea7147",
     "src/lib.rs": "441beaf9c7db69e2f4298f64e60ec932f82ff281b4ad361e5385aabb0fcd6f88",
@@ -144,6 +144,21 @@
       "arena_A": "45afb50b7cac1cada006364b5aa12c7d8481066dfa01985e8f84f6145f1eda00",
       "arena_B": "b24c0b45b1b5caffbdb5b154dbcc42cb51c6277975293f0a3484905c36d4c21f",
       "source": "22ca0b2b054e3b073566b4a634dd171b2b58b6073838bc088b5fe5b58d3b1896"
+    }
+  },
+  "restore43": {
+    "parent_main": "a8f9976ee1e53de0a47d5fe5ffa493ceffeb57dc",
+    "registration_sha256": "1795b1d59e53e8a46295a0f5ea24037237f7f78ec72dff5298f557eee21c325e",
+    "cost_registration_sha256": "cca322e1f59fa06dfc308c0d853927713c52da8381223b74d69500972f5c451b",
+    "frozen_model_sha256": "69ab27a408de323f409afceb4e03acb7c2434bae709fafa675bbee15fb7da29f",
+    "summary_sha256": "59cd22e879011342ea578d1d4b7481afd9b0209679aa23b482fa8a2cb47f466f",
+    "actual_backend_sha256": "6fef50c0d3b935c6c0bec7cfddbadd6a1a830a813ef945c44cedf423123bf40f",
+    "plan_hashes": {
+      "cost_root": "c758910e5ca21a0d7bc2468664a2665853bbd4d57468328ee049c3c66951b630",
+      "cross_B": "ff8d9699825ea8eac6864d6f60a61926d4bc77bdde1690fd95330f8fff4f83b2",
+      "cross_A": "18dfaadcc4b65e1249e5b050c43361e7f11771a148b6b931398b73167d357291",
+      "source_scale": "dd05882b7387dd6a463cca180b7983848af88af73b3f6adaf0c4a67385476d19",
+      "source_h": "e2cb4330b4b55fdb1ef3518aba9d579dd411640e5e8d279de30cfc92be4b8493"
     }
   }
 }

@@ -1,18 +1,19 @@
-# RESTORE42 drift watchdog
-Original mcts_study Q28/Q30 six axes and 121-function/guide catalog
-unchanged; source ZIP SHA256 identities reverified. CORE_POLICY and
-quantum representation/dynamics policy preserved byte-identically.
-Scientific experiment is same game/NNUE evaluator and four samples per
-evaluation for all modes, not heterogeneous engines. Prior uniform
-commissioning remains diagnostic only. Fixed B versus actual NNUE queries
-are different resource regimes. No rank across incomplete opening blocks,
-no independent-ply p-values or zero-variance equivalence claim. Actual
-color swap and exact leaf trajectory control address original algorithm
-prediction/strength/cost. Actual prior interventions address action and
-susceptibility panels; adaptive Q diagnostic is explicitly post-treatment,
-not validated causal model. No extra quantum toy sweep or revived
-RESTORE35/36 negative selector/stopping claims. R6/C9 same-context
-review plus independent reducer/CAS, no native independent subagent.
-Next widen common opening coverage and vary actual budget/source while
-preserving original plot targets; no large automatic study based on two
-pairs. Runtime retry results remain separate from scientific inference.
+# RESTORE43 drift watchdog
+Original archives rehashed and Q28/Q30 read; all six scientific axes and
+13-node/13-edge DAG retained. CORE_POLICY, both quantum policies and
+121-row original catalog byte-identical. Same real MixNet in all science;
+legacy heterogeneous uniform games excluded. Fresh and historical arena
+receipts not double counted. All four candidates now tested on the same
+four chosen openings with common seed labels and color swaps, not a
+population sample. Exact 4/4 fixed-root query match distinguishes actual
+cost from backup count; no claim full-game cost match.
+Prospective closure frozen before new generation, tested D4-disjoint
+roots from held-out openings. Negative result preserved; no tuning
+against holdout, no selector promotion. The actual Q field is not
+a predictive input after the intervention. Finite count lattice,
+field response, entropy, graph scaling and costs are original-target
+diagnostics, not physical temperature, quantum phase, critical exponent,
+thermodynamic fluctuation theorem or one-loop validation.
+No additional arbitrary quantum models; RESTORE35/36 negative admissions
+remain. Two real transport retries succeeded; missing detailed original
+error reports remain runtime work. Native independent subagent unavailable.

@@ -1,25 +1,25 @@
-# RESTORE43 common evaluator discriminating pilot
-1. Keep v2 common MixNet; preserve current data and EOF history. Improve
-   transport error branch tests with a controlled software fixture
-   and record real process status; no fallback and no implicit retry
-   of invalid semantic output. Current 64 successful jobs not universal.
-2. Complete the missing crossed cells of the four-opening design:
-   root/tree on the two arena_B openings and leaf/wave on arena_A,
-   same B32, four samples, color swaps. Use frozen opening-specific
-   seeds across modes, not outcome-adapted selection. Distinguish old
-   two-block data and fresh two-block data; no unpaired rank.
-3. Separate B64 arena or actual NNUE-request-matched calibration,
-   only if feasible. Predefine primary pair score and cost contrasts;
-   get more D4-distinct held-out opening blocks before any strength
-   conclusion. Pair SD from two blocks insufficient; zero sample
-   SD not population equivalence.
-4. Use actual fresh p12/p24 roots and paired prior h=.1,.2,.4 at
-   B32/64/128 as resource allows; check finite-difference stability,
-   face switches, adaptive Q-field and finite-search residual.
-   A prospective feedback model must train on earlier/other opening
-   blocks and beat both zero and frozen KKT on held-out blocks.
-   Do not treat observed-Q substitution as prediction.
-5. Reproduce original T/A/R/D/N/C panels on the expanded actual data,
-   including source-response residual and costs. Preserve open
-   calibrated quantum/thermal/1PI/scaling obligations rather than
-   fabricate a physical interpretation. No new selector retuning.
+# RESTORE44: causal marked-law response and independent openings
+1. Preserve RESTORE43 rejected low-dimensional closure; no retuning the
+   held-out roots. Correct the startup/transport diagnostic gap: record
+   original error with PID/status/stderr when start fails, separately
+   verify bounded retry on a controlled fixture. Do not change evaluator.
+2. Reuse original normalized stochastic root laws (IID, PL, reservation)
+   and path likelihoods, at actual fresh common-MixNet roots. Separate
+   logit source h from prior tilt. For selected observable A and common
+   downstream law, score G=sum_t (1[a_t=a0]-p_t(a0|history)); validate
+   dE[A]/dh=E[A G] at h=0 under correct support and integrability.
+   Compare finite +/- contrasts with score estimator and actual MC error,
+   include matched direct controls; verify E[G]=0 and Fisher identity.
+   Actual root/evaluator schedule matters; no physical FDT inference.
+3. At least four genuinely new D4-distinct opening blocks with registered
+   color swaps and enough seeds; if resources constrained, prioritize
+   independent root replication over more two-block fitting. Compare
+   fixed backup and request cost regimes. Full-game query-budget matching
+   requires actual terminal accounting and stopping contract, not B-3
+   alone; current calibration only for four nonterminal roots.
+4. Continue original T/A/R/D/N/C panels using actual paths, connected
+   response and graph scale diagnostics. Preserve independent physical
+   phase/instrument, Hamiltonian and controlled loop obligations; do not
+   add a new model unless it yields a discriminating prediction.
+5. No automatic mass generation or new selector promotion. Reuse exact
+   previous data; expand only registered bounded experiments.

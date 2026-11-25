@@ -379,3 +379,49 @@ pub fn probabilities(scores: &Scores) -> Vec<(u16, f64)> {
 pub fn value(wdl: [f64; 3], side: i8) -> f32 {
     (side as f64 * (wdl[0] - wdl[1]) / wdl.iter().sum::<f64>()) as f32
 }
+
+// Controlled protocol-only subprocess fixtures, not neural engine observations.
+#[cfg(all(test, unix))]
+mod transport_tests {
+    use super::*;
+    use std::os::unix::fs::PermissionsExt;
+    use std::time::{SystemTime, UNIX_EPOCH};
+    fn fixture() -> PathBuf {
+        let dir = std::env::temp_dir().join(format!(
+            "mqft-transport-{}-{}",
+            std::process::id(),
+            SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir(&dir).unwrap();
+        let exe = dir.join("pbrain-rapfi-linux-clang-avx2");
+        std::fs::write(&exe, "#!/bin/sh\nwhile IFS= read -r l; do\ncase \"$l\" in\nSTART*) echo OK;;\nABOUT) echo 'name=\"Rapfi\"';;\nTEST_EOF) echo fixture-eof >&2; exit 19;;\nTEST_ERROR) echo 'ERROR fixture semantic';;\nesac\ndone\n").unwrap();
+        std::fs::set_permissions(&exe, std::fs::Permissions::from_mode(0o700)).unwrap();
+        dir
+    }
+    #[test]
+    fn transport_eof_and_stderr() {
+        let dir = fixture();
+        let mut s = Session::start(&dir).unwrap();
+        let err = s.exchange("TEST_EOF\n").unwrap_err();
+        assert!(err.starts_with("transport:"));
+        let status = s.child.wait().unwrap();
+        s.shutdown();
+        assert_eq!(status.code(), Some(19));
+        assert!(String::from_utf8_lossy(&s.stderr.lock()).contains("fixture-eof"));
+        drop(s);
+        std::fs::remove_dir_all(dir).unwrap();
+    }
+    #[test]
+    fn semantic_error_not_transport() {
+        let dir = fixture();
+        let mut s = Session::start(&dir).unwrap();
+        let err = s.exchange("TEST_ERROR\n").unwrap_err();
+        assert_eq!(err, "ERROR fixture semantic");
+        assert!(!err.starts_with("transport:"));
+        drop(s);
+        std::fs::remove_dir_all(dir).unwrap();
+    }
+}

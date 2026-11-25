@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE42_20261125",
-  "scope": "Same pinned MixNet: 16 color-swapped games, 48 actual source-intervention searches; 4 opening blocks overall; no population/physical admission",
+  "revision": "RESTORE43_20261125",
+  "scope": "Common MixNet crossed four-opening arena, prospective Q-feedback on held-out roots, exact realized query-count calibration; no physical admission",
   "entry": "REPLAN-03",
-  "supersedes_next": "MQFT-RESTORE42-COMMON-MIXNET-MATCHED-PILOT",
+  "supersedes_next": "MQFT-RESTORE43-CROSSED-OPENINGS-PROSPECTIVE-RESPONSE",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -488,7 +488,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "previous_entry": "REPLAN-01",
+  "previous_entry": "REPLAN-03",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "quantum_representation_policy": {
     "origin": "user directive 2026-11-25",
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE43-CROSSED-OPENINGS-PROSPECTIVE-RESPONSE",
+  "next_stage_id": "MQFT-RESTORE44-MARKED-LAW-ACTUAL-RESPONSE",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -638,6 +638,27 @@
     "evidence": [
       "docs/RESTORE42_THEORY.md",
       "docs/RESTORE42_RESULTS.md",
+      "docs/DRIFT_WATCHDOG.md"
+    ],
+    "next_contract": "docs/NEXT_DYNAMICS.md"
+  },
+  "restore43": {
+    "parent_dag_sha256": "7f3bf59398b142eb79877c8adad2ef0c24002c36673ce0dbeb59516544ccb602",
+    "status": "scoped_crossed_arena_and_rejected_prospective_closure",
+    "fresh_games": 16,
+    "fresh_fixed_root_jobs": 112,
+    "fresh_backups": 28052,
+    "cumulative_color_pairs": 16,
+    "opening_blocks": 4,
+    "heldout_response_contrasts": 40,
+    "prospective_closure": "NOT_ADMITTED",
+    "actual_query_matches": 4,
+    "runtime_retries": 2,
+    "runtime_cause": "unresolved",
+    "summary_sha256": "59cd22e879011342ea578d1d4b7481afd9b0209679aa23b482fa8a2cb47f466f",
+    "evidence": [
+      "docs/RESTORE43_THEORY.md",
+      "docs/RESTORE43_RESULTS.md",
       "docs/DRIFT_WATCHDOG.md"
     ],
     "next_contract": "docs/NEXT_DYNAMICS.md"
