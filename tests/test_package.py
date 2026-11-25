@@ -580,3 +580,30 @@ class InformativePhysics51(unittest.TestCase):
         self.assertAlmostEqual(q["work"],q2["work"],places=9)
         self.assertLess(abs(continuous_cycle(np.tile(p[0],(3,1)),16)["work"]),1e-10)
         self.assertLess(abs(continuous_cycle(p,256)["relative_gap"]),abs(q["relative_gap"]))
+
+class GroupPhysics52(unittest.TestCase):
+    def test_continuous_tilted_and_quantum_controls(self):
+        from mqft.physics52 import tilted_cycle,quantum_noncommuting
+        from mqft.physics51 import continuous_cycle
+        import numpy as np
+        p=[[.1,.2,.3,.4],[.3,.2,.2,.3],[.25,.15,.2,.4]]
+        q=tilted_cycle(p,16.)
+        self.assertLess(q["crooks_error"],1e-8)
+        self.assertAlmostEqual(q["W"],continuous_cycle(p,16.)["work"],places=8)
+        self.assertAlmostEqual(tilted_cycle([p[0]]*3,16.)["JE"],1.,places=10)
+        for a,b in ((0,0),(1,2),(2,3),(4,4)):
+            r,_=quantum_noncommuting(a,b)
+            self.assertLess(r["residual"],1e-10)
+            self.assertLessEqual(r["dephased_CHSH"],2+1e-10)
+        r,_=quantum_noncommuting(2,1)
+        self.assertGreater(r["CHSH"],2)
+    def test_spatial_group_projection(self):
+        from mqft.physics52 import spatial_group
+        import numpy as np
+        a=[]
+        for k in range(4):
+            c=np.zeros(169);c[[0,1,2]]=[k,4-k,0]
+            a.append(dict(L=13,B=4,counts=c.tolist(),G=[k-2.],group=[0],sector=0,H=1.))
+        q=spatial_group(a)
+        self.assertAlmostEqual(q["S0"],0.)
+        self.assertAlmostEqual(sum(q["response"]),0.,places=10)

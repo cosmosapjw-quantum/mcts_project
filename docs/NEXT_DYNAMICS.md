@@ -1,36 +1,26 @@
-# RESTORE52: absolute-information gate and genuine geometric response
-1. REPLAN-01/04.C: preserve new 3 geometry x2 peripheral variants
-   and all prior size-family data. Use absolute expected hit/Fisher
-   before assigning precision. Relative high stratum alone fails
-   at L13. Select on separate h0 pilot and confirm on new seeds.
-   If absolute Fisher low across all actions, use explicitly
-   implemented sector-field intervention (multiple actions, no
-   per-action identity conflation) with precise conditional likelihood
-   and source support. Match direct finite contrast and prefix score.
-   A sector field is a new observable, not a replacement of target.
-2. REPLAN-04.R/X-MEMORY: n8 B16 and n4 B32 pulse rows are pilots,
-   do not infer universal response or critical exponent. Expand
-   informative L21 and newly independent templates, more seed
-   blocks after prospective precision estimates. Compare full sector
-   and mark responses, causal prefix and complete-path Fisher bound.
-   Avoid multiplying sparse source trials without adequate hit/Fisher.
-3. REPLAN-03: train-rank improvement does not itself produce
-   heldout action advantage. For larger independent ensembles,
-   compare fixed low-rank/isotropic action to genuinely predictive
-   dynamical kernel; preserve previous rank failures and exact
-   restricted-wave one-loop reference. Native adaptive 1PI remains
-   open; no full Hessian from low-rank empirical covariance.
-4. REPLAN-05/X-REP: explicit retained quantum environment phase
-   intervention and system reset, matched dephased/erased control.
-   Seek noncommuting sequential environment observables and
-   operational tests distinguishing declared classical hidden sign
-   from quantum memory; current two-qubit model not native phase.
-5. REPLAN-06: continuous Gibbs reset friction validated against
-   direct ODE. Next controlled protocol-speed/duration asymptotics
-   and independent calibration; extend continuous tilted generator
-   for work generating function with reverse protocol. Retain
-   earlier exact discrete Crooks/JE, never call native path source
-   ratio physical entropy production without an energy model.
-6. REPLAN-07/X-BARRIER/X-STRUCT/X-TRAIN remain distinct; no selector
-   readmission or forced output. Same verified binaries and no
-   heuristic fallback. Exact original 13/121 output mapping.
+# RESTORE53: prospective group-field precision and multicomponent response
+1. REPLAN-04.R/04.C/X-MEMORY: replicate informative group pulses on
+   fresh D4-distinct geometry blocks and peripheral variants, common
+   group masks defined by spatial coordinates, absolute Fisher and
+   expected hit calibration on separate h0 data. B16/B32 n8/n4
+   currently a pilot. Estimate paired LR/direct discrepancy precision
+   rather than significance hunting. Keep scalar and group distinct.
+2. Extend native field to independent 3D sector tangent directions
+   (or explicitly bounded vector profile), verify additive common
+   logit gauge and full Fisher/response matrix, mixed second derivatives.
+   Compare actual direct multi-direction response and prospective
+   retarded kernel. No full adaptive 1PI from rank-limited fits.
+3. REPLAN-03: conditional exact frozen wave determinant retained;
+   build explicit state-dependent dynamical closure against
+   independent multi-source data, no retuning failed prior fits.
+4. REPLAN-05/X-REP: conditional explicit complex entanglement/CHSH
+   and intervention-specific correlations; next distinguish
+   measurement order using nonorthogonal noncommuting probes and
+   physically justified independent coherent implementation.
+   Do not claim a native Bell experiment.
+5. REPLAN-06: continuous tilted generator verified for declared
+   Gibbs reset, next protocol-dependent fluctuation distribution
+   and controlled discretization/slow-driving expansion, not native
+   heat. Physical phase/energy still require independent model.
+6. Other four topic nodes and original outputs preserved; no
+   selector readmission, no forced QEC/barrier/training plots.

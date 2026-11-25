@@ -647,5 +647,61 @@
     "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
     "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
     "production_runtime_unchanged": true
+  },
+  "restore52": {
+    "parent_main": "3136e85a34b4e8d8440796e9b15cbc729681631e",
+    "family": {
+      "13": {
+        "registration_sha256": "a5aca5b7a09968a8df1d54409862c82fae7acfeae803797bdc36f49bd03b7391",
+        "backend_sha256": "4cbd5b1589380be5a4f0efb85a1bbf651f754fb3df11e3e8eff27c19e57e8b79",
+        "source_manifest_sha256": "94e9035caa6e18f48f9df1816f1a9743b5936f1e8f2335c1a8523788d1fea59d",
+        "plans": {
+          "B16": {
+            "B": 16,
+            "hash": "3ac8df7117365f5381e4ed59b92c247d7b5b09e07bffef1901530ae809c817c8",
+            "jobs": 240,
+            "reps": 8
+          },
+          "B32": {
+            "B": 32,
+            "hash": "636d3d14964979ab51df2f2e772e67bad3acefca32b3e005596d3fe9fcbcf684",
+            "jobs": 36,
+            "reps": 4
+          },
+          "game": {
+            "hash": "5b0256a812fdb94989083ef8c5bc739716de9cba881cffc9bce24cf5da3198a0",
+            "jobs": 1
+          }
+        }
+      },
+      "21": {
+        "registration_sha256": "8d4af0d4aaef3fcdfe6b266f146cf503bb2628bb90e80e3f8460b7578de01853",
+        "backend_sha256": "bd9a3b66a6f999208056c1c022990bc84de65f0bf3089d01e2d44d5339f22272",
+        "source_manifest_sha256": "6f6efab576e9b4dffe79d66d9cdc6332ef7e20ebabe278a82d42b6660495cce1",
+        "plans": {
+          "B16": {
+            "B": 16,
+            "hash": "72ee5b180f37164028c7457fcef4ea2e06cb0d4e55240ccc260c90001d519a6d",
+            "jobs": 240,
+            "reps": 8
+          },
+          "B32": {
+            "B": 32,
+            "hash": "236dc159ecf83621d0fb6b88328859716fb0b3a658a1bd28c1faecb2575d8baa",
+            "jobs": 36,
+            "reps": 4
+          },
+          "game": {
+            "hash": "e2f9a39d165db1408cdc7685d96e70c56dd4c7e58c7387ded9fa492809fd0603",
+            "jobs": 1
+          }
+        }
+      }
+    },
+    "physics_results_sha256": "e70d37ca3a2bf5b7eb6936e4d547bb4c311518e60cda3dec86725800f232665b",
+    "states_sha256": "da83a1f880cfbe3ff66930e4e81cb1a9438352f1acfb3585b08fce713b7cc090",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "old_production_runtime_unchanged": true
   }
 }
