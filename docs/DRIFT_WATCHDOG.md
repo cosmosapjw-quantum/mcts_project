@@ -1,23 +1,21 @@
-# RESTORE56 drift watchdog
-Three original hashes and six Q28 axes checked, actual same Quartz
-MixNet v5, R54 analyzer unchanged, no engine optimization.
-6 new core geometries, 36 complete games plus144 fixed-root
-histories; old R55 training/longitudinal evidence separate.
-Use equal-game and matched opening blocks; no iid ply inference.
-Action-dependent predictable control exact mean correction, not
-native mark integration or general variance advantage. Preserve
-negative scaled-control results. Restricted exact lattice reference
-not adaptive 1PI. Conditional erasure and driven rate/energy
-models use actual propensity input but explicitly external
-quantum/thermal dynamics. Q19 reused R54 exact work arrays,
-no new work paths; not native energy. Original L19/L20/Q19/Q20/Q24
-scoped evidence does not automatically unblock native/full outputs.
-23 original IDs addressed, 24 union R55/R56; G01 explicitly left
-unaddressed this round. 445 paired retained figures distinct PNG
-SHA, no QA/first render/archival-only count; not scientific completion.
-13 nodes with evidence, 1 scoped complete/6 scoped/6 partial; original
-121 owner/status map unchanged. No unsupported criticality,
-objectivity, hbar, beta, phase, selector or RG fixed-point claims.
-Actual errors preserved (aggregate index, L conflict, finite
-difference numerical criterion); no raw mutation; Richardson verified.
-Native independent subagent unavailable (NOT_RUN).
+# RESTORE57 drift watchdog
+Original archives, Q28 six axes and exact G01 guide re-read;
+same Quartz/MixNet v5 and R54 analysis; no optimization drift.
+288 new roots, 44 reused games with exact identity, no inflated
+native counts. Original E=-pi.Q and 1/sqrt(k) definitions
+reproduced; physical energy/temp remain distinct. Actual
+conditional selection likelihood not occupancy fit.
+Frozen R56 mark model on fresh cores: predictor MSE improves,
+LR variance advantage not replicated, no adoption.
+Original Q19/Q20 mock work/reverse and Q08 absolute dS not
+reused; defined noncyclic Gibbs model with signed heat,
+first law/entropy/CF, distinct Cramer independent repeats.
+Q03 declared finite-contact Otto and ideal Carnot no native
+bath/P-V or quantum efficiency. No arbitrary quantum work split.
+14 original IDs scoped, 29 union R55-R57; 3 native-definition
+and5 conditional-reference replots do not certify full
+physical results. 452 verified retained plot pairs, no QA,
+duplicates, archived-only or first render inflation.
+13-node/13-edge/121-owner and original status contract preserved.
+No physical phase/hbar, adaptive1PI, criticality, autonomous RG
+or objectivity promotion. Native subagent unavailable (NOT_RUN).

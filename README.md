@@ -1,6 +1,6 @@
 # MQFT: MCTS statistical field-theory measurement package
 
-Research-only migration of the original MQFT / mcts_study project, RESTORE56 (grouped Layer A/Q physics; explicit evaluator identity).
+Research-only migration of the original MQFT / mcts_study project, RESTORE57 (grouped Layer A/Q physics; explicit evaluator identity).
 **Rust Quartz backend + Python analysis frontend**, with Rapfi as a separate external opponent.
 This repository's main branch is now dedicated to MQFT. Legacy implementation
 remains in Git history (previous main eb19e5f4ca9a502d645ccab45a8dcfbcc733f537).
@@ -61,6 +61,15 @@ of reproducing the executable byte-for-byte from source. The three upstream
 submodule IDs are recorded in PROVENANCE.json; fetch them from upstream if
 building from source. Rapfi is a strong external proxy, not exact minimax or
 a source of MCTS internal statistics.
+
+## RESTORE57 dedicated original native and thermodynamic outputs
+
+288 independent native root histories; 44 verified games reused for original
+energy/temperature and entropy; conditional noncyclic work and signed entropy,
+finite-contact Otto and ideal Carnot references. Frozen mark LR variance gain
+not replicated. See [theory](docs/RESTORE57_THEORY.md), [results](docs/RESTORE57_RESULTS.md),
+[reproduction](research/restore57/README.md), [progress](docs/PROGRESS57.json),
+[original item ledger](docs/ORIGINAL_OUTPUT_PROGRESS57.csv).
 
 ## RESTORE56 matched longitudinal games and conditional dynamics
 

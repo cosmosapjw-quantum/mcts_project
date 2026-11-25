@@ -1,39 +1,34 @@
-# RESTORE57: close dedicated original outputs, not repeated routine plots
-1. REPLAN-01: scoped native complete-game trace achieved; keep
-   exact provenance and use 8 opening blocks B16/32,6 B64.
-   Independent distribution/general strength remains separate.
-2. REPLAN-02: original G01 energy evolution needs explicit
-   score proxy or declared calibrated energy; G02/temperature
-   scaling needs independently defined thermometer and
-   comparison of Q/PUCT/conditional likelihood. No physical
-   temperature from fit status alone.
-3. REPLAN-03,04.R,X-MEMORY: test R56 fixed action-unit LR
-   control on new independent geometries; do not tune on heldout.
-   Construct continuation operator/conditional marked kernel
-   with real forward predictions, independent training and
-   adaptive 1PI/controlled small parameter. Native depth
-   variance and restricted one-loop not autonomous RG.
-4. REPLAN-04.C: matched larger size-family/density, independent
-   cores and B grid. Criticize boundary/finite support and
-   phase censoring; no critical exponent before scaling window.
-5. REPLAN-05,X-REP: local record PGM, flag readout and erasure
-   now explicit; next fragment-disturbance/objectivity and
-   independent phase-sensitive instrument, envariance and
-   hbar calibration, physical pointer dynamics only when defined.
-6. REPLAN-06: Q19 conditional cyclic six-panel replot prepared;
-   general noncyclic DeltaF, work trajectory and thermodynamic
-   cycle panels need actual protocol and independent path
-   generator. Driven rate vs energy response verified for reset
-   model, no native physical bath/energy. Q20 remains partial.
-7. REPLAN-07: prior selector tests completed not admitted;
-   revisit only new scientific discriminator. X-BARRIER:
-   dedicated native transport/detection and tunneling referent.
-   X-STRUCT: dedicated filtration/topology/actual fault-injection
-   with declared recovery. X-TRAIN: original full self-play
-   training curves and matched evaluation; avoid treating
-   search cost as training. Preserve prior negatives.
-8. Maintain 13 DAG nodes, 121 original outputs; update
-   per-item evidence and actual paired figure inventory, no
-   automatic completion from plots. New data priority:
-   only independent opening/size grid and dedicated missing
-   physics inputs; no large uniform repetition of old stencil.
+# RESTORE58: original critical/transport/structural outputs
+1. REPLAN-02: G01/G02/G03 definitions now explicitly reproduced
+   with exact source and raw trace; no more routine energy replot.
+   Independent physical thermometer/energy calibration and
+   convergence/barrier interpretation remain separate.
+2. REPLAN-06: Q19/Q20 noncyclic exact conditional work paths,
+   signed Q05/Q08 entropy and classical Q03 cycles completed
+   as scoped references. Native bath, quantum cycle, physical
+   P-V and temperature scans unresolved. Reuse exact work paths;
+   only extend for actual new physical discriminator.
+3. X-MEMORY/REPLAN-03: R57 prospective LR unit-action gain not
+   replicated. Retire generic mark-variance admission. Preserve
+   action predictor MSE improvement and negative coefficients.
+   Next direct conditional continuation kernel with actual
+   state-dependent test, not repeat previous control stencils.
+4. REPLAN-04.C: prioritize original critical and correlation
+   outputs G05/G06/G07 and Q31 etc after exact catalog/source
+   check. Compatible actual size family 13/15/17/19/21, separate
+   B scaling, independent matched geometry/density, finite
+   support boundary and censoring; no critical exponent without
+   genuine scaling window. Register small grid before large run.
+5. X-BARRIER/X-STRUCT: dedicated transport/first detection and
+   actual tree/complex filtration plus controlled backup fault
+   injection with declared recovery. Use original IDs and
+   genuine observable, conditional physics separate.
+6. REPLAN-05/X-REP: independent phase-sensitive mechanism,
+   record disturbance/objectivity, hbar calibration. Prior
+   complex reference erasure, CPTP and record results retained.
+7. X-TRAIN: actual iterative self-play learning curves and
+   matched checkpoints; avoid treating search throughput as
+   training. REPLAN-07 negative selector evidence retained.
+8. Preserve 13 nodes,121 original obligations and per-item
+   scope overlay/plot inventory. Focus new outputs rather
+   than repeated grouped figures. No unsupported completion.

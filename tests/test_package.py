@@ -683,3 +683,30 @@ class ConditionalPhysics56(unittest.TestCase):
         q=driven_response(p);self.assertLess(max(z["finite_error"] for z in q["rows"]),1e-8)
         self.assertLess(max(z["quadrature_error"] for z in q["rows"]),1e-8)
         self.assertEqual(len(q["rows"]),9)
+
+class DedicatedPhysics57(unittest.TestCase):
+    def test_noncyclic_work_and_heat(self):
+        from mqft.physics57 import levels,compare_noncyclic,protocol,cramer
+        import numpy as np
+        E=levels([[.1,.2,.3,.4],[.3,.2,.2,.3],[.25,.15,.25,.35]])
+        q,f,r=compare_noncyclic(E,4.,256,5701)
+        self.assertAlmostEqual(q["deltaF"],np.log(.35/.4),places=12)
+        self.assertLess(q["crooks_error"],1e-8)
+        self.assertLess(q["forward"]["mc"]["path_residual"],1e-10)
+        self.assertLess(max(abs(x["free_residual"]) for x in q["forward"]["rows"]),1e-8)
+        self.assertGreaterEqual(q["forward"]["rows"][-1]["sigma"],0.)
+        # constant protocol: W and heat are not generally both zero,
+        # but path W is identically zero and stationary mean heat zero.
+        a,b=protocol(np.repeat(E[:1],3,axis=0),4.,64,5702)
+        self.assertAlmostEqual(abs(b["W"]).max(),0.,places=12)
+        self.assertAlmostEqual(a["rows"][-1]["sigma"],0.,places=12)
+        z=cramer(E,4.)
+        self.assertAlmostEqual(z["psi"][32],0.,places=9)
+        self.assertGreaterEqual(min(z["I"]),-1e-9)
+    def test_cycles_and_fdt(self):
+        from mqft.physics57 import heat_engines,equilibrium_susceptibility
+        p=[.1,.2,.3,.4];q=heat_engines(p,1.)
+        self.assertAlmostEqual(q["eta"],1/3)
+        self.assertAlmostEqual(q["carnot"]["eta"],.5)
+        self.assertGreater(q["sigma"],0.)
+        self.assertLess(equilibrium_susceptibility(p)["error"],1e-9)
