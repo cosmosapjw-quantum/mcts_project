@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE47_20261126",
-  "scope": "Grouped Layer A/Q: actual budget/source scale pilot, empirical joint action, nonstationary count/mark memory and conditional CP/thermal cycles",
+  "revision": "RESTORE48_20261126",
+  "scope": "Grouped physical precision: balanced B32/64 scale histories, causal prefix response, shot tomography, thermal duration and compatible size support",
   "entry": "REPLAN-04.C",
-  "supersedes_next": "MQFT-RESTORE47-GROUPED-PHYSICS-SCALE",
+  "supersedes_next": "MQFT-RESTORE48-SCALE-PRECISION",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE48-SCALE-PRECISION",
+  "next_stage_id": "MQFT-RESTORE49-COMMON-SIZE-FAMILY",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -954,5 +954,108 @@
       "docs/RESTORE47_RESULTS.md"
     ],
     "next_contract": "docs/NEXT_DYNAMICS.md"
+  },
+  "restore48": {
+    "parent_dag_sha256": "fee4d75886ed5721e990646b39c8f23c4093db4fe40d9fe8ccbf66dc1f32a0f1",
+    "status": "scoped_balanced_scale_precision_and_physical_reference",
+    "fresh_histories": 1344,
+    "balanced_scale_histories": 1536,
+    "total_marked_histories": 2736,
+    "fresh_backups": 59136,
+    "causal_kernel_cases": 36,
+    "paired_contrasts": 48,
+    "shot_reconstructions": 3456,
+    "conditional_thermal_cases": 576,
+    "supported_direct_nnue_sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "spatial_native_mcts": "not_implemented",
+    "reservation_B32_response": "unresolved",
+    "empirical_action": "NOT_ADMITTED",
+    "group_figures": {
+      "REPLAN-01": {
+        "scope": "native_and_direct_evaluator",
+        "files": {
+          "REPLAN-01.png": "ee698de15ac72d54eed32e525d3959c598bc3130e0c61b5f2faa0afdbca72798",
+          "REPLAN-01.pdf": "437390c64c78357e15dcdf7b5eb41d2789e653f11e95bd9208d6ddf20d50ebc4"
+        }
+      },
+      "REPLAN-02": {
+        "scope": "native_observed",
+        "files": {
+          "REPLAN-02.png": "76aebec8e9410f101fb652cab031cf947fd08b884b6795649148694de4ee53c5",
+          "REPLAN-02.pdf": "931d8289f02e2ce36c004b1d5b7759487f82ff5327ae7919feee20c3267305c6"
+        }
+      },
+      "REPLAN-03": {
+        "scope": "empirical_measure",
+        "files": {
+          "REPLAN-03.png": "b12a0a39eb7f44151b4b1dbca5cf1bdece2138e735427693c87185abba9abd6d",
+          "REPLAN-03.pdf": "18340b80dba61eac2adf4e851dd3ed035e341be7755077452097f123608f9d76"
+        }
+      },
+      "REPLAN-04.R": {
+        "scope": "native_causal_score",
+        "files": {
+          "REPLAN-04.R.png": "cd10632b551258a7fab586230b8e23955046138207ad0e368b68ef04d0ec8ed0",
+          "REPLAN-04.R.pdf": "55766814be396612ef93f8b89ad4aaad0d9b9a7458ca27654d1fa78718137bb7"
+        }
+      },
+      "REPLAN-04.C": {
+        "scope": "native_scale_precision",
+        "files": {
+          "REPLAN-04.C.png": "5f0dcc924db804eb51547c8bcb481a62c424e2b2e387e7fbd511040f1a3abc95",
+          "REPLAN-04.C.pdf": "8ab65fcf2020e733924935ec61e3897ffc908271c7ac74530d39bd17f5f2112f"
+        }
+      },
+      "REPLAN-05": {
+        "scope": "conditional_shot_simulation",
+        "files": {
+          "REPLAN-05.png": "eae30f5827e90bc03312efec614b33dd53ed38f3dfb1676739f2a46ca55321b1",
+          "REPLAN-05.pdf": "128e7e9bd94e08b5d37e7620c5218acfc39c66e379842e7753a158ac920679cc"
+        }
+      },
+      "REPLAN-06": {
+        "scope": "conditional_thermal",
+        "files": {
+          "REPLAN-06.png": "8281bbf1b75abc4de4c2977bfcbc4130dd4d15a948fa5d024f7db271e34500d0",
+          "REPLAN-06.pdf": "fd4873de5459e459104aa1da963070d515a03c3a546bdc2dc0c81fe80cc58c7b"
+        }
+      },
+      "X-REP": {
+        "scope": "conditional_tomography",
+        "files": {
+          "X-REP.png": "1cf11b87c9cb72bf41d0b58a4530bedec8df5315fb3b759d43778f95c90ea6f7",
+          "X-REP.pdf": "2785e49c69d01f963d4541cad6c502a0a5fd8f1b00237ff4e1046eb3094f1664"
+        }
+      },
+      "X-MEMORY": {
+        "scope": "repeated_heldout",
+        "files": {
+          "X-MEMORY.png": "9e47e091f196d97149f263124a802bb6b96cad1b1b938082212ca715df8f6c80",
+          "X-MEMORY.pdf": "fdf637557f8c101c5e3aff6b24caa015688463e999cf25ae232a9041203357f8"
+        }
+      }
+    },
+    "physics_results_sha256": "b9ffb3355d4c9ca65c63848fb42c1c929262fd5b487b27a8ef7b2398391a84d0",
+    "conditional_sha256": "5ede2a1a414632e4826088a09ba6842fca97414d194f67d5cece5b91917143be",
+    "size_sha256": "5fc38f17b5f7e7f7e52d672f75e3c0f1062e392291a874f4c26348f9d1736abb",
+    "original_plot_tasks": 121,
+    "additional_plot_nodes": 0,
+    "prior_admissions": "preserved",
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "evidence": [
+      "docs/RESTORE48_THEORY.md",
+      "docs/RESTORE48_RESULTS.md"
+    ]
   }
 }

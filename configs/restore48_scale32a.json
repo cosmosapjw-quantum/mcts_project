@@ -1,0 +1,295 @@
+{
+  "budgets": [
+    32
+  ],
+  "c_puct": [
+    1.4
+  ],
+  "cpu_limit": 8,
+  "evaluator": "rapfi_nnue_lookahead_v1",
+  "jobs": 1,
+  "kind": "roots",
+  "max_output_bytes": 1073741824,
+  "modes": [
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "iid",
+        "logit_h": -0.2,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "iid",
+        "logit_h": -0.1,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "iid",
+        "logit_h": 0.0,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "iid",
+        "logit_h": 0.1,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "iid",
+        "logit_h": 0.2,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "pl",
+        "logit_h": -0.2,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "pl",
+        "logit_h": -0.1,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "pl",
+        "logit_h": 0.0,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "pl",
+        "logit_h": 0.1,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "pl",
+        "logit_h": 0.2,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "reserve",
+        "logit_h": -0.2,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "reserve",
+        "logit_h": -0.1,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "reserve",
+        "logit_h": 0.0,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "reserve",
+        "logit_h": 0.1,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "reserve",
+        "logit_h": 0.2,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    }
+  ],
+  "paired_schedule_seed": true,
+  "positions": [
+    {
+      "id": "opening0_p8",
+      "moves": [
+        112,
+        111,
+        83,
+        128,
+        126,
+        98,
+        99,
+        67
+      ],
+      "source_action": 142
+    },
+    {
+      "id": "opening1_p8",
+      "moves": [
+        112,
+        96,
+        114,
+        144,
+        98,
+        68,
+        82,
+        66
+      ],
+      "source_action": 126
+    }
+  ],
+  "prior": "local",
+  "record_rollouts": true,
+  "replicates": 14,
+  "rollout_depth": 1,
+  "search_timeout": 90,
+  "seed": 48001,
+  "sources": [
+    0.0
+  ]
+}

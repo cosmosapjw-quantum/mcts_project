@@ -453,3 +453,42 @@ class ScalePhysics47(unittest.TestCase):
             self.assertAlmostEqual(x["work"],x["entropy_production"]+x["final_lag_KL"],places=10)
         self.assertLess(abs(x["delta_U"]),1e-10)
         self.assertLess(abs(x["final_lag_KL"]),1e-10)
+
+class PrecisionPhysics48(unittest.TestCase):
+    def test_causal_kernel_and_paired_jackknife(self):
+        from mqft.physics48 import causal_kernel,response_precision
+        rng=np.random.default_rng(48);a=[]
+        for i in range(16):
+            I=rng.binomial(1,.3,8).tolist();M=rng.uniform(-1,1,8).tolist()
+            a.append(dict(seed=i,k=8,target_ind=I,marks=M,conditional_p=[.3]*8,G=sum(I)-2.4,F=8*.3*.7,occupancy=sum(I)/8,mean_mark=float(np.mean(M))))
+        z=causal_kernel(a)
+        self.assertAlmostEqual(z["estimates"][0][0],z["estimates"][1][0]+z["estimates"][4][0])
+        arms={h:[dict(x,occupancy=x["occupancy"]+.01*h) for x in a] for h in (-.2,-.1,0.,.1,.2)}
+        p,r=response_precision(arms)
+        self.assertAlmostEqual(p[0]["values"]["direct"][0],.01)
+        self.assertAlmostEqual(r["values"][0][0],.01)
+        self.assertTrue(np.isfinite(p[0]["se"]["LR_minus_direct"]).all())
+    def test_tomography_repair_and_duration(self):
+        from mqft.physics48 import shot_channel,duration_cycle
+        from mqft.physics47 import process_probe
+        z,_=process_probe(1,1)
+        for name in ("static","reset_static","dephased"):
+            J,R,m,a=shot_channel(z["channels"][name]["ptm"],128,np.random.default_rng(48))
+            self.assertGreaterEqual(np.linalg.eigvalsh(R).min(),-1e-10)
+        for T in (1.,16.,64.):
+            x=duration_cycle([.2,.7,.4],T,8)
+            self.assertAlmostEqual(x["JE"],1.,places=10)
+            self.assertAlmostEqual(x["work"],x["sigma"]+x["lag"],places=10)
+        self.assertLess(duration_cycle([.4,.4,.4],1.,8)["work"],1e-12)
+
+    def test_prefix_likelihood_finite(self):
+        from mqft.physics48 import prefix_finite
+        rng=np.random.default_rng(49);a=[]
+        for i in range(8):
+            I=rng.binomial(1,.4,8).tolist()
+            a.append(dict(seed=i,k=8,target_ind=I,marks=[.2]*8,conditional_p=[.4]*8))
+        r=prefix_finite({h:a for h in (-.2,0.,.2)})[0]
+        self.assertEqual(r["n"],8)
+        self.assertTrue(np.isfinite(r["se"]["prefix"]).all())
+        self.assertAlmostEqual(r["values"]["prefix"][1],0.)
+        self.assertAlmostEqual(r["values"]["direct"][0],0.)

@@ -1,30 +1,35 @@
-# RESTORE48: scale precision and original physical models
-1. REPLAN-04.C/03: increase existing registered B32/B64 scale
-   arms from 2 to 16 independent repeats (1344 additional histories,
-   same registered roots, disjoint seeds). Prefer this precision
-   experiment to adding more models. Compare common h=.2 across
-   budgets and smaller h at B32; estimate paired finite contrasts
-   and second derivative with actual uncertainties. B16 precision
-   doubling is separate, retain existing 1152.
-2. REPLAN-04.R/X-MEMORY: return-mark lag improves but count and
-   coarse category clock model not admitted. Fit physically motivated
-   causal count/mark response on larger train cohort; test new D4
-   roots, no retuning current heldout. Preserve exact nonstationary
-   projection formula. Use actual observed score-field/source
-   mixed cumulants and local action curvature; do not infer 1PI
-   from empirical finite output tilt.
-3. X-REP/05: independent matched-block noise vs persistent control,
-   phase-sensitive tomography with declared shot sampling and
-   uncertainty, or new genuine coherent implementation. Exact
-   conditional models are useful, but no native phase identification.
-   Investigate record redundancy with disjoint controlled records.
-4. REPLAN-06: conditional thermal cycle with nontrivial final lag;
-   compare finite relaxation and protocol duration, independent
-   calibrated energy only if justified. Native same-path LR distinct.
-5. REPLAN-02/04.C: actual compatible board-size family needed.
-   Audit existing Rapfi size support and Quartz 15x15 architecture
-   before implementing common NNUE multi-size backend. No mixed
-   evaluator comparison. Preserve earlier size evidence.
-6. REPLAN-07, X-BARRIER, X-STRUCT, X-TRAIN: preserve original
-   obligations and prior rejections; no new plots without inputs.
-   Resolve startup abort upstream separately, no fallback.
+# RESTORE49 grouped physics and genuine size-family backend
+1. REPLAN-01/02/04.C: implement explicit board-size-aware common MixNet
+   evaluator and Quartz freestyle state/trace/legality contract; do not
+   modify existing v3 15x15 implementation in place or override header.
+   Use verified supported 13,15,17,19,21 as first odd-L family.
+   Include L in state/protocol identity, action mapping a=y L+x,
+   terminal/undo/Zobrist/D4 tests, full legal NNUE scores and parent/child
+   WDL, source action and seed registry. Validate new L15 against exact
+   v3 trace semantics at matched seeds before cross-size experiments.
+   Compare common absolute central geometry and fixed density families
+   separately; match real NNUE queries vs backups, do not assert exponent
+   from direct evaluator probes or budget scaling. Pilot actual same
+   engine games and h0/perturbed roots, preserve incompatible 9/11.
+2. REPLAN-03/04.R: use causal block response as real dynamical input.
+   Direct time-dependent source interventions at matched roots require
+   new explicit per-clock logit field schedule; test future-response
+   null and retarded response against actual interventions. Preserve
+   prior conditional lattice saddle and empirical action evidence.
+   Do not claim native continuum 1PI or fixed point.
+3. REPLAN-04.C: reassess paired uncertainty after balanced scale
+   replication. Use more independent roots for generalization; no
+   automatic huge uniform repetition or tuning of selected roots.
+   Second response requires careful variance control, smaller h alone
+   does not guarantee accuracy. B16 doubling remains separate.
+4. X-MEMORY/05/X-REP: frozen memory alternatives and conditional
+   simulated shot evidence; compare constrained nearest-CPTP or
+   likelihood reconstruction only in a predeclared test. Distinguish
+   conditional coherent simulation and genuine physical phase readout.
+5. REPLAN-06: conditional finite-duration protocols with temporal
+   discretization and slow-driving limits; native likelihood response
+   and thermal identifiability separate. Preserve original thermal
+   cycle, decoherence, envariance and quantum Darwinism obligations.
+6. REPLAN-07/X-BARRIER/X-STRUCT/X-TRAIN: prior distinct tasks and
+   negative evidence retained. No forced new plots without actual
+   inputs, no selector re-admission. Upstream startup abort unresolved.

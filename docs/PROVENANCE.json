@@ -224,5 +224,22 @@
       "scale64": "907c907f3bdbd95e7b43c9ff9ccd30a3586d45310bed8bb6ad0cf0d41ea414f0"
     },
     "rng_helper_sha256": "e07d8058c71413c2f449ed8dcd0bd09afdc99a8611bb3a65905921312d66e3cd"
+  },
+  "restore48": {
+    "parent_main": "6796fd5e2c9c24464d9cc01c5152dcbc5951c5c7",
+    "backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "registration_sha256": "ce39adf1661547d196d3aea526179c23020ec5d4aecd6fe791b623de026b0a0f",
+    "physics_results_sha256": "b9ffb3355d4c9ca65c63848fb42c1c929262fd5b487b27a8ef7b2398391a84d0",
+    "conditional_sha256": "5ede2a1a414632e4826088a09ba6842fca97414d194f67d5cece5b91917143be",
+    "size_sha256": "5fc38f17b5f7e7f7e52d672f75e3c0f1062e392291a874f4c26348f9d1736abb",
+    "prior_clock_sha256": "5ea17569466c0f253de42078eb5ffa70ca25a4ababce13deb1d5ee3dd3e98132",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "previous_physics": "cc98ffd7e0bc61f36f0ed5b9d8219912f6f2cf0b70d395e366b3e1cbc568c26d",
+    "plan_hashes": {
+      "scale32a": "29a8f1351ca2467442b53f118a01be2fc20a1726a16ee6baffa3aa44a0da4f29",
+      "scale32b": "b92131d9546cede3bd6366553cda46b8a2a6e3dfbbfe4e0d8219b500a0a1da55",
+      "scale64": "ae520e562c89e79b15b773f7b4660bea202c29b249a73fd6b93cd53fce8823fd"
+    },
+    "rng_helper_sha256": "e07d8058c71413c2f449ed8dcd0bd09afdc99a8611bb3a65905921312d66e3cd"
   }
 }

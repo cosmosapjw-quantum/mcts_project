@@ -1,32 +1,33 @@
-# RESTORE47 R1–R10 then C1–C10
-R1 exact original target/parent, 13 grouped nodes, common MixNet.
-R2 original Q28 and ZIPs, prior actual data, Exa/SciSpace/Parallel
-literature on nonstationary projection, Choi and exponential families.
-R3 distinguish native logit and output source, count/mark, clocks,
-phase/energy units, support and root/seed split.
-R4 alternative empirical/quadratic/zero CGF, clock/lag, CP matched
-block/dephased control, partial Gibbs reset cycle.
-R5 derive Legendre mixed curvature, second score derivative,
-nonstationary block elimination and detailed balance cycle.
-R6 Wolfram Bernoulli variance, independent numerical checks,
-matched block control and exact QFI/CP/TP.
-R7 actual finite scale pilot 240 paths plus 4 complete games,
-24 action fits/96 test contrasts, new root memory, 48 probes,
-144 thermal path sums.
-R8 retain negative predictive results and underpowered scale pilot;
-native physical identification and board size unresolved.
-R9 formula-to-code contracts and nine grouped figures.
-R10 watchdog and next bounded precision stage.
-C1 exact parent, model, budget/source protocol.
-C2 actual source and trace mapping, original ZIP rehash.
-C3 physics47.py and independent trace/clock/probe reducer.
-C4 bounded campaigns and new D4 opening registry.
-C5 actual execution and numeric reduction, no synthetic native data.
-C6 actual regression tests, prior RNG helper and new physics tests.
-C7 240 native paths replayed, empirical dual and exact matrix/thermal
-checks, distinct evidence classes.
-C8 report sampling limitation, numerical residuals, resource footprint.
-C9 verify manifest and independent numerical paths; native subagent NOT_RUN.
-C10 publish, update DAG, verified new two-copy backup then retire old.
-R8–R10 final data-dependent outcomes interleaved with coding; no claim
-of 20 independent agents or literal complete theory before experiments.
+# RESTORE48 R1–R10 / C1–C10
+R1 parent and original goals, 13 topics and exact same model.
+R2 source archive identities/Q28, prior R47 evidence, Exa/SciSpace/
+Parallel references on density derivatives, finite-shot tomography,
+detailed-balance work generating functions; Wolfram second derivative.
+R3 native source vs output source, marks and actual completed clocks,
+conditional sampling and fixed-root uncertainty, units/scope.
+R4 full vs causal-prefix LR, first/second/Richardson contrasts,
+empirical CGF and frozen memory alternatives, shot null and CP repair,
+duration-dependent Gibbs reference and size support.
+R5 derive causal response and prefix martingale marginal, Hessian
+score and block projection, CP-preserving repair, tilted transfer DP.
+R6 independent CAS, clock order and source-law/trace checks,
+explicit CP/TP and JE/Crooks/first-law identities; native agent absent.
+R7 execute registered scale replication and declared conditional
+measurements, temperature/response/time-block/action figures.
+R8 compare actual precision, higher-order and predictive limitations;
+preserve negative evidence without tuning heldout.
+R9 formula-to-code, complete seed pairing, original plot mapping.
+R10 durable result, drift watchdog, exact next board-size/precision plan.
+C1 pin baseline, executable, evaluator and registrations.
+C2 inspect actual trace, original source archives, NNUE header.
+C3 implement finite response/jackknife/prefix and conditional probes.
+C4 bounded three-stream 1344-job design; preserve prior 192 scale paths.
+C5 real execution and independent replay; no synthetic native paths.
+C6 actual Rust/Python regression and conditional checks.
+C7 receipt/manifest, PRNG, paired seed and causal-clock verification.
+C8 error and sampling diagnostics, resource and spatial-size scope.
+C9 independent calculation paths, plot manifest and source audit;
+native independent subagent NOT_RUN. No production backend change.
+C10 publish, DAG, verified consolidated two-copy backup and old
+duplicate cleanup. R8–R10 finalized after data, not literal independent
+serial subagents or a proof of all original research.

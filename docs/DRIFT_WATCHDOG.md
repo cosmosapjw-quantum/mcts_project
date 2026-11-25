@@ -1,16 +1,17 @@
-# RESTORE47 drift watchdog
-Original Q28 six axes and original ZIP bytes reverified; RESTORE32
-two-layer A/Q authority preserved. Grouped plot ownership unchanged
-13 nodes/13 edges and 121 original output IDs. Same real MixNet for
-all native paths; no uniform fallback. New finite-budget/source
-contrasts, actual empirical action, time-dependent multivariate
-memory, conditional CP process tomography and thermal cycle are
-scientific calculations, not an MCTS strength sweep. Distinguish
-actual law vs empirical surrogate vs declared quantum/thermal model.
-Preserve failed predictive CGF and clock/count closure, no tuning
-against heldout, no selector admission. Original multi-wave
-determinant, Gram/QD, thermal and prior negative results retained.
-Physical beta/hbar, native phase, native 1PI, board-size criticality
-still unresolved. No new plot-specific vertices or artificial
-tunneling/QEC/training output. No large study launched.
-Native independent subagent absent; separate computations checked.
+# RESTORE48 drift watchdog
+Original three ZIP identities and Q28 six axes rechecked. RESTORE32 A/Q
+core, 13-node/13-edge compressed DAG and 121 original output ownership
+unchanged. Same actual MixNet, no uniform or heuristic fallback.
+Expand existing scale arms rather than proliferate models. New causal
+prefix response and uncertainty refer to actual adaptive histories;
+not a claimed native physical FDT or 1PI. Preserve all prior negative
+selector/closure admissions. Finite-shot channel reconstruction samples
+declared mathematical probabilities, not physical hardware or native
+quantum phase; simple CP repair is not a guaranteed optimal estimator.
+Thermal duration scan is a declared Gibbs Markov protocol, not native
+heat or temperature. Same-weight header and direct evaluation across
+13..22 establish compatibility, not multi-size MCTS or criticality.
+9/11 incompatible heuristic output explicitly excluded. No size-mask
+override. Prior memory holdout reused, not new independent population.
+Actual B16 doubling deferred. No new plot vertices or artificial
+barrier/QEC/training curves. Native independent subagent unavailable.
