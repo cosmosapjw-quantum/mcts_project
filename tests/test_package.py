@@ -663,3 +663,23 @@ class LongitudinalPhysics55(unittest.TestCase):
             a=restricted_vector(e,[x["action"] for x in e],13,l,np.zeros(3))
             self.assertAlmostEqual(a["p"].sum(),1.)
             self.assertEqual(len(a["p"]),120 if l=="pl" else 625)
+
+class ConditionalPhysics56(unittest.TestCase):
+    def test_erasure_endpoints_and_pgm(self):
+        from mqft.physics56 import erasure
+        import numpy as np
+        p=[.1,.2,.3,.4]
+        for g in (0.,.2,.5,.8,1.):
+            q,s=erasure(p,g)
+            self.assertAlmostEqual(q["rows"][-1]["recovered_fraction"],1.)
+            self.assertAlmostEqual(q["rows"][-1]["purity"],1.)
+            for z in q["rows"]:
+                self.assertLessEqual(z["PGM_MI"],z["Holevo"]+1e-10)
+            self.assertAlmostEqual(q["rows"][0]["recovered_fraction"],(1-g)**8)
+            self.assertTrue(np.allclose(np.diag(s["8"]),p))
+    def test_driven_response(self):
+        from mqft.physics56 import driven_response
+        p=[[.1,.2,.3,.4],[.3,.2,.2,.3],[.25,.15,.2,.4]]
+        q=driven_response(p);self.assertLess(max(z["finite_error"] for z in q["rows"]),1e-8)
+        self.assertLess(max(z["quadrature_error"] for z in q["rows"]),1e-8)
+        self.assertEqual(len(q["rows"]),9)

@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE55_20261126",
-  "scope": "Grouped Layer A/Q: actual longitudinal Q fit and depth flow, sequential full-support martingale controls, restricted PL/reserve and declared quantum record/FDT models",
+  "revision": "RESTORE56_20261126",
+  "scope": "Grouped Layer A/Q: matched longitudinal games across budgets, independently trained predictable mark control, conditional erasure and driven response, original output progress ledger",
   "entry": "REPLAN-01",
-  "supersedes_next": "MQFT-RESTORE55-WAVE-CLOSURE-LONGITUDINAL",
+  "supersedes_next": "MQFT-RESTORE56-LONGITUDINAL-CONDITIONAL-DYNAMICS",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -488,7 +488,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "previous_entry": "REPLAN-03",
+  "previous_entry": "REPLAN-01",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "quantum_representation_policy": {
     "origin": "user directive 2026-11-25",
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE56-LONGITUDINAL-CONDITIONAL-DYNAMICS",
+  "next_stage_id": "MQFT-RESTORE57-DEDICATED-ORIGINAL-OUTPUTS",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -1825,6 +1825,168 @@
       "docs/RESTORE55_THEORY.md",
       "docs/RESTORE55_RESULTS.md",
       "docs/ORIGINAL_OUTPUT_EVIDENCE55.csv"
+    ]
+  },
+  "restore56": {
+    "parent_dag_sha256": "09989f99429a6c907495c9e603eed52cba04687639f00f5bec8621e2d84f9bed",
+    "status": "scoped_native_longitudinal_and_predictable_control_conditional_physics",
+    "sizes": [
+      13,
+      21
+    ],
+    "fresh_games": 36,
+    "fresh_marked_histories": 144,
+    "total_marked_histories": 8792,
+    "fresh_backups": 16608,
+    "longitudinal_plies": 384,
+    "combined_games_R55_R56": 44,
+    "combined_game_plies": 533,
+    "new_core_geometries": 6,
+    "matched_blocks_B16_B32": 8,
+    "matched_blocks_B32_B64": 6,
+    "response_rows": 72,
+    "mark_control": "heldout predictor MSE improved; LR action-unit exploratory reduction, scaled/direct no general admission",
+    "restricted_lattice_cases": 36,
+    "conditional_record_cases": 108,
+    "conditional_states": 972,
+    "conditional_driven_cases": 36,
+    "original_evidence_items": 23,
+    "original_evidence_sha256": "497ad87f225b69a6e8d7c05edcd2356cb304d651675065cc6e4ea8d43486ca66",
+    "progress_sha256": "2701d0c6e32da48190684133e8745ae21474eac4280ba35e57613a5f665f7057",
+    "inventory_sha256": "2725f3ed4d5162832ab9fea953c70d1138fc1dee46ecc5079db904d9bfe918d4",
+    "original_progress_sha256": "ccdca87dcfcda0ba6f49eda84083555c5515bbec25f2ad11addfe433e975f395",
+    "group_figures": {
+      "REPLAN-01": {
+        "scope": "native complete games",
+        "original_items": [
+          "L02"
+        ],
+        "files": {
+          "plots/grouped/REPLAN-01.png": "ee4e3107b2eba74cc543ee51ca0468ea6f0e2e6e893f8d2b7da8aa54c41e13d0",
+          "plots/grouped/REPLAN-01.pdf": "d9cea71368517d6dd7d43f1db12d620930fac80a6d2de042102f63376c3362fb"
+        }
+      },
+      "REPLAN-02": {
+        "scope": "native descriptive score fit",
+        "original_items": [
+          "L03",
+          "L04",
+          "L25",
+          "L26",
+          "L45",
+          "G02",
+          "G03"
+        ],
+        "files": {
+          "plots/grouped/REPLAN-02.png": "ac9f00653e8c131fa84abd796e0f9be11712218e75cfb399793d562599c14bc4",
+          "plots/grouped/REPLAN-02.pdf": "920f07ae8a927405e69cd7614efa630f0721123d484e73f9f3bdb3c84038c327"
+        }
+      },
+      "REPLAN-03": {
+        "scope": "conditional exact restricted wave and native diagnostic",
+        "original_items": [
+          "L02"
+        ],
+        "files": {
+          "plots/grouped/REPLAN-03.png": "79068de953548b48d16bb1d3cfb49f1352a7cc764650281f3992d63b2a9f7039",
+          "plots/grouped/REPLAN-03.pdf": "74f29acc97c325fcdfdaea5e95854327672ef1b45c2b83b62785d97e6f862a0e"
+        }
+      },
+      "REPLAN-04.R": {
+        "scope": "native tree depth",
+        "original_items": [
+          "L29",
+          "L35",
+          "L38",
+          "Q09",
+          "Q11"
+        ],
+        "files": {
+          "plots/grouped/REPLAN-04.R.png": "06de5c766e154cf509052c5358093954f84179e61d3fb6ece7597c31df12dd0c",
+          "plots/grouped/REPLAN-04.R.pdf": "396b123bed1fcc71572df3ad2d7bac64f3e06fef9d34e62f2f40580da4e1428c"
+        }
+      },
+      "REPLAN-04.C": {
+        "scope": "finite budget and size comparisons; no scaling exponent",
+        "original_items": [
+          "L07",
+          "Q31"
+        ],
+        "files": {
+          "plots/grouped/REPLAN-04.C.png": "a7408e97bc3f2f4908543b7e9ec2f5b2d18591c818d7578cc238c82922e25801",
+          "plots/grouped/REPLAN-04.C.pdf": "7fe1b9d9e54c62560495224135e4ffdb4ee000703e5377fff1dca4c0487f925a"
+        }
+      },
+      "REPLAN-05": {
+        "scope": "conditional quantum records",
+        "original_items": [
+          "L20",
+          "Q24",
+          "Q25",
+          "Q26"
+        ],
+        "files": {
+          "plots/grouped/REPLAN-05.png": "eb7dbf285e94e62e3efa52d9fbd634090f783acac559c6c5bfb8288908fd3394",
+          "plots/grouped/REPLAN-05.pdf": "eb5ac27e185f0373fe916462e15d46b93d67001e71954f5ad8ce187f182900a9"
+        }
+      },
+      "REPLAN-06": {
+        "scope": "conditional nonstationary response",
+        "original_items": [
+          "L06",
+          "L33",
+          "Q20"
+        ],
+        "files": {
+          "plots/grouped/REPLAN-06.png": "d0e09ff027a10409fae64ab4a9257a00ccfcb5c359106021405638a81afb96e3",
+          "plots/grouped/REPLAN-06.pdf": "b98f03a784bdb4bb0186a7609bd63d9ae98b57c340c253e23d9f6a80ce3efc15"
+        }
+      },
+      "X-REP": {
+        "scope": "conditional complex state",
+        "original_items": [
+          "Q24",
+          "Q26"
+        ],
+        "files": {
+          "plots/grouped/X-REP.png": "c28fa2ee808f79a2917bd8231a4571485e8db56d1e859e1ad07934a0a200cf53",
+          "plots/grouped/X-REP.pdf": "4a472825b10bc5b3f4e4333aad69d193cb9897dfaaac9c901d21c444fd57c292"
+        }
+      },
+      "X-MEMORY": {
+        "scope": "native predictive mark control",
+        "original_items": [],
+        "files": {
+          "plots/grouped/X-MEMORY.png": "42109f8dae4148e8bdb37794f310065d1fa0709bdf4c1e582038cfeee17f68df",
+          "plots/grouped/X-MEMORY.pdf": "f42cddd39c9b74489f49b96d02119fcf00090c6119fecdd48815a81d766da19e"
+        }
+      },
+      "Q19_jarzynski_verification": {
+        "scope": "conditional cyclic work reference, not native heat",
+        "original_items": [
+          "Q19"
+        ],
+        "files": {
+          "plots/original/Q19_jarzynski_verification.png": "252cfba9b0e139568ade627d73890a8fd0209d37e92aca9400f6dcbccb7c0644",
+          "plots/original/Q19_jarzynski_verification.pdf": "583a967fb55ee1f85c351732ca54fc222205428c499facc1b953eaf2b6a05c3e"
+        }
+      }
+    },
+    "physics_results_sha256": "0ab832fa4268a039723ab8108777edc078d9d979428c81eceb311aebe7391b83",
+    "states_sha256": "3b4096041f693c7dbc22e6904ff9567a2040523575dd1742695d35a765219e1b",
+    "original_plot_tasks": 121,
+    "additional_plot_nodes": 0,
+    "prior_admissions": "preserved",
+    "critical_scaling": "unresolved",
+    "native_1PI": "unresolved",
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "evidence": [
+      "docs/RESTORE56_THEORY.md",
+      "docs/RESTORE56_RESULTS.md",
+      "docs/ORIGINAL_OUTPUT_EVIDENCE56.csv",
+      "docs/PROGRESS56.json",
+      "docs/PLOT_INVENTORY56.csv",
+      "docs/ORIGINAL_OUTPUT_PROGRESS56.csv"
     ]
   }
 }

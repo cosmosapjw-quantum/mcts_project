@@ -1,21 +1,23 @@
-# RESTORE55 drift watchdog
-Original three archives/Q28 six axes, 13-node/13-edge/121-owner
-map and R32 A/Q retained. Same actual Quartz/MixNet and old
-v5 runtime/analysis patch, no engine optimization. Eight full
-self-play games and actual per-ply trace analysis target original
-Q thermometry, tree-depth flow, entropy and score balance; no
-relabeling normalized game progress as physical time, score scale
-as temperature or graph-depth proxy as autonomous RG. Two common
-cores, matched B16/32 but only two independent opening blocks.
-Sequential predictable controls unbiased only under ideal recorded
-conditional laws; variance reduction measured, not assumed.
-Restricted 5-action reference distinct from full native support.
-Explicit conditional quantum record/dephasing/Schmidt swaps and
-equilibrium Gibbs FDT; no native phase, energy, objectivity or
-critical exponent. Original plot ID crosswalk records scope, no
-automatic 121-item completion or change in canonical catalog.
-Preserve prior negative selector/closure evidence, no extra nodes.
-Combined subtraction roundoff failure preserved, regrouped exact
-difference after checking observations and controls individually.
-Independent native subagent unavailable (NOT_RUN); serial fallback
-with independent RNG, enumeration, matrix, CAS and ODE checks.
+# RESTORE56 drift watchdog
+Three original hashes and six Q28 axes checked, actual same Quartz
+MixNet v5, R54 analyzer unchanged, no engine optimization.
+6 new core geometries, 36 complete games plus144 fixed-root
+histories; old R55 training/longitudinal evidence separate.
+Use equal-game and matched opening blocks; no iid ply inference.
+Action-dependent predictable control exact mean correction, not
+native mark integration or general variance advantage. Preserve
+negative scaled-control results. Restricted exact lattice reference
+not adaptive 1PI. Conditional erasure and driven rate/energy
+models use actual propensity input but explicitly external
+quantum/thermal dynamics. Q19 reused R54 exact work arrays,
+no new work paths; not native energy. Original L19/L20/Q19/Q20/Q24
+scoped evidence does not automatically unblock native/full outputs.
+23 original IDs addressed, 24 union R55/R56; G01 explicitly left
+unaddressed this round. 445 paired retained figures distinct PNG
+SHA, no QA/first render/archival-only count; not scientific completion.
+13 nodes with evidence, 1 scoped complete/6 scoped/6 partial; original
+121 owner/status map unchanged. No unsupported criticality,
+objectivity, hbar, beta, phase, selector or RG fixed-point claims.
+Actual errors preserved (aggregate index, L conflict, finite
+difference numerical criterion); no raw mutation; Richardson verified.
+Native independent subagent unavailable (NOT_RUN).

@@ -1,23 +1,20 @@
-# RESTORE55 R1-R10 / C1-C10
-R1 exact parent and original goals; R2 original Q28/function sources,
-Exa sequential CV, SciSpace record context, Parallel Markov FDT,
-Wolfram local symbolic check. R3 define native/conditional measures,
-R4 register matched openings and fixed-root early/late arms.
-R5 derive predictable controls, depth variance law, record isometry,
-projector dephasing, Schmidt swap and FDT. R6 verify finite identities
-by independent enumeration, matrix and native replay. R7 actual
-registered campaigns and conditional physical calculations.
-R8 measured response precision, variance and longitudinal limits.
-R9 grouped figures and exact source-ID scoped crosswalk.
-R10 durable next longitudinal/closure contract.
-C1 exact v5/model/analysis identities. C2 source-code/data mapping.
-C3 implement longitudinal and predictable control, restricted laws.
-C4 bounded campaigns, sealed plans and seed scopes.
-C5 actual generation/reduction and new physics references.
-C6 regression and rounding-difference repair with failed logs.
-C7 native RNG and prefix, conditional law/variance, physical controls.
-C8 measured errors, resource logs and negative results.
-C9 independent numerical and plot manifest verification; native
-independent subagent NOT_RUN, no simulated agent dispatch.
-C10 publication, DAG, verified two-copy backup and scoped cleanup.
-Data-dependent R8-R10 finalized after measurements.
+# RESTORE56 R1-R10 / C1-C10
+R1 exact parent and original Q28; R2 original Q-score/depth/Q19
+source, Exa control caveats, SciSpace erasure context, Parallel
+driven response, Wolfram local checks. R3 clocks/measures/scope.
+R4 registered matched opening and independent mark test design.
+R5 constructive predictable controls, Kraus erasure/PGM,
+time-dependent Duhamel response. R6 exact algebra and independent
+CAS/DP/matrix/convolution. R7 actual registered data and tests.
+R8 measured predictive/variance evidence, preserve negatives.
+R9 item-level crosswalk and actual grouped/dedicated plots.
+R10 next original-specific obligations and progress inventory.
+C1 exact runtime/evaluator/analysis identity; C2 map prior trace
+and current observables; C3 implementation and independent checks;
+C4 bounded registered campaigns; C5 actual run and reduction;
+C6 Rust385/Python56, diagnosed aggregate/numerical repair;
+C7 RNG/trace, DP/Kraus/ODE checks; C8 measured finite-sample
+and FD errors; C9 separate checks/plot manifest and progress
+inventory, native subagent NOT_RUN; C10 scoped publication,
+DAG update and verified two-copy backup, cleanup only afterwards.
+Data-dependent R8-R10 finalized after C execution.
