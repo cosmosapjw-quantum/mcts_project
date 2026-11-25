@@ -1,0 +1,8 @@
+{
+  "kind":"roots","seed":40002,"replicates":64,
+  "budgets":[128,512,2048],"c_puct":[0.7,1.4,2.8],
+  "modes":[{"mode":"serial","workers":1},{"mode":"root","workers":4},{"mode":"tree","workers":4},{"mode":"leaf","workers":4,"samples_per_eval":4},{"mode":"wave","workers":4}],
+  "positions":[{"id":"example_A","moves":[112,113,97,127,111,128],"source_action":96},{"id":"example_B","moves":[112,128,96,111,98,126],"source_action":113}],
+  "sources":[-0.2,-0.1,0,0.1,0.2],"rollout_depth":225,"prior":"local",
+  "jobs":2,"cpu_limit":8,"max_output_bytes":137438953472,"search_timeout":300
+}

@@ -1,0 +1,12 @@
+/backend/target/
+/target/
+/data/
+/runs/
+/.local/
+/.external/
+*.part
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+*.egg-info/

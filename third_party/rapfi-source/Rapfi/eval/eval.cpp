@@ -1,0 +1,340 @@
+/*
+ *  Rapfi, a Gomoku/Renju playing engine supporting piskvork protocol.
+ *  Copyright (C) 2022  Rapfi developers
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include "eval.h"
+
+#include "../game/board.h"
+#include "evalconfig.h"
+#include "evaluator.h"
+
+#include <algorithm>
+#include <cmath>
+#include <cstdint>
+
+using Evaluation::EvalCfg;
+
+namespace {
+
+/// Makes threat mask according current pattern4 counts on board.
+int makeThreatMask(const StateInfo &st, Color self)
+{
+    Color oppo = ~self;
+
+    bool oppoFive      = st.p4Count[oppo][A_FIVE];
+    bool selfFlexFour  = st.p4Count[self][B_FLEX4];
+    bool oppoFlexFour  = st.p4Count[oppo][B_FLEX4];
+    bool selfFourPlus  = st.p4Count[self][D_BLOCK4_PLUS] + st.p4Count[self][C_BLOCK4_FLEX3];
+    bool selfFour      = st.p4Count[self][E_BLOCK4];
+    bool selfThreePlus = st.p4Count[self][G_FLEX3_PLUS] + st.p4Count[self][F_FLEX3_2X];
+    bool selfThree     = st.p4Count[self][H_FLEX3];
+    bool oppoFourPlus  = st.p4Count[oppo][D_BLOCK4_PLUS] + st.p4Count[oppo][C_BLOCK4_FLEX3];
+    bool oppoFour      = st.p4Count[oppo][E_BLOCK4];
+    bool oppoThreePlus = st.p4Count[oppo][G_FLEX3_PLUS] + st.p4Count[oppo][F_FLEX3_2X];
+    bool oppoThree     = st.p4Count[oppo][H_FLEX3];
+
+    int mask = 0;
+    mask |= 0b1 & -int(oppoFive);
+    mask |= 0b10 & -int(selfFlexFour);
+    mask |= 0b100 & -int(oppoFlexFour);
+    mask |= 0b1000 & -int(selfFourPlus);
+    mask |= 0b10000 & -int(selfFour);
+    mask |= 0b100000 & -int(selfThreePlus);
+    mask |= 0b1000000 & -int(selfThree);
+    mask |= 0b10000000 & -int(oppoFourPlus);
+    mask |= 0b100000000 & -int(oppoFour);
+    mask |= 0b1000000000 & -int(oppoThreePlus);
+    mask |= 0b10000000000 & -int(oppoThree);
+
+    assert(0 <= mask && mask < THREAT_NB);
+    return mask;
+}
+
+/// Evaluates threats.
+/// Threat indicates dynamic first-move status which causes highly non-linear eval changes.
+template <Rule R>
+inline Value evaluateThreat(const StateInfo &st, Color self)
+{
+    return (
+        Value)Evaluation::EVALS_THREAT[Evaluation::tableIndex(R, self)][makeThreatMask(st, self)];
+}
+
+/// Evaluates basic patterns on board.
+inline Value evaluateBasic(const StateInfo &st, Color self)
+{
+    return self == BLACK ? st.valueBlack : -st.valueBlack;
+}
+
+/// Finds a margin for switching to classical evaluation if
+/// it falls outside alpha-beta window with this margin.
+template <Rule R>
+inline int computeClassicalEvalMargin(Value bound)
+{
+    float winLossRate = 2 * (Evaluation::valueToWinRate(bound) - 0.5f);
+    float x           = EvalCfg.marginWinLossScale[R] * winLossRate;
+    float x2          = x * x;
+    return (int)(EvalCfg.marginScale[R] * ::expf(-::powf(x2, EvalCfg.marginWinLossExponent[R])));
+}
+
+using ClassicalMarginTables =
+    std::array<std::array<int, VALUE_EVAL_MAX - VALUE_EVAL_MIN + 1>, RULE_NB>;
+
+ClassicalMarginTables makeClassicalMarginTables()
+{
+    ClassicalMarginTables tables;
+    for (int value = VALUE_EVAL_MIN; value <= VALUE_EVAL_MAX; value++) {
+        const int index = value - VALUE_EVAL_MIN;
+        tables[FREESTYLE][index] = computeClassicalEvalMargin<FREESTYLE>(Value(value));
+        tables[STANDARD][index]  = computeClassicalEvalMargin<STANDARD>(Value(value));
+        tables[RENJU][index]     = computeClassicalEvalMargin<RENJU>(Value(value));
+    }
+    return tables;
+}
+
+// EvalCfg and ScalingFactor have constant-initialized defaults. Populate every rule
+// before search can use the table, including callers without an external config.
+ClassicalMarginTables classicalMarginTables = makeClassicalMarginTables();
+
+template <Rule R>
+inline int classicalEvalMargin(Value bound)
+{
+    assert(VALUE_EVAL_MIN <= bound && bound <= VALUE_EVAL_MAX);
+    const int margin = classicalMarginTables[R][bound - VALUE_EVAL_MIN];
+    assert(margin == computeClassicalEvalMargin<R>(bound));
+    return margin;
+}
+
+}  // namespace
+
+namespace Evaluation {
+
+// Value/win-rate conversions and readout construction share this scale.
+float ScalingFactor = 200.0f;
+
+void refreshClassicalMarginTables()
+{
+    classicalMarginTables = makeClassicalMarginTables();
+}
+
+namespace {
+
+    ClassicalValueReadouts valueReadouts;
+    std::array<std::array<Value, VALUE_EVAL_MAX - VALUE_EVAL_MIN + 1>, RULE_NB + 1>
+         valueReadoutCaches {};
+    void refreshClassicalValueReadoutCaches()
+    {
+        static constexpr std::array<double, ClassicalValueReadout::KnotCount> XKnots =
+            {0.0, 0.5, 1.0, 2.0, 4.0, 8.0};
+        const double scale = ScalingFactor;
+
+        for (size_t readoutIndex = 0; readoutIndex < valueReadouts.size(); readoutIndex++) {
+            if (!valueReadouts[readoutIndex].knotsActive)
+                continue;
+            const auto &yKnots = valueReadouts[readoutIndex].knots;
+            auto       &cache  = valueReadoutCaches[readoutIndex];
+            for (int raw = VALUE_EVAL_MIN; raw <= VALUE_EVAL_MAX; raw++) {
+                double x = std::abs(double(raw)) / scale;
+                double y;
+                if (x >= XKnots.back())
+                    y = yKnots.back() + x - XKnots.back();
+                else {
+                    size_t hi = 1;
+                    while (x > XKnots[hi])
+                        hi++;
+                    size_t lo = hi - 1;
+                    double t  = (x - XKnots[lo]) / (XKnots[hi] - XKnots[lo]);
+                    y         = yKnots[lo] + t * (yKnots[hi] - yKnots[lo]);
+                }
+                double mapped               = std::copysign(y * scale, double(raw));
+                cache[raw - VALUE_EVAL_MIN] = Value(
+                    std::clamp<long long>(std::llround(mapped), VALUE_EVAL_MIN, VALUE_EVAL_MAX));
+            }
+        }
+    }
+
+    Value applyClassicalValueReadout(Rule rule, Color self, Value rawValue)
+    {
+        assert(VALUE_EVAL_MIN <= rawValue && rawValue <= VALUE_EVAL_MAX);
+        const int table = tableIndex(rule, self);
+        return valueReadouts[table].knotsActive
+                   ? valueReadoutCaches[table][int(rawValue) - VALUE_EVAL_MIN]
+                   : rawValue;
+    }
+
+}  // namespace
+
+void setScalingFactor(float scale)
+{
+    assert(std::isfinite(scale) && scale > 0.0f);
+    ScalingFactor = scale;
+    refreshClassicalValueReadoutCaches();
+    refreshClassicalMarginTables();
+}
+
+const ClassicalValueReadouts &classicalValueReadouts()
+{
+    return valueReadouts;
+}
+
+void installClassicalValueReadouts(const ClassicalValueReadouts &readouts)
+{
+    valueReadouts = readouts;
+    refreshClassicalValueReadoutCaches();
+}
+
+const int ClassicalValueBlendWeights[RULE_NB + 1][ClassicalValueBlend::COMPONENT_NB] = {
+    {149, 106, 267},
+    {155, 116, 268},
+    {137, 122, 263},
+    {138, 125, 261},
+};
+
+namespace {
+
+    // Both basic terms use the current side-to-move perspective. Divide the complete
+    // 64-bit weighted sum once, then clamp before the optional integer readout lookup.
+    Value composeClassicalValue(Rule  rule,
+                                Color self,
+                                Value currentBasic,
+                                Value previousBasic,
+                                Value currentThreat)
+    {
+        const int *weights = ClassicalValueBlendWeights[tableIndex(rule, self)];
+
+        int64_t weightedValue =
+            int64_t(weights[ClassicalValueBlend::CURRENT_BASIC]) * int64_t(currentBasic)
+            + int64_t(weights[ClassicalValueBlend::PREVIOUS_BASIC]) * int64_t(previousBasic)
+            + int64_t(weights[ClassicalValueBlend::CURRENT_THREAT]) * int64_t(currentThreat);
+        return Value(weightedValue / ClassicalValueBlend::Scale);
+    }
+
+}  // namespace
+
+/// Calculates the final evaluation of a board.
+/// @note Board must have at least one stone placed (`ply() > 0`).
+template <Rule R>
+Value evaluate(const Board &board, Value alpha, Value beta)
+{
+    assert(board.ply() > 0);
+    Color self = board.sideToMove();
+
+    const StateInfo &st0 = board.stateInfo();
+    const StateInfo &st1 = board.stateInfo(1);
+
+    Value currentBasic  = evaluateBasic(st0, self);
+    Value previousBasic = evaluateBasic(st1, self);
+    Value currentThreat = evaluateThreat<R>(st0, self);
+    Value eval =
+        std::clamp(composeClassicalValue(R, self, currentBasic, previousBasic, currentThreat),
+                   VALUE_EVAL_MIN,
+                   VALUE_EVAL_MAX);
+    Value classicalEval = applyClassicalValueReadout(R, self, eval);
+
+    if (board.evaluator()) {
+        // Use evaluator eval if classical eval are in alpha-beta window margin
+        int margin = classicalEvalMargin<R>(classicalEval);
+        if (classicalEval >= alpha - margin && classicalEval <= beta + margin)
+            return computeEvaluatorValue(board).value();
+    }
+
+    return classicalEval;
+}
+
+template Value evaluate<FREESTYLE>(const Board &, Value, Value);
+template Value evaluate<STANDARD>(const Board &, Value, Value);
+template Value evaluate<RENJU>(const Board &, Value, Value);
+
+/// A safe but slower version of evaluate().
+/// Similar to evaluate(), but can be called for all board states.
+Value evaluate(const Board &board, Rule rule)
+{
+    if (board.ply() > 0) {
+        switch (rule) {
+        default:
+        case Rule::FREESTYLE: return evaluate<Rule::FREESTYLE>(board);
+        case Rule::STANDARD: return evaluate<Rule::STANDARD>(board);
+        case Rule::RENJU: return evaluate<Rule::RENJU>(board);
+        }
+    }
+    else {
+        Color            self = board.sideToMove();
+        const StateInfo &st   = board.stateInfo();
+
+        Value currentBasic  = evaluateBasic(st, self);
+        Value currentThreat = VALUE_ZERO;
+        switch (rule) {
+        default:
+        case Rule::FREESTYLE: currentThreat = evaluateThreat<Rule::FREESTYLE>(st, self); break;
+        case Rule::STANDARD: currentThreat = evaluateThreat<Rule::STANDARD>(st, self); break;
+        case Rule::RENJU: currentThreat = evaluateThreat<Rule::RENJU>(st, self); break;
+        }
+
+        Value eval =
+            std::clamp(composeClassicalValue(rule, self, currentBasic, currentBasic, currentThreat),
+                       VALUE_EVAL_MIN,
+                       VALUE_EVAL_MAX);
+        return applyClassicalValueReadout(rule, self, eval);
+    }
+}
+
+ValueType computeEvaluatorValue(const Board &board)
+{
+    Color     self = board.sideToMove();
+    ValueType v    = board.evaluator()->evaluateValue(board);
+
+    // Adjust draw rate according to draw ratio and draw black win rate
+    if (EvalCfg.drawRatio < 1.0) {
+        float newDrawRate = EvalCfg.drawRatio * v.draw();
+        float drawWinRate = EvalCfg.drawBlackWinRate;
+        drawWinRate       = self == BLACK ? drawWinRate : 1.0f - drawWinRate;
+        v                 = v.valueOfDrawWinRate(drawWinRate, newDrawRate);
+    }
+
+    return v;
+}
+
+/// Trace all evaluation info from a board state with rule.
+EvalInfo::EvalInfo(const Board &board, Rule rule)
+    : plyBack {0}
+    , self(board.sideToMove())
+    , threatMask(makeThreatMask(board.stateInfo(), self))
+{
+    Board &b = const_cast<Board &>(board);
+    Pos    undoHistory[2];
+    int    undoCount = 0;
+
+    for (size_t backIndex = 0; backIndex < arraySize(plyBack); backIndex++) {
+        auto &info = plyBack[backIndex];
+        if (backIndex > 0 && b.ply() > 0) {
+            undoHistory[undoCount++] = b.getLastMove();
+            b.undo(rule);
+        }
+
+        FOR_EVERY_EMPTY_POS(&b, pos)
+        {
+            info.pcodeCount[BLACK][b.pcode<BLACK>(pos)]++;
+            info.pcodeCount[WHITE][b.pcode<WHITE>(pos)]++;
+        }
+    }
+
+    // Recover board state
+    while (undoCount > 0) {
+        b.move(rule, undoHistory[--undoCount]);
+    }
+}
+
+}  // namespace Evaluation

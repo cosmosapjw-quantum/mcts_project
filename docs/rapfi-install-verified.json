@@ -1,0 +1,13 @@
+{
+  "files": {
+    "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+    "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+    "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+  },
+  "license": "GPL-3.0",
+  "release": "250615",
+  "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+  "rules": "freestyle15",
+  "score_semantics": "external strong move proxy, not exact",
+  "source": "https://github.com/dhbloo/rapfi"
+}

@@ -1,0 +1,17 @@
+test_all_schedules_contract (test_package.Bridge.test_all_schedules_contract) ... ok
+test_root_source (test_package.Bridge.test_root_source) ... ok
+test_complex_density_and_reset (test_package.Conditional.test_complex_density_and_reset) ... ok
+test_beta_boundaries (test_package.Math.test_beta_boundaries) ... ok
+test_board_protocol (test_package.Math.test_board_protocol) ... ok
+test_graph_partition (test_package.Math.test_graph_partition) ... ok
+test_kkt_and_response (test_package.Math.test_kkt_and_response) ... ok
+test_moments_balance (test_package.Math.test_moments_balance) ... ok
+test_plan_dry_and_gate (test_package.Math.test_plan_dry_and_gate) ... ok
+test_read_and_render_temporary_fixture (test_package.ReceiptFixture.test_read_and_render_temporary_fixture) ... $HOME/.local/lib/python3.12/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 3.907s
+
+OK

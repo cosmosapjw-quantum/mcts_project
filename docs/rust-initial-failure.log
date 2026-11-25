@@ -1,0 +1,126 @@
+   Compiling libc v0.2.184
+   Compiling cfg-if v1.0.4
+   Compiling crossbeam-utils v0.8.21
+   Compiling proc-macro2 v1.0.106
+   Compiling zerocopy v0.8.48
+   Compiling quote v1.0.45
+   Compiling unicode-ident v1.0.24
+   Compiling libm v0.2.16
+   Compiling autocfg v1.5.0
+   Compiling serde_core v1.0.228
+   Compiling parking_lot_core v0.9.12
+   Compiling zmij v1.0.21
+   Compiling getrandom v0.4.2
+   Compiling rayon-core v1.13.0
+   Compiling rustix v1.1.4
+   Compiling rustversion v1.0.22
+   Compiling smallvec v1.15.1
+   Compiling scopeguard v1.2.0
+   Compiling serde_json v1.0.149
+   Compiling serde v1.0.228
+   Compiling linux-raw-sys v0.12.1
+   Compiling bitflags v2.11.1
+   Compiling fastrand v2.4.1
+   Compiling either v1.15.0
+   Compiling itoa v1.0.18
+   Compiling memchr v2.8.0
+   Compiling lock_api v0.4.14
+   Compiling once_cell v1.21.4
+   Compiling bumpalo v3.20.2
+   Compiling num-traits v0.2.19
+   Compiling crossbeam-epoch v0.9.18
+   Compiling crossbeam-channel v0.5.15
+   Compiling arc-swap v1.9.1
+   Compiling crossbeam-deque v0.8.6
+   Compiling syn v2.0.117
+   Compiling getrandom v0.2.17
+   Compiling rayon v1.11.0
+   Compiling rand_core v0.6.4
+   Compiling parking_lot v0.12.5
+   Compiling tempfile v3.27.0
+   Compiling serde_derive v1.0.228
+   Compiling ppv-lite86 v0.2.21
+   Compiling rand_chacha v0.3.1
+   Compiling rand v0.8.5
+   Compiling rand_distr v0.4.3
+   Compiling mcts_demo v0.3.0 ($HOME/quantum/research/reboot_20261120/mqft_restore39_20261125/repo/backend)
+warning: unused import: `std::sync::atomic::AtomicBool`
+   --> src/mcts/policy/cache.rs:265:9
+    |
+265 |     use std::sync::atomic::AtomicBool;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `bernoulli_kl`
+  --> src/mcts/policy/kl_lucb.rs:26:25
+   |
+26 | use super::kl_helpers::{bernoulli_kl, kl_lower, kl_lucb_beta, kl_upper};
+   |                         ^^^^^^^^^^^^
+
+warning: use of deprecated constant `std::f32::NEG_INFINITY`: replaced by the `NEG_INFINITY` associated constant on `f32`
+  --> src/mcts/policy/ments.rs:33:21
+   |
+33 |         return f32::NEG_INFINITY;
+   |                     ^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated constant `std::f32::NEG_INFINITY`: replaced by the `NEG_INFINITY` associated constant on `f32`
+  --> src/mcts/policy/ments.rs:36:51
+   |
+36 |         return q_values.iter().cloned().fold(f32::NEG_INFINITY, f32::max);
+   |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated constant `std::f32::NEG_INFINITY`: replaced by the `NEG_INFINITY` associated constant on `f32`
+  --> src/mcts/policy/ments.rs:38:52
+   |
+38 |     let max_q = q_values.iter().cloned().fold(f32::NEG_INFINITY, f32::max);
+   |                                                    ^^^^^^^^^^^^
+
+warning: use of deprecated constant `std::f32::NEG_INFINITY`: replaced by the `NEG_INFINITY` associated constant on `f32`
+  --> src/mcts/policy/ments.rs:82:52
+   |
+82 |     let max_q = q_values.iter().cloned().fold(f32::NEG_INFINITY, f32::max);
+   |                                                    ^^^^^^^^^^^^
+
+warning: use of deprecated constant `std::f32::NEG_INFINITY`: replaced by the `NEG_INFINITY` associated constant on `f32`
+   --> src/mcts/policy/ments.rs:163:47
+    |
+163 |         assert_eq!(soft_value(&[], 1.0), f32::NEG_INFINITY);
+    |                                               ^^^^^^^^^^^^
+
+warning: type `GlobalBrokerShared<M>` is more private than the item `GlobalBroker::<M>::shared`
+    --> src/mcts/eval.rs:1587:5
+     |
+1587 |     pub fn shared(&self) -> &Arc<GlobalBrokerShared<M>> {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ method `GlobalBroker::<M>::shared` is reachable at visibility `pub`
+     |
+note: but type `GlobalBrokerShared<M>` is only usable at visibility `pub(crate)`
+    --> src/mcts/eval.rs:1525:1
+     |
+1525 | pub(crate) struct GlobalBrokerShared<M: Copy + Eq + Hash + Debug + Send + 'static> {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     = note: `#[warn(private_interfaces)]` on by default
+
+warning: `mcts_demo` (lib test) generated 8 warnings (run `cargo fix --lib -p mcts_demo --tests` to apply 2 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.36s
+     Running unittests src/lib.rs ($HOME/.cargo-targets/mqft_restore39/debug/deps/mcts_demo-6931585fcf4878ee)
+
+running 3 tests
+
+thread 'mqft::tests::board_legal_terminal' (996226) panicked at src/mqft.rs:261:9:
+assertion failed: from_moves(&[0, 0]).is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test mqft::tests::board_legal_terminal ... FAILED
+test mqft::tests::root_source_support ... ok
+test mqft::tests::all_schedules_tiny_contract ... ok
+
+failures:
+
+failures:
+    mqft::tests::board_legal_terminal
+
+test result: FAILED. 2 passed; 1 failed; 0 ignored; 0 measured; 392 filtered out; finished in 0.03s
+
+error: test failed, to rerun pass `--lib`

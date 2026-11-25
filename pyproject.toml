@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mqft-mcts"
+version = "0.1.0"
+description = "Native Quartz MCTS measurements and original MQFT physics analysis"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "matplotlib>=3.7"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+mqft = "mqft.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["python"]

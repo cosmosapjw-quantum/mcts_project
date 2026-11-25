@@ -1,0 +1,286 @@
+{
+  "original_question_member": "mcts_study/v6.0/mcts_conversation.txt",
+  "member_sha256": "c691be3a2124bec4891d95a16463fb8f73671bfd16c1e5fe2ce0d1909c2022ec",
+  "entries": [
+    {
+      "axis": "T",
+      "node": "REPLAN-02",
+      "question": "Q28.1",
+      "figure": "F01_temperature_entropy",
+      "source": [
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+          "member_sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+          "function": "_plot_authentic_temperature",
+          "line_start": 1621,
+          "line_end": 1636
+        },
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+          "member_sha256": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+          "function": "plot_temperature_extraction",
+          "line_start": 41,
+          "line_end": 68
+        },
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+          "member_sha256": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+          "function": "plot_temperature_scaling",
+          "line_start": 70,
+          "line_end": 115
+        }
+      ],
+      "observed": "per-ply N,W,P and selector Q; constrained beta KL and entropy; cut 4/8/16",
+      "remaining": "physical temperature calibration; nonfinite and zero fit boundaries retained",
+      "status": "partial_native_panel_or_diagnostic_not_original_full_panel"
+    },
+    {
+      "axis": "A",
+      "node": "REPLAN-03",
+      "question": "Q28.2",
+      "figure": "F02_action_fluctuations",
+      "source": [
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+          "member_sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+          "function": "_generate_path_integral_plots",
+          "line_start": 2212,
+          "line_end": 2390
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_jarzynski_equality.py",
+          "member_sha256": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+          "function": "plot_path_integral_formulation",
+          "line_start": 440,
+          "line_end": 549
+        }
+      ],
+      "observed": "fixed-field exact finite-budget regularized objective and stationarity gap; root-frame W,S2 and variance",
+      "remaining": "actual one-loop correction, path action normalization and causal response; see prior RESTORE28/35/37, not inferred from occupancy",
+      "status": "partial_native_panel_or_diagnostic_not_original_full_panel"
+    },
+    {
+      "axis": "R",
+      "node": "REPLAN-04.R",
+      "question": "Q28.3",
+      "figure": "F03_budget_flow",
+      "source": [
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+          "member_sha256": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+          "function": "plot_rg_flow",
+          "line_start": 207,
+          "line_end": 235
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_rg_flow_phase_diagrams.py",
+          "member_sha256": "02bedc51f0a517b1a9e0e3f818dc05dd5a2b13c16dd997a170428f597e8604d2",
+          "function": "plot_beta_functions",
+          "line_start": 55,
+          "line_end": 259
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_rg_flow_phase_diagrams.py",
+          "member_sha256": "02bedc51f0a517b1a9e0e3f818dc05dd5a2b13c16dd997a170428f597e8604d2",
+          "function": "plot_rg_trajectories",
+          "line_start": 462,
+          "line_end": 679
+        }
+      ],
+      "observed": "same-root dyadic budget drift, visited node count, root Q",
+      "remaining": "autonomous spatial RG and rescaled closure; prior RESTORE33 remains separate",
+      "status": "partial_native_panel_or_diagnostic_not_original_full_panel"
+    },
+    {
+      "axis": "D",
+      "node": "REPLAN-05",
+      "question": "Q28.4",
+      "figure": "F04_decision_records",
+      "source": [
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+          "member_sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+          "function": "_generate_quantum_darwinism_plots",
+          "line_start": 2096,
+          "line_end": 2210
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_decoherence_darwinism.py",
+          "member_sha256": "7fcd2276bf013ebcc9234a8a0efa9266e0402057d3ccfe46e93e8174dace5fa3",
+          "function": "plot_pointer_states",
+          "line_start": 462,
+          "line_end": 632
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_decoherence_darwinism.py",
+          "member_sha256": "7fcd2276bf013ebcc9234a8a0efa9266e0402057d3ccfe46e93e8174dace5fa3",
+          "function": "plot_information_proliferation",
+          "line_start": 246,
+          "line_end": 460
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_decoherence_darwinism.py",
+          "member_sha256": "7fcd2276bf013ebcc9234a8a0efa9266e0402057d3ccfe46e93e8174dace5fa3",
+          "function": "plot_decoherence_dynamics",
+          "line_start": 55,
+          "line_end": 244
+        }
+      ],
+      "observed": "actual selected move mass, plurality overlap, empirical path entropy and conditional entropy",
+      "remaining": "not an independent same-root fragment ensemble; no native phase/coherence/quantum redundancy; prior RESTORE36 complex reference distinct",
+      "status": "partial_native_panel_or_diagnostic_not_original_full_panel"
+    },
+    {
+      "axis": "N",
+      "node": "REPLAN-06",
+      "question": "Q28.5",
+      "figure": "F05_score_balance",
+      "source": [
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+          "member_sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+          "function": "_plot_thermodynamics",
+          "line_start": 1688,
+          "line_end": 1715
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_thermodynamics.py",
+          "member_sha256": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb",
+          "function": "plot_non_equilibrium_thermodynamics",
+          "line_start": 55,
+          "line_end": 217
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_jarzynski_equality.py",
+          "member_sha256": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+          "function": "plot_jarzynski_verification",
+          "line_start": 54,
+          "line_end": 246
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_jarzynski_equality.py",
+          "member_sha256": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+          "function": "plot_work_fluctuation_analysis",
+          "line_start": 248,
+          "line_end": 438
+        }
+      ],
+      "observed": "fixed-root score mean product-rule decomposition; prior RESTORE37 full-support protocol experiment retained",
+      "remaining": "not physical heat/work; no physical JE/Crooks/FDT, bath, independent Delta F",
+      "status": "partial_native_panel_or_diagnostic_not_original_full_panel"
+    },
+    {
+      "axis": "C",
+      "node": "REPLAN-04.C",
+      "question": "Q28.6",
+      "figure": "F06_finite_support",
+      "source": [
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+          "member_sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+          "function": "_plot_critical_phenomena",
+          "line_start": 1717,
+          "line_end": 1735
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_statistical_physics.py",
+          "member_sha256": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+          "function": "plot_correlation_functions",
+          "line_start": 53,
+          "line_end": 247
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_statistical_physics.py",
+          "member_sha256": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+          "function": "plot_susceptibility_analysis",
+          "line_start": 492,
+          "line_end": 641
+        },
+        {
+          "zip": "quantum.zip",
+          "zip_member": "quantum/research/visualization/plot_critical_phenomena_scaling.py",
+          "member_sha256": "2f70a3c24a6d1453936d93903c24477aaf60d7874d2b336198114b615da9e208",
+          "function": "plot_scaling_functions",
+          "line_start": 598,
+          "line_end": 782
+        }
+      ],
+      "observed": "actual effective actions, depth, geodesic covariance on nonroot N>=2; pair counts",
+      "remaining": "no finite-size scaling exponent; no susceptibility without intervention, see RESTORE34",
+      "status": "partial_native_panel_or_diagnostic_not_original_full_panel"
+    },
+    {
+      "axis": "bridge",
+      "node": "REPLAN-01",
+      "question": "Q28",
+      "figure": "F07_matched_openings_cost",
+      "source": [
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+          "member_sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+          "function": "_plot_measurement_quality",
+          "line_start": 1662,
+          "line_end": 1686
+        },
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+          "member_sha256": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+          "function": "plot_measurement_quality",
+          "line_start": 317,
+          "line_end": 346
+        }
+      ],
+      "observed": "same two initial states with different evaluator/wave; full-game evaluator rows per backup",
+      "remaining": "different subsequent game states, D4 network work vs line cost; no strength claim",
+      "status": "partial_native_panel_or_diagnostic_not_original_full_panel"
+    },
+    {
+      "axis": "bridge",
+      "node": "REPLAN-01",
+      "question": "Q28",
+      "figure": "F08_complete_game_bridge",
+      "source": [
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+          "member_sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+          "function": "_generate_comprehensive_plots",
+          "line_start": 1574,
+          "line_end": 1619
+        },
+        {
+          "zip": "omoknuni_quantum-main.zip",
+          "zip_member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+          "member_sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+          "function": "_plot_authentic_temperature",
+          "line_start": 1621,
+          "line_end": 1636
+        }
+      ],
+      "observed": "actual historical and fresh complete trajectories, outcomes and occupancy entropy",
+      "remaining": "not all original comprehensive panels regenerated",
+      "status": "partial_native_panel_or_diagnostic_not_original_full_panel"
+    }
+  ]
+}

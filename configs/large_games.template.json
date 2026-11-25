@@ -1,0 +1,9 @@
+{
+  "kind":"games","seed":40001,"replicates":64,
+  "budgets":[256,1024,4096],"c_puct":[0.7,1.4,2.8],
+  "modes":[{"mode":"serial","workers":1},{"mode":"root","workers":4},{"mode":"tree","workers":4},{"mode":"leaf","workers":4,"samples_per_eval":4},{"mode":"wave","workers":4}],
+  "openings":[[],[112,113,97,127],[112,128,96,111]],
+  "opponents":["self","rapfi_black","rapfi_white"],
+  "rollout_depth":225,"prior":"local","move_temperature":1.0,"max_plies":225,
+  "jobs":2,"cpu_limit":8,"max_output_bytes":1099511627776,"search_timeout":600,"rapfi_timeout_ms":500,"rapfi_threads":1
+}

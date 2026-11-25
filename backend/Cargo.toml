@@ -1,0 +1,43 @@
+[package]
+name = "mcts_demo"
+version = "0.3.0"
+edition = "2021"
+
+[features]
+default = []
+onnx = ["dep:ort", "dep:ndarray"]
+# Experimental Idea Foundry contracts and coordinator.  This is deliberately
+# excluded from `default` so the production search graph and semantics remain
+# unchanged unless an experiment opts in explicitly.
+idea-foundry = []
+
+[dependencies]
+rand       = "0.8"
+rand_distr = "0.4"
+rayon      = "1.8"
+serde      = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+crossbeam-channel = "0.5"
+parking_lot = "0.12"
+bumpalo = "3"
+smallvec = "1.15"
+# BQ++ Phase 2: lock-free immutable cache publish for the SearchPolicy
+# hot path. Replaces the parking_lot::Mutex<Cache> pattern from P06.
+arc-swap = "1.7"
+
+# ONNX Runtime (requires Rust ≥1.82)
+ort     = { version = "2.0.0-rc.12", optional = true, default-features = false, features = ["std", "download-binaries", "tls-rustls"] }
+ndarray = { version = "0.16", optional = true }
+
+[dev-dependencies]
+# P05: tempdir for calibration auto-load tests; build-only, not in release.
+tempfile = "3"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+# panic = "abort" intentionally NOT set: tests use catch_unwind / should_panic
+# in places, and some Python FFI consumers expect unwinding panics. If a future
+# audit confirms no live consumer relies on unwind, switching to abort would
+# save ~1-2% binary size with no runtime change.
