@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE57_20261126",
-  "scope": "Dedicated native original energy/temperature/entropy; frozen prospective mark control; declared noncyclic work/entropy and finite-contact heat-engine references",
-  "entry": "REPLAN-06",
-  "supersedes_next": "MQFT-RESTORE57-DEDICATED-ORIGINAL-OUTPUTS",
+  "revision": "RESTORE58_20261126",
+  "scope": "Five-size native finite-budget covariance and adaptive drift; conditional first detection; geometric barrier, cubical filtration and offline classical fault recovery",
+  "entry": "REPLAN-04.C",
+  "supersedes_next": "MQFT-RESTORE58-CRITICAL-TRANSPORT-STRUCTURAL-OUTPUTS",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -488,7 +488,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "previous_entry": "REPLAN-01",
+  "previous_entry": "REPLAN-06",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "quantum_representation_policy": {
     "origin": "user directive 2026-11-25",
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE58-CRITICAL-TRANSPORT-STRUCTURAL-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE59-QUANTUM-CONTINUATION-TRAINING-OUTPUTS",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -2108,6 +2108,133 @@
       "docs/PROGRESS57.json",
       "docs/PLOT_INVENTORY57.csv",
       "docs/ORIGINAL_OUTPUT_PROGRESS57.csv"
+    ]
+  },
+  "restore58": {
+    "parent_dag_sha256": "83f2f4e617abdf6a04a3793ec11093cea472554294bdffd28afe5ddca1470e52",
+    "status": "scoped_finite_size_transport_structure_native_outputs",
+    "sizes": [
+      13,
+      15,
+      17,
+      19,
+      21
+    ],
+    "fresh_games": 0,
+    "fresh_marked_histories": 480,
+    "total_marked_histories": 9560,
+    "fresh_backups": 10560,
+    "baseline_histories": 360,
+    "paired_seed_groups": 60,
+    "new_core_geometries": 2,
+    "spatial_groups": 60,
+    "conditional_response_groups": 10,
+    "exact_prefix_pairs": 120,
+    "CRN_sha256": "5a6f0092edceea39c3130ed5fb31c92dc535e263d5c6283f498a160e9a5719be",
+    "topology_threshold_checks": 6582,
+    "offline_single_corrected": 1920,
+    "offline_double_detected": 1440,
+    "original_evidence_items": 15,
+    "original_evidence_sha256": "c0118c28a73623cac9381bc2546f6cd2645429e439c7260d7c9cb7e94a16d4a6",
+    "progress_sha256": "ef99b11c30ea3f0b1801e40e61de2c95d6941d36b5c2765cfe092404935ba1cd",
+    "inventory_sha256": "8f286590b68991d6e87801144b0485e48d777f8c6ce2062ed1fcd5ebe0f376ed",
+    "original_progress_sha256": "f2ff53658cf8936fdf91caf16b5ba01a87731c3d7f3f1a128a290098c4790ead",
+    "group_figures": {
+      "G06_order_parameter": {
+        "scope": "native finite-budget order proxy",
+        "original_items": [
+          "G06",
+          "L07"
+        ],
+        "files": {
+          "plots/original/G06_order_parameter.png": "073e51c72699d8ee2b75c004bfb6fd686cd4788cf67f823c89c40f29dda40d4c",
+          "plots/original/G06_order_parameter.pdf": "c4326ce78ddafd0422d923b25ac80526262f8a2c1c09b85a8f75d9749a0ab67a"
+        }
+      },
+      "G07_Q32_susceptibility": {
+        "scope": "native finite source response, no equilibrium FDT or critical peak",
+        "original_items": [
+          "G07",
+          "Q32"
+        ],
+        "files": {
+          "plots/original/G07_Q32_susceptibility.png": "018b83c0ec3729fd9f6be9e62fa19875eb233fccb44dfeea944027cb63ae2ed6",
+          "plots/original/G07_Q32_susceptibility.pdf": "30e49182e5534d356ff8983bd7a6246ef20f6456765ce07a288bf56bd6f4c7f3"
+        }
+      },
+      "G08_Q29_spatial_correlation": {
+        "scope": "native open spatial covariance; temporal correlations and physical xi not claimed",
+        "original_items": [
+          "G08",
+          "Q29"
+        ],
+        "files": {
+          "plots/original/G08_Q29_spatial_correlation.png": "7a1f576666e037ec4a987a28dfdb9f68a2652aaeacfb51603467784c344b9dd4",
+          "plots/original/G08_Q29_spatial_correlation.pdf": "ec3c9f3a3f149fe5e53b54027fd09b471e802eb288e664566cb0799f21bf65f8"
+        }
+      },
+      "Q31_G09_finite_size": {
+        "scope": "native finite-size covariance decomposition, no critical exponent or energy gap",
+        "original_items": [
+          "Q31",
+          "G09",
+          "Q16"
+        ],
+        "files": {
+          "plots/original/Q31_G09_finite_size.png": "6bb81b70cb1e22d65e4c2e28fd9b399fa343c45ff791d86b2b920e26268b5468",
+          "plots/original/Q31_G09_finite_size.pdf": "23a8830f4022075fe52e7c2e02ec0f5405ce0500c227e7014d93182f01676520"
+        }
+      },
+      "G18_G19_G20_transport": {
+        "scope": "native first detection and minimax geometric score landscape; no WKB",
+        "original_items": [
+          "G18",
+          "G19",
+          "G20",
+          "L10"
+        ],
+        "files": {
+          "plots/original/G18_G19_G20_transport.png": "9f32e177ad93d6ad4c35ae8e74fc3cbfcbcc30d56ca91fb1e1fe27ed39e1ab24",
+          "plots/original/G18_G19_G20_transport.pdf": "869c3b909e49540bb3744e5a0ce194f411c10a054978dd35f9cdcf1a2d0c3b63"
+        }
+      },
+      "L24_topological_analysis": {
+        "scope": "native score and visited-Q cubical topology, exact DFS cross-check",
+        "original_items": [
+          "L24"
+        ],
+        "files": {
+          "plots/original/L24_topological_analysis.png": "4836a526f59e79b344a78c1856556484267e168a77d495f276d404396c827814",
+          "plots/original/L24_topological_analysis.pdf": "99417667836e8411f48e8ee11920203146f2ade5179a8294deff265cdbb53036"
+        }
+      },
+      "L23_backup_fault_recovery": {
+        "scope": "classical offline numerical recovery, not quantum error correction or live engine repair",
+        "original_items": [
+          "L23"
+        ],
+        "files": {
+          "plots/original/L23_backup_fault_recovery.png": "c584314b18d0245cd8bde3f65536f57c3b3da79ff32a2e4d0c459145d1c3d07c",
+          "plots/original/L23_backup_fault_recovery.pdf": "1d83fcbde4ff6daba42df68e4f8f266c6fc3c380840ba7f11f6da0b154e62fa6"
+        }
+      }
+    },
+    "physics_results_sha256": "478e6e20263373799a08c6af74d6dc1e35ca1e1bfb055c582f1d19fc267e1377",
+    "original_plot_tasks": 121,
+    "additional_plot_nodes": 0,
+    "prior_admissions": "preserved",
+    "critical_scaling": "unstable slopes; unresolved",
+    "native_1PI": "unresolved",
+    "tunneling": "geometric/first detection only",
+    "QEC": "offline classical reference only",
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "evidence": [
+      "docs/RESTORE58_THEORY.md",
+      "docs/RESTORE58_RESULTS.md",
+      "docs/ORIGINAL_OUTPUT_EVIDENCE58.csv",
+      "docs/PROGRESS58.json",
+      "docs/PLOT_INVENTORY58.csv",
+      "docs/ORIGINAL_OUTPUT_PROGRESS58.csv"
     ]
   }
 }

@@ -1,34 +1,29 @@
-# RESTORE58: original critical/transport/structural outputs
-1. REPLAN-02: G01/G02/G03 definitions now explicitly reproduced
-   with exact source and raw trace; no more routine energy replot.
-   Independent physical thermometer/energy calibration and
-   convergence/barrier interpretation remain separate.
-2. REPLAN-06: Q19/Q20 noncyclic exact conditional work paths,
-   signed Q05/Q08 entropy and classical Q03 cycles completed
-   as scoped references. Native bath, quantum cycle, physical
-   P-V and temperature scans unresolved. Reuse exact work paths;
-   only extend for actual new physical discriminator.
-3. X-MEMORY/REPLAN-03: R57 prospective LR unit-action gain not
-   replicated. Retire generic mark-variance admission. Preserve
-   action predictor MSE improvement and negative coefficients.
-   Next direct conditional continuation kernel with actual
-   state-dependent test, not repeat previous control stencils.
-4. REPLAN-04.C: prioritize original critical and correlation
-   outputs G05/G06/G07 and Q31 etc after exact catalog/source
-   check. Compatible actual size family 13/15/17/19/21, separate
-   B scaling, independent matched geometry/density, finite
-   support boundary and censoring; no critical exponent without
-   genuine scaling window. Register small grid before large run.
-5. X-BARRIER/X-STRUCT: dedicated transport/first detection and
-   actual tree/complex filtration plus controlled backup fault
-   injection with declared recovery. Use original IDs and
-   genuine observable, conditional physics separate.
-6. REPLAN-05/X-REP: independent phase-sensitive mechanism,
-   record disturbance/objectivity, hbar calibration. Prior
-   complex reference erasure, CPTP and record results retained.
-7. X-TRAIN: actual iterative self-play learning curves and
-   matched checkpoints; avoid treating search throughput as
-   training. REPLAN-07 negative selector evidence retained.
-8. Preserve 13 nodes,121 original obligations and per-item
-   scope overlay/plot inventory. Focus new outputs rather
-   than repeated grouped figures. No unsupported completion.
+# RESTORE59: original quantum/continuation and training evidence
+1. REPLAN-04.C: keep R58 five-size matched density pilot and
+   counting/adaptive decomposition. No further routine fit:
+   before any exponent, test wider independent geometry blocks,
+   fixed control/budget and scaling window, uncertainty and
+   prospective held-out sizes. Physical xi still unidentified.
+2. X-BARRIER: native first detection and geometric minimax only;
+   quantum tunneling needs independent declared transport
+   generator, coherent versus classical controls and identifiable
+   action/mass/hbar. No WKB fit to native selector probabilities.
+3. X-STRUCT: actual planar H0/Betti and trie topology, offline
+   single-error correction verified; next explicit declared
+   gauge/quantum-code reference or genuine fault model and
+   recovery; keep topology/record/quantum referents separate.
+4. X-TRAIN: check exact original training outputs and available
+   checkpoint/evaluator identities. Prioritize actual compatible
+   iterative self-play learning and independent matched arena,
+   not speed or proxy search quality. Register bounded pilot
+   only after source/weight compatibility; no invented curves.
+5. REPLAN-03/X-MEMORY: adaptive continuation prediction remains
+   unresolved. R57 prospective mark control negative retained.
+   Construct genuine state-dependent conditional predictor before
+   new mark sweep; no repeated stochastic stencils without new
+   discriminating target. Prior A/Q and thermal work preserved.
+6. REPLAN-05/X-REP: prior CPTP/record/erasure conditional references;
+   independent phase-sensitive mechanism, objectivity, effective
+   hbar still unresolved. Maintain actual and declared scope.
+7. Preserve 13 nodes/13 edges/121 original outputs; update
+   item evidence and inventory, avoid plot-count optimization.

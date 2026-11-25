@@ -1,25 +1,20 @@
-# RESTORE57 R1–R10 and C1–C10
-R1 exact R56 parent, original physical goal and source-specific scope.
-R2 exact guide and source functions Q03/Q05/Q08/Q19/Q20,
-Exa Crooks, SciSpace entropy context, Parallel review, Wolfram.
-R3 distinguish native score, conditional likelihood and declared energy.
-R4 design registered independent controls, eight fixed protocols.
-R5 derive energy product rule, conditional likelihood, Crooks,
-first law, entropy, Cramer and finite-contact cycle.
-R6 check normalization, gauge and signs, exact periodic endpoints.
-R7 actual native generation and conditional ODE/MC computations.
-R8 measured prospective negative control and scoped reference admission.
-R9 original-specific plots and item-level evidence/remaining scope.
-R10 next bounded original-output program and durable status.
-C1 exact parent/runtime/evaluator; C2 inspect source and actual traces.
-C3 implement score and thermodynamic equations and stable tilt.
-C4 fixed native campaign and deterministic protocol selection.
-C5 run actual engine and conditional exact-clock simulation.
-C6 Rust385/Python58, exact fixtures and separate regression.
-C7 native RNG and receipt/trace, first-law and entropy, Crooks.
-C8 measured path/ODE/MC residuals and heldout variance.
-C9 independent computational checks, original scope and file hashes;
-native independent subagent NOT_RUN, no simulated delegation.
-C10 publish/DAG update/verified archive and scoped duplicate cleanup.
-Data-dependent R7–R10 final judgments after C measurements; no claim
-of strictly serial full theory completion before data or 20 agent calls.
+# RESTORE58 stage evidence
+R1 parent/original archive and guide identity; R2 source-specific
+critical, barrier, topology and error-output scope; R3 fixed total,
+conditional hazard and geometric referents; R4 registered L/B/beta
+grid and two independent cores; R5 covariance/martingale/CRN,
+minimax, Euler and parity derivations; R6 exact fixtures and
+mathematical boundary conditions; R7 actual independent replay,
+case calculations; R8 unstable slopes and sparse contrast
+negative outcome; R9 original-item mapping and derived plots;
+R10 next bounded original output contract.
+C1 exact R49 size-runtime/MixNet identities; C2 inspect source
+and cut semantics; C3 physics58 implementation; C4 five-size
+registered bounded execution; C5 480 actual histories; C6
+385 Rust and60 Python tests; C7 independent root/sample RNG,
+score/ratio/prefix, DFS/minimax, parity checks; C8 exact CRN
+distribution and covariance/scaling diagnostics; C9 plot
+decode/manifest, item evidence, no independent subagent;
+C10 publish, DAG and sealed two-copy verified archive before
+duplicate cleanup. Data-dependent R7-R10 finalized after actual
+C execution. No claim that all physical goals completed.

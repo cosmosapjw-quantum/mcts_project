@@ -710,3 +710,27 @@ class DedicatedPhysics57(unittest.TestCase):
         self.assertAlmostEqual(q["carnot"]["eta"],.5)
         self.assertGreater(q["sigma"],0.)
         self.assertLess(equilibrium_susceptibility(p)["error"],1e-9)
+
+class DedicatedPhysics58(unittest.TestCase):
+    def test_topology_and_minimax(self):
+        from mqft.physics58 import topology,minimax
+        # 3x3 ring has a hole until its central vertex enters.
+        v={i:0. for i in range(9)};v[4]=2.
+        q=topology(v,3)
+        self.assertEqual(q['filtration'][0]['b1'],1)
+        self.assertEqual(q['final']['b1'],0)
+        self.assertEqual(q['final']['b0'],1)
+        b=minimax({0:0.,1:2.,2:1.},3,0,2)
+        self.assertTrue(b['connected']);self.assertEqual(b['excess'],1.)
+        self.assertFalse(minimax({0:0.,2:1.},3,0,2)['connected'])
+    def test_parity_and_faults(self):
+        from mqft.physics58 import parity,repair,faults
+        import numpy as np
+        x=np.array([0.,.25,-.5,1.])
+        c=parity(x);y=x.copy();y[2]+=.125
+        status,z,i=repair(y,c)
+        self.assertEqual((status,i),('corrected',2))
+        self.assertTrue(np.array_equal(z,x))
+        y=x.copy();y[0]+=.125;y[1]-=.125
+        self.assertEqual(repair(y,c)[0],'detected_uncorrectable')
+        self.assertEqual(len(faults([{'w':a,'n':1} for a in x])['results']),7)
