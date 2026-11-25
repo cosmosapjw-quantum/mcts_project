@@ -109,3 +109,34 @@ class ReceiptFixture(unittest.TestCase):
             a=analyze(p,folder,out);self.assertEqual(a["completed"],1)
             v=render(out,t/"plots");self.assertTrue(any(x["status"].startswith("observed") for x in v["panels"]))
             self.assertEqual(v["source_manifest_sha256"],sha256(out/"manifest.json"))
+
+class Lifecycle(unittest.TestCase):
+    def test_reject_fractional_config(self):
+        c=json.loads(Path("configs/commissioning_games.json").read_text())
+        for field,value in (("replicates",1.2),("max_plies",True),("search_timeout",float("nan"))):
+            b=copy.deepcopy(c);b[field]=value
+            with self.assertRaises(ValueError):make_plan(b)
+    def test_staged_crash_recovery(self):
+        from mqft.campaign import recover_staged
+        from mqft.client import sha256,digest
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp);j=dict(id="unit");f=p/"unit.jsonl.gz.part";f.write_bytes(b"closed unit shard")
+            r=dict(job_id="unit",job_hash=digest(j),plan_hash="plan",backend_sha="exe",sha256=sha256(f),bytes=f.stat().st_size,file="unit.jsonl.gz")
+            atomic_json(p/"unit.receipt.json.staged",r)
+            self.assertEqual(recover_staged(j,p,"exe","plan"),r)
+            self.assertTrue((p/"unit.jsonl.gz").exists());self.assertFalse(f.exists())
+            self.assertTrue((p/"unit.receipt.json").exists())
+    @unittest.skipUnless(os.environ.get("MQFT_TEST_BACKEND"),"set MQFT_TEST_BACKEND")
+    def test_real_root_runner_and_resume(self):
+        # Tiny temporary software integration fixture, no game or study dataset.
+        from mqft.campaign import execute
+        from mqft.analysis import analyze
+        cfg=dict(kind="roots",seed=1,replicates=1,budgets=[2],c_puct=[1.4],modes=[dict(mode="serial",workers=1)],positions=[dict(id="unit",moves=[112],source_action=None)],sources=[0.],rollout_depth=1,jobs=1,cpu_limit=1,max_output_bytes=1048576)
+        p=make_plan(cfg)
+        with tempfile.TemporaryDirectory() as t:
+            t=Path(t);out=t/"data"
+            a=execute(p,out,os.environ["MQFT_TEST_BACKEND"],authorized=True)
+            self.assertEqual(a["failures"],[]);self.assertEqual(a["completed"][0]["backups"],2)
+            b=execute(p,out,os.environ["MQFT_TEST_BACKEND"],authorized=True)
+            self.assertEqual(a,b)
+            self.assertEqual(analyze(p,out,t/"analysis")["completed"],1)

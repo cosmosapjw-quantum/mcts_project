@@ -46,7 +46,7 @@ def install(archive,directory):
     return verify(d)
 
 def protocol(moves,timeout_ms,threads):
-    if len(set(moves))!=len(moves) or any(not 0<=a<225 for a in moves):
+    if len(set(moves))!=len(moves) or any(type(a)!=int or not 0<=a<225 for a in moves):
         raise ValueError("invalid opening/history")
     # BOARD numbers are relative to engine to-move, not always absolute black/white.
     side=len(moves)%2
@@ -62,11 +62,12 @@ def parse(output,moves):
     lines=output.splitlines()
     if not any(x.strip()=="OK" for x in lines):raise ValueError("Rapfi start not acknowledged")
     # Same known successful message as the original Quartz experiment; reject error lines.
+    if any(x.strip().upper().startswith(("ERROR","UNKNOWN")) for x in lines):raise ValueError("external protocol error")
     low=output.lower()
     if f"nnue: load weight from {WEIGHT}" not in low or any(re.search(r"(failed|error).*(nnue|weight)|(nnue|weight).*(failed|error)",x,re.I) for x in lines):
         raise ValueError("freestyle NNUE load not confirmed")
-    matches=re.findall(r"(?m)^\s*(\d{1,2}),(\d{1,2})\s*$",output)
-    if not matches:raise ValueError("no move line")
+    matches=re.findall(r"(?m)^[ \t]*(\d{1,2}),(\d{1,2})[ \t\r]*$",output)
+    if len(matches)!=1:raise ValueError("expected exactly one completed move line")
     x,y=map(int,matches[-1]);a=y*15+x
     if not (0<=x<15 and 0<=y<15) or a in moves:raise ValueError("illegal Rapfi move")
     return a

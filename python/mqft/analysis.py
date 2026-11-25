@@ -12,9 +12,10 @@ from .campaign import read,verify_state,valid_moves,choose,seed,atomic_json,win,
 from .observables import root_observables,path_entropy,graph_and_coarse,marks,delta,empirical_mi,entropy,frozen_action
 
 def check_trace(tr,moves,spec):
-    if tr["schema"]!=SCHEMA:raise ValueError("trace schema")
+    if tr["schema"]!=SCHEMA or tr.get("quartz_commit")!="65e7d3e9596ca259ebfe523b0c74058692b6a755":raise ValueError("trace schema or engine source")
     verify_state(tr["root"],moves)
     actual=tr["spec"]
+    if set(spec)-set(actual):raise ValueError("missing spec fields")
     for k,v in spec.items():
         if isinstance(v,float):
             if not math.isclose(actual[k],v,abs_tol=1e-7,rel_tol=1e-7):raise ValueError(f"spec mismatch {k}")
@@ -136,9 +137,9 @@ def analyze(plan,datadir,outdir):
                     if typ=="end":end=row;continue
                     tr=row.get("trace");ply=len(moves)
                     if typ not in ("root","ply"):raise ValueError("unknown row")
-                    if typ=="root" and (job["kind"]!="roots" or row["moves"]!=moves):raise ValueError("root provenance")
+                    if typ=="root" and (job["kind"]!="roots" or row["moves"]!=moves or records!=0):raise ValueError("root provenance")
                     if typ=="ply":
-                        if job["kind"]!="games" or row["ply"]!=ply:raise ValueError("ply chronology")
+                        if job["kind"]!="games" or row["ply"]!=ply or ply>=job["max_plies"]:raise ValueError("ply chronology")
                         verify_state(row["state"],moves)
                         a=row["action"]
                         if a not in row["state"]["legal"]:raise ValueError("illegal actual move")
@@ -176,13 +177,16 @@ def analyze(plan,datadir,outdir):
                             root_groups[key].append(dict(meta=meta,decision=decision,fragments=fr,pi=fin["pi"],actions=fin["actions"],q=fin["q"],locals=[z for z in q["local"] if z["global_k"]==k]))
                     elif typ!="ply" or row["engine"]!="rapfi" or row["external"]["identity"]!=lock["external"] or row["external"]["action"]!=a:
                         raise ValueError("missing native trace or external identity")
+                    else:
+                        from .rapfi import parse
+                        if parse(row["external"]["stdout"],moves)!=a:raise ValueError("external raw response replay")
                     if typ=="ply":moves.append(a)
                     records+=1
                 if end is None or end["moves"]!=moves or end["backups"]!=backups or end["searched_records"]!=records or receipt["backups"]!=backups or receipt["records"]!=records or receipt["status"]!=end["status"]:
                     raise ValueError("end accounting")
                 b=valid_moves(moves);w=1 if win(b,1) else -1 if win(b,2) else None;term=bool(w is not None or len(moves)==225)
                 if end["terminal"]!=term or end["winner"]!=w:raise ValueError("terminal outcome")
-                if job["kind"]=="games" and end["status"]!=("natural_terminal" if term else "truncated"):raise ValueError("game terminal status")
+                if job["kind"]=="games" and (end["status"]!=("natural_terminal" if term else "truncated") or (not term and len(moves)!=job["max_plies"])):raise ValueError("game terminal status")
                 if job["kind"]=="roots" and (records!=1 or end["status"]!="root_complete"):raise ValueError("root shard status")
                 emit("games",dict(job=job["id"],block=job["block"],mode=job["spec"]["mode"],workers=job["spec"]["workers"],budget=job["spec"]["budget"],opponent=job["opponent"],kind=job["kind"],status=end["status"],winner=w,plies=len(moves),opening=job["opening"],moves=moves,backups=backups))
                 completed+=1;all_status[end["status"]]+=1

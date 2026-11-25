@@ -21,6 +21,11 @@ def atomic_json(path,obj):
     with tmp.open("x",encoding="utf-8") as f:
         f.write(json.dumps(obj,indent=2,sort_keys=True,allow_nan=False)+"\n");f.flush();os.fsync(f.fileno())
     tmp.replace(path)
+    sync_dir(path.parent)
+def sync_dir(path):
+    fd=os.open(path,os.O_RDONLY|os.O_DIRECTORY)
+    try:os.fsync(fd)
+    finally:os.close(fd)
 def seed(*parts):
     return int(digest(list(parts))[:16],16)
 def win_at(b,a,p):
@@ -50,21 +55,31 @@ def verify_state(state,moves):
     if sorted(state["legal"])!= ([] if terminal else [i for i,v in enumerate(b) if not v]):
         raise ValueError("Rust/Python legal support mismatch")
 
+def integer(value,name,lo,hi):
+    if type(value)!=int or not lo<=value<=hi:raise ValueError(f"{name}: expected integer {lo}..{hi}")
+    return value
+def finite(value,name,lo,hi):
+    if type(value) not in (int,float) or not math.isfinite(value) or not lo<=value<=hi:raise ValueError(f"{name}: invalid number")
+    return float(value)
 def make_plan(cfg):
     allowed={"kind","seed","replicates","budgets","c_puct","modes","openings","opponents","positions","sources","rollout_depth","prior","samples_per_eval","move_temperature","max_plies","jobs","cpu_limit","max_output_bytes","search_timeout","rapfi_timeout_ms","rapfi_threads"}
     if set(cfg)-allowed:raise ValueError(f"unknown config keys {sorted(set(cfg)-allowed)}")
-    kind=cfg["kind"];reps=int(cfg["replicates"]);base=int(cfg["seed"])
+    kind=cfg["kind"];reps=integer(cfg["replicates"],"replicates",1,100000);base=integer(cfg["seed"],"seed",0,2**64-1)
     if kind not in ("games","roots") or not 1<=reps<=100000:raise ValueError("kind/replicates")
-    jobs=int(cfg["jobs"]);cpus=int(cfg["cpu_limit"])
-    if not 1<=jobs<=cpus<= (os.cpu_count() or 1):raise ValueError("invalid CPU budget")
-    max_bytes=int(cfg["max_output_bytes"])
+    jobs=integer(cfg["jobs"],"jobs",1,64);cpus=integer(cfg["cpu_limit"],"cpu_limit",1,4096)
+    if not 1<=jobs<=cpus:raise ValueError("invalid CPU budget")
+    max_bytes=integer(cfg["max_output_bytes"],"max_output_bytes",1024,2**60)
     if max_bytes<=0:raise ValueError("max_output_bytes required")
-    max_plies=int(cfg.get("max_plies",225));depth=int(cfg.get("rollout_depth",225));temp=float(cfg.get("move_temperature",1))
+    max_plies=integer(cfg.get("max_plies",225),"max_plies",1,225);depth=integer(cfg.get("rollout_depth",225),"rollout_depth",1,225);temp=finite(cfg.get("move_temperature",1),"move_temperature",0,100)
     if not 1<=max_plies<=225 or not 1<=depth<=225 or not math.isfinite(temp) or temp<0:raise ValueError("invalid move/rollout limit")
     modes=cfg["modes"];budgets=cfg["budgets"];cs=cfg["c_puct"]
     if not modes or not budgets or not cs:raise ValueError("nonempty parameter grid required")
-    for c in cs:
-        if not math.isfinite(c) or c<=0:raise ValueError("invalid c_puct")
+    for c in cs:finite(c,"c_puct",1e-6,1000)
+    for b in budgets:integer(b,"budget",1,65536)
+    if cfg.get("prior","local") not in ("local","uniform"):raise ValueError("unknown prior")
+    timeout=finite(cfg.get("search_timeout",180),"search_timeout",.1,3600)
+    ext_ms=integer(cfg.get("rapfi_timeout_ms",500),"rapfi_timeout_ms",1,3600000)
+    ext_threads=integer(cfg.get("rapfi_threads",1),"rapfi_threads",1,64)
     rows=[]
     if kind=="games":
         positions=[dict(id=f"opening{i}",moves=m,source_action=None) for i,m in enumerate(cfg.get("openings",[[]]))]
@@ -83,17 +98,18 @@ def make_plan(cfg):
         if any(h!=0 for h in sources) and a is None:raise ValueError("source action must be fixed before perturbation")
     for mode,budget,c,pos,opp,h,rep in itertools.product(modes,budgets,cs,positions,opponents,sources,range(reps)):
         if set(mode)-{"mode","workers","samples_per_eval"}:raise ValueError("unknown mode keys")
-        name=mode["mode"];workers=int(mode["workers"]);samples=int(mode.get("samples_per_eval",cfg.get("samples_per_eval",1)))
+        name=mode["mode"];workers=integer(mode["workers"],"workers",1,64);samples=integer(mode.get("samples_per_eval",cfg.get("samples_per_eval",1)),"samples_per_eval",1,64)
         if name not in ("serial","root","tree","leaf","wave") or not 1<=workers<=64 or not 1<=samples<=64 or not 1<=budget<=65536 or (name=="root" and workers>budget) or (name=="serial" and workers!=1) or (name=="leaf" and samples<2):
             raise ValueError("invalid schedule")
-        if jobs*max(workers,int(cfg.get("rapfi_threads",1)) if opp.startswith("rapfi") else 1)>cpus:raise ValueError("nested CPU oversubscription")
-        if not math.isfinite(h) or abs(h)>20:raise ValueError("source_h bound")
+        if jobs*max(workers,ext_threads if opp.startswith("rapfi") else 1)>cpus:raise ValueError("nested CPU oversubscription")
+        if opp.startswith("rapfi") and timeout<=ext_ms/1000:raise ValueError("external timeout exceeds search timeout")
+        finite(h,"source_h",-20,20)
         cuts=sorted(set([budget]+[2**i for i in range(budget.bit_length()) if 2**i<budget]))
         # Same opening and replicate are a matched block across schedules, not independent positions.
         block=digest([base,pos["id"],pos["moves"],rep])[:20]
         meta=dict(kind=kind,position_id=pos["id"],opening=pos["moves"],replicate=rep,block=block,opponent=opp,
-            max_plies=max_plies,move_temperature=temp,search_timeout=float(cfg.get("search_timeout",180)),
-            rapfi_timeout_ms=int(cfg.get("rapfi_timeout_ms",500)),rapfi_threads=int(cfg.get("rapfi_threads",1)))
+            max_plies=max_plies,move_temperature=temp,search_timeout=timeout,
+            rapfi_timeout_ms=ext_ms,rapfi_threads=ext_threads)
         spec=dict(mode=name,workers=workers,budget=budget,cuts=cuts,c_puct=c,rollout_depth=depth,samples_per_eval=samples,prior=cfg.get("prior","local"),source_action=pos.get("source_action"),source_h=h)
         job_id=digest([meta,spec,base])[:24]
         # Separate fixed streams; no reliance on Python salted hash. Source +/- share initial seed for paired finite differences.
@@ -120,17 +136,33 @@ def choose(counts,temperature,rng):
     if not items:raise ValueError("empty positive support")
     if temperature==0:
         return max(items,key=lambda x:(x[1],-x[0]))[0]
-    logs=[math.log(n)/temperature for _,n in items];mx=max(logs)
-    weights=[math.exp(x-mx) for x in logs]
+    logs=[math.log(n) for _,n in items];mx=max(logs)
+    weights=[math.exp((x-mx)/temperature) for x in logs]
     return rng.choices([a for a,_ in items],weights=weights,k=1)[0]
+
+def validate_receipt(r,path,job,plan_hash,backend_sha):
+    if r.get("plan_hash")!=plan_hash or r.get("backend_sha")!=backend_sha or r.get("job_id")!=job["id"] or r.get("job_hash")!=digest(job) or r.get("file")!=job["id"]+".jsonl.gz" or r.get("bytes")!=path.stat().st_size or r.get("sha256")!=sha256(path):
+        raise ValueError("receipt identity or shard bytes mismatch")
+    return r
+
+def recover_staged(job,outdir,backend_sha,plan_hash):
+    jid=job["id"];path=outdir/f"{jid}.jsonl.gz";part=path.with_name(path.name+".part")
+    rec=outdir/f"{jid}.receipt.json";stage=rec.with_name(rec.name+".staged")
+    if not stage.exists():return
+    if rec.exists() or (path.exists()==part.exists()):raise ValueError("ambiguous staged publication")
+    source=path if path.exists() else part
+    r=validate_receipt(read(stage),source,job,plan_hash,backend_sha)
+    if source==part:part.replace(path);sync_dir(outdir)
+    stage.replace(rec);sync_dir(outdir)
+    return r
 
 def run_job(job,outdir,backend,backend_sha,rapfi_dir,plan_hash,byte_cap):
     outdir=Path(outdir);jid=job["id"];path=outdir/f"{jid}.jsonl.gz";rec=outdir/f"{jid}.receipt.json"
+    recover_staged(job,outdir,backend_sha,plan_hash)
     if path.exists() or rec.exists():
         if not path.exists() or not rec.exists():raise FileExistsError(f"incomplete previous publication {jid}")
         r=read(rec)
-        if r["plan_hash"]!=plan_hash or r["backend_sha"]!=backend_sha or r["sha256"]!=sha256(path) or r["job_id"]!=jid or r["job_hash"]!=digest(job):raise ValueError("resume identity mismatch")
-        return r
+        return validate_receipt(r,path,job,plan_hash,backend_sha)
     part=path.with_name(path.name+".part")
     if part.exists():raise FileExistsError(f"partial shard {part}; inspect before removing")
     moves=list(job["opening"]);rng=random.Random(job["game_seed"]);count=0;uncompressed=0;backups=0;status="failed"
@@ -138,7 +170,13 @@ def run_job(job,outdir,backend,backend_sha,rapfi_dir,plan_hash,byte_cap):
         if be.sha!=backend_sha:raise ValueError("backend bytes changed")
         ext=rapfi.Rapfi(rapfi_dir,job["rapfi_timeout_ms"],job["rapfi_threads"],job["search_timeout"]) if job["opponent"].startswith("rapfi") else None
         with part.open("xb") as raw:
-            with gzip.GzipFile(fileobj=raw,mode="wb",mtime=0) as f:
+            class BoundedWriter:
+                def write(self,b):
+                    if raw.tell()+len(b)>byte_cap:raise OSError("per-shard compressed byte cap")
+                    return raw.write(b)
+                def tell(self):return raw.tell()
+                def flush(self):return raw.flush()
+            with gzip.GzipFile(filename="",fileobj=BoundedWriter(),mode="wb",mtime=0) as f:
                 def emit(obj):
                     nonlocal uncompressed
                     s=(canonical(obj)+"\n").encode()
@@ -169,16 +207,21 @@ def run_job(job,outdir,backend,backend_sha,rapfi_dir,plan_hash,byte_cap):
                           searched_records=count,backups=backups))
             raw.flush();os.fsync(raw.fileno())
             if raw.tell()>byte_cap:raise RuntimeError("compressed shard cap at final close")
-    part.replace(path)
-    receipt=dict(job_id=jid,job_hash=digest(job),plan_hash=plan_hash,backend_sha=backend_sha,status=status,sha256=sha256(path),
-                 file=path.name,bytes=path.stat().st_size,uncompressed_bytes=uncompressed,records=count,backups=backups)
-    atomic_json(rec,receipt)
+    receipt=dict(job_id=jid,job_hash=digest(job),plan_hash=plan_hash,backend_sha=backend_sha,status=status,sha256=sha256(part),
+                 file=path.name,bytes=part.stat().st_size,uncompressed_bytes=uncompressed,records=count,backups=backups)
+    stage=rec.with_name(rec.name+".staged")
+    atomic_json(stage,receipt)
+    part.replace(path);sync_dir(outdir)
+    stage.replace(rec);sync_dir(outdir)
     return receipt
 
 def _execute_unlocked(plan,output,backend,rapfi_dir=None,authorized=False):
     if not authorized:raise PermissionError("data generation requires explicit --execute")
     out=Path(output).resolve();out.mkdir(parents=True,exist_ok=True)
     exe=Path(backend).resolve(strict=True);h=sha256(exe)
+    if make_plan(plan["config"])!=plan:raise ValueError("plan/config identity mismatch")
+    avail=len(os.sched_getaffinity(0)) if hasattr(os,"sched_getaffinity") else (os.cpu_count() or 1)
+    if plan["config"]["cpu_limit"]>avail:raise ValueError("CPU plan exceeds host affinity")
     needs_rapfi=any(x["opponent"].startswith("rapfi") for x in plan["jobs"])
     if needs_rapfi:
         if rapfi_dir is None:raise ValueError("external runtime directory required")
@@ -191,7 +234,11 @@ def _execute_unlocked(plan,output,backend,rapfi_dir=None,authorized=False):
     # Conservative hard compressed quota per shard, so concurrent jobs cannot exceed planned total.
     cap=plan["max_output_bytes"]//len(plan["jobs"])
     if cap<1024:raise ValueError("per-shard byte quota too small")
+    for j in plan["jobs"]:
+        recover_staged(j,out,h,plan["plan_hash"])
     remaining=sum(not (out/f'{j["id"]}.receipt.json').exists() for j in plan["jobs"])
+    partials=list(out.glob("*.jsonl.gz.part"))
+    if partials:raise FileExistsError(f"{len(partials)} incomplete shards; inspect and quarantine before retry")
     if shutil.disk_usage(out).free<remaining*cap+268435456:raise OSError("disk space insufficient for declared remaining quota + 256 MiB reserve; set an appropriate quota/location")
     receipts=[];failures=[]
     # One Python coordinator, one native subprocess per active job. All CPU limits come from plan.
