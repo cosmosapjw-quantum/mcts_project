@@ -1,14 +1,16 @@
-# RESTORE46 drift watchdog
-Original Q28 six axes, RESTORE32 A/Q core, original archive identities
-and 121 per-output primary ownership retained, 13 nodes/13 edges.
-Actual common MixNet only; no performance replacement of physics.
-Native RNG, likelihood and precision work addresses earlier unresolved
-response normalization; no model tuning to hide it. Finite memory
-kernel derived in fitted count reference with holdout; negative IID
-memory result preserved. Explicit CP measurement/reprepare on actual
-classical paths distinct from native quantum identification. Nonthermal
-source LR is not thermal or time reversal; earlier declared thermal
-reference kept. Original one-loop, RG, physical quantum/classicality,
-temperature and finite-size objectives preserved, not promoted.
-No new selector, barrier, QEC or training claim without inputs.
-Runtime abort retries preserved; no fallback. Native subagent unavailable.
+# RESTORE47 drift watchdog
+Original Q28 six axes and original ZIP bytes reverified; RESTORE32
+two-layer A/Q authority preserved. Grouped plot ownership unchanged
+13 nodes/13 edges and 121 original output IDs. Same real MixNet for
+all native paths; no uniform fallback. New finite-budget/source
+contrasts, actual empirical action, time-dependent multivariate
+memory, conditional CP process tomography and thermal cycle are
+scientific calculations, not an MCTS strength sweep. Distinguish
+actual law vs empirical surrogate vs declared quantum/thermal model.
+Preserve failed predictive CGF and clock/count closure, no tuning
+against heldout, no selector admission. Original multi-wave
+determinant, Gram/QD, thermal and prior negative results retained.
+Physical beta/hbar, native phase, native 1PI, board-size criticality
+still unresolved. No new plot-specific vertices or artificial
+tunneling/QEC/training output. No large study launched.
+Native independent subagent absent; separate computations checked.

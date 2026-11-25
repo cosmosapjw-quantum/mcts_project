@@ -1,0 +1,131 @@
+{
+  "budgets": [
+    64
+  ],
+  "c_puct": [
+    1.4
+  ],
+  "cpu_limit": 8,
+  "evaluator": "rapfi_nnue_lookahead_v1",
+  "jobs": 1,
+  "kind": "roots",
+  "max_output_bytes": 1073741824,
+  "modes": [
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "iid",
+        "logit_h": 0.0,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "pl",
+        "logit_h": 0.0,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    },
+    {
+      "mode": "wave",
+      "root_law": {
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "kind": "reserve",
+        "logit_h": 0.0,
+        "proposal": "p"
+      },
+      "samples_per_eval": 4,
+      "workers": 4
+    }
+  ],
+  "paired_schedule_seed": true,
+  "positions": [
+    {
+      "id": "r47_opening0_p8",
+      "moves": [
+        112,
+        109,
+        141,
+        79,
+        140,
+        95,
+        142,
+        139
+      ],
+      "source_action": 127
+    },
+    {
+      "id": "r47_opening1_p8",
+      "moves": [
+        112,
+        128,
+        96,
+        126,
+        110,
+        113,
+        82,
+        68
+      ],
+      "source_action": 98
+    },
+    {
+      "id": "r47_opening2_p8",
+      "moves": [
+        112,
+        100,
+        144,
+        139,
+        128,
+        80,
+        160,
+        96
+      ],
+      "source_action": 176
+    },
+    {
+      "id": "r47_opening3_p8",
+      "moves": [
+        112,
+        159,
+        144,
+        115,
+        128,
+        160,
+        158,
+        130
+      ],
+      "source_action": 145
+    }
+  ],
+  "prior": "local",
+  "record_rollouts": true,
+  "replicates": 4,
+  "rollout_depth": 1,
+  "search_timeout": 90,
+  "seed": 47003,
+  "sources": [
+    0.0
+  ]
+}

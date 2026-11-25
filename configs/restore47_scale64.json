@@ -1,0 +1,227 @@
+{
+  "budgets": [
+    64
+  ],
+  "c_puct": [
+    1.4
+  ],
+  "cpu_limit": 16,
+  "evaluator": "rapfi_nnue_lookahead_v1",
+  "jobs": 2,
+  "kind": "roots",
+  "max_output_bytes": 1073741824,
+  "modes": [
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": -0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.0
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": -0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.0
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": -0.2
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.0
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.2
+      }
+    }
+  ],
+  "paired_schedule_seed": true,
+  "positions": [
+    {
+      "id": "opening0_p8",
+      "moves": [
+        112,
+        111,
+        83,
+        128,
+        126,
+        98,
+        99,
+        67
+      ],
+      "source_action": 142
+    },
+    {
+      "id": "opening1_p8",
+      "moves": [
+        112,
+        96,
+        114,
+        144,
+        98,
+        68,
+        82,
+        66
+      ],
+      "source_action": 126
+    },
+    {
+      "id": "r45_opening0_p8",
+      "moves": [
+        112,
+        110,
+        85,
+        128,
+        114,
+        126,
+        129,
+        142
+      ],
+      "source_action": 158
+    },
+    {
+      "id": "r45_opening1_p8",
+      "moves": [
+        112,
+        127,
+        98,
+        82,
+        99,
+        84,
+        96,
+        97
+      ],
+      "source_action": 80
+    }
+  ],
+  "prior": "local",
+  "record_rollouts": true,
+  "replicates": 2,
+  "rollout_depth": 1,
+  "search_timeout": 90,
+  "seed": 47002,
+  "sources": [
+    0.0
+  ]
+}

@@ -207,5 +207,22 @@
       "new_roots": "488371975927b4dc00a4d4d658be2897cdcf19d7beac6a7eb5055089fb28c197",
       "old_roots": "601343f8576db01b1436b2cfddc61e307be3c9fa22912dd0863ca970fabdf1fd"
     }
+  },
+  "restore47": {
+    "parent_main": "023d76ae80eb9ca6d299a61907d69945b77422eb",
+    "backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "registration_sha256": "3b34510df578a98379c4ae38a1a137ffcd08fbeba2f3131d3bfdf110ef4271d8",
+    "root_registration_sha256": "21e28c723e85fcba3541e88712b417dfe68b26692181bcaea094dc70c38b54d4",
+    "physics_results_sha256": "cc98ffd7e0bc61f36f0ed5b9d8219912f6f2cf0b70d395e366b3e1cbc568c26d",
+    "choi_sha256": "57913a2f159de45242841ffe709680af731749ba2e59518705fa0c2034dd9e42",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "previous_physics": "65a77bd4ad27d730bbc6c88dac89b33986d222e212e5f7402d7f2e615388bddd",
+    "plan_hashes": {
+      "games": "e924da5f7304839463f69505d2597b6be8ab6500b1205e4bcd604dcd5a4a6a66",
+      "heldout64": "56f2a6bcdd81a099423eaa3d2bf6426c80f9f0f172609e4687740655f2d4c4f6",
+      "scale32": "26f4176f96594b6e291210123d02c6794967b214a91c1d881102f6cd7da04e8b",
+      "scale64": "907c907f3bdbd95e7b43c9ff9ccd30a3586d45310bed8bb6ad0cf0d41ea414f0"
+    },
+    "rng_helper_sha256": "e07d8058c71413c2f449ed8dcd0bd09afdc99a8611bb3a65905921312d66e3cd"
   }
 }

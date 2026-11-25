@@ -419,3 +419,37 @@ class PrecisionPhysics46(unittest.TestCase):
         self.assertLess(z["residual"],1e-10)
         z=causal_break([0,0,0,0,1,0,0,0])
         self.assertLess(z["static_MI"],1e-10)
+
+class ScalePhysics47(unittest.TestCase):
+    def test_joint_dual_and_clock_projection(self):
+        from mqft.physics47 import joint_action,nonstationary_projection
+        a=[]
+        for i,(x,y) in enumerate([(0.,-.5),(.5,-.3),(.3,.7),(.8,.1)]):
+            a.append(dict(occupancy=x,mean_mark=y,G=float(i)-1.5,F=.5,
+                conditional_p=[.2,.3],target_ind=[i%2,i//2]))
+        # G must be the derivative of the empirical likelihood.
+        for x in a:x["G"]=sum(x["target_ind"])-sum(x["conditional_p"])
+        z=joint_action(a,a)
+        self.assertEqual(z["status"],"full_rank")
+        self.assertLess(z["duality_error"],2e-6)
+        L=np.array([[.7,.1,.2],[.2,.7,.3],[.1,.2,.5]])
+        E=np.array([[.5,0],[.5,0],[0,1.]])
+        R=np.array([[1,1,0],[0,0,1]])
+        z=nonstationary_projection([L,L.T/np.sum(L.T,axis=0),L],E,R)
+        self.assertLess(z["residual"],1e-10)
+    def test_matched_block_memory_and_phase(self):
+        from mqft.physics47 import process_probe
+        z,_=process_probe(1,0)
+        self.assertLess(z["choi_static_reset"],1e-10)
+        z,_=process_probe(1,1)
+        self.assertGreater(z["choi_static_reset"],0.)
+        self.assertEqual(z["channels"]["dephased"]["phase_QFI"],0.)
+        self.assertLess(max(x["tp_error"] for x in z["channels"].values()),1e-10)
+    def test_partial_reset_thermal_cycle(self):
+        from mqft.physics47 import thermal_cycle
+        for eta in (.25,.5,1.):
+            x=thermal_cycle([.2,.7,.4],eta)
+            self.assertAlmostEqual(x["JE"],1.,places=10)
+            self.assertAlmostEqual(x["work"],x["entropy_production"]+x["final_lag_KL"],places=10)
+        self.assertLess(abs(x["delta_U"]),1e-10)
+        self.assertLess(abs(x["final_lag_KL"]),1e-10)
