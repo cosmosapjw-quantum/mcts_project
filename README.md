@@ -1,6 +1,6 @@
 # MQFT: MCTS statistical field-theory measurement package
 
-Research-only migration of the original MQFT / mcts_study project, RESTORE49 (grouped Layer A/Q physics; explicit evaluator identity).
+Research-only migration of the original MQFT / mcts_study project, RESTORE50 (grouped Layer A/Q physics; explicit evaluator identity).
 **Rust Quartz backend + Python analysis frontend**, with Rapfi as a separate external opponent.
 This repository's main branch is now dedicated to MQFT. Legacy implementation
 remains in Git history (previous main eb19e5f4ca9a502d645ccab45a8dcfbcc733f537).
@@ -61,6 +61,15 @@ of reproducing the executable byte-for-byte from source. The three upstream
 submodule IDs are recorded in PROVENANCE.json; fetch them from upstream if
 building from source. Rapfi is a strong external proxy, not exact minimax or
 a source of MCTS internal statistics.
+
+## RESTORE50 density-controlled spatial and temporal physics
+
+732 new native histories and five natural-terminal games, same five
+verified MixNet size backends. Approximate density control, B16/32/64
+and two score scales; 192 exact pre-pulse prefix checks. Rank-aware
+action prediction rejected, explicit coherent record and thermal references.
+See [theory](docs/RESTORE50_THEORY.md), [results](docs/RESTORE50_RESULTS.md),
+[reproduction](research/restore50/README.md).
 
 ## RESTORE49 genuine common-MixNet size family
 

@@ -309,5 +309,208 @@
     "generation_source_sha256": "65b9be5a41e08b93877700694c375a22c0185f0f17108447654443ad727b6c0e",
     "failed_initial_build": "same package/cache reused L15 for all; no science",
     "old_production_runtime_unchanged": true
+  },
+  "restore50": {
+    "parent_main": "97c1e58119a3404b0534fb090ba4ed4c2b4d1309",
+    "family": {
+      "13": {
+        "registration_sha256": "01ac561204becd9cf69d550f9ae90617cd2c4d1e6ab38b9eb3c068f0714cfb2e",
+        "backend_sha256": "bcd065e7fda0c896df872b156a7a98655d0e2af184b9175ff83927e2a293f301",
+        "source_manifest_sha256": "26d963b942f8b494daa4545e9d6272991093b377eacb4f2964cd2451101fe502",
+        "plans": {
+          "B16b1": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "3adc9e6226658ae512e1d1fdcd5e4051f9b62dabcd8f01ffaec5f6297bff0682",
+            "jobs": 12
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "38bdff9042cc600a0e8c76e5c7a1dcd2e1333ee73bd886ce902aa5626f31a382",
+            "jobs": 12
+          },
+          "B32b3": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "202b9dcbe755faebc7c71dc29982bc58338664a56ad9c0c04c395098d4dbf8f4",
+            "jobs": 12
+          },
+          "B64b1": {
+            "B": 64,
+            "beta": 1.0,
+            "hash": "447d985e4ef69d83c1aa779a7064c36ba7b70672ffdf9dd3e1b10b1205dcfbef",
+            "jobs": 12
+          },
+          "B64b3": {
+            "B": 64,
+            "beta": 3.3333333333333335,
+            "hash": "6ede9cc8ab4436651a1a875b2885c537d68009ecfe30e6d2b39b966697b48aca",
+            "jobs": 12
+          },
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "4eba3024a91a0bbef2c045511751c8bea88a58db9f2fa27a1ed3e4231af0b3e8",
+            "jobs": 48
+          },
+          "game": {
+            "B": 16,
+            "hash": "049d0fff23c2a01b5a22b1921d1c2662707cce929855506d749eec1aa4b60f89",
+            "jobs": 1
+          }
+        }
+      },
+      "15": {
+        "registration_sha256": "a59b53d2680d034c313f0881d982236cfd70f44cea81627ec241de231969ae26",
+        "backend_sha256": "96781d9c29179f2bd91f8b8f79b26d63ee7ebd91797d5712a1cd9386b7482cca",
+        "source_manifest_sha256": "ba069c9bbecb8bc64e2b650df257ce1bf063331be429d76adacfed196ee881d4",
+        "plans": {
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "d04cb2b5bacf6db6af203cfdcfcebb93c93784e870f1ee5abf985f4f71fed885",
+            "jobs": 36
+          },
+          "game": {
+            "B": 16,
+            "hash": "64d8b78b42f3a26204e88e0d9d40f372f99920f806b93098d2585e3e7096030b",
+            "jobs": 1
+          },
+          "pulse": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "d799608e687136d89a5cdc518c90ca4dff5cb763c3d302bf9a1cf8c774355e0b",
+            "jobs": 168
+          }
+        }
+      },
+      "17": {
+        "registration_sha256": "5360f6cce321bd49e1f863383249b21e125ebc2b797b930b07c5fb8c049e23e3",
+        "backend_sha256": "85f7f37183b8709da24c71a55a683cd71870d4370b1c34e6dc59190d15e568b1",
+        "source_manifest_sha256": "5fc888a39cdc09a0f9f269e67b221e7352afa24ea8b717dc78578bf0dae2ce0d",
+        "plans": {
+          "B16b1": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "9fa752cea5ab1d23e963b423a10f0642640f9e5e1a5a20760ca4bf2b46a108e1",
+            "jobs": 12
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "b53741316e5b68ba2441ab32c9609050256c455037db08747a0d631db22ea2f7",
+            "jobs": 12
+          },
+          "B32b3": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "4f1d5d9e314775ae3bea440b8b6f37ee53ce25d238f06d89372a557848e677d6",
+            "jobs": 12
+          },
+          "B64b1": {
+            "B": 64,
+            "beta": 1.0,
+            "hash": "c2fc5851cc6a000d6f519225f9f84daab86fb5c1f76be20d8d880a82c29871f7",
+            "jobs": 12
+          },
+          "B64b3": {
+            "B": 64,
+            "beta": 3.3333333333333335,
+            "hash": "9d937e284bc95364e4ebaddca624b2359151a87da2a1f1c60382706ce46b3d67",
+            "jobs": 12
+          },
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "b5ea1b7a77ec4bd465b25550eff41c1ce53e7121bc2db8917624f9c9fb01244e",
+            "jobs": 48
+          },
+          "game": {
+            "B": 16,
+            "hash": "52e5f2613f159ee59aaa89befa2fb7aea8f01f876196cdf11747e6862830f4ef",
+            "jobs": 1
+          }
+        }
+      },
+      "19": {
+        "registration_sha256": "9f8970949c07080d812e5579bd791a3f4ff6afc2b263c5022a1c6ef893d1e85a",
+        "backend_sha256": "5027174632cd6736064d3e2327d8c4940bc4047c7679a59a98f71a20d7daa6f1",
+        "source_manifest_sha256": "3b14c0567d3cc315f826cb02ee31013a17fbf7269d2bbd5bf464a51b13c85a96",
+        "plans": {
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "aaf1ec41227866064390cbf95e34208ce9c6a8532b88225056e4cc26623fe33c",
+            "jobs": 48
+          },
+          "game": {
+            "B": 16,
+            "hash": "dc5de7b571eb022e12581e5cb203ca416b9e5971665c73d0fbd259ac56b733b3",
+            "jobs": 1
+          }
+        }
+      },
+      "21": {
+        "registration_sha256": "139ad7969765c9806be1fd5a955dadc27e35c27eff2c133f34a6da7fc67c7c82",
+        "backend_sha256": "cc8c290d2d246ef281835d5df2a5c0a18b36c65aa4960f3530c6d79da172605d",
+        "source_manifest_sha256": "ad52248024339ed04564cb8c19bb1734a01f8a4f6451557ef2fde55c4b7c2fbf",
+        "plans": {
+          "B16b1": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "0c63b9ff859f2e6c467e9f7fa13ad1e536f810e0412c2925ef112539b887fa64",
+            "jobs": 12
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "6dadffeb744f92ce84327855d8deb4497d0a3ab1a510c7113614f86c5caddea6",
+            "jobs": 12
+          },
+          "B32b3": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "c99e4e879adda370d2ea5b79dfdf91b2f87765906c621fb40410568a35891ab5",
+            "jobs": 12
+          },
+          "B64b1": {
+            "B": 64,
+            "beta": 1.0,
+            "hash": "8c38cbbb1fd7072e7f2d94e54bb8eebb49a2f747150e4a4a2e3f7a7cd21cfc07",
+            "jobs": 12
+          },
+          "B64b3": {
+            "B": 64,
+            "beta": 3.3333333333333335,
+            "hash": "6fcd0a72103c28795e8bcd357ee00698ce0acb69230e1a1eb94c5481ae89a15e",
+            "jobs": 12
+          },
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "591283433f080c3143bbb6fae7880599c1241bd68cc709e569912ae7222d6318",
+            "jobs": 36
+          },
+          "game": {
+            "B": 16,
+            "hash": "798a723434d7cc4fd615383b68094828c9f00fd3cc95829d488fc7d71bc65972",
+            "jobs": 1
+          },
+          "pulse": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "75992ee5b019e50b1715318de0f5c35fb5048bd4d3299ba3326ecb47ad3ae8e5",
+            "jobs": 168
+          }
+        }
+      }
+    },
+    "physics_results_sha256": "864e6f880409991a61afabc144ab757907282d9a9b79095554f4575d531e1188",
+    "states_sha256": "8bc25ce870f80f033d35275f8e5fbe5d2053473a6468c5771698de11e9f1fd6d",
+    "reference_registration_sha256": "945393e0e9a9d5e91d058b5ef81843504d9abed2ee41975cbd40d9ee8ede0660",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "production_runtime_unchanged": true
   }
 }

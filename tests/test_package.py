@@ -520,3 +520,28 @@ class SpatialPhysics49(unittest.TestCase):
         h=[0.]*12+[.2]*4
         self.assertEqual(schedule_label(h),("late",.2))
         self.assertLess(abs(actual_schedule_ratio(a[0],h)["balance"]),1e-12)
+
+class DensityPhysics50(unittest.TestCase):
+    def test_projected_action_and_causal_pulse(self):
+        from mqft.physics50 import projected_action,retarded,sector_blocks
+        a=[]
+        for k in range(8):
+            acts=[(i*13+2*k)%169 for i in range(16)]
+            I=np.array([int(x==acts[0]) for x in acts]);p=np.full(16,.2)
+            G=(I-p).reshape(4,4).sum(1);X=np.column_stack((I.reshape(4,4).mean(1),np.zeros(4)))
+            a.append(dict(L=13,B=16,seed=k,action_history=acts,I=I.tolist(),p=p.tolist(),G=G.tolist(),X=X.tolist()))
+        z=projected_action(a);self.assertLessEqual(z["train_rank"],3)
+        self.assertEqual(len(z["fits"]),3)
+        self.assertAlmostEqual(sector_blocks(a[0])[0,:4].sum(),1.)
+        x=retarded({("base",0.,None):a,("pulse",-.2,1):a,("pulse",.2,1):a})[0]
+        self.assertTrue(np.all(np.array(x["values"])[:,:1,:]==0))
+    def test_conditional_record_and_noise_identity(self):
+        from mqft.physics50 import coherent_records,noise_decomposition
+        a=[dict(L=13,B=16,action_history=[i*10%169 for i in range(16)],X=[[0.,0.]]*4)]
+        q,r=coherent_records(a);self.assertLess(q["nonselective_residual"],1e-12)
+        self.assertEqual(len(r),4);self.assertTrue(all(x["dephased_QFI"]==0 for x in q["rows"]))
+        rng=np.random.default_rng(50);p=np.tile([.1,.2,.3,.4],(8,16,1))
+        x=np.eye(4)[rng.choice(4,(8,16),p=p[0,0])]
+        r=noise_decomposition(x,p)
+        self.assertLess(r["residual"],1e-12)
+        self.assertAlmostEqual(r["drift_trace"],0.)
