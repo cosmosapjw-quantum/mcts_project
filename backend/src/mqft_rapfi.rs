@@ -80,11 +80,28 @@ impl Session {
             stderr,
             loaded: false,
         };
-        let lines = s.exchange("START 15\nINFO rule 0\nINFO thread_num 1\nABOUT\n")?;
-        if !lines.iter().any(|l| l.trim() == "OK") {
-            return Err("Rapfi start failed".into());
+        let result = s
+            .exchange("START 15\nINFO rule 0\nINFO thread_num 1\nABOUT\n")
+            .and_then(|lines| {
+                if lines.iter().any(|l| l.trim() == "OK") {
+                    Ok(())
+                } else {
+                    Err("Rapfi start failed".into())
+                }
+            });
+        if let Err(ref e) = result {
+            let pid = s.child.id();
+            let status = s.child.try_wait();
+            s.shutdown();
+            eprintln!(
+                "MQFT_RAPFI_START_FAILURE pid={} status={:?} error={} stderr={:?}",
+                pid,
+                status,
+                e,
+                String::from_utf8_lossy(&s.stderr.lock())
+            );
         }
-        Ok(s)
+        result.map(|_| s)
     }
     fn exchange(&mut self, cmd: &str) -> Result<Vec<String>, String> {
         self.input
@@ -349,9 +366,10 @@ pub fn query(state: &Gomoku15, policy: bool) -> Result<(Option<Scores>, [f64; 3]
         Err(e) if e.starts_with("transport:") => {
             let r = pool.query(state, policy);
             eprintln!(
-                "MQFT_RAPFI_RETRY state={:016x} policy={} success={}",
+                "MQFT_RAPFI_RETRY state={:016x} policy={} original_error={:?} success={}",
                 state.tt_hash(),
                 policy,
+                e,
                 r.is_ok()
             );
             r

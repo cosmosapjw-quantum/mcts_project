@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE43_20261125",
-  "scope": "Common MixNet crossed four-opening arena, prospective Q-feedback on held-out roots, exact realized query-count calibration; no physical admission",
+  "revision": "RESTORE44_20261126",
+  "scope": "RESTORE32 Layer A/Q physics and compressed original-output ownership; 13 retained research nodes, 121 legacy targets, 9 scoped group figures",
   "entry": "REPLAN-03",
-  "supersedes_next": "MQFT-RESTORE43-CROSSED-OPENINGS-PROSPECTIVE-RESPONSE",
+  "supersedes_next": "MQFT-RESTORE44-MARKED-LAW-ACTUAL-RESPONSE",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE44-MARKED-LAW-ACTUAL-RESPONSE",
+  "next_stage_id": "MQFT-RESTORE45-GROUPED-PHYSICS-REPLICATION",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -660,6 +660,38 @@
       "docs/RESTORE43_THEORY.md",
       "docs/RESTORE43_RESULTS.md",
       "docs/DRIFT_WATCHDOG.md"
+    ],
+    "next_contract": "docs/NEXT_DYNAMICS.md"
+  },
+  "plot_group_contract": {
+    "schema": "mqft.plot_groups.v1",
+    "path": "docs/PLOT_GROUPS.json",
+    "sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "crosswalk": "docs/PLOT_GROUP_CROSSWALK.csv",
+    "legacy_catalog_unchanged": true,
+    "primary_owner_unique": true,
+    "additional_nodes": 0,
+    "current_group_figures": 9
+  },
+  "restore44": {
+    "parent_dag_sha256": "ba200cdfd34d70e051279a9a06639bd337067885c38fa62db83ca46394b84b87",
+    "attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "status": "scoped_grouped_physics_and_native_marked_law_pilot",
+    "new_games": 4,
+    "new_fixed_roots": 144,
+    "backups": 3552,
+    "exact_restricted_cases": 36,
+    "conditional_quantum_cases": 12,
+    "conditional_thermal_cases": 12,
+    "group_figures": 9,
+    "physics_results_sha256": "36814ee62b06150f9a3f335fb555ab963a22609b82af6cc4fbf773f37802b461",
+    "physics_states_sha256": "11ba13e4d0e2718d4feeadd9b24b5f4d90e0cb373d45e665e6c44493ca386d05",
+    "prior_admissions": "preserved",
+    "remaining": "larger independent histories, native phase/readout identification, controlled adaptive one-loop, board-size scaling",
+    "evidence": [
+      "docs/RESTORE44_THEORY.md",
+      "docs/RESTORE44_RESULTS.md",
+      "docs/PLOT_GROUPS.json"
     ],
     "next_contract": "docs/NEXT_DYNAMICS.md"
   }

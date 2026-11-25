@@ -327,3 +327,35 @@ class ProspectiveResponse(unittest.TestCase):
         self.assertAlmostEqual(out[0]["observed"],.15625)
         self.assertTrue(np.isfinite(out[0]["prospective"]))
         self.assertEqual(out[0]["baseline_job"],"zero")
+
+class GroupedPhysics44(unittest.TestCase):
+    def test_exact_collective_and_coarse_fisher(self):
+        from mqft.physics44 import exact_wave_full_state,projected_information
+        e=[dict(action=i,n=2,w=.1*(i-2),prior=.2) for i in range(5)]
+        for law in ("iid","pl","reserve"):
+            z=exact_wave_full_state(e,list(range(5)),4,law,0)
+            self.assertLess(max(z["errors"].values()),1e-10)
+            f=projected_information(z)
+            self.assertAlmostEqual(f["ordered"]["relative"],1.,places=10)
+            self.assertLess(f["constant"]["relative"],1e-10)
+            if law=="iid":np.testing.assert_allclose(z["R"],z["C"],atol=1e-10)
+        self.assertEqual(len(exact_wave_full_state(e,list(range(5)),4,"pl",0)["words"]),120)
+    def test_conditional_quantum_and_thermal(self):
+        from mqft.physics44 import exact_wave_full_state,quantum_memory,record_fragments,thermal_reference,saddlepoint
+        e=[dict(action=i,n=2,w=.1*(i-2),prior=.2) for i in range(5)]
+        z=exact_wave_full_state(e,list(range(5)),2,"reserve",0)
+        q,states=quantum_memory(z,alphas=(0.,.5))
+        self.assertAlmostEqual(q[0]["trace_distance"],0.,places=10)
+        self.assertGreater(q[1]["trace_distance"],0.)
+        self.assertLess(q[1]["diag_error"],1e-10)
+        d=record_fragments(z);self.assertAlmostEqual(d[-1]["QMI"],2*d[-1]["S_system"],places=10)
+        t=thermal_reference(z);self.assertAlmostEqual(t["JE"],t["JE_expected"],places=10)
+        self.assertAlmostEqual(t["sigma"],t["KL"],places=10)
+        self.assertAlmostEqual(t["delta_U"],t["work"]+t["heat"],places=10)
+        f=saddlepoint(exact_wave_full_state(e,list(range(5)),4,"iid",0),replicas=(8,64))
+        self.assertLess(f[-1]["one_loop_error"],f[-1]["leading_error"])
+    def test_projector_and_euler_obstruction(self):
+        rho=np.diag([1.,0.]).astype(complex);H=np.array([[0.,1.],[1.,0.]])
+        a=rho-1j*.1*(H@rho-rho@H)
+        self.assertAlmostEqual(np.linalg.det(a).real,-.01)
+        self.assertLess(np.linalg.eigvalsh(a).min(),0.)

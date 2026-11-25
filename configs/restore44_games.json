@@ -1,0 +1,57 @@
+{
+  "kind": "games",
+  "seed": 44001,
+  "replicates": 1,
+  "budgets": [
+    16
+  ],
+  "c_puct": [
+    1.4
+  ],
+  "modes": [
+    {
+      "mode": "serial",
+      "workers": 1,
+      "samples_per_eval": 4
+    }
+  ],
+  "openings": [
+    [
+      112,
+      111,
+      83,
+      128
+    ],
+    [
+      112,
+      96,
+      114,
+      144
+    ],
+    [
+      112,
+      127,
+      84,
+      110
+    ],
+    [
+      112,
+      98,
+      141,
+      96
+    ]
+  ],
+  "opponents": [
+    "self"
+  ],
+  "rollout_depth": 1,
+  "prior": "local",
+  "evaluator": "rapfi_nnue_lookahead_v1",
+  "record_rollouts": true,
+  "move_temperature": 0.0,
+  "max_plies": 225,
+  "jobs": 2,
+  "cpu_limit": 4,
+  "max_output_bytes": 268435456,
+  "search_timeout": 90
+}

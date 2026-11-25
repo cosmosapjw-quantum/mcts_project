@@ -1,0 +1,227 @@
+{
+  "kind": "roots",
+  "seed": 44002,
+  "replicates": 4,
+  "budgets": [
+    16
+  ],
+  "c_puct": [
+    1.4
+  ],
+  "modes": [
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": -0.3
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.0
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "iid",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.3
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": -0.3
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.0
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "pl",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.3
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": -0.3
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.0
+      }
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4,
+      "root_law": {
+        "kind": "reserve",
+        "beta_p": [
+          3.3333333333333335
+        ],
+        "beta_q": [
+          3.3333333333333335
+        ],
+        "proposal": "p",
+        "logit_h": 0.3
+      }
+    }
+  ],
+  "positions": [
+    {
+      "id": "opening0_p8",
+      "moves": [
+        112,
+        111,
+        83,
+        128,
+        126,
+        98,
+        99,
+        67
+      ],
+      "source_action": 142
+    },
+    {
+      "id": "opening1_p8",
+      "moves": [
+        112,
+        96,
+        114,
+        144,
+        98,
+        68,
+        82,
+        66
+      ],
+      "source_action": 126
+    },
+    {
+      "id": "opening2_p8",
+      "moves": [
+        112,
+        127,
+        84,
+        110,
+        114,
+        126,
+        128,
+        142
+      ],
+      "source_action": 158
+    },
+    {
+      "id": "opening3_p8",
+      "moves": [
+        112,
+        98,
+        141,
+        96,
+        99,
+        113,
+        83,
+        67
+      ],
+      "source_action": 142
+    }
+  ],
+  "sources": [
+    0.0
+  ],
+  "rollout_depth": 1,
+  "prior": "local",
+  "evaluator": "rapfi_nnue_lookahead_v1",
+  "record_rollouts": true,
+  "paired_schedule_seed": true,
+  "jobs": 2,
+  "cpu_limit": 16,
+  "max_output_bytes": 1073741824,
+  "search_timeout": 90
+}

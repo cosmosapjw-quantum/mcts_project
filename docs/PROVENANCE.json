@@ -77,7 +77,7 @@
   },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "changed_or_added_backend_files": {
-    "src/mqft_rapfi.rs": "d87b92f1441f384bdf636ad667e13eca15cf39c8eb4d1faed059ccc46185db3f",
+    "src/mqft_rapfi.rs": "cebf98243a27c9c9e44ff477297a26417582c3bd470c02193df2bcb92d5623e3",
     "src/mqft_trace.rs": "ea897867d6d1a3f93a5dbe701daa6b6fcfeee64be11a8f1d680f3b64b189a726",
     "src/mqft_law.rs": "4e49eec8c2f6fd01e9911432d0f67e5ae61c2672761c65ed62e492fbeeea7147",
     "src/lib.rs": "441beaf9c7db69e2f4298f64e60ec932f82ff281b4ad361e5385aabb0fcd6f88",
@@ -159,6 +159,20 @@
       "cross_A": "18dfaadcc4b65e1249e5b050c43361e7f11771a148b6b931398b73167d357291",
       "source_scale": "dd05882b7387dd6a463cca180b7983848af88af73b3f6adaf0c4a67385476d19",
       "source_h": "e2cb4330b4b55fdb1ef3518aba9d579dd411640e5e8d279de30cfc92be4b8493"
+    }
+  },
+  "restore44": {
+    "parent_main": "a1c2a196f55bb07537a2c6e1495da05d6debaac9",
+    "user_restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "registration_sha256": "cea0d73e573ee64b5392c378112efb82b6cb1bbf6f6423463789f4ead67c52d8",
+    "marked_registration_sha256": "22df743ee988dc17355b1a3878c9c793e76a6d7f0debb677c298d7bbba070f4f",
+    "physics_results_sha256": "36814ee62b06150f9a3f335fb555ab963a22609b82af6cc4fbf773f37802b461",
+    "physics_states_sha256": "11ba13e4d0e2718d4feeadd9b24b5f4d90e0cb373d45e665e6c44493ca386d05",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "actual_backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "plan_hashes": {
+      "games": "6db5afcbedb69a745ce60c2284ef0d61d6c0c7f5eee1d5545917eff0bdb9d0d5",
+      "marked": "a17c0db96a4411cea255e10214122f7588290a2f6a001ee3e464a7cd3b40d9a1"
     }
   }
 }
