@@ -1,6 +1,6 @@
 # MQFT: MCTS statistical field-theory measurement package
 
-Research-only migration of the original MQFT / mcts_study project, RESTORE53 (grouped Layer A/Q physics; explicit evaluator identity).
+Research-only migration of the original MQFT / mcts_study project, RESTORE54 (grouped Layer A/Q physics; explicit evaluator identity).
 **Rust Quartz backend + Python analysis frontend**, with Rapfi as a separate external opponent.
 This repository's main branch is now dedicated to MQFT. Legacy implementation
 remains in Git history (previous main eb19e5f4ca9a502d645ccab45a8dcfbcc733f537).
@@ -61,6 +61,14 @@ of reproducing the executable byte-for-byte from source. The three upstream
 submodule IDs are recorded in PROVENANCE.json; fetch them from upstream if
 building from source. Rapfi is a strong external proxy, not exact minimax or
 a source of MCTS internal statistics.
+
+## RESTORE54 exact conditional IID wave and response precision
+
+848 new root histories, two complete games, 768 exact late-prefix controls.
+Same v5 native MixNet; exact final IID occupancy expectation and paired CDF
+variance, full conditional sector count action, quantum memory Choi and
+continuous forward/reverse work checks. See [theory](docs/RESTORE54_THEORY.md),
+[results](docs/RESTORE54_RESULTS.md), [reproduction](research/restore54/README.md).
 
 ## RESTORE53 native vector field and conditional dynamics
 

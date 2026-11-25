@@ -621,3 +621,26 @@ class VectorPhysics53(unittest.TestCase):
         for a in (0.,np.pi/4,np.pi/2):
             z=ordered_environment(1,2,a);self.assertLess(z["residual"],1e-10)
         self.assertGreater(abs(ordered_environment(1,2,np.pi/4)["order_gap"]),.1)
+
+class PrecisionPhysics54(unittest.TestCase):
+    def test_exact_count_and_transfer(self):
+        from mqft.physics54 import exact_count_reference,transfer_channel
+        import numpy as np
+        a=exact_count_reference([.1,.2,.3,.4],[0,1,1,2])
+        self.assertAlmostEqual(sum(a["probabilities"]),1.)
+        self.assertEqual(len(a["counts"]),35)
+        self.assertTrue(0<a["F_retained_trace"]<1)
+        for i in range(5):
+            for j in range(5):
+                r,s=transfer_channel(i,j)
+                self.assertLessEqual(r["models"]["dephase"]["Favg"],2/3+1e-10)
+                self.assertAlmostEqual(r["phase_probe_Y"],r["transfer"])
+        self.assertGreater(transfer_channel(4,4)[0]["models"]["coherent"]["Favg"],2/3)
+    def test_complex_crooks(self):
+        from mqft.physics54 import complex_work_tilt,crooks_distribution
+        import numpy as np
+        p=np.array([[.1,.2,.3,.4],[.3,.2,.2,.3],[.25,.15,.2,.4]])
+        r,w,v=crooks_distribution(p,4.,1024,5401)
+        ix=[r["reverse"]["k"].index(k) for k in (0,1,4,16,32)]
+        z=(np.array(r["reverse"]["cf_re"])-1j*np.array(r["reverse"]["cf_im"]))[ix]
+        self.assertLess(np.max(abs(complex_work_tilt(p,4.)-z)),1e-8)

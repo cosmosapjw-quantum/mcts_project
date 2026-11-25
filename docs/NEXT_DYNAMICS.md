@@ -1,29 +1,30 @@
-# RESTORE54: vector-response precision, state dynamics and scale
-1. REPLAN-04.R/X-MEMORY: keep full native three-direction field and
-   all finite mixed data. Use observed paired discrepancy variance
-   to register a bounded precision tranche at selected informative
-   roots and fresh geometries; independent pilot and confirm.
-   Expand two untested mixed pairs (0,2),(1,2) and pulse clocks;
-   current mixed01 only. Use two h values and B32/64 where useful;
-   distinguish h truncation error, budget and spatial size.
-2. REPLAN-03: compare prospective state-dependent kernel or
-   projected memory closure to frozen propensity and zero-response
-   on independent geometry and seed groups. Do not promote inverse
-   covariance as native 1PI. Preserve prior exact lattice determinant
-   and negative heldout findings.
-3. REPLAN-04.C/02: repeat matched density/peripheral controls with
-   more independent cores and 13..21 family, B axis separate.
-   True spatial criticality needs scaling window and uncertainty;
-   no exponent from two sizes.
-4. REPLAN-05/X-REP: declared nonorthogonal environment intervention
-   order, explicit complex state and reduced entropy retained.
-   Next multi-time instrument tomography/operational memory witness
-   with matched classical models and independently justified readout.
-   No native phase claim without actual phase-sensitive mechanism.
-5. REPLAN-06: exact-clock work distribution, moment ODE and CF
-   compared; extend reverse path-distribution checks and protocol
-   asymptotics, distinguish zero-work mass from no-jump atom.
-   No native energy calibration inferred.
-6. Original REPLAN-07/X-BARRIER/X-STRUCT/X-TRAIN obligations remain;
-   no new plot nodes, no selector readmission. Same evaluator and
-   source schemas. Preserve all actual failures/retries.
+# RESTORE55: exact/approximate wave closure and original longitudinal outputs
+1. REPLAN-03/04.R/X-MEMORY: R54 exact conditional last-wave IID
+   occupancy and CRN covariance are useful positive results, but
+   not general adaptive closure. Use conditional expectation of
+   one selection given complete state for PL/reserve; compare
+   exact bounded action enumeration on restricted support versus
+   unbiased sequential martingale control on full native support.
+   Test future blocks and return marks on actual independent
+   histories, not mere frozen final-wave occupancy. Retain exact
+   paired-CDF discrepancy tests; no repeat huge stencil without
+   a new discriminator. No physical 1PI from covariance.
+2. REPLAN-01/02/04.C: return to original self-play-driven temporal
+   plots (temperature/score fit, entropy, susceptibility and graph
+   RG across actual game ply), using original archive plot mapping.
+   Register genuinely independent openings and multiple budgets;
+   match same evaluator and record terminal/phase-of-game strata.
+   Explicitly distinguish fixed-root ensembles from longitudinal
+   game samples. Preserve R54 scale and density controls.
+3. REPLAN-05/X-REP: conditional coherent memory with six-state
+   process tomography and classical EB control; pursue declared
+   multi-fragment records and phase readout with original pointer/
+   redundancy/einselection observables. No native phase admission.
+4. REPLAN-06: preserve forward/reverse work measure checks and
+   no-transition atom; evaluate exact conditional finite-time
+   response/FDT only in justified Gibbs reset reference, separate
+   native path likelihood. No physical energy calibration inferred.
+5. REPLAN-07/X-BARRIER/X-STRUCT/X-TRAIN: retain original obligations.
+   Prior negative selector/closure outcomes intact. Original 121
+   panel obligations unchanged; prioritize missing dedicated inputs
+   over further routine sweeps. No additional plot nodes.

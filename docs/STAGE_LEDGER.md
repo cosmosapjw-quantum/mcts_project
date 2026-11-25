@@ -1,24 +1,27 @@
-# RESTORE53 R1–R10 / C1–C10
-R1 exact parent and original goals. R2 source archive, prior results,
-Exa log-partition, SciSpace sequential effects, Parallel work CF,
-Wolfram mixed derivative. R3 define tangent fields and clocks.
-R4 new core/variant, separate pilot and fixed response arms.
-R5 derive vector likelihood, mixed derivatives, causal kernel,
-quantum order map and continuous moment/CF ODE.
-R6 independent CAS/analytic matrix, native gauge/group checks.
-R7 execute actual paths and conditional physical calculations.
-R8 classify empirical precision and heldout results, preserve negatives.
-R9 link actual equations and grouped original outputs.
-R10 durable next precision/geometry/mixed-pair contract.
-C1 exact parent and same actual evaluator; C2 source/trace inspection.
-C3 implement separate v5 field and independent vector replay.
-C4 bounded registered campaigns; actual pilots before perturbations.
-C5 generation, analysis and physics calculation.
-C6 build, malformed schedule rejection, group/gauge regression,
-canonical regression tests and conditional fixtures.
-C7 independent RNG and exact causal prefix comparison.
-C8 finite sample and numerical precision, cost and resource records.
-C9 independent likelihood/DP/complex/ODE/MC checks and manifests.
-C10 publish, updated DAG and verified two-copy backup before cleanup.
-Native independent subagent NOT_RUN. R8–R10 depend on measured data;
-no claim of 20 separate agent dispatches.
+# RESTORE54 R1-R10 / C1-C10
+R1 exact parent and original objective; R2 read original Q28 and
+prior results, Exa EPG, SciSpace classical fidelity threshold,
+Parallel fluctuation theorem, Wolfram closed formulas.
+R3 conditional history, exact vs approximate wave and field scope.
+R4 registered independent seed precision, new geometry, B/h stencils.
+R5 derive conditional covariance, multinomial action/one-loop,
+binary Fisher projection, channel/EB threshold, Crooks measure.
+R6 independent CAS, exact enumeration, actual CDF, matrix and ODE.
+R7 actual 850 jobs and conditional physics calculations.
+R8 calibrated finite-sample discrepancy, limited precision,
+no full adaptive 1PI or selector admission.
+R9 exact equation/code/result/plot mapping and preserved 121 owners.
+R10 durable next longitudinal and wave closure contract.
+C1 old exact v5 and MixNet; C2 inspect law/trace/code.
+C3 implement conditional response and data reducer/analytic references.
+C4 registered bounded campaigns with exact hashes and seeds.
+C5 real generation and analysis; preserve initial analysis failures.
+C6 targeted analyzer 2 ULP repair, actual probability replay,
+Rust385/Python52 regressions and conditional fixtures.
+C7 native RNG/prefix and full 35-state count/Fisher/Choi/ODE checks.
+C8 exact CDF variance/finite sample calibration and numerical errors.
+C9 independent model/control and plot/hash verification; no subagent
+available (NOT_RUN), not simulated.
+C10 scoped publication, DAG and verified two-copy backup/cleanup.
+Data-dependent R8-R10 finalized after coding; no claim of independent
+20 agent invocations.
