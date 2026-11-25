@@ -1,0 +1,111 @@
+{
+  "kind": "roots",
+  "seed": 42002,
+  "replicates": 2,
+  "budgets": [
+    64
+  ],
+  "c_puct": [
+    1.4
+  ],
+  "modes": [
+    {
+      "mode": "serial",
+      "workers": 1,
+      "samples_per_eval": 4
+    },
+    {
+      "mode": "wave",
+      "workers": 4,
+      "samples_per_eval": 4
+    }
+  ],
+  "positions": [
+    {
+      "id": "serial_opening0_p12",
+      "moves": [
+        112,
+        113,
+        97,
+        127,
+        99,
+        96,
+        126,
+        84,
+        110,
+        140,
+        83,
+        67
+      ],
+      "source_action": 94
+    },
+    {
+      "id": "serial_opening1_p12",
+      "moves": [
+        112,
+        128,
+        96,
+        111,
+        125,
+        98,
+        82,
+        110,
+        83,
+        67,
+        109,
+        93
+      ],
+      "source_action": 123
+    },
+    {
+      "id": "tree_opening0_p12",
+      "moves": [
+        112,
+        113,
+        97,
+        127,
+        99,
+        96,
+        126,
+        84,
+        110,
+        140,
+        67,
+        83
+      ],
+      "source_action": 94
+    },
+    {
+      "id": "root_opening1_p12",
+      "moves": [
+        112,
+        128,
+        96,
+        111,
+        125,
+        95,
+        127,
+        142,
+        156,
+        109,
+        155,
+        81
+      ],
+      "source_action": 123
+    }
+  ],
+  "sources": [
+    -0.2,
+    0.0,
+    0.2
+  ],
+  "rollout_depth": 1,
+  "prior": "local",
+  "evaluator": "rapfi_nnue_lookahead_v1",
+  "record_rollouts": true,
+  "paired_schedule_seed": true,
+  "jobs": 1,
+  "cpu_limit": 8,
+  "max_output_bytes": 1073741824,
+  "search_timeout": 90
+}

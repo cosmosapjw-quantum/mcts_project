@@ -1,6 +1,6 @@
 # MQFT: MCTS statistical field-theory measurement package
 
-Research-only migration of the original MQFT / mcts_study project, RESTORE41 (trace/campaign/analysis v2; explicit evaluator identity).
+Research-only migration of the original MQFT / mcts_study project, RESTORE42 (trace/campaign/analysis v2; explicit evaluator identity).
 **Rust Quartz backend + Python analysis frontend**, with Rapfi as a separate external opponent.
 This repository's main branch is now dedicated to MQFT. Legacy implementation
 remains in Git history (previous main eb19e5f4ca9a502d645ccab45a8dcfbcc733f537).
@@ -61,6 +61,16 @@ of reproducing the executable byte-for-byte from source. The three upstream
 submodule IDs are recorded in PROVENANCE.json; fetch them from upstream if
 building from source. Rapfi is a strong external proxy, not exact minimax or
 a source of MCTS internal statistics.
+
+## Common MixNet matched-arena and source-response workflow (RESTORE42)
+
+Use configs/restore42_arena_A.json and restore42_arena_B.json for a
+color-swapped Serial-vs-candidate arena with the same MixNet on both sides.
+Use configs/restore42_source.json for actual game-derived paired prior
+source perturbations. The four opening blocks are incomplete-crossed
+(two per mode); do not rank modes from that pilot. Runtime v2 adds bounded
+Rapfi response timeout, diagnostics and one same-identity transport retry.
+See [results](docs/RESTORE42_RESULTS.md) and [theory](docs/RESTORE42_THEORY.md).
 
 ## Common MixNet campaign workflow (RESTORE41)
 

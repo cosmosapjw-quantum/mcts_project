@@ -203,11 +203,13 @@ def analyze(plan,datadir,outdir):
                         spec=job["spec"].copy()
                         if typ=="ply":
                             spec["seed"]=seed(spec["seed"],ply);spec["source_action"]=None;spec["source_h"]=0.
+                            if (job["opponent"]=="serial_black" and ply%2==0) or (job["opponent"]=="serial_white" and ply%2==1):
+                                spec["mode"]="serial";spec["workers"]=1
                         q=check_trace(tr,moves,spec);backups+=spec["budget"]
                         meta=dict(job=job["id"],block=job["block"],kind=job["kind"],position_id=job["position_id"],replicate=job["replicate"],
                                   mode=spec["mode"],workers=spec["workers"],budget=spec["budget"],samples_per_eval=spec["samples_per_eval"],
                                   c_puct=spec["c_puct"],source_h=spec["source_h"],source_action=spec["source_action"],law_id=digest(spec.get("root_law"))[:12],opponent=job["opponent"],ply=ply,
-                                  state_hash=tr["root"]["state_hash"],source_file=p.name,backend_sha=receipt["backend_sha"],evaluator=spec.get("evaluator","uniform_rollout"))
+                                  state_hash=tr["root"]["state_hash"],source_file=p.name,backend_sha=receipt["backend_sha"],evaluator=spec.get("evaluator","uniform_rollout"),candidate_mode=job["spec"]["mode"],player_side=tr["root"]["side"])
                         for name in ("local","deltas","fragments","path_laws","history_features"):
                             for z in q[name]:emit(name,{**meta,**z})
                         if typ=="root":
@@ -278,15 +280,20 @@ def analyze(plan,datadir,outdir):
                     minus,base,plus=(d[rep] for d in by)
                     a=key[-2];idx=base["actions"].index(a)
                     measured=(plus["pi"][idx]-minus["pi"][idx])/(2*h)
-                    pred=[]
-                    for hh in (-h,h):
-                        total=0.
-                        for z in base["locals"]:
+                    pred=[];adapt=[];q_shift=[];faces=[]
+                    for hh,arm in ((-h,minus),(h,plus)):
+                        total=0.;adaptive=0.;shifts=[];changed=0
+                        for z,za in zip(base["locals"],arm["locals"]):
                             p=np.array(z["prior"],float);pt=p.copy();pt[idx]*=math.exp(hh);pt*=p.sum()/pt.sum()
                             f=frozen_action(z["action_q"],pt,z["k"],base["meta"]["c_puct"],z["pi"])
                             total+=z["k"]*f["optimum"][idx]
-                        pred.append(total/base["meta"]["budget"])
-                    emit("source_response",{**base["meta"],"h":h,"measured":measured,"frozen_kkt":(pred[1]-pred[0])/(2*h),"source":"paired finite difference; not FDT or one-loop proof"})
+                            af=frozen_action(za["action_q"],pt,z["k"],base["meta"]["c_puct"],za["pi"])
+                            adaptive+=z["k"]*af["optimum"][idx]
+                            shifts.append(float(np.max(abs(np.array(za["action_q"])-z["action_q"]))))
+                            f0=frozen_action(z["action_q"],p,z["k"],base["meta"]["c_puct"],z["pi"])
+                            changed+=int(f["active_mask"]!=f0["active_mask"])
+                        pred.append(total/base["meta"]["budget"]);adapt.append(adaptive/base["meta"]["budget"]);q_shift.append(max(shifts));faces.append(changed)
+                    emit("source_response",{**base["meta"],"h":h,"measured":measured,"frozen_kkt":(pred[1]-pred[0])/(2*h),"adaptive_kkt_diagnostic":(adapt[1]-adapt[0])/(2*h),"max_q_shift":max(q_shift),"face_changes":sum(faces),"source":"paired finite difference; not FDT or one-loop proof"})
     finally:
         for f in files.values():f.close()
     outputs={}

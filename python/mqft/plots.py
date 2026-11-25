@@ -15,11 +15,11 @@ def rows(p):
         for line in f:yield json.loads(line)
 
 def group(r):
-    return (r["kind"],r["mode"],r["workers"],r["budget"],r["c_puct"],r["samples_per_eval"],r["opponent"],r["source_h"],r.get("law_id","legacy"),r.get("evaluator","uniform_rollout"))
+    return (r["kind"],r["mode"],r["workers"],r["budget"],r["c_puct"],r["samples_per_eval"],r["opponent"],r["source_h"],r.get("law_id","legacy"),r.get("evaluator","uniform_rollout"),r.get("candidate_mode",r["mode"]))
 
 def label(g):
-    kind,mode,w,b,c,s,opp,h,law,evaluator=g
-    return f"{kind}/{mode} W{w} B{b} c={c:g} L{s} {opp} h={h:g} law={law} {evaluator}"
+    kind,mode,w,b,c,s,opp,h,law,evaluator,candidate=g
+    return f"{kind}/{mode} W{w} B{b} c={c:g} L{s} {opp} h={h:g} law={law} {evaluator} vs {candidate}"
 
 def summarize(iterator,field,x,transform=None,predicate=lambda r:True):
     # Average within job first, then over jobs, never over plies as independent samples.

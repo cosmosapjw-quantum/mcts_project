@@ -271,3 +271,40 @@ class SharedMixNet(unittest.TestCase):
         cfg=json.loads(Path("configs/mixnet_games.json").read_text())
         cfg["opponents"]=["rapfi_black"]
         with self.assertRaises(ValueError):make_plan(cfg)
+
+@unittest.skipUnless(os.environ.get("MQFT_TEST_BACKEND") and os.environ.get("MQFT_TEST_RAPFI"),"actual pinned MixNet runtime required")
+class CommonArena(unittest.TestCase):
+    def test_color_assignment_and_receipt(self):
+        from mqft.campaign import execute,ply_spec
+        from mqft.analysis import analyze
+        cfg=dict(kind="games",seed=42000,replicates=1,budgets=[4],c_puct=[1.4],
+          modes=[dict(mode="wave",workers=2,samples_per_eval=4)],openings=[[112,113]],
+          opponents=["serial_black","serial_white"],rollout_depth=1,prior="local",evaluator="rapfi_nnue_lookahead_v1",
+          record_rollouts=True,move_temperature=0.,max_plies=4,jobs=1,cpu_limit=4,max_output_bytes=10485760)
+        pl=make_plan(cfg);self.assertEqual(len(pl["jobs"]),2)
+        self.assertEqual(len({x["spec"]["seed"] for x in pl["jobs"]}),1)
+        for j in pl["jobs"]:
+            self.assertEqual(ply_spec(j,2,1)["mode"],"serial" if j["opponent"]=="serial_black" else "wave")
+            self.assertEqual(ply_spec(j,3,-1)["mode"],"serial" if j["opponent"]=="serial_white" else "wave")
+        with tempfile.TemporaryDirectory() as t:
+            p=Path(t);out=p/"data"
+            r=execute(pl,out,os.environ["MQFT_TEST_BACKEND"],os.environ["MQFT_TEST_RAPFI"],authorized=True)
+            self.assertEqual(r["failures"],[]);self.assertEqual(len(r["completed"]),2)
+            m=analyze(pl,out,p/"analysis");self.assertEqual(m["statuses"],{"truncated":2})
+            z=[json.loads(l) for l in (p/"analysis/global.jsonl").read_text().splitlines() if json.loads(l)["k"]==4]
+            self.assertEqual(len(z),4)
+            self.assertEqual({x["mode"] for x in z},{"serial","wave"})
+            self.assertTrue(all(x["evaluator"]=="rapfi_nnue_lookahead_v1" for x in z))
+    def test_finite_source_response(self):
+        from mqft.campaign import execute
+        from mqft.analysis import analyze
+        cfg=dict(kind="roots",seed=42003,replicates=1,budgets=[4],c_puct=[1.4],
+          modes=[dict(mode="serial",workers=1,samples_per_eval=4)],positions=[dict(id="probe",moves=[112,113],source_action=111)],
+          sources=[-.2,0.,.2],rollout_depth=1,prior="local",evaluator="rapfi_nnue_lookahead_v1",
+          record_rollouts=True,paired_schedule_seed=True,jobs=1,cpu_limit=2,max_output_bytes=10485760)
+        pl=make_plan(cfg)
+        with tempfile.TemporaryDirectory() as t:
+            p=Path(t);r=execute(pl,p/"data",os.environ["MQFT_TEST_BACKEND"],os.environ["MQFT_TEST_RAPFI"],authorized=True)
+            self.assertEqual(r["failures"],[]);analyze(pl,p/"data",p/"analysis")
+            rr=[json.loads(x) for x in (p/"analysis/source_response.jsonl").read_text().splitlines()]
+            self.assertEqual(len(rr),1);self.assertTrue(np.isfinite(rr[0]["adaptive_kkt_diagnostic"]))

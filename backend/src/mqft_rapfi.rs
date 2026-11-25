@@ -3,10 +3,12 @@
 use crate::{game::GameState, games::Gomoku15};
 use parking_lot::{Condvar, Mutex};
 use std::{
-    io::{BufRead, BufReader, Write},
+    io::{BufRead, BufReader, Read, Write},
     path::PathBuf,
-    process::{Child, ChildStdin, ChildStdout, Command, Stdio},
-    sync::{Arc, OnceLock},
+    process::{Child, ChildStdin, Command, Stdio},
+    sync::{mpsc, Arc, OnceLock},
+    thread::{self, JoinHandle},
+    time::{Duration, Instant},
 };
 
 pub const ID: &str = "rapfi_nnue_lookahead_v1";
@@ -16,7 +18,10 @@ pub type Scores = Vec<(u16, i32)>;
 struct Session {
     child: Child,
     input: ChildStdin,
-    out: BufReader<ChildStdout>,
+    out: mpsc::Receiver<Result<String, String>>,
+    reader: Option<JoinHandle<()>>,
+    err_reader: Option<JoinHandle<()>>,
+    stderr: Arc<Mutex<Vec<u8>>>,
     loaded: bool,
 }
 impl Session {
@@ -25,15 +30,54 @@ impl Session {
             .current_dir(dir)
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())
-            .stderr(Stdio::null())
+            .stderr(Stdio::piped())
             .spawn()
             .map_err(|e| e.to_string())?;
         let input = child.stdin.take().ok_or("missing input")?;
-        let out = BufReader::new(child.stdout.take().ok_or("missing output")?);
+        let stdout = child.stdout.take().ok_or("missing output")?;
+        let mut stderr_pipe = child.stderr.take().ok_or("missing stderr")?;
+        let (tx, out) = mpsc::channel();
+        let reader = thread::spawn(move || {
+            let mut r = BufReader::new(stdout);
+            loop {
+                let mut line = String::new();
+                match r.read_line(&mut line) {
+                    Ok(0) => break,
+                    Ok(_) => {
+                        if tx.send(Ok(line)).is_err() {
+                            break;
+                        }
+                    }
+                    Err(e) => {
+                        let _ = tx.send(Err(e.to_string()));
+                        break;
+                    }
+                }
+            }
+        });
+        let stderr = Arc::new(Mutex::new(Vec::new()));
+        let ring = stderr.clone();
+        let err_reader = thread::spawn(move || {
+            let mut b = [0u8; 4096];
+            while let Ok(n) = stderr_pipe.read(&mut b) {
+                if n == 0 {
+                    break;
+                }
+                let mut v = ring.lock();
+                v.extend_from_slice(&b[..n]);
+                let excess = v.len().saturating_sub(8192);
+                if excess > 0 {
+                    v.drain(..excess);
+                }
+            }
+        });
         let mut s = Self {
             child,
             input,
             out,
+            reader: Some(reader),
+            err_reader: Some(err_reader),
+            stderr,
             loaded: false,
         };
         let lines = s.exchange("START 15\nINFO rule 0\nINFO thread_num 1\nABOUT\n")?;
@@ -46,14 +90,24 @@ impl Session {
         self.input
             .write_all(cmd.as_bytes())
             .and_then(|_| self.input.flush())
-            .map_err(|e| e.to_string())?;
+            .map_err(|e| format!("transport: write: {}", e))?;
         let mut out = Vec::new();
         let mut bytes = 0;
+        let deadline = Instant::now() + Duration::from_secs(10);
         loop {
-            let mut l = String::new();
-            if self.out.read_line(&mut l).map_err(|e| e.to_string())? == 0 {
-                return Err("Rapfi EOF".into());
-            }
+            let left = deadline.saturating_duration_since(Instant::now());
+            let l = match self.out.recv_timeout(left) {
+                Ok(Ok(l)) => l,
+                Ok(Err(e)) => return Err(format!("transport: read: {}", e)),
+                Err(e) => {
+                    return Err(format!(
+                        "transport: receive {:?}; pid={} status={:?}",
+                        e,
+                        self.child.id(),
+                        self.child.try_wait()
+                    ))
+                }
+            };
             bytes += l.len();
             if bytes > 262144 {
                 return Err("Rapfi response exceeds limit".into());
@@ -192,10 +246,21 @@ impl Session {
         Ok((scores, wdl))
     }
 }
-impl Drop for Session {
-    fn drop(&mut self) {
+impl Session {
+    fn shutdown(&mut self) {
         let _ = self.child.kill();
         let _ = self.child.wait();
+        if let Some(t) = self.reader.take() {
+            let _ = t.join();
+        }
+        if let Some(t) = self.err_reader.take() {
+            let _ = t.join();
+        }
+    }
+}
+impl Drop for Session {
+    fn drop(&mut self) {
+        self.shutdown();
     }
 }
 struct Pool {
@@ -252,6 +317,12 @@ impl Pool {
             self.cv.wait(&mut idle);
         };
         let result = s.query(state, policy);
+        if let Err(ref err) = result {
+            let pid = s.child.id();
+            let status = s.child.try_wait();
+            s.shutdown();
+            eprintln!("MQFT_RAPFI_FAILURE state={:016x} side={} policy={} pid={} status={:?} error={} stderr={:?}",state.tt_hash(),state.current_player(),policy,pid,status,err,String::from_utf8_lossy(&s.stderr.lock()));
+        }
         let mut idle = self.idle.lock();
         if result.is_ok() {
             idle.push(s)
@@ -272,7 +343,21 @@ pub fn query(state: &Gomoku15, policy: bool) -> Result<(Option<Scores>, [f64; 3]
         }
         p.as_ref().unwrap().clone()
     };
-    pool.query(state, policy)
+    // Retry transport only, once, with same state and pinned model. Never
+    // substitute an evaluator. Record failed attempt and retry outcome.
+    match pool.query(state, policy) {
+        Err(e) if e.starts_with("transport:") => {
+            let r = pool.query(state, policy);
+            eprintln!(
+                "MQFT_RAPFI_RETRY state={:016x} policy={} success={}",
+                state.tt_hash(),
+                policy,
+                r.is_ok()
+            );
+            r
+        }
+        r => r,
+    }
 }
 pub fn close() {
     if let Some(p) = POOL.get() {

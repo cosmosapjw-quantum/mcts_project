@@ -90,8 +90,9 @@ def make_plan(cfg):
     if kind=="games":
         positions=[dict(id=f"opening{i}",moves=m,source_action=None) for i,m in enumerate(cfg.get("openings",[[]]))]
         opponents=cfg.get("opponents",["self"])
-        if not opponents or not set(opponents)<={"self","rapfi_black","rapfi_white"}:raise ValueError("invalid opponents")
-        if evaluator!="uniform_rollout" and opponents!=["self"]:raise ValueError("common NNUE study requires both sides use same search/evaluator")
+        if not opponents or not set(opponents)<={"self","rapfi_black","rapfi_white","serial_black","serial_white"}:raise ValueError("invalid opponents")
+        if evaluator!="uniform_rollout" and not set(opponents)<={"self","serial_black","serial_white"}:raise ValueError("common NNUE study requires both sides use same search/evaluator")
+        if any(o.startswith("serial_") for o in opponents) and (evaluator!="rapfi_nnue_lookahead_v1" or set(opponents)!={"serial_black","serial_white"} or len(opponents)!=2):raise ValueError("paired arena requires common MixNet and both color assignments")
         sources=[0.]
     else:
         positions=cfg["positions"];opponents=["none"];sources=cfg.get("sources",[0.])
@@ -109,6 +110,7 @@ def make_plan(cfg):
         if name not in ("serial","root","tree","leaf","wave") or not 1<=workers<=64 or not 1<=samples<=64 or not 1<=budget<=65536 or (name=="root" and workers>budget) or (name=="serial" and workers!=1) or (name=="leaf" and samples<2):
             raise ValueError("invalid schedule")
         law=mode.get("root_law")
+        if opp.startswith("serial_") and (name=="serial" or law is not None):raise ValueError("arena candidate must be nonserial greedy schedule")
         if law is not None:
             if name not in ("serial","wave","leaf") or not isinstance(law,dict) or set(law)-{"kind","beta_p","beta_q","proposal","logit_h"} or law.get("kind") not in ("iid","pl","reserve") or law.get("proposal") not in ("p","q","local","path"):raise ValueError("root law mode or kind")
             for v in (law.get("beta_p"),law.get("beta_q")):
@@ -132,6 +134,9 @@ def make_plan(cfg):
         job_id=digest([meta,spec,base])[:24]
         # Separate fixed streams; no reliance on Python salted hash. Source +/- share initial seed for paired finite differences.
         spec["seed"]=seed(base,pos["id"],pos["moves"],rep,name,workers,budget,c,opp,mode.get("root_law",{}).get("kind") if mode.get("root_law") else None)
+        if opp.startswith("serial_"):
+            # Common initial seed labels across arms/color and per-ply derived seeds.
+            spec["seed"]=seed(base,pos["id"],pos["moves"],rep,budget,c,samples,evaluator,"arena")
         if pair_seed:
             spec["seed"]=seed(base,pos["id"],pos["moves"],rep,budget,c,samples,evaluator,law["kind"] if law else "greedy")
         meta.update(id=job_id,spec=spec,game_seed=seed(base,job_id,"moves"))
@@ -150,6 +155,13 @@ def load_plan(path):
     p["plan_hash"]=h
     if make_plan(p["config"])!=p:raise ValueError("plan/config mismatch")
     return p
+
+def ply_spec(job,ply,side):
+    spec=job["spec"].copy()
+    spec["seed"]=seed(spec["seed"],ply);spec["source_action"]=None;spec["source_h"]=0.
+    if (job["opponent"]=="serial_black" and side==1) or (job["opponent"]=="serial_white" and side==-1):
+        spec["mode"]="serial";spec["workers"]=1
+    return spec
 
 def choose(counts,temperature,rng):
     items=sorted((int(a),int(n)) for a,n in counts if n>0)
@@ -187,7 +199,7 @@ def run_job(job,outdir,backend,backend_sha,rapfi_dir,plan_hash,byte_cap):
     if part.exists():raise FileExistsError(f"partial shard {part}; inspect before removing")
     moves=list(job["opening"]);rng=random.Random(job["game_seed"]);count=0;uncompressed=0;backups=0;status="failed"
     nnue=job["spec"].get("evaluator")=="rapfi_nnue_lookahead_v1"
-    with Backend(backend,job["search_timeout"],rapfi_dir if nnue else None,job["spec"]["workers"]) as be:
+    with Backend(backend,job["search_timeout"],rapfi_dir if nnue else None,job["spec"]["workers"],diagnostic_path=(outdir/"diagnostics"/(jid+".log")) if nnue else None) as be:
         if be.sha!=backend_sha:raise ValueError("backend bytes changed")
         ext=rapfi.Rapfi(rapfi_dir,job["rapfi_timeout_ms"],job["rapfi_threads"],job["search_timeout"]) if job["opponent"].startswith("rapfi") else None
         with part.open("xb") as raw:
@@ -217,7 +229,7 @@ def run_job(job,outdir,backend,backend_sha,rapfi_dir,plan_hash,byte_cap):
                         if use_ext:
                             er=ext.best(moves);a=er["action"];row=dict(type="ply",ply=ply,state=st,action=a,engine="rapfi",external=er)
                         else:
-                            spec=job["spec"].copy();spec["seed"]=seed(spec["seed"],ply);spec["source_action"]=None;spec["source_h"]=0.
+                            spec=ply_spec(job,ply,st["side"])
                             tr=be.search(moves,spec);a=choose(tr["move_counts"],job["move_temperature"],rng)
                             row=dict(type="ply",ply=ply,state=st,action=a,engine="quartz",trace=tr)
                             backups+=spec["budget"]

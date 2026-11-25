@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE41_20261125",
-  "scope": "Common actual MixNet evaluator; 10 complete same-engine games, 40 matched roots, 48 stochastic-root histories; old uniform cohorts diagnostic only.",
-  "entry": "REPLAN-01",
-  "supersedes_next": "MQFT-RESTORE40-REPLAN01-QUARTZ-COMMISSIONING-AWAIT-AUTHORIZATION",
+  "revision": "RESTORE42_20261125",
+  "scope": "Same pinned MixNet: 16 color-swapped games, 48 actual source-intervention searches; 4 opening blocks overall; no population/physical admission",
+  "entry": "REPLAN-03",
+  "supersedes_next": "MQFT-RESTORE42-COMMON-MIXNET-MATCHED-PILOT",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE42-COMMON-MIXNET-MATCHED-PILOT",
+  "next_stage_id": "MQFT-RESTORE43-CROSSED-OPENINGS-PROSPECTIVE-RESPONSE",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -618,5 +618,28 @@
     "local_summary_sha256": "b33242db76e1d0659738fc0f623fc8e329aabf3ad6fdd05fb5743978bab97b99",
     "next_contract": "docs/NEXT_DYNAMICS.md",
     "prior_science_statuses": "preserved, no new physical/strength admission"
+  },
+  "restore42": {
+    "parent_dag_sha256": "cc8dc7bbec4d42fea6ee249da789784c1827bfa6c10f87fbdb7d58f509eaaf2c",
+    "status": "scoped_native_color_swap_and_finite_source_response",
+    "games": 16,
+    "fixed_root_jobs": 48,
+    "native_backups": 27520,
+    "evaluator": "rapfi_nnue_lookahead_v1",
+    "model": "Rapfi250615 mix9svq freestyle",
+    "opening_blocks_total": 4,
+    "pairs_per_mode": 2,
+    "negative_actual_serial_response": 2,
+    "frozen_kkt_monotone": "derived_fixed_field_only",
+    "native_runtime_failures_observed": 0,
+    "prior_eof_root_cause": "unresolved",
+    "prior_admissions": "preserved",
+    "summary_sha256": "3645842ab558093bf2027015f65e8f57db6fb22a5210e75aed42ecbf496cf815",
+    "evidence": [
+      "docs/RESTORE42_THEORY.md",
+      "docs/RESTORE42_RESULTS.md",
+      "docs/DRIFT_WATCHDOG.md"
+    ],
+    "next_contract": "docs/NEXT_DYNAMICS.md"
   }
 }

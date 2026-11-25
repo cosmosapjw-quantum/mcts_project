@@ -5,6 +5,7 @@ import os
 import json
 import queue
 import subprocess
+import signal
 import threading
 from pathlib import Path
 from . import SCHEMA
@@ -23,7 +24,7 @@ def digest(obj):
     return hashlib.sha256(canonical(obj).encode()).hexdigest()
 
 class Backend:
-    def __init__(self, executable, timeout=180, rapfi_dir=None, rapfi_workers=1):
+    def __init__(self, executable, timeout=180, rapfi_dir=None, rapfi_workers=1, diagnostic_path=None):
         self.exe=Path(executable).resolve(strict=True)
         self.timeout=float(timeout)
         if not math.isfinite(self.timeout) or self.timeout<=0:raise ValueError("invalid backend timeout")
@@ -36,7 +37,7 @@ class Backend:
             env["MQFT_RAPFI_DIR"]=str(Path(rapfi_dir).resolve(strict=True))
             env["MQFT_RAPFI_WORKERS"]=str(rapfi_workers)
         else:self.rapfi_identity=None
-        self.proc=subprocess.Popen([str(self.exe)],env=env,stdin=subprocess.PIPE,stdout=subprocess.PIPE,
+        self.proc=subprocess.Popen([str(self.exe)],env=env,start_new_session=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE,
                                    stderr=subprocess.PIPE,text=True,encoding="utf-8",bufsize=1)
         self.q=queue.Queue(maxsize=2)
         self.stderr=[]
@@ -52,9 +53,17 @@ class Backend:
             except (OSError,ValueError):pass
             finally:put(None)
         def errors():
-            for line in self.proc.stderr:
-                self.stderr.append(line[-1000:])
-                if len(self.stderr)>40:del self.stderr[:-40]
+            log=None
+            try:
+                if diagnostic_path is not None:
+                    path=Path(diagnostic_path);path.parent.mkdir(parents=True,exist_ok=True)
+                    log=path.open("a",encoding="utf-8")
+                for line in self.proc.stderr:
+                    if log:log.write(line);log.flush()
+                    self.stderr.append(line[-1000:])
+                    if len(self.stderr)>40:del self.stderr[:-40]
+            finally:
+                if log:log.close()
         self._reader=threading.Thread(target=read,daemon=True);self._err_reader=threading.Thread(target=errors,daemon=True)
         self._reader.start();self._err_reader.start()
         try:
@@ -91,9 +100,16 @@ class Backend:
             except OSError:pass
             try:self.proc.wait(timeout=2)
             except subprocess.TimeoutExpired:
-                self.proc.terminate()
+                try:os.killpg(self.proc.pid,signal.SIGTERM)
+                except ProcessLookupError:pass
                 try:self.proc.wait(timeout=2)
-                except subprocess.TimeoutExpired:self.proc.kill();self.proc.wait()
+                except subprocess.TimeoutExpired:
+                    try:os.killpg(self.proc.pid,signal.SIGKILL)
+                    except ProcessLookupError:pass
+                    self.proc.wait()
+        # Reap descendants even after a backend panic/EOF.
+        try:os.killpg(self.proc.pid,signal.SIGKILL)
+        except ProcessLookupError:pass
         self._reader.join(timeout=2);self._err_reader.join(timeout=2)
         for f in (self.proc.stdout,self.proc.stderr):
             if f: f.close()
