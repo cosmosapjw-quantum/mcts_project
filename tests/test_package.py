@@ -644,3 +644,22 @@ class PrecisionPhysics54(unittest.TestCase):
         ix=[r["reverse"]["k"].index(k) for k in (0,1,4,16,32)]
         z=(np.array(r["reverse"]["cf_re"])-1j*np.array(r["reverse"]["cf_im"]))[ix]
         self.assertLess(np.max(abs(complex_work_tilt(p,4.)-z)),1e-8)
+
+class LongitudinalPhysics55(unittest.TestCase):
+    def test_records_pointer_and_fdt(self):
+        from mqft.physics55 import quantum_records,pointer_dynamics,gibbs_fdt,noneq_fdt_control
+        p=[.1,.2,.3,.4]
+        a,_=quantum_records(p,0.);self.assertAlmostEqual(a["rows"][-1]["Holevo"],0.,places=12)
+        a,_=quantum_records(p,1.);self.assertAlmostEqual(a["rows"][1]["basis_MI"],a["H"])
+        self.assertEqual(a["redundancy_lower"],8)
+        b,_=pointer_dynamics(p);self.assertTrue(b["pointer_stationary"])
+        self.assertLess(b["rows"][-1]["coherence"],b["rows"][0]["coherence"])
+        r=gibbs_fdt(p);self.assertTrue(np.allclose(r["rows"][-1]["response"],r["rows"][-1]["C0_minus_Ct"]))
+        self.assertGreater(noneq_fdt_control(p)["rows"][-1]["gap"],0.)
+    def test_restricted_vector(self):
+        from mqft.physics55 import restricted_vector
+        e=[dict(action=i,n=0,w=0.,prior=.2) for i in (0,7,80,100,140)]
+        for l in ("iid","pl","reserve"):
+            a=restricted_vector(e,[x["action"] for x in e],13,l,np.zeros(3))
+            self.assertAlmostEqual(a["p"].sum(),1.)
+            self.assertEqual(len(a["p"]),120 if l=="pl" else 625)

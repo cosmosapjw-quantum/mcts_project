@@ -1353,5 +1353,64 @@
     "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
     "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
     "old_production_runtime_unchanged": true
+  },
+  "restore55": {
+    "parent_main": "8c0536e71dfd1d27b3ff87bf0be1022529cc5c8e",
+    "family": {
+      "13": {
+        "registration_sha256": "c95ba10c6bd936dadd4fe1afe1002e41746363a2e20f9d770bc5bd82bee3159d",
+        "backend_sha256": "4a66e29ffffe736663276a7d0608fca2f9643d36071b47a94a6597847e3012df",
+        "source_manifest_sha256": "b811ba02dd28eef58ce53512b81e656e2c71c3510bbb509df58fef92c36ccad0",
+        "analysis_patch_manifest_sha256": "8c26dfe53500fef44db8214db33d80b383bd83ea4d0c86db862f9c1f24bfa1a4",
+        "plans": {
+          "game16": {
+            "hash": "fa3069a1f6741ebff59abd9864e68546e185609762d40668a59b4e21581afa6f",
+            "jobs": 2
+          },
+          "game32": {
+            "hash": "a7f7bbb0b66437b5b38f947885e4ad0ab8a934ad8129723fd13d483c4cfaf3aa",
+            "jobs": 2
+          },
+          "root0": {
+            "hash": "b42fe8c424f189e2c36cdaa8cbe14e41ae02e7d0b16166198ae306cf13c1e457",
+            "jobs": 120
+          },
+          "root1": {
+            "hash": "d936aa23ecfb47655dfd0cb1abcdad25c5001deefea9ba43e4ea4ec1c13678a2",
+            "jobs": 120
+          }
+        }
+      },
+      "21": {
+        "registration_sha256": "fc71240a93b717b3523fbd948f9ca83a19a93ed810a145fbd26c06d7ad7cc63c",
+        "backend_sha256": "236abd3524b448ac3e3219a44167bd4c7a406c951bbb75a15da08108b9de494e",
+        "source_manifest_sha256": "f5b5f3bd86c63d3fee552a4c487851f21a3814cf7736f67a08f8a43641385790",
+        "analysis_patch_manifest_sha256": "f6f37d5891c3cae57f507f475c3a3a8237eeac9063024ddb5a650c8ca0e007c6",
+        "plans": {
+          "game16": {
+            "hash": "499557662a7fc26e77ac0c135af15eaca2ba3677dd6cbb719a3ddd73961add9a",
+            "jobs": 2
+          },
+          "game32": {
+            "hash": "4aba3d4506b7371b2b140e17d5e5216d2c43fbaa8e8afeffc4be931ab71a514a",
+            "jobs": 2
+          },
+          "root0": {
+            "hash": "09806cc6985d4475fdcefe39c4a14ba2aafe6bd14817a3996b23d1bdfa3041ea",
+            "jobs": 120
+          },
+          "root1": {
+            "hash": "64fe932ca8ccfb5391459680df72f0dd21534541330d5b0cdb029e2633f9ea18",
+            "jobs": 120
+          }
+        }
+      }
+    },
+    "physics_results_sha256": "31270a75a55ddf5e504173b9f09f683fb489554de83aac05e41280c453b22232",
+    "states_sha256": "a9300308d1a143589df1a497005fce89acfdbe9177facbe57a73b60dd0d9ad94",
+    "original_evidence_sha256": "cc31c7a78fc5a7460cbb363b5a109da459596b43dbafff21bf643910467ca815",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "old_production_runtime_unchanged": true
   }
 }

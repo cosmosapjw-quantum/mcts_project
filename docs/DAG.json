@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE54_20261126",
-  "scope": "Grouped Layer A/Q: exact conditional IID last-wave response, count action and Fisher pushforward, mixed finite precision, conditional quantum memory and reverse-work distribution",
-  "entry": "REPLAN-03",
-  "supersedes_next": "MQFT-RESTORE54-VECTOR-RESPONSE-PRECISION",
+  "revision": "RESTORE55_20261126",
+  "scope": "Grouped Layer A/Q: actual longitudinal Q fit and depth flow, sequential full-support martingale controls, restricted PL/reserve and declared quantum record/FDT models",
+  "entry": "REPLAN-01",
+  "supersedes_next": "MQFT-RESTORE55-WAVE-CLOSURE-LONGITUDINAL",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -488,7 +488,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "previous_entry": "REPLAN-04.R",
+  "previous_entry": "REPLAN-03",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "quantum_representation_policy": {
     "origin": "user directive 2026-11-25",
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE55-WAVE-CLOSURE-LONGITUDINAL",
+  "next_stage_id": "MQFT-RESTORE56-LONGITUDINAL-CONDITIONAL-DYNAMICS",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -1682,6 +1682,149 @@
     "evidence": [
       "docs/RESTORE54_THEORY.md",
       "docs/RESTORE54_RESULTS.md"
+    ]
+  },
+  "restore55": {
+    "parent_dag_sha256": "d99d23e3029fe18db9141aebe75b49d126714f4a615d8164dd7e551de0868ea4",
+    "status": "scoped_native_longitudinal_sequential_controls_and_conditional_physics",
+    "sizes": [
+      13,
+      21
+    ],
+    "fresh_games": 8,
+    "fresh_marked_histories": 480,
+    "total_marked_histories": 8648,
+    "fresh_backups": 11232,
+    "longitudinal_plies": 149,
+    "new_core_geometries": 2,
+    "exact_prefix_pairs": 192,
+    "response_rows": 60,
+    "restricted_lattice_cases": 36,
+    "native_sector_control": "variance reduced scoped; future mark direct control NOT_ADMITTED",
+    "conditional_record_cases": 72,
+    "conditional_states": 216,
+    "conditional_equilibrium_cases": 24,
+    "original_evidence_items": 20,
+    "original_evidence_sha256": "cc31c7a78fc5a7460cbb363b5a109da459596b43dbafff21bf643910467ca815",
+    "group_figures": {
+      "REPLAN-01": {
+        "scope": "native complete games",
+        "original_items": [
+          "L02"
+        ],
+        "files": {
+          "REPLAN-01.png": "56914242421b013c19d136458bda2ed76ded4243c56ea9c4db15b9561e480eaa",
+          "REPLAN-01.pdf": "1298178c83e8f61c4593e6f8c001b6d197e6f975083dbd82e99271d1affe5932"
+        }
+      },
+      "REPLAN-02": {
+        "scope": "native descriptive Q-score fit",
+        "original_items": [
+          "L03",
+          "L25",
+          "L04",
+          "L26"
+        ],
+        "files": {
+          "REPLAN-02.png": "3898d9a2260aaa85b06f257c9ab26d351492b8d9b591f0bb5bacbd8b9bae4f65",
+          "REPLAN-02.pdf": "3f46160f146686082276ed89638e3cfca64c008a250fd1e02f3c0ffb41ebd1a2"
+        }
+      },
+      "REPLAN-03": {
+        "scope": "restricted exact reference and native diagnostic",
+        "original_items": [
+          "L02"
+        ],
+        "files": {
+          "REPLAN-03.png": "41b4efe4a5fe08aaad0b92577cd7c48ce41c465a478f9ceed7d9f79bb64d9055",
+          "REPLAN-03.pdf": "6d12c1ea674ad330de5cc3368eaaf60b76243c6f2637bc8e314bf00b42d2b872"
+        }
+      },
+      "REPLAN-04.R": {
+        "scope": "native actual prefix tree",
+        "original_items": [
+          "L35",
+          "L29",
+          "L38",
+          "Q09",
+          "Q11"
+        ],
+        "files": {
+          "REPLAN-04.R.png": "5071892059d09ba5672e8dc4f1ab5f813ffdec6960c3eb26fbb2647bc1f9704b",
+          "REPLAN-04.R.pdf": "1d0a907d6f5045b40cd028f1251c38b80b13e85d6468002a823f7862ef348937"
+        }
+      },
+      "REPLAN-04.C": {
+        "scope": "native finite size/budget, not criticality",
+        "original_items": [
+          "L07",
+          "Q31"
+        ],
+        "files": {
+          "REPLAN-04.C.png": "f165ff98e2e0e461af4311958515b3d9c1891dfbc7eea1c74c3c19dfaa46775a",
+          "REPLAN-04.C.pdf": "5f6beea9e91e20ae4e1506374702cbcf8b1fa9786a83e10b67905dd6ab6ecf41"
+        }
+      },
+      "REPLAN-05": {
+        "scope": "conditional record model, not native quantum data",
+        "original_items": [
+          "L19",
+          "L20",
+          "Q24",
+          "Q25",
+          "Q26"
+        ],
+        "files": {
+          "REPLAN-05.png": "f62b992356335eb2a215788038ed6309b0e27f16ef820433757c06f409be6963",
+          "REPLAN-05.pdf": "182a99e899094f24b527afb62c64f5048c49582477ce0669ddbdc494ab7d98ad"
+        }
+      },
+      "REPLAN-06": {
+        "scope": "native score proxy and conditional equilibrium response",
+        "original_items": [
+          "L33",
+          "L06",
+          "Q20"
+        ],
+        "files": {
+          "REPLAN-06.png": "7dbdc318e07c7bc129a49a173bacd0aad5dd3103b559440a1c6e0bf5df129d9a",
+          "REPLAN-06.pdf": "c120db0152c71db316c16e71fc6506ad1c2ca6b7b0ce2b9901f502fa2ac8a8c8"
+        }
+      },
+      "X-REP": {
+        "scope": "conditional complex state",
+        "original_items": [
+          "L19",
+          "L20",
+          "Q24",
+          "Q26"
+        ],
+        "files": {
+          "X-REP.png": "1132f3ee0a820006eea01be51ab77737e4b8ba84b20fcfca91293904fa43e33a",
+          "X-REP.pdf": "802e58a45c2204b9e352cb9359873a5efdfe45a1abaefb8c7236a5e92a18673d"
+        }
+      },
+      "X-MEMORY": {
+        "scope": "native paired finite response and sequential controls",
+        "original_items": [],
+        "files": {
+          "X-MEMORY.png": "f739984a91c0c319a3806bc2db9bc6fa442d631998ef301014a81d4baafb2833",
+          "X-MEMORY.pdf": "3e11a240d02a6e585df0ed86d68262a2efd7e8845a4a83ed0941c6233fe99c33"
+        }
+      }
+    },
+    "physics_results_sha256": "31270a75a55ddf5e504173b9f09f683fb489554de83aac05e41280c453b22232",
+    "states_sha256": "a9300308d1a143589df1a497005fce89acfdbe9177facbe57a73b60dd0d9ad94",
+    "original_plot_tasks": 121,
+    "additional_plot_nodes": 0,
+    "prior_admissions": "preserved",
+    "critical_scaling": "unresolved",
+    "native_1PI": "unresolved",
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "evidence": [
+      "docs/RESTORE55_THEORY.md",
+      "docs/RESTORE55_RESULTS.md",
+      "docs/ORIGINAL_OUTPUT_EVIDENCE55.csv"
     ]
   }
 }

@@ -1,29 +1,21 @@
-# RESTORE54 drift watchdog
-Exact R53 parent, three original archive identities, Q28 six research
-axes, R32 A/Q and 13/121 output map preserved. Same actual v5 binaries,
-same Quartz/MixNet; no selector tuning. Primary target conditional
-response variance and precision, not another engine rewrite.
-Exact conditional last-wave occupancy only for IID with verified
-frozen law. PL/reserve first-draw approximation and native marks
-separate. No universal native 1PI, phase, temperature, criticality
-or objectivity admission. Fresh common geometry only one core;
-two sizes and peripheral variants not independent core population.
-Two h values and B16/32/64 separate, other clock pairs untested.
-Actual native histories distinct from conditional work MC/quantum
-tomography. Q transfer explicitly conditional, EB bound not native
-quantum proof. Preserve original six axes and prior negative evidence.
-Analyzer first failed on JSON round-trip 1 ULP differences; scoped
-copy accepts <=2 ULP only for nonzero sector schedule, exact zero
-and all other law metadata, all actual probabilities replayed.
-No source/raw modification or relaxed scientific probability test.
-Native subagent NOT_RUN; independent numerical and symbolic checks.
-
-Final scope: 850 actual jobs, 848 new histories, 16960 backups.
-Actual exact conditional IID stencil, 72 full conditional count
-laws and 288 interior frozen reference cases support A/R outputs.
-66 response rows, 768 exact earlier-prefix checks, finite CRN
-max-stat tail .16045; not equivalence or global closure.
-48 conditional Q cases (192 Choi) and 98304 conditional forward/
-reverse work paths remain separate. Nine new grouped figures do
-not complete original 121 outputs. No new nodes or unsupported
-admissions. Explicit next return to longitudinal original plots.
+# RESTORE55 drift watchdog
+Original three archives/Q28 six axes, 13-node/13-edge/121-owner
+map and R32 A/Q retained. Same actual Quartz/MixNet and old
+v5 runtime/analysis patch, no engine optimization. Eight full
+self-play games and actual per-ply trace analysis target original
+Q thermometry, tree-depth flow, entropy and score balance; no
+relabeling normalized game progress as physical time, score scale
+as temperature or graph-depth proxy as autonomous RG. Two common
+cores, matched B16/32 but only two independent opening blocks.
+Sequential predictable controls unbiased only under ideal recorded
+conditional laws; variance reduction measured, not assumed.
+Restricted 5-action reference distinct from full native support.
+Explicit conditional quantum record/dephasing/Schmidt swaps and
+equilibrium Gibbs FDT; no native phase, energy, objectivity or
+critical exponent. Original plot ID crosswalk records scope, no
+automatic 121-item completion or change in canonical catalog.
+Preserve prior negative selector/closure evidence, no extra nodes.
+Combined subtraction roundoff failure preserved, regrouped exact
+difference after checking observations and controls individually.
+Independent native subagent unavailable (NOT_RUN); serial fallback
+with independent RNG, enumeration, matrix, CAS and ODE checks.
