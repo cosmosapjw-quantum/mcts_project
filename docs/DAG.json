@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE45_20261126",
-  "scope": "Grouped original Layer A/Q physics: fresh marked-law replication, tangent lattice action, nonthermal reversal and conditional CP/CQ readout; 13 topic nodes, 121 local output tasks",
-  "entry": "REPLAN-03",
-  "supersedes_next": "MQFT-RESTORE45-GROUPED-PHYSICS-REPLICATION",
+  "revision": "RESTORE46_20261126",
+  "scope": "Grouped Layer A/Q: balanced actual precision replication, deterministic PRNG audit, discrete projected memory and conditional causal break",
+  "entry": "REPLAN-04.C",
+  "supersedes_next": "MQFT-RESTORE46-GROUPED-PHYSICS-PRECISION",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE46-GROUPED-PHYSICS-PRECISION",
+  "next_stage_id": "MQFT-RESTORE47-GROUPED-PHYSICS-SCALE",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -780,6 +780,87 @@
     "evidence": [
       "docs/RESTORE45_THEORY.md",
       "docs/RESTORE45_RESULTS.md"
+    ],
+    "next_contract": "docs/NEXT_DYNAMICS.md"
+  },
+  "restore46": {
+    "parent_dag_sha256": "900b0c96664ce7ed02d4bfeccdadd865e2df7702d33540c80cc2b702dc37a747",
+    "status": "scoped_native_precision_and_conditional_memory",
+    "fresh_histories": 720,
+    "total_balanced_histories": 1152,
+    "fresh_backups": 11520,
+    "rng_root_draws": 18432,
+    "rng_sample_draws": 78336,
+    "prior_IID_deviation": "not persistent in balanced replication; no deterministic replay mismatch; finite statistical check not proof",
+    "memory_fitted_references": 3,
+    "conditional_causal_break_histories": 384,
+    "group_figures": {
+      "REPLAN-01": {
+        "scope": "native_replayed",
+        "files": {
+          "REPLAN-01.png": "5a6e3dd991c6f615cbf96ab29f19a4d8e10afc355ffd8e88bd30ec9f1e14cb7f",
+          "REPLAN-01.pdf": "5554f097aaa4b37eb13f620fe8c0ea57ad25b5515343b7488222d877c68845ac"
+        }
+      },
+      "REPLAN-03": {
+        "scope": "native_observed",
+        "files": {
+          "REPLAN-03.png": "610f960cf245565ab9eed512f86eae418f7d384f75b2c93e44c76e09f72c386c",
+          "REPLAN-03.pdf": "2646c82d76afa85c31e5d699fd5dc9ba76a148f190279a87bb746fc4da18aeea"
+        }
+      },
+      "REPLAN-04.R": {
+        "scope": "fitted_conditional_reference",
+        "files": {
+          "REPLAN-04.R.png": "207cba2b30e0eea11ecb7609308af1257272cf63d5c366a372cea8f2612c2ece",
+          "REPLAN-04.R.pdf": "823603c31c0ba055eef213332b2f551619ff70500513584b5deb2919f37bc447"
+        }
+      },
+      "REPLAN-04.C": {
+        "scope": "native_replication",
+        "files": {
+          "REPLAN-04.C.png": "62a3243c32006e3b1f8c4252512015ecc8b74b4e65e262b971425345d7abcbc8",
+          "REPLAN-04.C.pdf": "c3aa64e02a8d8b8c14a5bf6e2c3f03ed970feee8e29809272f8aa410a971eb9a"
+        }
+      },
+      "REPLAN-05": {
+        "scope": "conditional_CP_records",
+        "files": {
+          "REPLAN-05.png": "c43dc035af31332a9a46a53ab5e4705cf6548f6630251a870bb93497f1d0670f",
+          "REPLAN-05.pdf": "caf5e70ab82928d1d4637d45451dce3912840689b3599fad43e3fd788a6808d3"
+        }
+      },
+      "REPLAN-06": {
+        "scope": "native_protocol_ratio",
+        "files": {
+          "REPLAN-06.png": "e70a6d8524a4fffc62376617e5eedde127fbeb14fd33341c45065e8931976d7c",
+          "REPLAN-06.pdf": "810af779a7a7f014ff9c3d7edf7fa8c22ac79c0599e9327fe2b5b8b388a81ad5"
+        }
+      },
+      "X-REP": {
+        "scope": "conditional_CP_intervention",
+        "files": {
+          "X-REP.png": "0e6ac83747396ce6ebe367841242894dcdb30af150f1c4033dd9f750f2182afb",
+          "X-REP.pdf": "06d773e2264b51c21365ba6189b4d2ee6e5a9ab9e161d25c973fbb1c35e8744a"
+        }
+      },
+      "X-MEMORY": {
+        "scope": "native_heldout",
+        "files": {
+          "X-MEMORY.png": "e1b56e68c1e99cba55ac8fb2f1c415135abb5a4819561c89e9b64ba0dbe34a04",
+          "X-MEMORY.pdf": "7dd6542f04966c3d1f683174e1bedb63137b3b44e62c904d24a2009a4b8aaaf2"
+        }
+      }
+    },
+    "physics_results_sha256": "65a77bd4ad27d730bbc6c88dac89b33986d222e212e5f7402d7f2e615388bddd",
+    "fresh_score_diagnostics_sha256": "59735a8a5caee5e19afff0543051f33adb0a4340dfd0a99fdc351a5050224b21",
+    "large_campaign": "not_launched",
+    "original_plot_tasks": 121,
+    "additional_plot_nodes": 0,
+    "prior_admissions": "preserved",
+    "evidence": [
+      "docs/RESTORE46_THEORY.md",
+      "docs/RESTORE46_RESULTS.md"
     ],
     "next_contract": "docs/NEXT_DYNAMICS.md"
   }

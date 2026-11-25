@@ -1,15 +1,14 @@
-# RESTORE45 drift watchdog
-Original RESTORE32 A/Q theory reread, original ZIP identities rehashed.
-13 prior topic nodes and edges unchanged; 121 per-output subtasks with
-unique primary ownership, no graph growth. Physical study has actual
-new native path evidence and exact multivariate action, nonthermal
-path-ratio, operational conditional CP and CQ records, independent
-history holdout. Distinguish native vs restricted exact vs conditional
-physics; no physical phase, temperature, hbar, native 1PI or board-size
-exponent claimed. Preserve prior selector/closure negatives. IID score
-mean/weight discrepancy remains open, not hidden by control variate.
-Large generation required for precision, reported not launched.
-RESTORE44 publication verified but predecessor backup pointer still
-RESTORE43 at entry; include complete 44 and 45, preserve previous ZIP
-bytes; only retire redundant predecessor copies after verification.
-No native independent subagent. No forced new tunneling/QEC/training.
+# RESTORE46 drift watchdog
+Original Q28 six axes, RESTORE32 A/Q core, original archive identities
+and 121 per-output primary ownership retained, 13 nodes/13 edges.
+Actual common MixNet only; no performance replacement of physics.
+Native RNG, likelihood and precision work addresses earlier unresolved
+response normalization; no model tuning to hide it. Finite memory
+kernel derived in fitted count reference with holdout; negative IID
+memory result preserved. Explicit CP measurement/reprepare on actual
+classical paths distinct from native quantum identification. Nonthermal
+source LR is not thermal or time reversal; earlier declared thermal
+reference kept. Original one-loop, RG, physical quantum/classicality,
+temperature and finite-size objectives preserved, not promoted.
+No new selector, barrier, QEC or training claim without inputs.
+Runtime abort retries preserved; no fallback. Native subagent unavailable.

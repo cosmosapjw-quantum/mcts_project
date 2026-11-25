@@ -392,3 +392,30 @@ class MultivariatePhysics45(unittest.TestCase):
         z=centered_estimates(a,g,d)
         self.assertAlmostEqual(z["centered"].mean(),np.cov(a,g,ddof=1)[0,1])
         self.assertAlmostEqual(z["centered_fd"].mean(),np.cov(a,d,ddof=1)[0,1])
+
+class PrecisionPhysics46(unittest.TestCase):
+    def test_lr_predictable_bernoulli(self):
+        from mqft.physics46 import log_ratio,score_evidence
+        p=.3;h=.6
+        l0,k0=log_ratio([p],[0],h);l1,k1=log_ratio([p],[1],h)
+        self.assertAlmostEqual((1-p)*np.exp(l0)+p*np.exp(l1),1.)
+        self.assertAlmostEqual(-((1-p)*l0+p*l1),k0)
+        self.assertAlmostEqual(k0,k1)
+        a=score_evidence([dict(conditional_p=[p],target_ind=[1],G=1-p,F=p*(1-p))])
+        self.assertTrue(np.isfinite(a["e_mixture"]))
+    def test_discrete_projected_memory_recurrence(self):
+        from mqft.physics46 import fit_count_memory
+        train=[dict(full_wave_counts=list(x)) for x in [(0,0,1),(1,0,0),(0,1,1),(1,1,0)]*4]
+        test=[dict(full_wave_counts=r["full_wave_counts"],position="test") for r in train]
+        z=fit_count_memory(train,test,"pl")
+        self.assertLess(z["mz_residual"],1e-10)
+        self.assertGreater(z["kernel_norms"][0],0.)
+    def test_causal_break_same_preparation(self):
+        from mqft.physics46 import causal_break
+        z=causal_break([1,0,0,0,1,0,0,0])
+        self.assertGreater(z["static_MI"],0.)
+        self.assertLess(z["iid_MI"],1e-10)
+        self.assertAlmostEqual(z["correlation"],np.sin(1.)**2)
+        self.assertLess(z["residual"],1e-10)
+        z=causal_break([0,0,0,0,1,0,0,0])
+        self.assertLess(z["static_MI"],1e-10)

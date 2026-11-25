@@ -83,6 +83,7 @@
     "src/lib.rs": "441beaf9c7db69e2f4298f64e60ec932f82ff281b4ad361e5385aabb0fcd6f88",
     "src/main.rs": "1fb0e10011a45a4cc7e45614b740f5bc04930e57c58a690930f4fc6e9d99fd83",
     "src/mqft.rs": "5795211f1b122e3a1cd8f1d79e05d0792200e9e77bcdc949756cb3305937cf4a",
+    "examples/mqft_rng_replay.rs": "cf9d750dced92b5f52e4431ece5b6fb332560e5a33b02f5e7d07aaaf314993f4",
     "src/mcts/expand.rs": "9b67f852b3875f52c8e65bddacdf05040420a80bba4962a35ed23bf0422b4581",
     "src/mcts/backup.rs": "6d564e48e8c94660650b0a35710c8f9349a603ee49533402b7863aad7835bc09",
     "src/mcts/parallel.rs": "8059825b1a72525c099c4bb5bb8414046c65974c81e8518a202f2e9541dbbfe4",
@@ -188,6 +189,23 @@
     "plan_hashes": {
       "games": "caa98cf245d40e2833ad53b5cf541ad942e9ec4a267243de71ec0ec356bd3bf6",
       "marked": "ce63c06839b0274e7b352a683abdeec4a725bbbb15f03325140e92f97eb8a483"
+    }
+  },
+  "restore46": {
+    "parent_main": "bce81c431fef9db06329d4afa214b13780e8d37e",
+    "backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "registration_sha256": "37407ef74d47da19bc1b206311d18e4914b432033e6eb78f294c10b6b03fc3d9",
+    "physics_results_sha256": "65a77bd4ad27d730bbc6c88dac89b33986d222e212e5f7402d7f2e615388bddd",
+    "fresh_score_diagnostics_sha256": "59735a8a5caee5e19afff0543051f33adb0a4340dfd0a99fdc351a5050224b21",
+    "rng_replay_sha256": "e07d8058c71413c2f449ed8dcd0bd09afdc99a8611bb3a65905921312d66e3cd",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "previous_physics": {
+      "mqft_restore44_20261126": "36814ee62b06150f9a3f335fb555ab963a22609b82af6cc4fbf773f37802b461",
+      "mqft_restore45_20261126": "79f5950c4ce326ec2bbfd268c40e54f98aab04b758ac9af26854fd8502828cd2"
+    },
+    "plan_hashes": {
+      "new_roots": "488371975927b4dc00a4d4d658be2897cdcf19d7beac6a7eb5055089fb28c197",
+      "old_roots": "601343f8576db01b1436b2cfddc61e307be3c9fa22912dd0863ca970fabdf1fd"
     }
   }
 }
