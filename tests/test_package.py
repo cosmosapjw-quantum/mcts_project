@@ -545,3 +545,38 @@ class DensityPhysics50(unittest.TestCase):
         r=noise_decomposition(x,p)
         self.assertLess(r["residual"],1e-12)
         self.assertAlmostEqual(r["drift_trace"],0.)
+
+class InformativePhysics51(unittest.TestCase):
+    def test_binary_information_and_coherent_environment(self):
+        from mqft.physics51 import selection_diagnostics,causal_env,exact_fisher_projection
+        import numpy as np
+        a=[dict(I=[0,1],p=[.3,.5]),dict(I=[0,0],p=[.3,.5])]
+        x=selection_diagnostics(a);self.assertAlmostEqual(x["Fisher"]["mean"],.46)
+        f=exact_fisher_projection([[.2,.3,.5],[.1,.2,.7]])
+        self.assertLess(abs(f.sum(0)).max(),1e-12)
+        r,e=causal_env(2,1,0.)
+        self.assertGreater(r["MI"],0.)
+        self.assertLess(r["residual"],1e-10)
+        self.assertAlmostEqual(r["dephased_MI"],0.,places=12)
+        r,e=causal_env(2,1,np.pi/2)
+        self.assertAlmostEqual(r["MI"],0.,places=12)
+        r,e=causal_env(0,2,0.)
+        self.assertAlmostEqual(r["negativity"],0.,places=12)
+
+    def test_sample_response_bound_and_slow_cycle(self):
+        from mqft.physics51 import score_bound,continuous_cycle
+        a=[]
+        for k in range(8):
+            act=[(i*13+2*k)%169 for i in range(16)]
+            I=np.array([int(x==act[0]) for x in act]);p=np.full(16,.2)
+            G=(I-p).reshape(4,4).sum(1)
+            a.append(dict(L=13,B=16,action_history=act,I=I.tolist(),p=p.tolist(),G=G.tolist(),X=np.column_stack((I.reshape(4,4).mean(1),np.zeros(4))).tolist()))
+        z=score_bound(a)
+        self.assertGreaterEqual(z["min_schur_eigenvalue"],-1e-10)
+        self.assertLessEqual(max(z["response_fraction"]),1+1e-10)
+        p=np.array([[.1,.2,.3,.4],[.3,.3,.2,.2],[.25,.15,.2,.4]])
+        q=continuous_cycle(p,64)
+        q2=continuous_cycle(p,64,rtol=2e-11,atol=2e-13,method="Radau")
+        self.assertAlmostEqual(q["work"],q2["work"],places=9)
+        self.assertLess(abs(continuous_cycle(np.tile(p[0],(3,1)),16)["work"]),1e-10)
+        self.assertLess(abs(continuous_cycle(p,256)["relative_gap"]),abs(q["relative_gap"]))

@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE50_20261126",
-  "scope": "Grouped Layer A/Q: density-controlled common-size native histories, budget and score-scale pilots, scheduled causal response, rank-limited spatial action and conditional physical references",
-  "entry": "REPLAN-04.C",
-  "supersedes_next": "MQFT-RESTORE50-SPATIAL-TEMPORAL-PRECISION",
+  "revision": "RESTORE51_20261126",
+  "scope": "Grouped Layer A/Q: prospective informative sources, independent central/peripheral geometry, direct temporal response and coherent/continuous thermal references",
+  "entry": "REPLAN-04.R",
+  "supersedes_next": "MQFT-RESTORE51-INFORMATIVE-SOURCE-GEOMETRY",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE51-INFORMATIVE-SOURCE-GEOMETRY",
+  "next_stage_id": "MQFT-RESTORE52-ABSOLUTE-INFORMATION-SECTOR-FIELD",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -1258,6 +1258,108 @@
     "evidence": [
       "docs/RESTORE50_THEORY.md",
       "docs/RESTORE50_RESULTS.md"
+    ]
+  },
+  "restore51": {
+    "parent_dag_sha256": "c7e373bba81c666bf424a5f1c9284a5c67c32bb1a99203030cb8f44f698b9a17",
+    "status": "scoped_native_source_geometry_and_conditional_dynamics",
+    "sizes": [
+      13,
+      17,
+      21
+    ],
+    "fresh_games": 3,
+    "fresh_marked_histories": 1716,
+    "total_marked_histories": 5736,
+    "fresh_backups": 30384,
+    "pilot_histories": 108,
+    "independent_confirm_histories": 432,
+    "pulse_histories": 1176,
+    "new_core_geometries": 3,
+    "root_variants": 18,
+    "exact_prefix_pairs": 672,
+    "restricted_lattice_cases": 162,
+    "conditional_quantum_cases": 1296,
+    "conditional_thermal_cases": 162,
+    "source_information": "L21 high informative; L13 absolute information low",
+    "projected_action": "rank improved, no general heldout predictive admission",
+    "memory": "mark improves, sector worsens; no universal closure",
+    "group_figures": {
+      "REPLAN-01": {
+        "scope": "native_pilot_confirmation",
+        "files": {
+          "REPLAN-01.png": "2826ad556f2e0ecaf3cb3e5bb5e1cf511c0a40d0b509553046db4da928017e0c",
+          "REPLAN-01.pdf": "49f5f581c346b55636ed2636da7eecf23f622488ce2a36e1aaaeccb9858a4032"
+        }
+      },
+      "REPLAN-02": {
+        "scope": "native_observed",
+        "files": {
+          "REPLAN-02.png": "247bff5b26b471726bddf74f9717ed2951077ccc0c04c7500ed48aeba821f616",
+          "REPLAN-02.pdf": "e91e4050ee73bad8068b449b69ac34b9237f3cee0fa23b17491d4526b87b8cd3"
+        }
+      },
+      "REPLAN-03": {
+        "scope": "exact_reference_and_heldout",
+        "files": {
+          "REPLAN-03.png": "d653ba208722543dbdde686343986229b663e4db1fbb0a5148e373bd02402459",
+          "REPLAN-03.pdf": "643e7406b74453ef9f91dc169cfe8cd121fed2eb8d0046c6ace1beadbd0a4696"
+        }
+      },
+      "REPLAN-04.R": {
+        "scope": "native_martingale_information",
+        "files": {
+          "REPLAN-04.R.png": "8f5b5fcd429306e844f4b7f7a012cef91a2e9747f8c76a306a5a39acb53e2838",
+          "REPLAN-04.R.pdf": "6108262c7bd0abd8149fd02d4cfdb3df2bf6551f4d9c21e1a7445fc6d472661e"
+        }
+      },
+      "REPLAN-04.C": {
+        "scope": "native_finite_size_geometry",
+        "files": {
+          "REPLAN-04.C.png": "902a364b5b109703f3460910a4588cf183f80e2a87c4592d2da599b4033ea4b6",
+          "REPLAN-04.C.pdf": "a167b95feff053ffb3f61145f2d8b5d76631a3c41102dd9da4b9b9efa6ab56a5"
+        }
+      },
+      "REPLAN-05": {
+        "scope": "conditional_coherent_records",
+        "files": {
+          "REPLAN-05.png": "7b74ec0c5057f435ef3ebb28e97a72290b5b6967d988889406c8e7213b2c0c84",
+          "REPLAN-05.pdf": "3f5448b0ed50b99df2a92f97ce9fb4ba44f4a6d0342038e243048aae64016563"
+        }
+      },
+      "REPLAN-06": {
+        "scope": "conditional_thermal",
+        "files": {
+          "REPLAN-06.png": "d26975dcb6ec47c112b3f0169b21a8a839116406b3891a654d3ce3a1ae711fef",
+          "REPLAN-06.pdf": "9de7fe0a14cfc9fae9e83df7eeb710006c00108adbd6df97ceeec4714f2d372d"
+        }
+      },
+      "X-REP": {
+        "scope": "conditional_quantum_state",
+        "files": {
+          "X-REP.png": "6f4fa995c4c9c92babb6d9db8ec13774f4dd7610b0a984448d5154f411575034",
+          "X-REP.pdf": "1eb95d8b51d1f8aef338d3dcd47fa76e961c0f9850e4a65b4d336d1723496cad"
+        }
+      },
+      "X-MEMORY": {
+        "scope": "native_temporal_and_geometry_heldout",
+        "files": {
+          "X-MEMORY.png": "1bdec757a3042ea183b79ee25f8fc6e4e28eb89a777daf8175c93e8a422ee874",
+          "X-MEMORY.pdf": "bb5df52ad1335e6c76354e292817941ff80409ffc0e847946f095835c5a93132"
+        }
+      }
+    },
+    "physics_results_sha256": "26faf88a8c1b1bbadce489655091f55a9c57b1beba5d1ae9425925fddddd57ab",
+    "states_sha256": "f62c2210607b479c3a7deded723010e5ae129f85b55b1d89e0211f00b6029337",
+    "original_plot_tasks": 121,
+    "additional_plot_nodes": 0,
+    "prior_admissions": "preserved",
+    "critical_scaling": "unresolved",
+    "native_1PI": "unresolved",
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "evidence": [
+      "docs/RESTORE51_THEORY.md",
+      "docs/RESTORE51_RESULTS.md"
     ]
   }
 }

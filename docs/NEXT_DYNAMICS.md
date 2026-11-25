@@ -1,34 +1,36 @@
-# RESTORE51: informative source, independent geometries, finite-size controls
-1. REPLAN-01/02/04.C: use existing L13..21 executables, preserve
-   current two templates and all data. Register new independent
-   geometry blocks with same central target geometry or specified
-   normalized density and boundary arrangement. To reduce confounding,
-   add paired peripheral variants within each L,density; no claim
-   of isolated density until this variation sampled. Current n4
-   covariance rank low; collect independent root blocks not only seeds.
-2. REPLAN-04.R/03/X-MEMORY: current pulse target too rare in L21.
-   Preselect source from unperturbed prior/independent h0 pilot by
-   propensity strata (high/medium/rare) before perturbed data; preserve
-   rare control, do not tune on treatment outcomes. Use same actual
-   source schedules and matched seeds, new roots, estimate actual
-   hit counts and predictable Fisher before precision expansion.
-   For chosen informative sources, early/middle/late pulse at B16/32,
-   paired first/second contrast with jackknife; compare target,
-   sector tangent and mark. Existing 192 exact prefix pairs preserved.
-3. REPLAN-03: full projected training rank and heldout precision
-   needed before using covariance inverse as predictive action.
-   Compare larger independent seed/geometry training vs isotropic,
-   no ridge retuning on old test. Extend exact restricted DP to
-   actual time-block dynamic law only if state/measure tractable;
-   do not relabel native adaptive 1PI.
-4. X-REP/05: reuse explicit two-fragment conditional quantum states,
-   complementary measurement and heralding; next compute explicit
-   multi-time controlled phase readout with retained environment and
-   matched dephased/erasure control. No native phase identification.
-5. REPLAN-06: conditional four-sector thermal cycle and real
-   source-protocol ratio remain distinct; prospective thermal
-   parameter calibration only with independent physical model.
-6. REPLAN-07, X-BARRIER, X-STRUCT, X-TRAIN retain obligations and
-   negative evidence; no invented data or new plot vertices. Six
-   retries completed; startup/transport failure remains engineering
-   backlog, not fallback.
+# RESTORE52: absolute-information gate and genuine geometric response
+1. REPLAN-01/04.C: preserve new 3 geometry x2 peripheral variants
+   and all prior size-family data. Use absolute expected hit/Fisher
+   before assigning precision. Relative high stratum alone fails
+   at L13. Select on separate h0 pilot and confirm on new seeds.
+   If absolute Fisher low across all actions, use explicitly
+   implemented sector-field intervention (multiple actions, no
+   per-action identity conflation) with precise conditional likelihood
+   and source support. Match direct finite contrast and prefix score.
+   A sector field is a new observable, not a replacement of target.
+2. REPLAN-04.R/X-MEMORY: n8 B16 and n4 B32 pulse rows are pilots,
+   do not infer universal response or critical exponent. Expand
+   informative L21 and newly independent templates, more seed
+   blocks after prospective precision estimates. Compare full sector
+   and mark responses, causal prefix and complete-path Fisher bound.
+   Avoid multiplying sparse source trials without adequate hit/Fisher.
+3. REPLAN-03: train-rank improvement does not itself produce
+   heldout action advantage. For larger independent ensembles,
+   compare fixed low-rank/isotropic action to genuinely predictive
+   dynamical kernel; preserve previous rank failures and exact
+   restricted-wave one-loop reference. Native adaptive 1PI remains
+   open; no full Hessian from low-rank empirical covariance.
+4. REPLAN-05/X-REP: explicit retained quantum environment phase
+   intervention and system reset, matched dephased/erased control.
+   Seek noncommuting sequential environment observables and
+   operational tests distinguishing declared classical hidden sign
+   from quantum memory; current two-qubit model not native phase.
+5. REPLAN-06: continuous Gibbs reset friction validated against
+   direct ODE. Next controlled protocol-speed/duration asymptotics
+   and independent calibration; extend continuous tilted generator
+   for work generating function with reverse protocol. Retain
+   earlier exact discrete Crooks/JE, never call native path source
+   ratio physical entropy production without an energy model.
+6. REPLAN-07/X-BARRIER/X-STRUCT/X-TRAIN remain distinct; no selector
+   readmission or forced output. Same verified binaries and no
+   heuristic fallback. Exact original 13/121 output mapping.
