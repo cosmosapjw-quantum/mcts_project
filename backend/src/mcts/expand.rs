@@ -277,48 +277,21 @@ fn materialize_edges_in_place_impl<G: GameState>(
         }
     }
 
-    // Allocate / look up the slab. Idempotent: only the first caller takes the
-    // bucket write lock; subsequent calls observe the published `edges_ptr` and
-    // return its (ptr, cap).
-    let (slab_ptr, slab_cap) = tt.allocate_edge_slab::<G::Move>(&**node, candidates.len());
-    debug_assert!(actual <= slab_cap as usize);
-
-    let planned_start = current;
-    let pending = prepare_edge_slots(candidates, planned_start, actual, state, tt);
-
-    let _mat_guard = {
-        let lock_started = crate::mcts::profiling::maybe_start_timer();
-        let guard = if best_effort_after_first_edge && current > 0 {
-            match node.materialize_lock.try_lock() {
-                Some(guard) => guard,
-                None => {
-                    crate::mcts::node::record_edges_materialize_busy_skip();
-                    return;
-                }
-            }
-        } else {
-            node.materialize_lock.lock()
-        };
-        if let Some(t0) = lock_started {
-            crate::mcts::node::record_edges_lock_wait(t0.elapsed().as_nanos() as u64);
+    // Serialize preparation and publication. With TT disabled, speculative
+    // concurrent preparation allocated duplicate orphan children. Lock order:
+    // node materialize lock -> TT bucket; no TT path acquires a node lock.
+    let _mat_guard = if best_effort_after_first_edge && current > 0 {
+        match node.materialize_lock.try_lock() {
+            Some(g)=>g,
+            None=>{crate::mcts::node::record_edges_materialize_busy_skip();return;}
         }
-        guard
-    };
+    } else {node.materialize_lock.lock()};
+    let current=node.edge_cursor.load(Ordering::Acquire) as usize;
+    if current>=actual{return;}
+    let (slab_ptr,slab_cap)=tt.allocate_edge_slab::<G::Move>(&**node,candidates.len());
+    let pending=prepare_edge_slots(candidates,current,actual,state,tt);
+    materialize_edge_slots(node,current,actual,current,slab_ptr,slab_cap,&pending);
 
-    let current = node.edge_cursor.load(Ordering::Relaxed) as usize;
-    if current >= actual {
-        return;
-    }
-
-    materialize_edge_slots(
-        node,
-        current.max(planned_start),
-        actual,
-        planned_start,
-        slab_ptr,
-        slab_cap,
-        &pending,
-    );
 }
 
 #[inline(always)]

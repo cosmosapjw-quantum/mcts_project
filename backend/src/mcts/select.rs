@@ -1056,6 +1056,8 @@ where
         // returns `&[MctsEdge<M>]` covering [0..edge_cursor]. Slice
         // lifetime is tied to `&cur_node` (slab lives in TT bucket
         // Bump, outlives this borrow).
+        let stats_guard = cur_node.stats_lock.lock();
+        let n_total = cur_node.n_total.load(Ordering::Acquire);
         let edges_full = cur_node.read_edges();
         let n_edges = n_visible.min(edges_full.len());
         if n_edges == 0 {
@@ -1182,6 +1184,7 @@ where
 
         let best_mv = edges[best_idx].mv;
         let next_node = edges[best_idx].child;
+        drop(stats_guard);
         // Phase 7 C: no guard to drop — slab read is lock-free.
 
         // Hint the prefetcher to fetch the next node's body. The next loop

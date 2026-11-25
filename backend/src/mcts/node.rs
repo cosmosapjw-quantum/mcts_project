@@ -228,6 +228,8 @@ pub struct MctsEdge<M> {
     pub w: AtomicU64, // f64 bits
     /// Welford M2 accumulator (f64 bits) — σᵢ² = M2/(N-1)
     pub m2: AtomicU64,
+    /// Actual sum of squared backed-up marks (f64 bits).
+    pub s2: AtomicU64,
     /// Virtual visit count (integer, for PUCT N inflation)
     pub virtual_losses: AtomicI32,
     /// Virtual value penalty (f64 bits, for Q pessimism)
@@ -243,6 +245,7 @@ impl<M: Copy + Send + Sync + 'static> MctsEdge<M> {
             n: AtomicU32::new(0),
             w: AtomicU64::new(0),
             m2: AtomicU64::new(0),
+            s2: AtomicU64::new(0),
             virtual_losses: AtomicI32::new(0),
             virtual_value: AtomicU64::new(0),
         }
@@ -407,6 +410,10 @@ pub struct MctsNode<M> {
     /// Held only during slab fills; readers never block on it.
     pub materialize_lock: PlMutex<()>,
 
+    /// Serializes selection/reservation and backup at this parent node.
+    pub(crate) stats_lock: PlMutex<()>,
+    /// Separate lock for incoming-repeat statistics; never held across parent acquisition.
+    rtt_lock: PlMutex<()>,
     pub n_total: AtomicU32,
     pub w_total: AtomicU64,
 
@@ -436,6 +443,8 @@ impl<M: Copy + Send + Sync + 'static> MctsNode<M> {
             edge_cursor: AtomicU32::new(0),
             materialize_claim: AtomicU32::new(0),
             materialize_lock: PlMutex::new(()),
+            stats_lock: PlMutex::new(()),
+            rtt_lock: PlMutex::new(()),
             n_total: AtomicU32::new(0),
             w_total: AtomicU64::new(0),
             rtt_n: AtomicU32::new(0),
@@ -477,6 +486,7 @@ impl<M: Copy + Send + Sync + 'static> MctsNode<M> {
 
     /// backup.rs에서 TT hit path에 대해 호출
     pub fn record_rtt_hit(&self, q_value: f32) {
+        let _guard = self.rtt_lock.lock();
         let q = q_value as f64;
         let n_old = self.rtt_n.fetch_add(1, Ordering::AcqRel) as f64;
         let n_new = n_old + 1.0;
@@ -496,6 +506,7 @@ impl<M: Copy + Send + Sync + 'static> MctsNode<M> {
     /// RTT variance = M2 / (n-1)  →  σ_RTT = √Var
     /// None if fewer than 2 TT hits
     pub fn rtt_variance(&self) -> Option<f32> {
+        let _guard = self.rtt_lock.lock();
         let n = self.rtt_n.load(Ordering::Acquire) as f64;
         if n < 2.0 {
             return None;

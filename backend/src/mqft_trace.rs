@@ -6,7 +6,13 @@ use serde::Serialize;
 use std::cell::Cell;
 use std::sync::atomic::{AtomicU64, Ordering};
 
-thread_local! { static LAST_EVAL: Cell<Option<u64>> = const { Cell::new(None) }; }
+thread_local! { static LAST_EVAL: Cell<Option<u64>> = const { Cell::new(None) }; static EVAL_TICKET: Cell<Option<u64>> = const { Cell::new(None) }; }
+pub fn set_eval_ticket(i: u64) {
+    EVAL_TICKET.with(|x| x.set(Some(i)));
+}
+pub fn take_eval_ticket() -> Option<u64> {
+    EVAL_TICKET.with(|x| x.take())
+}
 pub fn clear_eval() {
     LAST_EVAL.with(|x| x.set(None));
 }

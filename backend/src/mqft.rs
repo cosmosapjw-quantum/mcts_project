@@ -231,7 +231,8 @@ impl ResearchEval {
 impl Evaluator<Gomoku15> for ResearchEval {
     fn evaluate(&self, state: &Gomoku15) -> EvalResult<u16> {
         let t = Instant::now();
-        let id = self.calls.fetch_add(1, Ordering::Relaxed);
+        let actual_call = self.calls.fetch_add(1, Ordering::Relaxed);
+        let id = mqft_trace::take_eval_ticket().unwrap_or(actual_call);
         let seed = mix(self.seed ^ mix(id) ^ state.tt_hash());
         let n = self.spec.samples_per_eval;
         let samples: Vec<_> = if self.spec.mode == "leaf" {
@@ -348,12 +349,26 @@ impl Work {
             prepared.push((self.trace.begin(self.engine.root_state(), path), p));
         }
         // Rayon CPU evaluation across distinct selected paths; no fake NN batch/GPU.
+        let mut next_id = self.eval.calls.load(Ordering::Acquire);
+        let tickets: Vec<_> = prepared
+            .iter()
+            .map(|(_, p)| match p {
+                PreparedIteration::Pending(_) => {
+                    let id = next_id;
+                    next_id += 1;
+                    Some(id)
+                }
+                _ => None,
+            })
+            .collect();
         let evals: Vec<_> = prepared
             .par_iter()
-            .map(|(_, p)| {
+            .zip(tickets.par_iter())
+            .map(|((_, p), ticket)| {
                 mqft_trace::clear_eval();
                 match p {
                     PreparedIteration::Pending(p) => {
+                        mqft_trace::set_eval_ticket(ticket.expect("pending ticket"));
                         let v = self.engine.evaluator.evaluate(&p.leaf_state);
                         (Some(v), mqft_trace::take_eval())
                     }
@@ -427,15 +442,80 @@ impl Work {
             sums[a].1 += z;
             sums[a].2 += z * z;
         }
+        // Prefix-indexed replay, not TT hashes (TT is disabled). Compare actual
+        // native sums at every visited edge, including deeper pending counters.
+        let mut prefix = std::collections::HashMap::<Vec<usize>, (u32, f64, f64)>::new();
+        for event in es.iter() {
+            let mut key = Vec::new();
+            for (d, a) in event.selection.actions.iter().enumerate() {
+                key.push(*a);
+                let mark = if d % 2 == 0 {
+                    event.root_value as f64
+                } else {
+                    -(event.root_value as f64)
+                };
+                let z = prefix.entry(key.clone()).or_insert((0, 0., 0.));
+                z.0 += 1;
+                z.1 += mark;
+                z.2 += mark * mark;
+            }
+        }
+        let mut stack = vec![(self.engine.root, Vec::<usize>::new())];
+        while let Some((node, path)) = stack.pop() {
+            let mut total = 0;
+            let mut wtot = 0.;
+            for e in node.read_edges() {
+                let mut key = path.clone();
+                key.push(e.mv as usize);
+                let expected = prefix.remove(&key).unwrap_or((0, 0., 0.));
+                let n = e.n.load(Ordering::Acquire);
+                let w = atomic_f64_load(&e.w);
+                let s2 = atomic_f64_load(&e.s2);
+                let m2 = atomic_f64_load(&e.m2);
+                let m2_ref = if n > 0 { s2 - w * w / n as f64 } else { 0. };
+                let tol = 1e-9 * (1. + n as f64);
+                if n != expected.0
+                    || (w - expected.1).abs() > tol
+                    || (s2 - expected.2).abs() > tol
+                    || (m2 - m2_ref).abs() > tol
+                    || e.virtual_losses.load(Ordering::Acquire) != 0
+                    || atomic_f64_load(&e.virtual_value).abs() > tol
+                {
+                    return Err("deep edge moment or reservation audit failed".into());
+                }
+                total += n;
+                wtot += w;
+                if n > 0 {
+                    stack.push((e.child, key));
+                }
+            }
+            if total != node.n_total.load(Ordering::Acquire)
+                || (wtot - atomic_f64_load(&node.w_total)).abs() > 1e-9 * (1. + total as f64)
+            {
+                return Err("deep node conservation failed".into());
+            }
+        }
+        if !prefix.is_empty() {
+            return Err("path replay has unmatched edges".into());
+        }
         let mut edges = Vec::new();
         for e in self.engine.root.read_edges() {
             let a = e.mv as usize;
             let count = e.n.load(Ordering::Acquire);
             let w = atomic_f64_load(&e.w);
+            let s2 = atomic_f64_load(&e.s2);
+            let m2 = atomic_f64_load(&e.m2);
+            let m2_ref = if count > 0 {
+                s2 - w * w / count as f64
+            } else {
+                0.
+            };
             let pending = e.virtual_losses.load(Ordering::Acquire);
             let pv = atomic_f64_load(&e.virtual_value);
             if count != sums[a].0
                 || (w - sums[a].1).abs() > 1e-9 * (1. + count as f64)
+                || (s2 - sums[a].2).abs() > 1e-9 * (1. + count as f64)
+                || (m2 - m2_ref).abs() > 1e-9 * (1. + count as f64)
                 || pending != 0
                 || pv.abs() > 1e-9
             {
@@ -446,7 +526,7 @@ impl Work {
                 prior: e.p,
                 n: count,
                 w,
-                s2: sums[a].2,
+                s2,
                 pending,
                 pending_value: pv,
             });
@@ -677,6 +757,90 @@ mod tests {
                 }
             }
         }
+    }
+    #[test]
+    fn contention_and_wave_replay() {
+        let mut spec = Spec {
+            mode: "wave".into(),
+            workers: 4,
+            budget: 37,
+            cuts: vec![1, 4, 9, 37],
+            seed: 42,
+            c_puct: 1.4,
+            rollout_depth: 225,
+            samples_per_eval: 1,
+            prior: "local".into(),
+            source_action: None,
+            source_h: 0.,
+        };
+        let moves = [112, 113, 97, 127];
+        let a = search(&moves, spec.clone()).unwrap();
+        let b = search(&moves, spec.clone()).unwrap();
+        let sig = |r: SearchResult| {
+            r.replicas
+                .into_iter()
+                .flat_map(|r| {
+                    r.events
+                        .into_iter()
+                        .map(|e| (e.selection.actions, e.eval_id, e.root_value))
+                })
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(sig(a), sig(b));
+        spec.mode = "tree".into();
+        spec.workers = 8;
+        spec.budget = 96;
+        spec.cuts = vec![1, 13, 96];
+        for seed in 0..4 {
+            spec.seed = seed;
+            let r = search(&moves, spec.clone()).unwrap();
+            assert_eq!(r.replicas[0].events.len(), 96);
+        }
+    }
+    #[test]
+    fn full_board_draw_and_terminal_marks() {
+        let mut black = Vec::new();
+        let mut white = Vec::new();
+        for y in 0..15 {
+            for x in 0..15 {
+                if (x / 2 + y) % 2 == 0 {
+                    black.push(y * 15 + x)
+                } else {
+                    white.push(y * 15 + x)
+                }
+            }
+        }
+        let mut moves = Vec::new();
+        for i in 0..white.len() {
+            moves.push(black[i]);
+            moves.push(white[i]);
+        }
+        assert_eq!(moves.len(), 224);
+        let s = from_moves(&moves).unwrap();
+        assert!(!s.is_terminal());
+        assert_eq!(s.legal_moves().len(), 1);
+        let spec = Spec {
+            mode: "wave".into(),
+            workers: 4,
+            budget: 5,
+            cuts: vec![1, 5],
+            seed: 7,
+            c_puct: 1.4,
+            rollout_depth: 225,
+            samples_per_eval: 1,
+            prior: "uniform".into(),
+            source_action: None,
+            source_h: 0.,
+        };
+        let r = search(&moves, spec).unwrap();
+        assert!(r.replicas[0]
+            .events
+            .iter()
+            .all(|e| e.terminal && e.eval_id.is_none() && e.root_value == 0.));
+        moves.push(*black.last().unwrap());
+        let st = from_moves(&moves).unwrap();
+        assert!(st.is_terminal());
+        assert_eq!(st.outcome(), 0.);
     }
     #[test]
     fn root_source_support() {
