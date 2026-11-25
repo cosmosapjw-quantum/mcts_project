@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE44_20261126",
-  "scope": "RESTORE32 Layer A/Q physics and compressed original-output ownership; 13 retained research nodes, 121 legacy targets, 9 scoped group figures",
+  "revision": "RESTORE45_20261126",
+  "scope": "Grouped original Layer A/Q physics: fresh marked-law replication, tangent lattice action, nonthermal reversal and conditional CP/CQ readout; 13 topic nodes, 121 local output tasks",
   "entry": "REPLAN-03",
-  "supersedes_next": "MQFT-RESTORE44-MARKED-LAW-ACTUAL-RESPONSE",
+  "supersedes_next": "MQFT-RESTORE45-GROUPED-PHYSICS-REPLICATION",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE45-GROUPED-PHYSICS-REPLICATION",
+  "next_stage_id": "MQFT-RESTORE46-GROUPED-PHYSICS-PRECISION",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -692,6 +692,94 @@
       "docs/RESTORE44_THEORY.md",
       "docs/RESTORE44_RESULTS.md",
       "docs/PLOT_GROUPS.json"
+    ],
+    "next_contract": "docs/NEXT_DYNAMICS.md"
+  },
+  "restore45": {
+    "parent_dag_sha256": "664bb97369439b12b390c282bc2dfbda2e43f6cac1a8e60478392ad88de74239",
+    "status": "scoped_grouped_physics_native_replication_and_conditional_models",
+    "fresh_games": 4,
+    "fresh_marked_histories": 288,
+    "native_backups": 5696,
+    "exact_multivariate_conditions": 72,
+    "nonthermal_protocol_conditions": 36,
+    "conditional_CQ_records": 96,
+    "group_figures": {
+      "REPLAN-01": {
+        "scope": "native_observed",
+        "files": {
+          "REPLAN-01.png": "52f4ed060417e1e741ac3db9145189821201074642a470f4b6e6dd10f485ce42",
+          "REPLAN-01.pdf": "c9a3d0df9793251242ee83ea823a173f01355d86b0770b68b82e90af9a8297eb"
+        }
+      },
+      "REPLAN-02": {
+        "scope": "native_heldout",
+        "files": {
+          "REPLAN-02.png": "587cd811a554172b393a35391e72c4fb7aeabf639e12a55f3047acbad2328369",
+          "REPLAN-02.pdf": "e09e0790b4694cecda381b7c3d2ef9ab416b066e7379dcf373eb835deda95384"
+        }
+      },
+      "REPLAN-03": {
+        "scope": "exact_restricted_frozen_wave",
+        "files": {
+          "REPLAN-03.png": "b9cd6bb8a7d0841e6a78f8aebe629ca09176c839d3b5b8d34126eb65d74fa16c",
+          "REPLAN-03.pdf": "ab59b184c83e79bb53a41cdb5bec79bd196b07b7091219bb8a55433424440c85"
+        }
+      },
+      "REPLAN-04.R": {
+        "scope": "exact_restricted_and_declared_native_graph",
+        "files": {
+          "REPLAN-04.R.png": "67d8bc27436af73ab0304e48f14d5d767f7b38261e0266f9210611fe455d9d82",
+          "REPLAN-04.R.pdf": "866b5faecb2fdc2b4c71dda3ae08ae81ac07041917fdac16b61c5654de2b78d1"
+        }
+      },
+      "REPLAN-04.C": {
+        "scope": "native_pilot",
+        "files": {
+          "REPLAN-04.C.png": "e9a59c7517a9d42d3c81d26857025de8db0c442da5965a262166ad3db53ad75c",
+          "REPLAN-04.C.pdf": "b1264f062d253947ceb9e32293e8424dee052c833dc489cfdf98eaa63bbfe6ca"
+        }
+      },
+      "REPLAN-05": {
+        "scope": "conditional_CQ_empirical_drives",
+        "files": {
+          "REPLAN-05.png": "b96ffe5ca3f49db72a036a866d97f7defa3695b1a031d04cb8738ed4c51ccc81",
+          "REPLAN-05.pdf": "38e17287ae1f6a472b081693534ac8e177e15112483ebdfdd11d83749bad9634"
+        }
+      },
+      "REPLAN-06": {
+        "scope": "exact_nonthermal_path_ratio",
+        "files": {
+          "REPLAN-06.png": "ebcf0926a9988498c1c1ffda8a1c214c698443fa5f1eb01f597478912dcaae17",
+          "REPLAN-06.pdf": "583b1b2a085f8393fba364c99bdf2d4c9b9cd8c7806701d5ba955e44d094c815"
+        }
+      },
+      "X-REP": {
+        "scope": "conditional_CP_probe",
+        "files": {
+          "X-REP.png": "7e1401829096e480eeaf9df4652a44fe9b806ea021d9c4f0159e0963f03f1cf0",
+          "X-REP.pdf": "05d6285b4d35f869915f746cd4da50af380d01c12c7b32e86d986bfdea3ab676"
+        }
+      },
+      "X-MEMORY": {
+        "scope": "native_heldout",
+        "files": {
+          "X-MEMORY.png": "fd08b542e5b91ac81fb19af558ccfff021ff568074eb005b9d612df7295383a2",
+          "X-MEMORY.pdf": "7f649b7737e415991720451a89b8d4e81ac83ad923856d5aafdf4a51226982b4"
+        }
+      }
+    },
+    "physics_results_sha256": "79f5950c4ce326ec2bbfd268c40e54f98aab04b758ac9af26854fd8502828cd2",
+    "probe_states_sha256": "8ac7c1bf91ea401e2c403d633a3b2a3119da5c75047c122e6ed59afa92d3f010",
+    "record_info_sha256": "8bb12b753c46c07be6f9c271fbb12a074a8aaf8d983ce00e9f84978ea9b1f879",
+    "prior_admissions": "preserved; native score/weight normalization unresolved; no native phase or thermal claim",
+    "large_generation": "recommended, not launched",
+    "original_plot_tasks": 121,
+    "additional_plot_nodes": 0,
+    "previous_backup_at_entry": "RESTORE43; 44 preserved in next consolidated backup",
+    "evidence": [
+      "docs/RESTORE45_THEORY.md",
+      "docs/RESTORE45_RESULTS.md"
     ],
     "next_contract": "docs/NEXT_DYNAMICS.md"
   }

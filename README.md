@@ -1,6 +1,6 @@
 # MQFT: MCTS statistical field-theory measurement package
 
-Research-only migration of the original MQFT / mcts_study project, RESTORE44 (grouped Layer A/Q physics; explicit evaluator identity).
+Research-only migration of the original MQFT / mcts_study project, RESTORE45 (grouped Layer A/Q physics; explicit evaluator identity).
 **Rust Quartz backend + Python analysis frontend**, with Rapfi as a separate external opponent.
 This repository's main branch is now dedicated to MQFT. Legacy implementation
 remains in Git history (previous main eb19e5f4ca9a502d645ccab45a8dcfbcc733f537).
@@ -61,6 +61,14 @@ of reproducing the executable byte-for-byte from source. The three upstream
 submodule IDs are recorded in PROVENANCE.json; fetch them from upstream if
 building from source. Rapfi is a strong external proxy, not exact minimax or
 a source of MCTS internal statistics.
+
+## RESTORE45 grouped multivariate action, path response and quantum probes
+
+Same 13 research nodes, 121 original output subtasks. Fresh common MixNet
+marked-law pilot, leave-one-out score, exact lattice determinant, nonthermal
+reversed-word path entropy, declared operational CP qubit probes and CQ
+records. See [theory](docs/RESTORE45_THEORY.md) and [results](docs/RESTORE45_RESULTS.md).
+Full precision replication not yet launched.
 
 ## RESTORE44 original physics and compressed DAG
 

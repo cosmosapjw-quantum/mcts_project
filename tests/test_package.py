@@ -359,3 +359,36 @@ class GroupedPhysics44(unittest.TestCase):
         a=rho-1j*.1*(H@rho-rho@H)
         self.assertAlmostEqual(np.linalg.det(a).real,-.01)
         self.assertLess(np.linalg.eigvalsh(a).min(),0.)
+
+class MultivariatePhysics45(unittest.TestCase):
+    def test_lattice_coordinate_covolume_and_dp(self):
+        from mqft.physics44 import exact_wave_full_state
+        from mqft.physics45 import lattice_action
+        e=[dict(action=i,n=2,w=.1*(i-2),prior=.2) for i in range(5)]
+        z=exact_wave_full_state(e,list(range(5)),4,"pl",0)
+        for coarse in (False,True):
+            a=lattice_action(z,(8,),coarse)[0]
+            self.assertLess(a["dp_residual"],1e-9)
+            self.assertLess(a["geometry_residual"],1e-9)
+            self.assertAlmostEqual(a["lattice_covolume"],np.sqrt(a["d"]))
+    def test_nonthermal_ratio_and_echo(self):
+        from mqft.physics45 import protocol_entropy,probe_from_words,cq_record_information
+        e=[dict(action=i,n=2,w=.1*(i-2),prior=.2) for i in range(5)]
+        a=protocol_entropy(e,list(range(5)),"iid",0)
+        self.assertAlmostEqual(a["KL"],0.,places=10)
+        for law in ("pl","reserve"):
+            a=protocol_entropy(e,list(range(5)),law,0)
+            self.assertAlmostEqual(a["IFT"],1.,places=10)
+            self.assertGreaterEqual(a["KL"],a["coarse_KL"]-1e-10)
+        z=probe_from_words([[1,1],[1,1]],[.5,.5],1,.5,True)
+        self.assertAlmostEqual(z["static"]["coherence"],1.,places=10)
+        self.assertGreater(z["trace_distance"],0.)
+        a=cq_record_information([[0,0],[1,1],[0,0],[1,1]],[0,1,0,1])
+        self.assertGreater(a["Holevo"],0.)
+        self.assertLessEqual(a["X_readout_MI"],a["Holevo"]+1e-10)
+    def test_centered_score_is_sample_covariance(self):
+        from mqft.physics45 import centered_estimates
+        a=np.array([.2,.4,.3,.6]);g=np.array([.3,-.1,.2,-.2]);d=g*.5
+        z=centered_estimates(a,g,d)
+        self.assertAlmostEqual(z["centered"].mean(),np.cov(a,g,ddof=1)[0,1])
+        self.assertAlmostEqual(z["centered_fd"].mean(),np.cov(a,d,ddof=1)[0,1])

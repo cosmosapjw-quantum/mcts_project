@@ -1,18 +1,15 @@
-# RESTORE44 drift watchdog
-The user supplied RESTORE32 and explicitly directed restoration of
-the original physics programme, then requested DAG compression.
-No new per-plot graph nodes. Exact original 121 targets and 13
-historical nodes/edges retained; grouped by scientific question.
-Original policies and previous negative admissions unchanged.
-Actual Layer A: same MixNet full-support history, correct logit source,
-actual path measures, score and finite difference with uncertainty.
-Conditional Layer Q: declared complex phase, Gram matrices and CP
-random-unitary channels, quantum record fragments and independent
-coherent readout. Not relegated to decorative optimization; distinct
-research evidence from native classical logs. Thermal quench/reset
-and replica saddle models declared, not identified physical dynamics.
-No 1PI/physical hbar/FDT/SBS/critical exponent or selector promotion.
-9 active group figures, 4 retained nodes with real open obligations.
-No massive generation requested until statistical need reported.
-Two startup aborts captured and successfully retried; source of
-std::system_error remains open. Native independent subagent absent.
+# RESTORE45 drift watchdog
+Original RESTORE32 A/Q theory reread, original ZIP identities rehashed.
+13 prior topic nodes and edges unchanged; 121 per-output subtasks with
+unique primary ownership, no graph growth. Physical study has actual
+new native path evidence and exact multivariate action, nonthermal
+path-ratio, operational conditional CP and CQ records, independent
+history holdout. Distinguish native vs restricted exact vs conditional
+physics; no physical phase, temperature, hbar, native 1PI or board-size
+exponent claimed. Preserve prior selector/closure negatives. IID score
+mean/weight discrepancy remains open, not hidden by control variate.
+Large generation required for precision, reported not launched.
+RESTORE44 publication verified but predecessor backup pointer still
+RESTORE43 at entry; include complete 44 and 45, preserve previous ZIP
+bytes; only retire redundant predecessor copies after verification.
+No native independent subagent. No forced new tunneling/QEC/training.

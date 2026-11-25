@@ -174,5 +174,20 @@
       "games": "6db5afcbedb69a745ce60c2284ef0d61d6c0c7f5eee1d5545917eff0bdb9d0d5",
       "marked": "a17c0db96a4411cea255e10214122f7588290a2f6a001ee3e464a7cd3b40d9a1"
     }
+  },
+  "restore45": {
+    "parent_main": "af1028ab0b9b9e9d66aab7337638859fe6e96824",
+    "backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "registration_sha256": "82acc11b6da824bd23bf46be33f662bffb73f9cbf678f372f42bd18f7019bd64",
+    "marked_registration_sha256": "2a1288c05fae972845e7ca3114d9f8b9a79508c2458df7db34a00bdd3f288097",
+    "physics_results_sha256": "79f5950c4ce326ec2bbfd268c40e54f98aab04b758ac9af26854fd8502828cd2",
+    "record_info_sha256": "8bb12b753c46c07be6f9c271fbb12a074a8aaf8d983ce00e9f84978ea9b1f879",
+    "probe_states_sha256": "8ac7c1bf91ea401e2c403d633a3b2a3119da5c75047c122e6ed59afa92d3f010",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "previous_44_result_sha256": "36814ee62b06150f9a3f335fb555ab963a22609b82af6cc4fbf773f37802b461",
+    "plan_hashes": {
+      "games": "caa98cf245d40e2833ad53b5cf541ad942e9ec4a267243de71ec0ec356bd3bf6",
+      "marked": "ce63c06839b0274e7b352a683abdeec4a725bbbb15f03325140e92f97eb8a483"
+    }
   }
 }
