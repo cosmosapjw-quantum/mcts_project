@@ -30,6 +30,9 @@ fn default_depth() -> usize {
 fn default_samples() -> usize {
     1
 }
+fn default_evaluator() -> String {
+    "uniform_rollout".into()
+}
 fn default_prior() -> String {
     "local".into()
 }
@@ -57,6 +60,8 @@ pub struct Spec {
     pub root_law: Option<crate::mqft_law::LawSpec>,
     #[serde(default)]
     pub record_rollouts: bool,
+    #[serde(default = "default_evaluator")]
+    pub evaluator: String,
 }
 impl Spec {
     fn validate(&self) -> Result<(), String> {
@@ -100,6 +105,14 @@ impl Spec {
         }
         if self.mode == "root" && self.workers > self.budget as usize {
             return Err("root budget must cover every replica".into());
+        }
+        if !["uniform_rollout", crate::mqft_rapfi::ID].contains(&self.evaluator.as_str()) {
+            return Err("unknown evaluator".into());
+        }
+        if self.evaluator == crate::mqft_rapfi::ID
+            && (self.rollout_depth != 1 || !self.record_rollouts || self.prior != "local")
+        {
+            return Err("NNUE lookahead requires depth=1, recorded actions, local prior placeholder (actual NNUE prior)".into());
         }
         if let Some(law) = &self.root_law {
             law.validate(self.budget, &self.mode, self.source_action)?;
@@ -157,6 +170,8 @@ pub struct Sample {
     terminal: bool,
     actions: Option<Vec<usize>>,
     log_path_prob: f64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    nnue_wdl: Option<[f64; 3]>,
 }
 #[derive(Debug, Clone, Serialize)]
 pub struct Evaluation {
@@ -166,6 +181,10 @@ pub struct Evaluation {
     value: f32,
     samples: Vec<Sample>,
     elapsed_ns: u64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    nnue_scores: Option<Vec<(u16, i32)>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    nnue_wdl: Option<[f64; 3]>,
 }
 struct ResearchEval {
     spec: Spec,
@@ -219,6 +238,45 @@ impl ResearchEval {
             terminal,
             actions,
             log_path_prob,
+            nnue_wdl: None,
+        }
+    }
+    fn nnue_sample(&self, state: &Gomoku15, p: &[(u16, f64)], seed: u64) -> Sample {
+        let mut rng = StdRng::seed_from_u64(seed);
+        let u = rng.gen::<f64>();
+        let mut sum = 0.;
+        let mut selected = p.last().expect("nonempty NNUE support");
+        for item in p {
+            sum += item.1;
+            if u < sum {
+                selected = item;
+                break;
+            }
+        }
+        let child = state.apply_move(selected.0);
+        let terminal = child.is_terminal();
+        let wdl = if terminal {
+            None
+        } else {
+            Some(
+                crate::mqft_rapfi::query(&child, false)
+                    .expect("actual MixNet child evaluation failed")
+                    .1,
+            )
+        };
+        let value = if terminal {
+            -child.outcome()
+        } else {
+            -crate::mqft_rapfi::value(wdl.unwrap(), child.current_player())
+        };
+        Sample {
+            seed: format!("{seed:016x}"),
+            value,
+            plies: 1,
+            terminal,
+            actions: Some(vec![selected.0 as usize]),
+            log_path_prob: selected.1.ln(),
+            nnue_wdl: wdl,
         }
     }
     fn priors(&self, state: &Gomoku15) -> Vec<(u16, f32)> {
@@ -265,19 +323,46 @@ impl Evaluator<Gomoku15> for ResearchEval {
         let id = mqft_trace::take_eval_ticket().unwrap_or(actual_call);
         let seed = mix(self.seed ^ mix(id) ^ state.tt_hash());
         let n = self.spec.samples_per_eval;
-        let samples: Vec<_> = if self.spec.mode == "leaf" {
-            (0..n)
-                .into_par_iter()
-                .map(|j| self.sample(state, mix(seed ^ j as u64)))
-                .collect()
+        let (nnue_scores, nnue_wdl, nnue_p) = if self.spec.evaluator == crate::mqft_rapfi::ID {
+            let (scores, wdl) = crate::mqft_rapfi::query(state, true)
+                .expect("actual MixNet parent evaluation failed");
+            let scores = scores.expect("missing NNUE policy");
+            let p = crate::mqft_rapfi::probabilities(&scores);
+            (Some(scores), Some(wdl), Some(p))
         } else {
-            (0..n)
-                .map(|j| self.sample(state, mix(seed ^ j as u64)))
-                .collect()
+            (None, None, None)
+        };
+        let sample = |j: usize| {
+            if let Some(p) = &nnue_p {
+                self.nnue_sample(state, p, mix(seed ^ j as u64))
+            } else {
+                self.sample(state, mix(seed ^ j as u64))
+            }
+        };
+        let samples: Vec<_> = if self.spec.mode == "leaf" {
+            (0..n).into_par_iter().map(sample).collect()
+        } else {
+            (0..n).map(sample).collect()
         };
         let value = samples.iter().map(|x| x.value as f64).sum::<f64>() / n as f64;
         let value = value as f32;
-        let policy = self.priors(state);
+        let policy = if let Some(p) = nnue_p {
+            // Prior source changes tree selection only. Evaluator sampling law remains fixed.
+            let mut p = p;
+            if state.tt_hash() == self.root_hash {
+                if let Some(a) = self.spec.source_action {
+                    for (m, w) in &mut p {
+                        if *m as usize == a {
+                            *w *= self.spec.source_h.exp();
+                        }
+                    }
+                }
+            }
+            let z: f64 = p.iter().map(|x| x.1).sum();
+            p.into_iter().map(|(m, w)| (m, (w / z) as f32)).collect()
+        } else {
+            self.priors(state)
+        };
         self.records.lock().push(Evaluation {
             id,
             state_hash: format!("{:016x}", state.tt_hash()),
@@ -285,6 +370,8 @@ impl Evaluator<Gomoku15> for ResearchEval {
             value,
             samples,
             elapsed_ns: t.elapsed().as_nanos() as u64,
+            nnue_scores,
+            nnue_wdl,
         });
         mqft_trace::set_eval(id);
         EvalResult { policy, value }
@@ -721,7 +808,7 @@ fn request(line: &str) -> Result<Value, String> {
     let r: Request = serde_json::from_str(line).map_err(|e| e.to_string())?;
     match r {
         Request::Describe => Ok(
-            json!({"schema":SCHEMA,"quartz_commit":QUARTZ,"board_size":15,"rules":"freestyle","modes":["serial","root","tree","leaf","wave"],"evaluator":"seeded_uniform_rollout_with_uniform_or_local_prior","tt":"disabled_owned_arena","virtual_loss":"fixed tree/wave","native_phase":"root select/reserve and root backup linearized; descendant event completion order observational","root_laws":["iid","pl","reserve"],"root_proposals":["p","q","local","path"],"record_rollouts":"opt-in exact augmented uniform rollout path"}),
+            json!({"schema":SCHEMA,"quartz_commit":QUARTZ,"board_size":15,"rules":"freestyle","modes":["serial","root","tree","leaf","wave"],"evaluator":"uniform_rollout (legacy commissioning); explicit rapfi_nnue_lookahead_v1 (MixNet)","evaluators":["uniform_rollout","rapfi_nnue_lookahead_v1"],"tt":"disabled_owned_arena","virtual_loss":"fixed tree/wave","native_phase":"root select/reserve and root backup linearized; descendant event completion order observational","root_laws":["iid","pl","reserve"],"root_proposals":["p","q","local","path"],"record_rollouts":"opt-in exact augmented uniform rollout path"}),
         ),
         Request::State { moves } => Ok(state_value(&from_moves(&moves)?)),
         Request::Search { moves, spec } => {
@@ -749,6 +836,7 @@ pub fn serve() {
             Err(_) => break,
         }
     }
+    crate::mqft_rapfi::close();
 }
 #[cfg(test)]
 mod tests {
@@ -783,6 +871,7 @@ mod tests {
                 source_h: 0.,
                 root_law: None,
                 record_rollouts: false,
+                evaluator: default_evaluator(),
             };
             let r = search(&[112, 113], spec).unwrap();
             assert_eq!(r.replicas.iter().map(|r| r.events.len()).sum::<usize>(), 5);
@@ -828,6 +917,7 @@ mod tests {
             source_h: 0.,
             root_law: None,
             record_rollouts: false,
+            evaluator: default_evaluator(),
         };
         let moves = [112, 113, 97, 127];
         let a = search(&moves, spec.clone()).unwrap();
@@ -889,6 +979,7 @@ mod tests {
             source_h: 0.,
             root_law: None,
             record_rollouts: false,
+            evaluator: default_evaluator(),
         };
         let r = search(&moves, spec).unwrap();
         assert!(r.replicas[0]
@@ -916,6 +1007,7 @@ mod tests {
             source_h: 2.,
             root_law: None,
             record_rollouts: false,
+            evaluator: default_evaluator(),
         };
         let r = search(&[112, 113], spec).unwrap();
         let e = &r.replicas[0].cuts[0].edges;

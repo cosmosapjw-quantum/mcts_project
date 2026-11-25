@@ -12,6 +12,17 @@ from .campaign import PLAN_SCHEMA,read,verify_state,valid_moves,choose,seed,atom
 from .path_law import replay as replay_root_law,path_weight_statistics
 from .observables import root_observables,path_entropy,graph_and_coarse,marks,delta,empirical_mi,entropy,frozen_action
 
+def nnue_wdl_value(wdl,side):
+    a=np.asarray(wdl,float)
+    if a.shape!=(3,) or not np.isfinite(a).all() or np.any(a<0) or np.any(a>1) or abs(float(a.sum())-1)>0.001:raise ValueError("NNUE WDL")
+    return side*(a[0]-a[1])/a.sum()
+
+def nnue_policy(scores,board):
+    legal=[i for i,x in enumerate(board) if x==0]
+    if [x[0] for x in scores]!=legal or any(type(x[1])!=int for x in scores):raise ValueError("NNUE raw policy support")
+    x=np.array([z[1] for z in scores],float);w=np.exp((x-x.max())/32.0)
+    return dict(zip(legal,((1-1e-6)*w/w.sum()+1e-6/len(legal)).tolist()))
+
 def check_trace(tr,moves,spec):
     if tr["schema"]!=SCHEMA or tr.get("quartz_commit")!="65e7d3e9596ca259ebfe523b0c74058692b6a755":raise ValueError("trace schema or engine source")
     verify_state(tr["root"],moves)
@@ -21,6 +32,8 @@ def check_trace(tr,moves,spec):
         if isinstance(v,float):
             if not math.isclose(actual[k],v,abs_tol=1e-7,rel_tol=1e-7):raise ValueError(f"spec mismatch {k}")
         elif actual[k]!=v:raise ValueError(f"spec mismatch {k}")
+    nnue=actual.get("evaluator","uniform_rollout")=="rapfi_nnue_lookahead_v1"
+    if actual.get("evaluator","uniform_rollout") not in ("uniform_rollout","rapfi_nnue_lookahead_v1"):raise ValueError("unknown evaluator identity")
     base_board=tr["root"]["board"];legal=tr["root"]["legal"];c=actual["c_puct"];cuts=actual["cuts"]
     replicas=tr["replicas"];nr=actual["workers"] if actual["mode"]=="root" else 1
     if len(replicas)!=nr or [r["replica"] for r in replicas]!=list(range(nr)):raise ValueError("replica identities")
@@ -55,12 +68,26 @@ def check_trace(tr,moves,spec):
             raise ValueError("expected root expansion eval plus exact nonterminal eval bindings")
         for a in evaluations.values():
             sam=a["samples"]
-            if len(sam)!=actual["samples_per_eval"] or any(s["value"] not in (-1.,0.,1.) or not 0<=s["plies"]<=actual["rollout_depth"] or (not s["terminal"] and s["value"]!=0.) for s in sam):raise ValueError("sample provenance")
+            if len(sam)!=actual["samples_per_eval"] or any(not math.isfinite(s["value"]) or not -1<=s["value"]<=1 or not 0<=s["plies"]<=actual["rollout_depth"] or (not nnue and (s["value"] not in (-1.,0.,1.) or (not s["terminal"] and s["value"]!=0.))) for s in sam):raise ValueError("sample provenance")
             if abs(a["value"]-sum(s["value"] for s in sam)/len(sam))>1e-7:raise ValueError("leaf mean")
             board,ply=eval_states[a["id"]]
             if a["side"]!=(1 if ply%2==0 else -1):raise ValueError("evaluator frame")
+            if nnue:
+                policy=nnue_policy(a["nnue_scores"],board)
+                nnue_wdl_value(a["nnue_wdl"],a["side"])
+                if a["id"]==0:
+                    p=dict(policy);source=actual.get("source_action")
+                    if source is not None:p[source]*=math.exp(actual["source_h"])
+                    den=sum(p.values())
+                    for cut in rep["cuts"]:
+                        if any(abs(ed["prior"]-p[ed["action"]]/den)>2e-6 for ed in cut["edges"]):raise ValueError("NNUE root prior mismatch")
+            elif a.get("nnue_scores") is not None:raise ValueError("unregistered NNUE evaluation")
             for r in sam:
-                exact=-sum(math.log(225-ply-i) for i in range(r["plies"]))
+                if nnue:
+                    word=r["actions"]
+                    if r["plies"]!=1 or not isinstance(word,list) or len(word)!=1 or word[0] not in policy:raise ValueError("NNUE sample action")
+                    exact=math.log(policy[word[0]])
+                else:exact=-sum(math.log(225-ply-i) for i in range(r["plies"]))
                 if abs(r["log_path_prob"]-exact)>1e-8:raise ValueError("rollout log probability")
                 if actual.get("record_rollouts"):
                     word=r["actions"]
@@ -72,7 +99,11 @@ def check_trace(tr,moves,spec):
                         if win_at(z,move,z[move]):winner=1 if z[move]==1 else -1
                     terminal=winner is not None or ply+len(word)==225
                     val=winner*a["side"] if winner is not None else 0
-                    if terminal!=r["terminal"] or val!=r["value"] or (not terminal and len(word)!=actual["rollout_depth"]):raise ValueError("rollout mark replay")
+                    if nnue and not terminal:
+                        # Actual WDL is in black POV; value transported to original leaf.
+                        val=nnue_wdl_value(r["nnue_wdl"],a["side"])
+                    if terminal!=r["terminal"] or abs(val-r["value"])>1e-7 or (not terminal and len(word)!=actual["rollout_depth"]):raise ValueError("rollout mark replay")
+                    if nnue and terminal and r.get("nnue_wdl") is not None:raise ValueError("terminal sample must use exact rule")
                 elif r["actions"] is not None:raise ValueError("unregistered rollout path")
         if [x["global_k"] for x in rep["cuts"]]!=cuts:raise ValueError("cuts mismatch")
         for cut in rep["cuts"]:
@@ -149,6 +180,8 @@ def analyze(plan,datadir,outdir):
             with gzip.open(p,"rt",encoding="utf-8") as f:
                 head=json.loads(next(f))
                 if head["type"]!="header" or head.get("schema")!=PLAN_SCHEMA or head["job"]!=job or head["plan_hash"]!=plan["plan_hash"] or head["backend_sha"]!=receipt["backend_sha"]:raise ValueError("header provenance")
+                if job["spec"].get("evaluator")=="rapfi_nnue_lookahead_v1":
+                    if head.get("evaluator_runtime")!=lock["external"] or head.get("evaluator_runtime") is None:raise ValueError("common NNUE runtime receipt mismatch")
                 moves=list(job["opening"]);rng=random.Random(job["game_seed"]);backups=records=0;end=None
                 for line in f:
                     row=json.loads(line);typ=row["type"]
@@ -174,7 +207,7 @@ def analyze(plan,datadir,outdir):
                         meta=dict(job=job["id"],block=job["block"],kind=job["kind"],position_id=job["position_id"],replicate=job["replicate"],
                                   mode=spec["mode"],workers=spec["workers"],budget=spec["budget"],samples_per_eval=spec["samples_per_eval"],
                                   c_puct=spec["c_puct"],source_h=spec["source_h"],source_action=spec["source_action"],law_id=digest(spec.get("root_law"))[:12],opponent=job["opponent"],ply=ply,
-                                  state_hash=tr["root"]["state_hash"],source_file=p.name,backend_sha=receipt["backend_sha"])
+                                  state_hash=tr["root"]["state_hash"],source_file=p.name,backend_sha=receipt["backend_sha"],evaluator=spec.get("evaluator","uniform_rollout"))
                         for name in ("local","deltas","fragments","path_laws","history_features"):
                             for z in q[name]:emit(name,{**meta,**z})
                         if typ=="root":

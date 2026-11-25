@@ -62,7 +62,7 @@ def finite(value,name,lo,hi):
     if type(value) not in (int,float) or not math.isfinite(value) or not lo<=value<=hi:raise ValueError(f"{name}: invalid number")
     return float(value)
 def make_plan(cfg):
-    allowed={"kind","seed","replicates","budgets","c_puct","modes","openings","opponents","positions","sources","rollout_depth","prior","samples_per_eval","move_temperature","max_plies","jobs","cpu_limit","max_output_bytes","search_timeout","rapfi_timeout_ms","rapfi_threads","record_rollouts"}
+    allowed={"kind","seed","replicates","budgets","c_puct","modes","openings","opponents","positions","sources","rollout_depth","prior","samples_per_eval","move_temperature","max_plies","jobs","cpu_limit","max_output_bytes","search_timeout","rapfi_timeout_ms","rapfi_threads","record_rollouts","evaluator","paired_schedule_seed"}
     if set(cfg)-allowed:raise ValueError(f"unknown config keys {sorted(set(cfg)-allowed)}")
     kind=cfg["kind"];reps=integer(cfg["replicates"],"replicates",1,100000);base=integer(cfg["seed"],"seed",0,2**64-1)
     if kind not in ("games","roots") or not 1<=reps<=100000:raise ValueError("kind/replicates")
@@ -81,11 +81,17 @@ def make_plan(cfg):
     timeout=finite(cfg.get("search_timeout",180),"search_timeout",.1,3600)
     ext_ms=integer(cfg.get("rapfi_timeout_ms",500),"rapfi_timeout_ms",1,3600000)
     ext_threads=integer(cfg.get("rapfi_threads",1),"rapfi_threads",1,64)
+    evaluator=cfg.get("evaluator","uniform_rollout")
+    if evaluator not in ("uniform_rollout","rapfi_nnue_lookahead_v1"):raise ValueError("unknown evaluator")
+    if evaluator=="rapfi_nnue_lookahead_v1" and (depth!=1 or not cfg.get("record_rollouts") or cfg.get("prior","local")!="local"):raise ValueError("NNUE requires recorded one-step policy lookahead")
+    pair_seed=cfg.get("paired_schedule_seed",False)
+    if type(pair_seed)!=bool or (pair_seed and kind!="roots"):raise ValueError("paired_schedule_seed is fixed-root only")
     rows=[]
     if kind=="games":
         positions=[dict(id=f"opening{i}",moves=m,source_action=None) for i,m in enumerate(cfg.get("openings",[[]]))]
         opponents=cfg.get("opponents",["self"])
         if not opponents or not set(opponents)<={"self","rapfi_black","rapfi_white"}:raise ValueError("invalid opponents")
+        if evaluator!="uniform_rollout" and opponents!=["self"]:raise ValueError("common NNUE study requires both sides use same search/evaluator")
         sources=[0.]
     else:
         positions=cfg["positions"];opponents=["none"];sources=cfg.get("sources",[0.])
@@ -112,7 +118,7 @@ def make_plan(cfg):
             law={**law,"logit_h":hh}
             if hh!=0 and pos.get("source_action") is None:raise ValueError("logit_h source not set")
             if max(law["beta_p"]+law["beta_q"])*(2+c*math.sqrt(budget+workers))+abs(hh)>640:raise ValueError("root law full support bound")
-        if jobs*max(workers,ext_threads if opp.startswith("rapfi") else 1)>cpus:raise ValueError("nested CPU oversubscription")
+        if jobs*max(workers*(2 if evaluator!="uniform_rollout" else 1),ext_threads if opp.startswith("rapfi") else 1)>cpus:raise ValueError("nested CPU oversubscription")
         if opp.startswith("rapfi") and timeout<=ext_ms/1000:raise ValueError("external timeout exceeds search timeout")
         finite(h,"source_h",-20,20)
         cuts=sorted(set([budget]+[2**i for i in range(budget.bit_length()) if 2**i<budget]))
@@ -122,9 +128,12 @@ def make_plan(cfg):
             max_plies=max_plies,move_temperature=temp,search_timeout=timeout,
             rapfi_timeout_ms=ext_ms,rapfi_threads=ext_threads)
         spec=dict(mode=name,workers=workers,budget=budget,cuts=cuts,c_puct=c,rollout_depth=depth,samples_per_eval=samples,prior=cfg.get("prior","local"),source_action=pos.get("source_action"),source_h=h,root_law=law,record_rollouts=cfg.get("record_rollouts",law is not None))
+        if "evaluator" in cfg:spec["evaluator"]=evaluator
         job_id=digest([meta,spec,base])[:24]
         # Separate fixed streams; no reliance on Python salted hash. Source +/- share initial seed for paired finite differences.
         spec["seed"]=seed(base,pos["id"],pos["moves"],rep,name,workers,budget,c,opp,mode.get("root_law",{}).get("kind") if mode.get("root_law") else None)
+        if pair_seed:
+            spec["seed"]=seed(base,pos["id"],pos["moves"],rep,budget,c,samples,evaluator,law["kind"] if law else "greedy")
         meta.update(id=job_id,spec=spec,game_seed=seed(base,job_id,"moves"))
         rows.append(meta)
     if not rows or len({x["id"] for x in rows})!=len(rows):raise ValueError("empty/duplicate grid")
@@ -177,7 +186,8 @@ def run_job(job,outdir,backend,backend_sha,rapfi_dir,plan_hash,byte_cap):
     part=path.with_name(path.name+".part")
     if part.exists():raise FileExistsError(f"partial shard {part}; inspect before removing")
     moves=list(job["opening"]);rng=random.Random(job["game_seed"]);count=0;uncompressed=0;backups=0;status="failed"
-    with Backend(backend,job["search_timeout"]) as be:
+    nnue=job["spec"].get("evaluator")=="rapfi_nnue_lookahead_v1"
+    with Backend(backend,job["search_timeout"],rapfi_dir if nnue else None,job["spec"]["workers"]) as be:
         if be.sha!=backend_sha:raise ValueError("backend bytes changed")
         ext=rapfi.Rapfi(rapfi_dir,job["rapfi_timeout_ms"],job["rapfi_threads"],job["search_timeout"]) if job["opponent"].startswith("rapfi") else None
         with part.open("xb") as raw:
@@ -195,7 +205,7 @@ def run_job(job,outdir,backend,backend_sha,rapfi_dir,plan_hash,byte_cap):
                     f.write(s);f.flush()
                     if raw.tell()>byte_cap:raise RuntimeError("per-shard compressed byte ceiling reached")
                 emit(dict(type="header",schema=PLAN_SCHEMA,plan_hash=plan_hash,job=job,backend_sha=backend_sha,
-                          backend=be.identity,external=ext.identity if ext else None))
+                          backend=be.identity,external=ext.identity if ext else None,evaluator_runtime=be.rapfi_identity))
                 st=be.state(moves);verify_state(st,moves)
                 if job["kind"]=="roots":
                     tr=be.search(moves,job["spec"])
@@ -233,7 +243,7 @@ def _execute_unlocked(plan,output,backend,rapfi_dir=None,authorized=False):
     if make_plan(plan["config"])!=plan:raise ValueError("plan/config identity mismatch")
     avail=len(os.sched_getaffinity(0)) if hasattr(os,"sched_getaffinity") else (os.cpu_count() or 1)
     if plan["config"]["cpu_limit"]>avail:raise ValueError("CPU plan exceeds host affinity")
-    needs_rapfi=any(x["opponent"].startswith("rapfi") for x in plan["jobs"])
+    needs_rapfi=any(x["opponent"].startswith("rapfi") or x["spec"].get("evaluator")=="rapfi_nnue_lookahead_v1" for x in plan["jobs"])
     if needs_rapfi:
         if rapfi_dir is None:raise ValueError("external runtime directory required")
         rapfi.verify(rapfi_dir)

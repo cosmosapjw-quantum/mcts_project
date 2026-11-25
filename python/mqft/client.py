@@ -1,6 +1,7 @@
 """Persistent JSONL bridge to the native Rust backend; no fallback engine."""
 import hashlib
 import math
+import os
 import json
 import queue
 import subprocess
@@ -22,13 +23,20 @@ def digest(obj):
     return hashlib.sha256(canonical(obj).encode()).hexdigest()
 
 class Backend:
-    def __init__(self, executable, timeout=180):
+    def __init__(self, executable, timeout=180, rapfi_dir=None, rapfi_workers=1):
         self.exe=Path(executable).resolve(strict=True)
         self.timeout=float(timeout)
         if not math.isfinite(self.timeout) or self.timeout<=0:raise ValueError("invalid backend timeout")
         self._lock=threading.RLock();self._closed=threading.Event()
         self.sha=sha256(self.exe)
-        self.proc=subprocess.Popen([str(self.exe)],stdin=subprocess.PIPE,stdout=subprocess.PIPE,
+        env=os.environ.copy()
+        if rapfi_dir is not None:
+            from .rapfi import verify
+            self.rapfi_identity=verify(rapfi_dir)
+            env["MQFT_RAPFI_DIR"]=str(Path(rapfi_dir).resolve(strict=True))
+            env["MQFT_RAPFI_WORKERS"]=str(rapfi_workers)
+        else:self.rapfi_identity=None
+        self.proc=subprocess.Popen([str(self.exe)],env=env,stdin=subprocess.PIPE,stdout=subprocess.PIPE,
                                    stderr=subprocess.PIPE,text=True,encoding="utf-8",bufsize=1)
         self.q=queue.Queue(maxsize=2)
         self.stderr=[]

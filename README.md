@@ -1,6 +1,6 @@
 # MQFT: MCTS statistical field-theory measurement package
 
-Research-only migration of the original MQFT / mcts_study project, RESTORE40 (trace/campaign/analysis v2).
+Research-only migration of the original MQFT / mcts_study project, RESTORE41 (trace/campaign/analysis v2; explicit evaluator identity).
 **Rust Quartz backend + Python analysis frontend**, with Rapfi as a separate external opponent.
 This repository's main branch is now dedicated to MQFT. Legacy implementation
 remains in Git history (previous main eb19e5f4ca9a502d645ccab45a8dcfbcc733f537).
@@ -14,8 +14,9 @@ No self-play campaign is launched by installation, import, planning, tests or pl
 - Fixed deterministic seed mapping; async scheduling is **not** promised bitwise deterministic.
 - One backend subprocess per campaign worker, independent game and matched-root blocks.
 - Rapfi 250615 source and hash-pinned runtime installer, separate Piskvork process.
-- No Python/C++ legacy MCTS used; current evaluator is seeded uniform rollout with a
-  uniform or declared local prior, not a trained neural network.
+- No Python/C++ legacy MCTS used. Primary scientific experiments use the same
+  actual pinned Rapfi MixNet NNUE policy/WDL evaluator on both sides and every
+  schedule. Uniform rollout remains a diagnostic/legacy option only.
 - Real N, W, S2, path/event/evaluation accounting; quiescent cuts, pending VL zero checks.
 - Python analysis and original-target PNG/PDF renderers. Missing physical inputs
   cause a blocked status, not invented results.
@@ -61,7 +62,19 @@ submodule IDs are recorded in PROVENANCE.json; fetch them from upstream if
 building from source. Rapfi is a strong external proxy, not exact minimax or
 a source of MCTS internal statistics.
 
-## Future campaign workflow (not executed in RESTORE40)
+## Common MixNet campaign workflow (RESTORE41)
+
+Use configs/mixnet_games.json for same-evaluator self-play. The actual Rapfi
+mix9svq policy scores (ScoreScale=32) and rounded black-view WDL are read
+through persistent local processes. No fallback or uniform terminal rollout.
+Four NNUE-guided one-step samples per eval, same model and rule set on both
+sides. This is Quartz search with MixNet evaluation, not Rapfi full alpha-beta.
+Two observed process EOF failures were preserved; same-identity remaining jobs
+completed. Large-study runtime reliability is still open. See
+[RESTORE41 results](docs/RESTORE41_RESULTS.md) and
+[next experiment](docs/NEXT_DYNAMICS.md).
+
+## Legacy diagnostic campaign workflow
 
     mqft plan configs/commissioning_games.json runs/commissioning-plan.json
 

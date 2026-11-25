@@ -1,32 +1,31 @@
-# RESTORE40 theory and coding 10+10 execution ledger
+# RESTORE41 R1–R10 and C1–C10
+R1 freeze original Q28/Q30, DAG, source and registered commissioning;
+user interruption explicitly switches primary science to common MixNet.
+R2 verified original archives, code, Chaslot/Grill sources and policies;
+Rapfi source ScoreScale, trace protocol and actual weight identities.
+R3 define marked paths, sign, counts and common evaluator/cost estimand.
+R4 separate schedule, policy, baseline diagnostic, same-model hypotheses.
+R5 variance, KL projection, frozen KKT, product rule, path mixture and
+common NNUE sampling/value equations; Wolfram residuals {0,0,0}.
+R6 scope/normalization, exact rule terminal, phase/thermal limits,
+independent raw reduction; native independent subagent NOT_RUN.
+R7 actual commissioning, common MixNet and matched root/path data.
+R8 scoped results, mixed-engine exclusion, failed runtime attempts.
+R9 original panels and independent summary, provenance and code mapping.
+R10 watchdog and next matched-game/actual-source experiment.
 
-Research transition: final pre-study software audit. Independent subagent not
-available. R/C activities interleaved where feedback required, not 20 independent
-sequential agent calls. All completed steps are scoped to audit/preparation.
-
-| Stage | Executed work |
-|---|---|
-| R1 | Freeze original SSOT/catalog, RESTORE39 source and current DAG |
-| R2 | Read original policies, RESTORE28–38 source evidence and primary MCTS literature |
-| R3 | Specify count, sum, S2, negamax, legal support and clocks |
-| R4 | Distinguish schedule and stochastic estimands; restore P/Q/local/path |
-| R5 | Derive raw moment pooling, path mixture posterior and Fisher contraction |
-| R6 | CAS and independent replay; full support, trace, PSD/CP and boundary checks |
-| R7 | Finite-wave, full-rollout and group closure software discrimination; research NOT_RUN |
-| R8 | Preserve negative admissions; categorize active/conditional/blocked |
-| R9 | FRAMEWORK_MATRIX and explicit model, source and likelihood contracts |
-| R10 | Rebuild original catalog, drift watchdog and next commissioning criteria |
-| C1 | Pin clean main and create dedicated audit worktree |
-| C2 | Repair pass 1 native locks, S2, expansion and ticketing |
-| C3 | Pass 1 regression and ASan |
-| C4 | Pass 2 campaign durability, identity and subprocess protocol |
-| C5 | Pass 2 actual Rapfi probe, tiny runner/restart and receipt tests |
-| C6 | Pass 3 opt-in stochastic root and augmented rollout law, v2 schema |
-| C7 | Pass 3 conditional primitives, closure/IS summary, original renderers |
-| C8 | Integration test found duplicated summary; corrected and full test/ASan rerun |
-| C9 | Local environment, preflight and exact planning metadata; no full campaign |
-| C10 | Preserve original DAG nodes/edges; commit, publication, backup and verified cleanup receipts |
-
-No new research data or finished game; no claimed new strength, temperature,
-critical exponent, native phase or physical entropy production. No universal
-proof of absence of algorithm defects.
+C1 verify RESTORE40 exact build/plan/source identities.
+C2 inspect native evaluator, raw fields, actual Rapfi model protocol.
+C3 common NNUE policy/WDL sampler with full support and matched seeds.
+C4 bounded CPU execution, registered 17 diagnostic games,192 diagnostic
+roots,10 common games,40 common matched roots,48 common law histories.
+C5 implement persistent Rapfi pool, campaign identity, analysis checks;
+fix initial pool-lock timeout; no random fallback.
+C6 actual release build, 383 Rust tests, 23 Python including MixNet.
+C7 actual complete games, independent board/moment/policy/mark audit.
+C8 separate sample/query/backup and finite-size diagnostics; two EOF
+failures preserved, exact remaining jobs completed, no broad throughput.
+C9 same-context source/receipt/manifest review, no independent agent.
+C10 publication, DAG, verified two-copy backup and prior duplicate retire.
+Data/implementation tasks interleaved after user changes, not 20
+sequential independent calls. New results are empirical scoped only.

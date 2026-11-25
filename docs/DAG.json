@@ -1,8 +1,8 @@
 {
-  "revision": "RESTORE40_20261125",
-  "scope": "Three adversarial pre-study repair passes; no new science status promoted.",
+  "revision": "RESTORE41_20261125",
+  "scope": "Common actual MixNet evaluator; 10 complete same-engine games, 40 matched roots, 48 stochastic-root histories; old uniform cohorts diagnostic only.",
   "entry": "REPLAN-01",
-  "supersedes_next": "MQFT-RESTORE39-REPLAN03-ACTUAL-ADAPTIVE-ACTION-RESPONSE",
+  "supersedes_next": "MQFT-RESTORE40-REPLAN01-QUARTZ-COMMISSIONING-AWAIT-AUTHORIZATION",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
   "dependency_semantics": "화살표는 원래 self-play 산출물을 위한 입력 의존성이다. source 해석·기존 자료 검토·작업 병렬성 및 완료율과 구분한다.",
   "nodes": [
@@ -488,7 +488,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "previous_entry": "REPLAN-03",
+  "previous_entry": "REPLAN-01",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "quantum_representation_policy": {
     "origin": "user directive 2026-11-25",
@@ -496,7 +496,7 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c",
     "applies_to": "all future quantum-mechanical nodes; consider complex off-diagonal PSD density operators and operational probes, no forced coherence or physical identification"
   },
-  "next_stage_id": "MQFT-RESTORE40-REPLAN01-QUARTZ-COMMISSIONING-AWAIT-AUTHORIZATION",
+  "next_stage_id": "MQFT-RESTORE42-COMMON-MIXNET-MATCHED-PILOT",
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "quantum_dynamics_policy": {
     "origin": "user directive 2026-11-25 RESTORE24",
@@ -598,5 +598,25 @@
     "fresh_research_backups": 0,
     "next_stage": "RESTORE41_COMMISSIONING_AWAIT_AUTHORIZATION",
     "next_contract": "docs/NEXT_DYNAMICS.md"
+  },
+  "restore41": {
+    "parent_dag_sha256": "415aab936dc86e4aaee8c2ddbdb717d4949fbec424308069256b5412c9fdf266",
+    "status": "scoped_common_evaluator_actual_games_and_laws",
+    "evaluator": "rapfi_nnue_lookahead_v1",
+    "model": "Rapfi250615 mix9svq freestyle",
+    "fresh_common_games": 10,
+    "common_root_jobs": 88,
+    "common_backups": 10032,
+    "diagnostic_uniform_games": 17,
+    "diagnostic_uniform_roots": 192,
+    "two_rapfi_EOF_failures": "preserved, exact same-identity retry completed; cause unresolved",
+    "evidence": [
+      "docs/RESTORE41_RESULTS.md",
+      "docs/RESTORE41_THEORY.md",
+      "docs/DRIFT_WATCHDOG.md"
+    ],
+    "local_summary_sha256": "b33242db76e1d0659738fc0f623fc8e329aabf3ad6fdd05fb5743978bab97b99",
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "prior_science_statuses": "preserved, no new physical/strength admission"
   }
 }

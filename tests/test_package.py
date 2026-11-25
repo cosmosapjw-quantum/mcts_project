@@ -244,3 +244,30 @@ class LawAnalysisFixture(unittest.TestCase):
             self.assertAlmostEqual(rr[0]["targets"]["p"]["weight_mean"]+rr[0]["targets"]["q"]["weight_mean"],2.)
             self.assertEqual(len((t/"analysis/history_features.jsonl").read_text().splitlines()),8)
             z=render(t/"analysis",t/"plots");self.assertTrue(any(x["name"]=="N_A_path_law" and x["status"]=="observed" for x in z["panels"]))
+
+@unittest.skipUnless(os.environ.get("MQFT_TEST_BACKEND") and os.environ.get("MQFT_TEST_RAPFI"),"actual pinned MixNet runtime required")
+class SharedMixNet(unittest.TestCase):
+    def test_pinned_real_mixnet_all_modes(self):
+        from mqft.client import Backend
+        from mqft.analysis import check_trace
+        # Fixed-board software fixtures only; no research data.
+        for moves in ([112,113],[112,113,97]):
+            results={}
+            for mode,workers in (("serial",1),("root",4),("tree",4),("leaf",4),("wave",4)):
+                spec=dict(mode=mode,workers=workers,budget=4,cuts=[1,4],seed=16,c_puct=1.4,rollout_depth=1,samples_per_eval=4,prior="local",source_action=None,source_h=0.,record_rollouts=True,evaluator="rapfi_nnue_lookahead_v1")
+                with Backend(os.environ["MQFT_TEST_BACKEND"],30,os.environ["MQFT_TEST_RAPFI"],workers) as b:
+                    tr=b.search(moves,spec)
+                    self.assertTrue(all(r.get("nnue_scores") for x in tr["replicas"] for r in x["evaluations"]))
+                    z=check_trace(tr,moves,spec)["global_rows"][-1]
+                    self.assertEqual(z["k"],4)
+                    results[mode]=tr
+                    bad=copy.deepcopy(tr)
+                    bad["replicas"][0]["evaluations"][0]["samples"][0]["log_path_prob"]+=.1
+                    with self.assertRaises(ValueError):check_trace(bad,moves,spec)
+            def signature(tr):
+                return [[(x["actions"],x["root_value"]) for x in r["events"]] for r in tr["replicas"]]
+            self.assertEqual(signature(results["serial"]),signature(results["leaf"]))
+    def test_common_evaluator_plan(self):
+        cfg=json.loads(Path("configs/mixnet_games.json").read_text())
+        cfg["opponents"]=["rapfi_black"]
+        with self.assertRaises(ValueError):make_plan(cfg)
