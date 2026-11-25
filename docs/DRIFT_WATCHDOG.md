@@ -1,17 +1,16 @@
-# RESTORE48 drift watchdog
-Original three ZIP identities and Q28 six axes rechecked. RESTORE32 A/Q
-core, 13-node/13-edge compressed DAG and 121 original output ownership
-unchanged. Same actual MixNet, no uniform or heuristic fallback.
-Expand existing scale arms rather than proliferate models. New causal
-prefix response and uncertainty refer to actual adaptive histories;
-not a claimed native physical FDT or 1PI. Preserve all prior negative
-selector/closure admissions. Finite-shot channel reconstruction samples
-declared mathematical probabilities, not physical hardware or native
-quantum phase; simple CP repair is not a guaranteed optimal estimator.
-Thermal duration scan is a declared Gibbs Markov protocol, not native
-heat or temperature. Same-weight header and direct evaluation across
-13..22 establish compatibility, not multi-size MCTS or criticality.
-9/11 incompatible heuristic output explicitly excluded. No size-mask
-override. Prior memory holdout reused, not new independent population.
-Actual B16 doubling deferred. No new plot vertices or artificial
-barrier/QEC/training curves. Native independent subagent unavailable.
+# RESTORE49 drift watchdog
+Original three ZIP identities/Q28 six scientific axes, RESTORE32
+two-layer authority and exact 13-node/121-output grouping retained.
+Same actual NNUE for all sizes and all game sides. No fallback,
+no weight-mask override, old L15 binary unchanged. First bad build
+preserved as failed cache incident; no science data from it.
+Actual native spatial size, temporal pulses and connected covariance,
+exact restricted-wave action, conditional spatial quantum and thermal
+calculations all distinguish evidence types. Do not equate spatial
+occupancy with thermodynamic spin or model phase with native phase.
+No native 1PI, physical beta/hbar, SBS or critical exponent promotion.
+Fixed absolute geometry is not fixed density. Whole-history sampling,
+only 2 chosen roots and 4 repeats, no population generalization.
+No new selector or arbitrary plot-specific nodes. Prior negative
+evidence preserved; no forced barrier/QEC/training plots.
+Native independent agent unavailable. One transport retry, same model.

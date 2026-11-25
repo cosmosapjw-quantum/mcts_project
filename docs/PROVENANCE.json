@@ -241,5 +241,73 @@
       "scale64": "ae520e562c89e79b15b773f7b4660bea202c29b249a73fd6b93cd53fce8823fd"
     },
     "rng_helper_sha256": "e07d8058c71413c2f449ed8dcd0bd09afdc99a8611bb3a65905921312d66e3cd"
+  },
+  "restore49": {
+    "parent_main": "b448c0257934edf832a8b4b2f1978a27b2c68180",
+    "family": {
+      "L13": {
+        "registration_sha": "b93118094cb849f43608015df548e6747b71a4d9a5b030336309ffd249e2c7d5",
+        "gate_sha": "31a2463ee23e2b7d987f09033c72ee37650fdd3feab7b0cfd372867e4e0047d3",
+        "backend_sha": "bcd065e7fda0c896df872b156a7a98655d0e2af184b9175ff83927e2a293f301",
+        "source_manifest_sha": "26d963b942f8b494daa4545e9d6272991093b377eacb4f2964cd2451101fe502",
+        "plans": {
+          "game": "82264bdc9991c4666bb3c1c7e20e11d5993406aa8e1a433b7478df12cba8b9ab",
+          "roots": "3ec4351626914b3e325651281ec981f29a9c6b3c55e4337c862e6e4f3685c8d6"
+        }
+      },
+      "L15": {
+        "registration_sha": "d99852408f4d8f49cbf4e0e3fe3c6d4b2514a3224cb01a56c0bb6ca7b06c34a5",
+        "gate_sha": "76479ad5672f475907b39eba56bfcee107f3b3428ee5e647eb20483a28e6373f",
+        "backend_sha": "96781d9c29179f2bd91f8b8f79b26d63ee7ebd91797d5712a1cd9386b7482cca",
+        "source_manifest_sha": "ba069c9bbecb8bc64e2b650df257ce1bf063331be429d76adacfed196ee881d4",
+        "plans": {
+          "game": "997f0cfd48f00a527a9d95b68d7bb350c611f9886ab5b740d9299f0fc93e50e8",
+          "roots": "3543b6b25fb5eca7ed36f54d8642784a04995f3776f4cbe4d06117f787edceea"
+        }
+      },
+      "L17": {
+        "registration_sha": "cfe482b3b849334f50b5c0d85cfe7d1ee4a666f33a05422de78186ab3ab37cc6",
+        "gate_sha": "7b2978c36ec80144d1dde47dafe4ac75c77a133f5a7f8589373c70a29a690a05",
+        "backend_sha": "85f7f37183b8709da24c71a55a683cd71870d4370b1c34e6dc59190d15e568b1",
+        "source_manifest_sha": "5fc888a39cdc09a0f9f269e67b221e7352afa24ea8b717dc78578bf0dae2ce0d",
+        "plans": {
+          "game": "6fc71e55c12e328eec45fd7214755d32a9d67315e938b873949733bc071a162c",
+          "roots": "0ce0024705d45309be970b44a90def5c68bccb7446f0c30dea929bd89b69fc2b"
+        }
+      },
+      "L19": {
+        "registration_sha": "25997e7e60a9915c1a51b125671430f2dcaea42e9d9c98f856c34862eeaf1044",
+        "gate_sha": "b01aca91f5ece046666b80a13c3feb85a359c461cca1e5dff4e832c32339dae1",
+        "backend_sha": "5027174632cd6736064d3e2327d8c4940bc4047c7679a59a98f71a20d7daa6f1",
+        "source_manifest_sha": "3b14c0567d3cc315f826cb02ee31013a17fbf7269d2bbd5bf464a51b13c85a96",
+        "plans": {
+          "game": "ba2ce8b6f0fac8144be326b31a6e67364b69272696a550312c2cf6f482c8ded7",
+          "roots": "449d29315215611238bcb388f8a2d37b89ecfb342475309052ad1c5371b238e7"
+        }
+      },
+      "L21": {
+        "registration_sha": "9e5dfebf5496e631143902a8591693d02062ab79c903ac98178b18059513a0b2",
+        "gate_sha": "fd6fd1f1f09ecf95ad15cd5fe17760db8e0c5268f5bbfd19d8e9b22ecaec0e34",
+        "backend_sha": "cc8c290d2d246ef281835d5df2a5c0a18b36c65aa4960f3530c6d79da172605d",
+        "source_manifest_sha": "ad52248024339ed04564cb8c19bb1734a01f8a4f6451557ef2fde55c4b7c2fbf",
+        "plans": {
+          "game": "ed1efe5b525e2a144d6b2320b3a0cc4d9147ccedf1e1eb0d2849a92d74e7a3fb",
+          "roots": "078794303aa3f9ae1ea8b8b6662d9f4d0ac93362d32eac9c8a5d969fe6fb1296"
+        }
+      }
+    },
+    "same_weight_files": {
+      "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+      "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+      "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+    },
+    "physics_results_sha256": "6463cc6321c1bd1238cfd534f10e219f8c425a928169cf6418ab240164f9c3d5",
+    "reference_sha256": "a0f63264e41ed87e354ac2713a542322b0b2bacb053969f44cb2f2146143258f",
+    "phase_sha256": "488d3adda2a589a8983d6b210f1ede6b65e5af8eb08dedd3817dbb657a8f0a8a",
+    "states_sha256": "e9d47a4555df74240f7b6c0aa7c08e8225cbf2b4617e9aec33fd6c07b5c91ec5",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "generation_source_sha256": "65b9be5a41e08b93877700694c375a22c0185f0f17108447654443ad727b6c0e",
+    "failed_initial_build": "same package/cache reused L15 for all; no science",
+    "old_production_runtime_unchanged": true
   }
 }

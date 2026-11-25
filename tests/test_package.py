@@ -492,3 +492,31 @@ class PrecisionPhysics48(unittest.TestCase):
         self.assertTrue(np.isfinite(r["se"]["prefix"]).all())
         self.assertAlmostEqual(r["values"]["prefix"][1],0.)
         self.assertAlmostEqual(r["values"]["direct"][0],0.)
+
+class SpatialPhysics49(unittest.TestCase):
+    def test_spatial_fixed_total_and_fourier(self):
+        from mqft.physics49 import spatial_structure
+        a=[]
+        for n in ([2,2,0,0],[1,2,1,0],[0,3,0,1],[1,1,1,1]):
+            c=np.zeros(13*13);c[:4]=n
+            p=c/4
+            a.append(dict(L=13,B=4,counts=c.astype(int).tolist(),source=1,law="iid",action_score=(c-1.).tolist(),
+                          legal=list(range(169)),occupancy=p[1],prior_H=1.,H=float(-sum(x*np.log(x) for x in p if x>0))))
+        z=spatial_structure(a)
+        self.assertLess(abs(z["S0"]),1e-12)
+        self.assertLessEqual(z["rank"],3)
+        self.assertAlmostEqual(sum(z["spatial_response"]),0.,places=10)
+    def test_scheduled_prefix_and_likelihood(self):
+        from mqft.physics49 import scheduled_response,actual_schedule_ratio,schedule_label
+        a=[]
+        for k in range(4):
+            I=np.array([(i+k)%3==0 for i in range(16)],int);p=np.full(16,.3)
+            G=(I-p).reshape(4,4).sum(1);X=np.column_stack((I.reshape(4,4).mean(1),np.zeros(4)))
+            a.append(dict(seed=k,B=16,I=I.tolist(),p=p.tolist(),G=G.tolist(),X=X.tolist(),h=[0.]*16))
+        arms={("constant",0.):a,("late",.2):a,("late",-.2):a}
+        x=scheduled_response(arms)[0]
+        self.assertEqual(x["kind"],"late")
+        self.assertTrue(np.all(np.array(x["values"])[:2,:3,:]==0))
+        h=[0.]*12+[.2]*4
+        self.assertEqual(schedule_label(h),("late",.2))
+        self.assertLess(abs(actual_schedule_ratio(a[0],h)["balance"]),1e-12)

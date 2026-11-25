@@ -1,35 +1,29 @@
-# RESTORE49 grouped physics and genuine size-family backend
-1. REPLAN-01/02/04.C: implement explicit board-size-aware common MixNet
-   evaluator and Quartz freestyle state/trace/legality contract; do not
-   modify existing v3 15x15 implementation in place or override header.
-   Use verified supported 13,15,17,19,21 as first odd-L family.
-   Include L in state/protocol identity, action mapping a=y L+x,
-   terminal/undo/Zobrist/D4 tests, full legal NNUE scores and parent/child
-   WDL, source action and seed registry. Validate new L15 against exact
-   v3 trace semantics at matched seeds before cross-size experiments.
-   Compare common absolute central geometry and fixed density families
-   separately; match real NNUE queries vs backups, do not assert exponent
-   from direct evaluator probes or budget scaling. Pilot actual same
-   engine games and h0/perturbed roots, preserve incompatible 9/11.
-2. REPLAN-03/04.R: use causal block response as real dynamical input.
-   Direct time-dependent source interventions at matched roots require
-   new explicit per-clock logit field schedule; test future-response
-   null and retarded response against actual interventions. Preserve
-   prior conditional lattice saddle and empirical action evidence.
-   Do not claim native continuum 1PI or fixed point.
-3. REPLAN-04.C: reassess paired uncertainty after balanced scale
-   replication. Use more independent roots for generalization; no
-   automatic huge uniform repetition or tuning of selected roots.
-   Second response requires careful variance control, smaller h alone
-   does not guarantee accuracy. B16 doubling remains separate.
-4. X-MEMORY/05/X-REP: frozen memory alternatives and conditional
-   simulated shot evidence; compare constrained nearest-CPTP or
-   likelihood reconstruction only in a predeclared test. Distinguish
-   conditional coherent simulation and genuine physical phase readout.
-5. REPLAN-06: conditional finite-duration protocols with temporal
-   discretization and slow-driving limits; native likelihood response
-   and thermal identifiability separate. Preserve original thermal
-   cycle, decoherence, envariance and quantum Darwinism obligations.
-6. REPLAN-07/X-BARRIER/X-STRUCT/X-TRAIN: prior distinct tasks and
-   negative evidence retained. No forced new plots without actual
-   inputs, no selector re-admission. Upstream startup abort unresolved.
+# RESTORE50: spatial and temporal precision, fixed-density separation
+1. REPLAN-01/02/04.C: same generated L13/15/17/19/21 family, exact
+   L15 v3 comparison retained. Build a separately registered matched
+   density cohort from actual game prefixes or legal fixed templates,
+   with common target geometry and explicit density rounding.
+   Compare with fixed absolute geometry; choose multiple genuinely
+   D4-distinct blocks per size. Sample B16/32/64 and at least two
+   conditional score scales. Preserve logical NNUE request accounting
+   and terminal effects. No critical exponent until scaling window,
+   finite-size and finite-budget axes, adequate independent histories.
+2. REPLAN-03/04.R/X-MEMORY: temporal source on early/middle/late
+   complete blocks, direct causal response vs prefix LR. Four seeds
+   per condition are not sufficient for quantitative response; use
+   balanced independent seed groups, evaluate pre-intervention exact
+   controls and post-intervention paired jackknife. Distinct new
+   opening blocks before generalization. Retarded multi-observable
+   closure with rank-aware projection; no native 1PI claim.
+3. REPLAN-05/X-REP: retain spatial sector Gram/phase references.
+   Investigate phase-sensitive conditional multi-time intervention
+   on spatially separated records, dephased/null controls. Empirical
+   sector label samples not quantum objects; require explicit
+   coherent implementation or independent operational evidence.
+4. REPLAN-06: four-sector conditional Gibbs cycle and actual
+   source-schedule LR separately; test duration/discretization or
+   physical energy calibration only with independent model.
+5. Existing REPLAN-07, X-BARRIER, X-STRUCT, X-TRAIN remain distinct,
+   no selector re-admission or forced output without inputs.
+6. Startup abort unresolved. Preserve v3 and first-cache failure;
+   generated source and size-scoped schemas must remain reproducible.

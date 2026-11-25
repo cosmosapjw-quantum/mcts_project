@@ -1,33 +1,31 @@
-# RESTORE48 R1–R10 / C1–C10
-R1 parent and original goals, 13 topics and exact same model.
-R2 source archive identities/Q28, prior R47 evidence, Exa/SciSpace/
-Parallel references on density derivatives, finite-shot tomography,
-detailed-balance work generating functions; Wolfram second derivative.
-R3 native source vs output source, marks and actual completed clocks,
-conditional sampling and fixed-root uncertainty, units/scope.
-R4 full vs causal-prefix LR, first/second/Richardson contrasts,
-empirical CGF and frozen memory alternatives, shot null and CP repair,
-duration-dependent Gibbs reference and size support.
-R5 derive causal response and prefix martingale marginal, Hessian
-score and block projection, CP-preserving repair, tilted transfer DP.
-R6 independent CAS, clock order and source-law/trace checks,
-explicit CP/TP and JE/Crooks/first-law identities; native agent absent.
-R7 execute registered scale replication and declared conditional
-measurements, temperature/response/time-block/action figures.
-R8 compare actual precision, higher-order and predictive limitations;
-preserve negative evidence without tuning heldout.
-R9 formula-to-code, complete seed pairing, original plot mapping.
-R10 durable result, drift watchdog, exact next board-size/precision plan.
-C1 pin baseline, executable, evaluator and registrations.
-C2 inspect actual trace, original source archives, NNUE header.
-C3 implement finite response/jackknife/prefix and conditional probes.
-C4 bounded three-stream 1344-job design; preserve prior 192 scale paths.
-C5 real execution and independent replay; no synthetic native paths.
-C6 actual Rust/Python regression and conditional checks.
-C7 receipt/manifest, PRNG, paired seed and causal-clock verification.
-C8 error and sampling diagnostics, resource and spatial-size scope.
-C9 independent calculation paths, plot manifest and source audit;
-native independent subagent NOT_RUN. No production backend change.
-C10 publish, DAG, verified consolidated two-copy backup and old
-duplicate cleanup. R8–R10 finalized after data, not literal independent
-serial subagents or a proof of all original research.
+# RESTORE49 R1-R10 / C1-C10
+R1 exact parent/original six axes, common size-family contract.
+R2 original archive and Q28, prior size header evidence, Exa/
+SciSpace finite-size vs time scaling, Parallel martingale response.
+R3 spatial occupancy, fixed-total tangent, open boundaries, source
+clock, physical/conditional model distinction, finite sampling.
+R4 common absolute geometry, temporal pulse, exact restricted
+lattice action, spatial record/phase and conditional thermal model.
+R5 derive C1=0, S0/Parseval, coarse covariance, retarded prefix LR,
+time-local score and protocol compensator, Gram/phase and tilted DP.
+R6 Wolfram Bernoulli check, exact L15 semantic replay and independent
+mathematical/implementation checks; no native subagent.
+R7 actual 557 jobs, 30 spatial groups,54 response cases,90 saddle
+conditions,120 thermal cycles,90 complex phase states.
+R8 preserve rank/finite-sample limits, no criticality or response
+equivalence, negative/positive scope, previous admissions unchanged.
+R9 equation-to-code and 9 grouped figures, no plot node expansion.
+R10 next density/independent opening/temporal precision contract.
+C1 baseline v3, exact parent, weight size support.
+C2 original source map, fixed state/trace/bridge dimensions.
+C3 generated per-size Rust/Python and time-local logit schedule.
+C4 actual compile/identity gates, bounded registered campaigns.
+C5 complete execution; first Cargo collision repaired before science.
+C6 actual five generated state tests, old full regression and gates.
+C7 independent trace/NNUE RNG replay, exact pre-pulse prefixes.
+C8 raw costs, finite errors, covariance rank and conditional reference.
+C9 independent code/data manifest and numerical reference checks;
+native independent agent NOT_RUN.
+C10 publish, update DAG, consolidated verified backup then duplicate
+cleanup. Final scientific R8-R10 outcomes depend on C data; not
+20 independent agent invocations.
