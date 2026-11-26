@@ -1,0 +1,13 @@
+{
+  "branch_member_hashes": 4544,
+  "contexts": 64,
+  "decision_groups": 12,
+  "max_adaptive_matrix_error": 4.218847493575684e-15,
+  "max_decision_gain_identity_error": 2.220446049250313e-16,
+  "max_diagonal_error": 4.551914400963142e-15,
+  "max_frozen_matrix_error": 3.663736000173479e-15,
+  "max_negativity_error": 1.8744373254616677e-16,
+  "max_trace_error": 3.996802888661923e-15,
+  "scope": "independent projector-based direct cross-block calculation, raw branch hashes, scalar probabilities and partial transpose; decision group/gain identity only, not independent predictor fit; same-agent alternate implementation",
+  "status": "PASS_SCOPED"
+}

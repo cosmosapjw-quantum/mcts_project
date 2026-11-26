@@ -1,0 +1,119 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "record_pair_negativity",
+      "ids": [
+        "Q35",
+        "Q40"
+      ],
+      "pdf_sha": "a4c36ac2b586557b45443bc5e16263e8697833f63f6cbcaaf0b293d1dbcdf663",
+      "png_sha": "78745c2636a0d8df838f458c86e9d8d53d5324c1ff623e34953e66ae97c4c0b8",
+      "scope": "Defined coherent dilation only; frozen and measured controls zero."
+    },
+    {
+      "figure": "adaptive_vs_frozen_law",
+      "ids": [
+        "Q24",
+        "Q37",
+        "Q28"
+      ],
+      "pdf_sha": "2a95f16ca349bcae3b1589d1f0ee5f0b78131dbd1194b8f5727c295e117ca3dd",
+      "png_sha": "449ae455c60b9c784c8bdb88248d00c37e5cd729f45b8311fafa904e4fabb392",
+      "scope": "Actual branch-dependent conditional laws vs frozen observed branch."
+    },
+    {
+      "figure": "coherent_record_dephasing",
+      "ids": [
+        "Q24",
+        "Q26",
+        "Q28"
+      ],
+      "pdf_sha": "502c94d7e3c5a668f148d1e130b2eadbf2a6d6abccaa0cf46889c2e340e5998f",
+      "png_sha": "8308802fcac917b0e77c0d676fceddf650485024d27681617013c1d15cf7d714",
+      "scope": "Trace distance to measured-first-record control."
+    },
+    {
+      "figure": "complex_record_matrix",
+      "ids": [
+        "Q35",
+        "Q40"
+      ],
+      "pdf_sha": "cef62e1d71ac492d091c66a2030fcdad17d77639caf53e83d7b7cf01e6eb2110",
+      "png_sha": "4c1006f2bd3f092388643e6aed71b5cb965d1080735a6694439ec3edcda9b503",
+      "scope": "Full complex reduced two-record density, largest model negativity."
+    },
+    {
+      "figure": "record_information",
+      "ids": [
+        "Q25",
+        "Q37",
+        "Q40"
+      ],
+      "pdf_sha": "b464560e0b80477bc7af1d3a926a37a1b0823b70b3d96a1b0a99b100966cb378",
+      "png_sha": "b46d0b436258f9a1c947f87b99c0ff62028181067984210922ee24b8ebeef899",
+      "scope": "Von Neumann versus diagonal classical MI, not final-decision information."
+    },
+    {
+      "figure": "system_entropy",
+      "ids": [
+        "Q24",
+        "Q40"
+      ],
+      "pdf_sha": "fc3b4c5461966244808c3bca44b4336da5d07881d50d4fe184bb8a4128fa4814",
+      "png_sha": "7ec3e78806b4f01d3448dc39468e321597d16c48d5dba964f8208d29c93b394e",
+      "scope": "System entropy after two records, branch-averaged model."
+    },
+    {
+      "figure": "decision_fragment_gain",
+      "ids": [
+        "L15",
+        "L30",
+        "Q25",
+        "Q37"
+      ],
+      "pdf_sha": "34bfb04ca5e9562b1eb9a427dabb355eb59cae0a53cd9f94491de11edaf737fa",
+      "png_sha": "588cc8fa737afa88c240daf3dd73d912cefd456546166e0fdaac660ee43be045",
+      "scope": "Fresh roots, four disjoint 32-event fragments and two halves; predictive gains, not exact MI."
+    },
+    {
+      "figure": "decision_shuffle",
+      "ids": [
+        "Q25",
+        "Q37",
+        "L30"
+      ],
+      "pdf_sha": "1e32f0bc19766c358d0d2aeb6396271400166c213fa6159b5c44a49767038c48",
+      "png_sha": "fecb6e7e809bb7f02cbdd088683806b2d3a3dedd40dc66c47777e08a223da67c",
+      "scope": "Within-root permutation negative control; geometry effects remain in shuffled predictors."
+    },
+    {
+      "figure": "decision_class_distribution",
+      "ids": [
+        "Q26",
+        "Q37"
+      ],
+      "pdf_sha": "44eedd80ca85782cf9a2dd85aaa1f52acad1bc4de734dce6d82e638ab7d29996",
+      "png_sha": "4d99b7cfcc407ddbc82de4760edf6b008d98f6be634fd4eb8b18b505d567e430",
+      "scope": "Actual final recommendation D is distinct from qubit pointer Z; no redundancy certification."
+    },
+    {
+      "figure": "measurement_quality",
+      "ids": [
+        "L05",
+        "L34",
+        "Q40"
+      ],
+      "pdf_sha": "6d13dccd381da17d32f9f070f3770ca4db0380ece7a0b7aa3ba88690b6cdc310",
+      "png_sha": "8b0a810f0b0deb245650c7169bb8a2978b94ef6590039d09226902c48f4f9ed7",
+      "scope": "Scoped measurement-quality report with explicit categories and verification errors; not physical temperature or critical-point count."
+    }
+  ],
+  "sources": {
+    "AUDIT73.json": "36d6717a43403a666b1baa867b8cac143e10b6ba0a6afaf9fa918679c47a4400",
+    "DECISION_RESULTS73.json": "d044bd43d0de24252681cd752ca1d6b63da68423ee0409c774d35490c50fd81c",
+    "INDEPENDENT73.json": "f8300f0c45df431614194651a8d7b936e9cd56dd8251ccaf4762ff03427c1d22",
+    "INSTRUMENT73.json": "7cb2ba098a82a0586d211be1d025643fd01db770eb5e4a923ff92506795f10c6",
+    "plot73.py": "7c7ff617eb156c4229e793f1dc9ae2ed3bbf54d681c1a58c87f1283b1dd1d889"
+  }
+}

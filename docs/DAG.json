@@ -56,7 +56,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-04.R",
+  "entry": "REPLAN-05",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -119,9 +119,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R73 actual adaptive multi-time complex records and final decision",
-    "Augmented coarse state and size/criticality grid",
-    "Population memory/support and independent calibration"
+    "R74 driven finite open-system reverse law and thermal identification",
+    "Multi-time coherent control, final-decision instrument and Rapfi calibration",
+    "Augmented coarse state and independent population/size/criticality"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -140,7 +140,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE73-ADAPTIVE-COMPLEX-RECORDS",
+  "next_stage_id": "MQFT-RESTORE74-DRIVEN-REVERSE-THERMAL",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -167,6 +167,11 @@
         "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
         "evidence": "New actual complete-game trace path on 15x15, all 80 receipts replayed and external NNUE pinned.",
         "remaining": "No complete strength certification; two response failures retained."
+      },
+      "restore73_followup": {
+        "artifact": "mqft_restore73_20261126/plots/measurement_quality.png",
+        "evidence": "Measurement quality explicit typed audit and original L05/L34 scope.",
+        "remaining": "Complete original measurement-quality report including physical thermal/critical claims not certified."
       },
       "retained_evidence": "STATE14\u201316\uc758 terminal\u00b7player frame \ubc0f native event \uae30\ub85d, RESTORE01\uc758 N,W,\uc81c2\ubaa8\uba58\ud2b8\u00b7\uc2e4\uc81c path\u00b7snapshot, \uc774\ud6c4 raw receipt\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \uace0\uc815 \uad6d\uba74\uc5d0\uc11c \ud655\uc778\ub41c \uacc4\uce21 \uc0c1\ud0dc\ub97c \uc720\uc9c0\ud55c\ub2e4.",
       "selector_trace_followup": "RESTORE35 325 new searches, 6024 backups, 581 exact tree cuts, four new full games plus four color-swapped arena games.",
@@ -473,6 +478,11 @@
         "evidence": "Exact complementary record law, Holevo, actual basis MI, explicit disjoint 90% fragment counts; no robust pointer redundancy.",
         "remaining": "Final decision D distinct; actual adaptive multi-time record and disjoint final-decision redundancy remain."
       },
+      "restore73_followup": {
+        "artifact": "mqft_restore73_20261126/{THEORY.md,INSTRUMENT73.json,DECISION_RESULTS73.json}",
+        "evidence": "64 actual conditional contexts, 4544 exhaustive native forced branches; diagonal law exact; explicit coherent-control two-record density negativity positive 63/64; measured/frozen zero; fresh disjoint decision predictive controls.",
+        "remaining": "Full process instrument and operational coherent feedback, independent quantum readout and final-decision redundancy; no Darwinism plateau."
+      },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -663,6 +673,11 @@
         "evidence": "Exact complex S:F states, negativity/concurrence and optimal model CHSH; independent matrix checks.",
         "remaining": "No physical Bell experiment or native unique coherent extension."
       },
+      "restore73_followup": {
+        "artifact": "mqft_restore73_20261126/INDEPENDENT73.json",
+        "evidence": "Explicit complex positive-Kraus branch-dependent model, shared bath and local record flags; independent density construction.",
+        "remaining": "Three or more time points, actual coherent intervention identifiability and non-unique phase extension."
+      },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
       "structure_followup": "RESTORE22 complex Gram restricted spatial coherence filtration and triangle-phase gauge checks; actual projected density code and operational recovery; no physical phase identification.",
@@ -772,6 +787,11 @@
         "evidence": "R71 block-memory donor diagnostic on existing large cohort; fixed 18 variants; count/mark source errors separate.",
         "remaining": "Fresh root holdout, full joint marks/next-state coupling and support; no exact closure."
       },
+      "restore73_followup": {
+        "artifact": "mqft_restore73_20261126/DECISION_RESULTS73.json",
+        "evidence": "R71-trained disjoint temporal fragment decision predictors tested on all 16 fresh R73 roots; Rapfi transfer negative.",
+        "remaining": "Fresh classifier calibration, root-conditioned information and autonomous closure; no universal memory sufficiency."
+      },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -869,7 +889,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-03",
+  "previous_entry": "REPLAN-04.R",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -3111,8 +3131,50 @@
     "reused_R71_paths": 9216,
     "status": "scoped_exact_pushforward_count_only_closure_refuted"
   },
-  "revision": "RESTORE72_20261126",
-  "scope": "Exact finite spatial pushforward, raw nonlumpability witnesses, finite-size comparisons and R71 memory diagnostics",
+  "restore73": {
+    "AUDIT73.json_sha256": "36d6717a43403a666b1baa867b8cac143e10b6ba0a6afaf9fa918679c47a4400",
+    "BRANCH_PATCH73.json_sha256": "83d5b6a82c6f3ec436b4e2efda0ce64ce3c80eeaf900af4bb9d86cbf0a084760",
+    "BRANCH_REGISTRATION73.json_sha256": "9df9d6266b1b7d8925083b22861c080789a9e3f5474cb5c05dbff19030cd11ef",
+    "DECISION_RESULTS73.json_sha256": "d044bd43d0de24252681cd752ca1d6b63da68423ee0409c774d35490c50fd81c",
+    "DRIFT_WATCHDOG.md_sha256": "91e3f5c1cf753fd59d5b012b54b169a67cb476bedfc646254e61d2c110a593e2",
+    "INDEPENDENT73.json_sha256": "f8300f0c45df431614194651a8d7b936e9cd56dd8251ccaf4762ff03427c1d22",
+    "INSTRUMENT73.json_sha256": "7cb2ba098a82a0586d211be1d025643fd01db770eb5e4a923ff92506795f10c6",
+    "NEXT_DYNAMICS.md_sha256": "3cbd9ccb10a181e9549aad6c96dc9c15607f26ae738db374fcc749a6604b91fa",
+    "ORIGINAL_OUTPUT_EVIDENCE73.csv_sha256": "de2ef6ea314302732748df1bd3e38e7c4187a087667b68a9f2951b37d40b76b2",
+    "ORIGINAL_OUTPUT_PROGRESS73.csv_sha256": "d969a39afac9668a575da3034edd91b2898fec0b3de8e329beada91e1a35830c",
+    "ORIGINAL_SOURCE73.json_sha256": "6cf2cfbf3f75df0cdb008bc468c46d2f3e2fb0fc5f9e96520225e15a776aaae7",
+    "PLOT_INVENTORY73.csv_sha256": "0e0691777c35948716cb7403a1a9246de93b711f5b4ef6ba3a5fe3239e279784",
+    "PLOT_MANIFEST73.json_sha256": "fc570062345e4f48872521d07fd0f119120f81ea9048db65dfc7b6dddec326d2",
+    "PROGRESS73.json_sha256": "8a5a2c03e0aae0167c143d9c5bb26abbed4b768fc569dd8db1acafb4186d6295",
+    "REGISTRATION.json_sha256": "98cb3c17a8d6116d98e58b73994aef066d534ffcaf6496b2d0b4ce556010bd18",
+    "THEORY.md_sha256": "7a528a60761064fa87fb532084a603ca0151fd0f04c4917ea4f45779d5ffd1e6",
+    "additional_plot_nodes": 0,
+    "animations": 0,
+    "conditional_contexts": 64,
+    "cumulative_fixed_root_histories": 71096,
+    "figures": 10,
+    "forced_branch_backups": 145408,
+    "forced_branch_replays": 4544,
+    "fresh_backups": 114688,
+    "fresh_fixed_root_histories": 896,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 11,
+    "original_evidence_union_R55_R73": 104,
+    "original_obligations": 121,
+    "parent_commit": "31277d04b65d37931ad35686c5ae660fb573563c",
+    "parent_dag_sha256": "030e34139fe7ea0cd1a67b20f0f8b040dbb61cbf732393ab2c7860fad6b37089",
+    "positive_model_record_negativity": 63,
+    "raw_bytes": 311105180,
+    "remaining": "coherent operational identification, process tensor, decision redundancy, thermal reverse law",
+    "retained_pairs": 584,
+    "reused_R71_backups": 1179648,
+    "reused_R71_paths": 9216,
+    "status": "scoped_actual_branch_law_coherent_model_nonunique"
+  },
+  "revision": "RESTORE73_20261126",
+  "scope": "Actual finite adaptive two-record branch law and explicit coherent extension; independent decision information",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE72-COARSE-MAPS-SIZE-FAMILY"
+  "supersedes_next": "MQFT-RESTORE73-ADAPTIVE-COMPLEX-RECORDS"
 }

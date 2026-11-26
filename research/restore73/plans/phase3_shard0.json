@@ -1,0 +1,3298 @@
+[
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r00_persist_plus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 0,
+    "seed": 8654608588824637559,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r00_persist_minus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 0,
+    "seed": 8654608588824637559,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r00_persist_dephased",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 0,
+    "seed": 8654608588824637559,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r01_persist_plus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 1,
+    "seed": 5686142071842287303,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r01_persist_minus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 1,
+    "seed": 5686142071842287303,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r01_persist_dephased",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 1,
+    "seed": 5686142071842287303,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r02_persist_plus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 2,
+    "seed": 1037667391553004149,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r02_persist_minus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 2,
+    "seed": 1037667391553004149,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r02_persist_dephased",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 2,
+    "seed": 1037667391553004149,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r03_persist_plus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 3,
+    "seed": 7000206493603600078,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r03_persist_minus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 3,
+    "seed": 7000206493603600078,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r03_persist_dephased",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 3,
+    "seed": 7000206493603600078,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r04_persist_plus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 4,
+    "seed": 6673403070422921190,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r04_persist_minus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 4,
+    "seed": 6673403070422921190,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r04_persist_dephased",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 4,
+    "seed": 6673403070422921190,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r05_persist_plus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 5,
+    "seed": 6291510291279170069,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r05_persist_minus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 5,
+    "seed": 6291510291279170069,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r05_persist_dephased",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 5,
+    "seed": 6291510291279170069,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r06_persist_plus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 6,
+    "seed": 6440126823737182196,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r06_persist_minus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 6,
+    "seed": 6440126823737182196,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r06_persist_dephased",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 6,
+    "seed": 6440126823737182196,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r07_persist_plus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 7,
+    "seed": 4726480569347619568,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r07_persist_minus",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 7,
+    "seed": 4726480569347619568,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r07_persist_dephased",
+    "moves": [
+      1,
+      15,
+      57,
+      69
+    ],
+    "rep": 7,
+    "seed": 4726480569347619568,
+    "sources": [
+      48,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r00_persist_plus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 0,
+    "seed": 1243977690837328000,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r00_persist_minus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 0,
+    "seed": 1243977690837328000,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r00_persist_dephased",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 0,
+    "seed": 1243977690837328000,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r01_persist_plus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 1,
+    "seed": 6690763029365694723,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r01_persist_minus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 1,
+    "seed": 6690763029365694723,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r01_persist_dephased",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 1,
+    "seed": 6690763029365694723,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r02_persist_plus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 2,
+    "seed": 9038103692288602251,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r02_persist_minus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 2,
+    "seed": 9038103692288602251,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r02_persist_dephased",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 2,
+    "seed": 9038103692288602251,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r03_persist_plus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 3,
+    "seed": 760346617491375240,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r03_persist_minus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 3,
+    "seed": 760346617491375240,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r03_persist_dephased",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 3,
+    "seed": 760346617491375240,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r04_persist_plus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 4,
+    "seed": 8983904939969047138,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r04_persist_minus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 4,
+    "seed": 8983904939969047138,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r04_persist_dephased",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 4,
+    "seed": 8983904939969047138,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r05_persist_plus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 5,
+    "seed": 3927976325158938823,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r05_persist_minus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 5,
+    "seed": 3927976325158938823,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r05_persist_dephased",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 5,
+    "seed": 3927976325158938823,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r06_persist_plus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 6,
+    "seed": 9051849335937016,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r06_persist_minus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 6,
+    "seed": 9051849335937016,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r06_persist_dephased",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 6,
+    "seed": 9051849335937016,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r07_persist_plus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 7,
+    "seed": 2106379574580032433,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r07_persist_minus",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 7,
+    "seed": 2106379574580032433,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r07_persist_dephased",
+    "moves": [
+      0,
+      31,
+      59,
+      6,
+      14,
+      49,
+      10,
+      67
+    ],
+    "rep": 7,
+    "seed": 2106379574580032433,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r00_persist_plus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 0,
+    "seed": 6219509219570001337,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r00_persist_minus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 0,
+    "seed": 6219509219570001337,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r00_persist_dephased",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 0,
+    "seed": 6219509219570001337,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r01_persist_plus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 1,
+    "seed": 971298650375230810,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r01_persist_minus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 1,
+    "seed": 971298650375230810,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r01_persist_dephased",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 1,
+    "seed": 971298650375230810,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r02_persist_plus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 2,
+    "seed": 7946225235565039658,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r02_persist_minus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 2,
+    "seed": 7946225235565039658,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r02_persist_dephased",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 2,
+    "seed": 7946225235565039658,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r03_persist_plus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 3,
+    "seed": 7724469615850589020,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r03_persist_minus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 3,
+    "seed": 7724469615850589020,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r03_persist_dephased",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 3,
+    "seed": 7724469615850589020,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r04_persist_plus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 4,
+    "seed": 8489396921079554174,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r04_persist_minus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 4,
+    "seed": 8489396921079554174,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r04_persist_dephased",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 4,
+    "seed": 8489396921079554174,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r05_persist_plus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 5,
+    "seed": 2433116387500772185,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r05_persist_minus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 5,
+    "seed": 2433116387500772185,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r05_persist_dephased",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 5,
+    "seed": 2433116387500772185,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r06_persist_plus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 6,
+    "seed": 4608756927049303848,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r06_persist_minus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 6,
+    "seed": 4608756927049303848,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r06_persist_dephased",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 6,
+    "seed": 4608756927049303848,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r07_persist_plus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 7,
+    "seed": 6955696855889062398,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r07_persist_minus",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 7,
+    "seed": 6955696855889062398,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r07_persist_dephased",
+    "moves": [
+      12,
+      60,
+      43,
+      44,
+      1,
+      72,
+      64,
+      18,
+      17,
+      69,
+      49,
+      36
+    ],
+    "rep": 7,
+    "seed": 6955696855889062398,
+    "sources": [
+      40,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r00_persist_plus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 0,
+    "seed": 6835425126393907573,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r00_persist_minus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 0,
+    "seed": 6835425126393907573,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r00_persist_dephased",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 0,
+    "seed": 6835425126393907573,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r01_persist_plus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 1,
+    "seed": 8210025278779598765,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r01_persist_minus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 1,
+    "seed": 8210025278779598765,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r01_persist_dephased",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 1,
+    "seed": 8210025278779598765,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r02_persist_plus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 2,
+    "seed": 767007403882535667,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r02_persist_minus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 2,
+    "seed": 767007403882535667,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r02_persist_dephased",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 2,
+    "seed": 767007403882535667,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r03_persist_plus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 3,
+    "seed": 8079022815266151203,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r03_persist_minus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 3,
+    "seed": 8079022815266151203,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r03_persist_dephased",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 3,
+    "seed": 8079022815266151203,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r04_persist_plus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 4,
+    "seed": 4600176825154583299,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r04_persist_minus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 4,
+    "seed": 4600176825154583299,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r04_persist_dephased",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 4,
+    "seed": 4600176825154583299,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r05_persist_plus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 5,
+    "seed": 6836458825604637314,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r05_persist_minus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 5,
+    "seed": 6836458825604637314,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r05_persist_dephased",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 5,
+    "seed": 6836458825604637314,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r06_persist_plus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 6,
+    "seed": 7608818723861391588,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r06_persist_minus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 6,
+    "seed": 7608818723861391588,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r06_persist_dephased",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 6,
+    "seed": 7608818723861391588,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r07_persist_plus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 7,
+    "seed": 5667996835976382148,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r07_persist_minus",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 7,
+    "seed": 5667996835976382148,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r07_persist_dephased",
+    "moves": [
+      3,
+      8,
+      27,
+      33,
+      37,
+      45,
+      53,
+      29,
+      16,
+      23,
+      36,
+      21,
+      24,
+      28,
+      61,
+      68
+    ],
+    "rep": 7,
+    "seed": 5667996835976382148,
+    "sources": [
+      58,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r00_persist_plus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 0,
+    "seed": 8990654039986014025,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r00_persist_minus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 0,
+    "seed": 8990654039986014025,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r00_persist_dephased",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 0,
+    "seed": 8990654039986014025,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r01_persist_plus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 1,
+    "seed": 6654285740684023281,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r01_persist_minus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 1,
+    "seed": 6654285740684023281,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r01_persist_dephased",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 1,
+    "seed": 6654285740684023281,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r02_persist_plus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 2,
+    "seed": 4091912802680519238,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r02_persist_minus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 2,
+    "seed": 4091912802680519238,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r02_persist_dephased",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 2,
+    "seed": 4091912802680519238,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r03_persist_plus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 3,
+    "seed": 6256111335270291089,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r03_persist_minus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 3,
+    "seed": 6256111335270291089,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r03_persist_dephased",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 3,
+    "seed": 6256111335270291089,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r04_persist_plus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 4,
+    "seed": 7331606415299559734,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r04_persist_minus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 4,
+    "seed": 7331606415299559734,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r04_persist_dephased",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 4,
+    "seed": 7331606415299559734,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r05_persist_plus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 5,
+    "seed": 5289177367085648669,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r05_persist_minus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 5,
+    "seed": 5289177367085648669,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r05_persist_dephased",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 5,
+    "seed": 5289177367085648669,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r06_persist_plus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 6,
+    "seed": 4793458022858303724,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r06_persist_minus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 6,
+    "seed": 4793458022858303724,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r06_persist_dephased",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 6,
+    "seed": 4793458022858303724,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r07_persist_plus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 7,
+    "seed": 5742841159385757177,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r07_persist_minus",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 7,
+    "seed": 5742841159385757177,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r07_persist_dephased",
+    "moves": [
+      10,
+      6,
+      14,
+      17
+    ],
+    "rep": 7,
+    "seed": 5742841159385757177,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r00_persist_plus",
+    "moves": [
+      10,
+      22,
+      80,
+      27,
+      36,
+      1,
+      62,
+      43
+    ],
+    "rep": 0,
+    "seed": 1847887867397873188,
+    "sources": [
+      59,
+      39
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r00_persist_minus",
+    "moves": [
+      10,
+      22,
+      80,
+      27,
+      36,
+      1,
+      62,
+      43
+    ],
+    "rep": 0,
+    "seed": 1847887867397873188,
+    "sources": [
+      59,
+      39
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r00_persist_dephased",
+    "moves": [
+      10,
+      22,
+      80,
+      27,
+      36,
+      1,
+      62,
+      43
+    ],
+    "rep": 0,
+    "seed": 1847887867397873188,
+    "sources": [
+      59,
+      39
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r01_persist_plus",
+    "moves": [
+      10,
+      22,
+      80,
+      27,
+      36,
+      1,
+      62,
+      43
+    ],
+    "rep": 1,
+    "seed": 1421400102397641704,
+    "sources": [
+      59,
+      39
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r01_persist_minus",
+    "moves": [
+      10,
+      22,
+      80,
+      27,
+      36,
+      1,
+      62,
+      43
+    ],
+    "rep": 1,
+    "seed": 1421400102397641704,
+    "sources": [
+      59,
+      39
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r01_persist_dephased",
+    "moves": [
+      10,
+      22,
+      80,
+      27,
+      36,
+      1,
+      62,
+      43
+    ],
+    "rep": 1,
+    "seed": 1421400102397641704,
+    "sources": [
+      59,
+      39
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r02_persist_plus",
+    "moves": [
+      10,
+      22,
+      80,
+      27,
+      36,
+      1,
+      62,
+      43
+    ],
+    "rep": 2,
+    "seed": 9058236473802991313,
+    "sources": [
+      59,
+      39
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r02_persist_minus",
+    "moves": [
+      10,
+      22,
+      80,
+      27,
+      36,
+      1,
+      62,
+      43
+    ],
+    "rep": 2,
+    "seed": 9058236473802991313,
+    "sources": [
+      59,
+      39
+    ],
+    "width": 4
+  }
+]

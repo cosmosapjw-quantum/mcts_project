@@ -1,0 +1,81 @@
+--- a/backend/src/mqft_law.rs
++++ b/backend/src/mqft_law.rs
+@@ -151,14 +151,18 @@
+ pub struct Phase65 {
+     sources:[usize;2], mode:String, width:usize, budget:usize,
+     state:[f64;3], exposure:f64, previous_gap:f64,
++    forced73:Vec<usize>,
++    stop73:Option<usize>,
+ }
+ impl Phase65 {
+     pub fn new(sources:[usize;2],mode:String,width:usize,budget:usize)->Self{
+         assert!(sources[0]!=sources[1] && width>0 && budget%width==0);
+         assert!(["persist_plus","persist_minus","persist_dephased","reset_plus"].contains(&mode.as_str()));
+         let y=if mode=="persist_minus"{-0.8}else if mode=="persist_dephased"{0.0}else{0.8};
+-        Self{sources,mode,width,budget,state:[0.,y,0.],exposure:0.,previous_gap:0.}
+-    }
++        Self{sources,mode,width,budget,state:[0.,y,0.],exposure:0.,previous_gap:0.,forced73:vec![],stop73:None}
++    }
++    pub fn branch73(mut self, prefix:Vec<usize>, stop:usize)->Self { assert!(prefix.len()<=16 && stop==32 && self.budget==128);self.forced73=prefix;self.stop73=Some(stop);self }
++    pub fn stop73(&self)->Option<usize>{self.stop73}
+     fn rotate_x(v:[f64;3],angle:f64)->[f64;3]{
+         let(c,s)=(angle.cos(),angle.sin());[v[0],c*v[1]-s*v[2],s*v[1]+c*v[2]]
+     }
+@@ -337,7 +341,7 @@
+                 }
+             }
+         }
+-        let i = picked.unwrap_or_else(|| b.iter().rposition(|&x| x > 0.).unwrap());
++        let i = if let Some(a)=self.phase65.as_ref().and_then(|p|p.forced73.get(t)) { actions.iter().position(|v|v==a).expect("forced legal root action") } else {picked.unwrap_or_else(|| b.iter().rposition(|&x| x > 0.).unwrap())};
+         if let (Some(ph),Some(rec))=(self.phase65.as_mut(),phase65.as_mut()){ph.finish(actions[i],rec);}
+         let (lp, lq, lb) = (p[i].ln(), q[i].ln(), b[i].ln());
+         self.lp += lp;
+--- a/backend/src/mqft_train_controlled61.rs
++++ b/backend/src/mqft_train_controlled61.rs
+@@ -59,6 +59,7 @@
+ fn execute_schedule(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>,phase:Option<crate::mqft_law::Phase64>,persistent:Option<crate::mqft_law::Phase65>,schedule:Option<Vec<f64>>)->Result<Value,String>{execute_fault67(j,net,field,phase,persistent,schedule,None)}
+ fn execute_fault67(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>,phase:Option<crate::mqft_law::Phase64>,persistent:Option<crate::mqft_law::Phase65>,schedule:Option<Vec<f64>>,fault:Option<Fault67>)->Result<Value,String>{
+     if ![32,64,128,512,1024].contains(&j.budget)||![1,4].contains(&j.width)||j.budget as usize%j.width!=0{return Err("bad budget/width".into())}
++    let run_budget=persistent.as_ref().and_then(|ph|ph.stop73()).unwrap_or(j.budget as usize);
+     let s=state(&j.moves)?;if s.is_terminal()||!s.legal_moves().contains(&j.source){return Err("bad source or terminal".into())}
+     let law=LawSpec{kind:"iid".into(),beta_p:vec![j.beta],beta_q:vec![j.beta],proposal:"p".into(),logit_h:j.h};
+     law.validate(j.budget,"wave",Some(j.source))?;
+@@ -69,7 +70,7 @@
+     eng.par_ctrl.mqft_record=true;eng.par_ctrl.mqft_sampler=Some(Mutex::new(if let Some(hs)=schedule {assert!(field.is_none()&&phase.is_none()&&persistent.is_none()&&hs.len()==j.budget as usize);Sampler::new_schedule66(law,j.source,hs,j.seed)} else if let Some(ph)=persistent {assert!(field.is_none()&&phase.is_none());Sampler::new_phase65(law,ph,j.seed)} else if let Some(ph)=phase {assert!(field.is_none());Sampler::new_phase64(law,ph,j.seed)} else if let Some(f)=field {Sampler::new_field(law,f,j.seed)} else {Sampler::new(law,Some(j.source),j.seed)}));
+     let tr=Arc::new(Trace::default());eng.mqft_trace=Some(tr.clone());mqft_trace::clear_eval();
+     let mut cuts=vec![];let t0=Instant::now();
+-    for phase in 1..=j.budget as usize/j.width{
++    for phase in 1..=run_budget/j.width{
+         tr.set_phase(phase as u32);eng.par_ctrl.set_n_threads(j.width as u32);
+         let mut prep=vec![];
+         for _ in 0..j.width{
+@@ -117,7 +118,7 @@
+         }
+     }
+     let es=tr.events.lock();let rec=ev.records.lock();
+-    assert_eq!(es.len(),j.budget as usize);assert_eq!(rec.len() as u64,eng.evaluator_call_count());
++    assert_eq!(es.len(),run_budget);assert_eq!(rec.len() as u64,eng.evaluator_call_count());
+     // Compact exact trace: p=q=b for this registered law; omit duplicate vectors,
+     // redundant probability logs q/b, but retain full scores,p,uniform,actions.
+     let mut events=vec![];
+--- a/backend/src/mqft_train_persistent65.rs
++++ b/backend/src/mqft_train_persistent65.rs
+@@ -3,15 +3,16 @@
+ use flate2::{write::GzEncoder,Compression};
+ #[derive(Clone,Serialize,Deserialize)]
+ #[serde(deny_unknown_fields)]
+-struct Job65{id:String,moves:Vec<usize>,sources:[usize;2],seed:u64,budget:u32,width:usize,beta:f64,generation:usize,core:usize,rep:usize,arm:String}
++struct Job65{id:String,moves:Vec<usize>,sources:[usize;2],seed:u64,budget:u32,width:usize,beta:f64,generation:usize,core:usize,rep:usize,arm:String,#[serde(default,skip_serializing_if="Vec::is_empty")] forced73:Vec<usize>}
+ fn one(j:&Job65,net:Arc<Net>)->Result<Value,String>{
+  if j.width!=4 || ![128,1024].contains(&j.budget) || !["baseline","fresh64","reset_plus","persist_plus","persist_minus","persist_dephased","reference"].contains(&j.arm.as_str()) || (j.arm=="reference")!=(j.budget==1024){return Err("invalid persistent experiment".into())}
+  let s=state(&j.moves)?;let legal=s.legal_moves();
+  if s.is_terminal()||j.sources[0]==j.sources[1]||j.sources.iter().any(|a|!legal.contains(a)){return Err("invalid source pair".into())}
++ if !j.forced73.is_empty() && (j.forced73.len()!=16 || j.budget!=128 || !["persist_plus","persist_minus"].contains(&j.arm.as_str()) || j.forced73.iter().any(|a|!legal.contains(a))){return Err("invalid R73 prefix".into())}
+  let old=ControlJob{id:j.id.clone(),moves:j.moves.clone(),source:j.sources[0],seed:j.seed,budget:j.budget,width:j.width,beta:j.beta,h:0.,d4:false,generation:j.generation,core:j.core,orientation:0,rep:j.rep,cohort:"phase65".into()};
+  let raw=if j.arm=="baseline"||j.arm=="reference"{execute_field(&old,net,Some(vec![0.;N]))?}
+  else if j.arm=="fresh64"{execute_instrument(&old,net,None,Some(Phase64::new(j.sources,"plus".into(),j.width,j.budget as usize)))?}
+- else{execute_persistent(&old,net,None,None,Some(Phase65::new(j.sources,j.arm.clone(),j.width,j.budget as usize)))?};
++ else{let mut ph=Phase65::new(j.sources,j.arm.clone(),j.width,j.budget as usize);if !j.forced73.is_empty(){ph=ph.branch73(j.forced73.clone(),32);}execute_persistent(&old,net,None,None,Some(ph))?};
+  Ok(json!({"schema":"mqft.trained.phase65.v1","input":j,"trace":raw}))
+ }
+ pub(in crate::mqft_train)fn run(weights:&str,plan:&str,out:&str,workers:&str)->Result<(),String>{

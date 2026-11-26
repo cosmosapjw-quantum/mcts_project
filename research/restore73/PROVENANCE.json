@@ -1,0 +1,2653 @@
+{
+  "changed_or_added_backend_files": {
+    "examples/mqft_rng_replay.rs": "cf9d750dced92b5f52e4431ece5b6fb332560e5a33b02f5e7d07aaaf314993f4",
+    "src/games/mod.rs": "48bc9147c4eed75ac43a6d6e601b2c5cdcfe26943a6205544520a4017e3d9970",
+    "src/lib.rs": "441beaf9c7db69e2f4298f64e60ec932f82ff281b4ad361e5385aabb0fcd6f88",
+    "src/main.rs": "1fb0e10011a45a4cc7e45614b740f5bc04930e57c58a690930f4fc6e9d99fd83",
+    "src/mcts/backup.rs": "6d564e48e8c94660650b0a35710c8f9349a603ee49533402b7863aad7835bc09",
+    "src/mcts/expand.rs": "9b67f852b3875f52c8e65bddacdf05040420a80bba4962a35ed23bf0422b4581",
+    "src/mcts/mod.rs": "e4ed7b2be2d4eeecf70dd800c8c2617f096addfe14350aaae59750ba66f8be4d",
+    "src/mcts/node.rs": "f1668be4358264ff19808b6a76517deefb79aaf4ccd039b18ba6a232fe825a65",
+    "src/mcts/parallel.rs": "8059825b1a72525c099c4bb5bb8414046c65974c81e8518a202f2e9541dbbfe4",
+    "src/mcts/select.rs": "ec3b0f4072ef68f863aece3e183055212ed978b1d9918f03ba98c642d19bf628",
+    "src/mcts/tt.rs": "4c02bd361763b5dd3bc353bbfbc8eae87e9c05f10297b3b361262190d27b3156",
+    "src/mqft.rs": "5795211f1b122e3a1cd8f1d79e05d0792200e9e77bcdc949756cb3305937cf4a",
+    "src/mqft_law.rs": "4e49eec8c2f6fd01e9911432d0f67e5ae61c2672761c65ed62e492fbeeea7147",
+    "src/mqft_rapfi.rs": "cebf98243a27c9c9e44ff477297a26417582c3bd470c02193df2bcb92d5623e3",
+    "src/mqft_trace.rs": "ea897867d6d1a3f93a5dbe701daa6b6fcfeee64be11a8f1d680f3b64b189a726"
+  },
+  "original_catalog": {
+    "functions": 94,
+    "guide_only": 27,
+    "sha256": "d5d58c6f48e1fb95a3b3a11f355a5260ce95744aa86bcfc988b65d9985155696"
+  },
+  "original_zip_hashes": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "pristine_backend_files": {
+    "Cargo.lock": "4368560c374c1272000fdd17a48fbe8449c6e471c848698b088d0b6092b2bb36",
+    "Cargo.toml": "897e6624b41356d2f2ca7fffa30c4479cc0959fee3138cdb30fa4bc8ec5c1994",
+    "LICENSE": "b37ac4f692f71f1dafd2dc6650380d2ad5da255c1cef811558dedf03e235f354",
+    "src/ablation_refresh.rs": "132f89e495574f4bbda20f0c87c03be3f06f64ffb69eb1b87be9c25d9cec9159",
+    "src/game.rs": "b5e1fefb9d9ee72e7eb2fb684edafe3702e11f0f712cc3bd92fb43ccb71ff3e0",
+    "src/games/chess.rs": "2ed9f4d36cc2058ecbf443abec80aba55dc0235111a7b664a192dd73ca659014",
+    "src/games/go.rs": "eff43ee456667fca4c32c963e4ab3d86ef7505b05a3000196d469c5bd57ffb55",
+    "src/games/gomoku.rs": "b885c4bc8fa503be74d128c49faa475662b0ba0c35595a0666075e92621e0b0b",
+    "src/games/gomoku15.rs": "0f8cc3c3fae1819b807f0c0eae27cf77ff8f2d1d893f09f82b019682bcf2ef0d",
+    "src/games/mod.rs": "84445ec4677b11f0fca0719905fc4cab3634e9c63305ff08b8fe6396a1ca00db",
+    "src/games/tictactoe.rs": "45f552117481ef00e966d461c111e2de41de2d5f504390c376d675d8c1de35f8",
+    "src/mcts/backup.rs": "bbc4ff31ccb0d36e5803c9fb506d09385643c94db045b81ff74ffbef7246c7f8",
+    "src/mcts/eval.rs": "2620b7e929dc390b1a674341b5d0a58f6f392d964480e56fb9ad3044929045f5",
+    "src/mcts/expand.rs": "5a310b4e27ebf1fce37c350f2e3c64c4ae5aea2de6d51cfb8444109f3168c591",
+    "src/mcts/foundry/control.rs": "d669203d6fe9506b5016bfb0eb1c23d7653ac33c797326cfda878eb4baf0172a",
+    "src/mcts/foundry/coordinator.rs": "4cf96910f3f24a6c385aa334f794a721f724eaaee1eb06056c377c3119c4d970",
+    "src/mcts/foundry/legacy_24axis/README.md": "e1649a7dd615a49b36d1de13f181fcdbd94252208a3bb3f2a633a8af1929b221",
+    "src/mcts/foundry/legacy_24axis/foundry_axes.rs": "a32a5a139c74ce20c3f3bb922905b3427ad43b7ff9de0a50db9e807bce622a79",
+    "src/mcts/foundry/legacy_24axis/foundry_contracts.rs": "53af55f85ee83a07d13b43e822b54cfd4d7e7cf4d7f9507ceb4a317003d4f93e",
+    "src/mcts/foundry/mod.rs": "7b22526a84ee9fe539b75a0ac403b601b209c3a59a7975c8e4c397cde828e380",
+    "src/mcts/foundry/policy.rs": "8ae21fb0e732e9dbf0bcdc02e1574f5659a3e7e2e635d63e97dc7b5c84f5d21e",
+    "src/mcts/foundry/search.rs": "4c1adcfdee664adad458a21e62549b0d6deddc03fa1a8591ba9963833fbf92cd",
+    "src/mcts/foundry/systems.rs": "62aed2ec4f5b3213d7589fecf0cd16328466daabf93d33bef04ad07d757bea8f",
+    "src/mcts/foundry/types.rs": "9ca501e7fe239a1f17793dc91b7294d5b2d60f247369beb9ca7ae981c7cf6b8a",
+    "src/mcts/gvoc.rs": "0828513f241eb49ba40780a41197d0c568e6140b6c3c5d51734e488e43004d5e",
+    "src/mcts/mod.rs": "868b0758a7a3d0810e0d8010d0685662776d8eac9eef9a65e4e848d62ff58dc2",
+    "src/mcts/mod_types.rs": "a8f3459f87c8f8ad23ff20cb5f42312dfbf6f59ba9b6821d7b9e29497ed57f75",
+    "src/mcts/node.rs": "8ef29aa1c9107cb953dc4e897120dfeb83849a6dfeb0e53dad4afd7b379bce1e",
+    "src/mcts/parallel.rs": "8b4d5351d652a119f3c21c82f56f71c56ddacd894e49d069a9f5a4a3e9a55ec9",
+    "src/mcts/policy/cache.rs": "445a95a7afcd1ba212223bc3416a4d54424492ac258c0484f6338a6d9585e75e",
+    "src/mcts/policy/gumbel_sh.rs": "7ec6b03878d1912f7a10e81fee3de482ed490e4dc8235bedf05c558cd6ec82f1",
+    "src/mcts/policy/kg_stop.rs": "218e56b8306edee2dea622c96b09220e11bb47341b7a5a5932b3d4c985a7bb04",
+    "src/mcts/policy/kl_helpers.rs": "77a27c553240175b5ee4a6d902a5f02b06d579fbe9674cb3403542585b3921ad",
+    "src/mcts/policy/kl_lucb.rs": "16be5552f7fab91ae7713f5dd04288150ede83275281e129433c3b771f4eebdd",
+    "src/mcts/policy/legacy_az.rs": "352491058a504228fc407ff76c5a92951b886706649d72f8f09f351c578918e3",
+    "src/mcts/policy/legacy_quartz.rs": "a099db6dd8b908c74cdc7830cc0ace70b2dad0d29acda0245c93e6658b65c770",
+    "src/mcts/policy/ments.rs": "1caace36d24c60f9be02f271fb5df483ba49a0c4b4265c00c0974d8eb38f257a",
+    "src/mcts/policy/mod.rs": "c6a69cf305ef9b80bd1982669b4892ab41cf78a2bc9afda0df45b46965d35247",
+    "src/mcts/policy/reservoir.rs": "7fab92e3c31d3b44d8da2c98c7b7df79d3712a895cec47c2d2d7d0cd4f83cdec",
+    "src/mcts/policy/tactical.rs": "ce2bbbbbab5d07d1a9be421cdc94f1213175a8012358d28947c41ec43708a34f",
+    "src/mcts/policy/trait_def.rs": "17904e81685e1e10c07c0482fce6a3cb1a4989f1336d083e60e73cb12a85735e",
+    "src/mcts/profiling.rs": "bb907db1b43e04b05f7ab80ed616109360cc0553e16880bfdae37880b823e151",
+    "src/mcts/quartz.rs": "0cd43689b32d5903cd0933bb292dedaf4d4a1d9ff94b748fb06c37b4bc4c1faf",
+    "src/mcts/rng.rs": "a16f0d5e07e291b27ec18a7b7266d3f0ec9a87980f4008260dd4116efd4c81a7",
+    "src/mcts/root.rs": "56c6e5f23a04c57060baa7271ea11fcdf20f7e3e0bcc8d8848b01cf27ac14f16",
+    "src/mcts/search.rs": "20fad7dc16701f398f05dcd0a9f0b98c07a1006497946a3fe9cee2caac3b62b6",
+    "src/mcts/select.rs": "30066af09fbb0c662ab9d8f7e6b7b45eb6bc520b3953eba9d5ec260090a16a7e",
+    "src/mcts/tt.rs": "0a6357aca56df56e195da02eedc5bf18c69fbc86349a44937a2790c76d05813e",
+    "src/simd_utils.rs": "4d3d3a36777537f4a871361bb939663ac433b710dd080985bcc897c05779fcd3"
+  },
+  "quartz_branch": "agent/local-experiment-foundry",
+  "quartz_commit": "65e7d3e9596ca259ebfe523b0c74058692b6a755",
+  "quartz_mit_license": "LICENSE-QUARTZ-MIT",
+  "quartz_url": "https://github.com/cosmosapjw-quantum/quartz",
+  "rapfi_archive_sha256": "1a3e24024062a153ac079060ee9589a37c6bdd1ecc54fed3908793c519594e05",
+  "rapfi_previous_quartz_branch_commit": "bc44e5c85c1f37201f80880f18d59fdb55a509a8",
+  "rapfi_release": "250615",
+  "rapfi_release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+  "rapfi_runtime": {
+    "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+    "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+    "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+  },
+  "rapfi_source_commit": "1387d11312190ec66665d361ff07a7c70221b78a",
+  "rapfi_submodules": {
+    "Gomocalc": "7710eddd34a8761fb183fb77b1bc685cdda1619c",
+    "Networks": "7eeb19b55219a48138756293f92211a1539bab4d",
+    "Trainer": "3641196344856432c599d1c59e314e345dc7d1dd"
+  },
+  "research_campaigns_generated": 0,
+  "restore40": {
+    "parent_main": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "policies": {
+      "CORE_POLICY.md": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
+      "QUANTUM_DYNAMICS_POLICY.md": "c0cd99ceb637a4bfa758bb9a9cb2e12d5fd8e9d1bae3f0007a536b4ce4744345",
+      "QUANTUM_REPRESENTATION_POLICY.md": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c"
+    },
+    "prior_theory_hashes": {
+      "28": "e65374d8e7dbe913b09c441920372ae0a92809135f96f9f63c42e335b7ee21b1",
+      "29": "32145946f8ee6ce32d8a9b48accf5bc977ee2ae175f37b00ea7861b9a7be3575",
+      "30": "961ad278728a8704c8e45c06925c1ebc54186ef14ec29b1c074ff43d1db7edf0",
+      "31": "0ad4710e185093fe3d824317dcb1d3c58c4d008b6c241c28a6ab30d301a76503",
+      "32": "ed4d734b629609dbf706862a4b8bcf815677c1c64dfc3278f330ff000269a9a4",
+      "33": "ffcc5af913aa148b3f8fa276f3125a1f265ad6b9f2574ed5c85a04567235045f",
+      "34": "c44dd31f5c1726a8cb12a05eb034f65fda18436686f15b8c4f662aecac36d72d",
+      "35": "51000fdeff1170bf21a2323ca85e7a7353940611d44be65237f203c7d99e2963",
+      "36": "7b316dc38631396ed804b048624dc967b6e3e47fbb692be1fa53b62d2ea5635c",
+      "37": "b1c778007a788e2c9ccba28e31af7d6738321e3bc18a5c43c2f413ffdf6d6dfa",
+      "38": "2dfdc4e0ea3cf9b28af6a382f2efda4e7d5f8a178685f327be803cef33ec100b"
+    },
+    "trace_schema": "mqft.quartz.trace.v2"
+  },
+  "restore41": {
+    "common_evaluator_binary_sha256": "82ee8cf6666791e414b793cf25ea0a83316cf7fcc8076d6430284d7ca4acf81f",
+    "common_evaluator_registration_sha256": "666aba3f4b8fea4ef44d06b3609ffeab79ff29f4b5e96c4ca432dd38c2fe7e3f",
+    "parent_main": "ede118256934bbe9947bceb4be60dc332eb44252",
+    "plan_hashes": {
+      "commissioning": "5145738f2f46c2b108d0a35e2680fde6be7aaed3eba5703bc9349a6c78ad2b67",
+      "matched_leaf": "6a5ee0bd7d2d6e5f440c6a59393b189b704108d5d1d646c595e1786bded30b90",
+      "mixnet_games": "f25f07485ce58f1b0afc3f6157a5b47d9bd1438177ded885f9e8cfe916bfb643",
+      "mixnet_laws": "abdf5ec47880f44446dab90368b2f07215c4fbeafb3e7ef148048b503060f055",
+      "mixnet_roots": "ad2bf767838fbff3da3c3e761441d7b986590eef2e8bda269ccf90cddb157a6b",
+      "root_pilot": "744f1b0bcc45d889ddff353f22c61bdc149a341c61a19da7d5c9c2a04f787550"
+    },
+    "summary_sha256": "b33242db76e1d0659738fc0f623fc8e329aabf3ad6fdd05fb5743978bab97b99"
+  },
+  "restore42": {
+    "backend_sha256": "6fef50c0d3b935c6c0bec7cfddbadd6a1a830a813ef945c44cedf423123bf40f",
+    "leaf_equivalence_sha256": "1d087072a08391b2f970564938b51d2ba1e1bc53ed7bc4970c076acf2397fe28",
+    "parent_main": "1ef5edc49979d0a8ffba34f405b5dc9afdd628f0",
+    "plan_hashes": {
+      "arena_A": "45afb50b7cac1cada006364b5aa12c7d8481066dfa01985e8f84f6145f1eda00",
+      "arena_B": "b24c0b45b1b5caffbdb5b154dbcc42cb51c6277975293f0a3484905c36d4c21f",
+      "source": "22ca0b2b054e3b073566b4a634dd171b2b58b6073838bc088b5fe5b58d3b1896"
+    },
+    "registration_sha256": "89f18181e4617953181effc95d04ba68b422527189ebeefbc4998a990150c69d",
+    "summary_sha256": "3645842ab558093bf2027015f65e8f57db6fb22a5210e75aed42ecbf496cf815"
+  },
+  "restore43": {
+    "actual_backend_sha256": "6fef50c0d3b935c6c0bec7cfddbadd6a1a830a813ef945c44cedf423123bf40f",
+    "cost_registration_sha256": "cca322e1f59fa06dfc308c0d853927713c52da8381223b74d69500972f5c451b",
+    "frozen_model_sha256": "69ab27a408de323f409afceb4e03acb7c2434bae709fafa675bbee15fb7da29f",
+    "parent_main": "a8f9976ee1e53de0a47d5fe5ffa493ceffeb57dc",
+    "plan_hashes": {
+      "cost_root": "c758910e5ca21a0d7bc2468664a2665853bbd4d57468328ee049c3c66951b630",
+      "cross_A": "18dfaadcc4b65e1249e5b050c43361e7f11771a148b6b931398b73167d357291",
+      "cross_B": "ff8d9699825ea8eac6864d6f60a61926d4bc77bdde1690fd95330f8fff4f83b2",
+      "source_h": "e2cb4330b4b55fdb1ef3518aba9d579dd411640e5e8d279de30cfc92be4b8493",
+      "source_scale": "dd05882b7387dd6a463cca180b7983848af88af73b3f6adaf0c4a67385476d19"
+    },
+    "registration_sha256": "1795b1d59e53e8a46295a0f5ea24037237f7f78ec72dff5298f557eee21c325e",
+    "summary_sha256": "59cd22e879011342ea578d1d4b7481afd9b0209679aa23b482fa8a2cb47f466f"
+  },
+  "restore44": {
+    "actual_backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "marked_registration_sha256": "22df743ee988dc17355b1a3878c9c793e76a6d7f0debb677c298d7bbba070f4f",
+    "parent_main": "a1c2a196f55bb07537a2c6e1495da05d6debaac9",
+    "physics_results_sha256": "36814ee62b06150f9a3f335fb555ab963a22609b82af6cc4fbf773f37802b461",
+    "physics_states_sha256": "11ba13e4d0e2718d4feeadd9b24b5f4d90e0cb373d45e665e6c44493ca386d05",
+    "plan_hashes": {
+      "games": "6db5afcbedb69a745ce60c2284ef0d61d6c0c7f5eee1d5545917eff0bdb9d0d5",
+      "marked": "a17c0db96a4411cea255e10214122f7588290a2f6a001ee3e464a7cd3b40d9a1"
+    },
+    "registration_sha256": "cea0d73e573ee64b5392c378112efb82b6cb1bbf6f6423463789f4ead67c52d8",
+    "user_restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef"
+  },
+  "restore45": {
+    "backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "marked_registration_sha256": "2a1288c05fae972845e7ca3114d9f8b9a79508c2458df7db34a00bdd3f288097",
+    "parent_main": "af1028ab0b9b9e9d66aab7337638859fe6e96824",
+    "physics_results_sha256": "79f5950c4ce326ec2bbfd268c40e54f98aab04b758ac9af26854fd8502828cd2",
+    "plan_hashes": {
+      "games": "caa98cf245d40e2833ad53b5cf541ad942e9ec4a267243de71ec0ec356bd3bf6",
+      "marked": "ce63c06839b0274e7b352a683abdeec4a725bbbb15f03325140e92f97eb8a483"
+    },
+    "previous_44_result_sha256": "36814ee62b06150f9a3f335fb555ab963a22609b82af6cc4fbf773f37802b461",
+    "probe_states_sha256": "8ac7c1bf91ea401e2c403d633a3b2a3119da5c75047c122e6ed59afa92d3f010",
+    "record_info_sha256": "8bb12b753c46c07be6f9c271fbb12a074a8aaf8d983ce00e9f84978ea9b1f879",
+    "registration_sha256": "82acc11b6da824bd23bf46be33f662bffb73f9cbf678f372f42bd18f7019bd64"
+  },
+  "restore46": {
+    "backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "fresh_score_diagnostics_sha256": "59735a8a5caee5e19afff0543051f33adb0a4340dfd0a99fdc351a5050224b21",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "parent_main": "bce81c431fef9db06329d4afa214b13780e8d37e",
+    "physics_results_sha256": "65a77bd4ad27d730bbc6c88dac89b33986d222e212e5f7402d7f2e615388bddd",
+    "plan_hashes": {
+      "new_roots": "488371975927b4dc00a4d4d658be2897cdcf19d7beac6a7eb5055089fb28c197",
+      "old_roots": "601343f8576db01b1436b2cfddc61e307be3c9fa22912dd0863ca970fabdf1fd"
+    },
+    "previous_physics": {
+      "mqft_restore44_20261126": "36814ee62b06150f9a3f335fb555ab963a22609b82af6cc4fbf773f37802b461",
+      "mqft_restore45_20261126": "79f5950c4ce326ec2bbfd268c40e54f98aab04b758ac9af26854fd8502828cd2"
+    },
+    "registration_sha256": "37407ef74d47da19bc1b206311d18e4914b432033e6eb78f294c10b6b03fc3d9",
+    "rng_replay_sha256": "e07d8058c71413c2f449ed8dcd0bd09afdc99a8611bb3a65905921312d66e3cd"
+  },
+  "restore47": {
+    "backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "choi_sha256": "57913a2f159de45242841ffe709680af731749ba2e59518705fa0c2034dd9e42",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "parent_main": "023d76ae80eb9ca6d299a61907d69945b77422eb",
+    "physics_results_sha256": "cc98ffd7e0bc61f36f0ed5b9d8219912f6f2cf0b70d395e366b3e1cbc568c26d",
+    "plan_hashes": {
+      "games": "e924da5f7304839463f69505d2597b6be8ab6500b1205e4bcd604dcd5a4a6a66",
+      "heldout64": "56f2a6bcdd81a099423eaa3d2bf6426c80f9f0f172609e4687740655f2d4c4f6",
+      "scale32": "26f4176f96594b6e291210123d02c6794967b214a91c1d881102f6cd7da04e8b",
+      "scale64": "907c907f3bdbd95e7b43c9ff9ccd30a3586d45310bed8bb6ad0cf0d41ea414f0"
+    },
+    "previous_physics": "65a77bd4ad27d730bbc6c88dac89b33986d222e212e5f7402d7f2e615388bddd",
+    "registration_sha256": "3b34510df578a98379c4ae38a1a137ffcd08fbeba2f3131d3bfdf110ef4271d8",
+    "rng_helper_sha256": "e07d8058c71413c2f449ed8dcd0bd09afdc99a8611bb3a65905921312d66e3cd",
+    "root_registration_sha256": "21e28c723e85fcba3541e88712b417dfe68b26692181bcaea094dc70c38b54d4"
+  },
+  "restore48": {
+    "backend_sha256": "5f57d3b9fe60c8d6904bce1ec1576784448b7da418f63ce1cf7b0c38665ba320",
+    "conditional_sha256": "5ede2a1a414632e4826088a09ba6842fca97414d194f67d5cece5b91917143be",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "parent_main": "6796fd5e2c9c24464d9cc01c5152dcbc5951c5c7",
+    "physics_results_sha256": "b9ffb3355d4c9ca65c63848fb42c1c929262fd5b487b27a8ef7b2398391a84d0",
+    "plan_hashes": {
+      "scale32a": "29a8f1351ca2467442b53f118a01be2fc20a1726a16ee6baffa3aa44a0da4f29",
+      "scale32b": "b92131d9546cede3bd6366553cda46b8a2a6e3dfbbfe4e0d8219b500a0a1da55",
+      "scale64": "ae520e562c89e79b15b773f7b4660bea202c29b249a73fd6b93cd53fce8823fd"
+    },
+    "previous_physics": "cc98ffd7e0bc61f36f0ed5b9d8219912f6f2cf0b70d395e366b3e1cbc568c26d",
+    "prior_clock_sha256": "5ea17569466c0f253de42078eb5ffa70ca25a4ababce13deb1d5ee3dd3e98132",
+    "registration_sha256": "ce39adf1661547d196d3aea526179c23020ec5d4aecd6fe791b623de026b0a0f",
+    "rng_helper_sha256": "e07d8058c71413c2f449ed8dcd0bd09afdc99a8611bb3a65905921312d66e3cd",
+    "size_sha256": "5fc38f17b5f7e7f7e52d672f75e3c0f1062e392291a874f4c26348f9d1736abb"
+  },
+  "restore49": {
+    "failed_initial_build": "same package/cache reused L15 for all; no science",
+    "family": {
+      "L13": {
+        "backend_sha": "bcd065e7fda0c896df872b156a7a98655d0e2af184b9175ff83927e2a293f301",
+        "gate_sha": "31a2463ee23e2b7d987f09033c72ee37650fdd3feab7b0cfd372867e4e0047d3",
+        "plans": {
+          "game": "82264bdc9991c4666bb3c1c7e20e11d5993406aa8e1a433b7478df12cba8b9ab",
+          "roots": "3ec4351626914b3e325651281ec981f29a9c6b3c55e4337c862e6e4f3685c8d6"
+        },
+        "registration_sha": "b93118094cb849f43608015df548e6747b71a4d9a5b030336309ffd249e2c7d5",
+        "source_manifest_sha": "26d963b942f8b494daa4545e9d6272991093b377eacb4f2964cd2451101fe502"
+      },
+      "L15": {
+        "backend_sha": "96781d9c29179f2bd91f8b8f79b26d63ee7ebd91797d5712a1cd9386b7482cca",
+        "gate_sha": "76479ad5672f475907b39eba56bfcee107f3b3428ee5e647eb20483a28e6373f",
+        "plans": {
+          "game": "997f0cfd48f00a527a9d95b68d7bb350c611f9886ab5b740d9299f0fc93e50e8",
+          "roots": "3543b6b25fb5eca7ed36f54d8642784a04995f3776f4cbe4d06117f787edceea"
+        },
+        "registration_sha": "d99852408f4d8f49cbf4e0e3fe3c6d4b2514a3224cb01a56c0bb6ca7b06c34a5",
+        "source_manifest_sha": "ba069c9bbecb8bc64e2b650df257ce1bf063331be429d76adacfed196ee881d4"
+      },
+      "L17": {
+        "backend_sha": "85f7f37183b8709da24c71a55a683cd71870d4370b1c34e6dc59190d15e568b1",
+        "gate_sha": "7b2978c36ec80144d1dde47dafe4ac75c77a133f5a7f8589373c70a29a690a05",
+        "plans": {
+          "game": "6fc71e55c12e328eec45fd7214755d32a9d67315e938b873949733bc071a162c",
+          "roots": "0ce0024705d45309be970b44a90def5c68bccb7446f0c30dea929bd89b69fc2b"
+        },
+        "registration_sha": "cfe482b3b849334f50b5c0d85cfe7d1ee4a666f33a05422de78186ab3ab37cc6",
+        "source_manifest_sha": "5fc888a39cdc09a0f9f269e67b221e7352afa24ea8b717dc78578bf0dae2ce0d"
+      },
+      "L19": {
+        "backend_sha": "5027174632cd6736064d3e2327d8c4940bc4047c7679a59a98f71a20d7daa6f1",
+        "gate_sha": "b01aca91f5ece046666b80a13c3feb85a359c461cca1e5dff4e832c32339dae1",
+        "plans": {
+          "game": "ba2ce8b6f0fac8144be326b31a6e67364b69272696a550312c2cf6f482c8ded7",
+          "roots": "449d29315215611238bcb388f8a2d37b89ecfb342475309052ad1c5371b238e7"
+        },
+        "registration_sha": "25997e7e60a9915c1a51b125671430f2dcaea42e9d9c98f856c34862eeaf1044",
+        "source_manifest_sha": "3b14c0567d3cc315f826cb02ee31013a17fbf7269d2bbd5bf464a51b13c85a96"
+      },
+      "L21": {
+        "backend_sha": "cc8c290d2d246ef281835d5df2a5c0a18b36c65aa4960f3530c6d79da172605d",
+        "gate_sha": "fd6fd1f1f09ecf95ad15cd5fe17760db8e0c5268f5bbfd19d8e9b22ecaec0e34",
+        "plans": {
+          "game": "ed1efe5b525e2a144d6b2320b3a0cc4d9147ccedf1e1eb0d2849a92d74e7a3fb",
+          "roots": "078794303aa3f9ae1ea8b8b6662d9f4d0ac93362d32eac9c8a5d969fe6fb1296"
+        },
+        "registration_sha": "9e5dfebf5496e631143902a8591693d02062ab79c903ac98178b18059513a0b2",
+        "source_manifest_sha": "ad52248024339ed04564cb8c19bb1734a01f8a4f6451557ef2fde55c4b7c2fbf"
+      }
+    },
+    "generation_source_sha256": "65b9be5a41e08b93877700694c375a22c0185f0f17108447654443ad727b6c0e",
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "old_production_runtime_unchanged": true,
+    "parent_main": "b448c0257934edf832a8b4b2f1978a27b2c68180",
+    "phase_sha256": "488d3adda2a589a8983d6b210f1ede6b65e5af8eb08dedd3817dbb657a8f0a8a",
+    "physics_results_sha256": "6463cc6321c1bd1238cfd534f10e219f8c425a928169cf6418ab240164f9c3d5",
+    "reference_sha256": "a0f63264e41ed87e354ac2713a542322b0b2bacb053969f44cb2f2146143258f",
+    "same_weight_files": {
+      "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+      "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+      "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+    },
+    "states_sha256": "e9d47a4555df74240f7b6c0aa7c08e8225cbf2b4617e9aec33fd6c07b5c91ec5"
+  },
+  "restore50": {
+    "family": {
+      "13": {
+        "backend_sha256": "bcd065e7fda0c896df872b156a7a98655d0e2af184b9175ff83927e2a293f301",
+        "plans": {
+          "B16b1": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "3adc9e6226658ae512e1d1fdcd5e4051f9b62dabcd8f01ffaec5f6297bff0682",
+            "jobs": 12
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "38bdff9042cc600a0e8c76e5c7a1dcd2e1333ee73bd886ce902aa5626f31a382",
+            "jobs": 12
+          },
+          "B32b3": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "202b9dcbe755faebc7c71dc29982bc58338664a56ad9c0c04c395098d4dbf8f4",
+            "jobs": 12
+          },
+          "B64b1": {
+            "B": 64,
+            "beta": 1.0,
+            "hash": "447d985e4ef69d83c1aa779a7064c36ba7b70672ffdf9dd3e1b10b1205dcfbef",
+            "jobs": 12
+          },
+          "B64b3": {
+            "B": 64,
+            "beta": 3.3333333333333335,
+            "hash": "6ede9cc8ab4436651a1a875b2885c537d68009ecfe30e6d2b39b966697b48aca",
+            "jobs": 12
+          },
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "4eba3024a91a0bbef2c045511751c8bea88a58db9f2fa27a1ed3e4231af0b3e8",
+            "jobs": 48
+          },
+          "game": {
+            "B": 16,
+            "hash": "049d0fff23c2a01b5a22b1921d1c2662707cce929855506d749eec1aa4b60f89",
+            "jobs": 1
+          }
+        },
+        "registration_sha256": "01ac561204becd9cf69d550f9ae90617cd2c4d1e6ab38b9eb3c068f0714cfb2e",
+        "source_manifest_sha256": "26d963b942f8b494daa4545e9d6272991093b377eacb4f2964cd2451101fe502"
+      },
+      "15": {
+        "backend_sha256": "96781d9c29179f2bd91f8b8f79b26d63ee7ebd91797d5712a1cd9386b7482cca",
+        "plans": {
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "d04cb2b5bacf6db6af203cfdcfcebb93c93784e870f1ee5abf985f4f71fed885",
+            "jobs": 36
+          },
+          "game": {
+            "B": 16,
+            "hash": "64d8b78b42f3a26204e88e0d9d40f372f99920f806b93098d2585e3e7096030b",
+            "jobs": 1
+          },
+          "pulse": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "d799608e687136d89a5cdc518c90ca4dff5cb763c3d302bf9a1cf8c774355e0b",
+            "jobs": 168
+          }
+        },
+        "registration_sha256": "a59b53d2680d034c313f0881d982236cfd70f44cea81627ec241de231969ae26",
+        "source_manifest_sha256": "ba069c9bbecb8bc64e2b650df257ce1bf063331be429d76adacfed196ee881d4"
+      },
+      "17": {
+        "backend_sha256": "85f7f37183b8709da24c71a55a683cd71870d4370b1c34e6dc59190d15e568b1",
+        "plans": {
+          "B16b1": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "9fa752cea5ab1d23e963b423a10f0642640f9e5e1a5a20760ca4bf2b46a108e1",
+            "jobs": 12
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "b53741316e5b68ba2441ab32c9609050256c455037db08747a0d631db22ea2f7",
+            "jobs": 12
+          },
+          "B32b3": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "4f1d5d9e314775ae3bea440b8b6f37ee53ce25d238f06d89372a557848e677d6",
+            "jobs": 12
+          },
+          "B64b1": {
+            "B": 64,
+            "beta": 1.0,
+            "hash": "c2fc5851cc6a000d6f519225f9f84daab86fb5c1f76be20d8d880a82c29871f7",
+            "jobs": 12
+          },
+          "B64b3": {
+            "B": 64,
+            "beta": 3.3333333333333335,
+            "hash": "9d937e284bc95364e4ebaddca624b2359151a87da2a1f1c60382706ce46b3d67",
+            "jobs": 12
+          },
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "b5ea1b7a77ec4bd465b25550eff41c1ce53e7121bc2db8917624f9c9fb01244e",
+            "jobs": 48
+          },
+          "game": {
+            "B": 16,
+            "hash": "52e5f2613f159ee59aaa89befa2fb7aea8f01f876196cdf11747e6862830f4ef",
+            "jobs": 1
+          }
+        },
+        "registration_sha256": "5360f6cce321bd49e1f863383249b21e125ebc2b797b930b07c5fb8c049e23e3",
+        "source_manifest_sha256": "5fc888a39cdc09a0f9f269e67b221e7352afa24ea8b717dc78578bf0dae2ce0d"
+      },
+      "19": {
+        "backend_sha256": "5027174632cd6736064d3e2327d8c4940bc4047c7679a59a98f71a20d7daa6f1",
+        "plans": {
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "aaf1ec41227866064390cbf95e34208ce9c6a8532b88225056e4cc26623fe33c",
+            "jobs": 48
+          },
+          "game": {
+            "B": 16,
+            "hash": "dc5de7b571eb022e12581e5cb203ca416b9e5971665c73d0fbd259ac56b733b3",
+            "jobs": 1
+          }
+        },
+        "registration_sha256": "9f8970949c07080d812e5579bd791a3f4ff6afc2b263c5022a1c6ef893d1e85a",
+        "source_manifest_sha256": "3b14c0567d3cc315f826cb02ee31013a17fbf7269d2bbd5bf464a51b13c85a96"
+      },
+      "21": {
+        "backend_sha256": "cc8c290d2d246ef281835d5df2a5c0a18b36c65aa4960f3530c6d79da172605d",
+        "plans": {
+          "B16b1": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "0c63b9ff859f2e6c467e9f7fa13ad1e536f810e0412c2925ef112539b887fa64",
+            "jobs": 12
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "6dadffeb744f92ce84327855d8deb4497d0a3ab1a510c7113614f86c5caddea6",
+            "jobs": 12
+          },
+          "B32b3": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "c99e4e879adda370d2ea5b79dfdf91b2f87765906c621fb40410568a35891ab5",
+            "jobs": 12
+          },
+          "B64b1": {
+            "B": 64,
+            "beta": 1.0,
+            "hash": "8c38cbbb1fd7072e7f2d94e54bb8eebb49a2f747150e4a4a2e3f7a7cd21cfc07",
+            "jobs": 12
+          },
+          "B64b3": {
+            "B": 64,
+            "beta": 3.3333333333333335,
+            "hash": "6fcd0a72103c28795e8bcd357ee00698ce0acb69230e1a1eb94c5481ae89a15e",
+            "jobs": 12
+          },
+          "base": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "591283433f080c3143bbb6fae7880599c1241bd68cc709e569912ae7222d6318",
+            "jobs": 36
+          },
+          "game": {
+            "B": 16,
+            "hash": "798a723434d7cc4fd615383b68094828c9f00fd3cc95829d488fc7d71bc65972",
+            "jobs": 1
+          },
+          "pulse": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "75992ee5b019e50b1715318de0f5c35fb5048bd4d3299ba3326ecb47ad3ae8e5",
+            "jobs": 168
+          }
+        },
+        "registration_sha256": "139ad7969765c9806be1fd5a955dadc27e35c27eff2c133f34a6da7fc67c7c82",
+        "source_manifest_sha256": "ad52248024339ed04564cb8c19bb1734a01f8a4f6451557ef2fde55c4b7c2fbf"
+      }
+    },
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "parent_main": "97c1e58119a3404b0534fb090ba4ed4c2b4d1309",
+    "physics_results_sha256": "864e6f880409991a61afabc144ab757907282d9a9b79095554f4575d531e1188",
+    "production_runtime_unchanged": true,
+    "reference_registration_sha256": "945393e0e9a9d5e91d058b5ef81843504d9abed2ee41975cbd40d9ee8ede0660",
+    "states_sha256": "8bc25ce870f80f033d35275f8e5fbe5d2053473a6468c5771698de11e9f1fd6d"
+  },
+  "restore51": {
+    "family": {
+      "13": {
+        "backend_sha256": "bcd065e7fda0c896df872b156a7a98655d0e2af184b9175ff83927e2a293f301",
+        "plans": {
+          "confirm": {
+            "B": 16,
+            "hash": "9b6a422b00140662190472a8d93e66bc00e91048ee0e50478012149241e45e89",
+            "jobs": 144,
+            "reps": 8
+          },
+          "game": {
+            "B": 16,
+            "hash": "a7ed9fadd9d1d2225b3aa3668f10d040cae09b1a8e70b3def297c75225e1c322",
+            "jobs": 1,
+            "reps": 1
+          },
+          "pilot": {
+            "B": 16,
+            "hash": "33ead00abb3ae001b33b74fc6ea750204f69cf8dbe711b6460de3fdd43e07b4a",
+            "jobs": 36,
+            "reps": 2
+          },
+          "pulse32_high": {
+            "B": 32,
+            "hash": "f9fde20452df5a42c22cefc3f4ebc11a4b511a576f5d54604fda4c6ce53ada56",
+            "jobs": 84,
+            "reps": 4
+          },
+          "pulse_high": {
+            "B": 16,
+            "hash": "312e09a0e575ae886cf84ae793fb9951607c1f70e32d9ab31ebccb9dea3503ee",
+            "jobs": 168,
+            "reps": 8
+          },
+          "pulse_medium": {
+            "B": 16,
+            "hash": "055ac026d4f407aa89da9ecb28f01da2acc5ec4bd44ba817cf5fbcfec629bdba",
+            "jobs": 168,
+            "reps": 8
+          },
+          "pulse_rare": {
+            "B": 16,
+            "hash": "467b947d25e32f2ceaa84fd5c9f09d0f6614853558119dcdf59eb0a6e8b7c99b",
+            "jobs": 168,
+            "reps": 8
+          }
+        },
+        "registration_sha256": "1e750a90bf1e9a041f1a1b225d7589113d631bf68717942c273257c857b5d060",
+        "source_manifest_sha256": "26d963b942f8b494daa4545e9d6272991093b377eacb4f2964cd2451101fe502"
+      },
+      "17": {
+        "backend_sha256": "85f7f37183b8709da24c71a55a683cd71870d4370b1c34e6dc59190d15e568b1",
+        "plans": {
+          "confirm": {
+            "B": 16,
+            "hash": "de63ae8197a8aec719ce7594805f203971a04c6f1ec92986ba4cff09c583f521",
+            "jobs": 144,
+            "reps": 8
+          },
+          "game": {
+            "B": 16,
+            "hash": "05108c28addec9d2a2473713b176a13df2078eee330a3f752cda85de2a3685fd",
+            "jobs": 1,
+            "reps": 1
+          },
+          "pilot": {
+            "B": 16,
+            "hash": "a46a6447c58f8965be3d5e9f6f2fdd0f6b0c9261913960f2538550465e367f61",
+            "jobs": 36,
+            "reps": 2
+          }
+        },
+        "registration_sha256": "f8dd113f812ac2dafe972e8a41b353923fa180bb995cfddba747bbfc42aff858",
+        "source_manifest_sha256": "5fc888a39cdc09a0f9f269e67b221e7352afa24ea8b717dc78578bf0dae2ce0d"
+      },
+      "21": {
+        "backend_sha256": "cc8c290d2d246ef281835d5df2a5c0a18b36c65aa4960f3530c6d79da172605d",
+        "plans": {
+          "confirm": {
+            "B": 16,
+            "hash": "de40b8126ddd4f9a5f3de416c8eb8dd875d5e1164609bf6497aee966172512ba",
+            "jobs": 144,
+            "reps": 8
+          },
+          "game": {
+            "B": 16,
+            "hash": "7bbd6bc738a289ef8d339736576075624662f1716ca99daeb2382c3b0da0549f",
+            "jobs": 1,
+            "reps": 1
+          },
+          "pilot": {
+            "B": 16,
+            "hash": "fd67197da57abfc4357474f7c0c71eca376257a8f931745861bb75b8c42578d8",
+            "jobs": 36,
+            "reps": 2
+          },
+          "pulse32_high": {
+            "B": 32,
+            "hash": "80d288281e2a28d1a641aad8273de7211c317711bbb96ff7bad335a2d511d796",
+            "jobs": 84,
+            "reps": 4
+          },
+          "pulse_high": {
+            "B": 16,
+            "hash": "f86d538f9d572832712a527b1979173145d1d34ce9c88e9846a2a71b3944f777",
+            "jobs": 168,
+            "reps": 8
+          },
+          "pulse_medium": {
+            "B": 16,
+            "hash": "5f3cee298034a7298784aeddfc6eb081c8f2d32ec15e69379f4e2ebf37ac21fb",
+            "jobs": 168,
+            "reps": 8
+          },
+          "pulse_rare": {
+            "B": 16,
+            "hash": "06cec84145b72b7ca9068c6659287ee69d0b8c321e914b666ab628eb67c9f9f5",
+            "jobs": 168,
+            "reps": 8
+          }
+        },
+        "registration_sha256": "33fdc262ea2f84f66ebaae750e2e1466e67b77d354c4c99373f1135b1fc58be9",
+        "source_manifest_sha256": "ad52248024339ed04564cb8c19bb1734a01f8a4f6451557ef2fde55c4b7c2fbf"
+      }
+    },
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "parent_main": "3ac8d282abdb15231e7c7cc8050c4bf48f0ab824",
+    "physics_results_sha256": "26faf88a8c1b1bbadce489655091f55a9c57b1beba5d1ae9425925fddddd57ab",
+    "production_runtime_unchanged": true,
+    "reference_registration_sha256": "42c19fdb8b35bd8589df2b5e71514dc432a51b5bcff20bc100e39398dc469283",
+    "states_sha256": "f62c2210607b479c3a7deded723010e5ae129f85b55b1d89e0211f00b6029337",
+    "static_sha256": "c410da376c8f27f65a412a428ec0971c7532a53b624a598b46d985933fb9c3c2"
+  },
+  "restore52": {
+    "family": {
+      "13": {
+        "backend_sha256": "4cbd5b1589380be5a4f0efb85a1bbf651f754fb3df11e3e8eff27c19e57e8b79",
+        "plans": {
+          "B16": {
+            "B": 16,
+            "hash": "3ac8df7117365f5381e4ed59b92c247d7b5b09e07bffef1901530ae809c817c8",
+            "jobs": 240,
+            "reps": 8
+          },
+          "B32": {
+            "B": 32,
+            "hash": "636d3d14964979ab51df2f2e772e67bad3acefca32b3e005596d3fe9fcbcf684",
+            "jobs": 36,
+            "reps": 4
+          },
+          "game": {
+            "hash": "5b0256a812fdb94989083ef8c5bc739716de9cba881cffc9bce24cf5da3198a0",
+            "jobs": 1
+          }
+        },
+        "registration_sha256": "a5aca5b7a09968a8df1d54409862c82fae7acfeae803797bdc36f49bd03b7391",
+        "source_manifest_sha256": "94e9035caa6e18f48f9df1816f1a9743b5936f1e8f2335c1a8523788d1fea59d"
+      },
+      "21": {
+        "backend_sha256": "bd9a3b66a6f999208056c1c022990bc84de65f0bf3089d01e2d44d5339f22272",
+        "plans": {
+          "B16": {
+            "B": 16,
+            "hash": "72ee5b180f37164028c7457fcef4ea2e06cb0d4e55240ccc260c90001d519a6d",
+            "jobs": 240,
+            "reps": 8
+          },
+          "B32": {
+            "B": 32,
+            "hash": "236dc159ecf83621d0fb6b88328859716fb0b3a658a1bd28c1faecb2575d8baa",
+            "jobs": 36,
+            "reps": 4
+          },
+          "game": {
+            "hash": "e2f9a39d165db1408cdc7685d96e70c56dd4c7e58c7387ded9fa492809fd0603",
+            "jobs": 1
+          }
+        },
+        "registration_sha256": "8d4af0d4aaef3fcdfe6b266f146cf503bb2628bb90e80e3f8460b7578de01853",
+        "source_manifest_sha256": "6f6efab576e9b4dffe79d66d9cdc6332ef7e20ebabe278a82d42b6660495cce1"
+      }
+    },
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "old_production_runtime_unchanged": true,
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "parent_main": "3136e85a34b4e8d8440796e9b15cbc729681631e",
+    "physics_results_sha256": "e70d37ca3a2bf5b7eb6936e4d547bb4c311518e60cda3dec86725800f232665b",
+    "states_sha256": "da83a1f880cfbe3ff66930e4e81cb1a9438352f1acfb3585b08fce713b7cc090"
+  },
+  "restore53": {
+    "family": {
+      "13": {
+        "backend_sha256": "4a66e29ffffe736663276a7d0608fca2f9643d36071b47a94a6597847e3012df",
+        "plans": {
+          "g0": {
+            "hash": "d6d401294c4579b84f677f97a676d64d431f44c564fb024210dce9fd6cbea642",
+            "jobs": 312,
+            "reps": 8
+          },
+          "g1": {
+            "hash": "5a4e51b69a98b9b1038ce6fdcdd878b5e4b9023b175f248bc279935f14bfe423",
+            "jobs": 156,
+            "reps": 4
+          },
+          "game": {
+            "hash": "16b01ebdc5caba6c07429f6cea8f42619064e53dc9404b841eec08785b602918",
+            "jobs": 1
+          },
+          "pilot": {
+            "hash": "8b92111dddd75fca10a72ca617dbe2901e05a2881909578a1a8af4cde17a875b",
+            "jobs": 24,
+            "reps": 2
+          },
+          "variants": {
+            "hash": "424b7185546201292d81d9d9bdcf746db92f705bcb02012c21b3e1c780f41379",
+            "jobs": 24,
+            "reps": 4
+          }
+        },
+        "registration_sha256": "6934f3246551325ea77e9f499430c09e6045649e12c4a84cd0fb6f8615831b20",
+        "source_manifest_sha256": "b811ba02dd28eef58ce53512b81e656e2c71c3510bbb509df58fef92c36ccad0"
+      },
+      "21": {
+        "backend_sha256": "236abd3524b448ac3e3219a44167bd4c7a406c951bbb75a15da08108b9de494e",
+        "plans": {
+          "g0": {
+            "hash": "5cb444f1c1e82027542b37cf6483c6fe8f0995bc2900a436436665127f84b145",
+            "jobs": 312,
+            "reps": 8
+          },
+          "g1": {
+            "hash": "3df7fb6543d39fdf8d775254fc72ba8a70950b5709271c04db0eedc92fe89774",
+            "jobs": 156,
+            "reps": 4
+          },
+          "game": {
+            "hash": "23e30a6507cd255aa6b8cda7bd1cda4976b4301df5a8f5af7d95d2b1875924ad",
+            "jobs": 1
+          },
+          "pilot": {
+            "hash": "de856e69c49f5c1e02179f7ad99c46f2839704b9b35bc69b7f5765bc5e155536",
+            "jobs": 24,
+            "reps": 2
+          },
+          "variants": {
+            "hash": "5865f22a5a5eeb89f011ff1478798de6d1a71b761f8b623f014a6e1ea90363d6",
+            "jobs": 24,
+            "reps": 4
+          }
+        },
+        "registration_sha256": "d1029f64d26fc0f2fcd18cb704547fbab581ef4716a07b7fe6a539a6131fbb85",
+        "source_manifest_sha256": "f5b5f3bd86c63d3fee552a4c487851f21a3814cf7736f67a08f8a43641385790"
+      }
+    },
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "old_production_runtime_unchanged": true,
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "parent_main": "bc0d76ff06c0f24ecde418d5efb900012236a9de",
+    "physics_results_sha256": "e5d66064211a7b7e4f56e13db3020667fe32e53c0acc8962fdf3846cde47fc38",
+    "reference_registration_sha256": "ab85dcbc9bd97b31a7a18159227138b002e7f7674920b236198f5db8104f8926",
+    "states_sha256": "74cc03941fefb0d6f9b630eba3d7f2e0d467f6048e49e30c2ef9061a1216c845",
+    "work_samples_sha256": "c39bdc25570f216a5ccb826199f073a987d44ae044067b2543013b36c5ff4cc6"
+  },
+  "restore54": {
+    "crn_sha256": "a533875365dbed41590b06c9b06be559fe2a52934f2b3b466b8bc7584a3cfb37",
+    "family": {
+      "13": {
+        "analysis_patch_manifest_sha256": "8c26dfe53500fef44db8214db33d80b383bd83ea4d0c86db862f9c1f24bfa1a4",
+        "backend_sha256": "4a66e29ffffe736663276a7d0608fca2f9643d36071b47a94a6597847e3012df",
+        "plans": {
+          "game": {
+            "B": 16,
+            "hash": "b5446db5f09760faf894f5089c3a8ea477e15bba82163a9f8f8da26bb968e422",
+            "jobs": 1
+          },
+          "new": {
+            "B": 16,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                0.0
+              ],
+              [
+                0.3,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                -0.3,
+                0.0
+              ],
+              [
+                0.0,
+                0.3,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                -0.3
+              ],
+              [
+                0.0,
+                0.0,
+                0.3
+              ],
+              [
+                -0.3,
+                -0.3,
+                0.0
+              ],
+              [
+                -0.3,
+                0.3,
+                0.0
+              ],
+              [
+                0.3,
+                -0.3,
+                0.0
+              ],
+              [
+                0.3,
+                0.3,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                -0.3
+              ],
+              [
+                -0.3,
+                0.0,
+                0.3
+              ],
+              [
+                0.3,
+                0.0,
+                -0.3
+              ],
+              [
+                0.3,
+                0.0,
+                0.3
+              ],
+              [
+                0.0,
+                -0.3,
+                -0.3
+              ],
+              [
+                0.0,
+                -0.3,
+                0.3
+              ],
+              [
+                0.0,
+                0.3,
+                -0.3
+              ],
+              [
+                0.0,
+                0.3,
+                0.3
+              ]
+            ],
+            "hash": "85f4475b0b4eabca85734adcbb927481a5d7a54c67f83bd44d2e208c3c41bb25",
+            "jobs": 76,
+            "laws": [
+              "iid"
+            ],
+            "reps": 4
+          },
+          "precision": {
+            "B": 16,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                0.0
+              ],
+              [
+                -0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.3,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                -0.3
+              ],
+              [
+                -0.3,
+                0.0,
+                0.3
+              ],
+              [
+                0.3,
+                0.0,
+                -0.3
+              ],
+              [
+                0.3,
+                0.0,
+                0.3
+              ],
+              [
+                0.0,
+                -0.3,
+                -0.3
+              ],
+              [
+                0.0,
+                -0.3,
+                0.3
+              ],
+              [
+                0.0,
+                0.3,
+                -0.3
+              ],
+              [
+                0.0,
+                0.3,
+                0.3
+              ]
+            ],
+            "hash": "0b0d58f85d4b841d91173bc3e62771dd3c9b9b2b95b230db16d80a539db767a1",
+            "jobs": 416,
+            "laws": [
+              "iid"
+            ],
+            "reps": 32
+          },
+          "scale16": {
+            "B": 16,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                0.0
+              ],
+              [
+                -0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.3,
+                0.0,
+                0.0
+              ]
+            ],
+            "hash": "49c80b963a5bfb468c83d82b50e7fe8b361892f7256d009d1c46d27009f48add",
+            "jobs": 20,
+            "laws": [
+              "iid"
+            ],
+            "reps": 4
+          },
+          "scale32": {
+            "B": 32,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                0.0
+              ],
+              [
+                -0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.3,
+                0.0,
+                0.0
+              ]
+            ],
+            "hash": "f5797b1692e57e847fb5443e023bef8cf90e6c3ab414e04db4c5da7a281d1136",
+            "jobs": 20,
+            "laws": [
+              "iid"
+            ],
+            "reps": 4
+          },
+          "scale64": {
+            "B": 64,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                0.0
+              ],
+              [
+                -0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.3,
+                0.0,
+                0.0
+              ]
+            ],
+            "hash": "b0caf1d0f2afbe11c0771b1ffa59de5084b757f50674739fa5d671fe9dac9440",
+            "jobs": 20,
+            "laws": [
+              "iid"
+            ],
+            "reps": 4
+          },
+          "variant": {
+            "B": 16,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "hash": "da34e65c01e1076d4bfa4a8fc46eea49a99742296db6d8c89e5696b744915d42",
+            "jobs": 4,
+            "laws": [
+              "iid"
+            ],
+            "reps": 4
+          }
+        },
+        "registration_sha256": "243f143039c8832e99a5cf6ef216fa214d0b05853134c811cc57f08dee49bf9d",
+        "source_manifest_sha256": "b811ba02dd28eef58ce53512b81e656e2c71c3510bbb509df58fef92c36ccad0"
+      },
+      "21": {
+        "analysis_patch_manifest_sha256": "f6f37d5891c3cae57f507f475c3a3a8237eeac9063024ddb5a650c8ca0e007c6",
+        "backend_sha256": "236abd3524b448ac3e3219a44167bd4c7a406c951bbb75a15da08108b9de494e",
+        "plans": {
+          "game": {
+            "B": 16,
+            "hash": "75c1d8f9bc69ff80c14ee84c1fd10be7a512a4bdf61688218bb37d7739a48527",
+            "jobs": 1
+          },
+          "new": {
+            "B": 16,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                0.0
+              ],
+              [
+                0.3,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                -0.3,
+                0.0
+              ],
+              [
+                0.0,
+                0.3,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                -0.3
+              ],
+              [
+                0.0,
+                0.0,
+                0.3
+              ],
+              [
+                -0.3,
+                -0.3,
+                0.0
+              ],
+              [
+                -0.3,
+                0.3,
+                0.0
+              ],
+              [
+                0.3,
+                -0.3,
+                0.0
+              ],
+              [
+                0.3,
+                0.3,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                -0.3
+              ],
+              [
+                -0.3,
+                0.0,
+                0.3
+              ],
+              [
+                0.3,
+                0.0,
+                -0.3
+              ],
+              [
+                0.3,
+                0.0,
+                0.3
+              ],
+              [
+                0.0,
+                -0.3,
+                -0.3
+              ],
+              [
+                0.0,
+                -0.3,
+                0.3
+              ],
+              [
+                0.0,
+                0.3,
+                -0.3
+              ],
+              [
+                0.0,
+                0.3,
+                0.3
+              ]
+            ],
+            "hash": "746a2c2a60c239eb13cf09e0104aab6011e2d9092aed8d64c97cdc0ad6400905",
+            "jobs": 228,
+            "laws": [
+              "iid",
+              "pl",
+              "reserve"
+            ],
+            "reps": 4
+          },
+          "scale16": {
+            "B": 16,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                0.0
+              ],
+              [
+                -0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.3,
+                0.0,
+                0.0
+              ]
+            ],
+            "hash": "34a92ef6cf6a838ba78baae5b346d70f714d65bc80e7f4e9ced9fdaeb2ee9e6e",
+            "jobs": 20,
+            "laws": [
+              "iid"
+            ],
+            "reps": 4
+          },
+          "scale32": {
+            "B": 32,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                0.0
+              ],
+              [
+                -0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.3,
+                0.0,
+                0.0
+              ]
+            ],
+            "hash": "b4b6c4ffc1d5f90330fc49faccfc1c5fb215b8cef627eb4189822f22d866ded3",
+            "jobs": 20,
+            "laws": [
+              "iid"
+            ],
+            "reps": 4
+          },
+          "scale64": {
+            "B": 64,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.3,
+                0.0,
+                0.0
+              ],
+              [
+                -0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.15,
+                0.0,
+                0.0
+              ],
+              [
+                0.3,
+                0.0,
+                0.0
+              ]
+            ],
+            "hash": "e31300a52df74ed0bd59219c4051c20ce874530848652e24dd307de7788d7ef1",
+            "jobs": 20,
+            "laws": [
+              "iid"
+            ],
+            "reps": 4
+          },
+          "variant": {
+            "B": 16,
+            "arms": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "hash": "656dcc0a5aabef96a4df3719db0c14ac7867c103aa65a7f487cab684a7e2ff7d",
+            "jobs": 4,
+            "laws": [
+              "iid"
+            ],
+            "reps": 4
+          }
+        },
+        "registration_sha256": "a6ecf467cc06b22c55a0b1caa9727a771b172d4eaa933d73d966a1e48a278050",
+        "source_manifest_sha256": "f5b5f3bd86c63d3fee552a4c487851f21a3814cf7736f67a08f8a43641385790"
+      }
+    },
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "old_production_runtime_unchanged": true,
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "parent_main": "5b449021025417f70c8f7cc59c0ed890c45a1359",
+    "physics_results_sha256": "b509efe2afb46619eb74f739682474b8b0aa6d83a9f86b111f016541226bc783",
+    "states_sha256": "4aced5eb50a314bb382f0533185602a286ff6f9d8486d34db6c80326850efbcb",
+    "work_samples_sha256": "e1c202b1a01ab06856d17f8f45261836a45a8b46bcfedaeff232f7c48302c854"
+  },
+  "restore55": {
+    "family": {
+      "13": {
+        "analysis_patch_manifest_sha256": "8c26dfe53500fef44db8214db33d80b383bd83ea4d0c86db862f9c1f24bfa1a4",
+        "backend_sha256": "4a66e29ffffe736663276a7d0608fca2f9643d36071b47a94a6597847e3012df",
+        "plans": {
+          "game16": {
+            "hash": "fa3069a1f6741ebff59abd9864e68546e185609762d40668a59b4e21581afa6f",
+            "jobs": 2
+          },
+          "game32": {
+            "hash": "a7f7bbb0b66437b5b38f947885e4ad0ab8a934ad8129723fd13d483c4cfaf3aa",
+            "jobs": 2
+          },
+          "root0": {
+            "hash": "b42fe8c424f189e2c36cdaa8cbe14e41ae02e7d0b16166198ae306cf13c1e457",
+            "jobs": 120
+          },
+          "root1": {
+            "hash": "d936aa23ecfb47655dfd0cb1abcdad25c5001deefea9ba43e4ea4ec1c13678a2",
+            "jobs": 120
+          }
+        },
+        "registration_sha256": "c95ba10c6bd936dadd4fe1afe1002e41746363a2e20f9d770bc5bd82bee3159d",
+        "source_manifest_sha256": "b811ba02dd28eef58ce53512b81e656e2c71c3510bbb509df58fef92c36ccad0"
+      },
+      "21": {
+        "analysis_patch_manifest_sha256": "f6f37d5891c3cae57f507f475c3a3a8237eeac9063024ddb5a650c8ca0e007c6",
+        "backend_sha256": "236abd3524b448ac3e3219a44167bd4c7a406c951bbb75a15da08108b9de494e",
+        "plans": {
+          "game16": {
+            "hash": "499557662a7fc26e77ac0c135af15eaca2ba3677dd6cbb719a3ddd73961add9a",
+            "jobs": 2
+          },
+          "game32": {
+            "hash": "4aba3d4506b7371b2b140e17d5e5216d2c43fbaa8e8afeffc4be931ab71a514a",
+            "jobs": 2
+          },
+          "root0": {
+            "hash": "09806cc6985d4475fdcefe39c4a14ba2aafe6bd14817a3996b23d1bdfa3041ea",
+            "jobs": 120
+          },
+          "root1": {
+            "hash": "64fe932ca8ccfb5391459680df72f0dd21534541330d5b0cdb029e2633f9ea18",
+            "jobs": 120
+          }
+        },
+        "registration_sha256": "fc71240a93b717b3523fbd948f9ca83a19a93ed810a145fbd26c06d7ad7cc63c",
+        "source_manifest_sha256": "f5b5f3bd86c63d3fee552a4c487851f21a3814cf7736f67a08f8a43641385790"
+      }
+    },
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "old_production_runtime_unchanged": true,
+    "original_evidence_sha256": "cc31c7a78fc5a7460cbb363b5a109da459596b43dbafff21bf643910467ca815",
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "parent_main": "8c0536e71dfd1d27b3ff87bf0be1022529cc5c8e",
+    "physics_results_sha256": "31270a75a55ddf5e504173b9f09f683fb489554de83aac05e41280c453b22232",
+    "states_sha256": "a9300308d1a143589df1a497005fce89acfdbe9177facbe57a73b60dd0d9ad94"
+  },
+  "restore56": {
+    "family": {
+      "13": {
+        "analysis_patch_manifest_sha256": "8c26dfe53500fef44db8214db33d80b383bd83ea4d0c86db862f9c1f24bfa1a4",
+        "backend_sha256": "4a66e29ffffe736663276a7d0608fca2f9643d36071b47a94a6597847e3012df",
+        "plans": {
+          "game16": {
+            "hash": "13ccf413f6155819cfd4b7abaad5b0e5cfc5b66121053aec87efd415770b86c7",
+            "jobs": 6
+          },
+          "game32": {
+            "hash": "f44fcbc48acc5c27651a329ed76aac9e3ccc6b67d8d779dd7d6d521d8daea7b1",
+            "jobs": 6
+          },
+          "game64": {
+            "hash": "4c4b66900382935d83b4af4b08b841de3cd6ead22f6628330bc40329c34de6f0",
+            "jobs": 6
+          },
+          "root0": {
+            "hash": "b5a51847472c8f7fc0254e0eeda06abad438714b48e05c4f48c0155062d82ba7",
+            "jobs": 36
+          },
+          "root1": {
+            "hash": "473d95286f541e9018f55c1a760b48c2fc75c2b84bd156fb7efd26cb7a095e65",
+            "jobs": 36
+          }
+        },
+        "registration_sha256": "7ac5d77d036c8b0fe1fa06e70cba1fc19133774d9ff3ed139f752d2e453d9e5e",
+        "source_manifest_sha256": "b811ba02dd28eef58ce53512b81e656e2c71c3510bbb509df58fef92c36ccad0"
+      },
+      "21": {
+        "analysis_patch_manifest_sha256": "f6f37d5891c3cae57f507f475c3a3a8237eeac9063024ddb5a650c8ca0e007c6",
+        "backend_sha256": "236abd3524b448ac3e3219a44167bd4c7a406c951bbb75a15da08108b9de494e",
+        "plans": {
+          "game16": {
+            "hash": "2a5d1e39f7c5473f1994351281941a699fe55e7498a33fdecf4c0e3ac835281f",
+            "jobs": 6
+          },
+          "game32": {
+            "hash": "238367c7abb26920e94e0c9e294daa0319cd7342512660bcddb87e0e63639781",
+            "jobs": 6
+          },
+          "game64": {
+            "hash": "a95477d7c09b2dc86af8699b9be0229ea55ef7432c1c9984a58d518c82ed65c9",
+            "jobs": 6
+          },
+          "root0": {
+            "hash": "6ed970fd3c734a0b4fb4459a81812c8793e1c7602776662920dd362f564ddad5",
+            "jobs": 36
+          },
+          "root1": {
+            "hash": "fa9fc24af411bdd3c0e98f2a511983e72da2e88eb41ccb97ae4a4ac6274b834d",
+            "jobs": 36
+          }
+        },
+        "registration_sha256": "e1c480ecbc162bcc29e10b14701d35df3ece55ea4086877d1e1eb2089f72d86e",
+        "source_manifest_sha256": "f5b5f3bd86c63d3fee552a4c487851f21a3814cf7736f67a08f8a43641385790"
+      }
+    },
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "inventory_sha256": "2725f3ed4d5162832ab9fea953c70d1138fc1dee46ecc5079db904d9bfe918d4",
+    "old_production_runtime_unchanged": true,
+    "original_evidence_sha256": "497ad87f225b69a6e8d7c05edcd2356cb304d651675065cc6e4ea8d43486ca66",
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "original_progress_sha256": "ccdca87dcfcda0ba6f49eda84083555c5515bbec25f2ad11addfe433e975f395",
+    "parent_main": "3a024396037a9b75f8d09261fbf4793b55ca3523",
+    "physics_results_sha256": "0ab832fa4268a039723ab8108777edc078d9d979428c81eceb311aebe7391b83",
+    "progress_sha256": "2701d0c6e32da48190684133e8745ae21474eac4280ba35e57613a5f665f7057",
+    "q19_source": {
+      "scope": "reused 98304 conditional work paths; no new generation",
+      "sha": "e1c202b1a01ab06856d17f8f45261836a45a8b46bcfedaeff232f7c48302c854",
+      "stage": "RESTORE54"
+    },
+    "states_sha256": "3b4096041f693c7dbc22e6904ff9567a2040523575dd1742695d35a765219e1b"
+  },
+  "restore57": {
+    "family": {
+      "13": {
+        "analysis_patch_manifest_sha256": "8c26dfe53500fef44db8214db33d80b383bd83ea4d0c86db862f9c1f24bfa1a4",
+        "backend_sha256": "4a66e29ffffe736663276a7d0608fca2f9643d36071b47a94a6597847e3012df",
+        "plans": {
+          "root0": {
+            "hash": "c3f69b1bfbf5d26ec9c9703f89ce5f6be3c2e7a53e640ed9b4a13bd8aa01c6ca",
+            "jobs": 72
+          },
+          "root1": {
+            "hash": "a956e83d59ba6411c2d17ac580eccb0228f8675eb91cfcf674d7c96cfdf39ef6",
+            "jobs": 72
+          }
+        },
+        "registration_sha256": "cbe4fc9d31c5c9d05288e8aa90554cf481c13ac5dd2151c58db264f478777d41",
+        "source_manifest_sha256": "b811ba02dd28eef58ce53512b81e656e2c71c3510bbb509df58fef92c36ccad0"
+      },
+      "21": {
+        "analysis_patch_manifest_sha256": "f6f37d5891c3cae57f507f475c3a3a8237eeac9063024ddb5a650c8ca0e007c6",
+        "backend_sha256": "236abd3524b448ac3e3219a44167bd4c7a406c951bbb75a15da08108b9de494e",
+        "plans": {
+          "root0": {
+            "hash": "bf9bb56b87f852149b0e42195ec9e4d317d2cfebb560e39c37d60c0b45decfee",
+            "jobs": 72
+          },
+          "root1": {
+            "hash": "05e6be092ec2a635028459f153640574215ca82f78f4d0d142896c7ed333b8aa",
+            "jobs": 72
+          }
+        },
+        "registration_sha256": "97a5b52bc9fd535b5dc0122eccae7de1ba6a8ad282110c9094c71a1dbfe8ae73",
+        "source_manifest_sha256": "f5b5f3bd86c63d3fee552a4c487851f21a3814cf7736f67a08f8a43641385790"
+      }
+    },
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "inventory_sha256": "95c9924f7c6afee1055998d7663cf50a10f2184047f47a9e3df6dedde19f0432",
+    "old_production_runtime_unchanged": true,
+    "original_evidence_sha256": "d3d7d3f3a44b9008d875e905b236ec58e368e4366229b32d95bfb0c4af755207",
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "original_progress_sha256": "b21443fc0bad3e67c69f0cf74fbdf656c462c53458283646bac042534b04824e",
+    "parent_main": "4e1ec234265013507a1e5cd5dfca0f32e174114f",
+    "paths_sha256": "756f4653e2dd8a37b1b4ef7cd4b105427b58c63dffd13d57be4319410951a509",
+    "physics_results_sha256": "2cf16b7c73042594ada92b1f8cf21373ed8656499e733cba0ebbd878cdee7ac1",
+    "progress_sha256": "1f35b0994e3480e150a48f94dbae3c67906b2b8c475aafcf9f96d629bfa41f02",
+    "reuse_source_sha": {
+      "mqft_restore55_20261126": "31270a75a55ddf5e504173b9f09f683fb489554de83aac05e41280c453b22232",
+      "mqft_restore56_20261126": "0ab832fa4268a039723ab8108777edc078d9d979428c81eceb311aebe7391b83"
+    },
+    "thermal_registration_sha256": "56b501bee9abf62e58e09b3888ab1ee93e6bceb27e70d1c10ec38aac3cde1c03"
+  },
+  "restore58": {
+    "CRN_sha256": "5a6f0092edceea39c3130ed5fb31c92dc535e263d5c6283f498a160e9a5719be",
+    "family": {
+      "13": {
+        "backend_sha256": "bcd065e7fda0c896df872b156a7a98655d0e2af184b9175ff83927e2a293f301",
+        "plans": {
+          "B16b0": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "0eeb5aa79297ef157c5965113a64352dc8bf0cc8d50ec6b999adb6a455707421",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B16b1": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "3e1da01cd50c1393ec83006ffa0e7be47a227a6d0f9853d593b730f5ef575707",
+            "jobs": 36,
+            "reps": 6
+          },
+          "B16b2": {
+            "B": 16,
+            "beta": 8.0,
+            "hash": "6d962fd31d37a39b0d39dc09972aa7bf35519d99ad5f20466a8901e90a4575c3",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b0": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "c7af90de119f05c024ef84bd522134bbea860766da564f3e1ce97ded6830852c",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "28b55335c5bc47950d51eabd462abaed6d03f64603478e577abe449dab8a28ba",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b2": {
+            "B": 32,
+            "beta": 8.0,
+            "hash": "d2698f585d8cd0bfd23e829121bba539fa8b7ea107524ea16072a46a55e393ca",
+            "jobs": 12,
+            "reps": 6
+          }
+        },
+        "registration_sha256": "84ceaab433f68443eea1a59cc72c14ba40c11ef114d493e373c1ee8378ccf638",
+        "source_manifest_sha256": "26d963b942f8b494daa4545e9d6272991093b377eacb4f2964cd2451101fe502"
+      },
+      "15": {
+        "backend_sha256": "96781d9c29179f2bd91f8b8f79b26d63ee7ebd91797d5712a1cd9386b7482cca",
+        "plans": {
+          "B16b0": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "2441bca63eee799f56d2d7564a801739c047a9962bb80b2d3c89bc2ea92fd026",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B16b1": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "b1f0ad6c06f47d203da446f1ec7eee4b7ee81a54a2b0965bd641f99e394f0135",
+            "jobs": 36,
+            "reps": 6
+          },
+          "B16b2": {
+            "B": 16,
+            "beta": 8.0,
+            "hash": "600c4db91d83763fc9a5ca1916de2de1392bc45c3f9f97dbf585b5a3dee413e7",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b0": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "8523d4303afac7bdd66f7208aa335634d536b462906f8b314a1a5d3d1cb34bd5",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "078b4134b16b14e734f3b216ea5a3bf8fa5d55c0882548cbb6bc40794a19718c",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b2": {
+            "B": 32,
+            "beta": 8.0,
+            "hash": "28e486d2df79798fae645f4af9772969351cc4200136652e73a62d6e8d2db20d",
+            "jobs": 12,
+            "reps": 6
+          }
+        },
+        "registration_sha256": "ec9921d2a96ea4d9aec135c913536a86d553f3f375ec6f4e2dc8b17b7185bfe0",
+        "source_manifest_sha256": "ba069c9bbecb8bc64e2b650df257ce1bf063331be429d76adacfed196ee881d4"
+      },
+      "17": {
+        "backend_sha256": "85f7f37183b8709da24c71a55a683cd71870d4370b1c34e6dc59190d15e568b1",
+        "plans": {
+          "B16b0": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "a0765283d278c70633b86d54d99d03a8273b5382a5b9f889a942f758377046a4",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B16b1": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "3faab0423dadff1640cc0cc4063419d7eeaf5164a8d5b0dbd17e93f49d400a8e",
+            "jobs": 36,
+            "reps": 6
+          },
+          "B16b2": {
+            "B": 16,
+            "beta": 8.0,
+            "hash": "35a78a8fe986e39fac1839bfe530a3548ae04af4261ad84400c767db995c08ef",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b0": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "8eb8cc2d864e3272c72b39330eddf7be667f5212d5241f5f9bc103fcbdc93fb4",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "0e90a6313c37b641807fc119f4a9c51cc150527b8440163505401692ac728e21",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b2": {
+            "B": 32,
+            "beta": 8.0,
+            "hash": "e6a71765461a094875efa1699c4cfe1c60a3406c16f74b10f5e005f13f58e6cf",
+            "jobs": 12,
+            "reps": 6
+          }
+        },
+        "registration_sha256": "8536602a573c4217c5a720482a7506c627fe15ea81a4d7636d484911e3ec3112",
+        "source_manifest_sha256": "5fc888a39cdc09a0f9f269e67b221e7352afa24ea8b717dc78578bf0dae2ce0d"
+      },
+      "19": {
+        "backend_sha256": "5027174632cd6736064d3e2327d8c4940bc4047c7679a59a98f71a20d7daa6f1",
+        "plans": {
+          "B16b0": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "1c4782eab2a82351d52b876c1a3ad3943987f5b339b6808fa777d36f438ffaa1",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B16b1": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "a90d428477ae5078c8e856d72b63ee8a203adee31b1f92dd3ec819fd40afcf6f",
+            "jobs": 36,
+            "reps": 6
+          },
+          "B16b2": {
+            "B": 16,
+            "beta": 8.0,
+            "hash": "2722a648f621ab00ccc75e1d885bc25d917a3b14ad0c482ffaeff981668aa8c1",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b0": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "8dc0a8d5b74a7d4b10e229fa0b273055ef21273b42cd418daa386ae94af6841a",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "b49c2391c12182a95e4f28bbf724969303a8f072581595ff11a232eee5d55ed8",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b2": {
+            "B": 32,
+            "beta": 8.0,
+            "hash": "d3d69a9e4bdd482644313e75c9dcd33c507e0825650248d38cfef842f50eb611",
+            "jobs": 12,
+            "reps": 6
+          }
+        },
+        "registration_sha256": "f694f47a86d6b665d7cd0169d9ec7b3f8bc226f250fa4e28e953ffe9618e4866",
+        "source_manifest_sha256": "3b14c0567d3cc315f826cb02ee31013a17fbf7269d2bbd5bf464a51b13c85a96"
+      },
+      "21": {
+        "backend_sha256": "cc8c290d2d246ef281835d5df2a5c0a18b36c65aa4960f3530c6d79da172605d",
+        "plans": {
+          "B16b0": {
+            "B": 16,
+            "beta": 1.0,
+            "hash": "fa364287aeb10364ca5c4f7dea4ed1e658efaa3fcb0e0b874a66979cee3f08a7",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B16b1": {
+            "B": 16,
+            "beta": 3.3333333333333335,
+            "hash": "07b49d2fe555d41eda507d1755a88dd1e991335233a35fa96c9f78a8aadfcfe5",
+            "jobs": 36,
+            "reps": 6
+          },
+          "B16b2": {
+            "B": 16,
+            "beta": 8.0,
+            "hash": "de0e21517665324f693292267be90bc02163a66673dc4b5962cb58a8f953ad45",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b0": {
+            "B": 32,
+            "beta": 1.0,
+            "hash": "a277ae3c2a9592ffa4bdd3712bc30ab6aa78530fb97030600a5406b370a24de1",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b1": {
+            "B": 32,
+            "beta": 3.3333333333333335,
+            "hash": "2dcc7aae8dcd52c5c21f44c89a81e66bab9e2c06a09c10bd1e1d5fb42dba9d25",
+            "jobs": 12,
+            "reps": 6
+          },
+          "B32b2": {
+            "B": 32,
+            "beta": 8.0,
+            "hash": "450c3b36b74ce9e9b19549afa84bdacc7eace8216d5ec3d78988e9ef202b5e76",
+            "jobs": 12,
+            "reps": 6
+          }
+        },
+        "registration_sha256": "f80223462664e5ca6daa93fefe9f4c98c027daac087cc05de92ec41da1292dce",
+        "source_manifest_sha256": "ad52248024339ed04564cb8c19bb1734a01f8a4f6451557ef2fde55c4b7c2fbf"
+      }
+    },
+    "group_map_sha256": "75f08bb66fa336c13161421973cd5de493cfcc88fe163791780a1ae589c3415f",
+    "inventory_sha256": "8f286590b68991d6e87801144b0485e48d777f8c6ce2062ed1fcd5ebe0f376ed",
+    "old_production_runtime_unchanged": true,
+    "original_evidence_sha256": "c0118c28a73623cac9381bc2546f6cd2645429e439c7260d7c9cb7e94a16d4a6",
+    "original_identity_log_sha256": "fba912ffd37a78137575378805da2a2f7bad76cd04742414432f8d16c2b55ddd",
+    "original_progress_sha256": "f2ff53658cf8936fdf91caf16b5ba01a87731c3d7f3f1a128a290098c4790ead",
+    "parent_main": "0d5b40720cc25952e0e47c1836f98c78bad4a0f8",
+    "physics_results_sha256": "478e6e20263373799a08c6af74d6dc1e35ca1e1bfb055c582f1d19fc267e1377",
+    "progress_sha256": "ef99b11c30ea3f0b1801e40e61de2c95d6941d36b5c2765cfe092404935ba1cd"
+  },
+  "restore59": {
+    "DIAGNOSTICS59.json_sha256": "170bae1216e2d1fb9b6a5b7da4c79afe55f6a9797708257ede85e1ff8cb13cd7",
+    "HELDOUT_MANIFEST.json_sha256": "a9034931631cfa72680f7a9fe8b06077ee79b872642e345f1d7dea5b42d4a5f1",
+    "MODEL59.json_sha256": "94f95128659d379c3c24cda7561351c05a258fa51b32b5bf309d995a44bf6e63",
+    "ORIGINAL_OUTPUT_EVIDENCE59.csv_sha256": "7052049ecb3cd892912ee1fbe6f08016b1d48867be6f077594ef4c81f558122d",
+    "ORIGINAL_OUTPUT_PROGRESS59.csv_sha256": "e90a9d1e1efe0d85f3b41b065380112d42355db0cce1586566999d3cdfd25ba3",
+    "PHYSICS_RESULTS.json_sha256": "e2f4549e9fdbf5255c7a53842ee8efab2731cbbdc6064d0efd63a6841863ea1d",
+    "PLOT_INVENTORY59.csv_sha256": "14d21a1fe025024aa11a3d191707a8bc522c84cfca3da2397c5148c1ee8ce491",
+    "PLOT_MANIFEST59.json_sha256": "743b9efb0c5b3070de539567d54e8f9e35f8f90e37d85b1da686970a7a1f960f",
+    "PROGRESS59.json_sha256": "1963200b13df143286cd257512a4bcf023d66ec33e701a45880bed34d5641d91",
+    "REGISTRATION_L13.json_sha256": "0927765bc101f76ce500e27220019226b616083ce33b5b7a9aa28b7daf197217",
+    "REGISTRATION_L21.json_sha256": "26d09778be15f3126d04a457cf4e19c962eeafe5afa7043eb8f6f8e4b9428325",
+    "TRAIN_MANIFEST.json_sha256": "9629f2593214792611935a4016c2dbc5c12aebeea4eebc05f8028348f9b7221a",
+    "additional_plot_nodes": 0,
+    "dag_sha256": "b2dddfd3950f4572f626507dba95720d8d591fcb0f9fed047ae434c8381c56f1",
+    "figures": 4,
+    "fresh_backups": 2048,
+    "fresh_games": 0,
+    "fresh_marked_histories": 64,
+    "heldout_sizes": [
+      13,
+      21
+    ],
+    "history_gain": "not established",
+    "history_improvement": -0.001155531176880803,
+    "history_mse": 0.10224540843334005,
+    "native_subagent": "NOT_RUN",
+    "new_core_geometries": 4,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 8,
+    "original_evidence_union_R55_R59": 50,
+    "original_plot_tasks": 121,
+    "parent": "15bbe2a124ec7146eec65d93c2bc1f6e77ca4830",
+    "parent_dag_sha256": "ad62a52469a2858d7b1a082bccbd1a4ee257ad55d759c43d51f7c4a6c4ab2f9d",
+    "prior_admissions": "preserved",
+    "retained_pairs": 463,
+    "state_mse": 0.10108987725645895,
+    "status": "scoped_predictive_memory_diagnostic_negative_history_increment",
+    "total_marked_histories": 9624,
+    "training_bridge": "incompatible canonical evaluator interface; iterative training NOT_RUN",
+    "training_histories": 180,
+    "training_marks": 5760
+  },
+  "restore60": {
+    "AUDIT60.json_sha256": "6bab8d8edd00d303001ad97b8d9e22535e32d2d0a5f444692a45050bf730157a",
+    "BRIDGE_SOURCE60.json_sha256": "36ca9aec53fc0e648f9f81e40d4c6ff2bdb1600a18b23f6200671a7e1b5934f4",
+    "MATCHED_ROOTS60.json_sha256": "8f952ad515290202f44a9922377c94f076b5b4e4a172ee8ddc6b67481b79a27e",
+    "OPTIMIZER_REPLAY60.json_sha256": "3dc796ff564424c862357f7fcd38c04d6f0af44a027fa8886108dd190e425fd9",
+    "ORIGINAL_OUTPUT_EVIDENCE60.csv_sha256": "6e630c0793ec67bc07c057e899c0c52103c8e21f9c1a22990168f46780cc2266",
+    "ORIGINAL_OUTPUT_PROGRESS60.csv_sha256": "cdc73827da50fd1dc61c16c0b07aab9e55096b382f36979cda4619a31475bf9a",
+    "PHYSICS_RESULTS.json_sha256": "5727163c6b27337a0adad31e8ddf110b017aca4d3e4150051ee860530994beba",
+    "PLOT_INVENTORY60.csv_sha256": "f62f3a38805164b1eb7ea85470a84afe3f4abb054b2604f599fa8662de5265a9",
+    "PLOT_MANIFEST60.json_sha256": "44b56b4c80dfb61dad60dced8c8e504d82f25579524e5202791b450bb9fd81f9",
+    "PROGRESS60.json_sha256": "760174bfd36401771e01492d16fb5ad088e2882a84fb58d792b33252e22479ce",
+    "REGISTRATION.json_sha256": "9d6c4ad6f26688ca8aff9fb6799b32ebf78187ebf2c9f91538d0dd4493e3692c",
+    "REGISTRATION_CORRECTION.json_sha256": "8b08a25fdf64c2ed2312724c8f11e516aa7e32dfc2cf055e7f72356d88823d8a",
+    "SCALE_REGISTRATION.json_sha256": "dfd5ddc32cc1fae642525a75fa218d73ba8135dc75fcfbcd94fc81b9ccf92837",
+    "TRAINING_METRICS_EXPORT60.json_sha256": "edb4b5f6188eae46217ea616b9ec886d291c082fba2395b8a4323c90fc3b801a",
+    "TRAINING_METRICS_ORIGINAL_FORMAT60.json_sha256": "02ce0515e7e8c8c80a0fe7463e7509722fff2a5b487d521d3ec0ac73cf357a5b",
+    "additional_plot_nodes": 0,
+    "arena_games": 832,
+    "checkpoint_lineage": [
+      {
+        "checkpoint_sha": "36e1467815d5d620617d4f04b34fa0485ea54b444cf410ac74687bfdca77a166",
+        "generation": 0,
+        "parent_sha": "4dd5068f5d30e569abc9766d7e878303107953638ed518e8e668e2c6cd2b21f4",
+        "weights_sha": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      {
+        "checkpoint_sha": "0836128de7011a33e8826cad4c10915c82fd30a8cd82d17beac87b71722b19b0",
+        "generation": 1,
+        "parent_sha": "36e1467815d5d620617d4f04b34fa0485ea54b444cf410ac74687bfdca77a166",
+        "weights_sha": "5cc7b0264cd04bce377add6c8aee63a78b0c48f7f5a5b8696ecd667cd3e2cf55"
+      },
+      {
+        "checkpoint_sha": "04767bd9760ba75a6f59d506620ca8c386cb8c544d0d39fed65c2c20c03cf86c",
+        "generation": 2,
+        "parent_sha": "0836128de7011a33e8826cad4c10915c82fd30a8cd82d17beac87b71722b19b0",
+        "weights_sha": "7f69c87bda838ccaf86c1d4ecc71c9e3003f8a4e195cca52649b0cd06c35eaeb"
+      },
+      {
+        "checkpoint_sha": "d48b54befad2f834b2e439a669cb65cb975eb66cf84c2c28c4271a14df57364f",
+        "generation": 3,
+        "parent_sha": "04767bd9760ba75a6f59d506620ca8c386cb8c544d0d39fed65c2c20c03cf86c",
+        "weights_sha": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    ],
+    "dag_sha256": "dfab101a938c23a2214f35fb7326771b0d988190b5390086062dbecb8918be52",
+    "evaluator_calls": 871025,
+    "figures": 5,
+    "fresh_backups": 1132064,
+    "fresh_fixed_root_histories": 0,
+    "g3_g0_B128_score": 0.78125,
+    "heldout_positions": 1124,
+    "independent_replay_updates": 800,
+    "matched_initial_roots": 384,
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 11956,
+    "new_games": 1592,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "optimizer_updates": 1400,
+    "original_evidence_items": 2,
+    "original_evidence_union_R55_R60": 52,
+    "original_plot_tasks": 121,
+    "parent": "7bd48b692fbfcb3ed89bbe1dee052b5a5445b3cf",
+    "parent_dag_sha256": "b2dddfd3950f4572f626507dba95720d8d591fcb0f9fed047ae434c8381c56f1",
+    "prior_admissions": "preserved",
+    "raw_bytes": 621081076,
+    "retained_pairs": 468,
+    "selfplay_games": 760,
+    "status": "scoped_actual_three_generation_feedback_and_matched_arena",
+    "total_marked_histories": 9624,
+    "training_positions": 4542
+  },
+  "restore61": {
+    "BUDGET_FLOW61.json_sha256": "58b6e2d796378799b04aed8e720e0c7455a1d968b17776f6a1cfb70dcfee2330",
+    "CONTROL61.npz_sha256": "d4a840aec2d364f38b2ceb4abb0d4cd97947aaac6bb78ed5530eb5e4fb9ea661",
+    "CONTROL_AUDIT61.json_sha256": "9567f7f845e23b9671a882aa4b9c41bfa54e89af515d30b56e7c3155cb7ffff2",
+    "DIAGNOSTICS61.json_sha256": "4ebde5fa21b2d22b6f2e720720f9de0fdb78214f8877724b4edf0f06a1760ec2",
+    "EVALUATOR_AUDIT61.json_sha256": "b7f48a226921d816e2c1f52b4039b7bbb7129846d4c1998941c2893532a04995",
+    "LEGACY_INFERENCE61.json_sha256": "1043e9f27ab3436f38b269c1d05a622a3c4184b048c96a73da499e3677cf6e7c",
+    "ORIGINAL_OUTPUT_EVIDENCE61.csv_sha256": "af5966fe1cba02c590b6a502bed499b2b8e948d8ca21a70c1892e6f5baf079f0",
+    "ORIGINAL_OUTPUT_PROGRESS61.csv_sha256": "19d1e82eac8bae50e813c83e6ceab76edd6f8a6133eb8a7078afd6cc8fc85a51",
+    "PHYSICS_RESULTS.json_sha256": "8fe8723cdc34f016fba6b68ac215130de7a2502d6c148cbb03e06d5421e16b92",
+    "PLOT_INVENTORY61.csv_sha256": "a0d9584c3eb3058ee55dc845fa9457ac5efdc85de1add90f83f3be09e2b78dfc",
+    "PLOT_MANIFEST61.json_sha256": "58b9eff75f15bdbd469b1a21f339d9684a2ee47dbbf3bf405b67fefa10b7e973",
+    "PROGRESS61.json_sha256": "3a1a0a76bebba062c38239b5d16b4aeb554b11e082feaa35bd01b1e129cfdc4f",
+    "R60_PREFIX61.npz_sha256": "990cc63f4ffe7e18a249dc2a4a432cb9a322c758cc4f3a6eca62c1094b17a363",
+    "R60_REDUCTION61.json_sha256": "94ece67feccbb3b17e40fc33ff4538c38a9bcd4ae8e5bff1909274f61d9ca80b",
+    "REGISTRATION.json_sha256": "922660ae9f1014ab5619293292dc1a14ecca1ae18c631fda01df3abb526b825f",
+    "RNG_AUDIT61.json_sha256": "18a08f47488a2d1df0ee4109663390a471017e2ef401e83922ea84c2dd2cca84",
+    "additional_plot_nodes": 0,
+    "d4_inference_equivariance": "zero mapped residual on tested fixtures",
+    "d4_path_coupling": "28/224 first divergences all equal-prior ordering; marginal root law same at divergence",
+    "dag_sha256": "31106b4ed3058583266d0fc213908e1afdbcf4e1503ab7fc64471e49973687b3",
+    "evaluator_calls": 426797,
+    "figures": 8,
+    "fresh_backups": 425984,
+    "fresh_fixed_root_histories": 3584,
+    "learning_source_response": "not resolved",
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "new_prefix_records": 20992,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 13,
+    "original_evidence_union_R55_R61": 55,
+    "original_plot_tasks": 121,
+    "parent": "be9fc78107d78d7e9c2d8d9806de7467a6f7a40b",
+    "parent_dag_sha256": "dfab101a938c23a2214f35fb7326771b0d988190b5390086062dbecb8918be52",
+    "prior_admissions": "preserved",
+    "prior_full_game_backups_reduced": 1132064,
+    "prior_full_game_searches_reduced": 11956,
+    "prior_prefix_records": 63438,
+    "raw_bytes": 1883628991,
+    "response_histories": 3072,
+    "response_root_blocks": 32,
+    "response_seeds_per_block": 8,
+    "retained_pairs": 476,
+    "status": "scoped_trained_native_controlled_response_and_D4_readout",
+    "symmetry_histories": 512,
+    "total_marked_histories": 13208,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
+  "restore62": {
+    "AUDIT62.json_sha256": "b28c9beba1252c8ae3634bc086dcaa057952a74eb918ac0d9ac42f88e4d98506",
+    "CONTROL62.npz_sha256": "995c2134f1e580a2979c27f4a2dd78f310a474fdc47508296675f048628f667d",
+    "EVALUATOR62.json_sha256": "abe104253aa777e3582d6da786994bb2fe17ce7e3b498c1762bcdb0c38007266",
+    "EXACT62.json_sha256": "111194ec690a93813044834a26699d0d1ef1d78953622a5c762618986664f21f",
+    "LEGACY_REGRESSION62.json_sha256": "bc36dcafa8f4b158bb3f8ee58bb132b6546139586061446ade430fefd18df3c8",
+    "LEGENDRE62.json_sha256": "643eea3547dedabb289133ab81c836c45d0028e3306033e59bd3ea6dcd65ce7f",
+    "ORIGINAL_OUTPUT_EVIDENCE62.csv_sha256": "c2b841134d7a52f11be80a2b977f5507ecc1365fafbe079b4e798952c8268bd1",
+    "ORIGINAL_OUTPUT_PROGRESS62.csv_sha256": "b92b8680fccab5e26022648f08daecb12f6d76be4e01e84ba78c0f6689852cc4",
+    "PHYSICS_RESULTS.json_sha256": "0820c9cf0c81aa60afed3907730c4e82e6e49833722b1e491f9bb61b370b5ae1",
+    "PLOT_INVENTORY62.csv_sha256": "f79c81a4cba3709810ffcc26e42fbed5c4263c2567eda6f9410d510f9b6a556a",
+    "PLOT_MANIFEST62.json_sha256": "c52aa864ef1bd9396dba732993a9b840dc53377caf7a1f91b8bb9f0328884cc6",
+    "PROGRESS62.json_sha256": "c09dcf88cb40c424639c955d17c18367fc29ff3f325a8384f5b8fb09539a31e5",
+    "REGISTRATION.json_sha256": "f7dd739119dc52a9f0bd10254fe7dd43bfed3dae45fb945cd7dfa782bc848ffb",
+    "RNG_AUDIT62.json_sha256": "bcdc0ef9fd7440104caaaa935e6179a158916eb702c7d3bbe97b81ae84d98874",
+    "SYMMETRY62.json_sha256": "f402e2d0eece495d122960fc091dbe70e99798c2b489e0461d3d86d85ee5c9fe",
+    "TRANSITIONS62.json_sha256": "0c3888657c5142f8c5be3116b9d6bee399899e2621c0462e7a908992664c6781",
+    "additional_plot_nodes": 0,
+    "closure": "occupancy wins 6/8, mark and count each 1/8; no Markov sufficiency",
+    "d4_path_transport": "224 unique plus 56 stabilizer frame multiset comparisons exact; previous 28 witnesses included",
+    "dag_sha256": "ae75a9f9dff1df4ea87fe2a886d9c5941cea30a49a12cf5aa56b985110659c38",
+    "evaluator_calls": 2592077,
+    "figures": 9,
+    "fisher_residual": "g0/w4 aa interval excludes zero; finite sampling discrepancy retained",
+    "fresh_backups": 2586624,
+    "fresh_fixed_root_histories": 20448,
+    "learning_source_response": "not resolved",
+    "legacy_histories": 1536,
+    "legacy_regression": 6,
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "new_prefix_records": 122208,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 9,
+    "original_evidence_union_R55_R62": 55,
+    "original_plot_tasks": 121,
+    "parent": "16f292a5baf4849d14265735058a44e3f84cb112",
+    "parent_dag_sha256": "31106b4ed3058583266d0fc213908e1afdbcf4e1503ab7fc64471e49973687b3",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 3606115280,
+    "response_histories": 18432,
+    "response_root_blocks": 64,
+    "response_seeds_per_block": 12,
+    "retained_pairs": 485,
+    "status": "scoped_native_multisource_path_and_d4_transport",
+    "symmetry_histories": 480,
+    "total_marked_histories": 33656,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
+  "restore63": {
+    "AUDIT63.json_sha256": "7e8f41c3260e50a33e2038a9de292d31b05c876a304e048db564480afa555d6c",
+    "FINAL63.npz_sha256": "4f37a8b3c6b654c3e5c466f91248126edf39b1befd305fb7b1e8abf512d9331b",
+    "KERNEL_RESULTS63.json_sha256": "1f9e76db6d700dfc7b15013145c4a8c414001cdcf2c2f6bfd9f3a4251cfe6972",
+    "MODEL_LOCK63.json_sha256": "d72fb3c7fd7f6e30e253baada0384dff25fc4cc5f10a22fc66b1018ae7b546f0",
+    "ORIGINAL_OUTPUT_EVIDENCE63.csv_sha256": "fee462dc4a1368bfd594bec97013fab6ea435492c958180644b47e06e3d1b6d8",
+    "ORIGINAL_OUTPUT_PROGRESS63.csv_sha256": "f53f674ab3de8ef13ca50434edc47d657839d90c805f42988469722bef29cc6f",
+    "ORIGINAL_QUANTUM_TARGET63.md_sha256": "49d7122b89f9573ebea2eb886700296e0071686eafaee4e7be8191eef8fbdb59",
+    "PHYSICS_RESULTS.json_sha256": "6ee6f4bbdfe7e876b106d919bb500f1d718c44fdfe64477996309bc3cdcc7801",
+    "PLOT_INVENTORY63.csv_sha256": "41ddcb7cf66e9740e4dbc4ecac480035d383f3b859828f581bf2bf4aeba31548",
+    "PLOT_MANIFEST63.json_sha256": "151600225872bb07273a384a29dffd65eff67cf0f71ab88b0e6a61e74c650491",
+    "PROGRESS63.json_sha256": "65eac286442b938ce5578d9c7f3b6629abf52e749b417cf2b8d1ade4f5b44909",
+    "RAPFI_TRANSFER63.json_sha256": "49497a546eb931d7f0c1a3c47a2566a31becb1c8caa7e37f3342e8795d4e76ad",
+    "REGISTRATION.json_sha256": "2373808afd012c4802b5378a1c60c2e2823734f04396575803c6b1f4be2abeb8",
+    "RNG_AUDIT63.json_sha256": "5c52e85c84353743fe37c1e8c18893667f14732176d39fa5428e3b0763104f50",
+    "VERIFICATION63.json_sha256": "5a2f3ddeba153696bce2f2f357b53f35c5fb1ea2081da03c542d679bbe845edc",
+    "WAVES63.npz_sha256": "c3d96a97ad9d50a4b0f9d60e82798f8bef8ed66513062018a10523ef4d007b49",
+    "additional_plot_nodes": 0,
+    "closure": "p kernel beats occupancy 32/32 and frozen full p 5/32 NLL point estimates; MGF discrepancy retained",
+    "dag_sha256": "7d23485d74250e8882bb3786f2292da886e9fa4ddd62ccc6de91cbca5d916da8",
+    "evaluator_calls": 1184714,
+    "figures": 8,
+    "fisher_residual": "fresh fixed-root bracket and matrix simultaneous intervals include zero; individual geometry bootstrap and combined individual intervals exclude zero",
+    "fresh_backups": 1179648,
+    "fresh_fixed_root_histories": 9216,
+    "heldout_geometry_blocks": 64,
+    "heldout_waves": 65536,
+    "legacy_response": "prior discrepancy not reproduced by new seeds, finite h uncertainty remains",
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 12,
+    "original_evidence_union_R55_R63": 55,
+    "original_plot_tasks": 121,
+    "parent": "0c597cc0520322cd305ff27c25a36c25088a31cf",
+    "parent_dag_sha256": "ae75a9f9dff1df4ea87fe2a886d9c5941cea30a49a12cf5aa56b985110659c38",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 1450906245,
+    "retained_pairs": 493,
+    "reused_R58_Rapfi_histories": 180,
+    "reused_R62_histories": 1536,
+    "status": "scoped_native_conditional_generator_and_heldout_closure",
+    "total_marked_histories": 42872,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
+  "restore64": {
+    "AUDIT64.json_sha256": "899f510e3d0accde4eeb4a641c0eaaaba220bf35ba3ed033993f00e005678e7c",
+    "CALIBRATION64.json_sha256": "940929d8422a3bc607e1670f6da22565a30184cdda759d1b2c5e3237c6192356",
+    "CALIBRATION64.npz_sha256": "032dc5d546af0f73ff32fdca672d3505a17a4c5c2243b2cddb37c0d4760932ba",
+    "EVALUATOR64.json_sha256": "15c66da695128e1cea597d81c279d3f8347f6921544a4117e42463cb93e02595",
+    "LEGACY_REGRESSION64.json_sha256": "92097eef5e262632a03d87452f07cff3563f36e2516900e5f2c05caeb412f2ff",
+    "ORIGINAL_OUTPUT_EVIDENCE64.csv_sha256": "7d9c62e43f66d212676d98c6a8972f66b86bacbb2c68909a0c73191d3a214b5f",
+    "ORIGINAL_OUTPUT_PROGRESS64.csv_sha256": "a45942019e20cf5f6d75e662aa0d0dff1809b5500332ebc540bc8c2a95041b21",
+    "PATH_PAIRS64.json_sha256": "0507c9c288de9d400f70f1548a86424f10e179ce1d28e35253a3df15057b9e3e",
+    "PHASE64.npz_sha256": "3aa239bd3eaa93c3421864058b10247f8d2275dfe579fb80727bfe4ceb7fd6c9",
+    "PHYSICS_RESULTS.json_sha256": "5900c060ed745d67a6fe0178d23cf41a73cb4203f869a35629a0a252403ccafa",
+    "PLOT_INVENTORY64.csv_sha256": "1eb079b7bd550304fededa4f82a544121518c7264c58dccb073f8c88ccb5f823",
+    "PLOT_MANIFEST64.json_sha256": "38adbe5fe3c78dc14e9c474cf711b5a480f6aae31fa6092274f868ba03d1b055",
+    "PROGRESS64.json_sha256": "727e0d4ff9c5992a9a32406c9f60f1f9b82bd3620899f02bb357fe09b0f200ff",
+    "REGISTRATION.json_sha256": "88a5ca8b4e10144e11338a5dad50840e3404102092f4fdb6d918cf453e039873",
+    "RNG_AUDIT64.json_sha256": "8823f9bf3e032c4b0a4867adcc3dd9c5b6fe17a5e7b3be2f6c69a17b98b3a886",
+    "additional_plot_nodes": 0,
+    "calibration_software_shots": 2359296,
+    "conditional_wave_states": 196608,
+    "dag_sha256": "09be2d86bd97900f06fec9bb5ae4cc0418d83b55cfc14ee62604942553fac3a2",
+    "evaluator_calls": 779448,
+    "figures": 8,
+    "fresh_backups": 786432,
+    "fresh_fixed_root_histories": 6144,
+    "native_state_software_readout_shots": 6291456,
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 7,
+    "original_evidence_union_R55_R64": 60,
+    "original_plot_tasks": 121,
+    "parent": "a236944c943c8119a7e4f4a6dec66542136ffb96",
+    "parent_dag_sha256": "7d23485d74250e8882bb3786f2292da886e9fa4ddd62ccc6de91cbca5d916da8",
+    "path_pairs": 3072,
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 852313928,
+    "real_dephased_exact_paths": 1024,
+    "retained_pairs": 501,
+    "status": "scoped_actual_full_support_auxiliary_phase_instrument",
+    "total_marked_histories": 49016,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
+  "restore65": {
+    "AUDIT65.json_sha256": "61a55c8962aba99869386f6930d5465a8474dd2484d45101afd9f738dee611c8",
+    "CALIBRATION65.json_sha256": "a83f831fe496948af3f1c2a152358e69c218c3e654a493f3cab8412844b89f97",
+    "CALIBRATION65.npz_sha256": "f66ead814ea757fa2075a057cb959bdd3a81d48126942e41da4f14bd3b3aae87",
+    "EVALUATOR65.json_sha256": "0dd9a754bcec94fade2b84fcc988aeea35deaa8662bd7e3e5b052293d9fd65ee",
+    "GENERATOR65.json_sha256": "227fe24a9a1f233d9f1268349229427844d82f1e7ed87bed2a03d2ebe88cc1e1",
+    "GENERATOR65.npz_sha256": "7d2b4627e4bb622d8fbb200c0f6ed423af195ad44ba47236716b8193bf65beff",
+    "LEGACY_REGRESSION65.json_sha256": "a69cb467791f54dcd2a3f95e6b08b33a8463a449918d55c059324db5daf3bccf",
+    "ORIGINAL_OUTPUT_EVIDENCE65.csv_sha256": "34814543771554d59c9aba15575f0ef1e7e59d8d036ca5d4e1965376f29457eb",
+    "ORIGINAL_OUTPUT_PROGRESS65.csv_sha256": "f7322efdf00596804ed4bc254f2f701ef1160557d4d02dcc9ac9cc9f826f3f6a",
+    "PHASE65.npz_sha256": "67e3942759410de217636591995974d17a681d44700fff60aec9901374c5b1f4",
+    "PHYSICS_RESULTS.json_sha256": "2d00075ff70202d02a9d634c1000ef0f3e7f9da71d47d21eb0e12b190b4e6a85",
+    "PLOT_INVENTORY65.csv_sha256": "34db14066e7794d1928942c196fcef8ebb5878a8bc22dd9b90aaead8d817c5cf",
+    "PLOT_MANIFEST65.json_sha256": "0d2dcc1b0ebd5426c3ab4746705e12ea3872cf6752c7ffa0873e4152e99c4b24",
+    "PROGRESS65.json_sha256": "b90c56a50686cc5a2bc14ffeae2b56aee5692fc5c901f164753b3922a2f076ef",
+    "REFERENCE65.npz_sha256": "a6aa682fadd9c4838d4ff7b38c0559a21c3d80044bebb403794961e256ef4d5b",
+    "REGISTRATION.json_sha256": "b9bfd6854a715c950a7acf8885a8417e25016d0a8abca1a7b6d6fe1cb2fc472f",
+    "RNG_AUDIT65.json_sha256": "074047b4016b69f0eaca74b9ca371364562dc863a8ea5f0e400360997f749438",
+    "additional_plot_nodes": 0,
+    "calibration_software_shots": 786432,
+    "conditional_generator_waves": 49152,
+    "dag_sha256": "1f2b38b8940e676c283b68b0fe52029e83d121eacc92a4ffec1f7a1862c30dee",
+    "evaluator_calls": 780039,
+    "figures": 8,
+    "fresh_backups": 786432,
+    "fresh_fixed_root_histories": 4800,
+    "low_budget_histories": 4608,
+    "native_subagent": "NOT_RUN",
+    "new_animations": 2,
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 15,
+    "original_evidence_union_R55_R65": 62,
+    "original_plot_tasks": 121,
+    "parent": "b77047387f09693466487193d195e80b3e2e7519",
+    "parent_dag_sha256": "09be2d86bd97900f06fec9bb5ae4cc0418d83b55cfc14ee62604942553fac3a2",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 872428616,
+    "reference_histories": 192,
+    "retained_pairs": 509,
+    "status": "scoped_actual_persistent_native_instrument_negative_utility",
+    "total_marked_histories": 53816,
+    "utility": "g3 persistent plus worse top5 and Q regret proxy vs baseline; no production admission",
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
+  "restore66": {
+    "AUDIT66.json_sha256": "d2b45be73fd6a6b0fc9814d0a576858b7fa99121363acad6332a019e2e338c47",
+    "ERASURE66.json_sha256": "cb6be8986d937a4ed68d8045fc709cbf3aac67e50a98bd4e35f7194c00167013",
+    "FEEDBACK66.json_sha256": "366509973095b4a6bad8ae2bc4605e9c9e31fc6087f7a52802eb64bf8b94140d",
+    "FEEDBACK_CONTRACT66.md_sha256": "a4b9a56637a71785f05f31947dbb85eba9ee67dc899708ecf956d239e07b88e3",
+    "LEGACY_REGRESSION66.json_sha256": "d0ef7f90db1fc78a57a981acb640b01d2ada13939706628c4ab0ccbc30735208",
+    "NATIVE66.npz_sha256": "c47d9975f7520bf1f380ff56cfcd64f297c68ccb0f4b8c0195b5bb194aa21e45",
+    "ORIGINAL_OUTPUT_EVIDENCE66.csv_sha256": "5711f66bb00364512c69e448e9dcb906c1c67d356c368b4b50abb378306bf76e",
+    "ORIGINAL_OUTPUT_PROGRESS66.csv_sha256": "f7991040d24c4ccfa6b6d5fad5082a6fdea86ba65aa91e36e7755f861a8e8bb4",
+    "ORIGINAL_SOURCE_AUDIT66.json_sha256": "c9b6438e98d311d71d84d7533b45f2ec9ed34dde1e2e54ca9eb7026cd859d394",
+    "PHYSICS_RESULTS.json_sha256": "1757ae1f6aaf77da1d3e7c4f730317a6e38159bc32d8f50a3e175cd703b67fdf",
+    "PLOT_INVENTORY66.csv_sha256": "9e5c939537b5bb7fa09cdacf9b5b019845019532f22c9aba00c8148eed9509dd",
+    "PLOT_MANIFEST66.json_sha256": "ce9f1d36efc647006f0cf7542165c77615f74c6c30bd46e3b50f27959a452599",
+    "PROGRESS66.json_sha256": "3149a800ff2ec43fb49715822c04e5301f01b73b24ddecde4d0ccb03a70edd47",
+    "REGISTRATION.json_sha256": "0426dc435e7ef0127a1cae1f320fa8f5c94d374bf0b71b592f9b1b67716fbd75",
+    "RNG_AUDIT66.json_sha256": "69fe22978808fe153b8b9974723bf972f5ba1cee82a97471a7ebc9ae74f9726a",
+    "THERMAL66.json_sha256": "554dae157e8eda9c843d0d080cd9c25b8aee3cc8be6a516eb38dbcfb8597cb26",
+    "THERMAL_SCHEDULES.json_sha256": "c2c1a3f447addbf7460a51124c0c5f6882cdbf8927311064a02e4c6b4166f8af",
+    "VERIFY_AUX66.json_sha256": "890d281d0cfac31dfcd25ca07512d0c2493dd48a9d715f695c33f2fd22d23968",
+    "additional_plot_nodes": 0,
+    "auxiliary_paths": 6291456,
+    "auxiliary_protocol_files": 960,
+    "auxiliary_transitions": 92012544,
+    "dag_sha256": "f08f368fb1a07222dfa5394ec86314065a5e9251b241eb412556c93e994de527",
+    "evaluator_calls": 394243,
+    "figures": 11,
+    "finite_estimator_limit": "alpha1 reverse IFT two individual intervals exclude unity; g3 F native conditional KL residual excludes zero; BAR improves all four MAE",
+    "fresh_backups": 393216,
+    "fresh_fixed_root_histories": 3072,
+    "native_reverse": "NOT_IMPLEMENTED_same_forward_tree_clock",
+    "native_subagent": "NOT_RUN",
+    "new_animations": 2,
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 14,
+    "original_evidence_union_R55_R66": 70,
+    "original_plot_tasks": 121,
+    "parent": "1f2b38b8940e676c283b68b0fe52029e83d121eacc92a4ffec1f7a1862c30dee",
+    "parent_commit": "6340af6613074737daa30f95115648ce1d51be80",
+    "parent_dag_sha256": "1f2b38b8940e676c283b68b0fe52029e83d121eacc92a4ffec1f7a1862c30dee",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 400734361,
+    "retained_pairs": 520,
+    "status": "scoped_native_schedule_and_auxiliary_thermodynamic_models",
+    "total_marked_histories": 56888,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
+  "restore67": {
+    "AUDIT67.json_sha256": "a10445c0bb143fc8f60077d01a82b23c0d21394d6cf47c9dde860174fdb204ee",
+    "COMMON_CONTROL67.json_sha256": "b49636643afadd0606f8c7d3dfd1bb1e99c3a8f4a104652ff3916d5f80a490e6",
+    "EVALUATOR67.json_sha256": "a3306dda626689b4690bcb921b47a62a2a97ff4abbde272bacde4fd6a7f6cd68",
+    "EXTERNAL_CONTRACT67.md_sha256": "71e6194c034c6998a0c8e01812cadb0f0bba77a91575ef514795b9a1abbbb712",
+    "LEGACY_REGRESSION67.json_sha256": "e0cf9cf94d4993a9c23076d303997af5aef2a0380ec04938a59a99f08a2b3a44",
+    "NATIVE67.npz_sha256": "08a27c039929c455cf913e0ed3bd4dc26c94d310b39b921926b34fd9cf504d5f",
+    "ORIGINAL_OUTPUT_EVIDENCE67.csv_sha256": "2025ebe7b3e38fa2293a861c9e4dc9b6cb12d02a181c6ea43195fc3c8e74d5bd",
+    "ORIGINAL_OUTPUT_PROGRESS67.csv_sha256": "56210b45359b55e0ea43e4c826c353cab7c5f902efe963a53f4eca5e60c6c201",
+    "ORIGINAL_SOURCE_AUDIT67.json_sha256": "16820c3aee69b142ba8033515b1e0367fe07e64630b7f78e78f5178272f73ee2",
+    "PHYSICS_RESULTS.json_sha256": "23946c75d7c7f1396cf27bba25e231bbc990c27af003bea17e7449c3e753b220",
+    "PLOT_INVENTORY67.csv_sha256": "5724beac640953eaebb726f04396fc08d221bc0d07e00fd418c268d0e77ace51",
+    "PLOT_MANIFEST67.json_sha256": "b4200a5ef178756aff1b5ef73e5cb59f19efa81dd746e001a03c362b9a2705eb",
+    "PROGRESS67.json_sha256": "b48df78505fc423e11eacaf11b147be3b9cb611d14b832cba7f78ab5f0486272",
+    "QEC67.json_sha256": "123b3cc00d666a642d9a820f71ce12eecc566866ba3e35cfe8300edd6cd08c26",
+    "RAPFI67.json_sha256": "2d8ec2e21f5b956756010fcccc928579aadda8af55b52910de31f06106cc35b6",
+    "RECEIVED_CODEWORD67.json_sha256": "e2e4e0aea1ea0941e0d4bc12f0096815bda2bad691ac994ce0c7c6d62b2009af",
+    "REFERENCE67.npz_sha256": "1b12edf3c8a29d5792c6e1692ed636f85e3ee3c98c48a02c3af1a64d04244c00",
+    "REGISTRATION.json_sha256": "5561f292bcd8b745e6ca94474182bb5aecbb1c704e3b94d115403fed69bf0aef",
+    "RNG_AUDIT67.json_sha256": "246ac925a1bd72a58d8fe61eee48a7509426d1b838a50c39dedaaf7d86944bde",
+    "STATE_RECOVERY67.json_sha256": "878c318a1df6d3d81162652be53fcfa02cdd5d5b527ba259959aa86fa5e71085",
+    "additional_plot_nodes": 0,
+    "auxiliary_noise_masks": 6000000,
+    "dag_sha256": "fa48a96ccc0d7294505f11a2d9bf446bb5aca7dd04e82b47734b57fa4ad81bd1",
+    "evaluator_calls": 525140,
+    "external_queries": 96,
+    "external_scope": "9x9 non-NNUE fallback 64;15x15 center embedding verified NNUE 32",
+    "figures": 8,
+    "fresh_backups": 524288,
+    "fresh_fixed_root_histories": 3200,
+    "native_subagent": "NOT_RUN",
+    "new_animations": 0,
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 3,
+    "original_evidence_union_R55_R67": 72,
+    "original_plot_tasks": 121,
+    "parent_commit": "30f231e9a81f0ca3ba8624b5d75a9e9f0f60d475",
+    "parent_dag_sha256": "f08f368fb1a07222dfa5394ec86314065a5e9251b241eb412556c93e994de527",
+    "prior_admissions": "preserved",
+    "prior_state_channel_applications": 3840,
+    "raw_gzip_bytes": 554308291,
+    "retained_pairs": 528,
+    "status": "scoped_actual_native_fault_recovery_and_auxiliary_QEC",
+    "total_marked_histories": 60088,
+    "utility": "g3 internal proxy improved versus single noisy; g3 independent Rapfi9 agreement not improved",
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
+  "restore68": {
+    "AUDIT68.json_sha256": "fc32155493abcc4b2b0209ab7994151ae14b68ba712af42c9ebf981cd75093d6",
+    "CAMPAIGN68.json_sha256": "b3f65bee890291fd563b53ea14664263186f680b3a06ba507e78f778140e2e08",
+    "DIAGNOSTICS68.json_sha256": "78a538883138acad2a0607a8816d45e4f8d8a3ca1c31a61266f33a5cce2aedaa",
+    "INFORMATION68.json_sha256": "470fc8ebc44da29b57f36535d173f0cf1f6d841e7042f0ee1e92a6517b5df757",
+    "LEGACY_REGRESSION68.json_sha256": "f9ae118c5c24517ac67e02948ec1045d970f7bd5b381ebc43435756b540063cc",
+    "ORIGINAL_OUTPUT_EVIDENCE68.csv_sha256": "35f48e573f41859f705dddbdc26b026caa5eda3ddec455d2af90b7a1f96693f8",
+    "ORIGINAL_OUTPUT_PROGRESS68.csv_sha256": "1db637437925e3dd11a3b7c3bbd58e4360301ece5f34523c08cb779617843af6",
+    "ORIGINAL_SOURCE_AUDIT68.json_sha256": "50d820fabf288dbd3f4cda954d4b31d287a442d0c22b4b06fac308ff6e2fa4f3",
+    "PHYSICS_RESULTS.json_sha256": "fe96844a5580cb5b4bffe0d4e4751a65634c244217e3a6eda03fdf81d23986a8",
+    "PLOT_INVENTORY68.csv_sha256": "5c6bf04c48881f191a10a6a0df487f52882b0517bc5cdfbcf2022fc0a123a626",
+    "PLOT_MANIFEST68.json_sha256": "a9f3956ac29fc757011368683660581d0dc849bb3882f80f3a0d37c514c66006",
+    "PROGRESS68.json_sha256": "434a17ec0c6ca97f22503eda59c528c32972ae201d07f0ef8899f6a0fd9443a2",
+    "REGISTRATION.json_sha256": "5465c633a6f83cb776147bb3073244853cd676797f572a79a50cd8c23288fd2e",
+    "RNG_AUDIT68.json_sha256": "d35637de5bdeab38328fdbbb0cc282b9462958ebae50e7724e664393955a8f0c",
+    "SPATIAL68.json_sha256": "ddb4c9b9a3a621ee919c124acf307675c7ca48929f49908598e8b12d37452ee1",
+    "TACTICAL68.json_sha256": "eec40f36bba57bad325d76d6358b6c79af906c67b2ce21eb06392f8198503dd8",
+    "additional_plot_nodes": 0,
+    "dag_sha256": "8324c4b2d3c6fd832bb7d98cf91cf5fd02828a0752e6d4629c7617136142a3be",
+    "evaluator_calls": 53886,
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "external_moves": 471,
+    "figures": 8,
+    "fresh_backups": 54592,
+    "fresh_fixed_root_histories": 0,
+    "incomplete_games": 2,
+    "native_searched_plies_including_incomplete": 853,
+    "native_subagent": "NOT_RUN",
+    "new_animations": 2,
+    "new_full_game_search_plies": 827,
+    "new_games": 78,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 6,
+    "original_evidence_union_R55_R68": 76,
+    "original_plot_tasks": 121,
+    "parent_commit": "f52b593f6a3ed5682b3b583b927ac865ea594d0e",
+    "parent_dag_sha256": "fa48a96ccc0d7294505f11a2d9bf446bb5aca7dd04e82b47734b57fa4ad81bd1",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 106849611,
+    "registered_games": 80,
+    "retained_pairs": 536,
+    "status": "scoped_15x15_actual_complete_game_arena",
+    "total_marked_histories": 60088,
+    "utility": "limited paired results not established; cold-start uniform despite peaked NNUE prior; immediate win and unique defense all selected"
+  },
+  "restore69": {
+    "AUDIT69.json_sha256": "c5fcb03df05cdba05ab811adb3b630a7252735d76736b123fac9c38970c4f2ac",
+    "BLOCK_RESULTS69.json_sha256": "156b0194003453ef2ff203fec52e1c1c02012789734da2f98b996f5a71e767fd",
+    "GIT_HISTORY69.json_sha256": "eaf07d4882eaccc2cef9837acb3e292c97d74a2b02ff8da78ad0aa0b7b54ac5a",
+    "HISTORICAL_RECONCILIATION69.md_sha256": "b6fb9b6bdc52b84c097e0bbdfbba0e558012ec803a68d1b176f488c56fae010e",
+    "HISTORY_CENSUS69.json_sha256": "f4a3381cd5b6795100df78b339ab4d35c414fb5d271db33a7dc715ea91bc96a5",
+    "INDEPENDENT69.json_sha256": "fe880a95f01640be079a7c418cb1275534cc32077ad3e356ad5c1ce133150d91",
+    "ORIGINAL_ARCHIVE_MEMBERS69.json_sha256": "d623c0d07f4b8623d85c8c2e98f8785fb4bd648f5813f0353b0ce9e25dc2fd9a",
+    "ORIGINAL_OUTPUT_EVIDENCE69.csv_sha256": "637897e1344f5266f16346b9ce1b67e7895b927802bdb250b6cbdd5880649e1c",
+    "ORIGINAL_OUTPUT_PROGRESS69.csv_sha256": "bfb71f1d7dec49f64762a1ccd60483d3810593d8a6646c1589b342a73a6b2c1c",
+    "ORIGINAL_SOURCE_AUDIT69.json_sha256": "1b2dad13d2306a5ad2859b634a3a03318b0c0bd7f165e49a1b0294eb879fe669",
+    "ORIGINAL_SSOT_RECEIPT69.json_sha256": "f15b1c3d25d9dd7cfff686f03c0bf36b5aface47f507bc50255bd8e053157153",
+    "PHYSICS_RESULTS.json_sha256": "2516696e43b52a079b0f51c6374f2f57b1262de01140b72cf04201df85376f86",
+    "PLOT_INVENTORY69.csv_sha256": "17d96bcc0b2d17a8e5ea1a6bff4d15c4f34a16ecea5f2c936b1e0712aea442ec",
+    "PLOT_MANIFEST69.json_sha256": "32db524527632837121075198e75997e20a38b6fd0206ff1b3f0e81ff9c21bb0",
+    "PROGRESS69.json_sha256": "b8947ddca57e18cae7eaf9421299a48cd117beacfe4c21fecf3b4e2aa3339909",
+    "REGISTRATION.json_sha256": "974d64089ab80bf14c344eef806a523bc67034c1ae6d70db3cc02c3683cc1dba",
+    "RESEARCH_CHARTER.md_sha256": "021aa2604dd6c71ee906e94d7c18be0201786a739ef66954a84b8378e1394708",
+    "RNG_AUDIT69.json_sha256": "322990f77af2da84191a7f0fa3d8ddd48ff39af663cf19f22809e4f5e9536675",
+    "additional_plot_nodes": 0,
+    "dag_sha256": "1d9759e92201887803c37e40bc9b27d04f557d248af7049cea435a7f875f5a25",
+    "evaluator_calls": 36934,
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 7,
+    "fresh_backups": 36864,
+    "fresh_fixed_root_histories": 288,
+    "fresh_native_conditional_waves": 8192,
+    "frozen_crosswave_pair_modes": 35712,
+    "native_subagent": "NOT_RUN",
+    "new_animations": 1,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "optimizer_updates": 0,
+    "original_evidence_items": 19,
+    "original_evidence_union_R55_R69": 90,
+    "original_plot_tasks": 121,
+    "parent_commit": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "parent_dag_sha256": "8324c4b2d3c6fd832bb7d98cf91cf5fd02828a0752e6d4629c7617136142a3be",
+    "prior_admissions": "preserved",
+    "prior_optimization": "DEFERRED",
+    "rapfi_auxiliary_waves": 1024,
+    "raw_gzip_bytes": 47855797,
+    "retained_pairs": 543,
+    "reused_R65_waves": 49152,
+    "status": "scoped_complementary_record_physics",
+    "total_marked_histories": 60376
+  },
+  "restore70": {
+    "AUDIT69.json_sha256": "e7ac637e13af18644006023ca775af624e42b5b9df4e6bb8f78118c6cd5fe8af",
+    "DRIFT_WATCHDOG.md_sha256": "996af8e37b6f20ca28d7fb8d52ec9ed9e720e6e5ef6e4158e8557a42ce2f5220",
+    "INDEPENDENT70.json_sha256": "940e17a2785a9dc57df211b900265516ce6f637f9da9bee46da67c8924286306",
+    "NEXT_DYNAMICS.md_sha256": "6298f198310613bbf8c98151600518ad610ee7144eb6ae5931ec68f4a593c022",
+    "ORIGINAL_OUTPUT_EVIDENCE70.csv_sha256": "a659f9376c9b2467d65e8bec0d4340fe03a58c585dff8222a58d8361d70d57b2",
+    "ORIGINAL_OUTPUT_PROGRESS70.csv_sha256": "40db7906b782c4c44d676763a1deae877b37e55da83e483ea018dcb796092c05",
+    "ORIGINAL_SOURCE70.json_sha256": "5a84e0c88413bba0f22d1874e32aeb2475c83b4841de1d54831502e723d2c936",
+    "PHYSICS_RESULTS.json_sha256": "261416aa077c18599a2027c763ecf17e4478fd6ec9f164cda2d3a1aa9cd03a5d",
+    "PLOT_INVENTORY70.csv_sha256": "f5963ea8bc19a9eafa8a7c7e409af9a542b528b3ac48a4ca5424f7036ab70875",
+    "PLOT_MANIFEST70.json_sha256": "93b5915968b108b86528df7a287d752d37589bd4fa0ad7f90ae5af79e6043762",
+    "PROGRESS70.json_sha256": "2dc8fb3f1103e2daf75904273a223ab7e8106d4575e21e3c6bc3d3335f56e58e",
+    "REGISTRATION.json_sha256": "4d09ecf7bd8f7da59bb880ecf84bfe6ce5211c9ede80ddec3939b871119e4e92",
+    "THEORY.md_sha256": "859d6468671f8390bfd55d370273f128f3583386f6eac5b5b2c1a09e368ceb7c",
+    "additional_plot_nodes": 0,
+    "cumulative_fixed_root_histories": 60664,
+    "dag_sha256": "68818faf7b114e23f7b38e47ff677dbb8cc5bb207e618924a8e1705466c9a8a3",
+    "evals": 36942,
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 10,
+    "fresh_backups": 36864,
+    "fresh_fixed_root_histories": 288,
+    "fresh_waves": 9216,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 2,
+    "original_evidence_union_R55_R70": 90,
+    "original_obligations": 121,
+    "parent_commit": "5c4a60bc0bd41f3ef105422fb7a4f1cbad16e289",
+    "parent_dag_sha256": "1d9759e92201887803c37e40bc9b27d04f557d248af7049cea435a7f875f5a25",
+    "raw_bytes": 47903077,
+    "remaining": "population joint transition and strong-source stability",
+    "retained_pairs": 553,
+    "reused_R65_waves": 49152,
+    "reused_R69_waves": 9216,
+    "status": "scoped_finite_marked_statistical_action"
+  },
+  "restore71": {
+    "AUDIT71.json_sha256": "9827b059d22cffdf37478a0552f52843d350c62850599d3abb559dc9b584b6d3",
+    "DRIFT_WATCHDOG.md_sha256": "c800da794e011c28cedb2bf98717b01ba49eb560d3e32b9d135010de43fe6a6c",
+    "INDEPENDENT71.json_sha256": "96e3905126073d974cb4746512787bc8b6640f40f04f5adaaba3d23ad601b57c",
+    "NEXT_DYNAMICS.md_sha256": "3b130d5a69a8ccbe931ca961416221c77c02147ff9965df2da481a7921ede404",
+    "ORIGINAL_OUTPUT_EVIDENCE71.csv_sha256": "45e18bc752163966b8b73f6c881db4b2d53a3cdfec1f6c503b6b763760ab1821",
+    "ORIGINAL_OUTPUT_PROGRESS71.csv_sha256": "0317ee3bd5710759b68d6f2bab8e6bd87853c4bd43b955a81eea273506173677",
+    "ORIGINAL_SOURCE71.json_sha256": "0dc2c7980171b1f5f4d306b37930d624498a0b329f01d295540b0d2a2cff792d",
+    "PHYSICS_RESULTS.json_sha256": "930af19bd4e4df012cc0df3a99c68dea6ff24fb34a22a8f37aa6db7b45361b8c",
+    "PLOT_INVENTORY71.csv_sha256": "a3d95f6711ffd50a93774d4419136e948728b99416ab32b137399a64bf8725b7",
+    "PLOT_MANIFEST71.json_sha256": "004ad311e2da164b7b95110eff203c0064cf6fffc01cba9698670f0186efe1fb",
+    "PROGRESS71.json_sha256": "ffa3d0dfea693f9a5019811fce961abe746911480f8fba5b838fde3fd5dd6be7",
+    "REGISTRATION.json_sha256": "02fc8f3ba2c97763af00b75757bbc0fd69736516009a557d8c621418c9ca0e67",
+    "THEORY.md_sha256": "434216e965e27f978a9a25fc5816ee183d85c234e87828402bf0d114727edfa4",
+    "additional_plot_nodes": 0,
+    "cumulative_fixed_root_histories": 69880,
+    "dag_sha256": "24778c3b252d4080e1759ebd0a513eecbc5432a81907b0017faefa215818883b",
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 10,
+    "fresh_backups": 1179648,
+    "fresh_fixed_root_histories": 9216,
+    "fresh_waves": 294912,
+    "full_replay_n": 320,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 2,
+    "original_evidence_union_R55_R71": 90,
+    "original_obligations": 121,
+    "parent_commit": "798e68fb1d79e9c3515069608921ca8be3fbe14c",
+    "parent_dag_sha256": "68818faf7b114e23f7b38e47ff677dbb8cc5bb207e618924a8e1705466c9a8a3",
+    "raw_bytes": 1519896916,
+    "remaining": "support, geometry and history dependence; external heldout bias; scale and complex instruments",
+    "retained_pairs": 563,
+    "status": "scoped_autonomous_joint_transition_population_bias_remaining",
+    "test_blocks": 16,
+    "train_blocks": 48
+  },
+  "restore72": {
+    "AUDIT_L13.json_sha256": "4b47588c60603f881917c8a9f708e141d2bc25578d69b494a8f8ce00a5268770",
+    "AUDIT_L15.json_sha256": "b2bdc752e3e3ec49c06a22b7e1e4fb0e73d25bfeaea34c4caa24e5cdbdbfb101",
+    "AUDIT_L17.json_sha256": "7d26e378c1d53b53f4af5709f1dad775702e5acd96e457ed6e7c5e9c844b0378",
+    "AUDIT_L19.json_sha256": "bcd281ba5a748fece6b9b7d80f650ed598075be95de1b41166264f2ca114f7c2",
+    "AUDIT_L21.json_sha256": "674f2d79d879665ed9bb508221f549338c312ef5a86c83957d03b60238aa446c",
+    "DRIFT_WATCHDOG.md_sha256": "e8616ac4e0af2bc7266f61f945558f1ae6cdc446e1abec97df8e398f7363e518",
+    "INDEPENDENT72.json_sha256": "6251014e4f09b363430feb2afe4981973dc9574744bb24b4393a7905718b9ae3",
+    "MEMORY72.json_sha256": "fbfdd4eea1d63efbf147eafb0efd8c9c050f0557fd04937ac18efae728fd3501",
+    "NEXT_DYNAMICS.md_sha256": "df50e930eedcbc836a31afcb72728fd09743e7c9e6966eb368a1a8855e7dafc8",
+    "ORIGINAL_OUTPUT_EVIDENCE72.csv_sha256": "15105ea4fca3f45aa3cecedd1d877cbf0fc51c883fe536181613bcd7204dcac4",
+    "ORIGINAL_OUTPUT_PROGRESS72.csv_sha256": "0ec64f30e4be3e4500002c9740decb890d1e6ec2b5a690fc7ba866dcdfd2a18e",
+    "ORIGINAL_SOURCE72.json_sha256": "4c78de1c5847900f9caa0b3663db138d9bd7af95e9499dee12c65477b18c469c",
+    "PLOT_INVENTORY72.csv_sha256": "e96a644886c0433669064d662cdb82a18c901dbf1a74eff900964c8c8e2eb88c",
+    "PLOT_MANIFEST72.json_sha256": "b78237dcde675a049e943356f608abca997b9db5727f868cd70e3f5f1437008b",
+    "PROGRESS72.json_sha256": "3e3538b13b0e326fe2e801e3c74d71faa6b16568728d3eebfa70e79c5aafd973",
+    "REGISTRATION_L13.json_sha256": "8b4df1df581fa7f962e776c0e88b094f30ac7fafef58a12e4d505d0ecf194b39",
+    "REGISTRATION_L15.json_sha256": "662c70db7aab0d4695ef83aa8ec981dc75717cf4400a46a33794817530a793d4",
+    "REGISTRATION_L17.json_sha256": "8c01f7966b1ecfaf0685ceb14ef2c21a99deda1cd2468fc306e4e05def149a8d",
+    "REGISTRATION_L19.json_sha256": "cad38a42404fd8a894a032a7a8c69673f54bd815d9269c67409f0bc99f1b777a",
+    "REGISTRATION_L21.json_sha256": "3bbdde5043ad2230f2b5c01f592e2a888663df3c2ed99a64c87615eb0a05b8af",
+    "SCALE_RESULTS72.json_sha256": "4b84261062bad73b598f1118c996d6127bbf180e0cd99aad86557ac1972621e3",
+    "THEORY.md_sha256": "a6d7ff2a96e4958653dfc3a4533fe38b27010f87d21de411a822bf3fc6b71ed5",
+    "additional_plot_nodes": 0,
+    "animations": 2,
+    "backends": {
+      "13": "bcd065e7fda0c896df872b156a7a98655d0e2af184b9175ff83927e2a293f301",
+      "15": "96781d9c29179f2bd91f8b8f79b26d63ee7ebd91797d5712a1cd9386b7482cca",
+      "17": "85f7f37183b8709da24c71a55a683cd71870d4370b1c34e6dc59190d15e568b1",
+      "19": "5027174632cd6736064d3e2327d8c4940bc4047c7679a59a98f71a20d7daa6f1",
+      "21": "cc8c290d2d246ef281835d5df2a5c0a18b36c65aa4960f3530c6d79da172605d"
+    },
+    "composition_checks": 80,
+    "count_collision_witnesses": 112,
+    "cumulative_fixed_root_histories": 70200,
+    "dag_sha256": "030e34139fe7ea0cd1a67b20f0f8b040dbb61cbf732393ab2c7860fad6b37089",
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle13",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 11,
+    "fresh_backups": 10240,
+    "fresh_candidate_samples": 42020,
+    "fresh_fixed_root_histories": 320,
+    "full_root_replay_n": 320,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 17,
+    "original_evidence_union_R55_R72": 101,
+    "original_obligations": 121,
+    "parent_commit": "72f54ef26446876cc2d1ac747589b9deec4fc735",
+    "parent_dag_sha256": "24778c3b252d4080e1759ebd0a513eecbc5432a81907b0017faefa215818883b",
+    "raw_bytes": 35721585,
+    "remaining": "augmented closure, physical criticality, complex multi-time records",
+    "retained_pairs": 574,
+    "reused_R71_backups": 1179648,
+    "reused_R71_paths": 9216,
+    "status": "scoped_exact_pushforward_count_only_closure_refuted"
+  },
+  "restore73": {
+    "AUDIT73.json_sha256": "36d6717a43403a666b1baa867b8cac143e10b6ba0a6afaf9fa918679c47a4400",
+    "BRANCH_PATCH73.json_sha256": "83d5b6a82c6f3ec436b4e2efda0ce64ce3c80eeaf900af4bb9d86cbf0a084760",
+    "BRANCH_REGISTRATION73.json_sha256": "9df9d6266b1b7d8925083b22861c080789a9e3f5474cb5c05dbff19030cd11ef",
+    "DECISION_RESULTS73.json_sha256": "d044bd43d0de24252681cd752ca1d6b63da68423ee0409c774d35490c50fd81c",
+    "DRIFT_WATCHDOG.md_sha256": "91e3f5c1cf753fd59d5b012b54b169a67cb476bedfc646254e61d2c110a593e2",
+    "INDEPENDENT73.json_sha256": "f8300f0c45df431614194651a8d7b936e9cd56dd8251ccaf4762ff03427c1d22",
+    "INSTRUMENT73.json_sha256": "7cb2ba098a82a0586d211be1d025643fd01db770eb5e4a923ff92506795f10c6",
+    "NEXT_DYNAMICS.md_sha256": "3cbd9ccb10a181e9549aad6c96dc9c15607f26ae738db374fcc749a6604b91fa",
+    "ORIGINAL_OUTPUT_EVIDENCE73.csv_sha256": "de2ef6ea314302732748df1bd3e38e7c4187a087667b68a9f2951b37d40b76b2",
+    "ORIGINAL_OUTPUT_PROGRESS73.csv_sha256": "d969a39afac9668a575da3034edd91b2898fec0b3de8e329beada91e1a35830c",
+    "ORIGINAL_SOURCE73.json_sha256": "6cf2cfbf3f75df0cdb008bc468c46d2f3e2fb0fc5f9e96520225e15a776aaae7",
+    "PLOT_INVENTORY73.csv_sha256": "0e0691777c35948716cb7403a1a9246de93b711f5b4ef6ba3a5fe3239e279784",
+    "PLOT_MANIFEST73.json_sha256": "fc570062345e4f48872521d07fd0f119120f81ea9048db65dfc7b6dddec326d2",
+    "PROGRESS73.json_sha256": "8a5a2c03e0aae0167c143d9c5bb26abbed4b768fc569dd8db1acafb4186d6295",
+    "REGISTRATION.json_sha256": "98cb3c17a8d6116d98e58b73994aef066d534ffcaf6496b2d0b4ce556010bd18",
+    "THEORY.md_sha256": "7a528a60761064fa87fb532084a603ca0151fd0f04c4917ea4f45779d5ffd1e6",
+    "additional_plot_nodes": 0,
+    "animations": 0,
+    "branch_binary_sha": "dcf609184b26424f2b17ae0a264075e338b36cf6d070ed801cc736fd02d63ab3",
+    "conditional_contexts": 64,
+    "cumulative_fixed_root_histories": 71096,
+    "dag_sha256": "4440f416e28b093dfea729a5637b8194af0799ae78a15a36c3cffafe55715f3e",
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 10,
+    "forced_branch_backups": 145408,
+    "forced_branch_replays": 4544,
+    "fresh_backups": 114688,
+    "fresh_fixed_root_histories": 896,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_binary_sha": "3321dfa4fc86afe5a1e45d1972f040590757f15bb631a75de25a0c664a72d5f9",
+    "original_evidence_items": 11,
+    "original_evidence_union_R55_R73": 104,
+    "original_obligations": 121,
+    "parent_commit": "31277d04b65d37931ad35686c5ae660fb573563c",
+    "parent_dag_sha256": "030e34139fe7ea0cd1a67b20f0f8b040dbb61cbf732393ab2c7860fad6b37089",
+    "positive_model_record_negativity": 63,
+    "raw_bytes": 311105180,
+    "remaining": "coherent operational identification, process tensor, decision redundancy, thermal reverse law",
+    "retained_pairs": 584,
+    "reused_R71_backups": 1179648,
+    "reused_R71_paths": 9216,
+    "status": "scoped_actual_branch_law_coherent_model_nonunique"
+  },
+  "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
+  "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
+}
