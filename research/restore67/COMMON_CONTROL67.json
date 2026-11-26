@@ -1,0 +1,6 @@
+{
+  "backups_per_arm": 65536,
+  "scope": "same seed and evaluator ordinal: single_iid/single_mix/rep_common deliver identical first-bit flips; full native traces exactly equal excluding job, fault metadata, time, worker",
+  "semantic_equal": true,
+  "triples": 512
+}

@@ -1,0 +1,5 @@
+{
+  "records": 525140,
+  "scope": "explicit received sign codewords, parity and decoder reconstructed independently; original optimized Rust mask-domain representation uses exact parity identity, not independent hardware transport",
+  "semantic_equal": true
+}

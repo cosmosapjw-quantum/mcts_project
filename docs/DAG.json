@@ -54,7 +54,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "X-STRUCT",
+  "entry": "X-TRAIN",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -133,7 +133,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE67-FAULT-INJECTED-QEC-RECOVERY",
+  "next_stage_id": "MQFT-RESTORE68-SIZE-COMPATIBLE-PRETRAINED-ENGINE-ARENA",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -499,6 +499,11 @@
         "evidence": "Independent g3 high-budget Q-proxy and top5 comparisons: persistent plus worsens compared with baseline despite improved mean mark.",
         "remaining": "No production admission; independent complete-game utility, size transfer."
       },
+      "restore67_followup": {
+        "artifact": "mqft_restore67_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT67.json,QEC67.json,STATE_RECOVERY67.json,RAPFI67.json}",
+        "evidence": "Recovery improves noisy internal high-budget proxy, not established external g3 agreement.",
+        "remaining": "No production admission or Elo, full paired games next."
+      },
       "retained_evidence": "STATE14\u201316 value/terminal \uad50\uc815, \ube44\uc6a9, RESTORE03 forced probe\uc640 RESTORE07\u201308 matching\u00b7\ub3c5\ub9bd rollout \ud3c9\uac00 \ubc29\ubc95. \uc77c\ubc18 \uae30\ub825 \ubc0f \uc54c\uace0\ub9ac\uc998 \uc774\ub4dd\uc740 \ubbf8\uc815.",
       "scientific_disposition": "no robust incremental benefit established versus both retuned PUCT and matched classical count control; preserve counterevidence, do not tune to force win",
       "source": "v6 quantum_mcts_validation.md, one_loop_corrections.py, quantum_corrections.py, v5 implementation_changes.md, training_metrics.py.",
@@ -581,6 +586,11 @@
         "evidence": "Persistent selective software state on actual full-support native paths, matrix replay, exact commuting wave mixture, actual Q27/Q44 animations.",
         "remaining": "Physical phase/action/hbar identification and independent physical dynamics unresolved; negative utility kept."
       },
+      "restore67_followup": {
+        "artifact": "mqft_restore67_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT67.json,QEC67.json,STATE_RECOVERY67.json,RAPFI67.json}",
+        "evidence": "768 prior actual persistent states explicitly encoded, noisy, syndrome-decoded; coherent accumulation and Z failure retained.",
+        "remaining": "No physical native phase or quantum hardware."
+      },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
       "structure_followup": "RESTORE22 complex Gram restricted spatial coherence filtration and triangle-phase gauge checks; actual projected density code and operational recovery; no physical phase identification.",
@@ -615,6 +625,11 @@
         "artifact": "mqft_restore66_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT66.json,VERIFY_AUX66.json,THERMAL66.json,ERASURE66.json,FEEDBACK66.json}",
         "evidence": "Original thermodynamic/record target crosswalk and independent finite-model validation; next actual QEC fault injection.",
         "remaining": "Actual logical/noise recovery and native utility not tested in R66."
+      },
+      "restore67_followup": {
+        "artifact": "mqft_restore67_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT67.json,QEC67.json,STATE_RECOVERY67.json,RAPFI67.json}",
+        "evidence": "Actual evaluator sign fault and syndrome recovery, explicit restricted quantum code, coherent/correlated failure and actual independent reference.",
+        "remaining": "General noise, hardware and matched 15x15+ full-game utility remain."
       },
       "retained_evidence": "\uace0\uc804 \ud2b8\ub9ac topology \ubc0f \ub3c5\ub9bd complex/QEC reference.",
       "source": "ensemble_analyzer_complete.py::_plot_topological_analysis/_plot_quantum_error_correction."
@@ -715,6 +730,11 @@
         "evidence": "4800 fresh fixed-root paths including 192 independent g3 B1024 references, no new training.",
         "remaining": "Actual independent game strength and 15x15+ remain."
       },
+      "restore67_followup": {
+        "artifact": "mqft_restore67_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT67.json,QEC67.json,STATE_RECOVERY67.json,RAPFI67.json}",
+        "evidence": "Actual g0/g3 and pinned Rapfi external 9 fallback / 15 NNUE executed; 3200 trained native paths.",
+        "remaining": "Size compatible 15x15 trained native full-game and independent utility next."
+      },
       "retained_evidence": "\uae30\uc874 evaluator/query/\uc9c0\uc5f0 \uc790\ub8cc\ub294 \ud0d0\uc0c9 \ube44\uc6a9 \ub300\uc870.",
       "source": "training_metrics.py::export_for_plotting/plot_training_curves, \ucd08\uae30 vectorized-mcts guide."
     }
@@ -747,7 +767,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-06",
+  "previous_entry": "X-STRUCT",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -2737,8 +2757,54 @@
     "status": "scoped_native_schedule_and_auxiliary_thermodynamic_models",
     "total_marked_histories": 56888
   },
-  "revision": "RESTORE66_20261126",
-  "scope": "Actual native same-order likelihood and explicit auxiliary finite thermodynamic work/heat/feedback",
+  "restore67": {
+    "AUDIT67.json_sha256": "a10445c0bb143fc8f60077d01a82b23c0d21394d6cf47c9dde860174fdb204ee",
+    "COMMON_CONTROL67.json_sha256": "b49636643afadd0606f8c7d3dfd1bb1e99c3a8f4a104652ff3916d5f80a490e6",
+    "EVALUATOR67.json_sha256": "a3306dda626689b4690bcb921b47a62a2a97ff4abbde272bacde4fd6a7f6cd68",
+    "EXTERNAL_CONTRACT67.md_sha256": "71e6194c034c6998a0c8e01812cadb0f0bba77a91575ef514795b9a1abbbb712",
+    "LEGACY_REGRESSION67.json_sha256": "e0cf9cf94d4993a9c23076d303997af5aef2a0380ec04938a59a99f08a2b3a44",
+    "NATIVE67.npz_sha256": "08a27c039929c455cf913e0ed3bd4dc26c94d310b39b921926b34fd9cf504d5f",
+    "ORIGINAL_OUTPUT_EVIDENCE67.csv_sha256": "2025ebe7b3e38fa2293a861c9e4dc9b6cb12d02a181c6ea43195fc3c8e74d5bd",
+    "ORIGINAL_OUTPUT_PROGRESS67.csv_sha256": "56210b45359b55e0ea43e4c826c353cab7c5f902efe963a53f4eca5e60c6c201",
+    "ORIGINAL_SOURCE_AUDIT67.json_sha256": "16820c3aee69b142ba8033515b1e0367fe07e64630b7f78e78f5178272f73ee2",
+    "PHYSICS_RESULTS.json_sha256": "23946c75d7c7f1396cf27bba25e231bbc990c27af003bea17e7449c3e753b220",
+    "PLOT_INVENTORY67.csv_sha256": "5724beac640953eaebb726f04396fc08d221bc0d07e00fd418c268d0e77ace51",
+    "PLOT_MANIFEST67.json_sha256": "b4200a5ef178756aff1b5ef73e5cb59f19efa81dd746e001a03c362b9a2705eb",
+    "PROGRESS67.json_sha256": "b48df78505fc423e11eacaf11b147be3b9cb611d14b832cba7f78ab5f0486272",
+    "QEC67.json_sha256": "123b3cc00d666a642d9a820f71ce12eecc566866ba3e35cfe8300edd6cd08c26",
+    "RAPFI67.json_sha256": "2d8ec2e21f5b956756010fcccc928579aadda8af55b52910de31f06106cc35b6",
+    "RECEIVED_CODEWORD67.json_sha256": "e2e4e0aea1ea0941e0d4bc12f0096815bda2bad691ac994ce0c7c6d62b2009af",
+    "REFERENCE67.npz_sha256": "1b12edf3c8a29d5792c6e1692ed636f85e3ee3c98c48a02c3af1a64d04244c00",
+    "REGISTRATION.json_sha256": "5561f292bcd8b745e6ca94474182bb5aecbb1c704e3b94d115403fed69bf0aef",
+    "RNG_AUDIT67.json_sha256": "246ac925a1bd72a58d8fe61eee48a7509426d1b838a50c39dedaaf7d86944bde",
+    "STATE_RECOVERY67.json_sha256": "878c318a1df6d3d81162652be53fcfa02cdd5d5b527ba259959aa86fa5e71085",
+    "additional_plot_nodes": 0,
+    "auxiliary_noise_masks": 6000000,
+    "evaluator_calls": 525140,
+    "external_queries": 96,
+    "external_scope": "9x9 non-NNUE fallback 64;15x15 center embedding verified NNUE 32",
+    "figures": 8,
+    "fresh_backups": 524288,
+    "fresh_fixed_root_histories": 3200,
+    "native_subagent": "NOT_RUN",
+    "new_animations": 0,
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 3,
+    "original_evidence_union_R55_R67": 72,
+    "original_plot_tasks": 121,
+    "parent_dag_sha256": "f08f368fb1a07222dfa5394ec86314065a5e9251b241eb412556c93e994de527",
+    "prior_admissions": "preserved",
+    "prior_state_channel_applications": 3840,
+    "raw_gzip_bytes": 554308291,
+    "retained_pairs": 528,
+    "status": "scoped_actual_native_fault_recovery_and_auxiliary_QEC",
+    "total_marked_histories": 60088,
+    "utility": "g3 internal proxy improved versus single noisy; g3 independent Rapfi9 agreement not improved"
+  },
+  "revision": "RESTORE67_20261126",
+  "scope": "Actual native evaluator sign transport fault recovery and explicit auxiliary quantum code; external engine independent comparison",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE66-THERMODYNAMIC-RECORD-WORK-PROTOCOL"
+  "supersedes_next": "MQFT-RESTORE67-FAULT-INJECTED-QEC-RECOVERY"
 }

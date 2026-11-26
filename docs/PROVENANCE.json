@@ -2247,6 +2247,64 @@
       }
     }
   },
+  "restore67": {
+    "AUDIT67.json_sha256": "a10445c0bb143fc8f60077d01a82b23c0d21394d6cf47c9dde860174fdb204ee",
+    "COMMON_CONTROL67.json_sha256": "b49636643afadd0606f8c7d3dfd1bb1e99c3a8f4a104652ff3916d5f80a490e6",
+    "EVALUATOR67.json_sha256": "a3306dda626689b4690bcb921b47a62a2a97ff4abbde272bacde4fd6a7f6cd68",
+    "EXTERNAL_CONTRACT67.md_sha256": "71e6194c034c6998a0c8e01812cadb0f0bba77a91575ef514795b9a1abbbb712",
+    "LEGACY_REGRESSION67.json_sha256": "e0cf9cf94d4993a9c23076d303997af5aef2a0380ec04938a59a99f08a2b3a44",
+    "NATIVE67.npz_sha256": "08a27c039929c455cf913e0ed3bd4dc26c94d310b39b921926b34fd9cf504d5f",
+    "ORIGINAL_OUTPUT_EVIDENCE67.csv_sha256": "2025ebe7b3e38fa2293a861c9e4dc9b6cb12d02a181c6ea43195fc3c8e74d5bd",
+    "ORIGINAL_OUTPUT_PROGRESS67.csv_sha256": "56210b45359b55e0ea43e4c826c353cab7c5f902efe963a53f4eca5e60c6c201",
+    "ORIGINAL_SOURCE_AUDIT67.json_sha256": "16820c3aee69b142ba8033515b1e0367fe07e64630b7f78e78f5178272f73ee2",
+    "PHYSICS_RESULTS.json_sha256": "23946c75d7c7f1396cf27bba25e231bbc990c27af003bea17e7449c3e753b220",
+    "PLOT_INVENTORY67.csv_sha256": "5724beac640953eaebb726f04396fc08d221bc0d07e00fd418c268d0e77ace51",
+    "PLOT_MANIFEST67.json_sha256": "b4200a5ef178756aff1b5ef73e5cb59f19efa81dd746e001a03c362b9a2705eb",
+    "PROGRESS67.json_sha256": "b48df78505fc423e11eacaf11b147be3b9cb611d14b832cba7f78ab5f0486272",
+    "QEC67.json_sha256": "123b3cc00d666a642d9a820f71ce12eecc566866ba3e35cfe8300edd6cd08c26",
+    "RAPFI67.json_sha256": "2d8ec2e21f5b956756010fcccc928579aadda8af55b52910de31f06106cc35b6",
+    "RECEIVED_CODEWORD67.json_sha256": "e2e4e0aea1ea0941e0d4bc12f0096815bda2bad691ac994ce0c7c6d62b2009af",
+    "REFERENCE67.npz_sha256": "1b12edf3c8a29d5792c6e1692ed636f85e3ee3c98c48a02c3af1a64d04244c00",
+    "REGISTRATION.json_sha256": "5561f292bcd8b745e6ca94474182bb5aecbb1c704e3b94d115403fed69bf0aef",
+    "RNG_AUDIT67.json_sha256": "246ac925a1bd72a58d8fe61eee48a7509426d1b838a50c39dedaaf7d86944bde",
+    "STATE_RECOVERY67.json_sha256": "878c318a1df6d3d81162652be53fcfa02cdd5d5b527ba259959aa86fa5e71085",
+    "additional_plot_nodes": 0,
+    "auxiliary_noise_masks": 6000000,
+    "dag_sha256": "fa48a96ccc0d7294505f11a2d9bf446bb5aca7dd04e82b47734b57fa4ad81bd1",
+    "evaluator_calls": 525140,
+    "external_queries": 96,
+    "external_scope": "9x9 non-NNUE fallback 64;15x15 center embedding verified NNUE 32",
+    "figures": 8,
+    "fresh_backups": 524288,
+    "fresh_fixed_root_histories": 3200,
+    "native_subagent": "NOT_RUN",
+    "new_animations": 0,
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 3,
+    "original_evidence_union_R55_R67": 72,
+    "original_plot_tasks": 121,
+    "parent_commit": "30f231e9a81f0ca3ba8624b5d75a9e9f0f60d475",
+    "parent_dag_sha256": "f08f368fb1a07222dfa5394ec86314065a5e9251b241eb412556c93e994de527",
+    "prior_admissions": "preserved",
+    "prior_state_channel_applications": 3840,
+    "raw_gzip_bytes": 554308291,
+    "retained_pairs": 528,
+    "status": "scoped_actual_native_fault_recovery_and_auxiliary_QEC",
+    "total_marked_histories": 60088,
+    "utility": "g3 internal proxy improved versus single noisy; g3 independent Rapfi9 agreement not improved",
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

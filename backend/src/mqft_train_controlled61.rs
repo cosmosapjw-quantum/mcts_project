@@ -22,11 +22,28 @@ fn averaged(net:&Net,s:&Gomoku)->(Vec<f32>,f32) {
     let mean=|x:&mut Vec<f32>|{x.sort_by(f32::total_cmp);(x.iter().map(|&z|z as f64).sum::<f64>()/8.) as f32};
     (ps.iter_mut().map(mean).collect(),mean(&mut vs))
 }
-struct ControlledEval{net:Arc<Net>,d4:bool,records:Mutex<Vec<EvalRec>>}
+#[derive(Clone,Serialize)]
+struct FaultRecord67 {id:u64,clean:f32,delivered:f32,mask:[u8;3],syndrome:[u8;2],correction:usize,residual:u8}
+struct Fault67 {mode:String,seed:u64,records:Vec<FaultRecord67>}
+impl Fault67{
+ fn mix(mut x:u64)->u64{x=(x^(x>>30)).wrapping_mul(0xbf58476d1ce4e5b9);x=(x^(x>>27)).wrapping_mul(0x94d049bb133111eb);x^(x>>31)}
+ fn u(&self,id:u64,k:u64)->f64{let x=self.seed.wrapping_add(0x9e3779b97f4a7c15u64.wrapping_mul(id*5+k+1));(Self::mix(x)>>11) as f64/9007199254740992.}
+ fn apply(&mut self,id:u64,v:f32)->f32{
+  let mut mask=[0u8;3];let common=self.mode=="rep_common"||((self.mode=="single_mix"||self.mode=="rep_mix")&&self.u(id,0)<0.5);
+  if id>0&&self.mode!="clean"{for k in 0..3{mask[k]=u8::from(self.u(id,if common{1}else{k as u64+1})<0.12);}}
+  let syndrome=[mask[0]^mask[1],mask[1]^mask[2]];
+  let correction=if self.mode.starts_with("rep"){match syndrome{[1,0]=>1,[1,1]=>2,[0,1]=>3,_=>0}}else{0};
+  let residual=mask[0]^u8::from(correction==1);
+  let delivered=if residual==1{-v}else{v};
+  self.records.push(FaultRecord67{id,clean:v,delivered,mask,syndrome,correction,residual});delivered
+ }
+}
+struct ControlledEval{net:Arc<Net>,d4:bool,records:Mutex<Vec<EvalRec>>,fault67:Mutex<Option<Fault67>>}
 impl Evaluator<Gomoku> for ControlledEval{
     fn evaluate(&self,s:&Gomoku)->EvalResult<usize>{
-        let(p,value)=if self.d4{averaged(&self.net,s)}else{self.net.forward(s)};
+        let(p,mut value)=if self.d4{averaged(&self.net,s)}else{self.net.forward(s)};
         let mut r=self.records.lock();let id=r.len() as u64;
+        if let Some(f)=self.fault67.lock().as_mut(){value=f.apply(id,value);}
         r.push(EvalRec{id,state_hash:format!("{:016x}",s.tt_hash()),side:s.current_player(),value});
         mqft_trace::set_eval(id);
         EvalResult{policy:s.legal_moves().into_iter().map(|a|(a,p[a])).collect(),value}
@@ -39,12 +56,13 @@ fn execute(j:&ControlJob,net:Arc<Net>)->Result<Value,String>{execute_field(j,net
 fn execute_field(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>)->Result<Value,String>{execute_instrument(j,net,field,None)}
 fn execute_instrument(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>,phase:Option<crate::mqft_law::Phase64>)->Result<Value,String>{execute_persistent(j,net,field,phase,None)}
 fn execute_persistent(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>,phase:Option<crate::mqft_law::Phase64>,persistent:Option<crate::mqft_law::Phase65>)->Result<Value,String>{execute_schedule(j,net,field,phase,persistent,None)}
-fn execute_schedule(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>,phase:Option<crate::mqft_law::Phase64>,persistent:Option<crate::mqft_law::Phase65>,schedule:Option<Vec<f64>>)->Result<Value,String>{
+fn execute_schedule(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>,phase:Option<crate::mqft_law::Phase64>,persistent:Option<crate::mqft_law::Phase65>,schedule:Option<Vec<f64>>)->Result<Value,String>{execute_fault67(j,net,field,phase,persistent,schedule,None)}
+fn execute_fault67(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>,phase:Option<crate::mqft_law::Phase64>,persistent:Option<crate::mqft_law::Phase65>,schedule:Option<Vec<f64>>,fault:Option<Fault67>)->Result<Value,String>{
     if ![32,64,128,512,1024].contains(&j.budget)||![1,4].contains(&j.width)||j.budget as usize%j.width!=0{return Err("bad budget/width".into())}
     let s=state(&j.moves)?;if s.is_terminal()||!s.legal_moves().contains(&j.source){return Err("bad source or terminal".into())}
     let law=LawSpec{kind:"iid".into(),beta_p:vec![j.beta],beta_q:vec![j.beta],proposal:"p".into(),logit_h:j.h};
     law.validate(j.budget,"wave",Some(j.source))?;
-    let ev=Arc::new(ControlledEval{net,d4:j.d4,records:Mutex::new(vec![])});
+    let ev=Arc::new(ControlledEval{net,d4:j.d4,records:Mutex::new(vec![]),fault67:Mutex::new(fault)});
     let mut cfg=MctsConfig::evaluation(1.4);
     cfg.tt_enabled=false;cfg.root_forced_win=false;cfg.exact_terminal_value=false;cfg.fpu_reduction=0.;cfg.vl_mode=if j.width==1{VlMode::Disabled}else{VlMode::Fixed};cfg.seed=Some(j.seed);cfg.pw=None;
     let mut eng=MctsEngine::new(s.clone(),ev.clone(),cfg);
@@ -109,7 +127,9 @@ fn execute_schedule(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>,phase:Opti
         for key in ["q","b","log_q","log_b","log_q_path","log_b_path"]{d.remove(key);}
         events.push(v);
     }
-    Ok(json!({"schema":"mqft.trained.control61.v1","job":j,"board":s.board_state_record(),"side":s.current_player(),"state_hash":format!("{:016x}",s.tt_hash()),"cuts":cuts,"events":events,"evaluations":&*rec,"elapsed_ns":t0.elapsed().as_nanos() as u64}))
+    let mut out=json!({"schema":"mqft.trained.control61.v1","job":j,"board":s.board_state_record(),"side":s.current_player(),"state_hash":format!("{:016x}",s.tt_hash()),"cuts":cuts,"events":events,"evaluations":&*rec,"elapsed_ns":t0.elapsed().as_nanos() as u64});
+    if let Some(f)=ev.fault67.lock().as_ref(){out["fault67"]=serde_json::to_value(&f.records).unwrap();}
+    Ok(out)
 }
 pub(super)fn run(weights:&str,plan:&str,out:&str,workers:&str)->Result<(),String>{
     let n=Arc::new(Net::load(weights)?);
@@ -153,3 +173,6 @@ pub(super) mod persistent65;
 
 #[path="mqft_train_schedule66.rs"]
 pub(super) mod schedule66;
+
+#[path="mqft_train_fault67.rs"]
+pub(super) mod fault67;

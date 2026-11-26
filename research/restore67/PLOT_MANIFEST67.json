@@ -1,0 +1,82 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "L23_exact_logical_noise",
+      "ids": [
+        "L23",
+        "L21"
+      ],
+      "pdf_sha": "6e36530a70b5ef3a3f60d0d35a33c7eec583588931d522894cec323c4f4e5f5c",
+      "png_sha": "fde487f43b8adfb4a6f707ea5fb863ccbcc299a6abaac3dbf42de45fe6d3a00a"
+    },
+    {
+      "figure": "L23_coherent_cycles",
+      "ids": [
+        "L23",
+        "L21"
+      ],
+      "pdf_sha": "5ee007022aadb92d1ddbdaf5fa3aeca49b345feb31d2ecfb9a41b44b3e1de29a",
+      "png_sha": "fbc97d82de605bc24a3153eafa70228c94d11b1544dd68381b7bf51b168f663e"
+    },
+    {
+      "figure": "L23_actual_register_recovery",
+      "ids": [
+        "L23",
+        "L21"
+      ],
+      "pdf_sha": "8e31364e6d090df4e0b2d7fe804fc2e295ce225c9ea074b2cc2347d4431d3040",
+      "png_sha": "3a0eae7d33cfb19408207e2c28bb60dd6cde3695479d1fcd5c50861406967418"
+    },
+    {
+      "figure": "L23_native_value_errors",
+      "ids": [
+        "L23"
+      ],
+      "pdf_sha": "f991dbf643184dbf3514dd40662c1799a2f3971732283201d542802c99f2d6ad",
+      "png_sha": "ee86eedc1c0483bd2f14b632b4f627326fbd12d50f9c70135c4adaa1c01dfa0b"
+    },
+    {
+      "figure": "L23_syndrome_detection",
+      "ids": [
+        "L23"
+      ],
+      "pdf_sha": "b3d9ebfd42531d6f43fa5d8ec5aee6952d873fe6d6c93b35c2d9324d7d1aa670",
+      "png_sha": "435e38b81aa596fdedc236460fba7457439c9738d3fcb47ce3b52e74279865be"
+    },
+    {
+      "figure": "L12_native_reference_utility",
+      "ids": [
+        "L12",
+        "L23"
+      ],
+      "pdf_sha": "4674ab736863b23e872024f760fb2791b3eb3142038a50488eef9c6e573b0fb3",
+      "png_sha": "b8bb671167ce105b319ee6f3234b7c0c9417015d4f4456559c8ea969a2e48055"
+    },
+    {
+      "figure": "L12_L23_paired_recovery_utility",
+      "ids": [
+        "L12",
+        "L23"
+      ],
+      "pdf_sha": "496074d16db3d83ebf3555a60e8db7bdd3ceaa46d0bdd97a10a68d4de4e8d129",
+      "png_sha": "b06ed5309c052892c06333f8302ddc15a4c9820245d113c369d7b9b1e72d0af6"
+    },
+    {
+      "figure": "L12_Rapfi_reference_comparison",
+      "ids": [
+        "L12"
+      ],
+      "pdf_sha": "bfdef7a3045d7c752faa3de4c3afa62b2bc775607bad67459b5d024af10cdf53",
+      "png_sha": "907fd4e9f3f7829af259959b2c9abe907dcdf11f242b4a398535d3833863a3bf"
+    }
+  ],
+  "sources": {
+    "NATIVE67.npz": "08a27c039929c455cf913e0ed3bd4dc26c94d310b39b921926b34fd9cf504d5f",
+    "PHYSICS_RESULTS.json": "23946c75d7c7f1396cf27bba25e231bbc990c27af003bea17e7449c3e753b220",
+    "QEC67.json": "123b3cc00d666a642d9a820f71ce12eecc566866ba3e35cfe8300edd6cd08c26",
+    "RAPFI67.json": "2d8ec2e21f5b956756010fcccc928579aadda8af55b52910de31f06106cc35b6",
+    "REFERENCE67.npz": "1b12edf3c8a29d5792c6e1692ed636f85e3ee3c98c48a02c3af1a64d04244c00",
+    "STATE_RECOVERY67.json": "878c318a1df6d3d81162652be53fcfa02cdd5d5b527ba259959aa86fa5e71085"
+  }
+}
