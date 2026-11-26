@@ -1,0 +1,98 @@
+{
+  "figures": [
+    {
+      "figure": "marked_path_W",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "629a292c485ec41668fb07495517b2f3cda34a1c2680590774a508f3e9bf40a8",
+      "png_sha": "63234f41b232f00ad835f00a50909313b66ae7e383306725fad1b82e2a87dee5"
+    },
+    {
+      "figure": "tangent_hessian",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "fddf738bd6eb7a9075e4fd0687e131ceaba2858b71c4c750ae15b9bdee5814e2",
+      "png_sha": "a58479b94a023f9755e100bcb7c19d7d0572bab23a3e8c3a2764cf4b8d384105"
+    },
+    {
+      "figure": "marked_cumulants",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "66a87d54139f6579dd745152d86689a8925e030d4fb05fbee66d061bb36381ad",
+      "png_sha": "a3cc103fac54f1cc13249e41d39846edf12a60f52c4de9e1e27b15b676ac2c46"
+    },
+    {
+      "figure": "conditional_count_closure",
+      "ids": [
+        "L16"
+      ],
+      "pdf_sha": "3d51dd879da0d700e8b1bcaebe905d786041b127f82c74d419c18eb040b0c2db",
+      "png_sha": "585c493368463dd76590a39f75f325568ef6e5914d5cd520e3e7856ede07aa21"
+    },
+    {
+      "figure": "marked_history_closure",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "e33eee8d6e58082880a13fba52dd08d86c3a0db2353247494b230f234971b99f",
+      "png_sha": "d903e816563a9aafc1042ed1d8db8a5ec5afe11cf7dce8e8bbf9010a4dddc184"
+    },
+    {
+      "figure": "independent_replica_saddle",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "c733ab252eec0b37d82fddeb86ae9027f4185a43b210b503acee45f86fa7d7a6",
+      "png_sha": "44a037eb5e9696993ed014be5289afd26a45a9a07023b66e888de037c9213d3b"
+    },
+    {
+      "figure": "conditional_tilt_martingale",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "11a134e16753fbd291cde24c401de48fdede9a06a3f5901304216a1a7312d9f3",
+      "png_sha": "f218bdbade7cfec9460ecbd8df79d7a5b462796506bea615ea5ba870655ee790"
+    },
+    {
+      "figure": "adaptive_path_vs_conditional_generators",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "5eb0f6487fccadd5e60a0961a72819d17bad5049b532067d1b5da80094a94f11",
+      "png_sha": "bac50e62bf1c65ec3536af9392dcb6186c8589fbd2a1d935f16a630e83a78ef1"
+    },
+    {
+      "figure": "marked_legendre_conjugate",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "b12955da2d2fbf3b9712765548e53fd8d67a703a7e5a3f8c7faac3d97d2b4ef9",
+      "png_sha": "94d51a126479794e4f51679de62e6ef387315944a0b335a0adcbf7be5de71aaa"
+    },
+    {
+      "figure": "finite_replica_effective_action",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "0c3ae01014657c32c851aaf288f5d21d21ac0c6f2454e0b7bc6ae5c2d53c717c",
+      "png_sha": "3172fa2ec486a13e13508b5c2d46b6b1d03570159e14ef2943092144fda09765"
+    }
+  ],
+  "sources": {
+    "INDEPENDENT70.json": "940e17a2785a9dc57df211b900265516ce6f637f9da9bee46da67c8924286306",
+    "MARKED70.npz": "422bf4502ed16e2380e859787cf107f45eaa3fb9f7f183e0fe2db1ecb54380ef",
+    "PHYSICS_RESULTS.json": "261416aa077c18599a2027c763ecf17e4478fd6ec9f164cda2d3a1aa9cd03a5d"
+  }
+}

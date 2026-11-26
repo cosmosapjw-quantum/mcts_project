@@ -119,9 +119,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R70 adaptive marked effective action and controlled saddle",
-    "R71 graph RG and genuine size-family closure",
-    "R72 complex adaptive multi-time records and decision information"
+    "R70-P joint population closure targeted expansion",
+    "R71 five-size coarse maps and conditional closure",
+    "R72 adaptive multi-time complex records and decision information"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -140,7 +140,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE70-ADAPTIVE-MARKED-EFFECTIVE-ACTION",
+  "next_stage_id": "MQFT-RESTORE71-COARSE-MAPS-SIZE-FAMILY",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -279,6 +279,11 @@
         "artifact": "mqft_restore69_20261126/{RESULTS_KO.md,THEORY.md,PHYSICS_RESULTS.json,INDEPENDENT69.json,BLOCK_RESULTS69.json}",
         "evidence": "Exact finite-record influence action and controlled quadratic remainder.",
         "remaining": "Actual adaptive marked W[J], tangent 1PI and independently controlled saddle/loop expansion next."
+      },
+      "restore70_followup": {
+        "artifact": "mqft_restore70_20261126/{THEORY.md,PHYSICS_RESULTS.json,INDEPENDENT70.json}",
+        "evidence": "Actual marked finite path W, tangent 1PI and independent-replica local saddle corrections verified; 288 fresh paths; 90 exact tilted convolution cases.",
+        "remaining": "Population joint transition closure with next-state and marks; large independent geometry and seed cohorts; no physical hbar or continuum."
       },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
@@ -732,6 +737,11 @@
         "evidence": "Analytic separable adjacent-record pair for any intervening CPTP map, actual score schedules frozen for numerical controls.",
         "remaining": "Adaptive joint memory/record dynamics on actual alternative trajectories."
       },
+      "restore70_followup": {
+        "artifact": "mqft_restore70_20261126/PHYSICS_RESULTS.json",
+        "evidence": "Geometry cross-fitted lag/cumulative mark predictors improved all evaluator strata, conditional reduced count law underperformed actual conditional state.",
+        "remaining": "Teacher-forced means not autonomous joint transition; derive next-state propagation."
+      },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -829,7 +839,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-07",
+  "previous_entry": "REPLAN-03",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -2951,8 +2961,44 @@
     "status": "scoped_complementary_record_physics",
     "total_marked_histories": 60376
   },
-  "revision": "RESTORE69_20261126",
-  "scope": "Physics-first charter reset; exact complementary instrument records and finite influence action",
+  "restore70": {
+    "AUDIT69.json_sha256": "e7ac637e13af18644006023ca775af624e42b5b9df4e6bb8f78118c6cd5fe8af",
+    "DRIFT_WATCHDOG.md_sha256": "996af8e37b6f20ca28d7fb8d52ec9ed9e720e6e5ef6e4158e8557a42ce2f5220",
+    "INDEPENDENT70.json_sha256": "940e17a2785a9dc57df211b900265516ce6f637f9da9bee46da67c8924286306",
+    "NEXT_DYNAMICS.md_sha256": "6298f198310613bbf8c98151600518ad610ee7144eb6ae5931ec68f4a593c022",
+    "ORIGINAL_OUTPUT_EVIDENCE70.csv_sha256": "a659f9376c9b2467d65e8bec0d4340fe03a58c585dff8222a58d8361d70d57b2",
+    "ORIGINAL_OUTPUT_PROGRESS70.csv_sha256": "40db7906b782c4c44d676763a1deae877b37e55da83e483ea018dcb796092c05",
+    "ORIGINAL_SOURCE70.json_sha256": "5a84e0c88413bba0f22d1874e32aeb2475c83b4841de1d54831502e723d2c936",
+    "PHYSICS_RESULTS.json_sha256": "261416aa077c18599a2027c763ecf17e4478fd6ec9f164cda2d3a1aa9cd03a5d",
+    "PLOT_INVENTORY70.csv_sha256": "f5963ea8bc19a9eafa8a7c7e409af9a542b528b3ac48a4ca5424f7036ab70875",
+    "PLOT_MANIFEST70.json_sha256": "93b5915968b108b86528df7a287d752d37589bd4fa0ad7f90ae5af79e6043762",
+    "PROGRESS70.json_sha256": "2dc8fb3f1103e2daf75904273a223ab7e8106d4575e21e3c6bc3d3335f56e58e",
+    "REGISTRATION.json_sha256": "4d09ecf7bd8f7da59bb880ecf84bfe6ce5211c9ede80ddec3939b871119e4e92",
+    "THEORY.md_sha256": "859d6468671f8390bfd55d370273f128f3583386f6eac5b5b2c1a09e368ceb7c",
+    "additional_plot_nodes": 0,
+    "cumulative_fixed_root_histories": 60664,
+    "evals": 36942,
+    "figures": 10,
+    "fresh_backups": 36864,
+    "fresh_fixed_root_histories": 288,
+    "fresh_waves": 9216,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 2,
+    "original_evidence_union_R55_R70": 90,
+    "original_obligations": 121,
+    "parent_commit": "5c4a60bc0bd41f3ef105422fb7a4f1cbad16e289",
+    "parent_dag_sha256": "1d9759e92201887803c37e40bc9b27d04f557d248af7049cea435a7f875f5a25",
+    "raw_bytes": 47903077,
+    "remaining": "population joint transition and strong-source stability",
+    "retained_pairs": 553,
+    "reused_R65_waves": 49152,
+    "reused_R69_waves": 9216,
+    "status": "scoped_finite_marked_statistical_action"
+  },
+  "revision": "RESTORE70_20261126",
+  "scope": "Native adaptive marked finite path CGF and statistical replica expansion",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE69-PRIOR-INFORMED-ROOT-GENERATOR"
+  "supersedes_next": "MQFT-RESTORE70-ADAPTIVE-MARKED-EFFECTIVE-ACTION"
 }
