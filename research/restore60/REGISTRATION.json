@@ -1,0 +1,52 @@
+{
+  "arena_pairs_per_round": 16,
+  "batch": 64,
+  "binary_sha": "5631269efce3de5ae38ad8c03bd6fe1b851d5c06eadf6beee7fb10df0f50b5b0",
+  "board": 9,
+  "budget": 32,
+  "c_puct": 1.4,
+  "cut_steps": [
+    0,
+    50,
+    100,
+    200,
+    300
+  ],
+  "device": "CPU",
+  "fixture_sha": "c8ef3d4bf006f57707a8104f1e841c45ad938225d8038a075a16a07ad594c665",
+  "initial_checkpoint_sha": "36e1467815d5d620617d4f04b34fa0485ea54b444cf410ac74687bfdca77a166",
+  "initial_export_sha": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57",
+  "initial_source": "mqft_restore60_20261126/plans/arena2.json",
+  "initial_training_registration_sha": "0dbbc3eb6f73f596dc140809201d4d4a891c452ed5ae4c8adaefd12d2d6c7717",
+  "lr": [
+    0.001,
+    0.0007
+  ],
+  "noise": {
+    "alpha": 0.3,
+    "epsilon": 0.25,
+    "first_sampled_plies": 12
+  },
+  "numpy": "2.4.2",
+  "optimizer": "AdamW; fresh optimizer at g0, continued optimizer after g1",
+  "parent_commit": "7bd48b692fbfcb3ed89bbe1dee052b5a5445b3cf",
+  "plans": {
+    "arena1.json": "0481c588b0625537d3e8a64bbab3cdce4c62bfd0da5de71bdfda3f0c7d73cdbd",
+    "arena2.json": "1ae52572bb012c566470cccfe2460597b558269d5e80465307dd47940ba8cc53",
+    "self1.json": "3333ee359b6b1feb2641dc46cc86742de60ddf49f3eecdfb0b1cb7d5f9d21769",
+    "self2.json": "b5cbfa44695ec901b2c4fe74ef51b1bbf024cd66f7213b6bb8e5c3d0c80212d5"
+  },
+  "rounds": 2,
+  "rules": "freestyle>=5",
+  "seed": 600101,
+  "source_sha": "5a4d58a4cdd0fa1240a7baa27ce47acd80e1a4782007ec6d83426d9c2ddbdc25",
+  "steps_per_round": 300,
+  "test": "validation game-disjoint and D4 orbit purge against train same iteration; arena paired and not trained",
+  "torch": "2.10.0+cpu",
+  "train_games_per_round": 48,
+  "train_weight": "uniform game then uniform ply; D4 augmentation; current iteration only",
+  "val_games_per_round": 12,
+  "value": "winner sign times side, draw0",
+  "weight_decay": 0.0001,
+  "workers": 10
+}

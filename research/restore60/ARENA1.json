@@ -1,0 +1,449 @@
+{
+  "D": 0,
+  "L": 11,
+  "W": 21,
+  "games": [
+    {
+      "id": "g1_arena_000_0",
+      "new_score": 0.0,
+      "opening": [
+        50,
+        40,
+        21,
+        56
+      ],
+      "plies": 12,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "g1_arena_000_1",
+      "new_score": 1.0,
+      "opening": [
+        50,
+        40,
+        21,
+        56
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "g1_arena_001_0",
+      "new_score": 1.0,
+      "opening": [
+        32,
+        42,
+        31,
+        22
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_001_1",
+      "new_score": 0.0,
+      "opening": [
+        32,
+        42,
+        31,
+        22
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_002_0",
+      "new_score": 1.0,
+      "opening": [
+        40,
+        41,
+        57,
+        56
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_002_1",
+      "new_score": 0.0,
+      "opening": [
+        40,
+        41,
+        57,
+        56
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_003_0",
+      "new_score": 1.0,
+      "opening": [
+        39,
+        31,
+        33,
+        22
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_003_1",
+      "new_score": 1.0,
+      "opening": [
+        39,
+        31,
+        33,
+        22
+      ],
+      "plies": 10,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "g1_arena_004_0",
+      "new_score": 1.0,
+      "opening": [
+        49,
+        39,
+        33,
+        50
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_004_1",
+      "new_score": 0.0,
+      "opening": [
+        49,
+        39,
+        33,
+        50
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_005_0",
+      "new_score": 1.0,
+      "opening": [
+        41,
+        50,
+        42,
+        30
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_005_1",
+      "new_score": 0.0,
+      "opening": [
+        41,
+        50,
+        42,
+        30
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_006_0",
+      "new_score": 1.0,
+      "opening": [
+        47,
+        39,
+        57,
+        58
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_006_1",
+      "new_score": 1.0,
+      "opening": [
+        47,
+        39,
+        57,
+        58
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "g1_arena_007_0",
+      "new_score": 1.0,
+      "opening": [
+        20,
+        24,
+        38,
+        22
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_007_1",
+      "new_score": 0.0,
+      "opening": [
+        20,
+        24,
+        38,
+        22
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_008_0",
+      "new_score": 1.0,
+      "opening": [
+        23,
+        41,
+        33,
+        49
+      ],
+      "plies": 13,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_008_1",
+      "new_score": 1.0,
+      "opening": [
+        23,
+        41,
+        33,
+        49
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "g1_arena_009_0",
+      "new_score": 1.0,
+      "opening": [
+        59,
+        56,
+        32,
+        60
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_009_1",
+      "new_score": 0.0,
+      "opening": [
+        59,
+        56,
+        32,
+        60
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_010_0",
+      "new_score": 0.0,
+      "opening": [
+        32,
+        20,
+        40,
+        38
+      ],
+      "plies": 10,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "g1_arena_010_1",
+      "new_score": 1.0,
+      "opening": [
+        32,
+        20,
+        40,
+        38
+      ],
+      "plies": 10,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "g1_arena_011_0",
+      "new_score": 1.0,
+      "opening": [
+        49,
+        57,
+        48,
+        42
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_011_1",
+      "new_score": 0.0,
+      "opening": [
+        49,
+        57,
+        48,
+        42
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_012_0",
+      "new_score": 1.0,
+      "opening": [
+        57,
+        48,
+        59,
+        40
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_012_1",
+      "new_score": 1.0,
+      "opening": [
+        57,
+        48,
+        59,
+        40
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "g1_arena_013_0",
+      "new_score": 1.0,
+      "opening": [
+        32,
+        59,
+        56,
+        39
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_013_1",
+      "new_score": 1.0,
+      "opening": [
+        32,
+        59,
+        56,
+        39
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "g1_arena_014_0",
+      "new_score": 1.0,
+      "opening": [
+        22,
+        32,
+        59,
+        50
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_014_1",
+      "new_score": 0.0,
+      "opening": [
+        22,
+        32,
+        59,
+        50
+      ],
+      "plies": 13,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_015_0",
+      "new_score": 1.0,
+      "opening": [
+        50,
+        31,
+        49,
+        39
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "g1_arena_015_1",
+      "new_score": 0.0,
+      "opening": [
+        50,
+        31,
+        49,
+        39
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    }
+  ],
+  "generation": 1,
+  "n": 32,
+  "pair_scores": [
+    0.5,
+    0.5,
+    0.5,
+    1.0,
+    0.5,
+    0.5,
+    1.0,
+    0.5,
+    1.0,
+    0.5,
+    0.5,
+    0.5,
+    1.0,
+    1.0,
+    0.5,
+    0.5
+  ],
+  "paired_bootstrap_95": [
+    0.5625,
+    0.78125
+  ],
+  "scope": "conditional paired opening resampling; no population Elo",
+  "score": 0.65625
+}

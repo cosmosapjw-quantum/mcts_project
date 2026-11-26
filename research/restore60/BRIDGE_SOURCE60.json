@@ -1,0 +1,19 @@
+{
+  "executed_binary_sha256": "5631269efce3de5ae38ad8c03bd6fe1b851d5c06eadf6beee7fb10df0f50b5b0",
+  "rebuilt_binary_sha256": "5631269efce3de5ae38ad8c03bd6fe1b851d5c06eadf6beee7fb10df0f50b5b0",
+  "byte_equal": true,
+  "change": "Cargo default-run metadata only; preserve existing command target",
+  "source_files": {
+    "Cargo.toml": "6456d8686d2adcf50613ac13ef64cbcba3aefd11a14e19dc2d5c2f536cadbe69",
+    "Cargo.lock": "4368560c374c1272000fdd17a48fbe8449c6e471c848698b088d0b6092b2bb36",
+    "src/lib.rs": "0d8ba4ae0ed205927e95c657370d232e054b3baf977a71436bb8351f5db80991",
+    "src/games/mod.rs": "fbb6f05f26a919460775b017c0b2c70de875830b6471cc12f7c2ad4a6b59fcc0",
+    "src/games/gomoku.rs": "b885c4bc8fa503be74d128c49faa475662b0ba0c35595a0666075e92621e0b0b",
+    "src/mqft_train.rs": "8e3b745ee5ee0d3369d3b7dd12d09efcd840a1bf589b4f6c8eef8ae4740c1982",
+    "src/bin/mqft_train.rs": "9ec899bb9928ec5011e2ee6bd8422e643b52cea2cbaf59736fcc7f49a416fc58",
+    "src/mcts/mod.rs": "e4ed7b2be2d4eeecf70dd800c8c2617f096addfe14350aaae59750ba66f8be4d",
+    "src/mcts/backup.rs": "6d564e48e8c94660650b0a35710c8f9349a603ee49533402b7863aad7835bc09",
+    "src/mqft_trace.rs": "ea897867d6d1a3f93a5dbe701daa6b6fcfeee64be11a8f1d680f3b64b189a726"
+  },
+  "compiled_cargo_toml_sha": "e8ab041bc26c4ba4806452dd59c17515298f2c0d8339f61533a58b46bacc6809"
+}

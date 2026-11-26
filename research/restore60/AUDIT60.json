@@ -1,0 +1,209 @@
+{
+  "actual_state_inference": {
+    "0": {
+      "leaves": 196,
+      "max_policy_error": 4.76837158203125e-07,
+      "max_value_error": 1.519918441772461e-06,
+      "n": 246,
+      "roots": 50
+    },
+    "1": {
+      "leaves": 259,
+      "max_policy_error": 5.960464477539062e-07,
+      "max_value_error": 7.152557373046875e-07,
+      "n": 335,
+      "roots": 76
+    },
+    "2": {
+      "leaves": 172,
+      "max_policy_error": 4.76837158203125e-07,
+      "max_value_error": 7.748603820800781e-07,
+      "n": 220,
+      "roots": 48
+    },
+    "3": {
+      "leaves": 96,
+      "max_policy_error": 5.960464477539062e-07,
+      "max_value_error": 6.258487701416016e-07,
+      "n": 130,
+      "roots": 34
+    }
+  },
+  "cohorts": {
+    "a10b128": {
+      "backups": 102016,
+      "bytes": 55538055,
+      "evaluator_calls": 79536,
+      "games": 96,
+      "searched": 797
+    },
+    "a10b32": {
+      "backups": 24128,
+      "bytes": 14460956,
+      "evaluator_calls": 20731,
+      "games": 96,
+      "searched": 754
+    },
+    "a21b128": {
+      "backups": 98560,
+      "bytes": 53638506,
+      "evaluator_calls": 76149,
+      "games": 96,
+      "searched": 770
+    },
+    "a21b32": {
+      "backups": 22272,
+      "bytes": 13326266,
+      "evaluator_calls": 18983,
+      "games": 96,
+      "searched": 696
+    },
+    "a30b128": {
+      "backups": 97408,
+      "bytes": 52920902,
+      "evaluator_calls": 73012,
+      "games": 96,
+      "searched": 761
+    },
+    "a30b32": {
+      "backups": 21152,
+      "bytes": 12640592,
+      "evaluator_calls": 17332,
+      "games": 96,
+      "searched": 661
+    },
+    "a32b128": {
+      "backups": 98176,
+      "bytes": 53345054,
+      "evaluator_calls": 72222,
+      "games": 96,
+      "searched": 767
+    },
+    "a32b32": {
+      "backups": 20960,
+      "bytes": 12543668,
+      "evaluator_calls": 17172,
+      "games": 96,
+      "searched": 655
+    },
+    "arena1": {
+      "backups": 6624,
+      "bytes": 3942716,
+      "evaluator_calls": 5493,
+      "games": 32,
+      "searched": 207
+    },
+    "arena2": {
+      "backups": 7072,
+      "bytes": 4221805,
+      "evaluator_calls": 5863,
+      "games": 32,
+      "searched": 221
+    },
+    "self1": {
+      "backups": 17024,
+      "bytes": 10252377,
+      "evaluator_calls": 15356,
+      "games": 60,
+      "searched": 532
+    },
+    "self2": {
+      "backups": 13536,
+      "bytes": 8093665,
+      "evaluator_calls": 11809,
+      "games": 60,
+      "searched": 423
+    },
+    "self3": {
+      "backups": 603136,
+      "bytes": 326156514,
+      "evaluator_calls": 457367,
+      "games": 640,
+      "searched": 4712
+    }
+  },
+  "cross_generation_orbit_overlap": {
+    "1": {
+      "train_overlap_previous": 0,
+      "val_overlap_current": 0,
+      "val_overlap_previous": 0
+    },
+    "2": {
+      "train_overlap_previous": 0,
+      "val_overlap_current": 0,
+      "val_overlap_previous": 0
+    },
+    "3": {
+      "train_overlap_previous": 0,
+      "val_overlap_current": 0,
+      "val_overlap_previous": 0
+    }
+  },
+  "d4_single_vs_ensemble": {
+    "0": {
+      "max_abs_value": 0.9147502183914185,
+      "max_policy_TV": 0.40676701068878174,
+      "mean_abs_value": 0.12486313283443451,
+      "mean_policy_TV": 0.16078607738018036
+    },
+    "1": {
+      "max_abs_value": 0.5163416862487793,
+      "max_policy_TV": 0.26309913396835327,
+      "mean_abs_value": 0.10466812551021576,
+      "mean_policy_TV": 0.10165022313594818
+    },
+    "2": {
+      "max_abs_value": 0.7853298187255859,
+      "max_policy_TV": 0.2639227509498596,
+      "mean_abs_value": 0.10133993625640869,
+      "mean_policy_TV": 0.09695981442928314
+    },
+    "3": {
+      "max_abs_value": 0.9634036421775818,
+      "max_policy_TV": 0.26320305466651917,
+      "mean_abs_value": 0.11183296144008636,
+      "mean_policy_TV": 0.09711404144763947
+    }
+  },
+  "lineage": [
+    {
+      "checkpoint_sha": "36e1467815d5d620617d4f04b34fa0485ea54b444cf410ac74687bfdca77a166",
+      "generation": 0,
+      "parent_sha": "4dd5068f5d30e569abc9766d7e878303107953638ed518e8e668e2c6cd2b21f4",
+      "weights_sha": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+    },
+    {
+      "checkpoint_sha": "0836128de7011a33e8826cad4c10915c82fd30a8cd82d17beac87b71722b19b0",
+      "generation": 1,
+      "parent_sha": "36e1467815d5d620617d4f04b34fa0485ea54b444cf410ac74687bfdca77a166",
+      "weights_sha": "5cc7b0264cd04bce377add6c8aee63a78b0c48f7f5a5b8696ecd667cd3e2cf55"
+    },
+    {
+      "checkpoint_sha": "04767bd9760ba75a6f59d506620ca8c386cb8c544d0d39fed65c2c20c03cf86c",
+      "generation": 2,
+      "parent_sha": "0836128de7011a33e8826cad4c10915c82fd30a8cd82d17beac87b71722b19b0",
+      "weights_sha": "7f69c87bda838ccaf86c1d4ecc71c9e3003f8a4e195cca52649b0cd06c35eaeb"
+    },
+    {
+      "checkpoint_sha": "d48b54befad2f834b2e439a669cb65cb975eb66cf84c2c28c4271a14df57364f",
+      "generation": 3,
+      "parent_sha": "04767bd9760ba75a6f59d506620ca8c386cb8c544d0d39fed65c2c20c03cf86c",
+      "weights_sha": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+    }
+  ],
+  "matched_initial_roots": 384,
+  "metric_crosscheck_max_error": {
+    "1": 6.741355917938563e-09,
+    "2": 6.525551476954661e-08,
+    "3": 1.0069314715366318e-08
+  },
+  "native_agent": "NOT_RUN",
+  "scope": "all raw SHA/receipts plus stratified actual state inference; previous audit checked every game and every path, not full independent evaluator recomputation of all 871025 calls",
+  "total": {
+    "backups": 1132064,
+    "bytes": 621081076,
+    "evaluator_calls": 871025,
+    "games": 1592,
+    "searched": 11956
+  }
+}

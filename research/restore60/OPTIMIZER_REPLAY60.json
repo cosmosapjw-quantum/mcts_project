@@ -1,0 +1,9 @@
+{
+  "generation": 3,
+  "model_bit_exact": true,
+  "optimizer_bit_exact": true,
+  "replayed_updates": 800,
+  "scope": "replay not counted as new learning",
+  "source_dataset_sha": "67690b2ad1da40a55df4523741a2fb3c4579f3f5f1af8440575af911205a4a54",
+  "target_checkpoint_sha": "d48b54befad2f834b2e439a669cb65cb975eb66cf84c2c28c4271a14df57364f"
+}

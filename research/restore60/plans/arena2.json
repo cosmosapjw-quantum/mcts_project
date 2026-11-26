@@ -1,0 +1,418 @@
+[
+  {
+    "budget": 32,
+    "id": "g2_arena_000_0",
+    "opening": [
+      51,
+      56,
+      42,
+      31
+    ],
+    "seed": 5803292206805859399,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_000_1",
+    "opening": [
+      51,
+      56,
+      42,
+      31
+    ],
+    "seed": 5803292206805859399,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_001_0",
+    "opening": [
+      32,
+      21,
+      50,
+      56
+    ],
+    "seed": 879865756082378041,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_001_1",
+    "opening": [
+      32,
+      21,
+      50,
+      56
+    ],
+    "seed": 879865756082378041,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_002_0",
+    "opening": [
+      31,
+      47,
+      60,
+      50
+    ],
+    "seed": 5742505069336888707,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_002_1",
+    "opening": [
+      31,
+      47,
+      60,
+      50
+    ],
+    "seed": 5742505069336888707,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_003_0",
+    "opening": [
+      38,
+      58,
+      32,
+      51
+    ],
+    "seed": 6924000228532535165,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_003_1",
+    "opening": [
+      38,
+      58,
+      32,
+      51
+    ],
+    "seed": 6924000228532535165,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_004_0",
+    "opening": [
+      23,
+      24,
+      32,
+      33
+    ],
+    "seed": 7300838364179265054,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_004_1",
+    "opening": [
+      23,
+      24,
+      32,
+      33
+    ],
+    "seed": 7300838364179265054,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_005_0",
+    "opening": [
+      38,
+      56,
+      58,
+      47
+    ],
+    "seed": 6380622389850049454,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_005_1",
+    "opening": [
+      38,
+      56,
+      58,
+      47
+    ],
+    "seed": 6380622389850049454,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_006_0",
+    "opening": [
+      33,
+      57,
+      59,
+      60
+    ],
+    "seed": 7036216355628188012,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_006_1",
+    "opening": [
+      33,
+      57,
+      59,
+      60
+    ],
+    "seed": 7036216355628188012,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_007_0",
+    "opening": [
+      49,
+      60,
+      30,
+      42
+    ],
+    "seed": 8354757625658791074,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_007_1",
+    "opening": [
+      49,
+      60,
+      30,
+      42
+    ],
+    "seed": 8354757625658791074,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_008_0",
+    "opening": [
+      47,
+      56,
+      21,
+      31
+    ],
+    "seed": 6864625818066727578,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_008_1",
+    "opening": [
+      47,
+      56,
+      21,
+      31
+    ],
+    "seed": 6864625818066727578,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_009_0",
+    "opening": [
+      56,
+      48,
+      57,
+      49
+    ],
+    "seed": 6524163324368098098,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_009_1",
+    "opening": [
+      56,
+      48,
+      57,
+      49
+    ],
+    "seed": 6524163324368098098,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_010_0",
+    "opening": [
+      60,
+      31,
+      40,
+      57
+    ],
+    "seed": 2155449734761987171,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_010_1",
+    "opening": [
+      60,
+      31,
+      40,
+      57
+    ],
+    "seed": 2155449734761987171,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_011_0",
+    "opening": [
+      41,
+      29,
+      22,
+      33
+    ],
+    "seed": 3114942218662803314,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_011_1",
+    "opening": [
+      41,
+      29,
+      22,
+      33
+    ],
+    "seed": 3114942218662803314,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_012_0",
+    "opening": [
+      40,
+      47,
+      57,
+      22
+    ],
+    "seed": 18822253637271512,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_012_1",
+    "opening": [
+      40,
+      47,
+      57,
+      22
+    ],
+    "seed": 18822253637271512,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_013_0",
+    "opening": [
+      40,
+      33,
+      23,
+      20
+    ],
+    "seed": 275115313911412112,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_013_1",
+    "opening": [
+      40,
+      33,
+      23,
+      20
+    ],
+    "seed": 275115313911412112,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_014_0",
+    "opening": [
+      59,
+      60,
+      39,
+      29
+    ],
+    "seed": 6658245760385595803,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_014_1",
+    "opening": [
+      59,
+      60,
+      39,
+      29
+    ],
+    "seed": 6658245760385595803,
+    "swap": true,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_015_0",
+    "opening": [
+      21,
+      22,
+      51,
+      59
+    ],
+    "seed": 5202477648104509091,
+    "swap": false,
+    "training": false
+  },
+  {
+    "budget": 32,
+    "id": "g2_arena_015_1",
+    "opening": [
+      21,
+      22,
+      51,
+      59
+    ],
+    "seed": 5202477648104509091,
+    "swap": true,
+    "training": false
+  }
+]

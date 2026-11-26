@@ -1,5 +1,5 @@
 pub mod gomoku15;
-#[cfg(test)]
+#[cfg(any(test, feature = "mqft-train"))]
 pub mod gomoku;
 #[cfg(test)]
 pub mod tictactoe;

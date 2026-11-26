@@ -2,6 +2,7 @@
 name = "mcts_demo"
 version = "0.3.0"
 edition = "2021"
+default-run = "mcts_demo"
 
 [features]
 default = []
@@ -10,6 +11,8 @@ onnx = ["dep:ort", "dep:ndarray"]
 # excluded from `default` so the production search graph and semantics remain
 # unchanged unless an experiment opts in explicitly.
 idea-foundry = []
+# Opt-in checkpoint-aware serial game research transport.
+mqft-train = []
 
 [dependencies]
 rand       = "0.8"
@@ -41,3 +44,8 @@ codegen-units = 1
 # in places, and some Python FFI consumers expect unwinding panics. If a future
 # audit confirms no live consumer relies on unwind, switching to abort would
 # save ~1-2% binary size with no runtime change.
+
+[[bin]]
+name = "mqft_train"
+path = "src/bin/mqft_train.rs"
+required-features = ["mqft-train"]

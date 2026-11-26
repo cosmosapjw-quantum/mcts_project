@@ -1,0 +1,1316 @@
+{
+  "D": 0,
+  "L": 42,
+  "W": 54,
+  "budget": 128,
+  "games": [
+    {
+      "id": "a21b128_000_0",
+      "new_score": 1.0,
+      "opening": [
+        57,
+        48,
+        51,
+        38
+      ],
+      "plies": 13,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_000_1",
+      "new_score": 1.0,
+      "opening": [
+        57,
+        48,
+        51,
+        38
+      ],
+      "plies": 14,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_001_0",
+      "new_score": 1.0,
+      "opening": [
+        22,
+        39,
+        40,
+        30
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_001_1",
+      "new_score": 0.0,
+      "opening": [
+        22,
+        39,
+        40,
+        30
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_002_0",
+      "new_score": 1.0,
+      "opening": [
+        39,
+        56,
+        23,
+        22
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_002_1",
+      "new_score": 0.0,
+      "opening": [
+        39,
+        56,
+        23,
+        22
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_003_0",
+      "new_score": 1.0,
+      "opening": [
+        33,
+        38,
+        22,
+        59
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_003_1",
+      "new_score": 0.0,
+      "opening": [
+        33,
+        38,
+        22,
+        59
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_004_0",
+      "new_score": 0.0,
+      "opening": [
+        24,
+        39,
+        33,
+        30
+      ],
+      "plies": 10,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_004_1",
+      "new_score": 1.0,
+      "opening": [
+        24,
+        39,
+        33,
+        30
+      ],
+      "plies": 10,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_005_0",
+      "new_score": 0.0,
+      "opening": [
+        47,
+        48,
+        51,
+        29
+      ],
+      "plies": 14,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_005_1",
+      "new_score": 1.0,
+      "opening": [
+        47,
+        48,
+        51,
+        29
+      ],
+      "plies": 14,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_006_0",
+      "new_score": 1.0,
+      "opening": [
+        20,
+        60,
+        41,
+        22
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_006_1",
+      "new_score": 0.0,
+      "opening": [
+        20,
+        60,
+        41,
+        22
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_007_0",
+      "new_score": 1.0,
+      "opening": [
+        30,
+        22,
+        20,
+        21
+      ],
+      "plies": 15,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_007_1",
+      "new_score": 0.0,
+      "opening": [
+        30,
+        22,
+        20,
+        21
+      ],
+      "plies": 15,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_008_0",
+      "new_score": 1.0,
+      "opening": [
+        41,
+        39,
+        38,
+        51
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_008_1",
+      "new_score": 0.0,
+      "opening": [
+        41,
+        39,
+        38,
+        51
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_009_0",
+      "new_score": 1.0,
+      "opening": [
+        38,
+        42,
+        47,
+        29
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_009_1",
+      "new_score": 1.0,
+      "opening": [
+        38,
+        42,
+        47,
+        29
+      ],
+      "plies": 14,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_010_0",
+      "new_score": 1.0,
+      "opening": [
+        30,
+        57,
+        47,
+        59
+      ],
+      "plies": 13,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_010_1",
+      "new_score": 1.0,
+      "opening": [
+        30,
+        57,
+        47,
+        59
+      ],
+      "plies": 16,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_011_0",
+      "new_score": 1.0,
+      "opening": [
+        30,
+        51,
+        60,
+        32
+      ],
+      "plies": 13,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_011_1",
+      "new_score": 1.0,
+      "opening": [
+        30,
+        51,
+        60,
+        32
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_012_0",
+      "new_score": 1.0,
+      "opening": [
+        22,
+        38,
+        33,
+        21
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_012_1",
+      "new_score": 0.0,
+      "opening": [
+        22,
+        38,
+        33,
+        21
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_013_0",
+      "new_score": 1.0,
+      "opening": [
+        60,
+        51,
+        38,
+        56
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_013_1",
+      "new_score": 0.0,
+      "opening": [
+        60,
+        51,
+        38,
+        56
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_014_0",
+      "new_score": 1.0,
+      "opening": [
+        57,
+        32,
+        38,
+        47
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_014_1",
+      "new_score": 0.0,
+      "opening": [
+        57,
+        32,
+        38,
+        47
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_015_0",
+      "new_score": 1.0,
+      "opening": [
+        21,
+        41,
+        30,
+        59
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_015_1",
+      "new_score": 0.0,
+      "opening": [
+        21,
+        41,
+        30,
+        59
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_016_0",
+      "new_score": 1.0,
+      "opening": [
+        56,
+        30,
+        33,
+        51
+      ],
+      "plies": 13,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_016_1",
+      "new_score": 1.0,
+      "opening": [
+        56,
+        30,
+        33,
+        51
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_017_0",
+      "new_score": 1.0,
+      "opening": [
+        57,
+        47,
+        23,
+        51
+      ],
+      "plies": 17,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_017_1",
+      "new_score": 0.0,
+      "opening": [
+        57,
+        47,
+        23,
+        51
+      ],
+      "plies": 19,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_018_0",
+      "new_score": 1.0,
+      "opening": [
+        59,
+        42,
+        57,
+        39
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_018_1",
+      "new_score": 0.0,
+      "opening": [
+        59,
+        42,
+        57,
+        39
+      ],
+      "plies": 23,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_019_0",
+      "new_score": 1.0,
+      "opening": [
+        49,
+        60,
+        59,
+        50
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_019_1",
+      "new_score": 0.0,
+      "opening": [
+        49,
+        60,
+        59,
+        50
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_020_0",
+      "new_score": 1.0,
+      "opening": [
+        24,
+        56,
+        58,
+        51
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_020_1",
+      "new_score": 0.0,
+      "opening": [
+        24,
+        56,
+        58,
+        51
+      ],
+      "plies": 13,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_021_0",
+      "new_score": 1.0,
+      "opening": [
+        42,
+        48,
+        21,
+        32
+      ],
+      "plies": 13,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_021_1",
+      "new_score": 0.0,
+      "opening": [
+        42,
+        48,
+        21,
+        32
+      ],
+      "plies": 23,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_022_0",
+      "new_score": 1.0,
+      "opening": [
+        31,
+        40,
+        47,
+        24
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_022_1",
+      "new_score": 0.0,
+      "opening": [
+        31,
+        40,
+        47,
+        24
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_023_0",
+      "new_score": 1.0,
+      "opening": [
+        20,
+        57,
+        42,
+        31
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_023_1",
+      "new_score": 0.0,
+      "opening": [
+        20,
+        57,
+        42,
+        31
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_024_0",
+      "new_score": 1.0,
+      "opening": [
+        41,
+        42,
+        22,
+        31
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_024_1",
+      "new_score": 0.0,
+      "opening": [
+        41,
+        42,
+        22,
+        31
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_025_0",
+      "new_score": 0.0,
+      "opening": [
+        58,
+        24,
+        47,
+        40
+      ],
+      "plies": 12,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_025_1",
+      "new_score": 0.0,
+      "opening": [
+        58,
+        24,
+        47,
+        40
+      ],
+      "plies": 17,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_026_0",
+      "new_score": 1.0,
+      "opening": [
+        42,
+        59,
+        31,
+        24
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_026_1",
+      "new_score": 0.0,
+      "opening": [
+        42,
+        59,
+        31,
+        24
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_027_0",
+      "new_score": 1.0,
+      "opening": [
+        30,
+        20,
+        48,
+        31
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_027_1",
+      "new_score": 0.0,
+      "opening": [
+        30,
+        20,
+        48,
+        31
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_028_0",
+      "new_score": 1.0,
+      "opening": [
+        40,
+        47,
+        41,
+        59
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_028_1",
+      "new_score": 0.0,
+      "opening": [
+        40,
+        47,
+        41,
+        59
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_029_0",
+      "new_score": 1.0,
+      "opening": [
+        22,
+        41,
+        57,
+        39
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_029_1",
+      "new_score": 0.0,
+      "opening": [
+        22,
+        41,
+        57,
+        39
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_030_0",
+      "new_score": 1.0,
+      "opening": [
+        59,
+        32,
+        58,
+        29
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_030_1",
+      "new_score": 0.0,
+      "opening": [
+        59,
+        32,
+        58,
+        29
+      ],
+      "plies": 15,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_031_0",
+      "new_score": 1.0,
+      "opening": [
+        31,
+        20,
+        38,
+        24
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_031_1",
+      "new_score": 0.0,
+      "opening": [
+        31,
+        20,
+        38,
+        24
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_032_0",
+      "new_score": 0.0,
+      "opening": [
+        38,
+        49,
+        32,
+        51
+      ],
+      "plies": 10,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_032_1",
+      "new_score": 0.0,
+      "opening": [
+        38,
+        49,
+        32,
+        51
+      ],
+      "plies": 15,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_033_0",
+      "new_score": 1.0,
+      "opening": [
+        32,
+        24,
+        59,
+        40
+      ],
+      "plies": 13,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_033_1",
+      "new_score": 1.0,
+      "opening": [
+        32,
+        24,
+        59,
+        40
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_034_0",
+      "new_score": 1.0,
+      "opening": [
+        29,
+        58,
+        59,
+        30
+      ],
+      "plies": 13,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_034_1",
+      "new_score": 1.0,
+      "opening": [
+        29,
+        58,
+        59,
+        30
+      ],
+      "plies": 14,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_035_0",
+      "new_score": 1.0,
+      "opening": [
+        59,
+        50,
+        38,
+        58
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_035_1",
+      "new_score": 0.0,
+      "opening": [
+        59,
+        50,
+        38,
+        58
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_036_0",
+      "new_score": 1.0,
+      "opening": [
+        29,
+        31,
+        38,
+        60
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_036_1",
+      "new_score": 0.0,
+      "opening": [
+        29,
+        31,
+        38,
+        60
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_037_0",
+      "new_score": 0.0,
+      "opening": [
+        57,
+        49,
+        24,
+        21
+      ],
+      "plies": 12,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_037_1",
+      "new_score": 1.0,
+      "opening": [
+        57,
+        49,
+        24,
+        21
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_038_0",
+      "new_score": 0.0,
+      "opening": [
+        20,
+        57,
+        60,
+        41
+      ],
+      "plies": 12,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_038_1",
+      "new_score": 1.0,
+      "opening": [
+        20,
+        57,
+        60,
+        41
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_039_0",
+      "new_score": 0.0,
+      "opening": [
+        22,
+        31,
+        29,
+        49
+      ],
+      "plies": 12,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_039_1",
+      "new_score": 0.0,
+      "opening": [
+        22,
+        31,
+        29,
+        49
+      ],
+      "plies": 17,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_040_0",
+      "new_score": 1.0,
+      "opening": [
+        49,
+        23,
+        57,
+        50
+      ],
+      "plies": 15,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_040_1",
+      "new_score": 0.0,
+      "opening": [
+        49,
+        23,
+        57,
+        50
+      ],
+      "plies": 13,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_041_0",
+      "new_score": 1.0,
+      "opening": [
+        50,
+        58,
+        57,
+        21
+      ],
+      "plies": 13,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_041_1",
+      "new_score": 0.0,
+      "opening": [
+        50,
+        58,
+        57,
+        21
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_042_0",
+      "new_score": 1.0,
+      "opening": [
+        49,
+        48,
+        39,
+        29
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_042_1",
+      "new_score": 0.0,
+      "opening": [
+        49,
+        48,
+        39,
+        29
+      ],
+      "plies": 11,
+      "swap": true,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_043_0",
+      "new_score": 1.0,
+      "opening": [
+        32,
+        59,
+        58,
+        60
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_043_1",
+      "new_score": 1.0,
+      "opening": [
+        32,
+        59,
+        58,
+        60
+      ],
+      "plies": 14,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_044_0",
+      "new_score": 1.0,
+      "opening": [
+        48,
+        23,
+        42,
+        24
+      ],
+      "plies": 11,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_044_1",
+      "new_score": 1.0,
+      "opening": [
+        48,
+        23,
+        42,
+        24
+      ],
+      "plies": 10,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_045_0",
+      "new_score": 0.0,
+      "opening": [
+        56,
+        42,
+        21,
+        51
+      ],
+      "plies": 10,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_045_1",
+      "new_score": 1.0,
+      "opening": [
+        56,
+        42,
+        21,
+        51
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_046_0",
+      "new_score": 0.0,
+      "opening": [
+        47,
+        41,
+        23,
+        22
+      ],
+      "plies": 12,
+      "swap": false,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_046_1",
+      "new_score": 1.0,
+      "opening": [
+        47,
+        41,
+        23,
+        22
+      ],
+      "plies": 12,
+      "swap": true,
+      "winner": -1
+    },
+    {
+      "id": "a21b128_047_0",
+      "new_score": 1.0,
+      "opening": [
+        49,
+        42,
+        22,
+        59
+      ],
+      "plies": 9,
+      "swap": false,
+      "winner": 1
+    },
+    {
+      "id": "a21b128_047_1",
+      "new_score": 0.0,
+      "opening": [
+        49,
+        42,
+        22,
+        59
+      ],
+      "plies": 9,
+      "swap": true,
+      "winner": 1
+    }
+  ],
+  "n": 96,
+  "new": 2,
+  "old": 1,
+  "pair_scores": [
+    1.0,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    1.0,
+    1.0,
+    1.0,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    1.0,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    1.0,
+    1.0,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    1.0,
+    1.0,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "paired_bootstrap_95": [
+    0.4895833333333333,
+    0.6354166666666666
+  ],
+  "scope": "conditional paired opening resampling, shared blocks across arms; no Elo",
+  "score": 0.5625,
+  "tag": "a21b128"
+}

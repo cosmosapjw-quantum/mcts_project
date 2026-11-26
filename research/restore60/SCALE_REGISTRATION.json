@@ -1,0 +1,95 @@
+{
+  "arena_openings": 48,
+  "arena_scope": "same independent 48 opening blocks for all four checkpoint pairs and two budgets; color swapped; no training or retuning",
+  "arms": [
+    {
+      "budget": 32,
+      "new": 1,
+      "old": 0,
+      "tag": "a10b32"
+    },
+    {
+      "budget": 128,
+      "new": 1,
+      "old": 0,
+      "tag": "a10b128"
+    },
+    {
+      "budget": 32,
+      "new": 2,
+      "old": 1,
+      "tag": "a21b32"
+    },
+    {
+      "budget": 128,
+      "new": 2,
+      "old": 1,
+      "tag": "a21b128"
+    },
+    {
+      "budget": 32,
+      "new": 3,
+      "old": 2,
+      "tag": "a32b32"
+    },
+    {
+      "budget": 128,
+      "new": 3,
+      "old": 2,
+      "tag": "a32b128"
+    },
+    {
+      "budget": 32,
+      "new": 3,
+      "old": 0,
+      "tag": "a30b32"
+    },
+    {
+      "budget": 128,
+      "new": 3,
+      "old": 0,
+      "tag": "a30b128"
+    }
+  ],
+  "audit_workers": 10,
+  "batch": 64,
+  "binary_sha": "5631269efce3de5ae38ad8c03bd6fe1b851d5c06eadf6beee7fb10df0f50b5b0",
+  "budget": 128,
+  "cut_steps": [
+    0,
+    100,
+    200,
+    400,
+    800
+  ],
+  "data_scope": "same 4-ply opening design, disjoint orbits, new seeds; current generation only; unchanged architecture and optimizer type",
+  "input_checkpoint_sha": "04767bd9760ba75a6f59d506620ca8c386cb8c544d0d39fed65c2c20c03cf86c",
+  "input_weights_sha": "7f69c87bda838ccaf86c1d4ecc71c9e3003f8a4e195cca52649b0cd06c35eaeb",
+  "learning_rate": 0.0007,
+  "noise": {
+    "alpha": 0.3,
+    "epsilon": 0.25,
+    "first_sampled_plies": 12
+  },
+  "optimizer_steps": 800,
+  "parent_registration_sha": "9d6c4ad6f26688ca8aff9fb6799b32ebf78187ebf2c9f91538d0dd4493e3692c",
+  "plans": {
+    "a10b128.json": "c682abafa22b74881d0f636c57fa8b4e3d417a537e53f94a30bfab79f971bcfc",
+    "a10b32.json": "046fbe62ea0d699e2f4636f0f0878f31538a8f940e7b8dc28023a357ed175a9b",
+    "a21b128.json": "43e73fb75e7d8f96f31b5a542a43f4b2a4486ebcea7adb787018fa9414f23505",
+    "a21b32.json": "9113008eae260bc0828e8f6498dfd0f68bbba5f2cb1eb18b5f06b79b20d98af2",
+    "a30b128.json": "e5a37ff5610cdbaefcdb00a740ba80524a430b8f0c01f4b7f621f429c3950da3",
+    "a30b32.json": "e6d4e6a580b890f879ece2946c2dae930cd7e5ef5fd7cfdfb585087941760fac",
+    "a32b128.json": "e2f045ef41a42f50eca60325034877babd55096aad9a313cd7b4334c507d8115",
+    "a32b32.json": "39d49fccfcb03d37618233f20b4872df99419f76ac3bdfa855fb5f8ef8924b8f",
+    "self3.json": "f9ab2283b04a92d15da2ff2ce5f67816c2277f3a2e73ddcac7f21320d6544b23"
+  },
+  "scope": "separately prospective large-scale extension after two-round pilot, no tuning on arena",
+  "script_sha": "acc01498c1fbf3cf5840854af0822fc91b883a72bb7cea55ccd664cd6d305f32",
+  "seed": 600505,
+  "train_games": 512,
+  "train_script_sha": "5a4d58a4cdd0fa1240a7baa27ce47acd80e1a4782007ec6d83426d9c2ddbdc25",
+  "val_games": 128,
+  "weight_decay": 0.0001,
+  "workers": 14
+}

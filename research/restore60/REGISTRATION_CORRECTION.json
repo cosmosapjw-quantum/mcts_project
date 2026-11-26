@@ -1,0 +1,8 @@
+{
+  "actual": "mqft_restore23_20261125/checkpoints/board_2301_120.pt",
+  "effect": "path variable overwritten by plan loop; exact checkpoint bytes and ancestry already validated; no change to training inputs or results",
+  "field": "initial_source",
+  "identity_verified": "36e1467815d5d620617d4f04b34fa0485ea54b444cf410ac74687bfdca77a166",
+  "original_registration_sha": "9d6c4ad6f26688ca8aff9fb6799b32ebf78187ebf2c9f91538d0dd4493e3692c",
+  "recorded": "mqft_restore60_20261126/plans/arena2.json"
+}

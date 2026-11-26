@@ -1,0 +1,54 @@
+{
+  "figures": [
+    {
+      "figure": "L47_training_curves",
+      "ids": [
+        "L46",
+        "L47"
+      ],
+      "pdf_sha": "6c47474b29a068e99ea695e32d6a725ad73078728e75dc7f233cd1a91871be1f",
+      "png_sha": "3023c2d6e0417f0c41d6e549136ee140b58c7d0c82a76c98c28f1fcd8bfa785f"
+    },
+    {
+      "figure": "L46_loss_calibration",
+      "ids": [
+        "L46",
+        "L47"
+      ],
+      "pdf_sha": "e2f3e4eb41d1b621428cbe37472aed640270ea6925b09bae970bf19872c961c4",
+      "png_sha": "41fc66cca225a49302de0cd044a463bff3a7e4ad077081f4e9b0efd0922a3c9d"
+    },
+    {
+      "figure": "L47_independent_arena",
+      "ids": [
+        "L46",
+        "L47"
+      ],
+      "pdf_sha": "03129ab9b612d86708a3660bd88136a66e25d2e040225ca191a6a32527769434",
+      "png_sha": "5205e86a1a30ae97cd4d2d42038b7443916ecbf21b22c4c8618b998cbd47c83a"
+    },
+    {
+      "figure": "L46_selfplay_resources",
+      "ids": [
+        "L46",
+        "L47"
+      ],
+      "pdf_sha": "025119b7fdbad76291acd29cfb39da7fd52c6ecaf65364441454c022adb81c23",
+      "png_sha": "3eca250743e36beeab4782ed371b084dcbf098fb14b84adf0dd4de3896f5df31"
+    },
+    {
+      "figure": "L47_matched_native_observables",
+      "ids": [
+        "L47"
+      ],
+      "pdf_sha": "1b479c40e4be5cba1907077c3a4ee67c5c39df45ceb5d2acba074506d9cdf7fb",
+      "png_sha": "ad24e1eee9842a00edabbd367b48642fcc2293cb5f75010062c3833eaad79164"
+    }
+  ],
+  "sources": {
+    "AUDIT60.json": "6bab8d8edd00d303001ad97b8d9e22535e32d2d0a5f444692a45050bf730157a",
+    "MATCHED_ROOTS60.json": "8f952ad515290202f44a9922377c94f076b5b4e4a172ee8ddc6b67481b79a27e",
+    "PHYSICS_RESULTS.json": "5727163c6b27337a0adad31e8ddf110b017aca4d3e4150051ee860530994beba",
+    "TRAINING_METRICS_EXPORT60.json": "edb4b5f6188eae46217ea616b9ec886d291c082fba2395b8a4323c90fc3b801a"
+  }
+}

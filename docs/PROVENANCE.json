@@ -1839,6 +1839,77 @@
     "training_histories": 180,
     "training_marks": 5760
   },
+  "restore60": {
+    "AUDIT60.json_sha256": "6bab8d8edd00d303001ad97b8d9e22535e32d2d0a5f444692a45050bf730157a",
+    "BRIDGE_SOURCE60.json_sha256": "36ca9aec53fc0e648f9f81e40d4c6ff2bdb1600a18b23f6200671a7e1b5934f4",
+    "MATCHED_ROOTS60.json_sha256": "8f952ad515290202f44a9922377c94f076b5b4e4a172ee8ddc6b67481b79a27e",
+    "OPTIMIZER_REPLAY60.json_sha256": "3dc796ff564424c862357f7fcd38c04d6f0af44a027fa8886108dd190e425fd9",
+    "ORIGINAL_OUTPUT_EVIDENCE60.csv_sha256": "6e630c0793ec67bc07c057e899c0c52103c8e21f9c1a22990168f46780cc2266",
+    "ORIGINAL_OUTPUT_PROGRESS60.csv_sha256": "cdc73827da50fd1dc61c16c0b07aab9e55096b382f36979cda4619a31475bf9a",
+    "PHYSICS_RESULTS.json_sha256": "5727163c6b27337a0adad31e8ddf110b017aca4d3e4150051ee860530994beba",
+    "PLOT_INVENTORY60.csv_sha256": "f62f3a38805164b1eb7ea85470a84afe3f4abb054b2604f599fa8662de5265a9",
+    "PLOT_MANIFEST60.json_sha256": "44b56b4c80dfb61dad60dced8c8e504d82f25579524e5202791b450bb9fd81f9",
+    "PROGRESS60.json_sha256": "760174bfd36401771e01492d16fb5ad088e2882a84fb58d792b33252e22479ce",
+    "REGISTRATION.json_sha256": "9d6c4ad6f26688ca8aff9fb6799b32ebf78187ebf2c9f91538d0dd4493e3692c",
+    "REGISTRATION_CORRECTION.json_sha256": "8b08a25fdf64c2ed2312724c8f11e516aa7e32dfc2cf055e7f72356d88823d8a",
+    "SCALE_REGISTRATION.json_sha256": "dfd5ddc32cc1fae642525a75fa218d73ba8135dc75fcfbcd94fc81b9ccf92837",
+    "TRAINING_METRICS_EXPORT60.json_sha256": "edb4b5f6188eae46217ea616b9ec886d291c082fba2395b8a4323c90fc3b801a",
+    "TRAINING_METRICS_ORIGINAL_FORMAT60.json_sha256": "02ce0515e7e8c8c80a0fe7463e7509722fff2a5b487d521d3ec0ac73cf357a5b",
+    "additional_plot_nodes": 0,
+    "arena_games": 832,
+    "checkpoint_lineage": [
+      {
+        "checkpoint_sha": "36e1467815d5d620617d4f04b34fa0485ea54b444cf410ac74687bfdca77a166",
+        "generation": 0,
+        "parent_sha": "4dd5068f5d30e569abc9766d7e878303107953638ed518e8e668e2c6cd2b21f4",
+        "weights_sha": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      {
+        "checkpoint_sha": "0836128de7011a33e8826cad4c10915c82fd30a8cd82d17beac87b71722b19b0",
+        "generation": 1,
+        "parent_sha": "36e1467815d5d620617d4f04b34fa0485ea54b444cf410ac74687bfdca77a166",
+        "weights_sha": "5cc7b0264cd04bce377add6c8aee63a78b0c48f7f5a5b8696ecd667cd3e2cf55"
+      },
+      {
+        "checkpoint_sha": "04767bd9760ba75a6f59d506620ca8c386cb8c544d0d39fed65c2c20c03cf86c",
+        "generation": 2,
+        "parent_sha": "0836128de7011a33e8826cad4c10915c82fd30a8cd82d17beac87b71722b19b0",
+        "weights_sha": "7f69c87bda838ccaf86c1d4ecc71c9e3003f8a4e195cca52649b0cd06c35eaeb"
+      },
+      {
+        "checkpoint_sha": "d48b54befad2f834b2e439a669cb65cb975eb66cf84c2c28c4271a14df57364f",
+        "generation": 3,
+        "parent_sha": "04767bd9760ba75a6f59d506620ca8c386cb8c544d0d39fed65c2c20c03cf86c",
+        "weights_sha": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    ],
+    "dag_sha256": "dfab101a938c23a2214f35fb7326771b0d988190b5390086062dbecb8918be52",
+    "evaluator_calls": 871025,
+    "figures": 5,
+    "fresh_backups": 1132064,
+    "fresh_fixed_root_histories": 0,
+    "g3_g0_B128_score": 0.78125,
+    "heldout_positions": 1124,
+    "independent_replay_updates": 800,
+    "matched_initial_roots": 384,
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 11956,
+    "new_games": 1592,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "optimizer_updates": 1400,
+    "original_evidence_items": 2,
+    "original_evidence_union_R55_R60": 52,
+    "original_plot_tasks": 121,
+    "parent": "7bd48b692fbfcb3ed89bbe1dee052b5a5445b3cf",
+    "parent_dag_sha256": "b2dddfd3950f4572f626507dba95720d8d591fcb0f9fed047ae434c8381c56f1",
+    "prior_admissions": "preserved",
+    "raw_bytes": 621081076,
+    "retained_pairs": 468,
+    "selfplay_games": 760,
+    "status": "scoped_actual_three_generation_feedback_and_matched_arena",
+    "total_marked_histories": 9624,
+    "training_positions": 4542
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

@@ -9,3 +9,6 @@ mod mqft_law;
 mod mqft_rapfi;
 #[cfg(test)]
 mod ablation_refresh;
+
+#[cfg(feature = "mqft-train")]
+pub mod mqft_train;
