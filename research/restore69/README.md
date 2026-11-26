@@ -1,0 +1,2 @@
+# RESTORE69
+Physics-first return. Reuse pinned R68 backend, R60 g0/g3 checkpoints, R65 generator, actual pinned Rapfi NNUE traces. No selector or training modifications. Full raw data, NPZ arrays, rendered plots and verified receipts in local two-copy incremental backup. See docs/RESEARCH_CHARTER.md, HISTORICAL_RECONCILIATION69.md, RESTORE69_THEORY.md, RESTORE69_RESULTS.md. Scripts assume original stage layout. Native conditional versus model-specific coherent complement, frozen schedules versus autonomous dynamics, and pointer versus final decision must remain distinct.

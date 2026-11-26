@@ -1,4 +1,6 @@
 {
+  "active_research_charter": "docs/RESEARCH_CHARTER.md",
+  "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -54,7 +56,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-07",
+  "entry": "REPLAN-03",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -116,6 +118,11 @@
     "user_priority": "2026-11-25 nonlinear sigma model and nonequilibrium statistical field theory; kinematics before dynamics"
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
+  "mainline_priorities": [
+    "R70 adaptive marked effective action and controlled saddle",
+    "R71 graph RG and genuine size-family closure",
+    "R72 complex adaptive multi-time records and decision information"
+  ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
     "engine": "65e7d3e9596ca259ebfe523b0c74058692b6a755",
@@ -133,7 +140,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE69-PRIOR-INFORMED-ROOT-GENERATOR",
+  "next_stage_id": "MQFT-RESTORE70-ADAPTIVE-MARKED-EFFECTIVE-ACTION",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -267,6 +274,11 @@
         "artifact": "mqft_restore66_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT66.json,VERIFY_AUX66.json,THERMAL66.json,ERASURE66.json,FEEDBACK66.json}",
         "evidence": "Actual same-order native path RN law and finite thermal tilted transfer, exact Crooks/Jarzynski in defined auxiliary kernel.",
         "remaining": "Native tree reverse and physical 1PI/field action still unresolved; rare-event ESS."
+      },
+      "restore69_followup": {
+        "artifact": "mqft_restore69_20261126/{RESULTS_KO.md,THEORY.md,PHYSICS_RESULTS.json,INDEPENDENT69.json,BLOCK_RESULTS69.json}",
+        "evidence": "Exact finite-record influence action and controlled quadratic remainder.",
+        "remaining": "Actual adaptive marked W[J], tangent 1PI and independently controlled saddle/loop expansion next."
       },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
@@ -431,6 +443,11 @@
         "evidence": "Actual L15 classical visit/conditional entropy and empirical wave-index MI, Q36/Q37/Q39 scoped.",
         "remaining": "Entanglement, quantum discord, across-size entropy/records remain."
       },
+      "restore69_followup": {
+        "artifact": "mqft_restore69_20261126/{RESULTS_KO.md,THEORY.md,PHYSICS_RESULTS.json,INDEPENDENT69.json,BLOCK_RESULTS69.json}",
+        "evidence": "Exact complementary record law, Holevo, actual basis MI, explicit disjoint 90% fragment counts; no robust pointer redundancy.",
+        "remaining": "Final decision D distinct; actual adaptive multi-time record and disjoint final-decision redundancy remain."
+      },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -524,6 +541,11 @@
         "evidence": "Actual recovery vs noisy and clean complete-game comparison, limited 8 opening blocks; first-wave uniform diagnostic.",
         "remaining": "No general utility admission; prior-informed stochastic root law and conventional PUCT comparator."
       },
+      "restore69_followup": {
+        "artifact": "mqft_restore69_20261126/{RESULTS_KO.md,THEORY.md,PHYSICS_RESULTS.json,INDEPENDENT69.json,BLOCK_RESULTS69.json}",
+        "evidence": "Prior-informed optimization proposal superseded; existing negative/limited arena outcomes retained.",
+        "remaining": "Application-only; physics-derived intervention vs same evaluator conventional baseline MCTS only."
+      },
       "retained_evidence": "STATE14\u201316 value/terminal \uad50\uc815, \ube44\uc6a9, RESTORE03 forced probe\uc640 RESTORE07\u201308 matching\u00b7\ub3c5\ub9bd rollout \ud3c9\uac00 \ubc29\ubc95. \uc77c\ubc18 \uae30\ub825 \ubc0f \uc54c\uace0\ub9ac\uc998 \uc774\ub4dd\uc740 \ubbf8\uc815.",
       "scientific_disposition": "no robust incremental benefit established versus both retuned PUCT and matched classical count control; preserve counterevidence, do not tune to force win",
       "source": "v6 quantum_mcts_validation.md, one_loop_corrections.py, quantum_corrections.py, v5 implementation_changes.md, training_metrics.py.",
@@ -610,6 +632,11 @@
         "artifact": "mqft_restore67_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT67.json,QEC67.json,STATE_RECOVERY67.json,RAPFI67.json}",
         "evidence": "768 prior actual persistent states explicitly encoded, noisy, syndrome-decoded; coherent accumulation and Z failure retained.",
         "remaining": "No physical native phase or quantum hardware."
+      },
+      "restore69_followup": {
+        "artifact": "mqft_restore69_20261126/{RESULTS_KO.md,THEORY.md,PHYSICS_RESULTS.json,INDEPENDENT69.json,BLOCK_RESULTS69.json}",
+        "evidence": "Exact complex S:F states, negativity/concurrence and optimal model CHSH; independent matrix checks.",
+        "remaining": "No physical Bell experiment or native unique coherent extension."
       },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
@@ -699,6 +726,11 @@
         "artifact": "mqft_restore65_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT65.json,GENERATOR65.json}",
         "evidence": "Actual measurement-conditioned within-wave state memory, reset comparison and conditional mixture; old iid applies to frozen-score control only.",
         "remaining": "Cross-wave projected sufficient state not established."
+      },
+      "restore69_followup": {
+        "artifact": "mqft_restore69_20261126/{RESULTS_KO.md,THEORY.md,PHYSICS_RESULTS.json,INDEPENDENT69.json,BLOCK_RESULTS69.json}",
+        "evidence": "Analytic separable adjacent-record pair for any intervening CPTP map, actual score schedules frozen for numerical controls.",
+        "remaining": "Adaptive joint memory/record dynamics on actual alternative trajectories."
       },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
@@ -797,7 +829,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "X-TRAIN",
+  "previous_entry": "REPLAN-07",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -2875,8 +2907,52 @@
     "total_marked_histories": 60088,
     "utility": "limited paired results not established; cold-start uniform despite peaked NNUE prior; immediate win and unique defense all selected"
   },
-  "revision": "RESTORE68_20261126",
-  "scope": "Actual 15x15 pretrained direct NNUE arena, fault recovery and native game-temporal observables",
+  "restore69": {
+    "AUDIT69.json_sha256": "c5fcb03df05cdba05ab811adb3b630a7252735d76736b123fac9c38970c4f2ac",
+    "BLOCK_RESULTS69.json_sha256": "156b0194003453ef2ff203fec52e1c1c02012789734da2f98b996f5a71e767fd",
+    "GIT_HISTORY69.json_sha256": "eaf07d4882eaccc2cef9837acb3e292c97d74a2b02ff8da78ad0aa0b7b54ac5a",
+    "HISTORICAL_RECONCILIATION69.md_sha256": "b6fb9b6bdc52b84c097e0bbdfbba0e558012ec803a68d1b176f488c56fae010e",
+    "HISTORY_CENSUS69.json_sha256": "f4a3381cd5b6795100df78b339ab4d35c414fb5d271db33a7dc715ea91bc96a5",
+    "INDEPENDENT69.json_sha256": "fe880a95f01640be079a7c418cb1275534cc32077ad3e356ad5c1ce133150d91",
+    "ORIGINAL_ARCHIVE_MEMBERS69.json_sha256": "d623c0d07f4b8623d85c8c2e98f8785fb4bd648f5813f0353b0ce9e25dc2fd9a",
+    "ORIGINAL_OUTPUT_EVIDENCE69.csv_sha256": "637897e1344f5266f16346b9ce1b67e7895b927802bdb250b6cbdd5880649e1c",
+    "ORIGINAL_OUTPUT_PROGRESS69.csv_sha256": "bfb71f1d7dec49f64762a1ccd60483d3810593d8a6646c1589b342a73a6b2c1c",
+    "ORIGINAL_SOURCE_AUDIT69.json_sha256": "1b2dad13d2306a5ad2859b634a3a03318b0c0bd7f165e49a1b0294eb879fe669",
+    "ORIGINAL_SSOT_RECEIPT69.json_sha256": "f15b1c3d25d9dd7cfff686f03c0bf36b5aface47f507bc50255bd8e053157153",
+    "PHYSICS_RESULTS.json_sha256": "2516696e43b52a079b0f51c6374f2f57b1262de01140b72cf04201df85376f86",
+    "PLOT_INVENTORY69.csv_sha256": "17d96bcc0b2d17a8e5ea1a6bff4d15c4f34a16ecea5f2c936b1e0712aea442ec",
+    "PLOT_MANIFEST69.json_sha256": "32db524527632837121075198e75997e20a38b6fd0206ff1b3f0e81ff9c21bb0",
+    "PROGRESS69.json_sha256": "b8947ddca57e18cae7eaf9421299a48cd117beacfe4c21fecf3b4e2aa3339909",
+    "REGISTRATION.json_sha256": "974d64089ab80bf14c344eef806a523bc67034c1ae6d70db3cc02c3683cc1dba",
+    "RESEARCH_CHARTER.md_sha256": "021aa2604dd6c71ee906e94d7c18be0201786a739ef66954a84b8378e1394708",
+    "RNG_AUDIT69.json_sha256": "322990f77af2da84191a7f0fa3d8ddd48ff39af663cf19f22809e4f5e9536675",
+    "additional_plot_nodes": 0,
+    "evaluator_calls": 36934,
+    "figures": 7,
+    "fresh_backups": 36864,
+    "fresh_fixed_root_histories": 288,
+    "fresh_native_conditional_waves": 8192,
+    "frozen_crosswave_pair_modes": 35712,
+    "native_subagent": "NOT_RUN",
+    "new_animations": 1,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "optimizer_updates": 0,
+    "original_evidence_items": 19,
+    "original_evidence_union_R55_R69": 90,
+    "original_plot_tasks": 121,
+    "parent_dag_sha256": "8324c4b2d3c6fd832bb7d98cf91cf5fd02828a0752e6d4629c7617136142a3be",
+    "prior_admissions": "preserved",
+    "prior_optimization": "DEFERRED",
+    "rapfi_auxiliary_waves": 1024,
+    "raw_gzip_bytes": 47855797,
+    "retained_pairs": 543,
+    "reused_R65_waves": 49152,
+    "status": "scoped_complementary_record_physics",
+    "total_marked_histories": 60376
+  },
+  "revision": "RESTORE69_20261126",
+  "scope": "Physics-first charter reset; exact complementary instrument records and finite influence action",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE68-SIZE-COMPATIBLE-PRETRAINED-ENGINE-ARENA"
+  "supersedes_next": "MQFT-RESTORE69-PRIOR-INFORMED-ROOT-GENERATOR"
 }

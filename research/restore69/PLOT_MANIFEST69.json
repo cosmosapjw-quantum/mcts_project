@@ -1,0 +1,101 @@
+{
+  "animations": [
+    {
+      "bytes": 48611,
+      "frames": 4,
+      "ids": [
+        "Q27"
+      ],
+      "name": "Q27_record_fragment_evolution.gif",
+      "sha256": "e851bc9dda079a2faf8d799c51f5b7e2dadbf626578b811bc0240d103f9777f7"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "G13_G14_G17_Q24_decoherence_entropy",
+      "ids": [
+        "G13",
+        "G14",
+        "G17",
+        "Q24",
+        "Q28"
+      ],
+      "pdf_sha": "9f8ace9a8b1fd8f77623354a054d0399aaec94584b856cc6ab3053aa68054d72",
+      "png_sha": "47a60e751c8392ecbdd36bd2ccb745ea0f76beec4d3630c9a6f655699ca7e47e"
+    },
+    {
+      "figure": "L15_L30_Q25_pointer_information",
+      "ids": [
+        "L15",
+        "L30",
+        "Q25",
+        "Q26",
+        "G16",
+        "Q28"
+      ],
+      "pdf_sha": "2354d5a50d9b719f06956977303381d7fe171df8f4a16b62d288f4566e703227",
+      "png_sha": "d415259c1f81bbba4fa89ae314239c25a7bc7ce9cc9fb9b233f2135a21bf4b61"
+    },
+    {
+      "figure": "L11_Q35_Q37_quantum_correlation",
+      "ids": [
+        "L11",
+        "Q35",
+        "Q37",
+        "G27"
+      ],
+      "pdf_sha": "46f042beeb7b4d566972b8925edec91a2836f7517e2272c9c871885217123146",
+      "png_sha": "b919c0e31cbb01ae18ec1a3591372d9ace7390586b597790eb5bfe7127342183"
+    },
+    {
+      "figure": "G25_G26_concurrence_bell",
+      "ids": [
+        "G25",
+        "G26",
+        "G27",
+        "L11",
+        "Q35"
+      ],
+      "pdf_sha": "d9bcf949da198e265b8ce46078ca269d224687f4afcbc0ab68d20bf7fba4e9a4",
+      "png_sha": "81217be4214f1cd2301df5e379cc1c977a38cd5e5d0514f9f0dd554322e7237c"
+    },
+    {
+      "figure": "G23_G24_record_information_network",
+      "ids": [
+        "G23",
+        "G24",
+        "G27",
+        "Q37"
+      ],
+      "pdf_sha": "7b4c7994e999b812399a93ace87b65b94c512890b22a3c36067110ee1d6efdb7",
+      "png_sha": "f786e233854435486d5b7ffa4cb57d23e02a8ba332b5f82f9661df7d894c7f34"
+    },
+    {
+      "figure": "G17_multitime_noncommuting_records",
+      "ids": [
+        "G17",
+        "Q28",
+        "Q37"
+      ],
+      "pdf_sha": "43ac7d2c7dcbc401f263d58423a6bf1cfad1d9c447c553c43468ba813e085427",
+      "png_sha": "d213bc07bb88bf68f7d47a761f01c38438302d2ecdef959a8f65bca59ebf9224"
+    },
+    {
+      "figure": "Q24_effective_record_influence",
+      "ids": [
+        "Q24",
+        "G13",
+        "G17"
+      ],
+      "pdf_sha": "464b09b6080458ba830376fc0fcd9668db03f75b035f6a2b5ed2709f23acac56",
+      "png_sha": "4a9aa9793b254759e938b1454e80b26451f6e9895d8040d78143e311bf9e664a"
+    }
+  ],
+  "sources": {
+    "BLOCK_RESULTS69.json": "156b0194003453ef2ff203fec52e1c1c02012789734da2f98b996f5a71e767fd",
+    "INFLUENCE69.npz": "046b87a180c28cf8e31c6a4a28db2d315b689b88bf02ca41e508b445c84b6d7f",
+    "MULTITIME69.npz": "0c9265943d341f628551ad04f8a64db2f7041dfd89c2d123be9ba8170cf02ec0",
+    "PHYSICS_RESULTS.json": "2516696e43b52a079b0f51c6374f2f57b1262de01140b72cf04201df85376f86",
+    "RECORD_STATES69.npz": "5ff951c0232b9a0f2ae59149e43e9811d8cf8981deec27075ebc046c5579f1ad"
+  }
+}

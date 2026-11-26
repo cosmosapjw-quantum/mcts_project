@@ -1,0 +1,2084 @@
+[
+  {
+    "archive": "quantum.zip",
+    "bytes": 3636,
+    "member": "quantum/README.md",
+    "sha256": "79fc7cd9ce1c5cc1371e5e91555ea10f66aa97e5a1e45cab7c72237d077ce8ea"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 2078,
+    "member": "quantum/__init__.py",
+    "sha256": "548f4fa57eeb74d3ee06d2f1a86a4a2396a3709ea06bff11ca2510de3c4566c4"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 15714,
+    "member": "quantum/discrete_time_evolution.py",
+    "sha256": "1029cd295ae270491fe589ff4ee28aaf82f996fc75381f842afa9764488c9c88"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 25380,
+    "member": "quantum/quantum_darwinism.py",
+    "sha256": "e2e82c4a4fed48793209d2a225311dd7b287811ac4872c70824bbf8cd7746b0a"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 12026,
+    "member": "quantum/quantum_mcts.py",
+    "sha256": "8952e9d3f4b5b6c1823979e00cf70f7d31eb7bc32f3c85b4a52bd448e79478b6"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 4730,
+    "member": "quantum/ultra_fast_exact.py",
+    "sha256": "5bebb6cbefd72d94fa8c41da6f24d2db02e02cb89b7e621d3ffd3f02061ad5af"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 37686,
+    "member": "quantum/research/data_collection/mcts_data_collector.py",
+    "sha256": "6e8e2d7a479d43146d9180ff1ad2a6a973b65966e3e5ddb36eae0f5f44f8c06a"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 69418,
+    "member": "quantum/research/data_collection/real_mcts_data_collector.py",
+    "sha256": "91f3d57e6e87e5e2d33f68aca130f0398ec162230424819f0ff48e24871983f4"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 2311,
+    "member": "quantum/research/visualization/__init__.py",
+    "sha256": "1d552064ce70b92663cfeafc3c6028c1da8be5fd14ff7a16dff8ecd04b63bd1b"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 11743,
+    "member": "quantum/research/visualization/apply_comprehensive_fixes.py",
+    "sha256": "a309d0cff4b87aa001269395443dba9e1ad125255844ad57ae32eee4734253c6"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 41068,
+    "member": "quantum/research/visualization/plot_critical_phenomena_scaling.py",
+    "sha256": "2f70a3c24a6d1453936d93903c24477aaf60d7874d2b336198114b615da9e208"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 33589,
+    "member": "quantum/research/visualization/plot_decoherence_darwinism.py",
+    "sha256": "7fcd2276bf013ebcc9234a8a0efa9266e0402057d3ccfe46e93e8174dace5fa3"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 40022,
+    "member": "quantum/research/visualization/plot_entropy_analysis.py",
+    "sha256": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 32502,
+    "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+    "sha256": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 12182,
+    "member": "quantum/research/visualization/plot_fixes_common.py",
+    "sha256": "e7daf342ecdf77072e911c90fa8a3763dfce7a0c36c427934b62e5237e1ef86f"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 28481,
+    "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+    "sha256": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 36586,
+    "member": "quantum/research/visualization/plot_rg_flow_phase_diagrams.py",
+    "sha256": "02bedc51f0a517b1a9e0e3f818dc05dd5a2b13c16dd997a170428f597e8604d2"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 32020,
+    "member": "quantum/research/visualization/plot_statistical_physics.py",
+    "sha256": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 84423,
+    "member": "quantum/research/visualization/plot_thermodynamics.py",
+    "sha256": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 29976,
+    "member": "quantum/research/visualization/run_all_visualizations.py",
+    "sha256": "f455525b7a8086998c7e5e1ce78ba956e2e00d362c340b85e3c2e338160626de"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 4074,
+    "member": "quantum/research/__init__.py",
+    "sha256": "aedfd049abdd080b62ffac6a44c3b59181dcaeaf3665dc4e4f6d4c4f18296bef"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 120550,
+    "member": "quantum/research/authentic_mcts_physics_extractor.py",
+    "sha256": "33b1264016c2ed8d5ec2ff9448fe2236ecbb9ad30542d1c0f2f3ee28624ba6ee"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 46926,
+    "member": "quantum/research/dataset_generator.py",
+    "sha256": "72020b36728af87f07c9f97c5f674ec0ea88e5cc3f2778a9c6b72157fdb95aaf"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 17833,
+    "member": "quantum/research/exact_hbar_effective.py",
+    "sha256": "6cb8600d6e19b21ea8c50261e8baaa1d877a295f994bc895fb20fd8d4fed61ca"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 13254,
+    "member": "quantum/research/hamiltonian_dynamics.py",
+    "sha256": "2d43be9158220f178cb317e67e3c281172a0a238083c87f308bfdce7f6953f84"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 58248,
+    "member": "quantum/research/lindblad_dynamics.py",
+    "sha256": "ae804e7f87bf888644d7dd350aa6f4ccb6cc86db7f18375448146a2e19c434fd"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 26664,
+    "member": "quantum/research/lindblad_integration.py",
+    "sha256": "8693d75f1fe69154720f0dcaa1e2c0fcafec8635c70eeb11b457bc0fd029bcfe"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 27815,
+    "member": "quantum/research/mcts_to_physics_transformer.py",
+    "sha256": "68c94de1fcf0fcb76db94cfe0c958644cf7048ffda469169a8b96a2dfd7de3ba"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 46576,
+    "member": "quantum/research/one_loop_corrections.py",
+    "sha256": "2149ad2759c1eed1c8090054a1ab1e43a494fc64ab91789275ef65a8d765647e"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 21198,
+    "member": "quantum/research/path_integral_engine.py",
+    "sha256": "59bcd902b71280d68f3ee8efc07b35498f202fc859e1401dcac68307e28bd965"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 23247,
+    "member": "quantum/research/path_integral_mc.py",
+    "sha256": "6060ffb950b721c8877838c3b1ffb66f15fb19052f91d4632be31195f82bf7bc"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 4774,
+    "member": "quantum/research/production_config.py",
+    "sha256": "425c3124db89a56618eb15a1d5344c91fd761b5111e476995dcbe732149e0e62"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 16088,
+    "member": "quantum/research/quantum_corrections.py",
+    "sha256": "3aad99ed39995a1f330330331d3819fe3a4dc78b312c33ce7eb5bbc7249546e0"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 13891,
+    "member": "quantum/research/rg_flow.py",
+    "sha256": "74c4e8e4e62706a38ba96cd59eec6d151fb4b8dd6c96cc610993ee20787ba9cd"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 84129,
+    "member": "quantum/research/selfplay_mcts_integrator.py",
+    "sha256": "4b48ecd303a28eaf997fdbc29d0fc44c175c672c68edea70c2c3086d83757069"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 26522,
+    "member": "quantum/research/unified_quantum_mcts.py",
+    "sha256": "bbb0f2b9613205392d14287a6db9d66b9cc23851fff58dec16b51e1a54d4aa69"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 15086,
+    "member": "quantum/research/uv_cutoff.py",
+    "sha256": "bd5a867f993952ecf354c52e592c30c94af51733fba6c5490e9126d5cd5db7ae"
+  },
+  {
+    "archive": "quantum.zip",
+    "bytes": 24171,
+    "member": "quantum/research/wave_quantum_mcts.py",
+    "sha256": "5aa8ccf0c6e946fe0872fea8a145cd154f53f2380bfc67dac4d3117f6fe6d9bf"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 7026,
+    "member": "omoknuni_quantum-main/.claude/settings.local.json",
+    "sha256": "12954144586ed9fd5adf44bd82e35bdf8fe8311092161a6c6c607852c2868b86"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 799,
+    "member": "omoknuni_quantum-main/.gitignore",
+    "sha256": "64988e106df2ba651f5b67e26d523287e90581a62d50b1f5199f4b9229d2f0f1"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2300,
+    "member": "omoknuni_quantum-main/.vscode/settings.json",
+    "sha256": "7be5e5abf6988ea625b0574e6b344ed94a55eb96dbb24d85ad30f759ebe4599c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8833,
+    "member": "omoknuni_quantum-main/CLAUDE.md",
+    "sha256": "a4e6649d6a7095f53aa09215eb500dcbf95224f7df84e6aef8f48ac7c7649539"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2677,
+    "member": "omoknuni_quantum-main/CLEANUP_SUMMARY.md",
+    "sha256": "c6397ff92590412113266a4e3ed779bb81b567c82ad63266c45117c06dfeea5e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12100,
+    "member": "omoknuni_quantum-main/CMakeLists.txt",
+    "sha256": "a7736d4ba92fe607865148f72b13358da7f7db20276e7c03bdd7508a5b3624fe"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1079,
+    "member": "omoknuni_quantum-main/LICENSE",
+    "sha256": "b89e3047dde99a0f33c890e0aed032d92ad33b0bf997e89e1dbd201e1ef68ee1"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1492,
+    "member": "omoknuni_quantum-main/MANIFEST.in",
+    "sha256": "1b743646ccd7ca9694bab3b8e9e196ea8f32554555930ee28d351dba1e511f10"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5876,
+    "member": "omoknuni_quantum-main/NOVEL_PHYSICS_RESEARCH.md",
+    "sha256": "42a5db1ed2f8beeb5b8409a6d9ee5384738dbcd23d1eb51554bad9fe71238bff"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4969,
+    "member": "omoknuni_quantum-main/PROJECT_STRUCTURE.md",
+    "sha256": "a8d07941db2c910581142e08178fd8bf7518683d2aaa4b7ca09f9a8d2ba5781e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10722,
+    "member": "omoknuni_quantum-main/README.md",
+    "sha256": "35969dda02cfd1709614dd110cd27f4384d8a6275e4adeab887478c0c1423fb0"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 3658,
+    "member": "omoknuni_quantum-main/README_PHYSICS_ANALYSIS.md",
+    "sha256": "0db56fa909270bea1adc53ce32f9e660a2c4ad3b955ddd1e399e1fd9296417a8"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2229,
+    "member": "omoknuni_quantum-main/TERMINAL_DETECTION_COMPLETE_FIX.md",
+    "sha256": "a84b9ddf1b05783d31dfa69175380a444ee66236d9dea39cc58812e98c5b0000"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1773,
+    "member": "omoknuni_quantum-main/TERMINAL_DETECTION_FIX.md",
+    "sha256": "b47d012f96402b6683e3937d4ec912b8e712fc3132dcafed8df49ba6899539f4"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 7105,
+    "member": "omoknuni_quantum-main/build_cpp.py",
+    "sha256": "56730ccab017ac3740aa9b3aca1c5b736eac85a456eb018da564280e128e6e07"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 6800,
+    "member": "omoknuni_quantum-main/build_cuda.py",
+    "sha256": "3bc4f9632c5d8d563ebec2eb557cc3b6aedeea3c8588c157f2e0b38c1a9c4bfc"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1818,
+    "member": "omoknuni_quantum-main/clean_build.sh",
+    "sha256": "59393578494745c4872a5ed4866e4fd7d5de0270d76cedc21960ba322d7532b7"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5279,
+    "member": "omoknuni_quantum-main/configs/chess_classical.yaml",
+    "sha256": "5d3b2f117c62a3939b8b78d0ebbaa5ec2bee336018fc3458f6f277a1c30ed25c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5367,
+    "member": "omoknuni_quantum-main/configs/go_19x19_classical.yaml",
+    "sha256": "3e81dae2406b766b894ff5da76b92ccca79b84b6bf1cbdc99bcee17f60589d26"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5586,
+    "member": "omoknuni_quantum-main/configs/go_19x19_ryzen9_3060ti.yaml",
+    "sha256": "fdbfdaf0dbf1da56fa507b4c6b4a65b5861edeec99462a72b021eaac4e458ebc"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 7904,
+    "member": "omoknuni_quantum-main/configs/gomoku_classical.yaml",
+    "sha256": "704d381c289eb963238774b26bbb77ca592cc62b009e0bb4d06e90ca22de8181"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 6862,
+    "member": "omoknuni_quantum-main/configs/gomoku_hybrid_training.yaml",
+    "sha256": "c32672b7f4180c3389ce774cb3e925b6b5b03ac9bc7f1132c05cfcd4b889a70b"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8270,
+    "member": "omoknuni_quantum-main/configs/gomoku_improved_training.yaml",
+    "sha256": "41beacc98f65ef85cba73838b186f25440ba4679dca4206f12263b209b35398a"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4948,
+    "member": "omoknuni_quantum-main/configs/gomoku_one_loop.yaml",
+    "sha256": "4aac553a5746b5f4caf8ba4fd86cf1dcbb17bc4bd4d6ca182b3e9c7b5e89a9e2"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4708,
+    "member": "omoknuni_quantum-main/configs/gomoku_production.yaml",
+    "sha256": "73ebf875ba7c0f52d721b4a45565147761c7fe198702a3fd5fe8f0fe2410d0db"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4699,
+    "member": "omoknuni_quantum-main/configs/gomoku_stabilized_training.yaml",
+    "sha256": "67790ed1aaa7dbb1cec236c3cf4dfb1eeb4e4bfbd20ad6d5fc84b06eecff12e6"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4398,
+    "member": "omoknuni_quantum-main/configs/gomoku_stable_training.yaml",
+    "sha256": "7cf348978188be037906f49b307214607a127454017e2e44e4b884126491c870"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8480,
+    "member": "omoknuni_quantum-main/configs/gomoku_tournament.yaml",
+    "sha256": "6183c5f39b42de7e15ff0ed13ffc06af959afacd58fe1b07bbbb8fd9a0ef8596"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4692,
+    "member": "omoknuni_quantum-main/configs/gomoku_tree_level.yaml",
+    "sha256": "6fd8f261d903944fa43ec19d4b766aaba31b05a46c445ddfe5e0c82e6fd45738"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1712,
+    "member": "omoknuni_quantum-main/configs/gomoku_with_data_cleanup.yaml",
+    "sha256": "050124a50ba2550f4ab30b37e3349c0a603213b4ee1b8e671f4aebff5642ce39"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1957,
+    "member": "omoknuni_quantum-main/configs/minimal_test.yaml",
+    "sha256": "af503ddcf127247fc76aa5a71da8e0ce7679fa622eb0f3ac8f4087f6cc1b4c5f"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2363,
+    "member": "omoknuni_quantum-main/configs/optimized_physics_analysis.yaml",
+    "sha256": "a013cf9064f210cc00e5311cac1fe2c9a1ff1d3d04005e67ab9b366bcbd71195"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4880,
+    "member": "omoknuni_quantum-main/configs/optimized_selfplay.yaml",
+    "sha256": "e238d98d6888181d372ca88d1f7a78216db1dff0b932d86e792e41dcb2634560"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5676,
+    "member": "omoknuni_quantum-main/configs/optuna_optimization_base.yaml",
+    "sha256": "0f6a0880d3241fc1a31845b5b503637a7166d0992a5126bde40ddf2505765a46"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1472,
+    "member": "omoknuni_quantum-main/docs/README.md",
+    "sha256": "4dd3842453ab1d53320b90aa13a244d214db1a5bf3ec1dad4478bbd9ffb5933a"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4981,
+    "member": "omoknuni_quantum-main/docs/cpu/CPU_BACKEND_DESIGN.md",
+    "sha256": "927edba5620b69794a4feb9d1f21c1f2c7a8d1d194f655d8260b998ab8fbd242"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 3256,
+    "member": "omoknuni_quantum-main/docs/optimization_summary.md",
+    "sha256": "33c219daacb138a08543a6e03b7469574c23dd6204c21f9f340e481393f8dbaa"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1967,
+    "member": "omoknuni_quantum-main/docs/quantum_physics/PERFORMANCE_OPTIMIZATION_SUMMARY.md",
+    "sha256": "01ea08b237a8b9eb8c8e4f1dada73f161f4edff77e829d566d498e43fe985d50"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10176,
+    "member": "omoknuni_quantum-main/docs/quantum_physics/PHYSICS_ANALYSIS_USER_GUIDE.md",
+    "sha256": "17fe5acf4d25d7df717850c29a4aca2d0976f89f51efe6805a0f18d544a6815f"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12587,
+    "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+    "sha256": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2744,
+    "member": "omoknuni_quantum-main/docs/quantum_physics/README.md",
+    "sha256": "fdda82bf6cfc60c64e7773b7ffb82113ec53cd06ca508dd53e496fe90a92438f"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 11344,
+    "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+    "sha256": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 418,
+    "member": "omoknuni_quantum-main/include/core/export_macros.h",
+    "sha256": "5ce9299ae4a11960412af9d43af01db1ce14e3b247041fc57bc9a1217b7dd50c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4419,
+    "member": "omoknuni_quantum-main/include/core/game_export.h",
+    "sha256": "dcda118dd99098ed1a55f98911d66aa76fae00db165a90da7e919195ec8e7bdc"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2888,
+    "member": "omoknuni_quantum-main/include/core/game_state_pool.h",
+    "sha256": "8830fd441f8be2fbde469f0df8c61507cd733c433dd1d6cd04cc0c37a77b0a24"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 9158,
+    "member": "omoknuni_quantum-main/include/core/igamestate.h",
+    "sha256": "2927046d0d8be1e144df13394d2ac922916a522005cf2c717e8352288f901ba2"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4150,
+    "member": "omoknuni_quantum-main/include/core/illegal_move_exception.h",
+    "sha256": "6e97734bff8a302b8bd67875455ffe1e6999891f9b8e0921cc7dd893ccab4092"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4058,
+    "member": "omoknuni_quantum-main/include/games/chess/chess960.h",
+    "sha256": "23ff740a2dfd7f74d38819a8856dabc1de30408fce3b6787a171a93136fea517"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 6917,
+    "member": "omoknuni_quantum-main/include/games/chess/chess_rules.h",
+    "sha256": "a7fb270a39476c8da2baf962695a1bc264ee92e377f9f068e015ffe12f7a3901"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12655,
+    "member": "omoknuni_quantum-main/include/games/chess/chess_state.h",
+    "sha256": "96b29645002bb5b0ec5725ebe322361fa02f74cee865d3aa6a387d9a2cfacd74"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 496,
+    "member": "omoknuni_quantum-main/include/games/chess/chess_types.h",
+    "sha256": "a36315797b50052e440b76e2bf4c767060649220741212102022b231cf549d04"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4764,
+    "member": "omoknuni_quantum-main/include/games/go/go_rules.h",
+    "sha256": "d91726de7856a5d4c0b53af59add84f1af01c20835d6be2644e2002ea1cc76c8"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10616,
+    "member": "omoknuni_quantum-main/include/games/go/go_state.h",
+    "sha256": "02c8981b30ef6038ddedbdfa94b6de5a990d5e9d7110de8489f2c9ab0267bd02"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 9405,
+    "member": "omoknuni_quantum-main/include/games/gomoku/gomoku_rules.h",
+    "sha256": "29337d0ffb306bc9ab480c9ad09e8f75dc60bfd885e5d4bb0c45ce54cb3d6ea5"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8190,
+    "member": "omoknuni_quantum-main/include/games/gomoku/gomoku_state.h",
+    "sha256": "5398b0e2183c9343c7abad606a72763740862cfd1da11268bdf3422031d68c4c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 7215,
+    "member": "omoknuni_quantum-main/include/utils/attack_defense_module.h",
+    "sha256": "f05c160a08ac4889421bc4554420030c0fbb2a5c39ed8a4e1285aa8e6c68287d"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2224,
+    "member": "omoknuni_quantum-main/include/utils/hash_specializations.h",
+    "sha256": "e955937a6b3a4b2f8ce477a1e65825cddafa7846e7533e5a82f388ba762b1af2"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5278,
+    "member": "omoknuni_quantum-main/include/utils/logger.h",
+    "sha256": "c95ef2796f111c6717c093c29fda18f23d21d9ce83ae894b6e73de53ed2c8f1f"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4164,
+    "member": "omoknuni_quantum-main/include/utils/zobrist_hash.h",
+    "sha256": "b3d553fece0a9679a898f8d534f85e53b7a9374fb5bddc3293e9294bba4431af"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1076,
+    "member": "omoknuni_quantum-main/monitor_gpu_performance.sh",
+    "sha256": "738f48b3a469f65ab84536bd7db1096795b1acd99ade201626eec20930b3adfc"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 3612,
+    "member": "omoknuni_quantum-main/pyproject.toml",
+    "sha256": "08f078a5f72cd67345e124e957382ad8fe9bf216b64780a72a17431d78029261"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 16289,
+    "member": "omoknuni_quantum-main/python/example_self_play.py",
+    "sha256": "1db4ccf60906666778ff67d2e5c366d5787977182537dd9a387c45d623f06cba"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2609,
+    "member": "omoknuni_quantum-main/python/gui/README.md",
+    "sha256": "cebd4b783892efee873488913ef261fedd022e8387e5f82f6a4914e1a2991ca5"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 110,
+    "member": "omoknuni_quantum-main/python/gui/__init__.py",
+    "sha256": "c6d2985646e6b23051c1bc8dd14ac63eb2cbea13de074617596bcf71ced88a31"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 36756,
+    "member": "omoknuni_quantum-main/python/gui/gomoku_gui.py",
+    "sha256": "81f8c4c178ae5be1cebdf44639644efbfdd779a178958250563831b8404bbd2b"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2341,
+    "member": "omoknuni_quantum-main/python/mcts/__init__.py",
+    "sha256": "6f17d43607fc173f5452b82d58788a5169a2daa8d0ec51b5628a4a84e9732476"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4782,
+    "member": "omoknuni_quantum-main/python/mcts/config.py",
+    "sha256": "b895b6e6f67edabc84a0843a03826e8806fbc0601e0d749d5346697828e9600e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2995,
+    "member": "omoknuni_quantum-main/python/mcts/core/__init__.py",
+    "sha256": "88225609a9c6223bd0a96f6d890f15072d62e7e623380cbc637111187f785b72"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 61455,
+    "member": "omoknuni_quantum-main/python/mcts/core/async_wave_search.py",
+    "sha256": "d4862d55656e1260152d6cc66dba00a9759c3695e967cd8b31e7adc6367f9d75"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10238,
+    "member": "omoknuni_quantum-main/python/mcts/core/attack_defense.py",
+    "sha256": "fc15edc7a74668e7dc3826fca07342898d22878ba6a62c6df2f5fe9694476f41"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 14747,
+    "member": "omoknuni_quantum-main/python/mcts/core/evaluator.py",
+    "sha256": "01d0af03692756ee40d4b1d5b9dce686cc93e54633b9ae7e5a3dd99403f3f9ac"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 51943,
+    "member": "omoknuni_quantum-main/python/mcts/core/game_interface.py",
+    "sha256": "9d526e0dd9f04aee993f90d3b24069a52a807703b606a20e57dca76c8b33a6f0"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 100878,
+    "member": "omoknuni_quantum-main/python/mcts/core/mcts.py",
+    "sha256": "cf5e3f9fd1397ac4f62aca60ab70279fedaa9e682d39f8da370e5c7636daccd6"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 15674,
+    "member": "omoknuni_quantum-main/python/mcts/core/mcts_config.py",
+    "sha256": "77253373bd02c62c8306d2cfc150f5a0311295960de57d820fa07357fad654df"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12920,
+    "member": "omoknuni_quantum-main/python/mcts/core/tree_operations.py",
+    "sha256": "871f3418d21beea3eff3b922c213e424c1a1be4b1182ed38cacfd3599b4b6672"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 3961,
+    "member": "omoknuni_quantum-main/python/mcts/core/tree_reuse.py",
+    "sha256": "7d4d450c07679778c4e7afec882613b022e18d1c84d3ed3b9257d0266b991a0a"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 81975,
+    "member": "omoknuni_quantum-main/python/mcts/core/wave_search.py",
+    "sha256": "fd7143e680692b5d1c350663d8ee94525e7372f1f65f85ea975ff6a72d64db70"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1153,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/README.md",
+    "sha256": "28f72c83c554eeee71bf6c5cd3c0a6a892ffa5cd6e11eb63f2d42d8ab99b9055"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 3869,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/__init__.py",
+    "sha256": "fd89e29e7e5de0b4ed95e5f9389bc19a12c79307eb4465b070385001246a1936"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 34299,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/cpu_game_states.py",
+    "sha256": "9cf127ce9093b36f0cfb1845e86b3646ed310dc1c6258785065f25e431011934"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2432,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/cpu_game_states_wrapper.py",
+    "sha256": "4715930be84cb149b7fba5dcd59ee2fc4ad393b4569484b5957ae30739d225db"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4102,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/cpu_mcts_wrapper.py",
+    "sha256": "f5c223cfdbafc248fc93cba30af8ac0250ed1757084a6aaf556bd5f65cb50bb4"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13819,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/cython_tree.pyx",
+    "sha256": "883b13059c5a4fa4fe68ea1c9f9e6ff341853768b8eb1755f9a87500edeea569"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 25901,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/cython_tree_optimized.pyx",
+    "sha256": "75f5c647392d9e733d1449f27798359c3533e315ffa4f75f43138d5750c4718c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 16937,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/multiprocess_wave_search.py",
+    "sha256": "93cf49737b9e77b17cbe8a9fed17e252d4cab3fda49f1943e9ada3346078b11c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5116,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/optimized_cython_tree_wrapper.py",
+    "sha256": "be2042c300662bf84955bd29719d4ae1455ee0625c8c27c20de2b4b71bfd1dde"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 24474,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/optimized_wave_search.py",
+    "sha256": "dcac02dcaa3a2605d6d40da24f44b2dce047a8a33f23db577f50110f99148ebc"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 978,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/setup_optimized.py",
+    "sha256": "e869f6ab3b62fb00dfefb13024d2e1f5b30236ba8d3a4d3fd6db309bfee1ed67"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12112,
+    "member": "omoknuni_quantum-main/python/mcts/cpu/vectorized_operations.py",
+    "sha256": "50fc8dd3fa6f0f0b2da617940eec15f63cf3466254e10613183255f2fc39e8b1"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2074,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/__init__.py",
+    "sha256": "eb01115375c89f6b1873779ac99f3b144100d765188e3e1b95264961b0f9ce27"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13370,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/async_wave_optimization.py",
+    "sha256": "50b8f7223277ad39cf2a9d53b0945de2c3f42dab65544d4529b9ad8bcaf529c8"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12808,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/chess_kernels.py",
+    "sha256": "77c785fbf1cc54727ff91564f835ed6a3b2ffae206d61f01b866089b5e415a13"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 14808,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/compact_subtree.py",
+    "sha256": "2bae6211c5938f6711abde32b6fd7e736fa0fdeafadd8e6577c66dad104a0cc3"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13090,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/csr_operators.py",
+    "sha256": "5544edbdc95fa5350b0f247fd11ec3fb558908c3ce37f07d3dd62bc733156fd8"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 24829,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/csr_storage.py",
+    "sha256": "88dac2cf58d884bc9d969585d646950b3d3fdf1a77a0229d702e81d759a2067e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 62528,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/csr_tree.py",
+    "sha256": "33aa4238efe7f3522d60c52cdf77a593f7abb49b490d1a81551ec282a9734c10"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12882,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/cuda_manager.py",
+    "sha256": "2c2ba00a161aa515e59d54312db404981077df4d65e14278831baf26c2ae8d41"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 9226,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/fused_mcts_kernel.cu",
+    "sha256": "a16fe6dd667974446c0c5f7920b533edad7f6ae81b6e8149390991caa7383e6b"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13175,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/go_kernels.py",
+    "sha256": "812ae8d1f22bac23b35ef87307f3708fa1d70acd085b958d77bf85008b296afe"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8169,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/gomoku_kernels.py",
+    "sha256": "b81cd596e2bd479cf1840281d583fbf3395cca25ef538b090366226852e6c8e3"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 7237,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/gpu_attack_defense.py",
+    "sha256": "c740c794b665b8ce65c5cfab3b94d909a2d742da4221bc1579f017aeb66d602e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10402,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/gpu_bfs.py",
+    "sha256": "2ade9ee0b5567e1d32c15e1396b169b924a0532cb6785a76877c844998e8e6bc"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 40667,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/gpu_game_states.py",
+    "sha256": "eecad36d9b8b126460ada06708a8e69f694be6670ce4c0cac3652b2cd518201a"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8184,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/gpu_memory_pool.py",
+    "sha256": "aa37c576f67c6bdc290f7ba0e8f4ba03c7f8962c90a6347deea478a32f21949b"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4641,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/lazy_state_manager.py",
+    "sha256": "47a463f46df103925d6d4000b7c5728895ee6d4a43d62183eefbfed72a12e06a"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 18789,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/mcts_gpu_accelerator.py",
+    "sha256": "872c1afddce55b5ffc7361968f665864a1b18476dfffb49fda280c89d53f7719"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 86508,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/mcts_kernels.cu",
+    "sha256": "54abd92a404bf9247ce2400c87cb4dbc79505911d83a5c3b1bb7a9b8848cafd6"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 20105,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/memory_pool.py",
+    "sha256": "41915f6799e915ee4c58ecd308393701497a6a2a27c8756b4b493d9d645e2f10"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 23191,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/node_data_manager.py",
+    "sha256": "7831d11ab4f791226e753e4ab10e6c76776ff6e9e682d8cccca5180d7c1bb43c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 11949,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/node_memory_pool.py",
+    "sha256": "ecd03ad73c1371b596a754cb7eb7c6a183949bbcb55687f86eec8293cb92f289"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13454,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/optimized_csr_tree.py",
+    "sha256": "03f7b4814ee0eca3a17f3cb168628b7771de804d07704069a4ba8a8e2a404036"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 9135,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/torch_custom_ops.py",
+    "sha256": "fee4b317c684471fd1f5227a67c4dec1482b791f6bdb13efa6d5052e443a5a23"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 11256,
+    "member": "omoknuni_quantum-main/python/mcts/gpu/ucb_selector.py",
+    "sha256": "747d6602493b41bcc1f1e8d9869c184cdccc5737a50e9fd3284e209c98cfafd5"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 3781,
+    "member": "omoknuni_quantum-main/python/mcts/hybrid/README.md",
+    "sha256": "7b21302e71d0208aaec6d902ca81d9ece1170a6c29949eb7bc78118229cf09f4"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 602,
+    "member": "omoknuni_quantum-main/python/mcts/hybrid/__init__.py",
+    "sha256": "a4df7e95848b7752d6389ec17f76eaebf951bcb2f0926f5357b247b13a220887"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1275023,
+    "member": "omoknuni_quantum-main/python/mcts/hybrid/cython_hybrid_backend.c",
+    "sha256": "7c73c257e6e9821e5fc7ee0b6cb1a198b1352bd35419dfd8ce1320869abc605d"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 9597,
+    "member": "omoknuni_quantum-main/python/mcts/hybrid/cython_hybrid_backend.py",
+    "sha256": "4795ab9f79a550594ad68906dc82a8e9fed270a7469ef1b9d7d8e2ee6104886c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 28621,
+    "member": "omoknuni_quantum-main/python/mcts/hybrid/cython_hybrid_backend.pyx",
+    "sha256": "3715976ad87026d042d017ea6d8fbdf7cc23825cbd8c717887e8497c90e4cc2d"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2474,
+    "member": "omoknuni_quantum-main/python/mcts/hybrid/hybrid_mcts_factory.py",
+    "sha256": "7a79268c47f4d33142439ff5cedbf647c957153b68d5dc259d2ecc88a4126217"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 61748,
+    "member": "omoknuni_quantum-main/python/mcts/hybrid/hybrid_wave_search.py",
+    "sha256": "dfcb731f029e582a6f971c21925e4b9f80e9492a4a16ccbc7a6870d67dde7475"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1855,
+    "member": "omoknuni_quantum-main/python/mcts/hybrid/setup.py",
+    "sha256": "a3e3cc8edc47ef5c3f97ef5fa68fc1ad17e6394161b2d3706327b7a3f23fb20e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2403,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/__init__.py",
+    "sha256": "d2da5ffe88fe5523f07cd212660672e4f16b488a5191499791f163aeefbc0ef2"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 35673,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/arena_manager.py",
+    "sha256": "6a1eec0e6ec4a78038f52468df56248b8a232aec513de7c6682434c28f8ad7c1"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 21055,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/base_neural_evaluator.py",
+    "sha256": "910acd86d006146f299aa529c07e2c0d9bb52193a07a44fada9276f903de0965"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 6946,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/checkpoint_manager.py",
+    "sha256": "710bc34c43acaf67836e36c79c2dc4ead419398075473376331f7d0c509934be"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4133,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/gpu_mock_evaluator.py",
+    "sha256": "01aee619b24e327860294094ba78109418e3fd38f5f2cf5a3b108f76a0cd2773"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5791,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/mock_evaluator.py",
+    "sha256": "512e3a837948ad16ddc5076c5ef1809b24b61083c9560886a35ab87b1d80e512"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 15172,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/nn_framework.py",
+    "sha256": "a90001939fdef52beb745b8c5afb4d777e5e7c1c57a21ac4555276dd3cbfb967"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10392,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/opponent_buffer.py",
+    "sha256": "1fdebfdc7cea94d00f1850a3e7b6306a8c2694e67578a54f9b04fef86bf95d76"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2888,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/optimized_evaluator.py",
+    "sha256": "57f030f785a186f6cfb3255f17400a48a1f5f8a362c7eb627bfb50d546c554d5"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2899,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/replay_buffer.py",
+    "sha256": "d31410e26dc4687d9440a711f4158b706aee733d89650bd8b05b4760daa46782"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 20452,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/resnet_evaluator.py",
+    "sha256": "464b0dece138eee8a26c8a9547f955bf68d3e6cba8a0c6a06fd950a1c8c825d9"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 11738,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/resnet_model.py",
+    "sha256": "ca6b05571f6b38beaad593651be333ae8ed2a0e009d60ffa4f1ab0457ad33127"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 45992,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/self_play_manager.py",
+    "sha256": "a3ba7ca0168492accd8d0a9d1b4a19b94abde94a83d180995bc6d77198e178c1"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 26123,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/tensorrt_converter.py",
+    "sha256": "9db13ef65fe52b11f68bacd192973187df61e7b27772814f0820d732352d8901"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 19767,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/tensorrt_evaluator.py",
+    "sha256": "557cce5f0cf86ad6f5a56b42ed03fd6d0eb73cc60de27f18f19aecad9681931f"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 17458,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/training_manager.py",
+    "sha256": "52d5548ae4cd07c660a3ef20f03caedef76d10f0c88e62759c7778f5883628a8"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 65444,
+    "member": "omoknuni_quantum-main/python/mcts/neural_networks/unified_training_pipeline.py",
+    "sha256": "08f9e7dbd2e4fbb3d069b93983d234a72c7266a51d55a9b19fb6100ae82bd514"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 27,
+    "member": "omoknuni_quantum-main/python/mcts/profiling/__init__.py",
+    "sha256": "3be0671feb149bebecc12f519bf963daeebe6eb00adfb3d555dfdf2f501c0df5"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 11080,
+    "member": "omoknuni_quantum-main/python/mcts/profiling/gpu_profiler.py",
+    "sha256": "5406ca341af1532c0168bbf8d9158cd5e69435cf2ca46234562302314a153416"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1172,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/__init__.py",
+    "sha256": "e8d38c71cabc54c3c93f5ee7707bac6d2b209c64b4215ed5d676288e83629fc1"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5595,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/README.md",
+    "sha256": "529d5f3cfca567e5c55784bb46e580ff8220b4a295a002c02ab8f815b729e643"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 955,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/__init__.py",
+    "sha256": "b1d667ff29d8c82f6045e40dfd1c172eb88c334526e21a2d7869ed80ae7cf814"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 59079,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/authentic_physics_extractor.py",
+    "sha256": "364a7fd3faae62b8536af2db0dd47bd80f1bd52daee5b9fae027b3ded9ec2094"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 27852,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/auto_generator.py",
+    "sha256": "1f5ec699eecfb7a54c978b0590e1034b2ab30fc9489f0dff3d0c7619ee26f0cb"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 17044,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/budget_settings.py",
+    "sha256": "6e77d7ca73fd52746744b0c1f963b8f09ba6b8d6120550ec05f189183c8ccd95"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 28005,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/cpuct_phase_transition_validator.py",
+    "sha256": "90a4debefc048a9ebced62aa20df3faca01c166f3e1aef15629eedbfc919ab82"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 20900,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/dynamics_extractor.py",
+    "sha256": "78a138e9fc10b3e73c8cc05c4898ad295b05cfdd6182627db9e84c5b7699f40a"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 184254,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+    "sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 152399,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py.backup",
+    "sha256": "c6888be5f35b10c746314dad0560187b7cf82c681eb12313fae54c90ff877d1e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 15502,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+    "sha256": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 19488,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/mcts_integration.py",
+    "sha256": "852c11201ea67f3934b6c1c378c283b651c7a1a9efddb15c56336ebe03ad8c09"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 22184,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/memory_manager.py",
+    "sha256": "62c58b8a2914ad3c656b934e560c1cea977ae604f020f41db1aa1915c583c00b"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8468,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/random_evaluator.py",
+    "sha256": "b3646155b792e6d7c4a3d7ad6bf31ecda81830e05acb4098cbec6bce442fe592"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12211,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/rg_flow_visualizer.py",
+    "sha256": "e8155b8391697f7bd851689596869accb1758f385d300a48b10e58a65707a8b5"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 14119,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/run_complete_physics_analysis.py",
+    "sha256": "f960b78a3c179f5c3ba0146cc300c152c64fc099a47342c135fb433f19ae3e21"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 19905,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/temperature_integration.py",
+    "sha256": "a5dc687d2b7aeb8c7575ebacf15a3aaf1d4fc5388b2837cc5fd0d64358002808"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 55312,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/docs/quantum_mcts_foundation.md",
+    "sha256": "afe5d7ace442eb191a2119dcf0d9f4147b1fcc346d7400e2c2ea9f2d3524c13d"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 84167,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/docs/quantum_mcts_validation.md",
+    "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12624,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/example_markovian_analysis.py",
+    "sha256": "8146fcad971d5bf5ac29656703484df294dfa2638618fb14111dd1dc57c8037d"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 14109,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/finite_size_scaling.py",
+    "sha256": "bb28a221731a976d9e7ba52671c0e804f88fffbd89a303365b92d7c6549522a9"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 32145,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/holographic_bounds.py",
+    "sha256": "e839b5e75b1fef565181c6f15c06dd0631a02de0618971b313b6864fc9c99750"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8395,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/lindblad.py",
+    "sha256": "082f7d68124c6229ef858755ea4f565933acea687fde1624881c129bfd6e9b92"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 20226,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/markovian_validation.py",
+    "sha256": "20e66f92f01f79971a6b64cdd72855755cd2cd934bef64c5fc3fe8e668015907"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 27485,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/markovian_visualizer.py",
+    "sha256": "6967f0dfaea9229fc52a2012e0c86fee3c3a928f97f59c221b687e6fbc742a56"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 15631,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/non_equilibrium_analyzer.py",
+    "sha256": "e0d10c0317bd9ceea00d6ce3ea0821b03fdd115cfed04f93e86a21b91636e0dd"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4632,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/STATISTICAL_MECHANICS_MODULES.md",
+    "sha256": "963d8ebc28b0c1b22e9bc4d772db76273a23b1e3fa4979f52d1cfe7eee3247e6"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1047,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/__init__.py",
+    "sha256": "43afb83f94741c52066a7782c2004a3b09a65d54884575e7d42d480d9d423f70"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 19437,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/decoherence.py",
+    "sha256": "c233b94557f0c60f320ac16f7a71a12d81d4297a6a076dae7ddba3f7781ddc03"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 25623,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/entanglement.py",
+    "sha256": "1ba41214e548d98b645e243b3b8f53b2ad3a9c31b430fbb4a92ce975a7453328"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 36080,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/fluctuation_dissipation.py",
+    "sha256": "a78794e188cd1290f404fb3b6ed8fe14b6b85c747059c8929279335017ebb686"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 35036,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/gauge_policy.py",
+    "sha256": "4321923d1dbd6e7b1195fee7bea8d86a8a59f8d6c04714e98b7f36fd09cd10bf"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 14522,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/logger.py",
+    "sha256": "007020abac93f2f9a563a1fe09a1ad0550634a220d95e5f4c3ac5350aa9bdf82"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 28770,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/quantum_error_correction.py",
+    "sha256": "229b8f16bd564e99c5db4c302227645259630bbb4008bbd922f2614140d4bc8f"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 33260,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/thermodynamic_ops.py",
+    "sha256": "235c4bb0dcbd40ba5a4b9b248c3bf6f682994ffac4429e7e8375f8fdf0b1f7e6"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 23401,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/thermodynamics.py",
+    "sha256": "424ca4fbcbf66593f29d875b89a75abb2aa18082cf1e8bd632d7ae74a43ee297"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 26897,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/topological_analysis.py",
+    "sha256": "0154fbc0fe33aad0b1693a5ae6bdc4d657ae862f45845b02452dcadde7780d38"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12442,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/tunneling.py",
+    "sha256": "de04fb06d7bf0bcbce0f2db6a66f7733e68bc63256d6c9a432f4e52b8d257749"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12868,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/pointer_state_analyzer.py",
+    "sha256": "c8d57852d61a4453f97591cadf1d23adfbaee78cb3534ec9247639b8b621e38f"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 14109,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/quantum_darwinism_measurer.py",
+    "sha256": "2aaf7deeb00e9b24291b798484d7ae90f6c55b7c65e3c25d419096bc715e523c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 18659,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/quantum_definitions.py",
+    "sha256": "bb071dee95814be95a57d24f0f896e0da664dec3235a419805d5069bc93f1478"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 7679,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/quantum_mcts.py",
+    "sha256": "fcf5ae06b7376866bb96ad040a476672d6cdcd321f4b85f95068b09129ce9cd6"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 16070,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/rg_flow_tracker.py",
+    "sha256": "61d366c2c6ddeaeb536aecf2b70b6803438d38e937258e3a1fe657c58554102b"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 9867,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/subtree_extractor.py",
+    "sha256": "7da2917883b5eb6af6bccdb21bde04d259f1e74fe16956b561e9ef2aefb3018c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 21130,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/temperature_dependent_analysis.py",
+    "sha256": "37dfad958e8c3936720752b7cd907101f29c757fe9d066ddc44a5ccac7acdc84"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13380,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/tensor_network_adapter.py",
+    "sha256": "dab50b7b5fb2b62461ce6d13b7b35cd4c46c922801e704675ef716b0cb6fcf85"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 27070,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/tensor_network_mcts.py",
+    "sha256": "f8d068c0daaaea487788c0dc5d06f22ec8eac1ca1a1cae13adfa5e426cf88fb8"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 6098,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/test_markovian_real_data.py",
+    "sha256": "cd0753b21ca8b5f88b30f6ad08aa9769fcdf4e92cac95269c106d5cdc3f7dbf8"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13658,
+    "member": "omoknuni_quantum-main/python/mcts/quantum/wave_based_quantum_state.py",
+    "sha256": "2d03cc2f0f928119992e71991ecdd596b613e64bde96b77312c8dc93d9750c65"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 644,
+    "member": "omoknuni_quantum-main/python/mcts/utils/__init__.py",
+    "sha256": "30a6e211466f51b92d5879143b455d8c9596bf6d8cdaf37316b99a417396d0cf"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 22944,
+    "member": "omoknuni_quantum-main/python/mcts/utils/batch_evaluation_coordinator.py",
+    "sha256": "d3d9de87166349dbda872b5c0b69e72dcecb4067dd7ac6def1904c2a8f7a512e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13048,
+    "member": "omoknuni_quantum-main/python/mcts/utils/chess_tactical_detector.py",
+    "sha256": "137b2e9ab68b45eed47091494e1f2a2372f185cce440ae26676ea0fc803efc3d"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 42372,
+    "member": "omoknuni_quantum-main/python/mcts/utils/config_system.py",
+    "sha256": "3f310915d598caed4977cc8af05a0f92d0f5d6acb529d201a997c6bc5fc32ebf"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 7936,
+    "member": "omoknuni_quantum-main/python/mcts/utils/cpp_game_bridge.py",
+    "sha256": "f69970ed544f3cb378e1c69ab43d72e52e0577b617a9d40ed30b053cc32037ec"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 21592,
+    "member": "omoknuni_quantum-main/python/mcts/utils/data_cleanup_manager.py",
+    "sha256": "96e20c9d316e813bc09b1ebe9ee3ec0be9715ab0a90d8d9a2562cc92d2b683e3"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 17918,
+    "member": "omoknuni_quantum-main/python/mcts/utils/fast_terminal_check.py",
+    "sha256": "acac94169607254346a32ea4f2dca9ecaff71436524b1df4392ae315aef910b6"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13469,
+    "member": "omoknuni_quantum-main/python/mcts/utils/go_tactical_detector.py",
+    "sha256": "f831a2ca7c1928985471b358ed69d8db77eb4736c111ce204a8e9a49cfa991ad"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13291,
+    "member": "omoknuni_quantum-main/python/mcts/utils/gomoku_tactical_detector.py",
+    "sha256": "57bb4431d3596fec83b582b6fd50df0397bacf1450b65108bcd6a45443fe1d5a"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 44947,
+    "member": "omoknuni_quantum-main/python/mcts/utils/gpu_evaluator_service.py",
+    "sha256": "ef05669ae1d1bfa4c5d3997f921290dd42a753f92ebf4396c36a8a9a2a3fb2bc"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10079,
+    "member": "omoknuni_quantum-main/python/mcts/utils/optimized_remote_evaluator.py",
+    "sha256": "0a5833cfd6e3ca0de40785af64148157e93922a56161e3bf6dc8a4eba6a8a6c5"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10350,
+    "member": "omoknuni_quantum-main/python/mcts/utils/performance_tracker.py",
+    "sha256": "e21e7cdafa6935884261acfa82150a9ce0f99fa248f2ee5ac07c10cae3b4b948"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4979,
+    "member": "omoknuni_quantum-main/python/mcts/utils/safe_multiprocessing.py",
+    "sha256": "a31b4dd711668de75bc34d0e4d0d5b53a9e52a016ce258c9f11f782fe14b3f03"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 11227,
+    "member": "omoknuni_quantum-main/python/mcts/utils/single_gpu_evaluator.py",
+    "sha256": "c6ea2fcf322058577329884d1ca4f94871b62ad6038c6bd590d3169feee6ef6c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10795,
+    "member": "omoknuni_quantum-main/python/mcts/utils/tensorrt_manager.py",
+    "sha256": "f95a0f698ebc61bb63c8ead316c50568b6d7d3cc3f3c36c1f83c346bcd241938"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 24206,
+    "member": "omoknuni_quantum-main/python/mcts/utils/training_metrics.py",
+    "sha256": "a4b89dcce637fd3337f15f81c1f2ef4d070c70aef5111ed994c1719b567efbe5"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 16113,
+    "member": "omoknuni_quantum-main/python/mcts/utils/training_monitor.py",
+    "sha256": "ce638e277078a8e791b6cbd3d2ff91d7e4a850dec5110a377e587f5f1b579a87"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 14946,
+    "member": "omoknuni_quantum-main/python/mcts/utils/validation.py",
+    "sha256": "a146865b53bb366819cf8f6e52104b50e4b6e39d336d77d100b57d4162a41287"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 2832,
+    "member": "omoknuni_quantum-main/python/mcts/utils/worker_init.py",
+    "sha256": "a60ddea966aaa67d0a842023e88fe27d13b19daf1c148752fc04cf0e15adc5ba"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4159,
+    "member": "omoknuni_quantum-main/python/tests/README_TEST_SUITE.md",
+    "sha256": "a610aff20cabd4f304bb0e7e5996e08f936194685b8b0d966609ae9063047fd8"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 18055,
+    "member": "omoknuni_quantum-main/python/tests/mock_evaluator.py",
+    "sha256": "831d70eedaec2347538fe08b617778c9f96928d87c99da7b8ae838621e0641cc"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 12562,
+    "member": "omoknuni_quantum-main/python/tests/run_comprehensive_tests.py",
+    "sha256": "74106b86ad13cad24ae0829793ffcc2b8b34d4d0104367015a7c93b56f40f96c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 17339,
+    "member": "omoknuni_quantum-main/python/tests/test_cpu_backend_detailed.py",
+    "sha256": "03dd1c800422cd62fdbdf509901ba0b0e4771bd45fc158ac6909ef35c0e3bda0"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 16402,
+    "member": "omoknuni_quantum-main/python/tests/test_cpu_vs_gpu_backend_comparison.py",
+    "sha256": "c5221fa70ea9f7f428f068ca98d390ca11cb52e5cae9e44f472dce594f34b6b3"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 23708,
+    "member": "omoknuni_quantum-main/python/tests/test_gpu_backend_detailed.py",
+    "sha256": "c78f354d26e54b552afa4366d23e8b2f7608658e22ba541ff638efe37180e15e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 21919,
+    "member": "omoknuni_quantum-main/python/tests/test_hybrid_backend_detailed.py",
+    "sha256": "763bf036dda28e12936ed9cc440db6c40717f7f3bdf936b6b0c6fd89d818d153"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 14528,
+    "member": "omoknuni_quantum-main/python/tests/test_legal_moves.py",
+    "sha256": "637626272bb77459f8b387a44b5f9424f475c37ba0a3118a410081df47418046"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 7685,
+    "member": "omoknuni_quantum-main/python/tests/test_mcts_backend.py",
+    "sha256": "8a972cb4122617681349f1be0a9be80f2419e4fa32b6265a4150809766238a5c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 18882,
+    "member": "omoknuni_quantum-main/python/tests/test_mcts_comprehensive.py",
+    "sha256": "4a09ccd3ce07a54ad4d1a80842087295d9075324494a1b7d61c346596b2754e8"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1362,
+    "member": "omoknuni_quantum-main/python/tests/test_mcts_config.py",
+    "sha256": "7eab38573e5843d44685670899524646c7ef095e7aed1f07c56b1627d0390605"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13257,
+    "member": "omoknuni_quantum-main/python/tests/test_mcts_edge_cases_comprehensive.py",
+    "sha256": "9c7ee1cb8cab5f6f32878d8e3f37e1d3432c7b7d7726f10efa658fff0a8b610b"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 32173,
+    "member": "omoknuni_quantum-main/python/tests/test_mcts_phases_detailed.py",
+    "sha256": "c9d0625976ed6e0239bed3011c665c5aa83e4f8a1afaf52c2df28649684e5e8c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 11404,
+    "member": "omoknuni_quantum-main/python/tests/test_mcts_tree_reuse_integration.py",
+    "sha256": "50f1855224efcf3854703e0de878fd33ec22207075fc73d078e543e5e20cd710"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5729,
+    "member": "omoknuni_quantum-main/python/tests/test_mcts_with_resnet.py",
+    "sha256": "7a9c457dd764f52e2430e34efb133d96f74ca74c5da6db057ff511fe370e1c86"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 27276,
+    "member": "omoknuni_quantum-main/python/tests/test_neural_network_evaluation_validation.py",
+    "sha256": "953bf223fa359b1f366484a1f08033706b93fafe2d75f11a35248ad0b077388c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 323,
+    "member": "omoknuni_quantum-main/requirements.txt",
+    "sha256": "00686aa435c82b5d4b6f79afac86a70bd6075c49c5602a0290c933ec9dfa8f18"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 557,
+    "member": "omoknuni_quantum-main/run_mcts_physics_analysis.py",
+    "sha256": "24e24b78b337ae60301c43ba230854b94f1aa19edcf91d54100715ad2cddc05d"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8421,
+    "member": "omoknuni_quantum-main/run_physics_analysis.sh",
+    "sha256": "e77c4bf8f8ec6bedae5d4c855ae3f53f9ec519841ebc21583ae7e0006faf9ba6"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4034,
+    "member": "omoknuni_quantum-main/setup.cfg",
+    "sha256": "f55a027572b72defdd50bcf30dea60d0ffaef246937b19ffa36003753154e563"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 17439,
+    "member": "omoknuni_quantum-main/setup.py",
+    "sha256": "b9556f31b0ba620263dd7fe0228e1a136dfe4283de58f3083b7e1b2dde2ddf9c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4303,
+    "member": "omoknuni_quantum-main/src/core/game_export.cpp",
+    "sha256": "ffccc1cb33e505a0da2ced32405de87d351d52424fb1806ce907ae906796076e"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 262,
+    "member": "omoknuni_quantum-main/src/core/igamestate.cpp",
+    "sha256": "ec97c05571eb01e9c77ea6f1123686d55e3a5b84520388310c74dd465e163171"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 18186,
+    "member": "omoknuni_quantum-main/src/games/chess/chess960.cpp",
+    "sha256": "9f794ee3d6d3c9ae6cee5af3d65e1ea100462ace8d91cfb1a0527d90ea3bdabd"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 28778,
+    "member": "omoknuni_quantum-main/src/games/chess/chess_rules.cpp",
+    "sha256": "f2c5b5c21d69475be26cd318d3e204c850e875fa568ad7e054bde8a1a3e347b2"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 75491,
+    "member": "omoknuni_quantum-main/src/games/chess/chess_state.cpp",
+    "sha256": "c56f589a2fae90ac38421ff0e1297a909ef0ab97a97bfee67ab9204773c26a6c"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 13718,
+    "member": "omoknuni_quantum-main/src/games/go/go_rules.cpp",
+    "sha256": "77a1ac48cbf4cd84fec92943c452b6df9c71c2549dc65f1c833e16b282886515"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 57628,
+    "member": "omoknuni_quantum-main/src/games/go/go_state.cpp",
+    "sha256": "f7e5cec172309737b092ae178e91964cc2428a56884916c6d25ee49eb55156bd"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 38616,
+    "member": "omoknuni_quantum-main/src/games/gomoku/gomoku_rules.cpp",
+    "sha256": "85dcb5eeb5d1a8384195df1b5cb6e4ca655ec893f5f93220a5ba76816c29fdeb"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 53684,
+    "member": "omoknuni_quantum-main/src/games/gomoku/gomoku_state.cpp",
+    "sha256": "f349c314a0b037e0bcb3d28c82763d4a20e33dc061550a9a9328611e75e5e08d"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 10708,
+    "member": "omoknuni_quantum-main/src/python/bindings.cpp",
+    "sha256": "6f53d6618379f575e4edd59195a341a37bcef0d0e876b752b5c5800e5da8bb3a"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 52126,
+    "member": "omoknuni_quantum-main/src/utils/attack_defense_module.cpp",
+    "sha256": "58e6957bf7187b84e152fb2d4cc01413766e2d6ff2e5a803a8c92a204bdfc589"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 1340,
+    "member": "omoknuni_quantum-main/src/utils/hash_specializations.cpp",
+    "sha256": "97f798cd8ea6c1ffc8026a3b464f69612ea28f063f7e1f02dc990a52b93370f4"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5598,
+    "member": "omoknuni_quantum-main/src/utils/logger.cpp",
+    "sha256": "e78f73a0f0725ab63e359d7f67a0fdf608fd3160f6629f3d121a1e7e8eed24da"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 4839,
+    "member": "omoknuni_quantum-main/src/utils/zobrist_hash.cpp",
+    "sha256": "b41524fbcab2b21204e9837316d5cbd8386798688fc844079dddb935914ec854"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8038,
+    "member": "omoknuni_quantum-main/test_cpp_terminal_detection.py",
+    "sha256": "6b05f850483657484104887f997c84a692d995f4f4cea8650f77588017c2ec86"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 6647,
+    "member": "omoknuni_quantum-main/test_game_interface_terminal.py",
+    "sha256": "c459cc60b84e761279292c1a747e3779df04535464f126ffab081897bb5c3b85"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 8199,
+    "member": "omoknuni_quantum-main/test_terminal_fix.py",
+    "sha256": "343a3d6418d35b0eaa61d09769371224c194a31d494c9f84cc11bd0b69f23ea1"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 3630,
+    "member": "omoknuni_quantum-main/test_training_no_short_games.py",
+    "sha256": "5389401bdcec3e407ea47e7d4e7616b2b5707607904434bf3872f4f377e5a1d2"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 7654,
+    "member": "omoknuni_quantum-main/train.py",
+    "sha256": "fa93dd22c9a29aa5ea3696866361aabc009a8c22432fe26659ff4006600e7957"
+  },
+  {
+    "archive": "omoknuni_quantum-main.zip",
+    "bytes": 5713,
+    "member": "omoknuni_quantum-main/verify_no_short_games.py",
+    "sha256": "b036c73acb1249cfffaef92a1f5fbf96cf296a14c2521234dd950707a819efdb"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 18793,
+    "member": "mcts_study/v3.0/qft-mcts-foundations.md",
+    "sha256": "a0fc2fbda4a07e9b663a59e997e4a418c2f19aed04b071594b970d1f44c13ea3"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 31499,
+    "member": "mcts_study/v3.0/qft-mcts-decoherence.md",
+    "sha256": "64a0c6eb98c1f8695b4230cda9121f7f5adc463f217e412670808bf9408358e5"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 41597,
+    "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+    "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 55705,
+    "member": "mcts_study/v3.0/quantum-mcts-validation-plan.md",
+    "sha256": "356bc4ec6b6b3cce9ba6f5c631fba025a7f53439882cd1832381f12e1468e459"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 3897,
+    "member": "mcts_study/#Monte Carlo Tree Search as Path Integral - I. Theoretical Foundation.lyx#",
+    "sha256": "83e4221c94cc8ec9407c0b8241dc113ecfd57d3e5a690ce081f81285a3228017"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 4496,
+    "member": "mcts_study/Monte Carlo Tree Search as Path Integral - I. Theoretical Foundation.lyx",
+    "sha256": "0a4fa46e9dd5f9072863ec97b40c2b51868f00be26c7a8a199e61fe6dabe2200"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 4492,
+    "member": "mcts_study/Monte Carlo Tree Search as Path Integral - I. Theoretical Foundation.lyx~",
+    "sha256": "a4ab02ccb84f35d24ebbaf879ee7a237f4aa91a61e9f1dfb6169e35db05ffacf"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 9539,
+    "member": "mcts_study/effective-action-mcts.md",
+    "sha256": "d8638991645cc3803ab363e3c81f9f843d5dc5b0d2afe865c29f4bc80b38386b"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 9634,
+    "member": "mcts_study/qft-mcts-research-proposal.md",
+    "sha256": "e720c79fdf54204b432b33b2013376af6b82dd64040a363709a26a1abca6763a"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 9742,
+    "member": "mcts_study/classical-limit-consistency.md",
+    "sha256": "7ee48f9a4bec6252c184f4652610bef07631385c9f8034f087c3804c32438f2f"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 10645,
+    "member": "mcts_study/active-inference-mcts-flowchart.html",
+    "sha256": "f3bb55504370589d1356eeb83d25095bf243d7da163b97ea95a3ed032225fe67"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 10652,
+    "member": "mcts_study/qft-mcts-math-foundations.md",
+    "sha256": "3c981ef5bd36b04cd2e0c323d690d96c158b8f08b38e78f0cea68e30d2ffd374"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 11258,
+    "member": "mcts_study/thermodynamic-mcts-research-proposal_1.md",
+    "sha256": "995e790cbe97938b44e1c04be51046e850d3760448b7270c8361b4c823a127c7"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 11500,
+    "member": "mcts_study/thermodynamic-mcts-guide_1.md",
+    "sha256": "7a60b83197916d83e528e89675228008a15b8dbb5864561ff9a87b39d540aaf3"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 12698,
+    "member": "mcts_study/thermodynamic-mcts-research-proposal_2.md",
+    "sha256": "db8ed5ca98bb718e2856a3c450e87d38d76806ac70fbe3fe8edbd80a76728f10"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 13269,
+    "member": "mcts_study/vectorized-mcts-research-proposal_2.md",
+    "sha256": "7db2fb2fb0fd7f1156a3c0aa697a0e4bf853dc5e361ba0c05aa8eaa1a067a234"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 14008,
+    "member": "mcts_study/vectorized-mcts-research-proposal_1.md",
+    "sha256": "fe3aa8ad3a0623d488ed9038a21a3ef01e4e35b1230a3cf618fb0d63ed050a44"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 16706,
+    "member": "mcts_study/vectorized-mcts-research-proposal_4.md",
+    "sha256": "7a2d4adf95a78e19ec8ac83af155c0f7ca07390b203622ec94be915af3e7f791"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 17213,
+    "member": "mcts_study/vectorized-mcts-guide_2.md",
+    "sha256": "0f70af9c42ec16bd42232495bfcd1dbbf5591f17220eb0962f232a09a5d56144"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 17671,
+    "member": "mcts_study/qft-answers.md",
+    "sha256": "dc5f9dd55326ea39eaa5939915d6d526470af9f8765885d619af259407e29a42"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 18152,
+    "member": "mcts_study/thermodynamic-mcts-research-proposal_4.md",
+    "sha256": "9ab2ef483470accd2b6831fc622b788e266c2d18ee19d95840268249dba75c32"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 20089,
+    "member": "mcts_study/quantum-mcts-article.md",
+    "sha256": "c8f4bc44847c32d7d5698ddb67211fa5eb7a231523255b35310cd464355db054"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 20998,
+    "member": "mcts_study/thermodynamic-mcts-guide_4.md",
+    "sha256": "9d034d48283166d71f299dceba75794e8c26ffcb82a7b353a09acfa0d58ad9bb"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 22617,
+    "member": "mcts_study/quantum-info-mcts.md",
+    "sha256": "364ffa18398a69d6652e57d8428ff70274d13b6f3e35f61dd7349611e2f0479e"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 26515,
+    "member": "mcts_study/qft-mcts-guide.md",
+    "sha256": "20435b1fc6c69bf0961eab2e361f3b7779d85ba0a84ac6e1810620fe6ec5dbe7"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 26837,
+    "member": "mcts_study/vectorized-mcts-guide_4.md",
+    "sha256": "fd5eb4c6a0390b6622d3943422ecc5150fa582d596236fabe062619a0897b009"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 27058,
+    "member": "mcts_study/vectorized-mcts-guide_1.md",
+    "sha256": "0c4d439830a36b0ca17b60c7ae79d9bdbf48e7bf9717d330651af8727b2a3584"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 27727,
+    "member": "mcts_study/thermodynamic-mcts-guide_2.md",
+    "sha256": "1b7738fa1542d9af25f226fd53db85985a64819ae4c7f99f495a11d0c08f7265"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 29308,
+    "member": "mcts_study/thermodynamic-mcts-research-proposal_3.md",
+    "sha256": "25f98f8901751e2bb3209c1554b0e0d5dbf82eee008555e5e790ba62ffe3b5f5"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 30700,
+    "member": "mcts_study/qft-mcts-validation.md",
+    "sha256": "244b57b117ac20da5c0a07c576e4ce9670a6e132f06798cc65f5d6d61ff08387"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 32820,
+    "member": "mcts_study/vectorized-mcts-research-proposal_3.md",
+    "sha256": "a12f8c08bd48ed63de130890600eca59b558e3962f0f7b6eadf74abef06258e0"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 39141,
+    "member": "mcts_study/tai-omoknuni-prd.md",
+    "sha256": "ab5ca3a4efe3dbd9a6739a45834d20da29a98f296de491c7f53ddd7fe8e8e014"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 43257,
+    "member": "mcts_study/vectorized-mcts-visualization.html",
+    "sha256": "0ca852a44a88604d53e3fcdc4b67bd76219565401fae9ccbfa067942d6830875"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 56320,
+    "member": "mcts_study/tai-mcts-visualization.html",
+    "sha256": "999aca9e805672ae8301f37655735e16cc0b232dfbd810061ba41796021d79f9"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 70067,
+    "member": "mcts_study/vectorized-mcts-guide_3.md",
+    "sha256": "2393465c7731fcab9ebcb2267a867116a7580047c1213a122cd8936639fc2613"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 93415,
+    "member": "mcts_study/thermodynamic-mcts-guide_3.md",
+    "sha256": "2fa7fa85d45c448933bc39f2bffb58fd7ca3159aaeeb710654765ecec1cf7c97"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 7468,
+    "member": "mcts_study/v2.0/quantum-theory-foundations-v2.md",
+    "sha256": "9d884f6052227def6dee3736fb2094c31dd9081d47c9d6c8db0120eedd16b3d3"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 9452,
+    "member": "mcts_study/v2.0/quantum-parameters-explained-v2.md",
+    "sha256": "f7e95af83b3d2316bc27b54944c0bd650740bddd189fd1bbba8d4724a80fb8c9"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 11793,
+    "member": "mcts_study/v2.0/quantum-mcts-guide-v2.md",
+    "sha256": "82d5590570b24c49fba479bd2c677f69043d3eb53166ed3d01b7e11c16144685"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 12260,
+    "member": "mcts_study/v2.0/qft-mcts-research-proposal-v2.md",
+    "sha256": "e88cafa7364f72c1bee4000faea013a28086b3f1d1fac81e90b719317e1ea974"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 30526,
+    "member": "mcts_study/v2.0/qft-mcts-math-foundations-v2.md",
+    "sha256": "8d3e75ea26d73364dd902e51230b4633f0fba4575238a1ca592d646e6d4df307"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 43795,
+    "member": "mcts_study/v2.0/quantum-mcts-new.md",
+    "sha256": "22620f078b9e1d0228d3f2fba1d310ef8cb70e2d9e7bc89013b5ae1f4d76f293"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 48617,
+    "member": "mcts_study/v2.0/qft-mcts-validation-v2.md",
+    "sha256": "e5df81a485ead7fff27fb23c9220bfbfebd3bd18157d931a156a146e25e2e43f"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 564634,
+    "member": "mcts_study/v2.0/Review of the Quantum-Inspired MCTS via QFT Framework.pdf",
+    "sha256": "ce2a5d991588dbcb1e0fea5af9822d36d409ebf6d53661395e34fa8c952ad711"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 30332,
+    "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+    "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 84167,
+    "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+    "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 338210,
+    "member": "mcts_study/v6.0/mcts_conversation.txt",
+    "sha256": "c691be3a2124bec4891d95a16463fb8f73671bfd16c1e5fe2ce0d1909c2022ec"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 3997,
+    "member": "mcts_study/v5.0/implementation_changes.md",
+    "sha256": "8753afc4576c2917a5b0e676d50d512a174ee3cdbe112940455702a23ab76ffc"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 4270,
+    "member": "mcts_study/v5.0/quantum_mcts_corrected.md",
+    "sha256": "5cc35a2956d56f2b6c85d813559308d4efba5aea44dd1431a4d920fdb322e3f3"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 11319,
+    "member": "mcts_study/v5.0/new_quantum_mcts.md",
+    "sha256": "b0918d64a49ef0b554d3cd7a763027c3bfc4b98c2299c0b722a6d201d18cf455"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 40305,
+    "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+    "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 123113,
+    "member": "mcts_study/v5.0/mcts_doc.pdf",
+    "sha256": "e42048ae2da741d81d6f4ecef7df32ff23c8f16fd6ccab2e19bad0112aac07ce"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 5071,
+    "member": "mcts_study/v4.0/classical_action_correction.md",
+    "sha256": "dd980bdf2a0522f57bdc9d37f7b6f85675d5ea82150df2d29d82c69136fa20cf"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 6563,
+    "member": "mcts_study/v4.0/consistent_quantum_corrections.md",
+    "sha256": "8938ed436fa5867e79293d4ad90a86e72184f464c3464ce9a19bc3fe37e649fa"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 7699,
+    "member": "mcts_study/v4.0/corrected_hbar_eff_derivation.md",
+    "sha256": "847ea3d75c13e95393557d1b4673d249e69e265b0438ea8bb4fa1ddedc03e39d"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 14130,
+    "member": "mcts_study/v4.0/quantum-mcts-refined.md",
+    "sha256": "1aa2be848a24058d4577288971d6f8fca32eeda050961c9f3aa676cb61d9c147"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 14318,
+    "member": "mcts_study/v4.0/exact_hbar_eff_derivation.md",
+    "sha256": "e9c2fdd422cc15809bed245244b1751bdfc8767b75a83fa8779e81ae30b4f67d"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 14928,
+    "member": "mcts_study/v4.0/quantum_mcts.md",
+    "sha256": "e5209b6b86242d6c7d7c2cb988706b9cc2feaa94bfab11cf8605397cc1884843"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 34962,
+    "member": "mcts_study/v4.0/quantum_mcts_engineering.md",
+    "sha256": "1f8e502ae863eb07fbf2c533820b3b57b3888818f5245dc213d9fba4dd98b11f"
+  },
+  {
+    "archive": "mcts_study.zip",
+    "bytes": 34962,
+    "member": "mcts_study/v4.0/quantum-mcts-engineering.md",
+    "sha256": "1f8e502ae863eb07fbf2c533820b3b57b3888818f5245dc213d9fba4dd98b11f"
+  }
+]

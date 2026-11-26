@@ -1,0 +1,288 @@
+{
+  "anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+  "anchor_tree": "7a0b3ce34f03413f3aec1a77a2c08e5a0b8aff04",
+  "commits": [
+    {
+      "parents": "",
+      "sha": "7838366ba6392794b5fe02c5716f0b8bd656e428",
+      "subject": "initial commit"
+    },
+    {
+      "parents": "7838366ba6392794b5fe02c5716f0b8bd656e428",
+      "sha": "16aa683101e76b9f1224cd6abdc608ba9cad20f7",
+      "subject": "debug"
+    },
+    {
+      "parents": "16aa683101e76b9f1224cd6abdc608ba9cad20f7",
+      "sha": "7884a5df65d36b0311c1e027d7e1c4762431c38b",
+      "subject": "single-thread/batched inference"
+    },
+    {
+      "parents": "7884a5df65d36b0311c1e027d7e1c4762431c38b",
+      "sha": "9c16436551f99e499be24e4820d4edba3f0e68bc",
+      "subject": "setup basic leaf parallelization"
+    },
+    {
+      "parents": "9c16436551f99e499be24e4820d4edba3f0e68bc",
+      "sha": "80ed27adb992bb3cff6eaa9e168684df15187424",
+      "subject": "cleanup"
+    },
+    {
+      "parents": "80ed27adb992bb3cff6eaa9e168684df15187424",
+      "sha": "d7121106ced60b623ff65f4bc43492dfa330a4f2",
+      "subject": "history input support"
+    },
+    {
+      "parents": "d7121106ced60b623ff65f4bc43492dfa330a4f2",
+      "sha": "d136be0d16e75bef5e973ef4181cc370a5ad4da7",
+      "subject": "debug"
+    },
+    {
+      "parents": "d136be0d16e75bef5e973ef4181cc370a5ad4da7",
+      "sha": "5426e76276fc95742906c50950298f991d331812",
+      "subject": "leaf parallelization fix"
+    },
+    {
+      "parents": "5426e76276fc95742906c50950298f991d331812",
+      "sha": "1777de593206b76105e5c5c957aad0a9fa551cd0",
+      "subject": "stall debug"
+    },
+    {
+      "parents": "1777de593206b76105e5c5c957aad0a9fa551cd0",
+      "sha": "bd2acf228ba1955614ee904ca23b5f87fb0e20c4",
+      "subject": "NN proxy added"
+    },
+    {
+      "parents": "bd2acf228ba1955614ee904ca23b5f87fb0e20c4",
+      "sha": "2ee9a298e0163a88e5cbfc1fb2abf08ed8d3f8c6",
+      "subject": "shorter waiting time"
+    },
+    {
+      "parents": "2ee9a298e0163a88e5cbfc1fb2abf08ed8d3f8c6",
+      "sha": "6c5f19e348ff42dc2e22a6bc91f78042b4c9568b",
+      "subject": "optimization step 1"
+    },
+    {
+      "parents": "6c5f19e348ff42dc2e22a6bc91f78042b4c9568b",
+      "sha": "af2339e8ede75b983748b0b781ed72e2370c94de",
+      "subject": "posterior statistic fix"
+    },
+    {
+      "parents": "af2339e8ede75b983748b0b781ed72e2370c94de",
+      "sha": "ca974dde17aec3e1659b2077561ddf3829ea353d",
+      "subject": "stall debug"
+    },
+    {
+      "parents": "ca974dde17aec3e1659b2077561ddf3829ea353d",
+      "sha": "fcd878659dcabccd213296b47276475c0c8d2134",
+      "subject": "segfault while select"
+    },
+    {
+      "parents": "fcd878659dcabccd213296b47276475c0c8d2134",
+      "sha": "213754b3cb4c06fc5ad0cd3fe48d02307260bc90",
+      "subject": "still while fixing"
+    },
+    {
+      "parents": "213754b3cb4c06fc5ad0cd3fe48d02307260bc90",
+      "sha": "78e3083ed4f568fe52e858085fa4a56871dda3bd",
+      "subject": "cleanup"
+    },
+    {
+      "parents": "78e3083ed4f568fe52e858085fa4a56871dda3bd",
+      "sha": "6f36ddcd4493c11f81d3d5fc9ddc941515387310",
+      "subject": "first fix complete"
+    },
+    {
+      "parents": "6f36ddcd4493c11f81d3d5fc9ddc941515387310",
+      "sha": "2525c01e8c1b3ca7f86525083dc4b11ae2145c93",
+      "subject": "second fix"
+    },
+    {
+      "parents": "2525c01e8c1b3ca7f86525083dc4b11ae2145c93",
+      "sha": "212b18306ccec430b38534bff7c87dae6705626b",
+      "subject": "stall"
+    },
+    {
+      "parents": "212b18306ccec430b38534bff7c87dae6705626b",
+      "sha": "4ac2a5786707b9d07a8d2a56c29c5b09471f44f9",
+      "subject": "draw bug"
+    },
+    {
+      "parents": "4ac2a5786707b9d07a8d2a56c29c5b09471f44f9",
+      "sha": "608c6a2f7b20f36d0bad18aa3a1e38e31cc6d837",
+      "subject": "darw bug (incomplete, working)"
+    },
+    {
+      "parents": "608c6a2f7b20f36d0bad18aa3a1e38e31cc6d837",
+      "sha": "054c837b74dd200e90c9c6b5edeacd3e65a3a42c",
+      "subject": "draw bug (incomplete, working)"
+    },
+    {
+      "parents": "054c837b74dd200e90c9c6b5edeacd3e65a3a42c",
+      "sha": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537",
+      "subject": "draw  bug (incomplete, working)"
+    },
+    {
+      "parents": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537",
+      "sha": "540ad9427caa86cbc8a292bed423153d5b05d607",
+      "subject": "RESTORE39: dedicate MQFT repository to Quartz Rust measurement and Python physics frontend"
+    },
+    {
+      "parents": "540ad9427caa86cbc8a292bed423153d5b05d607",
+      "sha": "d272e081cda8e18245edebc46e6daa05c5950308",
+      "subject": "RESTORE40 audit 1: coherent parent statistics, exact native S2, deterministic wave tickets"
+    },
+    {
+      "parents": "d272e081cda8e18245edebc46e6daa05c5950308",
+      "sha": "5e4f7139a39f97a6e166b8146db69f2acbed33c6",
+      "subject": "RESTORE40 audit 2: bounded durable campaign publication and protocol checks"
+    },
+    {
+      "parents": "5e4f7139a39f97a6e166b8146db69f2acbed33c6",
+      "sha": "ede118256934bbe9947bceb4be60dc332eb44252",
+      "subject": "RESTORE40 audit 3: causal root laws, conditional framework, commissioning preflight"
+    },
+    {
+      "parents": "ede118256934bbe9947bceb4be60dc332eb44252",
+      "sha": "1ef5edc49979d0a8ffba34f405b5dc9afdd628f0",
+      "subject": "RESTORE41: common Rapfi MixNet evaluator and verified same-engine pilot"
+    },
+    {
+      "parents": "1ef5edc49979d0a8ffba34f405b5dc9afdd628f0",
+      "sha": "a8f9976ee1e53de0a47d5fe5ffa493ceffeb57dc",
+      "subject": "RESTORE42: same-MixNet color-swapped arena and actual source response"
+    },
+    {
+      "parents": "a8f9976ee1e53de0a47d5fe5ffa493ceffeb57dc",
+      "sha": "a1c2a196f55bb07537a2c6e1495da05d6debaac9",
+      "subject": "RESTORE43: crossed MixNet arena, held-out response and exact query cost"
+    },
+    {
+      "parents": "a1c2a196f55bb07537a2c6e1495da05d6debaac9",
+      "sha": "af1028ab0b9b9e9d66aab7337638859fe6e96824",
+      "subject": "RESTORE44: original Layer A/Q physics and compressed plot ownership DAG"
+    },
+    {
+      "parents": "af1028ab0b9b9e9d66aab7337638859fe6e96824",
+      "sha": "bce81c431fef9db06329d4afa214b13780e8d37e",
+      "subject": "RESTORE45: multivariate lattice action, native score replication and CP probes"
+    },
+    {
+      "parents": "bce81c431fef9db06329d4afa214b13780e8d37e",
+      "sha": "023d76ae80eb9ca6d299a61907d69945b77422eb",
+      "subject": "RESTORE46: balanced marked-law precision, RNG replay and causal memory"
+    },
+    {
+      "parents": "023d76ae80eb9ca6d299a61907d69945b77422eb",
+      "sha": "6796fd5e2c9c24464d9cc01c5152dcbc5951c5c7",
+      "subject": "RESTORE47: scale-dependent joint action, nonstationary memory and physical probes"
+    },
+    {
+      "parents": "6796fd5e2c9c24464d9cc01c5152dcbc5951c5c7",
+      "sha": "b448c0257934edf832a8b4b2f1978a27b2c68180",
+      "subject": "RESTORE48: balanced scale precision, causal prefix response and size compatibility"
+    },
+    {
+      "parents": "b448c0257934edf832a8b4b2f1978a27b2c68180",
+      "sha": "97c1e58119a3404b0534fb090ba4ed4c2b4d1309",
+      "subject": "RESTORE49: genuine common MixNet size family and temporal field intervention"
+    },
+    {
+      "parents": "97c1e58119a3404b0534fb090ba4ed4c2b4d1309",
+      "sha": "3ac8d282abdb15231e7c7cc8050c4bf48f0ab824",
+      "subject": "RESTORE50: density-controlled native size and temporal physics"
+    },
+    {
+      "parents": "3ac8d282abdb15231e7c7cc8050c4bf48f0ab824",
+      "sha": "3136e85a34b4e8d8440796e9b15cbc729681631e",
+      "subject": "RESTORE51: prospective informative sources and geometric response"
+    },
+    {
+      "parents": "3136e85a34b4e8d8440796e9b15cbc729681631e",
+      "sha": "bc0d76ff06c0f24ecde418d5efb900012236a9de",
+      "subject": "RESTORE52: spatial group source and continuous tilted dynamics"
+    },
+    {
+      "parents": "bc0d76ff06c0f24ecde418d5efb900012236a9de",
+      "sha": "5b449021025417f70c8f7cc59c0ed890c45a1359",
+      "subject": "RESTORE53: native vector source and mixed retarded dynamics"
+    },
+    {
+      "parents": "5b449021025417f70c8f7cc59c0ed890c45a1359",
+      "sha": "8c0536e71dfd1d27b3ff87bf0be1022529cc5c8e",
+      "subject": "RESTORE54: exact conditional wave response and physics controls"
+    },
+    {
+      "parents": "8c0536e71dfd1d27b3ff87bf0be1022529cc5c8e",
+      "sha": "3a024396037a9b75f8d09261fbf4793b55ca3523",
+      "subject": "RESTORE55: longitudinal game physics and sequential wave controls"
+    },
+    {
+      "parents": "3a024396037a9b75f8d09261fbf4793b55ca3523",
+      "sha": "4e1ec234265013507a1e5cd5dfca0f32e174114f",
+      "subject": "RESTORE56: matched games, conditional dynamics and original output progress"
+    },
+    {
+      "parents": "4e1ec234265013507a1e5cd5dfca0f32e174114f",
+      "sha": "0d5b40720cc25952e0e47c1836f98c78bad4a0f8",
+      "subject": "RESTORE57: dedicated native energy and noncyclic thermodynamic references"
+    },
+    {
+      "parents": "0d5b40720cc25952e0e47c1836f98c78bad4a0f8",
+      "sha": "15bbe2a124ec7146eec65d93c2bc1f6e77ca4830",
+      "subject": "RESTORE58: five-size native correlations, detection and structural diagnostics"
+    },
+    {
+      "parents": "15bbe2a124ec7146eec65d93c2bc1f6e77ca4830",
+      "sha": "7bd48b692fbfcb3ed89bbe1dee052b5a5445b3cf",
+      "subject": "RESTORE59: prospective native mark prediction and scoped memory diagnostics"
+    },
+    {
+      "parents": "7bd48b692fbfcb3ed89bbe1dee052b5a5445b3cf",
+      "sha": "be9fc78107d78d7e9c2d8d9806de7467a6f7a40b",
+      "subject": "RESTORE60: native checkpoint bridge and three-generation self-play learning"
+    },
+    {
+      "parents": "be9fc78107d78d7e9c2d8d9806de7467a6f7a40b",
+      "sha": "16f292a5baf4849d14265735058a44e3f84cb112",
+      "subject": "RESTORE61: trained native source response and D4 path coupling"
+    },
+    {
+      "parents": "16f292a5baf4849d14265735058a44e3f84cb112",
+      "sha": "0c597cc0520322cd305ff27c25a36c25088a31cf",
+      "subject": "RESTORE62: canonical trained path coupling and multisource response"
+    },
+    {
+      "parents": "0c597cc0520322cd305ff27c25a36c25088a31cf",
+      "sha": "a236944c943c8119a7e4f4a6dec66542136ffb96",
+      "subject": "RESTORE63: conditional native generator and heldout multiscale dynamics"
+    },
+    {
+      "parents": "a236944c943c8119a7e4f4a6dec66542136ffb96",
+      "sha": "b77047387f09693466487193d195e80b3e2e7519",
+      "subject": "RESTORE64: full-support phase-sensitive native quantum instrument"
+    },
+    {
+      "parents": "b77047387f09693466487193d195e80b3e2e7519",
+      "sha": "6340af6613074737daa30f95115648ce1d51be80",
+      "subject": "RESTORE65: persistent selective instrument and independent utility benchmark"
+    },
+    {
+      "parents": "6340af6613074737daa30f95115648ce1d51be80",
+      "sha": "30f231e9a81f0ca3ba8624b5d75a9e9f0f60d475",
+      "subject": "RESTORE66: native schedule likelihood and finite thermal forward-reverse protocols"
+    },
+    {
+      "parents": "30f231e9a81f0ca3ba8624b5d75a9e9f0f60d475",
+      "sha": "f52b593f6a3ed5682b3b583b927ac865ea594d0e",
+      "subject": "RESTORE67: native evaluator fault recovery and independent Rapfi benchmark"
+    },
+    {
+      "parents": "f52b593f6a3ed5682b3b583b927ac865ea594d0e",
+      "sha": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+      "subject": "RESTORE68: direct pretrained 15x15 arena and actual game dynamics"
+    }
+  ],
+  "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+  "parent_tree": "c94d48ebfffb5827dbcb10ef18ec5e5946ce005d"
+}

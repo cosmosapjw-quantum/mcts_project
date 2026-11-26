@@ -1,0 +1,14 @@
+{
+ "supplied_zip_sha256":"04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
+ "supplied_zip_manifest_members_verified":34,
+ "supplied_zip_check_location":"conversation sandbox, original linked library materialization",
+ "restore32_attachment_sha256":"30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+ "git_anchor":"540ad9427caa86cbc8a292bed423153d5b05d607",
+ "parent":"9de636fc56fd34057553d78c0aad63fcc3832c08",
+ "anchor_is_ancestor":true,
+ "original_source_zip_members":347,
+ "original_source_function_obligations":94,
+ "guide_obligations":27,
+ "original_output_obligations":121,
+ "scope":"current source hash and history census, not all historical raw executions replayed"
+}

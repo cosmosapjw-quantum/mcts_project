@@ -1,23 +1,3 @@
-# RESTORE68 R/C stages
-| Stage | Actual result | Status |
-|---|---|---|
-| R1 | original objective, parent, matched arena and outcomes | scoped complete |
-| R2 | source audit, Rapfi and paired-game method | scoped complete |
-| R3 | direct size-compatible NNUE and exact fault law | derived |
-| R4 | independent alpha-beta and native color-swap comparators | scoped complete |
-| R5 | paired score/missing bounds, entropy/MI/variance definitions | derived |
-| R6 | matched-block scope, shared evaluator, fixed time vs backups | checked |
-| R7 | actual legality/trace replay and raw NNUE requery | verified |
-| R8 | actual 78 completed games, two failures, small-sample outcome | scoped verified |
-| R9 | actual spatial/entropy/MI panels and cold-start diagnostic | scoped verified |
-| R10 | next prior-informed heldout protocol and preserved negative evidence | scoped complete |
-| C1 | exact parent/model/engine identity | scoped complete |
-| C2 | native backend, external protocol, original code | scoped complete |
-| C3 | direct MixNet evaluator, native sign decoder and trace | implemented |
-| C4 | registered 80 games, 8 parallel workers | verified |
-| C5 | Rust opt-in mode, actual arena | verified |
-| C6 | Rust/Python regressions, smoke and failed responses retained | verified scoped |
-| C7 | all actual traces and independent NNUE requery | verified |
-| C8 | opening-block inference, actual costs and entropy | verified scoped |
-| C9 | 8 plot pairs,2 GIFs, visual QA, native subagent NOT_RUN | scoped verified |
-| C10 | Git, DAG, verified two-copy snapshot | receipt required |
+# R69 execution ledger
+R1 source authority and drift reset; R2 literature/source reconciliation; R3 isometry and native grouped law; R4 exact rank-two spectrum and pointer information; R5 reduced SF spectrum, concurrence and CHSH; R6 pair separability and influence expansion; R7 independent matrices and replay; R8 geometry-block uncertainty and null outcomes; R9 original-plot scope; R10 physics-first next plan. No physical hardware inference.
+C1 source and registration; C2 actual data schema and runtime audit; C3 stable analytic and direct matrix implementation; C4 actual bounded parallel data generation; C5 all native and auxiliary reductions; C6 independent numerical and RNG checks; C7 descriptive uncertainty and controls; C8 plot rendering and source crosswalk; C9 DAG/charter and evidence inventory; C10 publication and verified backup/retirement receipt required. Tests and exact execution outcomes in logs, RUN_MANIFEST69 and receipts; no independent native subagent available.
