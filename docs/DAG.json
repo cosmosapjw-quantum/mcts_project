@@ -56,7 +56,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-03",
+  "entry": "REPLAN-04.R",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -119,9 +119,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R70-P residual support and population calibration follow-up",
-    "R72 five-size coarse maps and conditional closure",
-    "R73 adaptive multi-time complex records and decision information"
+    "R73 actual adaptive multi-time complex records and final decision",
+    "Augmented coarse state and size/criticality grid",
+    "Population memory/support and independent calibration"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -140,7 +140,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE72-COARSE-MAPS-SIZE-FAMILY",
+  "next_stage_id": "MQFT-RESTORE73-ADAPTIVE-COMPLEX-RECORDS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -290,6 +290,11 @@
         "evidence": "9216 new actual searches, autonomous empirical joint transition count/mark/next-state, 15 fitted family/model combinations, exact within-model W and fourth directional moments, independent forward verification.",
         "remaining": "Population closure remains incomplete: residual support, Rapfi and g3 source bias; full joint cumulant tensor and physical hbar/continuum not certified."
       },
+      "restore72_followup": {
+        "artifact": "mqft_restore72_20261126/MEMORY72.json",
+        "evidence": "R71 block-memory donor diagnostic on existing large cohort; fixed 18 variants; count/mark source errors separate.",
+        "remaining": "Fresh root holdout, full joint marks/next-state coupling and support; no exact closure."
+      },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
       "second_traversal_remaining_scope": "physical phase law/hbar, microscopic effective action and original 1PI one-loop predictive curvature, full-support coherent and parallel/async trained dynamics, general decision/strength benefit unresolved",
@@ -346,6 +351,11 @@
         "evidence": "Time-dependent count-additive transition kernel and heldout composition; 5-size Rapfi conditional-law transfer.",
         "remaining": "Reduced-state closure not universal, no physical autonomous RG or trained size transfer."
       },
+      "restore72_followup": {
+        "artifact": "mqft_restore72_20261126/{THEORY.md,SCALE_RESULTS72.json,INDEPENDENT72.json}",
+        "evidence": "80 exact nested map compositions; source lift, entropy/KL and covariance; 112 same-root count-only nonlumpability raw witnesses.",
+        "remaining": "Augmented state and inter-size dynamical closure; no physical beta function."
+      },
       "retained_evidence": "STATE coarse memory, RESTORE04 stopped-tree coarse law\u00b7unresolved variance\u00b7closure loss \ubc0f graph/subtree rows. \uae30\uc874 reference flow\ub294 \ucd94\ucd9c\uae30 \ub300\uc870\uc5d0 \uc4f4\ub2e4.",
       "source": "rg_flow.py, rg_flow_tracker.py, subtree_extractor.py, rg_flow_visualizer.py, plot_rg_flow_phase_diagrams.py::plot_beta_functions/plot_rg_trajectories.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -397,6 +407,11 @@
         "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
         "evidence": "Actual L15 connected spatial visit-field correlation across five budget cuts, original Q33 animation.",
         "remaining": "Multi-size correlation length and critical scaling unresolved."
+      },
+      "restore72_followup": {
+        "artifact": "mqft_restore72_20261126/SCALE_RESULTS72.json",
+        "evidence": "Five genuine common NNUE sizes, 320 paths, fixed count/density nested geometry, low-mode covariance and finite alternatives.",
+        "remaining": "Fresh beta/c_puct grid, dimensionless crossings, larger sizes; critical point/exponents open."
       },
       "retained_evidence": "STATE06 \uc2e4\uc81c c_PUCT sweep, RESTORE04 \uc2e4\uc81c subtree volume, graph covariance, finite source\uc640 whole-seed uncertainty. \ub3c4\ud574\uc6a9 Ising/FSS\ub294 \ucd94\uc815\uae30 \ub300\uc870.",
       "source": "cpuct_phase_transition_validator.py, finite_size_scaling.py, plot_statistical_physics.py::plot_correlation_functions/plot_susceptibility_analysis, plot_critical_phenomena_scaling.py::plot_scaling_functions.",
@@ -751,6 +766,11 @@
         "artifact": "mqft_restore71_20261126/PHYSICS_RESULTS.json",
         "evidence": "One-lag autonomous state improves W RMSE on all five evaluator strata, but joint Brier degrades g3 and Rapfi vs state-only; root-level residual persists.",
         "remaining": "History/sufficiency, geometry covariates, support smoothing and out-of-cohort calibration."
+      },
+      "restore72_followup": {
+        "artifact": "mqft_restore72_20261126/MEMORY72.json",
+        "evidence": "R71 block-memory donor diagnostic on existing large cohort; fixed 18 variants; count/mark source errors separate.",
+        "remaining": "Fresh root holdout, full joint marks/next-state coupling and support; no exact closure."
       },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
@@ -3043,8 +3063,56 @@
     "test_blocks": 16,
     "train_blocks": 48
   },
-  "revision": "RESTORE71_20261126",
-  "scope": "Autonomous empirical marked joint transition and heldout large geometry cohort",
+  "restore72": {
+    "AUDIT_L13.json_sha256": "4b47588c60603f881917c8a9f708e141d2bc25578d69b494a8f8ce00a5268770",
+    "AUDIT_L15.json_sha256": "b2bdc752e3e3ec49c06a22b7e1e4fb0e73d25bfeaea34c4caa24e5cdbdbfb101",
+    "AUDIT_L17.json_sha256": "7d26e378c1d53b53f4af5709f1dad775702e5acd96e457ed6e7c5e9c844b0378",
+    "AUDIT_L19.json_sha256": "bcd281ba5a748fece6b9b7d80f650ed598075be95de1b41166264f2ca114f7c2",
+    "AUDIT_L21.json_sha256": "674f2d79d879665ed9bb508221f549338c312ef5a86c83957d03b60238aa446c",
+    "DRIFT_WATCHDOG.md_sha256": "e8616ac4e0af2bc7266f61f945558f1ae6cdc446e1abec97df8e398f7363e518",
+    "INDEPENDENT72.json_sha256": "6251014e4f09b363430feb2afe4981973dc9574744bb24b4393a7905718b9ae3",
+    "MEMORY72.json_sha256": "fbfdd4eea1d63efbf147eafb0efd8c9c050f0557fd04937ac18efae728fd3501",
+    "NEXT_DYNAMICS.md_sha256": "df50e930eedcbc836a31afcb72728fd09743e7c9e6966eb368a1a8855e7dafc8",
+    "ORIGINAL_OUTPUT_EVIDENCE72.csv_sha256": "15105ea4fca3f45aa3cecedd1d877cbf0fc51c883fe536181613bcd7204dcac4",
+    "ORIGINAL_OUTPUT_PROGRESS72.csv_sha256": "0ec64f30e4be3e4500002c9740decb890d1e6ec2b5a690fc7ba866dcdfd2a18e",
+    "ORIGINAL_SOURCE72.json_sha256": "4c78de1c5847900f9caa0b3663db138d9bd7af95e9499dee12c65477b18c469c",
+    "PLOT_INVENTORY72.csv_sha256": "e96a644886c0433669064d662cdb82a18c901dbf1a74eff900964c8c8e2eb88c",
+    "PLOT_MANIFEST72.json_sha256": "b78237dcde675a049e943356f608abca997b9db5727f868cd70e3f5f1437008b",
+    "PROGRESS72.json_sha256": "3e3538b13b0e326fe2e801e3c74d71faa6b16568728d3eebfa70e79c5aafd973",
+    "REGISTRATION_L13.json_sha256": "8b4df1df581fa7f962e776c0e88b094f30ac7fafef58a12e4d505d0ecf194b39",
+    "REGISTRATION_L15.json_sha256": "662c70db7aab0d4695ef83aa8ec981dc75717cf4400a46a33794817530a793d4",
+    "REGISTRATION_L17.json_sha256": "8c01f7966b1ecfaf0685ceb14ef2c21a99deda1cd2468fc306e4e05def149a8d",
+    "REGISTRATION_L19.json_sha256": "cad38a42404fd8a894a032a7a8c69673f54bd815d9269c67409f0bc99f1b777a",
+    "REGISTRATION_L21.json_sha256": "3bbdde5043ad2230f2b5c01f592e2a888663df3c2ed99a64c87615eb0a05b8af",
+    "SCALE_RESULTS72.json_sha256": "4b84261062bad73b598f1118c996d6127bbf180e0cd99aad86557ac1972621e3",
+    "THEORY.md_sha256": "a6d7ff2a96e4958653dfc3a4533fe38b27010f87d21de411a822bf3fc6b71ed5",
+    "additional_plot_nodes": 0,
+    "animations": 2,
+    "composition_checks": 80,
+    "count_collision_witnesses": 112,
+    "cumulative_fixed_root_histories": 70200,
+    "figures": 11,
+    "fresh_backups": 10240,
+    "fresh_candidate_samples": 42020,
+    "fresh_fixed_root_histories": 320,
+    "full_root_replay_n": 320,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 17,
+    "original_evidence_union_R55_R72": 101,
+    "original_obligations": 121,
+    "parent_commit": "72f54ef26446876cc2d1ac747589b9deec4fc735",
+    "parent_dag_sha256": "24778c3b252d4080e1759ebd0a513eecbc5432a81907b0017faefa215818883b",
+    "raw_bytes": 35721585,
+    "remaining": "augmented closure, physical criticality, complex multi-time records",
+    "retained_pairs": 574,
+    "reused_R71_backups": 1179648,
+    "reused_R71_paths": 9216,
+    "status": "scoped_exact_pushforward_count_only_closure_refuted"
+  },
+  "revision": "RESTORE72_20261126",
+  "scope": "Exact finite spatial pushforward, raw nonlumpability witnesses, finite-size comparisons and R71 memory diagnostics",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE71-COARSE-MAPS-SIZE-FAMILY"
+  "supersedes_next": "MQFT-RESTORE72-COARSE-MAPS-SIZE-FAMILY"
 }

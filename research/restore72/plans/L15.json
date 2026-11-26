@@ -1,0 +1,4168 @@
+{
+  "config": {
+    "budgets": [
+      32
+    ],
+    "c_puct": [
+      1.4
+    ],
+    "cpu_limit": 8,
+    "evaluator": "rapfi_nnue_lookahead_v1",
+    "jobs": 1,
+    "kind": "roots",
+    "max_output_bytes": 536870912,
+    "max_plies": 225,
+    "modes": [
+      {
+        "mode": "wave",
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "workers": 4
+      }
+    ],
+    "paired_schedule_seed": true,
+    "positions": [
+      {
+        "id": "c00_fixed",
+        "moves": [
+          112,
+          124,
+          84,
+          159,
+          127,
+          128,
+          126,
+          66
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c00_dense",
+        "moves": [
+          112,
+          124,
+          84,
+          159,
+          127,
+          128,
+          126,
+          66,
+          93,
+          116,
+          14,
+          214,
+          220,
+          219
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c01_fixed",
+        "moves": [
+          112,
+          154,
+          143,
+          70,
+          79,
+          85,
+          124,
+          158
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c01_dense",
+        "moves": [
+          112,
+          154,
+          143,
+          70,
+          79,
+          85,
+          124,
+          158,
+          117,
+          58,
+          195,
+          210,
+          165,
+          223
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c02_fixed",
+        "moves": [
+          112,
+          79,
+          160,
+          111,
+          125,
+          128,
+          67,
+          143
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c02_dense",
+        "moves": [
+          112,
+          79,
+          160,
+          111,
+          125,
+          128,
+          67,
+          143,
+          118,
+          73,
+          212,
+          9,
+          179,
+          44
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c03_fixed",
+        "moves": [
+          112,
+          68,
+          70,
+          154,
+          158,
+          99,
+          67,
+          157
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c03_dense",
+        "moves": [
+          112,
+          68,
+          70,
+          154,
+          158,
+          99,
+          67,
+          157,
+          56,
+          198,
+          120,
+          149,
+          60,
+          5
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c04_fixed",
+        "moves": [
+          112,
+          114,
+          79,
+          110,
+          156,
+          127,
+          128,
+          126
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c04_dense",
+        "moves": [
+          112,
+          114,
+          79,
+          110,
+          156,
+          127,
+          128,
+          126,
+          146,
+          148,
+          2,
+          105,
+          6,
+          59
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c05_fixed",
+        "moves": [
+          112,
+          158,
+          96,
+          115,
+          126,
+          99,
+          94,
+          70
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c05_dense",
+        "moves": [
+          112,
+          158,
+          96,
+          115,
+          126,
+          99,
+          94,
+          70,
+          58,
+          186,
+          0,
+          74,
+          219,
+          179
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c06_fixed",
+        "moves": [
+          112,
+          100,
+          156,
+          96,
+          65,
+          85,
+          155,
+          114
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c06_dense",
+        "moves": [
+          112,
+          100,
+          156,
+          96,
+          65,
+          85,
+          155,
+          114,
+          102,
+          196,
+          45,
+          8,
+          220,
+          90
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c07_fixed",
+        "moves": [
+          112,
+          69,
+          160,
+          142,
+          83,
+          115,
+          130,
+          145
+        ],
+        "source_action": 113
+      },
+      {
+        "id": "c07_dense",
+        "moves": [
+          112,
+          69,
+          160,
+          142,
+          83,
+          115,
+          130,
+          145,
+          76,
+          103,
+          60,
+          75,
+          45,
+          12
+        ],
+        "source_action": 113
+      }
+    ],
+    "prior": "local",
+    "record_rollouts": true,
+    "replicates": 4,
+    "rollout_depth": 1,
+    "search_timeout": 90,
+    "seed": 720115,
+    "sources": [
+      0.0
+    ]
+  },
+  "jobs": [
+    {
+      "block": "73fe256ca90957d704af",
+      "game_seed": 16607463975730580906,
+      "id": "668106cf2ff7158aab891e0e",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        124,
+        84,
+        159,
+        127,
+        128,
+        126,
+        66
+      ],
+      "opponent": "none",
+      "position_id": "c00_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 12216508281357774597,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "0ebed3209ce5a3f25162",
+      "game_seed": 5422024371748586569,
+      "id": "2d678fde1cdee350bb14b51c",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        124,
+        84,
+        159,
+        127,
+        128,
+        126,
+        66
+      ],
+      "opponent": "none",
+      "position_id": "c00_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 5469842609763784261,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "268408134c7b9368b42e",
+      "game_seed": 8334280514096442514,
+      "id": "6e9670ef1c48f6b91c97491a",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        124,
+        84,
+        159,
+        127,
+        128,
+        126,
+        66
+      ],
+      "opponent": "none",
+      "position_id": "c00_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 4081979677169150199,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "1fdd54dee8cf1a628a43",
+      "game_seed": 3345376604863401135,
+      "id": "6a02e432558d3deca24de8f7",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        124,
+        84,
+        159,
+        127,
+        128,
+        126,
+        66
+      ],
+      "opponent": "none",
+      "position_id": "c00_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 9467216604576481952,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "64dddbab88b9f2395456",
+      "game_seed": 13651364475603395294,
+      "id": "2f76dd06986e717952b3daa1",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        124,
+        84,
+        159,
+        127,
+        128,
+        126,
+        66,
+        93,
+        116,
+        14,
+        214,
+        220,
+        219
+      ],
+      "opponent": "none",
+      "position_id": "c00_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 13347744351713222805,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "3d4e96b2f212c2fbbd85",
+      "game_seed": 10475535082270088503,
+      "id": "09b9fd88bec1d3ebe0d1ac80",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        124,
+        84,
+        159,
+        127,
+        128,
+        126,
+        66,
+        93,
+        116,
+        14,
+        214,
+        220,
+        219
+      ],
+      "opponent": "none",
+      "position_id": "c00_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 10789995953772923141,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "33c86db19f6c188b6998",
+      "game_seed": 12142110317001414026,
+      "id": "497eb928cbe0d5eefbf7a279",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        124,
+        84,
+        159,
+        127,
+        128,
+        126,
+        66,
+        93,
+        116,
+        14,
+        214,
+        220,
+        219
+      ],
+      "opponent": "none",
+      "position_id": "c00_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 14949836642851164407,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "1cf4a7397fc1c39bfd24",
+      "game_seed": 9397272538335338687,
+      "id": "80c5d9eaf1e0b5a427afbf2b",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        124,
+        84,
+        159,
+        127,
+        128,
+        126,
+        66,
+        93,
+        116,
+        14,
+        214,
+        220,
+        219
+      ],
+      "opponent": "none",
+      "position_id": "c00_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 8287066936715701060,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "aedfd487bad2d4d0b771",
+      "game_seed": 8398310295881738480,
+      "id": "cca2ac9c1353f8c5932e93e3",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        154,
+        143,
+        70,
+        79,
+        85,
+        124,
+        158
+      ],
+      "opponent": "none",
+      "position_id": "c01_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 11537196283966769053,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "f28f0cb3df28edc8d88c",
+      "game_seed": 12939090616341690091,
+      "id": "bb4e3a1c501ba4f178ab2be0",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        154,
+        143,
+        70,
+        79,
+        85,
+        124,
+        158
+      ],
+      "opponent": "none",
+      "position_id": "c01_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 13010123502910008111,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "8615139a670e2c82f46e",
+      "game_seed": 3084887391173505448,
+      "id": "9d3a7a4d3a7f1c186683070c",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        154,
+        143,
+        70,
+        79,
+        85,
+        124,
+        158
+      ],
+      "opponent": "none",
+      "position_id": "c01_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 5022248839360994721,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "45b4eee1d38c784d89b4",
+      "game_seed": 3414966783161940202,
+      "id": "1d52fa986880d3c5ae7b6bf7",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        154,
+        143,
+        70,
+        79,
+        85,
+        124,
+        158
+      ],
+      "opponent": "none",
+      "position_id": "c01_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 11139409823593831757,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "b65304dd82714c96c585",
+      "game_seed": 314983185271458307,
+      "id": "fb49a43e30d77a1316ed7e7d",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        154,
+        143,
+        70,
+        79,
+        85,
+        124,
+        158,
+        117,
+        58,
+        195,
+        210,
+        165,
+        223
+      ],
+      "opponent": "none",
+      "position_id": "c01_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 13081122084871591692,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "bcc339a88ded6c689736",
+      "game_seed": 16870481152562807830,
+      "id": "fb7d2c51a071ddcf2dec9767",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        154,
+        143,
+        70,
+        79,
+        85,
+        124,
+        158,
+        117,
+        58,
+        195,
+        210,
+        165,
+        223
+      ],
+      "opponent": "none",
+      "position_id": "c01_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 10676851095993161167,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "d29c520e07b9f25ab8d9",
+      "game_seed": 17946628116428375272,
+      "id": "6e44218c27b6f15907ecf2c6",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        154,
+        143,
+        70,
+        79,
+        85,
+        124,
+        158,
+        117,
+        58,
+        195,
+        210,
+        165,
+        223
+      ],
+      "opponent": "none",
+      "position_id": "c01_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 14970204706526172117,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "844be0c74340b3ef8a6e",
+      "game_seed": 11685063235752343553,
+      "id": "2a150d3fc97d1f82e93b3b28",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        154,
+        143,
+        70,
+        79,
+        85,
+        124,
+        158,
+        117,
+        58,
+        195,
+        210,
+        165,
+        223
+      ],
+      "opponent": "none",
+      "position_id": "c01_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 5651563738174800195,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "cd8bb02016dbb350a8c7",
+      "game_seed": 4466037119780583330,
+      "id": "7f465b582480565269080fee",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        79,
+        160,
+        111,
+        125,
+        128,
+        67,
+        143
+      ],
+      "opponent": "none",
+      "position_id": "c02_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 2286351232814996308,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "d92e2504b5fba3061fc0",
+      "game_seed": 8766331429329988705,
+      "id": "88d44abee6c20087f235d98e",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        79,
+        160,
+        111,
+        125,
+        128,
+        67,
+        143
+      ],
+      "opponent": "none",
+      "position_id": "c02_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 2334650739667238075,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "3b291c1a78a216d6b83e",
+      "game_seed": 12800414457149237006,
+      "id": "4bc976dc2a0732272fdb8dfe",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        79,
+        160,
+        111,
+        125,
+        128,
+        67,
+        143
+      ],
+      "opponent": "none",
+      "position_id": "c02_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 6610662735085083875,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "d6a0dc828165533c68f5",
+      "game_seed": 4836336952098304191,
+      "id": "5e04b61c5667db531a154e82",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        79,
+        160,
+        111,
+        125,
+        128,
+        67,
+        143
+      ],
+      "opponent": "none",
+      "position_id": "c02_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 3353967849656109234,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "9b4a21629dae52116b67",
+      "game_seed": 16300574703243519617,
+      "id": "fbbffea3b410f3b8579e0439",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        79,
+        160,
+        111,
+        125,
+        128,
+        67,
+        143,
+        118,
+        73,
+        212,
+        9,
+        179,
+        44
+      ],
+      "opponent": "none",
+      "position_id": "c02_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 8062518485825043768,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "07b2686b37db60a400dd",
+      "game_seed": 1037709916453014317,
+      "id": "b988d540c58acd69ed1a505e",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        79,
+        160,
+        111,
+        125,
+        128,
+        67,
+        143,
+        118,
+        73,
+        212,
+        9,
+        179,
+        44
+      ],
+      "opponent": "none",
+      "position_id": "c02_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 347482031611465005,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "912a39b33c98b996c24c",
+      "game_seed": 16805206840084700408,
+      "id": "f8d01f5e238c426384e7ab7c",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        79,
+        160,
+        111,
+        125,
+        128,
+        67,
+        143,
+        118,
+        73,
+        212,
+        9,
+        179,
+        44
+      ],
+      "opponent": "none",
+      "position_id": "c02_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 14540202220186782256,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "a02f582128b92b94d422",
+      "game_seed": 13399555479180446592,
+      "id": "51d9582f9466321d2629a695",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        79,
+        160,
+        111,
+        125,
+        128,
+        67,
+        143,
+        118,
+        73,
+        212,
+        9,
+        179,
+        44
+      ],
+      "opponent": "none",
+      "position_id": "c02_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 15108273096982206322,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "0d248ecd6554bc8d50ba",
+      "game_seed": 1523994758348953988,
+      "id": "534299e691739e4f0c5a97c4",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        68,
+        70,
+        154,
+        158,
+        99,
+        67,
+        157
+      ],
+      "opponent": "none",
+      "position_id": "c03_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 5239245444849489006,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "bb55e08463ad45dd8b69",
+      "game_seed": 13892106794985364272,
+      "id": "9bcb6313d0534cf29aa83adb",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        68,
+        70,
+        154,
+        158,
+        99,
+        67,
+        157
+      ],
+      "opponent": "none",
+      "position_id": "c03_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 13902249465079046912,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "078cbe39c524c4e377fe",
+      "game_seed": 17154881289635420012,
+      "id": "8e403c04d69691ec91bb919d",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        68,
+        70,
+        154,
+        158,
+        99,
+        67,
+        157
+      ],
+      "opponent": "none",
+      "position_id": "c03_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 3351984712592865181,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "46390ded84bd25baf0d2",
+      "game_seed": 10101066119194837202,
+      "id": "31dc32b79e7aab5288355e47",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        68,
+        70,
+        154,
+        158,
+        99,
+        67,
+        157
+      ],
+      "opponent": "none",
+      "position_id": "c03_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 6700350759403035310,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "9901237ccef80c5e07f2",
+      "game_seed": 13495887666552699225,
+      "id": "9d777be7d326f6e42767247c",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        68,
+        70,
+        154,
+        158,
+        99,
+        67,
+        157,
+        56,
+        198,
+        120,
+        149,
+        60,
+        5
+      ],
+      "opponent": "none",
+      "position_id": "c03_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 143558665344182249,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "4b96c57298ca384ac9d9",
+      "game_seed": 1942287652917644978,
+      "id": "29c7424cf5180ba026ae0518",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        68,
+        70,
+        154,
+        158,
+        99,
+        67,
+        157,
+        56,
+        198,
+        120,
+        149,
+        60,
+        5
+      ],
+      "opponent": "none",
+      "position_id": "c03_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 74326858646926799,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "2961a4a1109ac72b141f",
+      "game_seed": 12459625122730199291,
+      "id": "3019a96388bc0949d2956164",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        68,
+        70,
+        154,
+        158,
+        99,
+        67,
+        157,
+        56,
+        198,
+        120,
+        149,
+        60,
+        5
+      ],
+      "opponent": "none",
+      "position_id": "c03_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 4272130574727605696,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "35c46a35db8e43389351",
+      "game_seed": 16609066372271868089,
+      "id": "e11c6474a8a067daa4eeed15",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        68,
+        70,
+        154,
+        158,
+        99,
+        67,
+        157,
+        56,
+        198,
+        120,
+        149,
+        60,
+        5
+      ],
+      "opponent": "none",
+      "position_id": "c03_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 5008163559614300466,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "69ad61dd521bb10fb99f",
+      "game_seed": 15480659765636455113,
+      "id": "646eb28a9a33be71ba6c3f88",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        114,
+        79,
+        110,
+        156,
+        127,
+        128,
+        126
+      ],
+      "opponent": "none",
+      "position_id": "c04_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 6167918930017640600,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "b36541af97d64f282ccf",
+      "game_seed": 14763438506941985995,
+      "id": "e532922b3980e24932723724",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        114,
+        79,
+        110,
+        156,
+        127,
+        128,
+        126
+      ],
+      "opponent": "none",
+      "position_id": "c04_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 7416691739208930748,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "4d121c321b970e923706",
+      "game_seed": 4011278440456475572,
+      "id": "8a96c7db6486d40b04acf068",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        114,
+        79,
+        110,
+        156,
+        127,
+        128,
+        126
+      ],
+      "opponent": "none",
+      "position_id": "c04_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 13766863789770767548,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "756d31e843e7b38f1ec4",
+      "game_seed": 16400478621046773613,
+      "id": "2d56c57ec49af7cf451eebf7",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        114,
+        79,
+        110,
+        156,
+        127,
+        128,
+        126
+      ],
+      "opponent": "none",
+      "position_id": "c04_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 7612919288400113534,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "a4542004d5a2c07ecab4",
+      "game_seed": 9851215421490483764,
+      "id": "d641f6c236a82e96ebaeaf24",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        114,
+        79,
+        110,
+        156,
+        127,
+        128,
+        126,
+        146,
+        148,
+        2,
+        105,
+        6,
+        59
+      ],
+      "opponent": "none",
+      "position_id": "c04_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 3775707571063094442,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "3cd410fc1aae437d7e6a",
+      "game_seed": 5013465391761492734,
+      "id": "6865d5096930f38b9be245e9",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        114,
+        79,
+        110,
+        156,
+        127,
+        128,
+        126,
+        146,
+        148,
+        2,
+        105,
+        6,
+        59
+      ],
+      "opponent": "none",
+      "position_id": "c04_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 14549592140219824987,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "6d32e09bcf68d3327258",
+      "game_seed": 6225789234364203559,
+      "id": "30446e0d3ab5946c610474d8",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        114,
+        79,
+        110,
+        156,
+        127,
+        128,
+        126,
+        146,
+        148,
+        2,
+        105,
+        6,
+        59
+      ],
+      "opponent": "none",
+      "position_id": "c04_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 10847096621289376837,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "289b162da9a5ca746c42",
+      "game_seed": 13250528787597054689,
+      "id": "01435ab87e744244dcc43b75",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        114,
+        79,
+        110,
+        156,
+        127,
+        128,
+        126,
+        146,
+        148,
+        2,
+        105,
+        6,
+        59
+      ],
+      "opponent": "none",
+      "position_id": "c04_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 11852353005196589608,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "353e5740d1526bf5babb",
+      "game_seed": 16098200501927823567,
+      "id": "5da8cff4a344f25ea8696787",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        158,
+        96,
+        115,
+        126,
+        99,
+        94,
+        70
+      ],
+      "opponent": "none",
+      "position_id": "c05_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 6333266110453380688,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "8c0f60f15932b78aafd0",
+      "game_seed": 1512524044110792315,
+      "id": "61aaf93dd4ab9698fb41e516",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        158,
+        96,
+        115,
+        126,
+        99,
+        94,
+        70
+      ],
+      "opponent": "none",
+      "position_id": "c05_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 16518979433264186801,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "d19882ac40b7eb1daa23",
+      "game_seed": 3835667469685489079,
+      "id": "e5698223c4ec4b5d470bdec6",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        158,
+        96,
+        115,
+        126,
+        99,
+        94,
+        70
+      ],
+      "opponent": "none",
+      "position_id": "c05_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 1713625912949476459,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "f57852fc2b2a00dc1003",
+      "game_seed": 13583008884653766292,
+      "id": "78e9e21481a6a7b204292f23",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        158,
+        96,
+        115,
+        126,
+        99,
+        94,
+        70
+      ],
+      "opponent": "none",
+      "position_id": "c05_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 15937565564214488113,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "d0feb3c80f92ae3193c2",
+      "game_seed": 3374057907113470273,
+      "id": "7976d8417cfb332c60523479",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        158,
+        96,
+        115,
+        126,
+        99,
+        94,
+        70,
+        58,
+        186,
+        0,
+        74,
+        219,
+        179
+      ],
+      "opponent": "none",
+      "position_id": "c05_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 11074087806932456676,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "8c71fd58fb23a62d774a",
+      "game_seed": 13565720608319550985,
+      "id": "58fe507d28c85e3aa532b86d",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        158,
+        96,
+        115,
+        126,
+        99,
+        94,
+        70,
+        58,
+        186,
+        0,
+        74,
+        219,
+        179
+      ],
+      "opponent": "none",
+      "position_id": "c05_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 11156833324055708539,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "18169a13e3bf6bef96b2",
+      "game_seed": 2948358043316065678,
+      "id": "39b8a804c097a69114c46ea8",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        158,
+        96,
+        115,
+        126,
+        99,
+        94,
+        70,
+        58,
+        186,
+        0,
+        74,
+        219,
+        179
+      ],
+      "opponent": "none",
+      "position_id": "c05_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 4442378521016177916,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "f10484d92f717f937490",
+      "game_seed": 7301030593009278206,
+      "id": "48421a7eedb2f1334f117c8b",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        158,
+        96,
+        115,
+        126,
+        99,
+        94,
+        70,
+        58,
+        186,
+        0,
+        74,
+        219,
+        179
+      ],
+      "opponent": "none",
+      "position_id": "c05_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 14960734880295880370,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "1b52fff5caddb49df568",
+      "game_seed": 6535971462346270702,
+      "id": "b2a67133c0ecc11a83f6159e",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        100,
+        156,
+        96,
+        65,
+        85,
+        155,
+        114
+      ],
+      "opponent": "none",
+      "position_id": "c06_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 6139469788903234753,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "e2de9498de7aebdf36ca",
+      "game_seed": 3097518644499717291,
+      "id": "f48b0783966bfbe6fa683594",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        100,
+        156,
+        96,
+        65,
+        85,
+        155,
+        114
+      ],
+      "opponent": "none",
+      "position_id": "c06_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 17671934847255366367,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "5efcb058da5cac9a14f2",
+      "game_seed": 18209853967116481470,
+      "id": "a438f0f4f052962249b8914f",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        100,
+        156,
+        96,
+        65,
+        85,
+        155,
+        114
+      ],
+      "opponent": "none",
+      "position_id": "c06_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 8420328798082951444,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "4413f946c0db18689459",
+      "game_seed": 17347369456357474678,
+      "id": "a35b7b8c080a8771dce58c62",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        100,
+        156,
+        96,
+        65,
+        85,
+        155,
+        114
+      ],
+      "opponent": "none",
+      "position_id": "c06_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 914081990048859868,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "67f98745e381735be44e",
+      "game_seed": 17100607500420054520,
+      "id": "5b29ac321a3467b259d6f930",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        100,
+        156,
+        96,
+        65,
+        85,
+        155,
+        114,
+        102,
+        196,
+        45,
+        8,
+        220,
+        90
+      ],
+      "opponent": "none",
+      "position_id": "c06_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 9016309609333817011,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "6d7650fa9fcf04adf9fc",
+      "game_seed": 13827740306608393231,
+      "id": "a335d22bc14b21a0874393c1",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        100,
+        156,
+        96,
+        65,
+        85,
+        155,
+        114,
+        102,
+        196,
+        45,
+        8,
+        220,
+        90
+      ],
+      "opponent": "none",
+      "position_id": "c06_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 3144557006126359775,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "fb94588b00ded202ece9",
+      "game_seed": 7469130685660109684,
+      "id": "879cbde4ecfa5802087906c2",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        100,
+        156,
+        96,
+        65,
+        85,
+        155,
+        114,
+        102,
+        196,
+        45,
+        8,
+        220,
+        90
+      ],
+      "opponent": "none",
+      "position_id": "c06_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 14290440556145757809,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "bcccc72c62082fd2f3b4",
+      "game_seed": 16984879165133248861,
+      "id": "767cf25ced0d981786fca6a2",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        100,
+        156,
+        96,
+        65,
+        85,
+        155,
+        114,
+        102,
+        196,
+        45,
+        8,
+        220,
+        90
+      ],
+      "opponent": "none",
+      "position_id": "c06_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 7455909299815108655,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "d677a9ad5c5c8be5e4d8",
+      "game_seed": 9075621326587355756,
+      "id": "6dd662c9cb9b171c73c36009",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        69,
+        160,
+        142,
+        83,
+        115,
+        130,
+        145
+      ],
+      "opponent": "none",
+      "position_id": "c07_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 11545412790827093665,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "1585ef0276ceb232bfba",
+      "game_seed": 10757547115329498534,
+      "id": "10fbd903dac42efd4b915076",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        69,
+        160,
+        142,
+        83,
+        115,
+        130,
+        145
+      ],
+      "opponent": "none",
+      "position_id": "c07_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 11555887444452313848,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "f9b38e4ecc022b1fb92e",
+      "game_seed": 12989636281623395751,
+      "id": "de68b552c180b561e579be0d",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        69,
+        160,
+        142,
+        83,
+        115,
+        130,
+        145
+      ],
+      "opponent": "none",
+      "position_id": "c07_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 3156327467656148629,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "dc8193825a5b07f423d3",
+      "game_seed": 13526800644506691443,
+      "id": "fe9d7908de87a56bb39f3e89",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        69,
+        160,
+        142,
+        83,
+        115,
+        130,
+        145
+      ],
+      "opponent": "none",
+      "position_id": "c07_fixed",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 2553423789691445104,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "bcdd820362688b1cc08f",
+      "game_seed": 6110214997943083902,
+      "id": "3f961f9a40a49e0423e79e2d",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        69,
+        160,
+        142,
+        83,
+        115,
+        130,
+        145,
+        76,
+        103,
+        60,
+        75,
+        45,
+        12
+      ],
+      "opponent": "none",
+      "position_id": "c07_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 0,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 7424105144592725185,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "4800b0fff57bcb29c949",
+      "game_seed": 9201070706656311335,
+      "id": "d6c86b141fdf5d3064d60f2b",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        69,
+        160,
+        142,
+        83,
+        115,
+        130,
+        145,
+        76,
+        103,
+        60,
+        75,
+        45,
+        12
+      ],
+      "opponent": "none",
+      "position_id": "c07_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 1,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 5757064540018607267,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "25980a7d3668b1902efa",
+      "game_seed": 3045868733060186384,
+      "id": "716a4dee0072286779ff55d1",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        69,
+        160,
+        142,
+        83,
+        115,
+        130,
+        145,
+        76,
+        103,
+        60,
+        75,
+        45,
+        12
+      ],
+      "opponent": "none",
+      "position_id": "c07_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 2,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 16713785454869627289,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    },
+    {
+      "block": "ec9f915090ec6a974317",
+      "game_seed": 7939740259041738472,
+      "id": "f76857fc4c1d9aa3b024971d",
+      "kind": "roots",
+      "max_plies": 225,
+      "move_temperature": 1.0,
+      "opening": [
+        112,
+        69,
+        160,
+        142,
+        83,
+        115,
+        130,
+        145,
+        76,
+        103,
+        60,
+        75,
+        45,
+        12
+      ],
+      "opponent": "none",
+      "position_id": "c07_dense",
+      "rapfi_threads": 1,
+      "rapfi_timeout_ms": 500,
+      "replicate": 3,
+      "search_timeout": 90.0,
+      "spec": {
+        "budget": 32,
+        "c_puct": 1.4,
+        "cuts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "evaluator": "rapfi_nnue_lookahead_v1",
+        "mode": "wave",
+        "prior": "local",
+        "record_rollouts": true,
+        "rollout_depth": 1,
+        "root_law": {
+          "beta_p": [
+            3.3333333333333335
+          ],
+          "beta_q": [
+            3.3333333333333335
+          ],
+          "kind": "iid",
+          "logit_h": 0.0,
+          "proposal": "p"
+        },
+        "samples_per_eval": 4,
+        "seed": 13791944506053491329,
+        "source_action": 113,
+        "source_h": 0.0,
+        "workers": 4
+      }
+    }
+  ],
+  "kind": "roots",
+  "max_output_bytes": 536870912,
+  "max_parallel_jobs": 1,
+  "plan_hash": "3ff8833d0006f65783cd3848c38383773e27224a9cbbe9308e360ef0bf1fce04",
+  "schema": "mqft.campaign.v3.L15",
+  "scope": "planned_only; no data created by this operation",
+  "upper_backups": 2048,
+  "upper_searched_plies": 64
+}

@@ -1,0 +1,150 @@
+{
+  "animations": [
+    {
+      "file": "finite_spatial_pushforward.gif",
+      "frames": 7,
+      "ids": [
+        "Q12"
+      ],
+      "scope": "One actual finite ensemble under exact geometric projection, not autonomous RG trajectory.",
+      "sha256": "ed3083ad1c605dc62d462e3945557b5ae12c71f3b3ba77a1a2065a39334b80dc"
+    },
+    {
+      "file": "finite_budget_scaling.gif",
+      "frames": 4,
+      "ids": [
+        "Q17"
+      ],
+      "scope": "Finite-budget evolution animation, no critical phase transition established.",
+      "sha256": "8acbcc11693ccd7519598fb5976deb40a4a957a4937f471b796a77a9391a1ea4"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "common_core_mass",
+      "ids": [
+        "L13",
+        "Q11",
+        "L14"
+      ],
+      "pdf_sha": "be4bc87394e1bbc0d122ff7da8d709a855539f2d0b6f99bad96e3adc98326bce",
+      "png_sha": "6accd3d22d3aef9f912fd966be76d7bd09d6404afa17486b6c4f63a6d9c63e45",
+      "scope": "Fixed common spatial observable, root-block intervals, finite prefixes."
+    },
+    {
+      "figure": "outside_mass_flow",
+      "ids": [
+        "L13",
+        "Q09",
+        "Q11"
+      ],
+      "pdf_sha": "5212fed3ef6354fc8cdcaf632b40adca1b3dcc091b4cd878c4034d2fc7dafca5",
+      "png_sha": "63d3ed788d69cfb0f9b5596e259fdac4fa9a45e6a6dc650ba9ad74249a9b78b7",
+      "scope": "Exact crop-plus-outside pushforward, finite geometry flow not RG beta function."
+    },
+    {
+      "figure": "cross_size_TV",
+      "ids": [
+        "L13",
+        "Q13"
+      ],
+      "pdf_sha": "e9f3cd82a3a56c3b4cb63d02fa86f9b081c6f95adff91887a7bbe9e55ece76d1",
+      "png_sha": "27d903aef1c305335c68c6053a42448cf4e7685fb2ef17257e4358352609994f",
+      "scope": "Conditional law across distinct native sizes; split-noise control, no equivalence claim."
+    },
+    {
+      "figure": "nonlumpability_witness",
+      "ids": [
+        "L13",
+        "Q13",
+        "L16"
+      ],
+      "pdf_sha": "a3aaa5c391606e74ecbcd232832b45db2bd96e6b8273202558cc4ef3c8586859",
+      "png_sha": "86e58ede980f2e8379abc711a424540bde1ad8c7cced8027253c88dd3dacc45d",
+      "scope": "Same root/clock/coarse counts, exact conditional laws differ."
+    },
+    {
+      "figure": "finite_size_covariance",
+      "ids": [
+        "L14",
+        "L27",
+        "Q16",
+        "Q18"
+      ],
+      "pdf_sha": "4cdc32c2eb0b2606afda07aaedea45a23c674b54e28627c3f193eb12874312f6",
+      "png_sha": "b8194f37d2ccef871b34fc1af76749bb2433fec6ab7fe9ae126d2c524136f2d1",
+      "scope": "Open-grid low-mode covariance and full trace, finite budget and size separated."
+    },
+    {
+      "figure": "martingale_drift",
+      "ids": [
+        "Q16",
+        "L14",
+        "L16"
+      ],
+      "pdf_sha": "39d339a55df6ba0f810d421c8b7c3693496ba6639ec155e9fdc212374858d440",
+      "png_sha": "bbae9d143687eafb1925dd280479a08edd555a0e4baa1010916554654df5a85a",
+      "scope": "Predictable drift/martingale/cross decomposition, empirical finite sample."
+    },
+    {
+      "figure": "scaling_alternatives",
+      "ids": [
+        "L28",
+        "Q14",
+        "Q18"
+      ],
+      "pdf_sha": "3df238dd57df14f55a86cfd785fdd0ecd791918211ed511f261aa02a09516c9f",
+      "png_sha": "997a08d0624c2bdf15783179b9aefbbe23d3750948c946121ee689963e601e2d",
+      "scope": "Finite-size functional alternatives; not a critical exponent estimate."
+    },
+    {
+      "figure": "budget_collapse_diagnostic",
+      "ids": [
+        "Q15",
+        "Q30",
+        "L14"
+      ],
+      "pdf_sha": "a5e57915ac94ea6aefc7c7c737197a9564ec6ff4d8696b47b2612ccb331db23c",
+      "png_sha": "ae090f2df51da287e4a23070aee5ad94a4d317de8030d452eddd6fa4ed494ded",
+      "scope": "Noncritical finite-budget noise rescaling, no critical collapse claimed."
+    },
+    {
+      "figure": "historical_beta_scan",
+      "ids": [
+        "Q10",
+        "L27",
+        "Q16",
+        "Q18"
+      ],
+      "pdf_sha": "95e382c00d01ee40a2365ec619fdfba0b18949cb2d54fedd23a402b621bf674f",
+      "png_sha": "454e1bcf391ad25623cdc6f5e6cb476d688c3dbcea221e31a12314ebfa3feb7a",
+      "scope": "Historical separate cohort, finite beta/crossover diagnostics, not phase boundary."
+    },
+    {
+      "figure": "block_memory_W",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "5ea3155e9f12ebc3c37402b37ad2b57be90054c4eab49c6e63755c704882fa70",
+      "png_sha": "42308b58ea80c06cf2da02ecee264c36947c928a495408661914c7d7855ba92e",
+      "scope": "Existing R71 split reused, fixed block alternatives; no new heldout claim."
+    },
+    {
+      "figure": "block_memory_mark_count",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "c5b741b97a5eb8d58d65b424852f76bbe901652890090f6a0bb70b757d6ff0ea",
+      "png_sha": "61b0bede38e3214bf17c6d5cb24361c2c95d835cad139237ecbc66c5479a9c90",
+      "scope": "Source-type decomposition, no claim of exact memory kernel."
+    }
+  ],
+  "sources": {
+    "INDEPENDENT72.json": "6251014e4f09b363430feb2afe4981973dc9574744bb24b4393a7905718b9ae3",
+    "MEMORY72.json": "fbfdd4eea1d63efbf147eafb0efd8c9c050f0557fd04937ac18efae728fd3501",
+    "SCALE_RESULTS72.json": "4b84261062bad73b598f1118c996d6127bbf180e0cd99aad86557ac1972621e3",
+    "plot72.py": "1a5f5c1a59ac3732cd285b9a612171e5b91aa0d2ad80f3ffb32479850732bcf8"
+  }
+}
