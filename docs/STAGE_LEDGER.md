@@ -1,23 +1,23 @@
-# RESTORE62 stages
+# RESTORE63 stages
 | Stage | actual result | status |
 |---|---|---|
-| R1 | exact parent and original output contract | scoped complete |
-| R2 | likelihood ratio, equivariant frames, Rao-Blackwell primary sources | scoped complete |
-| R3 | canonical history plus labelled source and stabilizer theorem | derived |
-| R4 | candidate coupling and closure choices | scoped complete |
-| R5 | multivariate score/Fisher/response/Hessian; exact adaptive counterexample | derived / checked |
-| R6 | conditional wave moments and variance reduction, gauge/nonreciprocity scope | checked |
-| R7 | exact arithmetic, Wolfram categorical Hessian, native path controls | verified |
-| R8 | results: D4 solved in opt-in scope; Fisher/FD discrepancy retained | scoped verified |
-| R9 | local empirical action and heldout conditional closure | scoped verified |
-| R10 | next target and original output coverage | scoped complete |
-| C1 | source and checkpoint identity | scoped complete |
-| C2 | canonical MctsEngine/sampler and old traces | scoped complete |
-| C3 | coordinate transform, labelled multi-field, explicit frame-set schema | implemented |
-| C4 | frozen 64 cores and 20448 plans | verified |
-| C5 | Rust control62 plus Python audit/analysis, actual 2586624 backups | verified |
-| C6 | Rust 390 pass, Python 60 pass+17 subtests, 6 legacy regressions | verified |
-| C7 | all trace replay and RNG; 480 independent evaluator checks | verified scoped |
-| C8 | block uncertainty, split-seed/RB, closure and damped empirical conjugate | verified scoped |
-| C9 | nine original-specific paired plots, visual QA; native subagent NOT_RUN | scoped verified |
-| C10 | DAG, Git, cumulative archive and cleanup receipts | operational receipt required |
+| R1 | exact parent, target and independent geometry/seed contract | scoped complete |
+| R2 | likelihood ratio, projected Markov and CK literature, original source audit | scoped complete |
+| R3 | history, completed-wave group law and count gauge | derived |
+| R4 | exact frozen law, count and p kernel alternatives, rest normalizer | scoped complete |
+| R5 | matrix martingale bracket and conditional logMGF/Legendre | derived |
+| R6 | time-dependent Markov-additive transfer, count-consistent closure, bounds | scoped checked |
+| R7 | exact Fraction and Wolfram tests, actual trace and operator audits | verified |
+| R8 | fresh Fisher/legacy residuals and predictive comparison | verified finite scope |
+| R9 | empirical multiscale generator and Rapfi local transfer | scoped verified |
+| R10 | original Q41/Q43 audit and explicit phase-oriented next contract | scoped complete |
+| C1 | binary and checkpoint identities, frozen baseline | scoped complete |
+| C2 | R62/R58 trace and phase boundary investigation | scoped complete |
+| C3 | bracket, multinomial and transfer operator algorithms | implemented |
+| C4 | 9216 registered jobs, 16 CPU/12 audit workers | verified |
+| C5 | actual generation and full replay, new Python kernel | verified |
+| C6 | index repair, regression tests, predictor diagnostic isolation | verified scoped |
+| C7 | law, path, count, independent RNG and exact moments | verified |
+| C8 | block uncertainty, DP, heldout multiscale scores and transfer | verified |
+| C9 | eight paired plots, visual inspection, original mapping; native subagent NOT_RUN | scoped verified |
+| C10 | DAG, Git and backup receipts | receipt required |

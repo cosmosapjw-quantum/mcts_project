@@ -1,0 +1,89 @@
+{
+  "figures": [
+    {
+      "figure": "Q32_G07_martingale_fisher_residual",
+      "ids": [
+        "Q32",
+        "G07"
+      ],
+      "pdf_sha": "02e1bd961878fa8b81ba368f6cc13ac108264b3f34308163391b1c3e915598f4",
+      "png_sha": "03bbbb32c88987e25f61f582fb5972c5f4d342d5d387ec904efa5ea0c45908e3"
+    },
+    {
+      "figure": "G07_Q32_legacy_replication",
+      "ids": [
+        "G07",
+        "Q32"
+      ],
+      "pdf_sha": "f82f5eabd042104455400d8d7bc15567d5117af22b48537f7b3837b6487d9905",
+      "png_sha": "e99e40ed7602a3e744f7f282d975e4e9b8b44a6fbdec7a84aa5d7ab1eb5e4fbc"
+    },
+    {
+      "figure": "L40_L43_multiscale_predictive_kernel",
+      "ids": [
+        "L40",
+        "L43",
+        "L48",
+        "L49"
+      ],
+      "pdf_sha": "85d0a3abe80faf8b036fafd1c62b67fce7129da72460863295cc6addaab10283",
+      "png_sha": "539b9a204bb2585b576bc3ee1162a64297ba9a3660629a97c8671b89d21cd7cc"
+    },
+    {
+      "figure": "L41_L49_conditional_multinomial_calibration",
+      "ids": [
+        "L41",
+        "L49",
+        "L40"
+      ],
+      "pdf_sha": "befa89f380888a2fdd0676ac217e386035c92c957472e5b2d6695dda412d22ae",
+      "png_sha": "498c3b76a62ef853b2ce8f196aba129955ce4466bb2538a3f174e5648dd4a272"
+    },
+    {
+      "figure": "L16_conditional_action_curvature",
+      "ids": [
+        "L16",
+        "L38"
+      ],
+      "pdf_sha": "8e5a6f02963b39896f76efa8550579b9621d0e4b26c7703071ff5bf179ee71db",
+      "png_sha": "ec290dba7c5c444e6203f3d0678c355759a75383253d75f91eaed910a667ced0"
+    },
+    {
+      "figure": "L38_L41_Rapfi_size_transfer",
+      "ids": [
+        "L38",
+        "L41"
+      ],
+      "pdf_sha": "b58fd2ec42095a27c206b0171fb10e5056ac8ba9f95924aa3fab2b9babde5984",
+      "png_sha": "7b2bcacdb0cd832aedeadab2e00c74eb819db990371982d571a02fba252b3103"
+    },
+    {
+      "figure": "L39_L42_conditional_innovation_lags",
+      "ids": [
+        "L39",
+        "L42",
+        "L44"
+      ],
+      "pdf_sha": "c50533f5c42ce05474939a495f62639832852ecb89f4696323359cfadf57e70d",
+      "png_sha": "08487a7670a648da56def3e27dba99fb3c8bbb2f6a9f6d8fe733993312832363"
+    },
+    {
+      "figure": "L43_L16_joint_transition_generator",
+      "ids": [
+        "L43",
+        "L16",
+        "L40"
+      ],
+      "pdf_sha": "86b5c62e64caaf013536f039d3c734d81946565753f0c4e60c263f191ecd3445",
+      "png_sha": "6d94109106517880925bb618f3f1ca0bb377c75746176d76c61f471c92c24b76"
+    }
+  ],
+  "sources": {
+    "KERNEL_MODEL_g0.npz": "9b604f0a525cca107ff2378e45735e4e6e9994ac19ed6f6345a6d70e0ffece7f",
+    "KERNEL_MODEL_g3.npz": "6e59f9d24940227404d77bf6f53126c4470628ae68405a1351b1427b214bbf99",
+    "KERNEL_RESULTS63.json": "1f9e76db6d700dfc7b15013145c4a8c414001cdcf2c2f6bfd9f3a4251cfe6972",
+    "PHYSICS_RESULTS.json": "6ee6f4bbdfe7e876b106d919bb500f1d718c44fdfe64477996309bc3cdcc7801",
+    "RAPFI_TRANSFER63.json": "49497a546eb931d7f0c1a3c47a2566a31becb1c8caa7e37f3342e8795d4e76ad",
+    "VERIFICATION63.json": "5a2f3ddeba153696bce2f2f357b53f35c5fb1ea2081da03c542d679bbe845edc"
+  }
+}

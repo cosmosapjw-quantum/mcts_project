@@ -133,7 +133,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE63-CONDITIONAL-GENERATOR-AND-ORIGINAL-PHYSICS",
+  "next_stage_id": "MQFT-RESTORE64-PHASE-SENSITIVE-NATIVE-INSTRUMENT",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -238,6 +238,11 @@
         "evidence": "Native multi-source matrix response and exact path Hessian; canonical D4 path transport 280/280; finite empirical Legendre with conditional and mixture measure distinguished.",
         "remaining": "g0/w4 Fisher residual and legacy finite FD/centered contrast; native calibrated physical 1PI and phase unresolved."
       },
+      "restore63_followup": {
+        "artifact": "mqft_restore63_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,KERNEL_RESULTS63.json,VERIFICATION63.json,RAPFI_TRANSFER63.json,ORIGINAL_QUANTUM_TARGET63.md}",
+        "evidence": "Exact native frozen multinomial logMGF and local convex conjugate, verified tilted operator product; fresh conditional Fisher bracket and finite response recheck.",
+        "remaining": "Individual vs simultaneous residual uncertainty, composed MGF error, physical 1PI and phase unresolved; next explicit phase instrument."
+      },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
       "second_traversal_remaining_scope": "physical phase law/hbar, microscopic effective action and original 1PI one-loop predictive curvature, full-support coherent and parallel/async trained dynamics, general decision/strength benefit unresolved",
@@ -289,6 +294,11 @@
         "evidence": "Actual finite-budget constrained matrix spectra and heldout dyadic count transitions, conditional versus mixture empirical curvature.",
         "remaining": "Need conditional kernel composition and calibrated coarse generator; no autonomous physical RG."
       },
+      "restore63_followup": {
+        "artifact": "mqft_restore63_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,KERNEL_RESULTS63.json,VERIFICATION63.json,RAPFI_TRANSFER63.json,ORIGINAL_QUANTUM_TARGET63.md}",
+        "evidence": "Time-dependent count-additive transition kernel and heldout composition; 5-size Rapfi conditional-law transfer.",
+        "remaining": "Reduced-state closure not universal, no physical autonomous RG or trained size transfer."
+      },
       "retained_evidence": "STATE coarse memory, RESTORE04 stopped-tree coarse law\u00b7unresolved variance\u00b7closure loss \ubc0f graph/subtree rows. \uae30\uc874 reference flow\ub294 \ucd94\ucd9c\uae30 \ub300\uc870\uc5d0 \uc4f4\ub2e4.",
       "source": "rg_flow.py, rg_flow_tracker.py, subtree_extractor.py, rg_flow_visualizer.py, plot_rg_flow_phase_diagrams.py::plot_beta_functions/plot_rg_trajectories.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -330,6 +340,11 @@
         "artifact": "mqft_restore62_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,LEGENDRE62.json,AUDIT62.json,SYMMETRY62.json}",
         "evidence": "Actual native 64-root 2-source response; scalar h-grid and independent legacy replication.",
         "remaining": "No physical critical exponent or FDT; independent matrix uncertainty and scaling."
+      },
+      "restore63_followup": {
+        "artifact": "mqft_restore63_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,KERNEL_RESULTS63.json,VERIFICATION63.json,RAPFI_TRANSFER63.json,ORIGINAL_QUANTUM_TARGET63.md}",
+        "evidence": "Fresh independent same-geometry Fisher/legacy scalar source rechecks; no physical critical response inference.",
+        "remaining": "Fixed-root and geometry uncertainty differ; critical scaling unresolved."
       },
       "retained_evidence": "STATE06 \uc2e4\uc81c c_PUCT sweep, RESTORE04 \uc2e4\uc81c subtree volume, graph covariance, finite source\uc640 whole-seed uncertainty. \ub3c4\ud574\uc6a9 Ising/FSS\ub294 \ucd94\uc815\uae30 \ub300\uc870.",
       "source": "cpuct_phase_transition_validator.py, finite_size_scaling.py, plot_statistical_physics.py::plot_correlation_functions/plot_susceptibility_analysis, plot_critical_phenomena_scaling.py::plot_scaling_functions.",
@@ -506,6 +521,11 @@
       "record_repeat_followup": "RESTORE36 actual disjoint vs overlapping records, injective empirical MI artifact, declared complex coherent/tag/CQ lifts and label-write channel. Preserve all scope limits; no native physical phase or general scaling.",
       "remaining_scope": "Physical phase law/action/bath/hbar and native physical coherence not identified; production integration, full trained and parallel wave, actual quality/cost advantage and broader factorization unresolved",
       "response_selector_followup": "RESTORE35 true path-score response and independent utility; fixed contrast correction not admitted, declared complex phase/noise controls preserve diagonal utility, change coherent probe. No general quantum advantage.",
+      "restore63_followup": {
+        "artifact": "mqft_restore63_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,KERNEL_RESULTS63.json,VERIFICATION63.json,RAPFI_TRANSFER63.json,ORIGINAL_QUANTUM_TARGET63.md}",
+        "evidence": "Original Q41/Q43 source audit, explicit independent quadrature identification argument, no new native phase mechanism.",
+        "remaining": "Next actual phase-sensitive instrument using R21/R27, independent energy/time calibration or scoped blocker."
+      },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
       "structure_followup": "RESTORE22 complex Gram restricted spatial coherence filtration and triangle-phase gauge checks; actual projected density code and operational recovery; no physical phase identification.",
@@ -569,6 +589,11 @@
         "artifact": "mqft_restore62_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,LEGENDRE62.json,AUDIT62.json,SYMMETRY62.json}",
         "evidence": "32/32 geometry train/test split: occupancy closure wins 6 of 8 strata; mark or count ridge each wins one, history not robust.",
         "remaining": "Predictive composition, no Markov sufficiency or physical memory kernel admitted."
+      },
+      "restore63_followup": {
+        "artifact": "mqft_restore63_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,KERNEL_RESULTS63.json,VERIFICATION63.json,RAPFI_TRANSFER63.json,ORIGINAL_QUANTUM_TARGET63.md}",
+        "evidence": "Actual heldout multiscale kernel and causal conditional innovation lag products; p composition beats occupancy 32/32, full-p freeze 5/32 point estimates.",
+        "remaining": "Projected kernel not generally sufficient, MGF error retained; no physical memory time."
       },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
@@ -2467,8 +2492,51 @@
     "symmetry_histories": 480,
     "total_marked_histories": 33656
   },
-  "revision": "RESTORE62_20261126",
-  "scope": "Canonical trained native multi-source response, finite local action and heldout closure",
+  "restore63": {
+    "AUDIT63.json_sha256": "7e8f41c3260e50a33e2038a9de292d31b05c876a304e048db564480afa555d6c",
+    "FINAL63.npz_sha256": "4f37a8b3c6b654c3e5c466f91248126edf39b1befd305fb7b1e8abf512d9331b",
+    "KERNEL_RESULTS63.json_sha256": "1f9e76db6d700dfc7b15013145c4a8c414001cdcf2c2f6bfd9f3a4251cfe6972",
+    "MODEL_LOCK63.json_sha256": "d72fb3c7fd7f6e30e253baada0384dff25fc4cc5f10a22fc66b1018ae7b546f0",
+    "ORIGINAL_OUTPUT_EVIDENCE63.csv_sha256": "fee462dc4a1368bfd594bec97013fab6ea435492c958180644b47e06e3d1b6d8",
+    "ORIGINAL_OUTPUT_PROGRESS63.csv_sha256": "f53f674ab3de8ef13ca50434edc47d657839d90c805f42988469722bef29cc6f",
+    "ORIGINAL_QUANTUM_TARGET63.md_sha256": "49d7122b89f9573ebea2eb886700296e0071686eafaee4e7be8191eef8fbdb59",
+    "PHYSICS_RESULTS.json_sha256": "6ee6f4bbdfe7e876b106d919bb500f1d718c44fdfe64477996309bc3cdcc7801",
+    "PLOT_INVENTORY63.csv_sha256": "41ddcb7cf66e9740e4dbc4ecac480035d383f3b859828f581bf2bf4aeba31548",
+    "PLOT_MANIFEST63.json_sha256": "151600225872bb07273a384a29dffd65eff67cf0f71ab88b0e6a61e74c650491",
+    "PROGRESS63.json_sha256": "65eac286442b938ce5578d9c7f3b6629abf52e749b417cf2b8d1ade4f5b44909",
+    "RAPFI_TRANSFER63.json_sha256": "49497a546eb931d7f0c1a3c47a2566a31becb1c8caa7e37f3342e8795d4e76ad",
+    "REGISTRATION.json_sha256": "2373808afd012c4802b5378a1c60c2e2823734f04396575803c6b1f4be2abeb8",
+    "RNG_AUDIT63.json_sha256": "5c52e85c84353743fe37c1e8c18893667f14732176d39fa5428e3b0763104f50",
+    "VERIFICATION63.json_sha256": "5a2f3ddeba153696bce2f2f357b53f35c5fb1ea2081da03c542d679bbe845edc",
+    "WAVES63.npz_sha256": "c3d96a97ad9d50a4b0f9d60e82798f8bef8ed66513062018a10523ef4d007b49",
+    "additional_plot_nodes": 0,
+    "closure": "p kernel beats occupancy 32/32 and frozen full p 5/32 NLL point estimates; MGF discrepancy retained",
+    "evaluator_calls": 1184714,
+    "figures": 8,
+    "fisher_residual": "fresh fixed-root bracket and matrix simultaneous intervals include zero; individual geometry bootstrap and combined individual intervals exclude zero",
+    "fresh_backups": 1179648,
+    "fresh_fixed_root_histories": 9216,
+    "heldout_geometry_blocks": 64,
+    "heldout_waves": 65536,
+    "legacy_response": "prior discrepancy not reproduced by new seeds, finite h uncertainty remains",
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 12,
+    "original_evidence_union_R55_R63": 55,
+    "original_plot_tasks": 121,
+    "parent_dag_sha256": "ae75a9f9dff1df4ea87fe2a886d9c5941cea30a49a12cf5aa56b985110659c38",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 1450906245,
+    "retained_pairs": 493,
+    "reused_R58_Rapfi_histories": 180,
+    "reused_R62_histories": 1536,
+    "status": "scoped_native_conditional_generator_and_heldout_closure",
+    "total_marked_histories": 42872
+  },
+  "revision": "RESTORE63_20261126",
+  "scope": "Native conditional count generator, martingale residual and heldout multiscale closure",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE62-COVARIANT-PATH-AND-CONDITIONAL-CLOSURE"
+  "supersedes_next": "MQFT-RESTORE63-CONDITIONAL-GENERATOR-AND-ORIGINAL-PHYSICS"
 }

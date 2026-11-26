@@ -2028,6 +2028,61 @@
       }
     }
   },
+  "restore63": {
+    "AUDIT63.json_sha256": "7e8f41c3260e50a33e2038a9de292d31b05c876a304e048db564480afa555d6c",
+    "FINAL63.npz_sha256": "4f37a8b3c6b654c3e5c466f91248126edf39b1befd305fb7b1e8abf512d9331b",
+    "KERNEL_RESULTS63.json_sha256": "1f9e76db6d700dfc7b15013145c4a8c414001cdcf2c2f6bfd9f3a4251cfe6972",
+    "MODEL_LOCK63.json_sha256": "d72fb3c7fd7f6e30e253baada0384dff25fc4cc5f10a22fc66b1018ae7b546f0",
+    "ORIGINAL_OUTPUT_EVIDENCE63.csv_sha256": "fee462dc4a1368bfd594bec97013fab6ea435492c958180644b47e06e3d1b6d8",
+    "ORIGINAL_OUTPUT_PROGRESS63.csv_sha256": "f53f674ab3de8ef13ca50434edc47d657839d90c805f42988469722bef29cc6f",
+    "ORIGINAL_QUANTUM_TARGET63.md_sha256": "49d7122b89f9573ebea2eb886700296e0071686eafaee4e7be8191eef8fbdb59",
+    "PHYSICS_RESULTS.json_sha256": "6ee6f4bbdfe7e876b106d919bb500f1d718c44fdfe64477996309bc3cdcc7801",
+    "PLOT_INVENTORY63.csv_sha256": "41ddcb7cf66e9740e4dbc4ecac480035d383f3b859828f581bf2bf4aeba31548",
+    "PLOT_MANIFEST63.json_sha256": "151600225872bb07273a384a29dffd65eff67cf0f71ab88b0e6a61e74c650491",
+    "PROGRESS63.json_sha256": "65eac286442b938ce5578d9c7f3b6629abf52e749b417cf2b8d1ade4f5b44909",
+    "RAPFI_TRANSFER63.json_sha256": "49497a546eb931d7f0c1a3c47a2566a31becb1c8caa7e37f3342e8795d4e76ad",
+    "REGISTRATION.json_sha256": "2373808afd012c4802b5378a1c60c2e2823734f04396575803c6b1f4be2abeb8",
+    "RNG_AUDIT63.json_sha256": "5c52e85c84353743fe37c1e8c18893667f14732176d39fa5428e3b0763104f50",
+    "VERIFICATION63.json_sha256": "5a2f3ddeba153696bce2f2f357b53f35c5fb1ea2081da03c542d679bbe845edc",
+    "WAVES63.npz_sha256": "c3d96a97ad9d50a4b0f9d60e82798f8bef8ed66513062018a10523ef4d007b49",
+    "additional_plot_nodes": 0,
+    "closure": "p kernel beats occupancy 32/32 and frozen full p 5/32 NLL point estimates; MGF discrepancy retained",
+    "dag_sha256": "7d23485d74250e8882bb3786f2292da886e9fa4ddd62ccc6de91cbca5d916da8",
+    "evaluator_calls": 1184714,
+    "figures": 8,
+    "fisher_residual": "fresh fixed-root bracket and matrix simultaneous intervals include zero; individual geometry bootstrap and combined individual intervals exclude zero",
+    "fresh_backups": 1179648,
+    "fresh_fixed_root_histories": 9216,
+    "heldout_geometry_blocks": 64,
+    "heldout_waves": 65536,
+    "legacy_response": "prior discrepancy not reproduced by new seeds, finite h uncertainty remains",
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 12,
+    "original_evidence_union_R55_R63": 55,
+    "original_plot_tasks": 121,
+    "parent": "0c597cc0520322cd305ff27c25a36c25088a31cf",
+    "parent_dag_sha256": "ae75a9f9dff1df4ea87fe2a886d9c5941cea30a49a12cf5aa56b985110659c38",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 1450906245,
+    "retained_pairs": 493,
+    "reused_R58_Rapfi_histories": 180,
+    "reused_R62_histories": 1536,
+    "status": "scoped_native_conditional_generator_and_heldout_closure",
+    "total_marked_histories": 42872,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }
