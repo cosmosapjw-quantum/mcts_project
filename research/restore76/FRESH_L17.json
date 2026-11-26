@@ -1,0 +1,22 @@
+{
+  "L": 17,
+  "cases": [
+    {
+      "campaign": "base",
+      "id": "a4887244f5d039028427f1a4",
+      "new_wall_ns": 1287855999,
+      "original_wall_ns": 466805585,
+      "raw_sha": "9a3a0086226b4ec1f145ae23bce254e32ee880f46be159720e526f8e608a9793",
+      "semantic_sha": "b097457b2bfbf299984e67d7592fd2a626e207659c1b725456396be49ed6ef55"
+    },
+    {
+      "campaign": "pulse",
+      "id": "ffc407beebc9e7b936ca0cb1",
+      "new_wall_ns": 643030106,
+      "original_wall_ns": 168850070,
+      "raw_sha": "8fe31a2310293dcd38037468e152a1ab575176122f587d5e7aae5d80ce1ebb63",
+      "semantic_sha": "a1d50b99864adf0fddc00ccc78ad7f489ea876568768c6328624ac418f600090"
+    }
+  ],
+  "status": "exact_science_fields_equal"
+}

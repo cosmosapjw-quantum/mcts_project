@@ -56,7 +56,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "X-BARRIER",
+  "entry": "REPLAN-04.C",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -119,9 +119,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R76 independent common evaluator size/budget/beta criticality and null",
-    "R77 autonomous RG fixed point and augmented closure",
-    "R78 structural gauge and R79 original quality report; final original scientific requirements"
+    "R77 augmented state and autonomous RG fixed point with actual path validation",
+    "R78 structural gauge/symmetry, R79 original quality report",
+    "Final scientific certification of all 121 original outputs and remaining physical identification"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -140,7 +140,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE76-INDEPENDENT-FINITE-SIZE-CRITICALITY",
+  "next_stage_id": "MQFT-RESTORE77-AUTONOMOUS-RG-FIXED-POINT",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -214,6 +214,11 @@
         "artifact": "mqft_restore74_20261126/RESPONSE74.json",
         "evidence": "Conditional Gibbs score capacity, entropy, participation and exact score-energy ledger across three evaluator families.",
         "remaining": "Physical temperature, heat capacity, criticality not inferred."
+      },
+      "restore76_followup": {
+        "artifact": "mqft_restore76_20261127/CRITICAL76.json",
+        "evidence": "Finite conditional score curvature, occupancy entropy and fluctuation susceptibility measured across five sizes and independent budgets; selector beta not physical temperature.",
+        "remaining": "Physical thermodynamic identification remains open."
       },
       "retained_evidence": "STATE06 c_PUCT sweep, RESTORE01 \uc608\uc0b0\ubcc4 \uc2e4\uce21\uacfc fit \uc9c4\ub2e8. \uacbd\ub85c dominance\u00b7overlap \ubc0f STATE16 \uc870\uac74\ubd80 \uc120\ud0dd \ud1b5\uacc4\ub294 \ud45c\ubcf8\uacfc clock\uc774 \ub9de\uc73c\uba74 \uacb0\ud569\ud55c\ub2e4.",
       "source": "ensemble_analyzer_complete.py::_plot_authentic_temperature, honest_plots.py::plot_temperature_extraction/plot_temperature_scaling, \uacbd\ub85c \ud328\ub110 L16. v6 validation\uc758 \u03b2\uc640 mean-field \uc608\uce21.",
@@ -304,6 +309,11 @@
         "artifact": "mqft_restore72_20261126/MEMORY72.json",
         "evidence": "R71 block-memory donor diagnostic on existing large cohort; fixed 18 variants; count/mark source errors separate.",
         "remaining": "Fresh root holdout, full joint marks/next-state coupling and support; no exact closure."
+      },
+      "restore76_followup": {
+        "artifact": "mqft_restore76_20261127/CRITICAL76.json",
+        "evidence": "Exact fixed-total covariance, martingale/drift/cross, paired actual final-wave source pulse with exact conditional response.",
+        "remaining": "Population joint closure and autonomous generating function unresolved."
       },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
@@ -422,6 +432,11 @@
         "artifact": "mqft_restore72_20261126/SCALE_RESULTS72.json",
         "evidence": "Five genuine common NNUE sizes, 320 paths, fixed count/density nested geometry, low-mode covariance and finite alternatives.",
         "remaining": "Fresh beta/c_puct grid, dimensionless crossings, larger sizes; critical point/exponents open."
+      },
+      "restore76_followup": {
+        "artifact": "mqft_restore76_20261127/{THEORY.md,CRITICAL76.json,INDEPENDENT76.json,ORIGINAL_CLAIM_AUDIT76.json}",
+        "evidence": "3200 fresh actual common MixNet size-family runs, five sizes, independent B16/64, four beta and c_puct/paired source controls; 640 root-group reductions; exact beta0 multinomial null and finite cohort control; Binder-type/mode ratio crossing bootstrap, held-size-out alternatives; original Ising mismatch.",
+        "remaining": "No unique critical point, universality or physical correlation length admitted; broader size, budget-density and beta resolution, root ensemble and finite-size ansatz needed."
       },
       "retained_evidence": "STATE06 \uc2e4\uc81c c_PUCT sweep, RESTORE04 \uc2e4\uc81c subtree volume, graph covariance, finite source\uc640 whole-seed uncertainty. \ub3c4\ud574\uc6a9 Ising/FSS\ub294 \ucd94\uc815\uae30 \ub300\uc870.",
       "source": "cpuct_phase_transition_validator.py, finite_size_scaling.py, plot_statistical_physics.py::plot_correlation_functions/plot_susceptibility_analysis, plot_critical_phenomena_scaling.py::plot_scaling_functions.",
@@ -914,7 +929,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-06",
+  "previous_entry": "X-BARRIER",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -3278,8 +3293,87 @@
     "stationary_energies_contexts": 288,
     "status": "scoped_native_first_passage_graph_transport"
   },
-  "revision": "RESTORE75_20261127",
-  "scope": "Actual full-risk native first passage and declared score-graph coherent transport",
+  "restore76": {
+    "AUDIT_L13.json_sha256": "8d17006eae3fed100c14c7041ad6aada91174437a1ddf62f69fa552b3a98488f",
+    "AUDIT_L15.json_sha256": "96b22797e7c4833aaaca495db2e7fb0e7eb83ba269ba42eaf7777237136cd154",
+    "AUDIT_L17.json_sha256": "3851994aeb31a58f85dfb14c34b4600bc4c3c0722e620ffc4e136aee2683c429",
+    "AUDIT_L19.json_sha256": "ba59800eac73561fb7c9f6a5fbc1d6eef64e18628220ac5be74853273e93bfa2",
+    "AUDIT_L21.json_sha256": "e449b444e8bffc5d1a6268cc9325e5a92453a81e1ebf095b84ee605b87238632",
+    "CRITICAL76.json_sha256": "63e1aa40297e09df440d56c147c78d04c622a895293e919be7023e6eb8792797",
+    "DRIFT_WATCHDOG.md_sha256": "676dd460079961ebc222f94a00469968468d077d021c92e02cc34a65716e1c6e",
+    "FRESH_L13.json_sha256": "020df645ca2beb0064f60cdaa2a000730adf50efea5ed3743d4e3bfc98e5cbc3",
+    "FRESH_L15.json_sha256": "ea19dbfc861a8357c9da04d73089aedf69d2e07541b27c82118c8f19be18b8e7",
+    "FRESH_L17.json_sha256": "b6428c8739daa50bc94ebcb42ac2cfe48eb2d2cdbd6b4ee34c8879ebedb833b5",
+    "FRESH_L19.json_sha256": "464a221e6a7666366d8672ca3b521c2f81dea2b59634d5017e262944b0fc5207",
+    "FRESH_L21.json_sha256": "aae4f050620ca5f0de05aa715e175dd0a733c10f1ec231beb3b21961a7525712",
+    "GEN_L13.json_sha256": "7ad16a040006a41c91b43d539aadb23e598126da04c74bf719dd18fac47ba0ef",
+    "GEN_L15.json_sha256": "2948b931f9740847b267e661ee02a84c536760bcd34bf12d68b0658b40e41fbd",
+    "GEN_L17.json_sha256": "f68a29e69c9fb9a4893f4fe9c6fc924c12b099038d137bd9e2abd4ce14a9dff5",
+    "GEN_L19.json_sha256": "36df3d8125f909f8095d104724d5b0fb7156b5d736145fd5a09145879d95a232",
+    "GEN_L21.json_sha256": "7f6e42c95863e834af3a2e173c046523558e858257b07d1395e8ae09521b8788",
+    "INDEPENDENT76.json_sha256": "9e328e71d18292bd62f5010945496b4453ed07e1d7e49de0291a60d6f9de2839",
+    "NEXT_DYNAMICS.md_sha256": "d6494ae54360994770f70dba74ce8195923f64ba493e7ac9375415c9bf4df132",
+    "ORIGINAL_CLAIM_AUDIT76.json_sha256": "e0f4ca30e11bd2c65e6b2770114c8e317e3b475f7839e85e7023a820ea266c08",
+    "ORIGINAL_OUTPUT_EVIDENCE76.csv_sha256": "457818e93e2900e2e1d165dea786ca2131af057e8ca24bb8a1d7e81e3d5a5d01",
+    "ORIGINAL_OUTPUT_PROGRESS76.csv_sha256": "86eab0c3ddbd64b34b2b0193275a13467b7af09b8302a6bba2b46c64cd71bc95",
+    "ORIGINAL_SOURCE76.json_sha256": "394977392af4ef25a4144907c6d4980d7a1236a8106b088a3420be59974b112a",
+    "PILOT_L13.json_sha256": "dcc8255a8a80754db5b1f44be7f8056f77e2788632e219e254e540ac0f7d57d6",
+    "PILOT_L15.json_sha256": "8999db6e87f5a21493eb7607df85969b16eeef5665f80b976056023097ed410b",
+    "PILOT_L17.json_sha256": "db719c56db0265bd2cbb15fed8e9ec812f91a01c286e16b78e444150e4611b5f",
+    "PILOT_L19.json_sha256": "671f879c6b2ae36a55588766b68dbf0d14985cdf20b2708584d2987b8574fa59",
+    "PILOT_L21.json_sha256": "7216826f854ac1789da47ec37df717409cc0f35b727ac683033dda145cadb307",
+    "PLOT_INVENTORY76.csv_sha256": "caf213df90cf56ca7ca3f264f9884a53e8bec70a059739f09f1bf9ff1ddaabff",
+    "PLOT_MANIFEST76.json_sha256": "ac288fd9e95b522abccb0dc763f75eba8d546d6caf1eb0a2dc498abca29739f3",
+    "PROGRESS76.json_sha256": "077f1a17742a3d7f42874ead23d1e3dd55b553d26fcc468067d6734e90035a4b",
+    "PULSE_EXACT76.json_sha256": "195535d6c5bb37315b5fc12189e39be4d30f33042328393f02ff84d3ccd0a596",
+    "REGISTRATION_L13.json_sha256": "cb7a847a3a55ed5e26c42cdcd7636f8c492113621c5f8b80d50385775ab07dcf",
+    "REGISTRATION_L15.json_sha256": "ca345b32159bb8f9e9d2ba22cc95139444573169b4dc1a9955626e5ead8e2253",
+    "REGISTRATION_L17.json_sha256": "7bfd53a7b7bdae4aeed2bd7cd497a4a2783f283c88f9859b994e8a3881a60bfe",
+    "REGISTRATION_L19.json_sha256": "f9cfafe9dc0a3cd357a086f66bde55049c3cd06bfa38d9ceded4fca57f856cea",
+    "REGISTRATION_L21.json_sha256": "ef77d18b0f57d1c6cdd2a23599535908ff04f4587a5a2b86c85d8f2865ea280a",
+    "SUMMARY76.json_sha256": "bb61f7a8ea50abfea2549baf8ee7fb70320e3d08aac52267b05d92717e8d0585",
+    "THEORY.md_sha256": "c823bd0d572da5d7be1aaa2c776fe03cac3fa1e4b1ab020c9e82215371462bfa",
+    "animations": 0,
+    "beta_grid": [
+      0.0,
+      3.3333333333333335,
+      8.0,
+      16.0
+    ],
+    "cumulative_fixed_root_histories": 79672,
+    "figures": 14,
+    "fresh_backups": 112640,
+    "fresh_candidate_samples": 463360,
+    "fresh_fixed_root_histories": 3200,
+    "independent_budget_grid": [
+      16,
+      64
+    ],
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 8,
+    "original_evidence_union_R55_R76": 118,
+    "original_obligations": 121,
+    "paired_pulse_triples": 160,
+    "parent_commit": "e8f6b803cff2bd8d1046243aac99f55a9253b63d",
+    "parent_dag_sha256": "fd98e8e54903cf844de0b9b34b7e718d8d692b18485b674ab755f40376a12773",
+    "raw_bytes": 548018275,
+    "remaining": "Physical criticality/temperature, controlled scaling limit, autonomous RG and final certification.",
+    "retained_pairs": 621,
+    "root_groups": 640,
+    "sizes": [
+      13,
+      15,
+      17,
+      19,
+      21
+    ],
+    "status": "scoped_independent_finite_size_and_null",
+    "synthetic_null_cohorts_per_design": 2000
+  },
+  "revision": "RESTORE76_20261127",
+  "scope": "Independent common-evaluator finite-size/budget statistical criticality diagnostics",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE75-BARRIER-FIRST-PASSAGE-WKB"
+  "supersedes_next": "MQFT-RESTORE76-INDEPENDENT-FINITE-SIZE-CRITICALITY"
 }

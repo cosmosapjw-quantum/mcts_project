@@ -1,0 +1,29 @@
+{
+  "errors": {
+    "cov_sum_rows": 4.597017211338539e-17,
+    "cross": 1.1102230246251565e-16,
+    "drift": 1.1102230246251565e-16,
+    "heldout_RMSE": 0.0,
+    "heldout_actual": 0.0,
+    "heldout_prediction": 0.0,
+    "high": 2.220446049250313e-16,
+    "k4_exact": 6.938893903907228e-17,
+    "low": 5.551115123125783e-17,
+    "martingale": 1.3877787807814457e-17,
+    "mu22_exact": 6.938893903907228e-18,
+    "null_k4": 0.0,
+    "null_mode": 8.326672684688674e-17,
+    "null_trace": 3.469446951953614e-17,
+    "radial_mass": 1.968911145233676e-16,
+    "radial_null_mass": 7.68589734228848e-15,
+    "raw_drift": 0.0,
+    "raw_occupancy": 0.0,
+    "trace": 0.0,
+    "zero_mode": 8.429671891074797e-17
+  },
+  "heldout_models": 48,
+  "raw_paths_independently_reduced": 100,
+  "root_group_checks": 640,
+  "scope": "Same-agent separate pairwise covariance, direct trace reductions, finite Bernoulli enumeration, reference categorical covariance and heldout model predictions; independent native subagent not run.",
+  "status": "PASS_SCOPED"
+}

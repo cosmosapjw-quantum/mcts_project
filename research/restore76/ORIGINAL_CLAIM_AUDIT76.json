@@ -1,0 +1,29 @@
+{
+  "conditional_hyperscaling_from_original_nu_eta": {
+    "alpha": -0.5499999999999998,
+    "beta": 0.48874999999999996,
+    "gamma": 1.5725
+  },
+  "original": {
+    "alpha": -0.41,
+    "beta": 0.42,
+    "eta": 0.15,
+    "gamma": 1.57,
+    "nu": 0.85
+  },
+  "reference_3D_Ising": {
+    "alpha": 0.10993999999999993,
+    "beta": 0.32643541270000004,
+    "eta": 0.03627,
+    "gamma": 1.2371891746,
+    "nu": 0.63002
+  },
+  "scope": "Original claim of agreement with 3D Ising is contradicted by published nu and eta. Beta/gamma/alpha from standard three-dimensional hyperscaling are conditional on that class. Not a no-go on MQFT criticality.",
+  "section": "4.1 Theorem 4.1",
+  "source_member": {
+    "archive": "mcts_study.zip",
+    "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+    "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+  },
+  "source_url": "https://arxiv.org/abs/1004.4486"
+}

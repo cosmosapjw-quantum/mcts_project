@@ -1,0 +1,59 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "original_attachment_receipt": {
+    "anchor_is_ancestor": true,
+    "git_anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "guide_obligations": 27,
+    "original_output_obligations": 121,
+    "original_source_function_obligations": 94,
+    "original_source_zip_members": 347,
+    "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "scope": "current source hash and history census, not all historical raw executions replayed",
+    "supplied_zip_check_location": "conversation sandbox, original linked library materialization",
+    "supplied_zip_manifest_members_verified": 34,
+    "supplied_zip_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6"
+  },
+  "scope": "All three original local archives, original phase/statistical plot members, and original study criticality claims; original uploaded attachment receipt inherited.",
+  "verified_members": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/cpuct_phase_transition_validator.py",
+      "sha256": "90a4debefc048a9ebced62aa20df3faca01c166f3e1aef15629eedbfc919ab82"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+      "sha256": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_thermodynamics.py",
+      "sha256": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_critical_phenomena_scaling.py",
+      "sha256": "2f70a3c24a6d1453936d93903c24477aaf60d7874d2b336198114b615da9e208"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_statistical_physics.py",
+      "sha256": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "order_parameter",
+      "ids": [
+        "L01",
+        "L17",
+        "Q02"
+      ],
+      "pdf_sha": "760c70a45b2296059b07a507deb0be8c666fd5105f40bc9e2703210819e42c89",
+      "png_sha": "24f475f24d13adc6e0098ae209cd4783d964ad2e1b8cbdec1ac68f11cf92c6db",
+      "scope": "Independent full B, same pretrained evaluator, prior-ranked pair frozen before outcomes; finite order diagnostic."
+    },
+    {
+      "figure": "score_curvature",
+      "ids": [
+        "L17",
+        "Q02",
+        "Q34"
+      ],
+      "pdf_sha": "5ab2920f49ce61b8c192391fbe1d0a58bf19a899e5774dc4d65e2dd6e9e3d4b4",
+      "png_sha": "056e7a097dc1a848b0ed17f48aadeacd957984c7d4ea18f79b6dfb187a04a81c",
+      "scope": "Conditional beta\u00b2 Var(score), not physical heat capacity or transition temperature."
+    },
+    {
+      "figure": "fluctuation_susceptibility",
+      "ids": [
+        "L01",
+        "L17",
+        "Q02",
+        "Q34"
+      ],
+      "pdf_sha": "d43e63a70909e68d61fee77aeaa17ee0bfb662a0d3b31113775721ab1e5141a4",
+      "png_sha": "c1e46e8dc33c5eeb9a7947561c7909ce6b41d7d5fb2350016f5e89dbd5e2a442",
+      "scope": "Root-conditioned fluctuation susceptibility; not a response/FDT identification."
+    },
+    {
+      "figure": "finite_budget_covariance",
+      "ids": [
+        "L14",
+        "Q16",
+        "Q34"
+      ],
+      "pdf_sha": "14032e1c6a16de6e108edaf750603139f9cc10947824486375dcf66e3b9e5a7d",
+      "png_sha": "1257c1eb197615ff1961955dc251425b20eb8c378ae38f88aa3f5dcc45467f49",
+      "scope": "Independent B16/64; exact fixed-total covariance; not a thermodynamic limit."
+    },
+    {
+      "figure": "open_mode_ratio",
+      "ids": [
+        "L01",
+        "L17",
+        "Q02",
+        "Q34"
+      ],
+      "pdf_sha": "dcc90cca42c44f06b9d0ee74c95eed664dab1b32ebe5a95564a97f36037240ba",
+      "png_sha": "8f2143a06fa2c02e0cb66324bbb9d87d9ad75b47770b11e6887db8d39ad6c481",
+      "scope": "Connected DCT mode ratio; fixed total excludes ordinary zero-mode xi estimator. Paired root bootstrap, not RG-invariant theorem."
+    },
+    {
+      "figure": "binder_ratio",
+      "ids": [
+        "L01",
+        "L17",
+        "Q02",
+        "Q34"
+      ],
+      "pdf_sha": "e8464451b1fc9496f4a7965f326f9fd1afcfb90c5ee0d4fc24295946cad659f9",
+      "png_sha": "5c61306f664c49111e51e67d5cc2d14b3f1ae55e7936967402bcaf5690ffdad2",
+      "scope": "Distinct-pair moment estimators, ratio of root means; broad uncertainty retained, no universal Binder crossing assumed."
+    },
+    {
+      "figure": "exact_iid_null",
+      "ids": [
+        "L01",
+        "L17",
+        "Q02",
+        "Q34"
+      ],
+      "pdf_sha": "04607d3451fb48043aab94bf1316b2fe3d3fa33b00cb80e6eef93b845f93eb3c",
+      "png_sha": "5f4fb3f0622c5f6fadf12f47054dc4388ea7d03441fca3542387d322c1ff5486",
+      "scope": "Beta=0 exact uniform multinomial reference plus finite-rep synthetic null (2000 cohorts per condition)."
+    },
+    {
+      "figure": "covariance_decomposition",
+      "ids": [
+        "L14",
+        "Q16",
+        "Q34"
+      ],
+      "pdf_sha": "86bbe9af497b173d2d7ae33750190736c6d7d154b385dfce0fdbe5d47548d006",
+      "png_sha": "793a23509b2f082568bf03b472d22929d5b30b3af6b22797c7c390a23fc0eae8",
+      "scope": "Exact sample drift/martingale/cross decomposition, with independent budgets."
+    },
+    {
+      "figure": "radial_connected_covariance",
+      "ids": [
+        "L14",
+        "L17",
+        "Q34"
+      ],
+      "pdf_sha": "b848f7649d270c7b15162caf963fe6fe2054187ecca7df76e51643922dd6ba84",
+      "png_sha": "03f3642b513658905d0e02f9746b04d624332a2add99d2e47ee68e82f7852cad",
+      "scope": "Legal ordered pair shells; fixed-total cancellation, no exponential xi inferred."
+    },
+    {
+      "figure": "crossing_stability",
+      "ids": [
+        "L01",
+        "L17",
+        "Q02"
+      ],
+      "pdf_sha": "2b572216a87059c19fddae514f88fceee9e8403c2927469f5d5ecf855338a932",
+      "png_sha": "f20804870d09efa2f535b7c40609ca6a363896a209b7a4edeba933b0d00cff97",
+      "scope": "All piecewise-linear sampled-grid crossings, not transition estimates; bootstrap prevalence and multiple crossing retained."
+    },
+    {
+      "figure": "heldout_model_comparison",
+      "ids": [
+        "L28",
+        "Q18",
+        "Q34"
+      ],
+      "pdf_sha": "27efc9f2e463f5e343022be51d8e2b6627dac10c8bf55c1cb2b47a3c55c01638",
+      "png_sha": "1df9f3312aa852196f1b308b11824005a8f4c69d00586f538c9d527a115c0582",
+      "scope": "Separate analytic/crossover/critical-type descriptive candidates; fit on other sizes; no exponent admission."
+    },
+    {
+      "figure": "cpuct_scan",
+      "ids": [
+        "L01"
+      ],
+      "pdf_sha": "bed8525535104c12cc93e16a8ccc2823057eb5511c9e7edb6ea5968a249a491d",
+      "png_sha": "1d08b51937a1fe664a57f3621394c0dbaad8e953bb8647ad6e03a06cbd2017ed",
+      "scope": "Direct c_puct scan on independent runs, not a phase boundary."
+    },
+    {
+      "figure": "size_source_response",
+      "ids": [
+        "L01",
+        "L17",
+        "Q02",
+        "Q34"
+      ],
+      "pdf_sha": "f7933d25f36acfc2ebdd5067f822e94d015293c03e1a26d77aa8fb0331d47f8b",
+      "png_sha": "e9939966c71339b70f24647dfc33df495d4bc96fd87630a579b71c6c4743969e",
+      "scope": "Actual paired last-wave count difference, exact conditional Poisson-binomial predictive ranges under ideal IID uniforms; not population confidence intervals or equilibrium FDT."
+    },
+    {
+      "figure": "sampled_peak_locations",
+      "ids": [
+        "L17",
+        "Q02",
+        "Q34"
+      ],
+      "pdf_sha": "fdef051eec4b23a1235e7189f07811874af088dcdc29b5bfbd2d60c54bab4ce6",
+      "png_sha": "d3be37c0789230b951f8655fc8499523090e473f44fb2dc9400f68ac051f9726",
+      "scope": "Sampled grid maxima only, boundary peaks not resolved critical peaks."
+    }
+  ],
+  "sources": {
+    "AUDIT_L13.json": "8d17006eae3fed100c14c7041ad6aada91174437a1ddf62f69fa552b3a98488f",
+    "AUDIT_L15.json": "96b22797e7c4833aaaca495db2e7fb0e7eb83ba269ba42eaf7777237136cd154",
+    "AUDIT_L17.json": "3851994aeb31a58f85dfb14c34b4600bc4c3c0722e620ffc4e136aee2683c429",
+    "AUDIT_L19.json": "ba59800eac73561fb7c9f6a5fbc1d6eef64e18628220ac5be74853273e93bfa2",
+    "AUDIT_L21.json": "e449b444e8bffc5d1a6268cc9325e5a92453a81e1ebf095b84ee605b87238632",
+    "CRITICAL76.json": "63e1aa40297e09df440d56c147c78d04c622a895293e919be7023e6eb8792797",
+    "INDEPENDENT76.json": "9e328e71d18292bd62f5010945496b4453ed07e1d7e49de0291a60d6f9de2839",
+    "PULSE_EXACT76.json": "195535d6c5bb37315b5fc12189e39be4d30f33042328393f02ff84d3ccd0a596",
+    "plot76.py": "e986dd520866260d58ec97dec0b0d67070cb9eac2d7223922e108be0e0863ea6"
+  }
+}
