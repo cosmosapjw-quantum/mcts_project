@@ -1,0 +1,5186 @@
+[
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r0_reference",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 0,
+    "seed": 4379763017533366048,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r1_reference",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 1,
+    "seed": 3315119486610982887,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r2_reference",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 2,
+    "seed": 1394132814472315433,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 0,
+    "generation": 3,
+    "id": "g3_c00_r3_reference",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 3,
+    "seed": 248206056382971776,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r0_reference",
+    "moves": [
+      4,
+      57,
+      77,
+      55
+    ],
+    "rep": 0,
+    "seed": 951914136129544052,
+    "sources": [
+      31,
+      29
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r1_reference",
+    "moves": [
+      4,
+      57,
+      77,
+      55
+    ],
+    "rep": 1,
+    "seed": 7743308909443504811,
+    "sources": [
+      31,
+      29
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r2_reference",
+    "moves": [
+      4,
+      57,
+      77,
+      55
+    ],
+    "rep": 2,
+    "seed": 8999050985900890384,
+    "sources": [
+      31,
+      29
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 1,
+    "generation": 3,
+    "id": "g3_c01_r3_reference",
+    "moves": [
+      4,
+      57,
+      77,
+      55
+    ],
+    "rep": 3,
+    "seed": 3796623609156386191,
+    "sources": [
+      31,
+      29
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r0_reference",
+    "moves": [
+      10,
+      71,
+      79,
+      58
+    ],
+    "rep": 0,
+    "seed": 8947354434106763199,
+    "sources": [
+      48,
+      50
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r1_reference",
+    "moves": [
+      10,
+      71,
+      79,
+      58
+    ],
+    "rep": 1,
+    "seed": 2604799510141313552,
+    "sources": [
+      48,
+      50
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r2_reference",
+    "moves": [
+      10,
+      71,
+      79,
+      58
+    ],
+    "rep": 2,
+    "seed": 4188825518151181267,
+    "sources": [
+      48,
+      50
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 2,
+    "generation": 3,
+    "id": "g3_c02_r3_reference",
+    "moves": [
+      10,
+      71,
+      79,
+      58
+    ],
+    "rep": 3,
+    "seed": 6465453860584675982,
+    "sources": [
+      48,
+      50
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r0_reference",
+    "moves": [
+      1,
+      3,
+      55,
+      12
+    ],
+    "rep": 0,
+    "seed": 5034857588619514406,
+    "sources": [
+      56,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r1_reference",
+    "moves": [
+      1,
+      3,
+      55,
+      12
+    ],
+    "rep": 1,
+    "seed": 7998691548667239465,
+    "sources": [
+      56,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r2_reference",
+    "moves": [
+      1,
+      3,
+      55,
+      12
+    ],
+    "rep": 2,
+    "seed": 4916283361213336931,
+    "sources": [
+      56,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 3,
+    "generation": 3,
+    "id": "g3_c03_r3_reference",
+    "moves": [
+      1,
+      3,
+      55,
+      12
+    ],
+    "rep": 3,
+    "seed": 6668610957562484880,
+    "sources": [
+      56,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r0_reference",
+    "moves": [
+      1,
+      63,
+      79,
+      34
+    ],
+    "rep": 0,
+    "seed": 6910103456941582052,
+    "sources": [
+      24,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r1_reference",
+    "moves": [
+      1,
+      63,
+      79,
+      34
+    ],
+    "rep": 1,
+    "seed": 6488997122596813189,
+    "sources": [
+      24,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r2_reference",
+    "moves": [
+      1,
+      63,
+      79,
+      34
+    ],
+    "rep": 2,
+    "seed": 1348779382952802271,
+    "sources": [
+      24,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 4,
+    "generation": 3,
+    "id": "g3_c04_r3_reference",
+    "moves": [
+      1,
+      63,
+      79,
+      34
+    ],
+    "rep": 3,
+    "seed": 8281055577209278779,
+    "sources": [
+      24,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r0_reference",
+    "moves": [
+      13,
+      46,
+      52,
+      27
+    ],
+    "rep": 0,
+    "seed": 5057093107932740019,
+    "sources": [
+      51,
+      49
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r1_reference",
+    "moves": [
+      13,
+      46,
+      52,
+      27
+    ],
+    "rep": 1,
+    "seed": 646904174867576414,
+    "sources": [
+      51,
+      49
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r2_reference",
+    "moves": [
+      13,
+      46,
+      52,
+      27
+    ],
+    "rep": 2,
+    "seed": 265076514636662039,
+    "sources": [
+      51,
+      49
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 5,
+    "generation": 3,
+    "id": "g3_c05_r3_reference",
+    "moves": [
+      13,
+      46,
+      52,
+      27
+    ],
+    "rep": 3,
+    "seed": 1338821902514611752,
+    "sources": [
+      51,
+      49
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 6,
+    "generation": 3,
+    "id": "g3_c06_r0_reference",
+    "moves": [
+      12,
+      61,
+      42,
+      10
+    ],
+    "rep": 0,
+    "seed": 2139536888768286797,
+    "sources": [
+      33,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 6,
+    "generation": 3,
+    "id": "g3_c06_r1_reference",
+    "moves": [
+      12,
+      61,
+      42,
+      10
+    ],
+    "rep": 1,
+    "seed": 6656782096822966235,
+    "sources": [
+      33,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 6,
+    "generation": 3,
+    "id": "g3_c06_r2_reference",
+    "moves": [
+      12,
+      61,
+      42,
+      10
+    ],
+    "rep": 2,
+    "seed": 177933784702441204,
+    "sources": [
+      33,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 6,
+    "generation": 3,
+    "id": "g3_c06_r3_reference",
+    "moves": [
+      12,
+      61,
+      42,
+      10
+    ],
+    "rep": 3,
+    "seed": 1779779456182123101,
+    "sources": [
+      33,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 7,
+    "generation": 3,
+    "id": "g3_c07_r0_reference",
+    "moves": [
+      1,
+      57,
+      6,
+      25
+    ],
+    "rep": 0,
+    "seed": 3073734563003851233,
+    "sources": [
+      33,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 7,
+    "generation": 3,
+    "id": "g3_c07_r1_reference",
+    "moves": [
+      1,
+      57,
+      6,
+      25
+    ],
+    "rep": 1,
+    "seed": 7789320764703522690,
+    "sources": [
+      33,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 7,
+    "generation": 3,
+    "id": "g3_c07_r2_reference",
+    "moves": [
+      1,
+      57,
+      6,
+      25
+    ],
+    "rep": 2,
+    "seed": 5000598782526317618,
+    "sources": [
+      33,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 7,
+    "generation": 3,
+    "id": "g3_c07_r3_reference",
+    "moves": [
+      1,
+      57,
+      6,
+      25
+    ],
+    "rep": 3,
+    "seed": 4749403312044943027,
+    "sources": [
+      33,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 8,
+    "generation": 3,
+    "id": "g3_c08_r0_reference",
+    "moves": [
+      11,
+      59,
+      46,
+      52
+    ],
+    "rep": 0,
+    "seed": 8231825497957232557,
+    "sources": [
+      49,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 8,
+    "generation": 3,
+    "id": "g3_c08_r1_reference",
+    "moves": [
+      11,
+      59,
+      46,
+      52
+    ],
+    "rep": 1,
+    "seed": 1919222833107208835,
+    "sources": [
+      49,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 8,
+    "generation": 3,
+    "id": "g3_c08_r2_reference",
+    "moves": [
+      11,
+      59,
+      46,
+      52
+    ],
+    "rep": 2,
+    "seed": 3289193070831532464,
+    "sources": [
+      49,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 8,
+    "generation": 3,
+    "id": "g3_c08_r3_reference",
+    "moves": [
+      11,
+      59,
+      46,
+      52
+    ],
+    "rep": 3,
+    "seed": 5263994944460101837,
+    "sources": [
+      49,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 9,
+    "generation": 3,
+    "id": "g3_c09_r0_reference",
+    "moves": [
+      31,
+      9,
+      39,
+      75
+    ],
+    "rep": 0,
+    "seed": 9097049149582117883,
+    "sources": [
+      30,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 9,
+    "generation": 3,
+    "id": "g3_c09_r1_reference",
+    "moves": [
+      31,
+      9,
+      39,
+      75
+    ],
+    "rep": 1,
+    "seed": 5064837980247082179,
+    "sources": [
+      30,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 9,
+    "generation": 3,
+    "id": "g3_c09_r2_reference",
+    "moves": [
+      31,
+      9,
+      39,
+      75
+    ],
+    "rep": 2,
+    "seed": 4589131978515352008,
+    "sources": [
+      30,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 9,
+    "generation": 3,
+    "id": "g3_c09_r3_reference",
+    "moves": [
+      31,
+      9,
+      39,
+      75
+    ],
+    "rep": 3,
+    "seed": 7668401202998017573,
+    "sources": [
+      30,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 10,
+    "generation": 3,
+    "id": "g3_c10_r0_reference",
+    "moves": [
+      3,
+      45,
+      11,
+      1
+    ],
+    "rep": 0,
+    "seed": 1516448653420750727,
+    "sources": [
+      29,
+      38
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 10,
+    "generation": 3,
+    "id": "g3_c10_r1_reference",
+    "moves": [
+      3,
+      45,
+      11,
+      1
+    ],
+    "rep": 1,
+    "seed": 4173436319819134523,
+    "sources": [
+      29,
+      38
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 10,
+    "generation": 3,
+    "id": "g3_c10_r2_reference",
+    "moves": [
+      3,
+      45,
+      11,
+      1
+    ],
+    "rep": 2,
+    "seed": 8215197541581842006,
+    "sources": [
+      29,
+      38
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 10,
+    "generation": 3,
+    "id": "g3_c10_r3_reference",
+    "moves": [
+      3,
+      45,
+      11,
+      1
+    ],
+    "rep": 3,
+    "seed": 3640186424722237259,
+    "sources": [
+      29,
+      38
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 11,
+    "generation": 3,
+    "id": "g3_c11_r0_reference",
+    "moves": [
+      10,
+      61,
+      26,
+      38
+    ],
+    "rep": 0,
+    "seed": 447633404195390119,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 11,
+    "generation": 3,
+    "id": "g3_c11_r1_reference",
+    "moves": [
+      10,
+      61,
+      26,
+      38
+    ],
+    "rep": 1,
+    "seed": 1796379763865819995,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 11,
+    "generation": 3,
+    "id": "g3_c11_r2_reference",
+    "moves": [
+      10,
+      61,
+      26,
+      38
+    ],
+    "rep": 2,
+    "seed": 5795786158850086824,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 11,
+    "generation": 3,
+    "id": "g3_c11_r3_reference",
+    "moves": [
+      10,
+      61,
+      26,
+      38
+    ],
+    "rep": 3,
+    "seed": 956954226817734109,
+    "sources": [
+      23,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 12,
+    "generation": 3,
+    "id": "g3_c12_r0_reference",
+    "moves": [
+      3,
+      30,
+      53,
+      58,
+      57,
+      77,
+      54,
+      44
+    ],
+    "rep": 0,
+    "seed": 6334784969739204660,
+    "sources": [
+      56,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 12,
+    "generation": 3,
+    "id": "g3_c12_r1_reference",
+    "moves": [
+      3,
+      30,
+      53,
+      58,
+      57,
+      77,
+      54,
+      44
+    ],
+    "rep": 1,
+    "seed": 8519863502085184088,
+    "sources": [
+      56,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 12,
+    "generation": 3,
+    "id": "g3_c12_r2_reference",
+    "moves": [
+      3,
+      30,
+      53,
+      58,
+      57,
+      77,
+      54,
+      44
+    ],
+    "rep": 2,
+    "seed": 4973570611702774191,
+    "sources": [
+      56,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 12,
+    "generation": 3,
+    "id": "g3_c12_r3_reference",
+    "moves": [
+      3,
+      30,
+      53,
+      58,
+      57,
+      77,
+      54,
+      44
+    ],
+    "rep": 3,
+    "seed": 7450335159505809447,
+    "sources": [
+      56,
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 13,
+    "generation": 3,
+    "id": "g3_c13_r0_reference",
+    "moves": [
+      10,
+      23,
+      59,
+      56,
+      40,
+      2,
+      51,
+      71
+    ],
+    "rep": 0,
+    "seed": 8092717937035040672,
+    "sources": [
+      50,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 13,
+    "generation": 3,
+    "id": "g3_c13_r1_reference",
+    "moves": [
+      10,
+      23,
+      59,
+      56,
+      40,
+      2,
+      51,
+      71
+    ],
+    "rep": 1,
+    "seed": 4314881151722365486,
+    "sources": [
+      50,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 13,
+    "generation": 3,
+    "id": "g3_c13_r2_reference",
+    "moves": [
+      10,
+      23,
+      59,
+      56,
+      40,
+      2,
+      51,
+      71
+    ],
+    "rep": 2,
+    "seed": 6165816683873375814,
+    "sources": [
+      50,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 13,
+    "generation": 3,
+    "id": "g3_c13_r3_reference",
+    "moves": [
+      10,
+      23,
+      59,
+      56,
+      40,
+      2,
+      51,
+      71
+    ],
+    "rep": 3,
+    "seed": 8127170415566379906,
+    "sources": [
+      50,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 14,
+    "generation": 3,
+    "id": "g3_c14_r0_reference",
+    "moves": [
+      4,
+      66,
+      60,
+      24,
+      3,
+      30,
+      23,
+      45
+    ],
+    "rep": 0,
+    "seed": 6823673045980796750,
+    "sources": [
+      51,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 14,
+    "generation": 3,
+    "id": "g3_c14_r1_reference",
+    "moves": [
+      4,
+      66,
+      60,
+      24,
+      3,
+      30,
+      23,
+      45
+    ],
+    "rep": 1,
+    "seed": 2578047449293363543,
+    "sources": [
+      51,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 14,
+    "generation": 3,
+    "id": "g3_c14_r2_reference",
+    "moves": [
+      4,
+      66,
+      60,
+      24,
+      3,
+      30,
+      23,
+      45
+    ],
+    "rep": 2,
+    "seed": 2232328043509118542,
+    "sources": [
+      51,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 14,
+    "generation": 3,
+    "id": "g3_c14_r3_reference",
+    "moves": [
+      4,
+      66,
+      60,
+      24,
+      3,
+      30,
+      23,
+      45
+    ],
+    "rep": 3,
+    "seed": 5370322611758547077,
+    "sources": [
+      51,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 15,
+    "generation": 3,
+    "id": "g3_c15_r0_reference",
+    "moves": [
+      11,
+      62,
+      23,
+      24,
+      45,
+      61,
+      12,
+      6
+    ],
+    "rep": 0,
+    "seed": 4062056818806523418,
+    "sources": [
+      14,
+      20
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 15,
+    "generation": 3,
+    "id": "g3_c15_r1_reference",
+    "moves": [
+      11,
+      62,
+      23,
+      24,
+      45,
+      61,
+      12,
+      6
+    ],
+    "rep": 1,
+    "seed": 3970664255639997763,
+    "sources": [
+      14,
+      20
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 15,
+    "generation": 3,
+    "id": "g3_c15_r2_reference",
+    "moves": [
+      11,
+      62,
+      23,
+      24,
+      45,
+      61,
+      12,
+      6
+    ],
+    "rep": 2,
+    "seed": 7096418861293129163,
+    "sources": [
+      14,
+      20
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 15,
+    "generation": 3,
+    "id": "g3_c15_r3_reference",
+    "moves": [
+      11,
+      62,
+      23,
+      24,
+      45,
+      61,
+      12,
+      6
+    ],
+    "rep": 3,
+    "seed": 5671022942159023633,
+    "sources": [
+      14,
+      20
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 16,
+    "generation": 3,
+    "id": "g3_c16_r0_reference",
+    "moves": [
+      10,
+      16,
+      57,
+      25,
+      17,
+      2,
+      55,
+      0
+    ],
+    "rep": 0,
+    "seed": 8099374251356080985,
+    "sources": [
+      58,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 16,
+    "generation": 3,
+    "id": "g3_c16_r1_reference",
+    "moves": [
+      10,
+      16,
+      57,
+      25,
+      17,
+      2,
+      55,
+      0
+    ],
+    "rep": 1,
+    "seed": 3261284491035575989,
+    "sources": [
+      58,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 16,
+    "generation": 3,
+    "id": "g3_c16_r2_reference",
+    "moves": [
+      10,
+      16,
+      57,
+      25,
+      17,
+      2,
+      55,
+      0
+    ],
+    "rep": 2,
+    "seed": 3635469953362447223,
+    "sources": [
+      58,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 16,
+    "generation": 3,
+    "id": "g3_c16_r3_reference",
+    "moves": [
+      10,
+      16,
+      57,
+      25,
+      17,
+      2,
+      55,
+      0
+    ],
+    "rep": 3,
+    "seed": 1032094358906714720,
+    "sources": [
+      58,
+      56
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 17,
+    "generation": 3,
+    "id": "g3_c17_r0_reference",
+    "moves": [
+      12,
+      31,
+      40,
+      32,
+      36,
+      19,
+      64,
+      8
+    ],
+    "rep": 0,
+    "seed": 3650106915627258660,
+    "sources": [
+      39,
+      37
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 17,
+    "generation": 3,
+    "id": "g3_c17_r1_reference",
+    "moves": [
+      12,
+      31,
+      40,
+      32,
+      36,
+      19,
+      64,
+      8
+    ],
+    "rep": 1,
+    "seed": 4102055703419532897,
+    "sources": [
+      39,
+      37
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 17,
+    "generation": 3,
+    "id": "g3_c17_r2_reference",
+    "moves": [
+      12,
+      31,
+      40,
+      32,
+      36,
+      19,
+      64,
+      8
+    ],
+    "rep": 2,
+    "seed": 7417711503321048114,
+    "sources": [
+      39,
+      37
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 17,
+    "generation": 3,
+    "id": "g3_c17_r3_reference",
+    "moves": [
+      12,
+      31,
+      40,
+      32,
+      36,
+      19,
+      64,
+      8
+    ],
+    "rep": 3,
+    "seed": 9171385123549970540,
+    "sources": [
+      39,
+      37
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 18,
+    "generation": 3,
+    "id": "g3_c18_r0_reference",
+    "moves": [
+      10,
+      50,
+      31,
+      8,
+      0,
+      68,
+      64,
+      13
+    ],
+    "rep": 0,
+    "seed": 6549996641481153911,
+    "sources": [
+      40,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 18,
+    "generation": 3,
+    "id": "g3_c18_r1_reference",
+    "moves": [
+      10,
+      50,
+      31,
+      8,
+      0,
+      68,
+      64,
+      13
+    ],
+    "rep": 1,
+    "seed": 6957214812744173733,
+    "sources": [
+      40,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 18,
+    "generation": 3,
+    "id": "g3_c18_r2_reference",
+    "moves": [
+      10,
+      50,
+      31,
+      8,
+      0,
+      68,
+      64,
+      13
+    ],
+    "rep": 2,
+    "seed": 2488302159140323514,
+    "sources": [
+      40,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 18,
+    "generation": 3,
+    "id": "g3_c18_r3_reference",
+    "moves": [
+      10,
+      50,
+      31,
+      8,
+      0,
+      68,
+      64,
+      13
+    ],
+    "rep": 3,
+    "seed": 4576591624201401919,
+    "sources": [
+      40,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 19,
+    "generation": 3,
+    "id": "g3_c19_r0_reference",
+    "moves": [
+      12,
+      24,
+      79,
+      51,
+      28,
+      18,
+      35,
+      72
+    ],
+    "rep": 0,
+    "seed": 2081246542584639349,
+    "sources": [
+      30,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 19,
+    "generation": 3,
+    "id": "g3_c19_r1_reference",
+    "moves": [
+      12,
+      24,
+      79,
+      51,
+      28,
+      18,
+      35,
+      72
+    ],
+    "rep": 1,
+    "seed": 8666353043870680860,
+    "sources": [
+      30,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 19,
+    "generation": 3,
+    "id": "g3_c19_r2_reference",
+    "moves": [
+      12,
+      24,
+      79,
+      51,
+      28,
+      18,
+      35,
+      72
+    ],
+    "rep": 2,
+    "seed": 2592937209935139123,
+    "sources": [
+      30,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 19,
+    "generation": 3,
+    "id": "g3_c19_r3_reference",
+    "moves": [
+      12,
+      24,
+      79,
+      51,
+      28,
+      18,
+      35,
+      72
+    ],
+    "rep": 3,
+    "seed": 828408923452201730,
+    "sources": [
+      30,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 20,
+    "generation": 3,
+    "id": "g3_c20_r0_reference",
+    "moves": [
+      31,
+      2,
+      28,
+      15,
+      35,
+      65,
+      33,
+      16
+    ],
+    "rep": 0,
+    "seed": 377158831932422404,
+    "sources": [
+      30,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 20,
+    "generation": 3,
+    "id": "g3_c20_r1_reference",
+    "moves": [
+      31,
+      2,
+      28,
+      15,
+      35,
+      65,
+      33,
+      16
+    ],
+    "rep": 1,
+    "seed": 1984466397520155522,
+    "sources": [
+      30,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 20,
+    "generation": 3,
+    "id": "g3_c20_r2_reference",
+    "moves": [
+      31,
+      2,
+      28,
+      15,
+      35,
+      65,
+      33,
+      16
+    ],
+    "rep": 2,
+    "seed": 4752001344789297014,
+    "sources": [
+      30,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 20,
+    "generation": 3,
+    "id": "g3_c20_r3_reference",
+    "moves": [
+      31,
+      2,
+      28,
+      15,
+      35,
+      65,
+      33,
+      16
+    ],
+    "rep": 3,
+    "seed": 2558275400558335241,
+    "sources": [
+      30,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 21,
+    "generation": 3,
+    "id": "g3_c21_r0_reference",
+    "moves": [
+      0,
+      62,
+      43,
+      52,
+      74,
+      25,
+      67,
+      44
+    ],
+    "rep": 0,
+    "seed": 6461960734965386850,
+    "sources": [
+      42,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 21,
+    "generation": 3,
+    "id": "g3_c21_r1_reference",
+    "moves": [
+      0,
+      62,
+      43,
+      52,
+      74,
+      25,
+      67,
+      44
+    ],
+    "rep": 1,
+    "seed": 6815254777222140527,
+    "sources": [
+      42,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 21,
+    "generation": 3,
+    "id": "g3_c21_r2_reference",
+    "moves": [
+      0,
+      62,
+      43,
+      52,
+      74,
+      25,
+      67,
+      44
+    ],
+    "rep": 2,
+    "seed": 4747307757662514741,
+    "sources": [
+      42,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 21,
+    "generation": 3,
+    "id": "g3_c21_r3_reference",
+    "moves": [
+      0,
+      62,
+      43,
+      52,
+      74,
+      25,
+      67,
+      44
+    ],
+    "rep": 3,
+    "seed": 5256629759799876884,
+    "sources": [
+      42,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 22,
+    "generation": 3,
+    "id": "g3_c22_r0_reference",
+    "moves": [
+      3,
+      36,
+      8,
+      63,
+      80,
+      73,
+      48,
+      61
+    ],
+    "rep": 0,
+    "seed": 3342070815523556168,
+    "sources": [
+      39,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 22,
+    "generation": 3,
+    "id": "g3_c22_r1_reference",
+    "moves": [
+      3,
+      36,
+      8,
+      63,
+      80,
+      73,
+      48,
+      61
+    ],
+    "rep": 1,
+    "seed": 8511356664422422945,
+    "sources": [
+      39,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 22,
+    "generation": 3,
+    "id": "g3_c22_r2_reference",
+    "moves": [
+      3,
+      36,
+      8,
+      63,
+      80,
+      73,
+      48,
+      61
+    ],
+    "rep": 2,
+    "seed": 1616117051587244311,
+    "sources": [
+      39,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 22,
+    "generation": 3,
+    "id": "g3_c22_r3_reference",
+    "moves": [
+      3,
+      36,
+      8,
+      63,
+      80,
+      73,
+      48,
+      61
+    ],
+    "rep": 3,
+    "seed": 6189372396059881699,
+    "sources": [
+      39,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 23,
+    "generation": 3,
+    "id": "g3_c23_r0_reference",
+    "moves": [
+      21,
+      44,
+      11,
+      52,
+      78,
+      8,
+      68,
+      61
+    ],
+    "rep": 0,
+    "seed": 8667856086177285483,
+    "sources": [
+      20,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 23,
+    "generation": 3,
+    "id": "g3_c23_r1_reference",
+    "moves": [
+      21,
+      44,
+      11,
+      52,
+      78,
+      8,
+      68,
+      61
+    ],
+    "rep": 1,
+    "seed": 4566488703124300338,
+    "sources": [
+      20,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 23,
+    "generation": 3,
+    "id": "g3_c23_r2_reference",
+    "moves": [
+      21,
+      44,
+      11,
+      52,
+      78,
+      8,
+      68,
+      61
+    ],
+    "rep": 2,
+    "seed": 9091325095635968027,
+    "sources": [
+      20,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 23,
+    "generation": 3,
+    "id": "g3_c23_r3_reference",
+    "moves": [
+      21,
+      44,
+      11,
+      52,
+      78,
+      8,
+      68,
+      61
+    ],
+    "rep": 3,
+    "seed": 6689500155905356186,
+    "sources": [
+      20,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 24,
+    "generation": 3,
+    "id": "g3_c24_r0_reference",
+    "moves": [
+      2,
+      60,
+      66,
+      40,
+      19,
+      17,
+      10,
+      23,
+      56,
+      61,
+      77,
+      45
+    ],
+    "rep": 0,
+    "seed": 3801700416879902465,
+    "sources": [
+      48,
+      57
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 24,
+    "generation": 3,
+    "id": "g3_c24_r1_reference",
+    "moves": [
+      2,
+      60,
+      66,
+      40,
+      19,
+      17,
+      10,
+      23,
+      56,
+      61,
+      77,
+      45
+    ],
+    "rep": 1,
+    "seed": 4692012641543859254,
+    "sources": [
+      48,
+      57
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 24,
+    "generation": 3,
+    "id": "g3_c24_r2_reference",
+    "moves": [
+      2,
+      60,
+      66,
+      40,
+      19,
+      17,
+      10,
+      23,
+      56,
+      61,
+      77,
+      45
+    ],
+    "rep": 2,
+    "seed": 5758210540649990656,
+    "sources": [
+      48,
+      57
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 24,
+    "generation": 3,
+    "id": "g3_c24_r3_reference",
+    "moves": [
+      2,
+      60,
+      66,
+      40,
+      19,
+      17,
+      10,
+      23,
+      56,
+      61,
+      77,
+      45
+    ],
+    "rep": 3,
+    "seed": 7727304593139122831,
+    "sources": [
+      48,
+      57
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 25,
+    "generation": 3,
+    "id": "g3_c25_r0_reference",
+    "moves": [
+      30,
+      53,
+      5,
+      42,
+      74,
+      80,
+      3,
+      41,
+      55,
+      32,
+      13,
+      8
+    ],
+    "rep": 0,
+    "seed": 6180579611952175870,
+    "sources": [
+      29,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 25,
+    "generation": 3,
+    "id": "g3_c25_r1_reference",
+    "moves": [
+      30,
+      53,
+      5,
+      42,
+      74,
+      80,
+      3,
+      41,
+      55,
+      32,
+      13,
+      8
+    ],
+    "rep": 1,
+    "seed": 3626473526329412853,
+    "sources": [
+      29,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 25,
+    "generation": 3,
+    "id": "g3_c25_r2_reference",
+    "moves": [
+      30,
+      53,
+      5,
+      42,
+      74,
+      80,
+      3,
+      41,
+      55,
+      32,
+      13,
+      8
+    ],
+    "rep": 2,
+    "seed": 3644769249233553577,
+    "sources": [
+      29,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 25,
+    "generation": 3,
+    "id": "g3_c25_r3_reference",
+    "moves": [
+      30,
+      53,
+      5,
+      42,
+      74,
+      80,
+      3,
+      41,
+      55,
+      32,
+      13,
+      8
+    ],
+    "rep": 3,
+    "seed": 5889301038547231656,
+    "sources": [
+      29,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 26,
+    "generation": 3,
+    "id": "g3_c26_r0_reference",
+    "moves": [
+      1,
+      74,
+      34,
+      44,
+      13,
+      32,
+      40,
+      49,
+      46,
+      21,
+      67,
+      45
+    ],
+    "rep": 0,
+    "seed": 2657886600787095784,
+    "sources": [
+      37,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 26,
+    "generation": 3,
+    "id": "g3_c26_r1_reference",
+    "moves": [
+      1,
+      74,
+      34,
+      44,
+      13,
+      32,
+      40,
+      49,
+      46,
+      21,
+      67,
+      45
+    ],
+    "rep": 1,
+    "seed": 2939824639451284363,
+    "sources": [
+      37,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 26,
+    "generation": 3,
+    "id": "g3_c26_r2_reference",
+    "moves": [
+      1,
+      74,
+      34,
+      44,
+      13,
+      32,
+      40,
+      49,
+      46,
+      21,
+      67,
+      45
+    ],
+    "rep": 2,
+    "seed": 1240669436297775811,
+    "sources": [
+      37,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 26,
+    "generation": 3,
+    "id": "g3_c26_r3_reference",
+    "moves": [
+      1,
+      74,
+      34,
+      44,
+      13,
+      32,
+      40,
+      49,
+      46,
+      21,
+      67,
+      45
+    ],
+    "rep": 3,
+    "seed": 7679112196011243151,
+    "sources": [
+      37,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 27,
+    "generation": 3,
+    "id": "g3_c27_r0_reference",
+    "moves": [
+      12,
+      20,
+      48,
+      56,
+      29,
+      78,
+      25,
+      54,
+      75,
+      16,
+      63,
+      73
+    ],
+    "rep": 0,
+    "seed": 6567787156764292303,
+    "sources": [
+      30,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 27,
+    "generation": 3,
+    "id": "g3_c27_r1_reference",
+    "moves": [
+      12,
+      20,
+      48,
+      56,
+      29,
+      78,
+      25,
+      54,
+      75,
+      16,
+      63,
+      73
+    ],
+    "rep": 1,
+    "seed": 511983824137938030,
+    "sources": [
+      30,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 27,
+    "generation": 3,
+    "id": "g3_c27_r2_reference",
+    "moves": [
+      12,
+      20,
+      48,
+      56,
+      29,
+      78,
+      25,
+      54,
+      75,
+      16,
+      63,
+      73
+    ],
+    "rep": 2,
+    "seed": 2690516638781246963,
+    "sources": [
+      30,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 27,
+    "generation": 3,
+    "id": "g3_c27_r3_reference",
+    "moves": [
+      12,
+      20,
+      48,
+      56,
+      29,
+      78,
+      25,
+      54,
+      75,
+      16,
+      63,
+      73
+    ],
+    "rep": 3,
+    "seed": 842026426260181389,
+    "sources": [
+      30,
+      47
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 28,
+    "generation": 3,
+    "id": "g3_c28_r0_reference",
+    "moves": [
+      1,
+      36,
+      30,
+      39,
+      20,
+      72,
+      2,
+      58,
+      8,
+      78,
+      54,
+      61
+    ],
+    "rep": 0,
+    "seed": 7115031022114408550,
+    "sources": [
+      29,
+      57
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 28,
+    "generation": 3,
+    "id": "g3_c28_r1_reference",
+    "moves": [
+      1,
+      36,
+      30,
+      39,
+      20,
+      72,
+      2,
+      58,
+      8,
+      78,
+      54,
+      61
+    ],
+    "rep": 1,
+    "seed": 7890225249588793381,
+    "sources": [
+      29,
+      57
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 28,
+    "generation": 3,
+    "id": "g3_c28_r2_reference",
+    "moves": [
+      1,
+      36,
+      30,
+      39,
+      20,
+      72,
+      2,
+      58,
+      8,
+      78,
+      54,
+      61
+    ],
+    "rep": 2,
+    "seed": 4362868804302587056,
+    "sources": [
+      29,
+      57
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 28,
+    "generation": 3,
+    "id": "g3_c28_r3_reference",
+    "moves": [
+      1,
+      36,
+      30,
+      39,
+      20,
+      72,
+      2,
+      58,
+      8,
+      78,
+      54,
+      61
+    ],
+    "rep": 3,
+    "seed": 7489302583901698632,
+    "sources": [
+      29,
+      57
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 29,
+    "generation": 3,
+    "id": "g3_c29_r0_reference",
+    "moves": [
+      13,
+      75,
+      34,
+      36,
+      10,
+      23,
+      80,
+      64,
+      32,
+      57,
+      73,
+      66
+    ],
+    "rep": 0,
+    "seed": 599871222429999027,
+    "sources": [
+      31,
+      33
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 29,
+    "generation": 3,
+    "id": "g3_c29_r1_reference",
+    "moves": [
+      13,
+      75,
+      34,
+      36,
+      10,
+      23,
+      80,
+      64,
+      32,
+      57,
+      73,
+      66
+    ],
+    "rep": 1,
+    "seed": 538856669953077864,
+    "sources": [
+      31,
+      33
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 29,
+    "generation": 3,
+    "id": "g3_c29_r2_reference",
+    "moves": [
+      13,
+      75,
+      34,
+      36,
+      10,
+      23,
+      80,
+      64,
+      32,
+      57,
+      73,
+      66
+    ],
+    "rep": 2,
+    "seed": 5307953954264801626,
+    "sources": [
+      31,
+      33
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 29,
+    "generation": 3,
+    "id": "g3_c29_r3_reference",
+    "moves": [
+      13,
+      75,
+      34,
+      36,
+      10,
+      23,
+      80,
+      64,
+      32,
+      57,
+      73,
+      66
+    ],
+    "rep": 3,
+    "seed": 5112862630631996530,
+    "sources": [
+      31,
+      33
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 30,
+    "generation": 3,
+    "id": "g3_c30_r0_reference",
+    "moves": [
+      31,
+      10,
+      42,
+      53,
+      33,
+      24,
+      16,
+      7,
+      73,
+      37,
+      76,
+      65
+    ],
+    "rep": 0,
+    "seed": 6276779517850775405,
+    "sources": [
+      30,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 30,
+    "generation": 3,
+    "id": "g3_c30_r1_reference",
+    "moves": [
+      31,
+      10,
+      42,
+      53,
+      33,
+      24,
+      16,
+      7,
+      73,
+      37,
+      76,
+      65
+    ],
+    "rep": 1,
+    "seed": 8607847197771925871,
+    "sources": [
+      30,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 30,
+    "generation": 3,
+    "id": "g3_c30_r2_reference",
+    "moves": [
+      31,
+      10,
+      42,
+      53,
+      33,
+      24,
+      16,
+      7,
+      73,
+      37,
+      76,
+      65
+    ],
+    "rep": 2,
+    "seed": 675832637626661154,
+    "sources": [
+      30,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 30,
+    "generation": 3,
+    "id": "g3_c30_r3_reference",
+    "moves": [
+      31,
+      10,
+      42,
+      53,
+      33,
+      24,
+      16,
+      7,
+      73,
+      37,
+      76,
+      65
+    ],
+    "rep": 3,
+    "seed": 6722208285757001207,
+    "sources": [
+      30,
+      51
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 31,
+    "generation": 3,
+    "id": "g3_c31_r0_reference",
+    "moves": [
+      11,
+      39,
+      2,
+      38,
+      17,
+      10,
+      70,
+      61,
+      0,
+      58,
+      79,
+      24
+    ],
+    "rep": 0,
+    "seed": 8068525391069175471,
+    "sources": [
+      20,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 31,
+    "generation": 3,
+    "id": "g3_c31_r1_reference",
+    "moves": [
+      11,
+      39,
+      2,
+      38,
+      17,
+      10,
+      70,
+      61,
+      0,
+      58,
+      79,
+      24
+    ],
+    "rep": 1,
+    "seed": 6249736370228671079,
+    "sources": [
+      20,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 31,
+    "generation": 3,
+    "id": "g3_c31_r2_reference",
+    "moves": [
+      11,
+      39,
+      2,
+      38,
+      17,
+      10,
+      70,
+      61,
+      0,
+      58,
+      79,
+      24
+    ],
+    "rep": 2,
+    "seed": 1276936373089988376,
+    "sources": [
+      20,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 31,
+    "generation": 3,
+    "id": "g3_c31_r3_reference",
+    "moves": [
+      11,
+      39,
+      2,
+      38,
+      17,
+      10,
+      70,
+      61,
+      0,
+      58,
+      79,
+      24
+    ],
+    "rep": 3,
+    "seed": 1099749120439007291,
+    "sources": [
+      20,
+      40
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 32,
+    "generation": 3,
+    "id": "g3_c32_r0_reference",
+    "moves": [
+      1,
+      14,
+      0,
+      67,
+      33,
+      26,
+      70,
+      40,
+      55,
+      9,
+      22,
+      12
+    ],
+    "rep": 0,
+    "seed": 1372435079772808610,
+    "sources": [
+      24,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 32,
+    "generation": 3,
+    "id": "g3_c32_r1_reference",
+    "moves": [
+      1,
+      14,
+      0,
+      67,
+      33,
+      26,
+      70,
+      40,
+      55,
+      9,
+      22,
+      12
+    ],
+    "rep": 1,
+    "seed": 3082720540771398457,
+    "sources": [
+      24,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 32,
+    "generation": 3,
+    "id": "g3_c32_r2_reference",
+    "moves": [
+      1,
+      14,
+      0,
+      67,
+      33,
+      26,
+      70,
+      40,
+      55,
+      9,
+      22,
+      12
+    ],
+    "rep": 2,
+    "seed": 4744698553959202130,
+    "sources": [
+      24,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 32,
+    "generation": 3,
+    "id": "g3_c32_r3_reference",
+    "moves": [
+      1,
+      14,
+      0,
+      67,
+      33,
+      26,
+      70,
+      40,
+      55,
+      9,
+      22,
+      12
+    ],
+    "rep": 3,
+    "seed": 2920042128136709012,
+    "sources": [
+      24,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 33,
+    "generation": 3,
+    "id": "g3_c33_r0_reference",
+    "moves": [
+      21,
+      56,
+      15,
+      37,
+      74,
+      38,
+      2,
+      43,
+      13,
+      40,
+      62,
+      31
+    ],
+    "rep": 0,
+    "seed": 2135070808911696865,
+    "sources": [
+      12,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 33,
+    "generation": 3,
+    "id": "g3_c33_r1_reference",
+    "moves": [
+      21,
+      56,
+      15,
+      37,
+      74,
+      38,
+      2,
+      43,
+      13,
+      40,
+      62,
+      31
+    ],
+    "rep": 1,
+    "seed": 3471301660568101358,
+    "sources": [
+      12,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 33,
+    "generation": 3,
+    "id": "g3_c33_r2_reference",
+    "moves": [
+      21,
+      56,
+      15,
+      37,
+      74,
+      38,
+      2,
+      43,
+      13,
+      40,
+      62,
+      31
+    ],
+    "rep": 2,
+    "seed": 751774548565446599,
+    "sources": [
+      12,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 33,
+    "generation": 3,
+    "id": "g3_c33_r3_reference",
+    "moves": [
+      21,
+      56,
+      15,
+      37,
+      74,
+      38,
+      2,
+      43,
+      13,
+      40,
+      62,
+      31
+    ],
+    "rep": 3,
+    "seed": 7157569291267839447,
+    "sources": [
+      12,
+      59
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 34,
+    "generation": 3,
+    "id": "g3_c34_r0_reference",
+    "moves": [
+      12,
+      62,
+      67,
+      69,
+      33,
+      7,
+      72,
+      29,
+      14,
+      53,
+      15,
+      1
+    ],
+    "rep": 0,
+    "seed": 1765274262190800814,
+    "sources": [
+      59,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 34,
+    "generation": 3,
+    "id": "g3_c34_r1_reference",
+    "moves": [
+      12,
+      62,
+      67,
+      69,
+      33,
+      7,
+      72,
+      29,
+      14,
+      53,
+      15,
+      1
+    ],
+    "rep": 1,
+    "seed": 5485125819073584507,
+    "sources": [
+      59,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 34,
+    "generation": 3,
+    "id": "g3_c34_r2_reference",
+    "moves": [
+      12,
+      62,
+      67,
+      69,
+      33,
+      7,
+      72,
+      29,
+      14,
+      53,
+      15,
+      1
+    ],
+    "rep": 2,
+    "seed": 774574964464330113,
+    "sources": [
+      59,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 34,
+    "generation": 3,
+    "id": "g3_c34_r3_reference",
+    "moves": [
+      12,
+      62,
+      67,
+      69,
+      33,
+      7,
+      72,
+      29,
+      14,
+      53,
+      15,
+      1
+    ],
+    "rep": 3,
+    "seed": 1060274405687780683,
+    "sources": [
+      59,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 35,
+    "generation": 3,
+    "id": "g3_c35_r0_reference",
+    "moves": [
+      10,
+      51,
+      12,
+      35,
+      66,
+      80,
+      33,
+      44,
+      7,
+      6,
+      76,
+      52
+    ],
+    "rep": 0,
+    "seed": 2028102148487105602,
+    "sources": [
+      32,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 35,
+    "generation": 3,
+    "id": "g3_c35_r1_reference",
+    "moves": [
+      10,
+      51,
+      12,
+      35,
+      66,
+      80,
+      33,
+      44,
+      7,
+      6,
+      76,
+      52
+    ],
+    "rep": 1,
+    "seed": 5925395233215407040,
+    "sources": [
+      32,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 35,
+    "generation": 3,
+    "id": "g3_c35_r2_reference",
+    "moves": [
+      10,
+      51,
+      12,
+      35,
+      66,
+      80,
+      33,
+      44,
+      7,
+      6,
+      76,
+      52
+    ],
+    "rep": 2,
+    "seed": 6373141657210193380,
+    "sources": [
+      32,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 35,
+    "generation": 3,
+    "id": "g3_c35_r3_reference",
+    "moves": [
+      10,
+      51,
+      12,
+      35,
+      66,
+      80,
+      33,
+      44,
+      7,
+      6,
+      76,
+      52
+    ],
+    "rep": 3,
+    "seed": 6283684418001415010,
+    "sources": [
+      32,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 36,
+    "generation": 3,
+    "id": "g3_c36_r0_reference",
+    "moves": [
+      3,
+      63,
+      55,
+      33,
+      47,
+      26,
+      80,
+      43,
+      23,
+      4,
+      48,
+      9,
+      76,
+      54,
+      67,
+      10
+    ],
+    "rep": 0,
+    "seed": 5076173237926413100,
+    "sources": [
+      49,
+      46
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 36,
+    "generation": 3,
+    "id": "g3_c36_r1_reference",
+    "moves": [
+      3,
+      63,
+      55,
+      33,
+      47,
+      26,
+      80,
+      43,
+      23,
+      4,
+      48,
+      9,
+      76,
+      54,
+      67,
+      10
+    ],
+    "rep": 1,
+    "seed": 6297710020567116993,
+    "sources": [
+      49,
+      46
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 36,
+    "generation": 3,
+    "id": "g3_c36_r2_reference",
+    "moves": [
+      3,
+      63,
+      55,
+      33,
+      47,
+      26,
+      80,
+      43,
+      23,
+      4,
+      48,
+      9,
+      76,
+      54,
+      67,
+      10
+    ],
+    "rep": 2,
+    "seed": 4872833209485532072,
+    "sources": [
+      49,
+      46
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 36,
+    "generation": 3,
+    "id": "g3_c36_r3_reference",
+    "moves": [
+      3,
+      63,
+      55,
+      33,
+      47,
+      26,
+      80,
+      43,
+      23,
+      4,
+      48,
+      9,
+      76,
+      54,
+      67,
+      10
+    ],
+    "rep": 3,
+    "seed": 2281377879614276938,
+    "sources": [
+      49,
+      46
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 37,
+    "generation": 3,
+    "id": "g3_c37_r0_reference",
+    "moves": [
+      11,
+      25,
+      72,
+      5,
+      54,
+      23,
+      18,
+      50,
+      36,
+      76,
+      26,
+      58,
+      70,
+      42,
+      62,
+      59
+    ],
+    "rep": 0,
+    "seed": 1191049029264932944,
+    "sources": [
+      38,
+      20
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 37,
+    "generation": 3,
+    "id": "g3_c37_r1_reference",
+    "moves": [
+      11,
+      25,
+      72,
+      5,
+      54,
+      23,
+      18,
+      50,
+      36,
+      76,
+      26,
+      58,
+      70,
+      42,
+      62,
+      59
+    ],
+    "rep": 1,
+    "seed": 6153472708945175212,
+    "sources": [
+      38,
+      20
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 37,
+    "generation": 3,
+    "id": "g3_c37_r2_reference",
+    "moves": [
+      11,
+      25,
+      72,
+      5,
+      54,
+      23,
+      18,
+      50,
+      36,
+      76,
+      26,
+      58,
+      70,
+      42,
+      62,
+      59
+    ],
+    "rep": 2,
+    "seed": 5334131998915095896,
+    "sources": [
+      38,
+      20
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 37,
+    "generation": 3,
+    "id": "g3_c37_r3_reference",
+    "moves": [
+      11,
+      25,
+      72,
+      5,
+      54,
+      23,
+      18,
+      50,
+      36,
+      76,
+      26,
+      58,
+      70,
+      42,
+      62,
+      59
+    ],
+    "rep": 3,
+    "seed": 5113509643921651407,
+    "sources": [
+      38,
+      20
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 38,
+    "generation": 3,
+    "id": "g3_c38_r0_reference",
+    "moves": [
+      12,
+      31,
+      8,
+      38,
+      33,
+      13,
+      3,
+      76,
+      20,
+      66,
+      75,
+      70,
+      11,
+      44,
+      27,
+      62
+    ],
+    "rep": 0,
+    "seed": 4362189430412518297,
+    "sources": [
+      30,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 38,
+    "generation": 3,
+    "id": "g3_c38_r1_reference",
+    "moves": [
+      12,
+      31,
+      8,
+      38,
+      33,
+      13,
+      3,
+      76,
+      20,
+      66,
+      75,
+      70,
+      11,
+      44,
+      27,
+      62
+    ],
+    "rep": 1,
+    "seed": 9214681255551704629,
+    "sources": [
+      30,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 38,
+    "generation": 3,
+    "id": "g3_c38_r2_reference",
+    "moves": [
+      12,
+      31,
+      8,
+      38,
+      33,
+      13,
+      3,
+      76,
+      20,
+      66,
+      75,
+      70,
+      11,
+      44,
+      27,
+      62
+    ],
+    "rep": 2,
+    "seed": 941731101425579036,
+    "sources": [
+      30,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 38,
+    "generation": 3,
+    "id": "g3_c38_r3_reference",
+    "moves": [
+      12,
+      31,
+      8,
+      38,
+      33,
+      13,
+      3,
+      76,
+      20,
+      66,
+      75,
+      70,
+      11,
+      44,
+      27,
+      62
+    ],
+    "rep": 3,
+    "seed": 7818316310311218640,
+    "sources": [
+      30,
+      41
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 39,
+    "generation": 3,
+    "id": "g3_c39_r0_reference",
+    "moves": [
+      11,
+      54,
+      69,
+      13,
+      3,
+      34,
+      57,
+      0,
+      23,
+      44,
+      18,
+      47,
+      75,
+      5,
+      42,
+      61
+    ],
+    "rep": 0,
+    "seed": 7557987047844308358,
+    "sources": [
+      41,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 39,
+    "generation": 3,
+    "id": "g3_c39_r1_reference",
+    "moves": [
+      11,
+      54,
+      69,
+      13,
+      3,
+      34,
+      57,
+      0,
+      23,
+      44,
+      18,
+      47,
+      75,
+      5,
+      42,
+      61
+    ],
+    "rep": 1,
+    "seed": 8754292930293471284,
+    "sources": [
+      41,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 39,
+    "generation": 3,
+    "id": "g3_c39_r2_reference",
+    "moves": [
+      11,
+      54,
+      69,
+      13,
+      3,
+      34,
+      57,
+      0,
+      23,
+      44,
+      18,
+      47,
+      75,
+      5,
+      42,
+      61
+    ],
+    "rep": 2,
+    "seed": 2096465222547943782,
+    "sources": [
+      41,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 39,
+    "generation": 3,
+    "id": "g3_c39_r3_reference",
+    "moves": [
+      11,
+      54,
+      69,
+      13,
+      3,
+      34,
+      57,
+      0,
+      23,
+      44,
+      18,
+      47,
+      75,
+      5,
+      42,
+      61
+    ],
+    "rep": 3,
+    "seed": 2177828302474810685,
+    "sources": [
+      41,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 40,
+    "generation": 3,
+    "id": "g3_c40_r0_reference",
+    "moves": [
+      12,
+      41,
+      45,
+      30,
+      64,
+      71,
+      25,
+      57,
+      80,
+      13,
+      6,
+      52,
+      31,
+      53,
+      49,
+      23
+    ],
+    "rep": 0,
+    "seed": 3760494597777803042,
+    "sources": [
+      40,
+      33
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 40,
+    "generation": 3,
+    "id": "g3_c40_r1_reference",
+    "moves": [
+      12,
+      41,
+      45,
+      30,
+      64,
+      71,
+      25,
+      57,
+      80,
+      13,
+      6,
+      52,
+      31,
+      53,
+      49,
+      23
+    ],
+    "rep": 1,
+    "seed": 5067782677579476524,
+    "sources": [
+      40,
+      33
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 40,
+    "generation": 3,
+    "id": "g3_c40_r2_reference",
+    "moves": [
+      12,
+      41,
+      45,
+      30,
+      64,
+      71,
+      25,
+      57,
+      80,
+      13,
+      6,
+      52,
+      31,
+      53,
+      49,
+      23
+    ],
+    "rep": 2,
+    "seed": 5167633363627167292,
+    "sources": [
+      40,
+      33
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 40,
+    "generation": 3,
+    "id": "g3_c40_r3_reference",
+    "moves": [
+      12,
+      41,
+      45,
+      30,
+      64,
+      71,
+      25,
+      57,
+      80,
+      13,
+      6,
+      52,
+      31,
+      53,
+      49,
+      23
+    ],
+    "rep": 3,
+    "seed": 3718939021283508793,
+    "sources": [
+      40,
+      33
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 41,
+    "generation": 3,
+    "id": "g3_c41_r0_reference",
+    "moves": [
+      11,
+      33,
+      35,
+      64,
+      59,
+      61,
+      6,
+      17,
+      46,
+      37,
+      19,
+      40,
+      22,
+      42,
+      75,
+      71
+    ],
+    "rep": 0,
+    "seed": 6651356001761675083,
+    "sources": [
+      20,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 41,
+    "generation": 3,
+    "id": "g3_c41_r1_reference",
+    "moves": [
+      11,
+      33,
+      35,
+      64,
+      59,
+      61,
+      6,
+      17,
+      46,
+      37,
+      19,
+      40,
+      22,
+      42,
+      75,
+      71
+    ],
+    "rep": 1,
+    "seed": 8310558018400755845,
+    "sources": [
+      20,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 41,
+    "generation": 3,
+    "id": "g3_c41_r2_reference",
+    "moves": [
+      11,
+      33,
+      35,
+      64,
+      59,
+      61,
+      6,
+      17,
+      46,
+      37,
+      19,
+      40,
+      22,
+      42,
+      75,
+      71
+    ],
+    "rep": 2,
+    "seed": 8956948971318478962,
+    "sources": [
+      20,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 41,
+    "generation": 3,
+    "id": "g3_c41_r3_reference",
+    "moves": [
+      11,
+      33,
+      35,
+      64,
+      59,
+      61,
+      6,
+      17,
+      46,
+      37,
+      19,
+      40,
+      22,
+      42,
+      75,
+      71
+    ],
+    "rep": 3,
+    "seed": 1064754726788762350,
+    "sources": [
+      20,
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 42,
+    "generation": 3,
+    "id": "g3_c42_r0_reference",
+    "moves": [
+      2,
+      71,
+      57,
+      30,
+      17,
+      47,
+      72,
+      36,
+      60,
+      52,
+      49,
+      39,
+      65,
+      53,
+      44,
+      74
+    ],
+    "rep": 0,
+    "seed": 3055176754988890244,
+    "sources": [
+      59,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 42,
+    "generation": 3,
+    "id": "g3_c42_r1_reference",
+    "moves": [
+      2,
+      71,
+      57,
+      30,
+      17,
+      47,
+      72,
+      36,
+      60,
+      52,
+      49,
+      39,
+      65,
+      53,
+      44,
+      74
+    ],
+    "rep": 1,
+    "seed": 522276308150617785,
+    "sources": [
+      59,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 42,
+    "generation": 3,
+    "id": "g3_c42_r2_reference",
+    "moves": [
+      2,
+      71,
+      57,
+      30,
+      17,
+      47,
+      72,
+      36,
+      60,
+      52,
+      49,
+      39,
+      65,
+      53,
+      44,
+      74
+    ],
+    "rep": 2,
+    "seed": 3063819185085214868,
+    "sources": [
+      59,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 42,
+    "generation": 3,
+    "id": "g3_c42_r3_reference",
+    "moves": [
+      2,
+      71,
+      57,
+      30,
+      17,
+      47,
+      72,
+      36,
+      60,
+      52,
+      49,
+      39,
+      65,
+      53,
+      44,
+      74
+    ],
+    "rep": 3,
+    "seed": 2984995874827465683,
+    "sources": [
+      59,
+      42
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 43,
+    "generation": 3,
+    "id": "g3_c43_r0_reference",
+    "moves": [
+      12,
+      14,
+      27,
+      33,
+      49,
+      54,
+      20,
+      29,
+      69,
+      0,
+      1,
+      3,
+      70,
+      9,
+      17,
+      37
+    ],
+    "rep": 0,
+    "seed": 8909713771284139486,
+    "sources": [
+      21,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 43,
+    "generation": 3,
+    "id": "g3_c43_r1_reference",
+    "moves": [
+      12,
+      14,
+      27,
+      33,
+      49,
+      54,
+      20,
+      29,
+      69,
+      0,
+      1,
+      3,
+      70,
+      9,
+      17,
+      37
+    ],
+    "rep": 1,
+    "seed": 3907188863272571884,
+    "sources": [
+      21,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 43,
+    "generation": 3,
+    "id": "g3_c43_r2_reference",
+    "moves": [
+      12,
+      14,
+      27,
+      33,
+      49,
+      54,
+      20,
+      29,
+      69,
+      0,
+      1,
+      3,
+      70,
+      9,
+      17,
+      37
+    ],
+    "rep": 2,
+    "seed": 8582342515117146541,
+    "sources": [
+      21,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 43,
+    "generation": 3,
+    "id": "g3_c43_r3_reference",
+    "moves": [
+      12,
+      14,
+      27,
+      33,
+      49,
+      54,
+      20,
+      29,
+      69,
+      0,
+      1,
+      3,
+      70,
+      9,
+      17,
+      37
+    ],
+    "rep": 3,
+    "seed": 5095417309271140495,
+    "sources": [
+      21,
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 44,
+    "generation": 3,
+    "id": "g3_c44_r0_reference",
+    "moves": [
+      1,
+      9,
+      37,
+      12,
+      66,
+      36,
+      59,
+      30,
+      62,
+      25,
+      73,
+      35,
+      61,
+      68,
+      23,
+      33
+    ],
+    "rep": 0,
+    "seed": 979492474803753899,
+    "sources": [
+      60,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 44,
+    "generation": 3,
+    "id": "g3_c44_r1_reference",
+    "moves": [
+      1,
+      9,
+      37,
+      12,
+      66,
+      36,
+      59,
+      30,
+      62,
+      25,
+      73,
+      35,
+      61,
+      68,
+      23,
+      33
+    ],
+    "rep": 1,
+    "seed": 904668012248569079,
+    "sources": [
+      60,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 44,
+    "generation": 3,
+    "id": "g3_c44_r2_reference",
+    "moves": [
+      1,
+      9,
+      37,
+      12,
+      66,
+      36,
+      59,
+      30,
+      62,
+      25,
+      73,
+      35,
+      61,
+      68,
+      23,
+      33
+    ],
+    "rep": 2,
+    "seed": 2515726767164498342,
+    "sources": [
+      60,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 44,
+    "generation": 3,
+    "id": "g3_c44_r3_reference",
+    "moves": [
+      1,
+      9,
+      37,
+      12,
+      66,
+      36,
+      59,
+      30,
+      62,
+      25,
+      73,
+      35,
+      61,
+      68,
+      23,
+      33
+    ],
+    "rep": 3,
+    "seed": 4195198016558636986,
+    "sources": [
+      60,
+      58
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 45,
+    "generation": 3,
+    "id": "g3_c45_r0_reference",
+    "moves": [
+      12,
+      6,
+      18,
+      17,
+      73,
+      75,
+      63,
+      37,
+      20,
+      64,
+      0,
+      69,
+      10,
+      78,
+      38,
+      3
+    ],
+    "rep": 0,
+    "seed": 2548856778549228065,
+    "sources": [
+      47,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 45,
+    "generation": 3,
+    "id": "g3_c45_r1_reference",
+    "moves": [
+      12,
+      6,
+      18,
+      17,
+      73,
+      75,
+      63,
+      37,
+      20,
+      64,
+      0,
+      69,
+      10,
+      78,
+      38,
+      3
+    ],
+    "rep": 1,
+    "seed": 2196196212134412515,
+    "sources": [
+      47,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 45,
+    "generation": 3,
+    "id": "g3_c45_r2_reference",
+    "moves": [
+      12,
+      6,
+      18,
+      17,
+      73,
+      75,
+      63,
+      37,
+      20,
+      64,
+      0,
+      69,
+      10,
+      78,
+      38,
+      3
+    ],
+    "rep": 2,
+    "seed": 9032954359876039985,
+    "sources": [
+      47,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 45,
+    "generation": 3,
+    "id": "g3_c45_r3_reference",
+    "moves": [
+      12,
+      6,
+      18,
+      17,
+      73,
+      75,
+      63,
+      37,
+      20,
+      64,
+      0,
+      69,
+      10,
+      78,
+      38,
+      3
+    ],
+    "rep": 3,
+    "seed": 3388377455572448741,
+    "sources": [
+      47,
+      21
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 46,
+    "generation": 3,
+    "id": "g3_c46_r0_reference",
+    "moves": [
+      20,
+      1,
+      30,
+      57,
+      25,
+      59,
+      24,
+      32,
+      27,
+      60,
+      35,
+      9,
+      6,
+      77,
+      26,
+      50
+    ],
+    "rep": 0,
+    "seed": 5805477452402298079,
+    "sources": [
+      29,
+      22
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 46,
+    "generation": 3,
+    "id": "g3_c46_r1_reference",
+    "moves": [
+      20,
+      1,
+      30,
+      57,
+      25,
+      59,
+      24,
+      32,
+      27,
+      60,
+      35,
+      9,
+      6,
+      77,
+      26,
+      50
+    ],
+    "rep": 1,
+    "seed": 7147803248929579086,
+    "sources": [
+      29,
+      22
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 46,
+    "generation": 3,
+    "id": "g3_c46_r2_reference",
+    "moves": [
+      20,
+      1,
+      30,
+      57,
+      25,
+      59,
+      24,
+      32,
+      27,
+      60,
+      35,
+      9,
+      6,
+      77,
+      26,
+      50
+    ],
+    "rep": 2,
+    "seed": 4012003172623678237,
+    "sources": [
+      29,
+      22
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 46,
+    "generation": 3,
+    "id": "g3_c46_r3_reference",
+    "moves": [
+      20,
+      1,
+      30,
+      57,
+      25,
+      59,
+      24,
+      32,
+      27,
+      60,
+      35,
+      9,
+      6,
+      77,
+      26,
+      50
+    ],
+    "rep": 3,
+    "seed": 5391498309331525607,
+    "sources": [
+      29,
+      22
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 47,
+    "generation": 3,
+    "id": "g3_c47_r0_reference",
+    "moves": [
+      4,
+      63,
+      33,
+      9,
+      45,
+      39,
+      24,
+      58,
+      12,
+      65,
+      7,
+      35,
+      30,
+      72,
+      73,
+      61
+    ],
+    "rep": 0,
+    "seed": 961830171727604410,
+    "sources": [
+      51,
+      31
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 47,
+    "generation": 3,
+    "id": "g3_c47_r1_reference",
+    "moves": [
+      4,
+      63,
+      33,
+      9,
+      45,
+      39,
+      24,
+      58,
+      12,
+      65,
+      7,
+      35,
+      30,
+      72,
+      73,
+      61
+    ],
+    "rep": 1,
+    "seed": 7646607676167389293,
+    "sources": [
+      51,
+      31
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 47,
+    "generation": 3,
+    "id": "g3_c47_r2_reference",
+    "moves": [
+      4,
+      63,
+      33,
+      9,
+      45,
+      39,
+      24,
+      58,
+      12,
+      65,
+      7,
+      35,
+      30,
+      72,
+      73,
+      61
+    ],
+    "rep": 2,
+    "seed": 5860835161488015992,
+    "sources": [
+      51,
+      31
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reference",
+    "beta": 3.3333333333333335,
+    "budget": 1024,
+    "core": 47,
+    "generation": 3,
+    "id": "g3_c47_r3_reference",
+    "moves": [
+      4,
+      63,
+      33,
+      9,
+      45,
+      39,
+      24,
+      58,
+      12,
+      65,
+      7,
+      35,
+      30,
+      72,
+      73,
+      61
+    ],
+    "rep": 3,
+    "seed": 7029076492320585027,
+    "sources": [
+      51,
+      31
+    ],
+    "width": 4
+  }
+]

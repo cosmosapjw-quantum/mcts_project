@@ -64,6 +64,8 @@ pub struct Draw {
     pub log_p_path: f64,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub phase64: Option<PhaseRecord64>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub phase65: Option<crate::mqft_law::PhaseRecord65>,
     pub log_q_path: f64,
     pub log_b_path: f64,
 }
@@ -72,6 +74,7 @@ pub struct Sampler {
     source: Option<usize>,
     field: Option<Vec<f64>>,
     phase64: Option<Phase64>,
+    phase65: Option<Phase65>,
     rng: StdRng,
     t: usize,
     lp: f64,
@@ -136,6 +139,72 @@ impl Phase64 {
         (out,PhaseRecord64{sources:self.sources,wave,tau,exposure:self.current_exposure,theta,eta,pair_mass:m,population_a:r,x,y,output_a:z})
     }
 }
+#[derive(Clone, Debug, Serialize)]
+pub struct PhaseRecord65 {
+    pub sources:[usize;2], pub wave:usize, pub tau:f64,
+    pub exposure:f64, pub rotation:f64, pub pair_mass:f64, pub population_a:f64,
+    pub pre:[f64;3], pub prepared:[f64;3], pub post:[f64;3],
+    pub e0:f64, pub e1:f64, pub output_a:f64, pub outcome:usize,
+}
+/// Persistent auxiliary qubit; actual selection outcomes update it.
+pub struct Phase65 {
+    sources:[usize;2], mode:String, width:usize, budget:usize,
+    state:[f64;3], exposure:f64, previous_gap:f64,
+}
+impl Phase65 {
+    pub fn new(sources:[usize;2],mode:String,width:usize,budget:usize)->Self{
+        assert!(sources[0]!=sources[1] && width>0 && budget%width==0);
+        assert!(["persist_plus","persist_minus","persist_dephased","reset_plus"].contains(&mode.as_str()));
+        let y=if mode=="persist_minus"{-0.8}else if mode=="persist_dephased"{0.0}else{0.8};
+        Self{sources,mode,width,budget,state:[0.,y,0.],exposure:0.,previous_gap:0.}
+    }
+    fn rotate_x(v:[f64;3],angle:f64)->[f64;3]{
+        let(c,s)=(angle.cos(),angle.sin());[v[0],c*v[1]-s*v[2],s*v[1]+c*v[2]]
+    }
+    fn prepare(&mut self,t:usize,actions:&[usize],scores:&[f32],base:&[f64])->(Vec<f64>,PhaseRecord65){
+        let a=actions.iter().position(|&a|a==self.sources[0]).unwrap();
+        let b=actions.iter().position(|&a|a==self.sources[1]).unwrap();
+        let pre=self.state;let dt=self.width as f64/self.budget as f64;
+        let mut rotation=0.;
+        if t%self.width==0{
+            if t>0{
+                self.exposure+=self.previous_gap*dt;
+                rotation=6.*self.previous_gap*dt;
+                let(c,s)=(rotation.cos(),rotation.sin());let eta=(-1.2*dt).exp();
+                let [x,y,z]=self.state;self.state=[eta*(c*x-s*y),eta*(s*x+c*y),z];
+            }
+            self.previous_gap=scores[a] as f64-scores[b] as f64;
+        }
+        let m=base[a]+base[b];let r=base[a]/m;
+        let tau=(t/self.width*self.width) as f64/self.budget as f64;
+        if self.mode=="reset_plus"{
+            let theta=std::f64::consts::FRAC_PI_2+6.*self.exposure;
+            let amp=1.6*(-1.2*tau).exp()*(r*(1.-r)).sqrt();
+            self.state=[amp*theta.cos(),amp*theta.sin(),2.*r-1.];
+        }
+        if self.mode=="persist_dephased"{self.state[0]=0.;self.state[1]=0.;}
+        let prepared=self.state;
+        let z=Self::rotate_x(prepared,0.7)[2];
+        let e1=0.35*r;let e0=e1+0.65;
+        let d=0.5*(e0+e1+(e0-e1)*z);
+        let mut out=base.to_vec();out[a]=m*d;out[b]=m-out[a];
+        assert!(out[a]>0.&&out[b]>0.&&(out.iter().sum::<f64>()-1.).abs()<1e-12);
+        let qa=out[a];
+        (out,PhaseRecord65{sources:self.sources,wave:t/self.width,tau,exposure:self.exposure,rotation,pair_mass:m,population_a:r,pre,prepared,post:prepared,e0,e1,output_a:qa,outcome:usize::MAX})
+    }
+    fn finish(&mut self,action:usize,rec:&mut PhaseRecord65){
+        rec.outcome=action;
+        if self.sources.contains(&action){
+            let (e0,e1)=if action==self.sources[0]{(rec.e0,rec.e1)}else{(1.-rec.e0,1.-rec.e1)};
+            let [x,y,z]=Self::rotate_x(self.state,0.7);
+            let d=0.5*(e0+e1+(e0-e1)*z);
+            let g=(e0*e1).sqrt()/d;
+            self.state=Self::rotate_x([g*x,g*y,0.5*(e0-e1+(e0+e1)*z)/d],-0.7);
+        }
+        assert!(self.state.iter().map(|x|x*x).sum::<f64>()<=1.+1e-10);
+        rec.post=self.state;
+    }
+}
 fn lse(a: f64, b: f64) -> f64 {
     let m = a.max(b);
     m + ((a - m).exp() + (b - m).exp()).ln()
@@ -177,6 +246,7 @@ impl Sampler {
             source,
             field: None,
             phase64: None,
+            phase65: None,
             rng: StdRng::seed_from_u64(seed),
             t: 0,
             lp: 0.,
@@ -192,6 +262,10 @@ impl Sampler {
     pub fn new_phase64(spec: LawSpec,phase:Phase64,seed:u64)->Self{
         assert!(spec.kind=="iid" && spec.proposal=="p" && spec.logit_h==0. && spec.beta_p==spec.beta_q);
         let mut out=Self::new(spec,None,seed);out.phase64=Some(phase);out
+    }
+    pub fn new_phase65(spec:LawSpec,phase:Phase65,seed:u64)->Self{
+        assert!(spec.kind=="iid" && spec.proposal=="p" && spec.logit_h==0. && spec.beta_p==spec.beta_q);
+        let mut out=Self::new(spec,None,seed);out.phase65=Some(phase);out
     }
     pub fn draw(
         &mut self,
@@ -225,6 +299,10 @@ impl Sampler {
             let (out,rec)=ph.apply(t,&actions,&scores,&p);
             p=out;q=p.clone();Some(rec)
         }else{None};
+        let mut phase65=if let Some(ph)=self.phase65.as_mut(){
+            assert_eq!(p,q);assert!(active.iter().all(|x|*x));
+            let (out,rec)=ph.prepare(t,&actions,&scores,&p);p=out;q=p.clone();Some(rec)
+        }else{None};
         let normalizer = lse(self.lp, self.lq);
         let alpha = (self.lp - normalizer).exp();
         let alpha_q = (self.lq - normalizer).exp();
@@ -251,6 +329,7 @@ impl Sampler {
             }
         }
         let i = picked.unwrap_or_else(|| b.iter().rposition(|&x| x > 0.).unwrap());
+        if let (Some(ph),Some(rec))=(self.phase65.as_mut(),phase65.as_mut()){ph.finish(actions[i],rec);}
         let (lp, lq, lb) = (p[i].ln(), q[i].ln(), b[i].ln());
         self.lp += lp;
         self.lq += lq;
@@ -280,6 +359,7 @@ impl Sampler {
                 log_b: lb,
                 log_p_path: self.lp,
                 phase64,
+                phase65,
                 log_q_path: self.lq,
                 log_b_path: self.lb,
             },
@@ -296,5 +376,17 @@ impl Sampler {
   assert_eq!(re,de);assert_eq!(run("baseline"),p);
   assert!((plus[0]+minus[0]-2.*de[0]).abs()<1e-15);
   for q in [re,de,plus,minus]{assert_eq!(q[2],p[2]);assert!((q[0]+q[1]-0.5f64).abs()<1e-15);}
+ }
+}
+
+#[cfg(test)]mod phase65_tests{
+ use super::*;
+ #[test]fn persistent_pair_instrument(){
+  let mut p=Phase65::new([0,1],"persist_plus".into(),4,128);
+  let (q,mut r)=p.prepare(0,&[0,1,2],&[0.,0.,0.],&[0.2,0.3,0.5]);
+  assert_eq!(q[2],0.5);assert!((q[0]+q[1]-0.5).abs()<1e-15);
+  p.finish(2,&mut r);assert_eq!(r.prepared,r.post);
+  let (_,mut r)=p.prepare(1,&[0,1,2],&[0.,0.,0.],&[0.2,0.3,0.5]);p.finish(0,&mut r);assert_ne!(r.prepared,r.post);
+  let (_,s)=p.prepare(2,&[0,1,2],&[0.,0.,0.],&[0.2,0.3,0.5]);assert_eq!(s.pre,r.post);
  }
 }

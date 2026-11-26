@@ -1,0 +1,106 @@
+{
+  "assertion_tested": "actual persistent selective full-support native paths and independent g3 high-budget utility proxy; exact within-wave count mixture and tilted generator; independent complex replay, legacy regression and software calibration",
+  "command_contract": [
+    "cargo build --offline --release --features mqft-train --bin mqft_train",
+    "python plan65.py; bash execute65.sh",
+    "python audit65.py; python analyze65.py; python calibration65.py; independent prior mqft_trained_rng61 RNG_INPUT65.json",
+    "python generator65.py; python evaluator65.py; python render65.py; python progress65.py"
+  ],
+  "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  24\nOn-line CPU(s) list:                     0-23\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 9 5900X 12-Core Processor\nCPU family:                              25\nModel:                                   33\nThread(s) per core:                      2\nCore(s) per socket:                      12\nSocket(s):                               1\nStepping:                                0\nFrequency boost:                         enabled\nCPU(s) scaling MHz:                      78%\nCPU max MHz:                             4954.5649\nCPU min MHz:                             567.0890\nBogoMIPS:                                7386.51\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca fsrm debug_swap\nL1d cache:                               384 KiB (12 instances)\nL1i cache:                               384 KiB (12 instances)\nL2 cache:                                6 MiB (12 instances)\nL3 cache:                                64 MiB (2 instances)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-23\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Mitigation; Safe RET\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Mitigation; Clear CPU buffers\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n",
+  "files": {
+    "AUDIT65.json": "61a55c8962aba99869386f6930d5465a8474dd2484d45101afd9f738dee611c8",
+    "CALIBRATION65.json": "a83f831fe496948af3f1c2a152358e69c218c3e654a493f3cab8412844b89f97",
+    "CALIBRATION65.npz": "f66ead814ea757fa2075a057cb959bdd3a81d48126942e41da4f14bd3b3aae87",
+    "DAG.json": "1f2b38b8940e676c283b68b0fe52029e83d121eacc92a4ffec1f7a1862c30dee",
+    "DRIFT_WATCHDOG.md": "45b26019a113a3cf57ed992a9374fbb02e8b0ba7b5ffde71f7637f43cd92bfb1",
+    "EVALUATOR65.json": "0dd9a754bcec94fade2b84fcc988aeea35deaa8662bd7e3e5b052293d9fd65ee",
+    "GENERATOR65.json": "227fe24a9a1f233d9f1268349229427844d82f1e7ed87bed2a03d2ebe88cc1e1",
+    "GENERATOR65.npz": "7d2b4627e4bb622d8fbb200c0f6ed423af195ad44ba47236716b8193bf65beff",
+    "LEGACY_REGRESSION65.json": "a69cb467791f54dcd2a3f95e6b08b33a8463a449918d55c059324db5daf3bccf",
+    "NEXT_DYNAMICS.md": "ff05900829e1384968b815e4a4e5895cacc39194e98d5819edf7def5a83969a5",
+    "ORIGINAL_OUTPUT_EVIDENCE65.csv": "34814543771554d59c9aba15575f0ef1e7e59d8d036ca5d4e1965376f29457eb",
+    "ORIGINAL_OUTPUT_PROGRESS65.csv": "f7322efdf00596804ed4bc254f2f701ef1160557d4d02dcc9ac9cc9f826f3f6a",
+    "PHASE65.npz": "67e3942759410de217636591995974d17a681d44700fff60aec9901374c5b1f4",
+    "PHYSICS_RESULTS.json": "2d00075ff70202d02a9d634c1000ef0f3e7f9da71d47d21eb0e12b190b4e6a85",
+    "PLOT_INVENTORY65.csv": "34db14066e7794d1928942c196fcef8ebb5878a8bc22dd9b90aaead8d817c5cf",
+    "PLOT_MANIFEST65.json": "0d2dcc1b0ebd5426c3ab4746705e12ea3872cf6752c7ffa0873e4152e99c4b24",
+    "PROGRESS65.json": "b90c56a50686cc5a2bc14ffeae2b56aee5692fc5c901f164753b3922a2f076ef",
+    "PROVENANCE.json": "94a9cde57b428117f6cdb53005acc36aca2f5bdc9d25b261cc6b321d9bf3a9b8",
+    "REFERENCE65.npz": "a6aa682fadd9c4838d4ff7b38c0559a21c3d80044bebb403794961e256ef4d5b",
+    "REGISTRATION.json": "b9bfd6854a715c950a7acf8885a8417e25016d0a8abca1a7b6d6fe1cb2fc472f",
+    "RESULTS_KO.md": "5ad63dd4e0145a97e7c0435a54be952a9fc25a31a923522aa7c8aacee3dce8c2",
+    "RNG_AUDIT65.json": "074047b4016b69f0eaca74b9ca371364562dc863a8ea5f0e400360997f749438",
+    "RNG_INPUT65.json": "9fad063bec2e6bc39327ccf3f805aae73c0ad515bc463183f82dc4fb62fbec18",
+    "ROOT_PREPARATION.json": "4178b2f1651dd0deee057175bf2c5ab08c579d4972d0d1d62b7c20919c53e5ba",
+    "STAGE_LEDGER.md": "63925a3ff3b421cb68cf44f00091d29a83e5a275523c21c2b276ad7d0233aa90",
+    "THEORY.md": "2bc0ee94b441f5d6d145f91d07ada479f2d80287f945101405df1d1545d9c0e3",
+    "analyze65.py": "676973a0940df33269f3c4c3602cf21da6af47bc00b3ca13ab7fd6faba61aa80",
+    "audit65.py": "a1ba78830e589ddf689456090f9cf4bbd3b8fb8b2456a945c1d5c426353f0508",
+    "base61.py": "3b83746a62a7397656af9748a1f20628b0fe744245ab2564ee4d807a416ca734",
+    "calibration65.py": "a62190945dfa8a3e50a5432660f3317162972ec2b6cc68d635c48246b9875c65",
+    "channel64.py": "7a43b7302d671e287912761e87eb600d59e79149662439de452459cfa6e89921",
+    "evaluator65.py": "42e04d7edfb2a3fefc7fa94b8b4bebf182e3553543e06869e48eb3876067a9a4",
+    "execute65.sh": "28cdf4c9d70dccd6eb590af66975419f4378c92279eab32db22b6caf9b7183e4",
+    "generator65.py": "6c20031c269884b5f705258d58c47dc7e47a906531e1f44cfab88b4e6d9cebec",
+    "mqft_train": "1fa1bef0cdcc30a8f21581970b7f5abfed1cfff22065eabaf39377340632b264",
+    "plan65.py": "7c44b7db2c436ad812e3361e0b9e61f329278b789c06083f05660bd12fb0aa15",
+    "progress65.py": "085cd8706dec89d46f10bcb4a1cafb71d4f20457ebcd9467e18a5635aaf27cbe",
+    "render65.py": "6fed0c932a23b8d019db998872d23e892059b4a03bd336abe2377b2b28954b66"
+  },
+  "memory": "               total        used        free      shared  buff/cache   available\nMem:            31Gi        17Gi       1.3Gi       332Mi        12Gi        13Gi\nSwap:           71Gi        28Gi        43Gi\n",
+  "new_backups": 786432,
+  "new_fixed_roots": 4800,
+  "non_claims": [
+    "physical quantum hardware or hbar",
+    "native physical coherence",
+    "independent true game strength or minimax",
+    "universal cross-wave Markov closure",
+    "full original certification"
+  ],
+  "numpy": "2.4.2",
+  "original_identities": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9  /home/cosmosapjw/quantum.zip\n915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd  /home/cosmosapjw/Dropbox/omoknuni_quantum-main.zip\n40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4  /home/cosmosapjw/Dropbox/personal_projects/mcts_study.zip\n09be2d86bd97900f06fec9bb5ae4cc0418d83b55cfc14ee62604942553fac3a2  /home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore64_20261126/DAG.json\n",
+  "parent": "b77047387f09693466487193d195e80b3e2e7519",
+  "plan_hashes": {
+    "phase0.json": "b1bfb550e6e99c3ff4f98ee257a1d368c1bf03103a453fdb3888190f9bdc798e",
+    "phase3.json": "d5e48dbe80e43da525f7d591715e17d718771ccb98ee6ce2cec2cf45aa4f1f1e",
+    "reference3.json": "ff550f24c016698be95e9aedd3b68ce69632370efcbf6a97fbf840a6a0e8f3a4",
+    "regression64.json": "b454fdfa7f88fac8c08fc6c131ecaee95eb0a43cad7d7e452283f0ebae055de0",
+    "roots.json": "f859d6d1a1d3b568f760c303e89ac73bdcbf4501b2fe7275d577c1d422f63f30"
+  },
+  "platform": "Linux-7.0.0-43-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "raw_bytes": 872428616,
+  "run_status": "completed",
+  "rust": "rustc 1.99.0 (b940084d7 2026-09-28)",
+  "schema": "mqft.stage-execution.v1",
+  "source_files": {
+    "backend/Cargo.lock": "a7557a9d7f0f648ba85c514f9dad776b76ee5796d513406e93a4510e63683960",
+    "backend/Cargo.toml": "35497dbc187fe17e102091e6fc96849405f922f89ab756f85df19db9567c90e1",
+    "backend/examples/mqft_trained_rng61.rs": "9e84479d9652e5362cb1ca870de384eb7a329a8b4de2eda1c615801ff2eb2f7e",
+    "backend/src/games/gomoku.rs": "b885c4bc8fa503be74d128c49faa475662b0ba0c35595a0666075e92621e0b0b",
+    "backend/src/mcts/mod.rs": "e4ed7b2be2d4eeecf70dd800c8c2617f096addfe14350aaae59750ba66f8be4d",
+    "backend/src/mcts/select.rs": "ec3b0f4072ef68f863aece3e183055212ed978b1d9918f03ba98c642d19bf628",
+    "backend/src/mqft_law.rs": "c0831855f39a94cdc12fa2b6037aa49cefc6153d01a6b5bfa3538ed6411663d6",
+    "backend/src/mqft_trace.rs": "ea897867d6d1a3f93a5dbe701daa6b6fcfeee64be11a8f1d680f3b64b189a726",
+    "backend/src/mqft_train.rs": "6b8268a7d6957313fb8e2890470e55325480eeefab622520ee6c5dc4c1c8ef32",
+    "backend/src/mqft_train_controlled61.rs": "4b9143e6f4080306e9fc1e965deca6cc895c31993488116cc736011b10611e02",
+    "backend/src/mqft_train_covariant62.rs": "38a2dc4590a9a531aa60da615e10ac16821309a5a9f2bf0da848b34a9c4b3977",
+    "backend/src/mqft_train_persistent65.rs": "77e4c713205cc42491ec731f891a734a20dc07ec2d373122019d6782099a7542",
+    "backend/src/mqft_train_phase64.rs": "ca60496a022e35a589f113a8d659a718f77eddc8c7002ac3e0bc139cbd06c9b5"
+  },
+  "threads": {
+    "audit": 12,
+    "native": 16,
+    "openblas": 1
+  },
+  "weights": {
+    "0": {
+      "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+      "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+    },
+    "3": {
+      "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+      "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+    }
+  }
+}

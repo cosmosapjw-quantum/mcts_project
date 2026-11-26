@@ -54,7 +54,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "X-REP",
+  "entry": "REPLAN-06",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -133,7 +133,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE65-PERSISTENT-PHASE-INSTRUMENT-UTILITY",
+  "next_stage_id": "MQFT-RESTORE66-THERMODYNAMIC-RECORD-WORK-PROTOCOL",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -247,6 +247,11 @@
         "artifact": "mqft_restore64_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,CALIBRATION64.json,AUDIT64.json,PATH_PAIRS64.json}",
         "evidence": "Actual controlled native path likelihood, independently calibrated model readout and 3072 selected same-root baseline path-pair lifts.",
         "remaining": "Physical action, continuum quantum path measure, 1PI and persistent phase dynamics unresolved."
+      },
+      "restore65_followup": {
+        "artifact": "mqft_restore65_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT65.json,GENERATOR65.json}",
+        "evidence": "Exact finite tilted instrument count generator and rank-one covariance correction; all 49152 persistent waves analyzed, conditional mixture NLL improved.",
+        "remaining": "Cross-wave quantum/coarse closure, physical action/1PI and reverse protocol remain."
       },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
@@ -391,6 +396,11 @@
         "evidence": "Actual auxiliary conditional complex register and separate X/Y readouts; identical real/dephased native path law for selected readout.",
         "remaining": "Native physical measurement/record environment and redundancy identification remain."
       },
+      "restore65_followup": {
+        "artifact": "mqft_restore65_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT65.json,GENERATOR65.json}",
+        "evidence": "Actual outcome-conditioned auxiliary Kraus record and selective purity; Q27 animation.",
+        "remaining": "Physical environmental records/redundancy and thermodynamic cost unresolved."
+      },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -464,6 +474,11 @@
       "response_followup": "RESTORE34: measured actual h=\u00b10.4, sparse prior-pair visits, mixed root-Q effects; exact score response and Fisher in restricted model; support offset improves held-out susceptibility. No new strength admission.",
       "restore37_followup": "Bounded weights are estimator mathematics only. RESTORE35 contrast and RESTORE36 stopping non-admissions retained; no retuning without independent utility mechanism.",
       "restore38_followup": "mqft_restore38_20261125/ORIGINAL_CROSSWALK.json; partial new longitudinal observables and matched-opening controls; no promotion of existing unresolved physical claims or selector admission.",
+      "restore65_followup": {
+        "artifact": "mqft_restore65_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT65.json,GENERATOR65.json}",
+        "evidence": "Independent g3 high-budget Q-proxy and top5 comparisons: persistent plus worsens compared with baseline despite improved mean mark.",
+        "remaining": "No production admission; independent complete-game utility, size transfer."
+      },
       "retained_evidence": "STATE14\u201316 value/terminal \uad50\uc815, \ube44\uc6a9, RESTORE03 forced probe\uc640 RESTORE07\u201308 matching\u00b7\ub3c5\ub9bd rollout \ud3c9\uac00 \ubc29\ubc95. \uc77c\ubc18 \uae30\ub825 \ubc0f \uc54c\uace0\ub9ac\uc998 \uc774\ub4dd\uc740 \ubbf8\uc815.",
       "scientific_disposition": "no robust incremental benefit established versus both retuned PUCT and matched classical count control; preserve counterevidence, do not tune to force win",
       "source": "v6 quantum_mcts_validation.md, one_loop_corrections.py, quantum_corrections.py, v5 implementation_changes.md, training_metrics.py.",
@@ -541,6 +556,11 @@
         "evidence": "Actual 6144 full-support trained native phase-controlled searches; auxiliary complex density/Choi/ODE and software quadrature calibration; exact real/dephase native control and measured visit shifts.",
         "remaining": "Physical phase/energy/time/hbar not identified; fresh conditional preparation, persistent instrument and independent utility next."
       },
+      "restore65_followup": {
+        "artifact": "mqft_restore65_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT65.json,GENERATOR65.json}",
+        "evidence": "Persistent selective software state on actual full-support native paths, matrix replay, exact commuting wave mixture, actual Q27/Q44 animations.",
+        "remaining": "Physical phase/action/hbar identification and independent physical dynamics unresolved; negative utility kept."
+      },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
       "structure_followup": "RESTORE22 complex Gram restricted spatial coherence filtration and triangle-phase gauge checks; actual projected density code and operational recovery; no physical phase identification.",
@@ -610,6 +630,11 @@
         "evidence": "Actual heldout multiscale kernel and causal conditional innovation lag products; p composition beats occupancy 32/32, full-p freeze 5/32 point estimates.",
         "remaining": "Projected kernel not generally sufficient, MGF error retained; no physical memory time."
       },
+      "restore65_followup": {
+        "artifact": "mqft_restore65_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT65.json,GENERATOR65.json}",
+        "evidence": "Actual measurement-conditioned within-wave state memory, reset comparison and conditional mixture; old iid applies to frozen-score control only.",
+        "remaining": "Cross-wave projected sufficient state not established."
+      },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -660,6 +685,11 @@
         "evidence": "Actual trained g0/g3 phase intervention on 9x9 full support, no new training.",
         "remaining": "No established mean mark benefit; complete-game/independent regret and 15x15 compatible transport remain."
       },
+      "restore65_followup": {
+        "artifact": "mqft_restore65_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT65.json,GENERATOR65.json}",
+        "evidence": "4800 fresh fixed-root paths including 192 independent g3 B1024 references, no new training.",
+        "remaining": "Actual independent game strength and 15x15+ remain."
+      },
       "retained_evidence": "\uae30\uc874 evaluator/query/\uc9c0\uc5f0 \uc790\ub8cc\ub294 \ud0d0\uc0c9 \ube44\uc6a9 \ub300\uc870.",
       "source": "training_metrics.py::export_for_plotting/plot_training_curves, \ucd08\uae30 vectorized-mcts guide."
     }
@@ -692,7 +722,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-03",
+  "previous_entry": "X-REP",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -2595,8 +2625,51 @@
     "status": "scoped_actual_full_support_auxiliary_phase_instrument",
     "total_marked_histories": 49016
   },
-  "revision": "RESTORE64_20261126",
-  "scope": "Full-support native phase-sensitive auxiliary instrument, independent software quadratures and path-pair lift",
+  "restore65": {
+    "AUDIT65.json_sha256": "61a55c8962aba99869386f6930d5465a8474dd2484d45101afd9f738dee611c8",
+    "CALIBRATION65.json_sha256": "a83f831fe496948af3f1c2a152358e69c218c3e654a493f3cab8412844b89f97",
+    "CALIBRATION65.npz_sha256": "f66ead814ea757fa2075a057cb959bdd3a81d48126942e41da4f14bd3b3aae87",
+    "EVALUATOR65.json_sha256": "0dd9a754bcec94fade2b84fcc988aeea35deaa8662bd7e3e5b052293d9fd65ee",
+    "GENERATOR65.json_sha256": "227fe24a9a1f233d9f1268349229427844d82f1e7ed87bed2a03d2ebe88cc1e1",
+    "GENERATOR65.npz_sha256": "7d2b4627e4bb622d8fbb200c0f6ed423af195ad44ba47236716b8193bf65beff",
+    "LEGACY_REGRESSION65.json_sha256": "a69cb467791f54dcd2a3f95e6b08b33a8463a449918d55c059324db5daf3bccf",
+    "ORIGINAL_OUTPUT_EVIDENCE65.csv_sha256": "34814543771554d59c9aba15575f0ef1e7e59d8d036ca5d4e1965376f29457eb",
+    "ORIGINAL_OUTPUT_PROGRESS65.csv_sha256": "f7322efdf00596804ed4bc254f2f701ef1160557d4d02dcc9ac9cc9f826f3f6a",
+    "PHASE65.npz_sha256": "67e3942759410de217636591995974d17a681d44700fff60aec9901374c5b1f4",
+    "PHYSICS_RESULTS.json_sha256": "2d00075ff70202d02a9d634c1000ef0f3e7f9da71d47d21eb0e12b190b4e6a85",
+    "PLOT_INVENTORY65.csv_sha256": "34db14066e7794d1928942c196fcef8ebb5878a8bc22dd9b90aaead8d817c5cf",
+    "PLOT_MANIFEST65.json_sha256": "0d2dcc1b0ebd5426c3ab4746705e12ea3872cf6752c7ffa0873e4152e99c4b24",
+    "PROGRESS65.json_sha256": "b90c56a50686cc5a2bc14ffeae2b56aee5692fc5c901f164753b3922a2f076ef",
+    "REFERENCE65.npz_sha256": "a6aa682fadd9c4838d4ff7b38c0559a21c3d80044bebb403794961e256ef4d5b",
+    "REGISTRATION.json_sha256": "b9bfd6854a715c950a7acf8885a8417e25016d0a8abca1a7b6d6fe1cb2fc472f",
+    "RNG_AUDIT65.json_sha256": "074047b4016b69f0eaca74b9ca371364562dc863a8ea5f0e400360997f749438",
+    "additional_plot_nodes": 0,
+    "calibration_software_shots": 786432,
+    "conditional_generator_waves": 49152,
+    "evaluator_calls": 780039,
+    "figures": 8,
+    "fresh_backups": 786432,
+    "fresh_fixed_root_histories": 4800,
+    "low_budget_histories": 4608,
+    "native_subagent": "NOT_RUN",
+    "new_animations": 2,
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 15,
+    "original_evidence_union_R55_R65": 62,
+    "original_plot_tasks": 121,
+    "parent_dag_sha256": "09be2d86bd97900f06fec9bb5ae4cc0418d83b55cfc14ee62604942553fac3a2",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 872428616,
+    "reference_histories": 192,
+    "retained_pairs": 509,
+    "status": "scoped_actual_persistent_native_instrument_negative_utility",
+    "total_marked_histories": 53816,
+    "utility": "g3 persistent plus worse top5 and Q regret proxy vs baseline; no production admission"
+  },
+  "revision": "RESTORE65_20261126",
+  "scope": "Persistent native selective auxiliary instrument, exact conditional wave generator and independent utility proxy",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE64-PHASE-SENSITIVE-NATIVE-INSTRUMENT"
+  "supersedes_next": "MQFT-RESTORE65-PERSISTENT-PHASE-INSTRUMENT-UTILITY"
 }

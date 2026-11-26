@@ -1,23 +1,23 @@
-# RESTORE64 stages
+# RESTORE65 stages
 | Stage | Actual result | Status |
 |---|---|---|
-| R1 | exact parent, original source and independent phase protocol | scoped complete |
-| R2 | primary Ramsey/Englert, tomography literature and prior R21/R27/guide audit | scoped complete |
-| R3 | actual native pair state and causal clock | derived |
-| R4 | fixed-history lift, forced two-arm, full-support intervention and classical comparator | scoped complete |
-| R5 | Kraus/PSD, X/Y and mass-conserving Born law, Wolfram check | derived |
-| R6 | gauge/ODE/Choi, visibility identifiability and utility distinction | checked |
-| R7 | independent software calibration and native replay | verified |
-| R8 | actual visit contrasts, negative/uncertain mark result, exact real/dephase control | verified finite scope |
-| R9 | original Q41/Q42/Q43/Q45 and density/path reconstruction | scoped verified |
-| R10 | explicit phase model limits and next persistent instrument | scoped complete |
-| C1 | parent, weights, target identities | scoped complete |
-| C2 | native sampler and original/previous probes inspected | scoped complete |
-| C3 | full-support causal phase sampler schema and exact readout | implemented |
-| C4 | 64 new roots, 6144 jobs,16 CPU/12 audit workers | verified |
-| C5 | opt-in Rust phase64 and full native data generation | verified |
-| C6 | build/plan/reference audit corrections, Rust/Python tests and regression | verified |
-| C7 | every native phase probability, chronology, path, N/W/S2; independent RNG and sampled evaluators | verified scoped |
-| C8 | paired block uncertainty, calibrated conditional NLL and path-pair PSD/readout | verified |
-| C9 | 8 paired plots, visual QA, original crosswalk; native subagent NOT_RUN | scoped verified |
-| C10 | DAG, Git and verified incremental snapshot receipts | operational receipt required |
+| R1 | parent/target, fixed matched roots, utility criterion | scoped complete |
+| R2 | primary selective measurement/feedback literature and original R64/Q27/Q44 source | scoped complete |
+| R3 | persistent state vs fresh prep, full-support POVM | derived |
+| R4 | persistent +/-/dephased, reset, fresh and baseline alternatives | scoped complete |
+| R5 | Kraus completeness, Bloch recurrence, conditional path state; exact finite mixture | derived |
+| R6 | matrix vs scalar, classical equivalence, reference proxy limitations | checked |
+| R7 | Wolfram selective formula, independent simulation and actual path replay | verified |
+| R8 | phase response plus negative independent utility | verified finite scope |
+| R9 | conditional generator, actual Q27/Q44 animations and crosswalk | scoped verified |
+| R10 | next thermodynamic protocol and preservation of negative evidence | scoped complete |
+| C1 | exact parent and weight identities | scoped complete |
+| C2 | R64 and native sampler/legacy schema inspection | scoped complete |
+| C3 | opt-in persistent measurement-update path and high-budget reference | implemented |
+| C4 | frozen 4800 plans, 16 CPU/12 audit workers | verified |
+| C5 | native Rust implementation and generation | verified |
+| C6 | Rust/Python regression, old R64 semantic equality | verified |
+| C7 | all path, state, support, chronology and RNG, sampled evaluator | verified scoped |
+| C8 | independent utility, block intervals, exact mixture and matrix checks | verified |
+| C9 | 8 plot pairs and 2 GIFs, visual/frame QA, native subagent NOT_RUN | scoped verified |
+| C10 | DAG, Git and verified snapshot receipts | receipt required |

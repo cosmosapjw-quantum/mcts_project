@@ -1,0 +1,20 @@
+{
+  "array_sha": "f66ead814ea757fa2075a057cb959bdd3a81d48126942e41da4f14bd3b3aae87",
+  "fit": [
+    0.6486433872182633,
+    0.35048349083074787
+  ],
+  "minimum_selective_eigenvalue": 0.0,
+  "nonselective_matrix_error": 3.3335590258932494e-16,
+  "prior_R64_calibration_sha": "940929d8422a3bc607e1670f6da22565a30184cdda759d1b2c5e3237c6192356",
+  "scope": "independent software-only calibration, parameters registered prior to native generation; not changed by fit; no physical data",
+  "shots": 786432,
+  "test": 0.015177472651083363,
+  "test_no_measurement": 0.1796747802485817,
+  "test_null": 0.07481167077840188,
+  "train": 0.015686125410792638,
+  "truth": [
+    0.65,
+    0.35
+  ]
+}

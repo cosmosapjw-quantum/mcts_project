@@ -1,0 +1,121 @@
+{
+  "animations": [
+    {
+      "bytes": 417934,
+      "frames": 32,
+      "ids": [
+        "Q44"
+      ],
+      "name": "Q44_hbar_proxy_evolution.gif",
+      "sha256": "72299ab7ebaff987c89829b7516873df744325545049c743d16826d6e42c8997"
+    },
+    {
+      "bytes": 496472,
+      "frames": 32,
+      "ids": [
+        "Q27"
+      ],
+      "name": "Q27_coherence_purity_evolution.gif",
+      "sha256": "c60355ed6d7d99727a35c807dd7b9b805212830ccbcb7b5db356a40622cd070a"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "L09_Q24_Q42_persistent_density",
+      "ids": [
+        "L09",
+        "Q24",
+        "Q42",
+        "L20"
+      ],
+      "pdf_sha": "8fa88d27db6054f8be2baa5a792422f3fc0b0e19c52f81423229487ef071ffcb",
+      "png_sha": "69d39ef35a302061e1d7f04321c84e18e4f53b10d158173bf4839785f399c4cd"
+    },
+    {
+      "figure": "L40_L43_Q42_state_memory",
+      "ids": [
+        "L40",
+        "L43",
+        "Q42"
+      ],
+      "pdf_sha": "e523b1976ba462cf513f429ea894f9171281528601375b963f1c552f9ee27ec5",
+      "png_sha": "f9d34561bce505d68ed794efc763298582e49c5fbdc7d0a2841db8620ddd205e"
+    },
+    {
+      "figure": "Q45_persistent_native_response",
+      "ids": [
+        "Q45",
+        "Q43",
+        "L16"
+      ],
+      "pdf_sha": "b715564c2a60eb6d1446d73325865f122e21ba60a54bcabe0810f8d735201c69",
+      "png_sha": "bb53b8557e4444a0b6985c8c5ab0158cf76acf3789177633970abf5d64a6a34a"
+    },
+    {
+      "figure": "Q45_independent_reference_utility",
+      "ids": [
+        "Q45",
+        "L49"
+      ],
+      "pdf_sha": "bb5c3dd92789b7142dd28a1090c3317bdc4b31cebd9f87326f4a9f71acdef68a",
+      "png_sha": "6fd56c6a8f8d9f6b30a96d8b6d08be43d3c6bf2013652ded681c546831c972d0"
+    },
+    {
+      "figure": "Q45_paired_utility_contrasts",
+      "ids": [
+        "Q45",
+        "L48"
+      ],
+      "pdf_sha": "1f029f37ddf58f35950b401b384759a9c7c9a9a6d40f72555f36c85556203ebe",
+      "png_sha": "57feab1df2ab41de83d9a9c74f679719f2c00b90eb60414c1b96b4bf8ae9c2b6"
+    },
+    {
+      "figure": "L16_L41_L43_persistent_wave_generator",
+      "ids": [
+        "L16",
+        "L41",
+        "L43",
+        "Q43"
+      ],
+      "pdf_sha": "5aa0bb96e33f400e8b73a37cb64b0efa23f46af8e45cc2c60eaa8072918edf2c",
+      "png_sha": "189d512174f28b877590fa1c8cda496d66f4fe886bfb42276283d8d9fae8afbd"
+    },
+    {
+      "figure": "Q44_visibility_match_actual_clock",
+      "ids": [
+        "Q44",
+        "Q41"
+      ],
+      "pdf_sha": "e01ceed3f73ed9cdb8259c46e639d5a46b9d755627a3204a0b7366571caeaec8",
+      "png_sha": "3686162628a67410ec0b5d8e436226974d66ea272877fbc712dc9d70bf410b76"
+    },
+    {
+      "figure": "Q27_coherence_purity_static",
+      "ids": [
+        "Q27",
+        "L09",
+        "Q24"
+      ],
+      "pdf_sha": "6d6985782b017bc3760f402cb5347c34f42cbe1e1e850cf5b5dec5a1da11e9d0",
+      "png_sha": "3d22fe7caab0cbf29dbf0f4663557a0ce7b3261e54c877bebb2b213ed1f7277d"
+    }
+  ],
+  "proxy_scope": "wave-averaged conditional density transverse coherence; per-path median proxy; singular omitted not clipped",
+  "proxy_singular_counts": {
+    "g0_persist_dephased": 0,
+    "g0_persist_minus": 0,
+    "g0_persist_plus": 0,
+    "g0_reset_plus": 0,
+    "g3_persist_dephased": 0,
+    "g3_persist_minus": 0,
+    "g3_persist_plus": 0,
+    "g3_reset_plus": 0
+  },
+  "sources": {
+    "CALIBRATION65.json": "a83f831fe496948af3f1c2a152358e69c218c3e654a493f3cab8412844b89f97",
+    "GENERATOR65.json": "227fe24a9a1f233d9f1268349229427844d82f1e7ed87bed2a03d2ebe88cc1e1",
+    "PHASE65.npz": "67e3942759410de217636591995974d17a681d44700fff60aec9901374c5b1f4",
+    "PHYSICS_RESULTS.json": "2d00075ff70202d02a9d634c1000ef0f3e7f9da71d47d21eb0e12b190b4e6a85",
+    "REFERENCE65.npz": "a6aa682fadd9c4838d4ff7b38c0559a21c3d80044bebb403794961e256ef4d5b"
+  }
+}
