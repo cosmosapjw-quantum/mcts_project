@@ -1,0 +1,111 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "guide_only": [
+    {
+      "authority": "inherited original attachment receipt and R69 catalog, not local source member bytes",
+      "id": "G04",
+      "member": "heat_capacity.png"
+    },
+    {
+      "authority": "inherited original attachment receipt and R69 catalog, not local source member bytes",
+      "id": "G05",
+      "member": "thermodynamics_summary.png"
+    },
+    {
+      "authority": "inherited original attachment receipt and R69 catalog, not local source member bytes",
+      "id": "G10",
+      "member": "fdt_validation.png"
+    },
+    {
+      "authority": "inherited original attachment receipt and R69 catalog, not local source member bytes",
+      "id": "G11",
+      "member": "time_resolved_fdt.png"
+    },
+    {
+      "authority": "inherited original attachment receipt and R69 catalog, not local source member bytes",
+      "id": "G12",
+      "member": "fdt_summary.png"
+    },
+    {
+      "authority": "inherited original attachment receipt and R69 catalog, not local source member bytes",
+      "id": "G15",
+      "member": "participation_ratio.png"
+    }
+  ],
+  "original_attachment_receipt": {
+    "anchor_is_ancestor": true,
+    "git_anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "guide_obligations": 27,
+    "original_output_obligations": 121,
+    "original_source_function_obligations": 94,
+    "original_source_zip_members": 347,
+    "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "scope": "current source hash and history census, not all historical raw executions replayed",
+    "supplied_zip_check_location": "conversation sandbox, original linked library materialization",
+    "supplied_zip_manifest_members_verified": 34,
+    "supplied_zip_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6"
+  },
+  "scope": "Three original local archive hashes and relevant actual source member hashes. Guide-only labels inherited, no nonexistent member bytes claimed.",
+  "verified_members": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_thermodynamics.py",
+      "sha256": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "sha256": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_1.md",
+      "sha256": "995e790cbe97938b44e1c04be51046e850d3760448b7270c8361b4c823a127c7"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-guide_1.md",
+      "sha256": "7a60b83197916d83e528e89675228008a15b8dbb5864561ff9a87b39d540aaf3"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_2.md",
+      "sha256": "db8ed5ca98bb718e2856a3c450e87d38d76806ac70fbe3fe8edbd80a76728f10"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_4.md",
+      "sha256": "9ab2ef483470accd2b6831fc622b788e266c2d18ee19d95840268249dba75c32"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-guide_4.md",
+      "sha256": "9d034d48283166d71f299dceba75794e8c26ffcb82a7b353a09acfa0d58ad9bb"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-guide_2.md",
+      "sha256": "1b7738fa1542d9af25f226fd53db85985a64819ae4c7f99f495a11d0c08f7265"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_3.md",
+      "sha256": "25f98f8901751e2bb3209c1554b0e0d5dbf82eee008555e5e790ba62ffe3b5f5"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-guide_3.md",
+      "sha256": "2fa7fa85d45c448933bc39f2bffb58fd7ca3159aaeeb710654765ecec1cf7c97"
+    }
+  ]
+}

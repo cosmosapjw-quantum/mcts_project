@@ -56,7 +56,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-05",
+  "entry": "REPLAN-06",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -119,9 +119,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R74 driven finite open-system reverse law and thermal identification",
-    "Multi-time coherent control, final-decision instrument and Rapfi calibration",
-    "Augmented coarse state and independent population/size/criticality"
+    "R75 actual native barrier/first passage and explicit coherent transport with controlled WKB",
+    "Independent size criticality, population and gauge/fixed-point checks",
+    "Operational coherent multi-time and final-decision redundancy; physically calibrated thermal bath only if identifiable"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -140,7 +140,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE74-DRIVEN-REVERSE-THERMAL",
+  "next_stage_id": "MQFT-RESTORE75-BARRIER-FIRST-PASSAGE-WKB",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -209,6 +209,11 @@
         "artifact": "mqft_restore66_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT66.json,VERIFY_AUX66.json,THERMAL66.json,ERASURE66.json,FEEDBACK66.json}",
         "evidence": "Actual native conditional record entropy and auxiliary Gibbs fixed-spectrum entropy/capacity; explicit energy unit declared.",
         "remaining": "Native thermometry/physical bath not identified; no criticality inference."
+      },
+      "restore74_followup": {
+        "artifact": "mqft_restore74_20261126/RESPONSE74.json",
+        "evidence": "Conditional Gibbs score capacity, entropy, participation and exact score-energy ledger across three evaluator families.",
+        "remaining": "Physical temperature, heat capacity, criticality not inferred."
       },
       "retained_evidence": "STATE06 c_PUCT sweep, RESTORE01 \uc608\uc0b0\ubcc4 \uc2e4\uce21\uacfc fit \uc9c4\ub2e8. \uacbd\ub85c dominance\u00b7overlap \ubc0f STATE16 \uc870\uac74\ubd80 \uc120\ud0dd \ud1b5\uacc4\ub294 \ud45c\ubcf8\uacfc clock\uc774 \ub9de\uc73c\uba74 \uacb0\ud569\ud55c\ub2e4.",
       "source": "ensemble_analyzer_complete.py::_plot_authentic_temperature, honest_plots.py::plot_temperature_extraction/plot_temperature_scaling, \uacbd\ub85c \ud328\ub110 L16. v6 validation\uc758 \u03b2\uc640 mean-field \uc608\uce21.",
@@ -527,6 +532,11 @@
         "evidence": "Actual native same-order source schedule contrast plus finite auxiliary Gibbs F/R work/heat, binary record erasure and measurement-conditioned feedback; independently audited 6291456 auxiliary paths.",
         "remaining": "Native physical reverse/energy calibration and device cycle unresolved; two finite-sample reverse IFT failures retained."
       },
+      "restore74_followup": {
+        "artifact": "mqft_restore74_20261126/{THEORY.md,RESPONSE74.json,PETZ74.json}",
+        "evidence": "2304 fresh matched native source pulse paths; causal score response and predictable correction; 64 actual fine two-time channel contexts, Petz 192 reference cases and exact measured IFT; switched Hamiltonian first-law ledger and declared capacity.",
+        "remaining": "Physical Hamiltonian/bath/time calibration and microscopic reverse protocol, thermodynamic cycle, physical heat and FDT not identified."
+      },
       "retained_evidence": "A09/A10 reference \ubc0f RESTORE06 frozen-root identities\u00b7native switching/backup score\u00b7same-clock likelihood. RESTORE07/08\uc758 matched controls\u00b7cost\u00b7\ud640\ub4dc\uc544\uc6c3 rollout\uc740 feedback \ub300\uc870\uc5d0 \ud55c\uc815\ud55c\ub2e4.",
       "source": "plot_thermodynamics.py::plot_non_equilibrium_thermodynamics/plot_thermodynamic_cycles, plot_jarzynski_equality.py::plot_jarzynski_verification/plot_work_fluctuation_analysis, L08/L18/L32.",
       "thermal_path_followup": "RESTORE30 explicit interacting finite canonical H, exact thermal trace/Matsubara/KMS, thermofield and CP coherent-state measures, nonGaussian influence positivity; Gibbs projection of prior R nonthermal. Preserve earlier native thermodynamics and no native FT claim."
@@ -677,6 +687,11 @@
         "artifact": "mqft_restore73_20261126/INDEPENDENT73.json",
         "evidence": "Explicit complex positive-Kraus branch-dependent model, shared bath and local record flags; independent density construction.",
         "remaining": "Three or more time points, actual coherent intervention identifiability and non-unique phase extension."
+      },
+      "restore74_followup": {
+        "artifact": "mqft_restore74_20261126/INDEPENDENT74.json",
+        "evidence": "Full-rank reference Petz recovery, separate measured TPM fluctuation relation and independently verified finite complex matrix functions.",
+        "remaining": "Reference dependence, no unique physical time reversal, operational coherent multi-time channel."
       },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
@@ -889,7 +904,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-04.R",
+  "previous_entry": "REPLAN-05",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -3173,8 +3188,49 @@
     "reused_R71_paths": 9216,
     "status": "scoped_actual_branch_law_coherent_model_nonunique"
   },
-  "revision": "RESTORE73_20261126",
-  "scope": "Actual finite adaptive two-record branch law and explicit coherent extension; independent decision information",
+  "restore74": {
+    "AUDIT74.json_sha256": "86d2b619de7b3a2b8359fe0d80aaf5af65cbce505485c8ceede53d01406fdf69",
+    "DRIFT_WATCHDOG.md_sha256": "6e3e0c4b417bbbec45120e30cb1008fd6386726e04e8dc76cffbd267492e92d3",
+    "INDEPENDENT74.json_sha256": "26f95471777e717b83cfbae82fa860dcbf46b4992206ebc6e1871d6ef09a2304",
+    "NEXT_DYNAMICS.md_sha256": "26dd663a72869fc89742ec29f09bfd5a1c90718106b50f5f0c86d24666f58e0a",
+    "ORIGINAL_OUTPUT_EVIDENCE74.csv_sha256": "bd320d617bcf6a13368a0b0b5c7819e89a46bb63dcbb94c31cedf4b4368c5e0c",
+    "ORIGINAL_OUTPUT_PROGRESS74.csv_sha256": "6fb27e1e8f1fda92f6529d39e887a7166d37ea8ddafd764daba98be0c3f2d474",
+    "ORIGINAL_SOURCE74.json_sha256": "d22267b35a6d6b5bd6f5793e129f3c8420977be4a228d91548ff60172e55419f",
+    "PETZ74.json_sha256": "48f524622e9092beadc47f33bcf0944f8ddb7411e52203b09ac568dc84721ed8",
+    "PLOT_INVENTORY74.csv_sha256": "60fba85043d6beaa0439c877132125dbb3e211426d2e9cf8f74835d5a5cd7706",
+    "PLOT_MANIFEST74.json_sha256": "2f0bf3562dd9ab1223debc6b4cf378cf180e365d60da3d55693cac7046a4b162",
+    "PROGRESS74.json_sha256": "db43fca6174688551f69ad69b77d7a3ca88890b631bae8c6849eec8abe7af002",
+    "PULSE_PATCH74.json_sha256": "792a028102b97db8802bfaae717d462068bd9499ff99fa658591bfd83c9ba4c3",
+    "REGISTRATION.json_sha256": "b4d1d05567fee8203c2568a646562689657d2bc390f501dc2766a6215c1131c3",
+    "RESPONSE74.json_sha256": "af14acf2c416dec724f043bb59a0e74457e67b12f89e45e5df8f9f004d2dcefe",
+    "THEORY.md_sha256": "db759415f1eb15314ed4165dec11348fbca3803980420540719dfb85a0273d85",
+    "additional_plot_nodes": 0,
+    "animations": 1,
+    "conditional_contexts": 64,
+    "cumulative_fixed_root_histories": 73400,
+    "figures": 11,
+    "fine_outcome_blocks": 323904,
+    "fresh_backups": 294912,
+    "fresh_fixed_root_histories": 2304,
+    "matched_prepulse_triples": 768,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 12,
+    "original_evidence_union_R55_R74": 112,
+    "original_obligations": 121,
+    "parent_commit": "d929a233b26f45669242cf5ee10d8c279203692b",
+    "parent_dag_sha256": "4440f416e28b093dfea729a5637b8194af0799ae78a15a36c3cffafe55715f3e",
+    "raw_bytes": 422988469,
+    "reference_cases": 192,
+    "remaining": "physical bath and energy identification, operational coherence, actual microscopic reverse, critical scaling and remaining original targets",
+    "retained_pairs": 595,
+    "reused_R73_branch_backups": 145408,
+    "reused_R73_branch_paths": 4544,
+    "status": "scoped_native_response_reference_reverse_model"
+  },
+  "revision": "RESTORE74_20261126",
+  "scope": "Actual causal native pulse response and explicit reference-dependent quantum reverse/energy model",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE73-ADAPTIVE-COMPLEX-RECORDS"
+  "supersedes_next": "MQFT-RESTORE74-DRIVEN-REVERSE-THERMAL"
 }

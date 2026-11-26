@@ -1,0 +1,14 @@
+{
+  "TPM_Bayes_cases": 128,
+  "contexts": 64,
+  "independent_raw_pulse_paths": 144,
+  "max_TPM_EP_error": 3.608224830031759e-16,
+  "max_TPM_IFT_error": 1.3322676295501878e-15,
+  "max_native_response_error": 6.661338147750939e-16,
+  "max_recovery_TD_error": 5.134781488891349e-15,
+  "max_relative_loss_error": 3.3306690738754696e-15,
+  "reference_cases": 192,
+  "scope": "separate rotated-basis Kraus, analytic 2x2 matrix functions and Bayesian reverse, all 64 contexts; independent raw subset and aggregate response; not independent human/subagent",
+  "status": "PASS_SCOPED",
+  "theta_zero_TPM_scope": "reference eigenbasis degeneracy, original exact direct Kraus check only; independent loss/recovery all theta"
+}

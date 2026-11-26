@@ -1,0 +1,150 @@
+{
+  "animations": [
+    {
+      "file": "switch_protocol.gif",
+      "frames": 6,
+      "ids": [
+        "Q06"
+      ],
+      "scope": "Six-stage actual-conditioned auxiliary Hamiltonian loop vs identity-free control; not a physical ideal cycle.",
+      "sha256": "c3eaa2fdcb09202c7a3e35e78c6451f45897c6502c6e4d8f712e31f388c1d3ea"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "time_response_0",
+      "ids": [
+        "G11",
+        "G12",
+        "G10",
+        "L18"
+      ],
+      "pdf_sha": "a30b46ba763ff22a18ba38a0432cd9f7283ba1a5429344d889123a6225e33574",
+      "png_sha": "7546810d234578cd500f80e94d090817c4d1686a9ca0f4547c8e25f100bfa5d7",
+      "scope": "Finite native pulse vs reweighting and score derivative; not equilibrium physical FDT."
+    },
+    {
+      "figure": "time_response_1",
+      "ids": [
+        "G11",
+        "G12",
+        "G10",
+        "L18"
+      ],
+      "pdf_sha": "776e80f4852d317c778a9483d4bbb04c03cc7fbb4476992002a1b95c29cc0430",
+      "png_sha": "dac4062b713ef3c16bb9d0c9b58d3da5c17e99ff90d2c2b92aed059669a7764f",
+      "scope": "Finite native pulse vs reweighting and score derivative; not equilibrium physical FDT."
+    },
+    {
+      "figure": "response_decomposition",
+      "ids": [
+        "G11",
+        "G12",
+        "L18"
+      ],
+      "pdf_sha": "453656cb1a414b870ec768e0d3714b7155b862b7e115552df2df016144220bc3",
+      "png_sha": "65132289c36c794401a93e5e9e2018cf5614e612aee7876335ec9f5820540547",
+      "scope": "Adaptive predictable term versus naive count covariance; estimates not all significant."
+    },
+    {
+      "figure": "native_path_ratio",
+      "ids": [
+        "L18",
+        "Q07",
+        "Q05"
+      ],
+      "pdf_sha": "7c9622e76543befe1342c1a030517a7b3c11cd1b05d938c7dcee5a90245b854b",
+      "png_sha": "1ab119b21d913934e05631f3ae7443dc569df3eece1ed2000c8c90f6e38fe3d1",
+      "scope": "Same-order native path likelihood ratio; no physical reversal."
+    },
+    {
+      "figure": "score_gibbs_observables",
+      "ids": [
+        "G04",
+        "G05",
+        "G15"
+      ],
+      "pdf_sha": "e9c5d7eb3960855283fc8d21fb6fa532e9ae17549e661d64c5657819082155cb",
+      "png_sha": "60bc873ca2266d40899f78faca10cbc7039ccd29ea0f68f721de1aae591991bb",
+      "scope": "Dimensionless conditional Gibbs score law; not measured physical heat capacity."
+    },
+    {
+      "figure": "conditional_score_balance",
+      "ids": [
+        "G05",
+        "L18",
+        "Q08"
+      ],
+      "pdf_sha": "0a4f63df412416c4f037c30964b4b73967e6cf88bfde421840e01933b71953be",
+      "png_sha": "496b468962e1abd7363b5d93a89ff38802944bfc3a27bdad71435bac28249cc5",
+      "scope": "Exact algebraic score-energy balance; not native heat/work."
+    },
+    {
+      "figure": "petz_reference_dependence",
+      "ids": [
+        "L18",
+        "Q05",
+        "Q07",
+        "Q38"
+      ],
+      "pdf_sha": "806a8e0163315ed40164933555c4855af855f0b962dc138c99e5def9017288ac",
+      "png_sha": "a6b5e437d0544f09909eafba8a3fccfc313f3b1a7d22696c2709a5acdd34a577",
+      "scope": "Reference-dependent quantum contraction; TPM measured protocol separate."
+    },
+    {
+      "figure": "petz_reverse_audit",
+      "ids": [
+        "Q05",
+        "Q07",
+        "Q08"
+      ],
+      "pdf_sha": "877167363f20a70f21d52c21c0487450d1b36538b34d1bfa7e616afd9e4280ce",
+      "png_sha": "785d81f9d0efc6a1717f7290c111afced5c64a2780074996121826fe8eb1139d",
+      "scope": "Exact reference recovery and normalized reverse TPM path sum, not inverse tree."
+    },
+    {
+      "figure": "switch_hamiltonian_ledger",
+      "ids": [
+        "L18",
+        "Q06",
+        "Q07",
+        "Q08",
+        "Q38"
+      ],
+      "pdf_sha": "323eef042bad9e17843addf5203f4524613ee792be3e2b6281323a61a1351c14",
+      "png_sha": "b19d27ca06265f115769c20a0b5328efdf3912acd60633b6c9515b65e07f8f75",
+      "scope": "Explicit switched H model vs identity-free control, not closed ideal thermodynamic cycle."
+    },
+    {
+      "figure": "work_entropy_relation",
+      "ids": [
+        "G05",
+        "L18",
+        "Q07",
+        "Q38"
+      ],
+      "pdf_sha": "6715a72a5cc04d4574f0de604ccc9ec9fe971ab7648ef1fedf88f12a349dabce",
+      "png_sha": "d44cd21ab521cad9c1f336d4d9e2abc395a8810afbbbbb423ffc70375aece25a",
+      "scope": "Explicit model Hamiltonians; no physical bath heat inference."
+    },
+    {
+      "figure": "reference_capacity_record_arrow",
+      "ids": [
+        "G04",
+        "G05",
+        "Q07",
+        "Q38"
+      ],
+      "pdf_sha": "954f0785df9c31e7059b8bf87df2739608da1689eefbb73c4f98ba3eea5514e0",
+      "png_sha": "6fd070699e593bb3ed08706e851caeb22b120b29bb12a91b497413e45fb99d69",
+      "scope": "Auxiliary equilibrium reference capacity and exact record-order KL."
+    }
+  ],
+  "sources": {
+    "AUDIT74.json": "86d2b619de7b3a2b8359fe0d80aaf5af65cbce505485c8ceede53d01406fdf69",
+    "INDEPENDENT74.json": "26f95471777e717b83cfbae82fa860dcbf46b4992206ebc6e1871d6ef09a2304",
+    "PETZ74.json": "48f524622e9092beadc47f33bcf0944f8ddb7411e52203b09ac568dc84721ed8",
+    "RESPONSE74.json": "af14acf2c416dec724f043bb59a0e74457e67b12f89e45e5df8f9f004d2dcefe",
+    "plot74.py": "559730cb9aa62b9d8a051d4aad9e455926b3277ab53ae50ee89e0e747f9618e8"
+  }
+}
