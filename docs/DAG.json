@@ -133,7 +133,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE62-COVARIANT-PATH-AND-CONDITIONAL-CLOSURE",
+  "next_stage_id": "MQFT-RESTORE63-CONDITIONAL-GENERATOR-AND-ORIGINAL-PHYSICS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -233,6 +233,11 @@
         "evidence": "Actual trained g0/g3 native source response, score/Fisher/path likelihood, empirical Legendre; 28 D4 coupling order witnesses.",
         "remaining": "Coordinate-covariant action coupling and multi-source path Hessian; g0 serial importance-reweight discrepancy; native continuum 1PI and phase identification unresolved."
       },
+      "restore62_followup": {
+        "artifact": "mqft_restore62_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,LEGENDRE62.json,AUDIT62.json,SYMMETRY62.json}",
+        "evidence": "Native multi-source matrix response and exact path Hessian; canonical D4 path transport 280/280; finite empirical Legendre with conditional and mixture measure distinguished.",
+        "remaining": "g0/w4 Fisher residual and legacy finite FD/centered contrast; native calibrated physical 1PI and phase unresolved."
+      },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
       "second_traversal_remaining_scope": "physical phase law/hbar, microscopic effective action and original 1PI one-loop predictive curvature, full-support coherent and parallel/async trained dynamics, general decision/strength benefit unresolved",
@@ -279,6 +284,11 @@
         "evidence": "Actual 63438 old native prefix records and 20992 new prefix records, measured log-budget increments and H\u2013variance trajectories.",
         "remaining": "Independent conditional transition closure and calibrated coarse generator; no autonomous RG or fixed point."
       },
+      "restore62_followup": {
+        "artifact": "mqft_restore62_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,LEGENDRE62.json,AUDIT62.json,SYMMETRY62.json}",
+        "evidence": "Actual finite-budget constrained matrix spectra and heldout dyadic count transitions, conditional versus mixture empirical curvature.",
+        "remaining": "Need conditional kernel composition and calibrated coarse generator; no autonomous physical RG."
+      },
       "retained_evidence": "STATE coarse memory, RESTORE04 stopped-tree coarse law\u00b7unresolved variance\u00b7closure loss \ubc0f graph/subtree rows. \uae30\uc874 reference flow\ub294 \ucd94\ucd9c\uae30 \ub300\uc870\uc5d0 \uc4f4\ub2e4.",
       "source": "rg_flow.py, rg_flow_tracker.py, subtree_extractor.py, rg_flow_visualizer.py, plot_rg_flow_phase_diagrams.py::plot_beta_functions/plot_rg_trajectories.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -315,6 +325,11 @@
         "artifact": "mqft_restore61_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,DIAGNOSTICS61.json,CONTROL_AUDIT61.json}",
         "evidence": "Trained finite native source-count response; exact score/drift/variance split, Fisher distinction; positive direct response and unresolved checkpoint contrast.",
         "remaining": "New geometry/source strata and independent h-grid; no physical critical exponents or equilibrium FDT."
+      },
+      "restore62_followup": {
+        "artifact": "mqft_restore62_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,LEGENDRE62.json,AUDIT62.json,SYMMETRY62.json}",
+        "evidence": "Actual native 64-root 2-source response; scalar h-grid and independent legacy replication.",
+        "remaining": "No physical critical exponent or FDT; independent matrix uncertainty and scaling."
       },
       "retained_evidence": "STATE06 \uc2e4\uc81c c_PUCT sweep, RESTORE04 \uc2e4\uc81c subtree volume, graph covariance, finite source\uc640 whole-seed uncertainty. \ub3c4\ud574\uc6a9 Ising/FSS\ub294 \ucd94\uc815\uae30 \ub300\uc870.",
       "source": "cpuct_phase_transition_validator.py, finite_size_scaling.py, plot_statistical_physics.py::plot_correlation_functions/plot_susceptibility_analysis, plot_critical_phenomena_scaling.py::plot_scaling_functions.",
@@ -550,6 +565,11 @@
       "record_repeat_followup": "RESTORE36 actual disjoint vs overlapping records, injective empirical MI artifact, declared complex coherent/tag/CQ lifts and label-write channel. Preserve all scope limits; no native physical phase or general scaling.",
       "remaining_scope": "Native full-tree transition theorem beyond observed sequential deterministic streams, trained evaluator and parallel/GPU/async; broader game population and physical time/quantum memory kernel not established",
       "response_selector_followup": "RESTORE35 true path-score response and independent utility; fixed contrast correction not admitted, declared complex phase/noise controls preserve diagonal utility, change coherent probe. No general quantum advantage.",
+      "restore62_followup": {
+        "artifact": "mqft_restore62_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,LEGENDRE62.json,AUDIT62.json,SYMMETRY62.json}",
+        "evidence": "32/32 geometry train/test split: occupancy closure wins 6 of 8 strata; mark or count ridge each wins one, history not robust.",
+        "remaining": "Predictive composition, no Markov sufficiency or physical memory kernel admitted."
+      },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -590,6 +610,11 @@
         "evidence": "R60 trained weights reused and D4 group average readout exact in tested fixtures; no new optimizer updates.",
         "remaining": "Pathwise D4 coupling, original 15x15 architecture and independent physical labels remain."
       },
+      "restore62_followup": {
+        "artifact": "mqft_restore62_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,LEGENDRE62.json,AUDIT62.json,SYMMETRY62.json}",
+        "evidence": "Existing trained g0/g3 unchanged; actual canonical-frame coupling in D4 witness suite.",
+        "remaining": "15x15 trained architecture and physical labels, runtime uniform frame sampler for nontrivial stabilizers remain."
+      },
       "retained_evidence": "\uae30\uc874 evaluator/query/\uc9c0\uc5f0 \uc790\ub8cc\ub294 \ud0d0\uc0c9 \ube44\uc6a9 \ub300\uc870.",
       "source": "training_metrics.py::export_for_plotting/plot_training_curves, \ucd08\uae30 vectorized-mcts guide."
     }
@@ -622,7 +647,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "X-TRAIN",
+  "previous_entry": "REPLAN-03",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -2395,8 +2420,55 @@
     "symmetry_histories": 512,
     "total_marked_histories": 13208
   },
-  "revision": "RESTORE61_20261126",
-  "scope": "Trained native source response, finite action/flow and D4 path-coupling diagnosis",
+  "restore62": {
+    "AUDIT62.json_sha256": "b28c9beba1252c8ae3634bc086dcaa057952a74eb918ac0d9ac42f88e4d98506",
+    "CONTROL62.npz_sha256": "995c2134f1e580a2979c27f4a2dd78f310a474fdc47508296675f048628f667d",
+    "EVALUATOR62.json_sha256": "abe104253aa777e3582d6da786994bb2fe17ce7e3b498c1762bcdb0c38007266",
+    "EXACT62.json_sha256": "111194ec690a93813044834a26699d0d1ef1d78953622a5c762618986664f21f",
+    "LEGACY_REGRESSION62.json_sha256": "bc36dcafa8f4b158bb3f8ee58bb132b6546139586061446ade430fefd18df3c8",
+    "LEGENDRE62.json_sha256": "643eea3547dedabb289133ab81c836c45d0028e3306033e59bd3ea6dcd65ce7f",
+    "ORIGINAL_OUTPUT_EVIDENCE62.csv_sha256": "c2b841134d7a52f11be80a2b977f5507ecc1365fafbe079b4e798952c8268bd1",
+    "ORIGINAL_OUTPUT_PROGRESS62.csv_sha256": "b92b8680fccab5e26022648f08daecb12f6d76be4e01e84ba78c0f6689852cc4",
+    "PHYSICS_RESULTS.json_sha256": "0820c9cf0c81aa60afed3907730c4e82e6e49833722b1e491f9bb61b370b5ae1",
+    "PLOT_INVENTORY62.csv_sha256": "f79c81a4cba3709810ffcc26e42fbed5c4263c2567eda6f9410d510f9b6a556a",
+    "PLOT_MANIFEST62.json_sha256": "c52aa864ef1bd9396dba732993a9b840dc53377caf7a1f91b8bb9f0328884cc6",
+    "PROGRESS62.json_sha256": "c09dcf88cb40c424639c955d17c18367fc29ff3f325a8384f5b8fb09539a31e5",
+    "REGISTRATION.json_sha256": "f7dd739119dc52a9f0bd10254fe7dd43bfed3dae45fb945cd7dfa782bc848ffb",
+    "RNG_AUDIT62.json_sha256": "bcdc0ef9fd7440104caaaa935e6179a158916eb702c7d3bbe97b81ae84d98874",
+    "SYMMETRY62.json_sha256": "f402e2d0eece495d122960fc091dbe70e99798c2b489e0461d3d86d85ee5c9fe",
+    "TRANSITIONS62.json_sha256": "0c3888657c5142f8c5be3116b9d6bee399899e2621c0462e7a908992664c6781",
+    "additional_plot_nodes": 0,
+    "closure": "occupancy wins 6/8, mark and count each 1/8; no Markov sufficiency",
+    "d4_path_transport": "224 unique plus 56 stabilizer frame multiset comparisons exact; previous 28 witnesses included",
+    "evaluator_calls": 2592077,
+    "figures": 9,
+    "fisher_residual": "g0/w4 aa interval excludes zero; finite sampling discrepancy retained",
+    "fresh_backups": 2586624,
+    "fresh_fixed_root_histories": 20448,
+    "learning_source_response": "not resolved",
+    "legacy_histories": 1536,
+    "legacy_regression": 6,
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "new_prefix_records": 122208,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 9,
+    "original_evidence_union_R55_R62": 55,
+    "original_plot_tasks": 121,
+    "parent_dag_sha256": "31106b4ed3058583266d0fc213908e1afdbcf4e1503ab7fc64471e49973687b3",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 3606115280,
+    "response_histories": 18432,
+    "response_root_blocks": 64,
+    "response_seeds_per_block": 12,
+    "retained_pairs": 485,
+    "status": "scoped_native_multisource_path_and_d4_transport",
+    "symmetry_histories": 480,
+    "total_marked_histories": 33656
+  },
+  "revision": "RESTORE62_20261126",
+  "scope": "Canonical trained native multi-source response, finite local action and heldout closure",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE61-TRAINED-NATIVE-PHYSICS"
+  "supersedes_next": "MQFT-RESTORE62-COVARIANT-PATH-AND-CONDITIONAL-CLOSURE"
 }

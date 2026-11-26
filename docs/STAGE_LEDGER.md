@@ -1,23 +1,23 @@
-# RESTORE61 stage ledger
-| stage | actual evidence | state |
+# RESTORE62 stages
+| Stage | actual result | status |
 |---|---|---|
-| R1 | exact parent, original target crosswalk, response and D4 contract | complete scoped |
-| R2 | Glynn likelihood ratio, Tokui/Sato estimator variance, group averaging and original archive source | complete scoped |
-| R3 | adaptive history, source only logit, marks and wave clock | complete scoped |
-| R4 | direct CRN, score/reweight, frozen binomial, D4 projection | complete scoped |
-| R5 | path response, Fisher, Hessian, RN ratio, finite variance decomposition | derived |
-| R6 | 2-step counterexample, D4 proof, finite CGF scope | checked |
-| R7 | Wolfram, fractions and independent actual trace experiments | checked |
-| R8 | response positive, learning contrast unresolved, D4 ordering witness | verified finite scope |
-| R9 | numerical action, coarse count CGF, actual dyadic flow and original output mapping | complete scoped |
-| R10 | durable DAG and next closure contract | complete scoped |
-| C1 | exact source/weights/original and prior baseline data | complete scoped |
-| C2 | canonical sampler, wave, evaluator shape and chronology inspection | complete scoped |
-| C3 | causal trace replay, root source/average readout algorithms | implemented |
-| C4 | frozen 32 cores, 8 seeds, 3584 jobs, parallel CPU design | verified |
-| C5 | opt-in Rust control and D4 mode; 425984 backups and old trace reduction | verified |
-| C6 | 389 Rust pass, 60 Python pass +17 subtests; legacy inference unchanged | verified |
-| C7 | every event probability, rule, clock, sign, N/W/S2, RNG; 672 sampled evaluator parity | verified scoped |
-| C8 | paired bootstrap, Fisher, finite CGF and ESS; D4 first divergence | verified |
-| C9 | 8 plots, review, scoped output overlays; independent native subagent NOT_RUN | scoped verified |
-| C10 | Git, archive and cleanup receipts | operational evidence recorded by receipts |
+| R1 | exact parent and original output contract | scoped complete |
+| R2 | likelihood ratio, equivariant frames, Rao-Blackwell primary sources | scoped complete |
+| R3 | canonical history plus labelled source and stabilizer theorem | derived |
+| R4 | candidate coupling and closure choices | scoped complete |
+| R5 | multivariate score/Fisher/response/Hessian; exact adaptive counterexample | derived / checked |
+| R6 | conditional wave moments and variance reduction, gauge/nonreciprocity scope | checked |
+| R7 | exact arithmetic, Wolfram categorical Hessian, native path controls | verified |
+| R8 | results: D4 solved in opt-in scope; Fisher/FD discrepancy retained | scoped verified |
+| R9 | local empirical action and heldout conditional closure | scoped verified |
+| R10 | next target and original output coverage | scoped complete |
+| C1 | source and checkpoint identity | scoped complete |
+| C2 | canonical MctsEngine/sampler and old traces | scoped complete |
+| C3 | coordinate transform, labelled multi-field, explicit frame-set schema | implemented |
+| C4 | frozen 64 cores and 20448 plans | verified |
+| C5 | Rust control62 plus Python audit/analysis, actual 2586624 backups | verified |
+| C6 | Rust 390 pass, Python 60 pass+17 subtests, 6 legacy regressions | verified |
+| C7 | all trace replay and RNG; 480 independent evaluator checks | verified scoped |
+| C8 | block uncertainty, split-seed/RB, closure and damped empirical conjugate | verified scoped |
+| C9 | nine original-specific paired plots, visual QA; native subagent NOT_RUN | scoped verified |
+| C10 | DAG, Git, cumulative archive and cleanup receipts | operational receipt required |

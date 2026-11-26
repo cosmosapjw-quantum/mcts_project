@@ -1,0 +1,9 @@
+{
+  "ignored": [
+    "walltime",
+    "worker thread index"
+  ],
+  "n": 6,
+  "scope": "old scalar canonical MctsEngine transport, same plans/seeds; regression not counted as new campaign",
+  "semantic_equal": true
+}

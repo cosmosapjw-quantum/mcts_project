@@ -68,6 +68,7 @@ pub struct Draw {
 pub struct Sampler {
     pub spec: LawSpec,
     source: Option<usize>,
+    field: Option<Vec<f64>>,
     rng: StdRng,
     t: usize,
     lp: f64,
@@ -85,6 +86,7 @@ fn softmax(
     beta: f64,
     source: Option<usize>,
     h: f64,
+    field: Option<&[f64]>,
 ) -> Vec<f64> {
     let z: Vec<f64> = s
         .iter()
@@ -92,7 +94,7 @@ fn softmax(
         .zip(active)
         .map(|((&s, &a), &on)| {
             if on {
-                beta * s as f64 + if Some(a) == source { h } else { 0. }
+                beta * s as f64 + if let Some(f)=field {f[a]} else if Some(a) == source { h } else { 0. }
             } else {
                 f64::NEG_INFINITY
             }
@@ -112,12 +114,18 @@ impl Sampler {
         Self {
             spec,
             source,
+            field: None,
             rng: StdRng::seed_from_u64(seed),
             t: 0,
             lp: 0.,
             lq: 0.,
             lb: 0.,
         }
+    }
+    /// Separate multi-field law; legacy scalar spec/serialization unchanged.
+    pub fn new_field(spec: LawSpec, field: Vec<f64>, seed:u64) -> Self {
+        assert!(spec.logit_h==0. && !field.is_empty() && field.iter().all(|h|h.is_finite() && h.abs()<=20.));
+        let mut out=Self::new(spec,None,seed);out.field=Some(field);out
     }
     pub fn draw(
         &mut self,
@@ -135,6 +143,7 @@ impl Sampler {
             beta_p,
             self.source,
             self.spec.logit_h,
+            self.field.as_deref(),
         );
         let q = softmax(
             &scores,
@@ -143,6 +152,7 @@ impl Sampler {
             beta_q,
             self.source,
             self.spec.logit_h,
+            self.field.as_deref(),
         );
         let normalizer = lse(self.lp, self.lq);
         let alpha = (self.lp - normalizer).exp();

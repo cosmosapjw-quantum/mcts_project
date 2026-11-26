@@ -12,9 +12,10 @@ onnx = ["dep:ort", "dep:ndarray"]
 # unchanged unless an experiment opts in explicitly.
 idea-foundry = []
 # Opt-in checkpoint-aware serial game research transport.
-mqft-train = []
+mqft-train = ["dep:flate2"]
 
 [dependencies]
+flate2 = { version = "1.1.11", optional = true }
 rand       = "0.8"
 rand_distr = "0.4"
 rayon      = "1.8"

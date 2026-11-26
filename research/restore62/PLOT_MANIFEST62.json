@@ -1,0 +1,96 @@
+{
+  "figures": [
+    {
+      "figure": "L16_Q32_multisource_matrices",
+      "ids": [
+        "L16",
+        "G07",
+        "Q32"
+      ],
+      "pdf_sha": "21c1cf541979a4dc7aed1ba7007a4f8852a5c525f75a56921fd77e3f1ea6e7e6",
+      "png_sha": "d78d90386252caebb9a4508e71b58e4405a7b68d78156e6e096044e89d9b11b6"
+    },
+    {
+      "figure": "G07_Q32_direct_response_matrix",
+      "ids": [
+        "G07",
+        "Q32",
+        "L16"
+      ],
+      "pdf_sha": "e3d7c70e05e611900c569d28f85875e729285c2821148a97b0f864dfb675a2d8",
+      "png_sha": "0d2c2d4edfd3bc239ccec0d469141d71b6a195feb8205024cf18aca891e34e85"
+    },
+    {
+      "figure": "G07_Q32_field_grid_reweight",
+      "ids": [
+        "G07",
+        "Q32"
+      ],
+      "pdf_sha": "ccea1d403df5b69e62f724ccf30481e9dde83c9ec6be9e23e5f62a2b75412d65",
+      "png_sha": "0dd1939ffb6f31616ba0cdc32979ccd7842bb3727057a664959bf59a78b0e19c"
+    },
+    {
+      "figure": "L41_score_variance_reduction",
+      "ids": [
+        "L41",
+        "Q32"
+      ],
+      "pdf_sha": "908895b6c7a933d783b9de00011a75323d49a8672dbfc49bb76ba2134558f3c0",
+      "png_sha": "930c1220ffe205880232af2d583efb2e56193594c3fb74a11043571ba3cbafa5"
+    },
+    {
+      "figure": "L38_constrained_matrix_scale",
+      "ids": [
+        "L38",
+        "L16",
+        "Q32"
+      ],
+      "pdf_sha": "749e58aab72218f38386a378cc7dca489e784bfc88afb48b7b1fc20f7b07ff60",
+      "png_sha": "8ebb416cd424b47ffbe96a83301027b5d2b610e7f447294da12d1e3fecf21c86"
+    },
+    {
+      "figure": "L16_empirical_legendre_curvature",
+      "ids": [
+        "L16"
+      ],
+      "pdf_sha": "cc03085e3463d48a68c2bf6ae4c0645fdcd29eab44c2efe4c19cb96ed74a9e35",
+      "png_sha": "df28791321e2c8d692fe3242951511fc4f7f483f193bb6730b592f4a42485c87"
+    },
+    {
+      "figure": "L40_L49_holdout_closure",
+      "ids": [
+        "L40",
+        "L48",
+        "L49"
+      ],
+      "pdf_sha": "562b3047583469a5d87c64aa92e82beecb7e30a6cb54e361841936886659ec2a",
+      "png_sha": "17c620a116b6d4547d122f82aaba6cddbb6ba5300fc1237275eff72afcc5fc02"
+    },
+    {
+      "figure": "L16_L49_symmetry_response_diagnostic",
+      "ids": [
+        "L16",
+        "L49"
+      ],
+      "pdf_sha": "03732d3a9a8ab94cc2fecdfab9677bcaebbdc3de752e3f5d219381becd180563",
+      "png_sha": "14abe48c7b816ec1c71a00358ab627c8834ea0fe59ae44d52d982c8f6cb3f09a"
+    },
+    {
+      "figure": "L43_empirical_count_transitions",
+      "ids": [
+        "L43",
+        "L40"
+      ],
+      "pdf_sha": "8d266f139fd41b3cee8336459ad368b5e22d35db37fba4d515baa462ce453507",
+      "png_sha": "1a4932b982e5b5941a2f79051d8c461f5614a839294675ff49d45fa235986ec5"
+    }
+  ],
+  "sources": {
+    "CONTROL62.npz": "995c2134f1e580a2979c27f4a2dd78f310a474fdc47508296675f048628f667d",
+    "EXACT62.json": "111194ec690a93813044834a26699d0d1ef1d78953622a5c762618986664f21f",
+    "LEGENDRE62.json": "643eea3547dedabb289133ab81c836c45d0028e3306033e59bd3ea6dcd65ce7f",
+    "PHYSICS_RESULTS.json": "0820c9cf0c81aa60afed3907730c4e82e6e49833722b1e491f9bb61b370b5ae1",
+    "SYMMETRY62.json": "f402e2d0eece495d122960fc091dbe70e99798c2b489e0461d3d86d85ee5c9fe",
+    "TRANSITIONS62.json": "0c3888657c5142f8c5be3116b9d6bee399899e2621c0462e7a908992664c6781"
+  }
+}

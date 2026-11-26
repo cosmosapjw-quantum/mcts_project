@@ -134,6 +134,7 @@ pub fn main_cli()->Result<(),String>{
     unsafe {openblas_set_num_threads(1);}
     let a:Vec<String>=std::env::args().collect();
     match a.get(1).map(String::as_str){
+      Some("control62") if a.len()==6=>controlled61::covariant62::run(&a[2],&a[3],&a[4],&a[5]),
       Some("control") if a.len()==6=>controlled61::run(&a[2],&a[3],&a[4],&a[5]),
       Some("infer_d4") if a.len()==4=>controlled61::infer(&a[2],&a[3]),
       Some("infer") if a.len()==4=>{

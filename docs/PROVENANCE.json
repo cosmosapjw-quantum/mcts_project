@@ -1969,6 +1969,65 @@
       }
     }
   },
+  "restore62": {
+    "AUDIT62.json_sha256": "b28c9beba1252c8ae3634bc086dcaa057952a74eb918ac0d9ac42f88e4d98506",
+    "CONTROL62.npz_sha256": "995c2134f1e580a2979c27f4a2dd78f310a474fdc47508296675f048628f667d",
+    "EVALUATOR62.json_sha256": "abe104253aa777e3582d6da786994bb2fe17ce7e3b498c1762bcdb0c38007266",
+    "EXACT62.json_sha256": "111194ec690a93813044834a26699d0d1ef1d78953622a5c762618986664f21f",
+    "LEGACY_REGRESSION62.json_sha256": "bc36dcafa8f4b158bb3f8ee58bb132b6546139586061446ade430fefd18df3c8",
+    "LEGENDRE62.json_sha256": "643eea3547dedabb289133ab81c836c45d0028e3306033e59bd3ea6dcd65ce7f",
+    "ORIGINAL_OUTPUT_EVIDENCE62.csv_sha256": "c2b841134d7a52f11be80a2b977f5507ecc1365fafbe079b4e798952c8268bd1",
+    "ORIGINAL_OUTPUT_PROGRESS62.csv_sha256": "b92b8680fccab5e26022648f08daecb12f6d76be4e01e84ba78c0f6689852cc4",
+    "PHYSICS_RESULTS.json_sha256": "0820c9cf0c81aa60afed3907730c4e82e6e49833722b1e491f9bb61b370b5ae1",
+    "PLOT_INVENTORY62.csv_sha256": "f79c81a4cba3709810ffcc26e42fbed5c4263c2567eda6f9410d510f9b6a556a",
+    "PLOT_MANIFEST62.json_sha256": "c52aa864ef1bd9396dba732993a9b840dc53377caf7a1f91b8bb9f0328884cc6",
+    "PROGRESS62.json_sha256": "c09dcf88cb40c424639c955d17c18367fc29ff3f325a8384f5b8fb09539a31e5",
+    "REGISTRATION.json_sha256": "f7dd739119dc52a9f0bd10254fe7dd43bfed3dae45fb945cd7dfa782bc848ffb",
+    "RNG_AUDIT62.json_sha256": "bcdc0ef9fd7440104caaaa935e6179a158916eb702c7d3bbe97b81ae84d98874",
+    "SYMMETRY62.json_sha256": "f402e2d0eece495d122960fc091dbe70e99798c2b489e0461d3d86d85ee5c9fe",
+    "TRANSITIONS62.json_sha256": "0c3888657c5142f8c5be3116b9d6bee399899e2621c0462e7a908992664c6781",
+    "additional_plot_nodes": 0,
+    "closure": "occupancy wins 6/8, mark and count each 1/8; no Markov sufficiency",
+    "d4_path_transport": "224 unique plus 56 stabilizer frame multiset comparisons exact; previous 28 witnesses included",
+    "dag_sha256": "ae75a9f9dff1df4ea87fe2a886d9c5941cea30a49a12cf5aa56b985110659c38",
+    "evaluator_calls": 2592077,
+    "figures": 9,
+    "fisher_residual": "g0/w4 aa interval excludes zero; finite sampling discrepancy retained",
+    "fresh_backups": 2586624,
+    "fresh_fixed_root_histories": 20448,
+    "learning_source_response": "not resolved",
+    "legacy_histories": 1536,
+    "legacy_regression": 6,
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "new_prefix_records": 122208,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 9,
+    "original_evidence_union_R55_R62": 55,
+    "original_plot_tasks": 121,
+    "parent": "16f292a5baf4849d14265735058a44e3f84cb112",
+    "parent_dag_sha256": "31106b4ed3058583266d0fc213908e1afdbcf4e1503ab7fc64471e49973687b3",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 3606115280,
+    "response_histories": 18432,
+    "response_root_blocks": 64,
+    "response_seeds_per_block": 12,
+    "retained_pairs": 485,
+    "status": "scoped_native_multisource_path_and_d4_transport",
+    "symmetry_histories": 480,
+    "total_marked_histories": 33656,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

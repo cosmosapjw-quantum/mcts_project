@@ -1,0 +1,218 @@
+[
+  {
+    "arm": "z",
+    "beta": 3.3333333333333335,
+    "budget": 64,
+    "cohort": "symmetry",
+    "core": 0,
+    "d4": true,
+    "field": [
+      0.0
+    ],
+    "frame_rank": 0,
+    "generation": 0,
+    "id": "sg0c000o0f0r0",
+    "moves": [
+      62,
+      79,
+      73,
+      75
+    ],
+    "orientation": 0,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "sources": [
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "z",
+    "beta": 3.3333333333333335,
+    "budget": 64,
+    "cohort": "symmetry",
+    "core": 0,
+    "d4": true,
+    "field": [
+      0.0
+    ],
+    "frame_rank": 0,
+    "generation": 0,
+    "id": "sg0c000o0f0r1",
+    "moves": [
+      62,
+      79,
+      73,
+      75
+    ],
+    "orientation": 0,
+    "rep": 1,
+    "seed": 5876569785034939710,
+    "sources": [
+      30
+    ],
+    "width": 4
+  },
+  {
+    "arm": "z",
+    "beta": 3.3333333333333335,
+    "budget": 64,
+    "cohort": "symmetry",
+    "core": 0,
+    "d4": true,
+    "field": [
+      0.0
+    ],
+    "frame_rank": 0,
+    "generation": 0,
+    "id": "sg0c000o1f0r0",
+    "moves": [
+      74,
+      63,
+      9,
+      27
+    ],
+    "orientation": 1,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "sources": [
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "z",
+    "beta": 3.3333333333333335,
+    "budget": 64,
+    "cohort": "symmetry",
+    "core": 0,
+    "d4": true,
+    "field": [
+      0.0
+    ],
+    "frame_rank": 0,
+    "generation": 0,
+    "id": "sg0c000o1f0r1",
+    "moves": [
+      74,
+      63,
+      9,
+      27
+    ],
+    "orientation": 1,
+    "rep": 1,
+    "seed": 5876569785034939710,
+    "sources": [
+      32
+    ],
+    "width": 4
+  },
+  {
+    "arm": "z",
+    "beta": 3.3333333333333335,
+    "budget": 64,
+    "cohort": "symmetry",
+    "core": 0,
+    "d4": true,
+    "field": [
+      0.0
+    ],
+    "frame_rank": 0,
+    "generation": 0,
+    "id": "sg0c000o2f0r0",
+    "moves": [
+      18,
+      1,
+      7,
+      5
+    ],
+    "orientation": 2,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "sources": [
+      50
+    ],
+    "width": 4
+  },
+  {
+    "arm": "z",
+    "beta": 3.3333333333333335,
+    "budget": 64,
+    "cohort": "symmetry",
+    "core": 0,
+    "d4": true,
+    "field": [
+      0.0
+    ],
+    "frame_rank": 0,
+    "generation": 0,
+    "id": "sg0c000o2f0r1",
+    "moves": [
+      18,
+      1,
+      7,
+      5
+    ],
+    "orientation": 2,
+    "rep": 1,
+    "seed": 5876569785034939710,
+    "sources": [
+      50
+    ],
+    "width": 4
+  },
+  {
+    "arm": "z",
+    "beta": 3.3333333333333335,
+    "budget": 64,
+    "cohort": "symmetry",
+    "core": 0,
+    "d4": true,
+    "field": [
+      0.0
+    ],
+    "frame_rank": 0,
+    "generation": 0,
+    "id": "sg0c000o3f0r0",
+    "moves": [
+      6,
+      17,
+      71,
+      53
+    ],
+    "orientation": 3,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "sources": [
+      48
+    ],
+    "width": 4
+  },
+  {
+    "arm": "z",
+    "beta": 3.3333333333333335,
+    "budget": 64,
+    "cohort": "symmetry",
+    "core": 0,
+    "d4": true,
+    "field": [
+      0.0
+    ],
+    "frame_rank": 0,
+    "generation": 0,
+    "id": "sg0c000o3f0r1",
+    "moves": [
+      6,
+      17,
+      71,
+      53
+    ],
+    "orientation": 3,
+    "rep": 1,
+    "seed": 5876569785034939710,
+    "sources": [
+      48
+    ],
+    "width": 4
+  }
+]

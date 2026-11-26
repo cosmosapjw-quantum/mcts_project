@@ -35,7 +35,8 @@ impl Evaluator<Gomoku> for ControlledEval{
 #[derive(Clone,Serialize,Deserialize)]
 #[serde(deny_unknown_fields)]
 struct ControlJob{id:String,moves:Vec<usize>,source:usize,seed:u64,budget:u32,width:usize,beta:f64,h:f64,d4:bool,generation:usize,core:usize,orientation:usize,rep:usize,cohort:String}
-fn execute(j:&ControlJob,net:Arc<Net>)->Result<Value,String>{
+fn execute(j:&ControlJob,net:Arc<Net>)->Result<Value,String>{execute_field(j,net,None)}
+fn execute_field(j:&ControlJob,net:Arc<Net>,field:Option<Vec<f64>>)->Result<Value,String>{
     if ![32,64,128].contains(&j.budget)||![1,4].contains(&j.width)||j.budget as usize%j.width!=0{return Err("bad budget/width".into())}
     let s=state(&j.moves)?;if s.is_terminal()||!s.legal_moves().contains(&j.source){return Err("bad source or terminal".into())}
     let law=LawSpec{kind:"iid".into(),beta_p:vec![j.beta],beta_q:vec![j.beta],proposal:"p".into(),logit_h:j.h};
@@ -44,7 +45,7 @@ fn execute(j:&ControlJob,net:Arc<Net>)->Result<Value,String>{
     let mut cfg=MctsConfig::evaluation(1.4);
     cfg.tt_enabled=false;cfg.root_forced_win=false;cfg.exact_terminal_value=false;cfg.fpu_reduction=0.;cfg.vl_mode=if j.width==1{VlMode::Disabled}else{VlMode::Fixed};cfg.seed=Some(j.seed);cfg.pw=None;
     let mut eng=MctsEngine::new(s.clone(),ev.clone(),cfg);
-    eng.par_ctrl.mqft_record=true;eng.par_ctrl.mqft_sampler=Some(Mutex::new(Sampler::new(law,Some(j.source),j.seed)));
+    eng.par_ctrl.mqft_record=true;eng.par_ctrl.mqft_sampler=Some(Mutex::new(if let Some(f)=field {Sampler::new_field(law,f,j.seed)} else {Sampler::new(law,Some(j.source),j.seed)}));
     let tr=Arc::new(Trace::default());eng.mqft_trace=Some(tr.clone());mqft_trace::clear_eval();
     let mut cuts=vec![];let t0=Instant::now();
     for phase in 1..=j.budget as usize/j.width{
@@ -137,3 +138,6 @@ pub(super)fn infer(weights:&str,fixture:&str)->Result<(),String>{
  #[test]fn transforms_are_permutations(){for g in 0..8{let mut a=(0..N).map(|a|transform(a,g)).collect::<Vec<_>>();a.sort();assert_eq!(a,(0..N).collect::<Vec<_>>());}}
  #[test]fn d4_zero_weight(){let n=Net{w:SHAPES.iter().map(|&n|vec![0.;n]).collect()};let s=state(&[0,1,8]).unwrap();let(p,v)=averaged(&n,&s);assert_eq!(v,0.);assert_eq!(p[0],0.);assert_eq!(p[2],1./78.);}
 }
+
+#[path="mqft_train_covariant62.rs"]
+pub(super) mod covariant62;
