@@ -1,0 +1,162 @@
+[
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g0.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase0_shard0.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase0_shard0.tmpdir",
+      "8"
+    ],
+    "bytes": 20211467,
+    "n": 128,
+    "plan_sha256": "085541a42f79db208c0ca31fa744b74e160f493483c3b863795d8d7d92f335d1",
+    "seconds": 1.0784718920476735,
+    "shard": "phase0_shard0",
+    "tag": "phase0"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g0.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase0_shard1.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase0_shard1.tmpdir",
+      "12"
+    ],
+    "bytes": 151500950,
+    "n": 1024,
+    "plan_sha256": "4fb9d52453b41515c2fd8ef8875379dc053aa07f8892821451308cc58f52bd44",
+    "seconds": 6.209046441945247,
+    "shard": "phase0_shard1",
+    "tag": "phase0"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g0.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase0_shard2.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase0_shard2.tmpdir",
+      "12"
+    ],
+    "bytes": 153027541,
+    "n": 1024,
+    "plan_sha256": "bc04543c5da132495246e7aed204f4eba61add33d0402bcbe9933c5b15a85218",
+    "seconds": 5.710296237957664,
+    "shard": "phase0_shard2",
+    "tag": "phase0"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g0.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase0_shard3.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase0_shard3.tmpdir",
+      "12"
+    ],
+    "bytes": 152464955,
+    "n": 1024,
+    "plan_sha256": "977a3a7e3831069f0bd920bd1ff2c4274f5f0d1180a404f0b1702c986d9001b5",
+    "seconds": 5.939146566088311,
+    "shard": "phase0_shard3",
+    "tag": "phase0"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g0.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase0_shard4.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase0_shard4.tmpdir",
+      "12"
+    ],
+    "bytes": 132889882,
+    "n": 896,
+    "plan_sha256": "6cbeac6f6c2b24dae5c5591d70d3db0d999a350ccac7a789daa24923d56a19ab",
+    "seconds": 6.086126175941899,
+    "shard": "phase0_shard4",
+    "tag": "phase0"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g3.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase3_shard0.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase3_shard0.tmpdir",
+      "8"
+    ],
+    "bytes": 20055809,
+    "n": 128,
+    "plan_sha256": "1a92a74ea97acffa075753e9252ca6df8ee13def05aba9d07535089229e856b8",
+    "seconds": 1.1783857920672745,
+    "shard": "phase3_shard0",
+    "tag": "phase3"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g3.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase3_shard1.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase3_shard1.tmpdir",
+      "12"
+    ],
+    "bytes": 153854430,
+    "n": 1024,
+    "plan_sha256": "e039ffb16796307f981775351b625df91cda3ad6f5109dde5d5307b590046a2d",
+    "seconds": 9.863151287077926,
+    "shard": "phase3_shard1",
+    "tag": "phase3"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g3.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase3_shard2.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase3_shard2.tmpdir",
+      "12"
+    ],
+    "bytes": 154182847,
+    "n": 1024,
+    "plan_sha256": "1cbae87102e9ab884f515a31688adf9a5acfabcd2ae7f3763fc908436c1241e2",
+    "seconds": 8.77994676597882,
+    "shard": "phase3_shard2",
+    "tag": "phase3"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g3.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase3_shard3.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase3_shard3.tmpdir",
+      "12"
+    ],
+    "bytes": 154371866,
+    "n": 1024,
+    "plan_sha256": "bd3d75b061dc75de2af3d2172ee399233635cc8d3bb703702fe0f4477dc33162",
+    "seconds": 8.49261524504982,
+    "shard": "phase3_shard3",
+    "tag": "phase3"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/mqft_train",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g3.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/plans/phase3_shard4.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore71_20261126/data/phase3_shard4.tmpdir",
+      "12"
+    ],
+    "bytes": 134761963,
+    "n": 896,
+    "plan_sha256": "4fd1f5fd6858a09b293641d44d1a31d4c08f0e3fdde5a442302d8ac7c878bc3e",
+    "seconds": 7.94274635007605,
+    "shard": "phase3_shard4",
+    "tag": "phase3"
+  }
+]

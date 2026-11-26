@@ -1,0 +1,11 @@
+{
+  "direct_W_max_abs": 3.802513859341161e-15,
+  "direct_cumulants_max_abs": 2.7755575615628914e-16,
+  "forward_cases": 15,
+  "forward_matrix_MGF_max_abs": 1.234568003383174e-13,
+  "forward_raw_moments_max_abs": 1.8118839761882555e-13,
+  "scope": "Independent forward algorithm on one heldout root per model/family; all aggregate direct laws; not true population exactness.",
+  "simulation_paths": 122880,
+  "source_cases": 945,
+  "status": "PASS_SCOPED"
+}

@@ -1,0 +1,109 @@
+{
+  "figures": [
+    {
+      "figure": "W_error_family_0",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "2489d01dc96a23ca68a42053c96cb2a9e52811932dd532e0cad46d572c46c43c",
+      "png_sha": "16d689967c73c3496257f7f6ca5329086f45a12c1e10ff371e6415f93d71ff2e",
+      "scope": "Autonomous source residual and fixed-fit test-block uncertainty."
+    },
+    {
+      "figure": "W_error_family_1",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "911d5eca5a5f2aff84d4a4f023b3c52a4abc377f25a22934b4f88037417e34c6",
+      "png_sha": "35779d3a96451266c77d74d79a683cf9246020896bbf8946552d5b8046eead28",
+      "scope": "Autonomous source residual and fixed-fit test-block uncertainty."
+    },
+    {
+      "figure": "W_error_family_2",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "7f1c64f10e72a951b08deeb2bfbdb79c7eabaf115b61d259b1ddaf6e51431c1a",
+      "png_sha": "863f209275d0d2d2bb82e1459a1e276a9edc9d11a7d12642d5439edf111688cb",
+      "scope": "Autonomous source residual and fixed-fit test-block uncertainty."
+    },
+    {
+      "figure": "W_error_family_3",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "8656c9067168f848982f95e4649df292a9abc8791056b99846d71816a4a70285",
+      "png_sha": "5c7bc648b4a71e61e13cf19cd21a375f2e500a1bc53249dc23fd9cebc40df881",
+      "scope": "Autonomous source residual and fixed-fit test-block uncertainty."
+    },
+    {
+      "figure": "W_error_family_4",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "66cd0d902a2941a1fed76c76108fbbf37b4b10cf611e32fd42199fe9e94949d8",
+      "png_sha": "6f306b5d7b35bbe116b980e8027debed67eadefa2af71e1f8b9d9d62b4e985f9",
+      "scope": "Autonomous source residual and fixed-fit test-block uncertainty."
+    },
+    {
+      "figure": "source_rmse",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "d466d991d857a61e60f5d8cc9211cde4b4094edc5f037d18d459d07d0849fd96",
+      "png_sha": "70c3b0d10d5ddd88578a822d572adc37f330ddaa3cd487a834daf313d9e00bdb",
+      "scope": "Direct heldout W versus autonomous fitted kernels."
+    },
+    {
+      "figure": "prefix_means",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "15b64e51771a19e3a5f4fad911241ff4b7d40581af3b11cead2d6a3b92bfa672",
+      "png_sha": "39b63d417af7b6aa059711842df5c6153485511b3d2159b6c0863a8286f4407e",
+      "scope": "Autonomous wave-by-wave cumulative mark/count means."
+    },
+    {
+      "figure": "closure_diagnostics",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "620ef1648f2269cfa3fbc7dcafe562d5cf7dc469b51a5b06b1060c2f0e31d098",
+      "png_sha": "3c7cc37dbd25478798228d700772748ad8721ae37269f95f52cddf758b227997",
+      "scope": "Teacher-forced Brier/support diagnostics separate from autonomous root-prefix RMSE."
+    },
+    {
+      "figure": "mixed_cumulant_residuals",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "4337825201d3d75f8c05b023f8220817d825761afd371205c0a4f1038b5ba0d9",
+      "png_sha": "330903cefb5a84db2e30e07351ded977deafd1444a75a7b8c7c82cc16fb46e5c",
+      "scope": "Pointwise block-bootstrap residuals, directional cumulants through fourth order."
+    },
+    {
+      "figure": "source_ess_and_mc",
+      "ids": [
+        "L16",
+        "Q21"
+      ],
+      "pdf_sha": "249aafea95215eb0625e5c956a3ad2df8f1090c415aefab1f55935ecd086490d",
+      "png_sha": "fcb364e15cd792693f2b309fd4a024646dd91e4213dc65d8d9237df579e82f65",
+      "scope": "Importance-weight ESS and independent simulation checks of fitted transition."
+    }
+  ],
+  "sources": {
+    "JOINT71.npz": "de35a726de2462a659f7c164f24a8ba2e91ec11010691accc18c37392c66ab22",
+    "PHYSICS_RESULTS.json": "930af19bd4e4df012cc0df3a99c68dea6ff24fb34a22a8f37aa6db7b45361b8c",
+    "plot71.py": "f635c55a31fed7fe3d45ddb77a15552f36b4a1860afd91e8c5bf260c8f2b3abb"
+  }
+}

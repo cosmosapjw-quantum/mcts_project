@@ -119,9 +119,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R70-P joint population closure targeted expansion",
-    "R71 five-size coarse maps and conditional closure",
-    "R72 adaptive multi-time complex records and decision information"
+    "R70-P residual support and population calibration follow-up",
+    "R72 five-size coarse maps and conditional closure",
+    "R73 adaptive multi-time complex records and decision information"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -140,7 +140,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE71-COARSE-MAPS-SIZE-FAMILY",
+  "next_stage_id": "MQFT-RESTORE72-COARSE-MAPS-SIZE-FAMILY",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -284,6 +284,11 @@
         "artifact": "mqft_restore70_20261126/{THEORY.md,PHYSICS_RESULTS.json,INDEPENDENT70.json}",
         "evidence": "Actual marked finite path W, tangent 1PI and independent-replica local saddle corrections verified; 288 fresh paths; 90 exact tilted convolution cases.",
         "remaining": "Population joint transition closure with next-state and marks; large independent geometry and seed cohorts; no physical hbar or continuum."
+      },
+      "restore71_followup": {
+        "artifact": "mqft_restore71_20261126/{THEORY.md,PHYSICS_RESULTS.json,INDEPENDENT71.json}",
+        "evidence": "9216 new actual searches, autonomous empirical joint transition count/mark/next-state, 15 fitted family/model combinations, exact within-model W and fourth directional moments, independent forward verification.",
+        "remaining": "Population closure remains incomplete: residual support, Rapfi and g3 source bias; full joint cumulant tensor and physical hbar/continuum not certified."
       },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
@@ -741,6 +746,11 @@
         "artifact": "mqft_restore70_20261126/PHYSICS_RESULTS.json",
         "evidence": "Geometry cross-fitted lag/cumulative mark predictors improved all evaluator strata, conditional reduced count law underperformed actual conditional state.",
         "remaining": "Teacher-forced means not autonomous joint transition; derive next-state propagation."
+      },
+      "restore71_followup": {
+        "artifact": "mqft_restore71_20261126/PHYSICS_RESULTS.json",
+        "evidence": "One-lag autonomous state improves W RMSE on all five evaluator strata, but joint Brier degrades g3 and Rapfi vs state-only; root-level residual persists.",
+        "remaining": "History/sufficiency, geometry covariates, support smoothing and out-of-cohort calibration."
       },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
@@ -2997,8 +3007,44 @@
     "reused_R69_waves": 9216,
     "status": "scoped_finite_marked_statistical_action"
   },
-  "revision": "RESTORE70_20261126",
-  "scope": "Native adaptive marked finite path CGF and statistical replica expansion",
+  "restore71": {
+    "AUDIT71.json_sha256": "9827b059d22cffdf37478a0552f52843d350c62850599d3abb559dc9b584b6d3",
+    "DRIFT_WATCHDOG.md_sha256": "c800da794e011c28cedb2bf98717b01ba49eb560d3e32b9d135010de43fe6a6c",
+    "INDEPENDENT71.json_sha256": "96e3905126073d974cb4746512787bc8b6640f40f04f5adaaba3d23ad601b57c",
+    "NEXT_DYNAMICS.md_sha256": "3b130d5a69a8ccbe931ca961416221c77c02147ff9965df2da481a7921ede404",
+    "ORIGINAL_OUTPUT_EVIDENCE71.csv_sha256": "45e18bc752163966b8b73f6c881db4b2d53a3cdfec1f6c503b6b763760ab1821",
+    "ORIGINAL_OUTPUT_PROGRESS71.csv_sha256": "0317ee3bd5710759b68d6f2bab8e6bd87853c4bd43b955a81eea273506173677",
+    "ORIGINAL_SOURCE71.json_sha256": "0dc2c7980171b1f5f4d306b37930d624498a0b329f01d295540b0d2a2cff792d",
+    "PHYSICS_RESULTS.json_sha256": "930af19bd4e4df012cc0df3a99c68dea6ff24fb34a22a8f37aa6db7b45361b8c",
+    "PLOT_INVENTORY71.csv_sha256": "a3d95f6711ffd50a93774d4419136e948728b99416ab32b137399a64bf8725b7",
+    "PLOT_MANIFEST71.json_sha256": "004ad311e2da164b7b95110eff203c0064cf6fffc01cba9698670f0186efe1fb",
+    "PROGRESS71.json_sha256": "ffa3d0dfea693f9a5019811fce961abe746911480f8fba5b838fde3fd5dd6be7",
+    "REGISTRATION.json_sha256": "02fc8f3ba2c97763af00b75757bbc0fd69736516009a557d8c621418c9ca0e67",
+    "THEORY.md_sha256": "434216e965e27f978a9a25fc5816ee183d85c234e87828402bf0d114727edfa4",
+    "additional_plot_nodes": 0,
+    "cumulative_fixed_root_histories": 69880,
+    "figures": 10,
+    "fresh_backups": 1179648,
+    "fresh_fixed_root_histories": 9216,
+    "fresh_waves": 294912,
+    "full_replay_n": 320,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 2,
+    "original_evidence_union_R55_R71": 90,
+    "original_obligations": 121,
+    "parent_commit": "798e68fb1d79e9c3515069608921ca8be3fbe14c",
+    "parent_dag_sha256": "68818faf7b114e23f7b38e47ff677dbb8cc5bb207e618924a8e1705466c9a8a3",
+    "raw_bytes": 1519896916,
+    "remaining": "support, geometry and history dependence; external heldout bias; scale and complex instruments",
+    "retained_pairs": 563,
+    "status": "scoped_autonomous_joint_transition_population_bias_remaining",
+    "test_blocks": 16,
+    "train_blocks": 48
+  },
+  "revision": "RESTORE71_20261126",
+  "scope": "Autonomous empirical marked joint transition and heldout large geometry cohort",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE70-ADAPTIVE-MARKED-EFFECTIVE-ACTION"
+  "supersedes_next": "MQFT-RESTORE71-COARSE-MAPS-SIZE-FAMILY"
 }
