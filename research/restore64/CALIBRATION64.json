@@ -1,0 +1,43 @@
+{
+  "array_sha": "032dc5d546af0f73ff32fdca672d3505a17a4c5c2243b2cddb37c0d4760932ba",
+  "checks": {
+    "kraus_cases": 187,
+    "max_gauge_error": 4.440900568822021e-16,
+    "max_ode_error": 2.0756830863711498e-12,
+    "max_tp_error": 4.440892098500626e-16,
+    "min_choi_eigenvalue": -2.2204460492503136e-16,
+    "ode_cases": 64
+  },
+  "fitted": [
+    0.8009348501211698,
+    1.2051543887641891,
+    6.001315397266575
+  ],
+  "heldout": {
+    "nll": 0.6388448546959387,
+    "rmse": 0.030690135068488975
+  },
+  "heldout_dephased": {
+    "nll": 0.6931471805599454,
+    "rmse": 0.32363127526006613
+  },
+  "heldout_no_rotation": {
+    "nll": 0.7672243684181125,
+    "rmse": 0.4837512620119338
+  },
+  "heldout_true": {
+    "nll": 0.638844355223349,
+    "rmse": 0.030675699486234578
+  },
+  "scope": "software-generated independent calibration/heldout shots, known model controls; not physical data",
+  "shots": 2359296,
+  "train": {
+    "nll": 0.6432224261966245,
+    "rmse": 0.030359740825774143
+  },
+  "truth": [
+    0.8,
+    1.2,
+    6.0
+  ]
+}

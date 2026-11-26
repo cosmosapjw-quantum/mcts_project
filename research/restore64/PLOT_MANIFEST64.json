@@ -1,0 +1,86 @@
+{
+  "figures": [
+    {
+      "figure": "Q41_Q42_quadrature_calibration",
+      "ids": [
+        "Q41",
+        "Q42"
+      ],
+      "pdf_sha": "7e096e0989c92b55b989b19791c37e62ca5f5cf09df61776769f0240125cdb0e",
+      "png_sha": "0f8080f5086262071e9e24737464e6cc23c7da10cb475aba55e57554307b837a"
+    },
+    {
+      "figure": "Q41_operational_action_scale",
+      "ids": [
+        "Q41",
+        "Q42"
+      ],
+      "pdf_sha": "b506f57c11dd6bc240e282945ce562e635d3fecddc3f781beeeb36f6d320b379",
+      "png_sha": "844a55829144f135b95e034ee591e691ffeb43579c3e7e184fedf0ef8cdb480d"
+    },
+    {
+      "figure": "L09_Q24_Q42_density_dynamics",
+      "ids": [
+        "L09",
+        "Q24",
+        "Q42"
+      ],
+      "pdf_sha": "b3bffbcaaf9ded34707a007908861dc28ed72e6fc2823520c81fd1dc3382acca",
+      "png_sha": "434675a94ef9daa135d1eb32e03776e1885bf4e256ee1ac8502c4ee1407b58e3"
+    },
+    {
+      "figure": "Q45_native_phase_visit_response",
+      "ids": [
+        "Q45",
+        "Q43",
+        "L16"
+      ],
+      "pdf_sha": "681e9cf282c36480e08133ca247b1e52d7a58e87a0b881e862d0406893498e6a",
+      "png_sha": "19775444a1ab6288c8dbeff9e048c244cca343fb6b4b0e5173773a3edd5e56f6"
+    },
+    {
+      "figure": "Q45_phase_contrast_and_marks",
+      "ids": [
+        "Q45",
+        "Q43"
+      ],
+      "pdf_sha": "6d0e778f46fc25ef2dee69ed4664585dfc47400cff3d1598e9f1511a181b621b",
+      "png_sha": "f20351d6505ca40e00bfb99398559f10e7457df99cd9c87c6b782bc691b7a2d1"
+    },
+    {
+      "figure": "Q43_native_local_readout_likelihood",
+      "ids": [
+        "Q43",
+        "Q45",
+        "L16"
+      ],
+      "pdf_sha": "f2f74df638323edd59eae9f5a628cf5e27d8ee0d9c441721246f2e10c7b0c7e0",
+      "png_sha": "65cb4fa277a3159d860f972b6074776dff29cb53e6496b66792e00a717fadbd4"
+    },
+    {
+      "figure": "Q43_native_path_pair_complex_lift",
+      "ids": [
+        "Q43",
+        "L16"
+      ],
+      "pdf_sha": "df88aca28227e669e2630ca132553e2c4927268375b250212fbeb1ecfa62b94b",
+      "png_sha": "51eca5c4b1429bb76220441a1cf75b8c5f151a12be261c5bd0fe821bc2d6d32a"
+    },
+    {
+      "figure": "Q42_Q45_native_state_readout_validation",
+      "ids": [
+        "Q42",
+        "Q45"
+      ],
+      "pdf_sha": "ff5a735a90456835673f55bf500b7d81cf4bbe46102e51a628c962140120dedc",
+      "png_sha": "7c2f2795d3b9c7417ac5ee6afa72dd634d8493602a53bdf7dd9a0be23b142137"
+    }
+  ],
+  "sources": {
+    "CALIBRATION64.json": "940929d8422a3bc607e1670f6da22565a30184cdda759d1b2c5e3237c6192356",
+    "CALIBRATION64.npz": "032dc5d546af0f73ff32fdca672d3505a17a4c5c2243b2cddb37c0d4760932ba",
+    "PATH_PAIRS64.json": "0507c9c288de9d400f70f1548a86424f10e179ce1d28e35253a3df15057b9e3e",
+    "PHASE64.npz": "3aa239bd3eaa93c3421864058b10247f8d2275dfe579fb80727bfe4ceb7fd6c9",
+    "PHYSICS_RESULTS.json": "5900c060ed745d67a6fe0178d23cf41a73cb4203f869a35629a0a252403ccafa"
+  }
+}

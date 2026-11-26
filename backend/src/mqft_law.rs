@@ -62,6 +62,8 @@ pub struct Draw {
     pub log_q: f64,
     pub log_b: f64,
     pub log_p_path: f64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub phase64: Option<PhaseRecord64>,
     pub log_q_path: f64,
     pub log_b_path: f64,
 }
@@ -69,11 +71,70 @@ pub struct Sampler {
     pub spec: LawSpec,
     source: Option<usize>,
     field: Option<Vec<f64>>,
+    phase64: Option<Phase64>,
     rng: StdRng,
     t: usize,
     lp: f64,
     lq: f64,
     lb: f64,
+}
+/// Auxiliary fresh pair register with causal score-exposure phase schedule.
+/// The instrument conserves the pair probability mass and leaves all other
+/// legal actions unchanged. It is a software quantum-channel emulator.
+#[derive(Clone, Debug, Serialize)]
+pub struct PhaseRecord64 {
+    pub sources: [usize;2],
+    pub wave: usize,
+    pub tau: f64,
+    pub exposure: f64,
+    pub theta: f64,
+    pub eta: f64,
+    pub pair_mass: f64,
+    pub population_a: f64,
+    pub x: f64,
+    pub y: f64,
+    pub output_a: f64,
+}
+pub struct Phase64 {
+    sources: [usize;2],
+    mode: String,
+    width: usize,
+    budget: usize,
+    exposure: f64,
+    current_exposure: f64,
+}
+impl Phase64 {
+    pub fn new(sources:[usize;2],mode:String,width:usize,budget:usize)->Self{
+        assert!(sources[0]!=sources[1] && width>0 && budget>0 && budget%width==0);
+        assert!(["baseline","dephased","real","plus","minus","rotate0"].contains(&mode.as_str()));
+        Self{sources,mode,width,budget,exposure:0.,current_exposure:0.}
+    }
+    fn apply(&mut self,t:usize,actions:&[usize],scores:&[f32],base:&[f64])->(Vec<f64>,PhaseRecord64){
+        let a=actions.iter().position(|&a|a==self.sources[0]).unwrap();
+        let b=actions.iter().position(|&a|a==self.sources[1]).unwrap();
+        assert!(base[a]>0. && base[b]>0.);
+        if t%self.width==0{
+            self.current_exposure=self.exposure;
+            self.exposure+=(scores[a] as f64-scores[b] as f64)*self.width as f64/self.budget as f64;
+        }
+        let wave=t/self.width;let tau=(wave*self.width) as f64/self.budget as f64;
+        let eta=if self.mode=="dephased"{0.}else{0.8*(-1.2*tau).exp()};
+        let theta=match self.mode.as_str(){
+            "plus"=>std::f64::consts::FRAC_PI_2+6.*self.current_exposure,
+            "minus"=>-std::f64::consts::FRAC_PI_2+6.*self.current_exposure,
+            "rotate0"=>6.*self.current_exposure,
+            _=>0.,
+        };
+        let m=base[a]+base[b];let r=base[a]/m;
+        let amp=2.*eta*(r*(1.-r)).sqrt();
+        let x=amp*theta.cos();let y=amp*theta.sin();
+        let alpha:f64=if self.mode=="baseline"{0.}else{0.35};
+        let c=alpha.cos();let s=alpha.sin();
+        let z=if self.mode=="baseline"{base[a]}else{m*(c*c*r+s*s*(1.-r)+c*s*y)};
+        let mut out=base.to_vec();out[a]=z;out[b]=if self.mode=="baseline"{base[b]}else{m-z};
+        assert!(out[a]>0. && out[b]>0. && (out.iter().sum::<f64>()-1.).abs()<1e-12);
+        (out,PhaseRecord64{sources:self.sources,wave,tau,exposure:self.current_exposure,theta,eta,pair_mass:m,population_a:r,x,y,output_a:z})
+    }
 }
 fn lse(a: f64, b: f64) -> f64 {
     let m = a.max(b);
@@ -115,6 +176,7 @@ impl Sampler {
             spec,
             source,
             field: None,
+            phase64: None,
             rng: StdRng::seed_from_u64(seed),
             t: 0,
             lp: 0.,
@@ -127,6 +189,10 @@ impl Sampler {
         assert!(spec.logit_h==0. && !field.is_empty() && field.iter().all(|h|h.is_finite() && h.abs()<=20.));
         let mut out=Self::new(spec,None,seed);out.field=Some(field);out
     }
+    pub fn new_phase64(spec: LawSpec,phase:Phase64,seed:u64)->Self{
+        assert!(spec.kind=="iid" && spec.proposal=="p" && spec.logit_h==0. && spec.beta_p==spec.beta_q);
+        let mut out=Self::new(spec,None,seed);out.phase64=Some(phase);out
+    }
     pub fn draw(
         &mut self,
         actions: Vec<usize>,
@@ -136,7 +202,7 @@ impl Sampler {
         let t = self.t;
         let beta_p = self.spec.beta_p[if self.spec.beta_p.len() == 1 { 0 } else { t }];
         let beta_q = self.spec.beta_q[if self.spec.beta_q.len() == 1 { 0 } else { t }];
-        let p = softmax(
+        let mut p = softmax(
             &scores,
             &active,
             &actions,
@@ -145,7 +211,7 @@ impl Sampler {
             self.spec.logit_h,
             self.field.as_deref(),
         );
-        let q = softmax(
+        let mut q = softmax(
             &scores,
             &active,
             &actions,
@@ -154,6 +220,11 @@ impl Sampler {
             self.spec.logit_h,
             self.field.as_deref(),
         );
+        let phase64=if let Some(ph)=self.phase64.as_mut(){
+            assert_eq!(p,q);assert!(active.iter().all(|x|*x));
+            let (out,rec)=ph.apply(t,&actions,&scores,&p);
+            p=out;q=p.clone();Some(rec)
+        }else{None};
         let normalizer = lse(self.lp, self.lq);
         let alpha = (self.lp - normalizer).exp();
         let alpha_q = (self.lq - normalizer).exp();
@@ -208,9 +279,22 @@ impl Sampler {
                 log_q: lq,
                 log_b: lb,
                 log_p_path: self.lp,
+                phase64,
                 log_q_path: self.lq,
                 log_b_path: self.lb,
             },
         )
     }
+}
+
+#[cfg(test)] mod phase64_tests {
+ use super::*;
+ #[test] fn pair_mass_and_controls(){
+  let a=vec![0,1,2];let scores=vec![0.,0.,0.];let p=vec![0.2,0.3,0.5];
+  let run=|mode:&str|Phase64::new([0,1],mode.into(),4,128).apply(0,&a,&scores,&p).0;
+  let re=run("real");let de=run("dephased");let plus=run("plus");let minus=run("minus");
+  assert_eq!(re,de);assert_eq!(run("baseline"),p);
+  assert!((plus[0]+minus[0]-2.*de[0]).abs()<1e-15);
+  for q in [re,de,plus,minus]{assert_eq!(q[2],p[2]);assert!((q[0]+q[1]-0.5f64).abs()<1e-15);}
+ }
 }

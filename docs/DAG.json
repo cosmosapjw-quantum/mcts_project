@@ -54,7 +54,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-03",
+  "entry": "X-REP",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -133,7 +133,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE64-PHASE-SENSITIVE-NATIVE-INSTRUMENT",
+  "next_stage_id": "MQFT-RESTORE65-PERSISTENT-PHASE-INSTRUMENT-UTILITY",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -242,6 +242,11 @@
         "artifact": "mqft_restore63_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,KERNEL_RESULTS63.json,VERIFICATION63.json,RAPFI_TRANSFER63.json,ORIGINAL_QUANTUM_TARGET63.md}",
         "evidence": "Exact native frozen multinomial logMGF and local convex conjugate, verified tilted operator product; fresh conditional Fisher bracket and finite response recheck.",
         "remaining": "Individual vs simultaneous residual uncertainty, composed MGF error, physical 1PI and phase unresolved; next explicit phase instrument."
+      },
+      "restore64_followup": {
+        "artifact": "mqft_restore64_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,CALIBRATION64.json,AUDIT64.json,PATH_PAIRS64.json}",
+        "evidence": "Actual controlled native path likelihood, independently calibrated model readout and 3072 selected same-root baseline path-pair lifts.",
+        "remaining": "Physical action, continuum quantum path measure, 1PI and persistent phase dynamics unresolved."
       },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
@@ -381,6 +386,11 @@
       "priority": "\ud575\uc2ec",
       "remaining_scope": "larger independently seeded ensembles and richer predictive fragment features, actual strong SBS/physical phase, redundancy scaling with N, trained evaluator/GPU, independently useful stopping; current bounded null and near-degenerate pointer retained",
       "restore38_followup": "mqft_restore38_20261125/ORIGINAL_CROSSWALK.json; partial new longitudinal observables and matched-opening controls; no promotion of existing unresolved physical claims or selector admission.",
+      "restore64_followup": {
+        "artifact": "mqft_restore64_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,CALIBRATION64.json,AUDIT64.json,PATH_PAIRS64.json}",
+        "evidence": "Actual auxiliary conditional complex register and separate X/Y readouts; identical real/dephased native path law for selected readout.",
+        "remaining": "Native physical measurement/record environment and redundancy identification remain."
+      },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -526,6 +536,11 @@
         "evidence": "Original Q41/Q43 source audit, explicit independent quadrature identification argument, no new native phase mechanism.",
         "remaining": "Next actual phase-sensitive instrument using R21/R27, independent energy/time calibration or scoped blocker."
       },
+      "restore64_followup": {
+        "artifact": "mqft_restore64_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,CALIBRATION64.json,AUDIT64.json,PATH_PAIRS64.json}",
+        "evidence": "Actual 6144 full-support trained native phase-controlled searches; auxiliary complex density/Choi/ODE and software quadrature calibration; exact real/dephase native control and measured visit shifts.",
+        "remaining": "Physical phase/energy/time/hbar not identified; fresh conditional preparation, persistent instrument and independent utility next."
+      },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
       "structure_followup": "RESTORE22 complex Gram restricted spatial coherence filtration and triangle-phase gauge checks; actual projected density code and operational recovery; no physical phase identification.",
@@ -639,6 +654,11 @@
         "artifact": "mqft_restore62_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,LEGENDRE62.json,AUDIT62.json,SYMMETRY62.json}",
         "evidence": "Existing trained g0/g3 unchanged; actual canonical-frame coupling in D4 witness suite.",
         "remaining": "15x15 trained architecture and physical labels, runtime uniform frame sampler for nontrivial stabilizers remain."
+      },
+      "restore64_followup": {
+        "artifact": "mqft_restore64_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,CALIBRATION64.json,AUDIT64.json,PATH_PAIRS64.json}",
+        "evidence": "Actual trained g0/g3 phase intervention on 9x9 full support, no new training.",
+        "remaining": "No established mean mark benefit; complete-game/independent regret and 15x15 compatible transport remain."
       },
       "retained_evidence": "\uae30\uc874 evaluator/query/\uc9c0\uc5f0 \uc790\ub8cc\ub294 \ud0d0\uc0c9 \ube44\uc6a9 \ub300\uc870.",
       "source": "training_metrics.py::export_for_plotting/plot_training_curves, \ucd08\uae30 vectorized-mcts guide."
@@ -2535,8 +2555,48 @@
     "status": "scoped_native_conditional_generator_and_heldout_closure",
     "total_marked_histories": 42872
   },
-  "revision": "RESTORE63_20261126",
-  "scope": "Native conditional count generator, martingale residual and heldout multiscale closure",
+  "restore64": {
+    "AUDIT64.json_sha256": "899f510e3d0accde4eeb4a641c0eaaaba220bf35ba3ed033993f00e005678e7c",
+    "CALIBRATION64.json_sha256": "940929d8422a3bc607e1670f6da22565a30184cdda759d1b2c5e3237c6192356",
+    "CALIBRATION64.npz_sha256": "032dc5d546af0f73ff32fdca672d3505a17a4c5c2243b2cddb37c0d4760932ba",
+    "EVALUATOR64.json_sha256": "15c66da695128e1cea597d81c279d3f8347f6921544a4117e42463cb93e02595",
+    "LEGACY_REGRESSION64.json_sha256": "92097eef5e262632a03d87452f07cff3563f36e2516900e5f2c05caeb412f2ff",
+    "ORIGINAL_OUTPUT_EVIDENCE64.csv_sha256": "7d9c62e43f66d212676d98c6a8972f66b86bacbb2c68909a0c73191d3a214b5f",
+    "ORIGINAL_OUTPUT_PROGRESS64.csv_sha256": "a45942019e20cf5f6d75e662aa0d0dff1809b5500332ebc540bc8c2a95041b21",
+    "PATH_PAIRS64.json_sha256": "0507c9c288de9d400f70f1548a86424f10e179ce1d28e35253a3df15057b9e3e",
+    "PHASE64.npz_sha256": "3aa239bd3eaa93c3421864058b10247f8d2275dfe579fb80727bfe4ceb7fd6c9",
+    "PHYSICS_RESULTS.json_sha256": "5900c060ed745d67a6fe0178d23cf41a73cb4203f869a35629a0a252403ccafa",
+    "PLOT_INVENTORY64.csv_sha256": "1eb079b7bd550304fededa4f82a544121518c7264c58dccb073f8c88ccb5f823",
+    "PLOT_MANIFEST64.json_sha256": "38adbe5fe3c78dc14e9c474cf711b5a480f6aae31fa6092274f868ba03d1b055",
+    "PROGRESS64.json_sha256": "727e0d4ff9c5992a9a32406c9f60f1f9b82bd3620899f02bb357fe09b0f200ff",
+    "REGISTRATION.json_sha256": "88a5ca8b4e10144e11338a5dad50840e3404102092f4fdb6d918cf453e039873",
+    "RNG_AUDIT64.json_sha256": "8823f9bf3e032c4b0a4867adcc3dd9c5b6fe17a5e7b3be2f6c69a17b98b3a886",
+    "additional_plot_nodes": 0,
+    "calibration_software_shots": 2359296,
+    "conditional_wave_states": 196608,
+    "evaluator_calls": 779448,
+    "figures": 8,
+    "fresh_backups": 786432,
+    "fresh_fixed_root_histories": 6144,
+    "native_state_software_readout_shots": 6291456,
+    "native_subagent": "NOT_RUN",
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 7,
+    "original_evidence_union_R55_R64": 60,
+    "original_plot_tasks": 121,
+    "parent_dag_sha256": "7d23485d74250e8882bb3786f2292da886e9fa4ddd62ccc6de91cbca5d916da8",
+    "path_pairs": 3072,
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 852313928,
+    "real_dephased_exact_paths": 1024,
+    "retained_pairs": 501,
+    "status": "scoped_actual_full_support_auxiliary_phase_instrument",
+    "total_marked_histories": 49016
+  },
+  "revision": "RESTORE64_20261126",
+  "scope": "Full-support native phase-sensitive auxiliary instrument, independent software quadratures and path-pair lift",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE63-CONDITIONAL-GENERATOR-AND-ORIGINAL-PHYSICS"
+  "supersedes_next": "MQFT-RESTORE64-PHASE-SENSITIVE-NATIVE-INSTRUMENT"
 }
