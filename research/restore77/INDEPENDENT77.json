@@ -1,0 +1,26 @@
+{
+  "errors": {
+    "CK_TV": 6.2103100439969694e-15,
+    "CK_brier": 1.5681900222830336e-15,
+    "CK_mse": 4.3021142204224816e-16,
+    "W_actual": 0.0,
+    "W_model": 2.7228219678931964e-14,
+    "eigen": 2.9976021664879227e-15,
+    "one_count_brier": 4.996003610813204e-16,
+    "one_emission_mse": 1.3877787807814457e-16,
+    "projector": 3.219646771412954e-15,
+    "raw_counts": 0.0,
+    "raw_mark": 0.0,
+    "raw_prob": 7.327471962526033e-15,
+    "raw_sector_mark": 0.0,
+    "rg_W": 1.4210854715202004e-14,
+    "rg_center": 0.0,
+    "rg_cumulants": 0.0,
+    "rg_scale": 0.0,
+    "stationary": 3.774758283725532e-15
+  },
+  "models_checked": 300,
+  "raw_paths": 60,
+  "scope": "Independent direct normalized donor weights, stationary/eigen check, one-source finite CGF, all h4 start predictions, raw subset and direct block cumulants. Same-agent separate implementation; no native subagent.",
+  "status": "PASS_SCOPED"
+}

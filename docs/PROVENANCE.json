@@ -2914,6 +2914,151 @@
     "status": "scoped_independent_finite_size_and_null",
     "synthetic_null_cohorts_per_design": 2000
   },
+  "restore77": {
+    "AUDIT_L13.json_sha256": "8f60c3ab23e52189d844a47dd280dbba2e8f0d42bbe0a036031c2e75cb12dffc",
+    "AUDIT_L15.json_sha256": "4702d4458af2b86f78dd626beed72453b8a478f84b4b6f9b00c7b68fd16c169d",
+    "AUDIT_L17.json_sha256": "a1fa5ae40eea044cac08d1dda8d34d039835a16240435a09f1715bd9531180e2",
+    "AUDIT_L19.json_sha256": "a913a6f3f7c8f3c0e0cea29051a99b82c8da5d253d862d224e51254ad9436fcd",
+    "AUDIT_L21.json_sha256": "8e518799053d998c08faf6a5061d26b994d3761d34b7fb0671b13678bf83debf",
+    "CLOSURE77.json_sha256": "f640ee87bc64cb08e309c5fc59ae28c27e61f46c16d83a8c50f55170d2287d83",
+    "DRIFT_WATCHDOG.md_sha256": "65b53eaf6ac252070f9c39701e857de80edd3e9f040b802eb2e5d46ebd947d08",
+    "GEN_L13.json_sha256": "05ccdef86262b53b54a1f3484884e5a9a0d5eef0da2335d496674138406e2646",
+    "GEN_L15.json_sha256": "0ea0fe123d5dc7f3a02899876912a1409fb74c7b1a9f31360ce0174c9d74aaf4",
+    "GEN_L17.json_sha256": "423eb37a096dd537a07d64aaae34582f308b1cbb0d812de1a524832c3ab66d51",
+    "GEN_L19.json_sha256": "2aa461061e05e826bce5f89acccc397cb92279fdf998babff994e843113db4c9",
+    "GEN_L21.json_sha256": "57647a6403e7662cc7a39cb5d57df7885b5901913b6320469e3080fe4213ab90",
+    "INDEPENDENT77.json_sha256": "c2880e1270f7a9e29684e9bc54c0d367fb333d07159c757db9052cee6c182c87",
+    "NEXT_DYNAMICS.md_sha256": "ba281a933a42d0c5851e4a1585a902a03efd1f57689d434649d53b6c911a8354",
+    "ORIGINAL_OUTPUT_EVIDENCE77.csv_sha256": "844aa83d85a49f3c5905b66f92e21332fd49d7a75e71d62f959a4b667131c875",
+    "ORIGINAL_OUTPUT_PROGRESS77.csv_sha256": "50cff1c1974a1814ea5414f239d8d2cb5b39474e6efcb5e1059e64fd6c323ce2",
+    "ORIGINAL_RG_AUDIT77.json_sha256": "f80c8bfc577c517a1859986a9e73046ae844f59d48ec0fec76c68dcf9802cdaf",
+    "ORIGINAL_SOURCE77.json_sha256": "57abbc6cc600c8ed97f6558e2c2d34460e9f3dabf77e093365da1bb55573c3d2",
+    "PILOT_L13.json_sha256": "d7a46b842415e1cad04d6ac6729df3e423d0562b9a480cf351639dc5a0fac6a7",
+    "PILOT_L15.json_sha256": "199d931fbcd2ad80d58682650cd61a7b5fc856c1524c2f4bc8fb6955ecd86e68",
+    "PILOT_L17.json_sha256": "8a489ff6a20ba378c7282ea751b77488d157d21e19ec620e67b2a492c8471b24",
+    "PILOT_L19.json_sha256": "e7d9427c2280a2ec6c59baecfaa45ace82095f5841b4be2bb0cb52d3649a8ded",
+    "PILOT_L21.json_sha256": "95789ce885e5c6358bead6ed593634740ae1399bfec2e6abd20a18bcef749246",
+    "PLOT_INVENTORY77.csv_sha256": "fae42cf4bb23300c0d5469ddd00f3771d1f09eb392e9626829991ba96ce82bbf",
+    "PLOT_MANIFEST77.json_sha256": "11f1ddbcbfb4e7d6f625661dbefde1b89242f2078eb2e3aeabbb6bdb495ad7fd",
+    "PROGRESS77.json_sha256": "7a9ba336e7c10d21e0c435ef34725fe9627735fb706c3678b318e7060f505230",
+    "REGISTRATION_L13.json_sha256": "7f0006d33ee35dad038a0f9e2db9b3a98956a8bc4a55a4796edefccd65c7081e",
+    "REGISTRATION_L15.json_sha256": "38183c856e164f1ef75ebc6f3c20be037885e7f72b1e0ada711efd6dc2f58a12",
+    "REGISTRATION_L17.json_sha256": "4711d9ab40ae1c978ea313ce54e617d73fb6c169ffa691dde3d0a39ba79557d9",
+    "REGISTRATION_L19.json_sha256": "a9e214d23c754906dd52582109b6529dcbe7647d7be0536f8994d5b0ada41b1d",
+    "REGISTRATION_L21.json_sha256": "72fa724d9c1e4db33cab4b93fc73129bb6e778b968c6d5c65b6ca855af76dfe3",
+    "RG77.json_sha256": "4774816825943c02cc3b027bcee6b495b42f35a7bd9d7d4e3d5552d1caff2a6d",
+    "SUMMARY77.json_sha256": "0b96995a40b26751a3c43dbb4c9f303553b2a1dd9c95a33a4a512753da985401",
+    "THEORY.md_sha256": "58ecde5bba023b90988f315f206e5d3fb78a1b1380d61a444854dd3dd62b0776",
+    "animations": 0,
+    "backends": {
+      "13": "bcd065e7fda0c896df872b156a7a98655d0e2af184b9175ff83927e2a293f301",
+      "15": "96781d9c29179f2bd91f8b8f79b26d63ee7ebd91797d5712a1cd9386b7482cca",
+      "17": "85f7f37183b8709da24c71a55a683cd71870d4370b1c34e6dc59190d15e568b1",
+      "19": "5027174632cd6736064d3e2327d8c4940bc4047c7679a59a98f71a20d7daa6f1",
+      "21": "cc8c290d2d246ef281835d5df2a5c0a18b36c65aa4960f3530c6d79da172605d"
+    },
+    "beta_grid": [
+      0.0,
+      3.3333333333333335,
+      16.0
+    ],
+    "cumulative_fixed_root_histories": 80632,
+    "dag_sha256": "ba7eca0d20b07e47eb22bed3fcc48c1ed5e6119dc09dc3922254ba6e79686020",
+    "external_by_size": {
+      "13": {
+        "files": {
+          "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+          "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+          "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+        },
+        "license": "GPL-3.0",
+        "release": "250615",
+        "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+        "rules": "freestyle13",
+        "score_semantics": "external strong move proxy, not exact",
+        "source": "https://github.com/dhbloo/rapfi"
+      },
+      "15": {
+        "files": {
+          "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+          "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+          "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+        },
+        "license": "GPL-3.0",
+        "release": "250615",
+        "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+        "rules": "freestyle15",
+        "score_semantics": "external strong move proxy, not exact",
+        "source": "https://github.com/dhbloo/rapfi"
+      },
+      "17": {
+        "files": {
+          "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+          "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+          "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+        },
+        "license": "GPL-3.0",
+        "release": "250615",
+        "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+        "rules": "freestyle17",
+        "score_semantics": "external strong move proxy, not exact",
+        "source": "https://github.com/dhbloo/rapfi"
+      },
+      "19": {
+        "files": {
+          "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+          "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+          "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+        },
+        "license": "GPL-3.0",
+        "release": "250615",
+        "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+        "rules": "freestyle19",
+        "score_semantics": "external strong move proxy, not exact",
+        "source": "https://github.com/dhbloo/rapfi"
+      },
+      "21": {
+        "files": {
+          "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+          "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+          "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+        },
+        "license": "GPL-3.0",
+        "release": "250615",
+        "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+        "rules": "freestyle21",
+        "score_semantics": "external strong move proxy, not exact",
+        "source": "https://github.com/dhbloo/rapfi"
+      }
+    },
+    "figures": 10,
+    "fresh_backups": 61440,
+    "fresh_fixed_root_histories": 960,
+    "homogeneous_stationary_projectors": 150,
+    "model_combinations": 300,
+    "model_strata": 30,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 9,
+    "original_evidence_union_R55_R77": 119,
+    "original_obligations": 121,
+    "parent_commit": "a55241eae9df6a58e4433044106a08e33a45fba0",
+    "parent_dag_sha256": "1978da18c05d5d3d767d71b45b809988302637b7b10b88e7e9aa620176229732",
+    "prior_training_backups": 61440,
+    "prior_training_histories": 960,
+    "raw_bytes": 272276341,
+    "remaining": "Native autonomous RG, physical fixed-point identification, structural gauge, quality report and final scientific certification.",
+    "retained_pairs": 631,
+    "sizes": [
+      13,
+      15,
+      17,
+      19,
+      21
+    ],
+    "status": "scoped_rg_fixed_point_and_independent_closure"
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

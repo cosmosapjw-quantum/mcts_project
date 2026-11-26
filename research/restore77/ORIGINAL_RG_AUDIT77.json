@@ -1,0 +1,52 @@
+{
+  "beta_residual": [
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "characteristic_polynomial": "(tau**2*x + 1)*(-epsilon + tau*x - 2)*(tau*x**2 - tau*x + 1)/tau**4",
+  "frozen_tau_candidate": {
+    "T": "1/tau",
+    "c": "eta*tau/4",
+    "g": "2*sqrt(pi)/sqrt(tau)",
+    "lambda": "0"
+  },
+  "gaussian_singular": "g^3/T path-dependent near (0,0): T=g^3 gives 1, T=g^2 gives 0 limit",
+  "jacobian": [
+    [
+      "1",
+      "-sqrt(pi)*sqrt(tau)",
+      "0",
+      "0"
+    ],
+    [
+      "1/(sqrt(pi)*tau**(3/2))",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "eta/(4*sqrt(pi)*sqrt(tau))",
+      "0",
+      "-1/tau**2",
+      "eta/(16*pi)"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "(epsilon + 2)/tau"
+    ]
+  ],
+  "original_prior_infinite": "lambda=infinity not finite-coordinate fixed point",
+  "positive_lambda_residual": "epsilon/tau + lambda**2/(6*pi) + 2/tau",
+  "scope": "Original formulas, finite positive T and frozen tau; original tau(N) is not constant; no alternative physical RG identified",
+  "source_member": {
+    "archive": "mcts_study.zip",
+    "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+    "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+  },
+  "status": "DERIVED_CHECKED_SYMPY_WOLFRAM",
+  "wilson_fisher_beta_g_over_g": "-epsilon**2 + epsilon - 1/2"
+}

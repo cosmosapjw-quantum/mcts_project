@@ -1,0 +1,3480 @@
+{
+  "L": 17,
+  "array_sha256": "36c2ff40aa91770be3a31153a87e2959c1189a5df17dcb1b0897fa2c256c3298",
+  "candidate_samples": 99840,
+  "errors": {
+    "backup": 0.0,
+    "probability": 6.8833827526759706e-15,
+    "root_score": 0.0,
+    "root_u": 1.1102230246251565e-16,
+    "sample_log": 1.7763568394002505e-15,
+    "uniform": 0.0,
+    "wave_constant": 0.0
+  },
+  "fresh_backups": 12288,
+  "fresh_bytes": 43883476,
+  "fresh_paths": 192,
+  "raw_receipts": [
+    {
+      "budget": 64,
+      "bytes": 189488,
+      "cohort": 0,
+      "id": "6410288b244ce296e763d269",
+      "path": "mqft_restore76_20261127/data/L17/base/6410288b244ce296e763d269.jsonl.gz",
+      "seed": 12134595001517564487,
+      "sha256": "db1654cedf4a6d3c479d95c9b164f39d853ffc17f7f610ed15cae91b5a9ec436"
+    },
+    {
+      "budget": 64,
+      "bytes": 186891,
+      "cohort": 0,
+      "id": "fda5816b2ee965fec726d3ae",
+      "path": "mqft_restore76_20261127/data/L17/base/fda5816b2ee965fec726d3ae.jsonl.gz",
+      "seed": 11977841070994642141,
+      "sha256": "ed6e56f5762c39a59172237986294189ec41ea1c6590a1747b814654d29ed279"
+    },
+    {
+      "budget": 64,
+      "bytes": 188164,
+      "cohort": 0,
+      "id": "ca9853c12c3a19fa2f474530",
+      "path": "mqft_restore76_20261127/data/L17/base/ca9853c12c3a19fa2f474530.jsonl.gz",
+      "seed": 117346402867121507,
+      "sha256": "a664898f5036a4b80c9eeb7fdbc2aff371385e1c6c39b5807bdd30d8449d49f4"
+    },
+    {
+      "budget": 64,
+      "bytes": 188389,
+      "cohort": 0,
+      "id": "c8baea530db0abce2b09c0dd",
+      "path": "mqft_restore76_20261127/data/L17/base/c8baea530db0abce2b09c0dd.jsonl.gz",
+      "seed": 8142626232057365183,
+      "sha256": "c253efdd741c88626fde6be1c3c9ac51d6d4bba664a5b903591de8d0fabfcc8a"
+    },
+    {
+      "budget": 64,
+      "bytes": 189516,
+      "cohort": 0,
+      "id": "68111f6c462c49455be14d67",
+      "path": "mqft_restore76_20261127/data/L17/base/68111f6c462c49455be14d67.jsonl.gz",
+      "seed": 16078010779513580896,
+      "sha256": "12912121f429a68924d22835218545fcd4f71c7251fefcb26f78e88f3545a499"
+    },
+    {
+      "budget": 64,
+      "bytes": 189191,
+      "cohort": 0,
+      "id": "408d11cb72fe110f7b31a475",
+      "path": "mqft_restore76_20261127/data/L17/base/408d11cb72fe110f7b31a475.jsonl.gz",
+      "seed": 15645123749163533711,
+      "sha256": "3b249240e8a7b5748948724a24720d639f7ee0a5c0394358bd36b569656a0a93"
+    },
+    {
+      "budget": 64,
+      "bytes": 188484,
+      "cohort": 0,
+      "id": "d68eeba152c8263ea0f44619",
+      "path": "mqft_restore76_20261127/data/L17/base/d68eeba152c8263ea0f44619.jsonl.gz",
+      "seed": 3478748087092864093,
+      "sha256": "213b3f2d5b7d3b8ad732908166e0a668bcaf0082e98ad9fb280674ee85e74395"
+    },
+    {
+      "budget": 64,
+      "bytes": 188446,
+      "cohort": 0,
+      "id": "f0b87dd202f8a38a5038933e",
+      "path": "mqft_restore76_20261127/data/L17/base/f0b87dd202f8a38a5038933e.jsonl.gz",
+      "seed": 8486096785520708080,
+      "sha256": "01205ad06b99282a25a95cf1957fe114600953e8d2c1b18200f21a7e2f7ad09b"
+    },
+    {
+      "budget": 64,
+      "bytes": 189058,
+      "cohort": 0,
+      "id": "ba2ab06a4d9235e2326e4419",
+      "path": "mqft_restore76_20261127/data/L17/base/ba2ab06a4d9235e2326e4419.jsonl.gz",
+      "seed": 634165129938305767,
+      "sha256": "d3273eaa34e02e1274265ace785d9614d0be5655e0447cb7210e1a37b1b18abc"
+    },
+    {
+      "budget": 64,
+      "bytes": 190701,
+      "cohort": 0,
+      "id": "135852399c960d45488c92c8",
+      "path": "mqft_restore76_20261127/data/L17/base/135852399c960d45488c92c8.jsonl.gz",
+      "seed": 14888068600390482557,
+      "sha256": "47abaa7dd2c541ed60702dc3fdee61fbad58858ed7ab660ebf18d46a68960a67"
+    },
+    {
+      "budget": 64,
+      "bytes": 189099,
+      "cohort": 0,
+      "id": "72b0eb009ba74f2f643e9b84",
+      "path": "mqft_restore76_20261127/data/L17/base/72b0eb009ba74f2f643e9b84.jsonl.gz",
+      "seed": 326035656448814167,
+      "sha256": "7b81d89d14b55635a033478e022a7878e1a6cb599300ad06a06968f138c06b32"
+    },
+    {
+      "budget": 64,
+      "bytes": 189520,
+      "cohort": 0,
+      "id": "924d8ff1a055597d9c585966",
+      "path": "mqft_restore76_20261127/data/L17/base/924d8ff1a055597d9c585966.jsonl.gz",
+      "seed": 7237476730997666728,
+      "sha256": "1a9ceec176780103633ae440bd44115c78dae0be21d1543e653d4e8d58725926"
+    },
+    {
+      "budget": 64,
+      "bytes": 194427,
+      "cohort": 0,
+      "id": "c7021bf337656f1fe7ec62a7",
+      "path": "mqft_restore76_20261127/data/L17/base/c7021bf337656f1fe7ec62a7.jsonl.gz",
+      "seed": 15909271638149573113,
+      "sha256": "46fdbf68ed398a57bd708b3ff52fd020ce260b2a4e4ffbd986be6c3c7263c6cf"
+    },
+    {
+      "budget": 64,
+      "bytes": 196400,
+      "cohort": 0,
+      "id": "2b59f6e054db9cb5fbed1296",
+      "path": "mqft_restore76_20261127/data/L17/base/2b59f6e054db9cb5fbed1296.jsonl.gz",
+      "seed": 2919909554541115885,
+      "sha256": "66923f268b1e976e04bd5f5ed5dc1d388138c2e3d6ba8266998686d0dde384a6"
+    },
+    {
+      "budget": 64,
+      "bytes": 199392,
+      "cohort": 0,
+      "id": "3f8ada3080e231fc8701958b",
+      "path": "mqft_restore76_20261127/data/L17/base/3f8ada3080e231fc8701958b.jsonl.gz",
+      "seed": 2564895319347271322,
+      "sha256": "8e3d4d8305356f150f7dddb53dde0bdef0153b55828f91f131a3b4e338a43cfd"
+    },
+    {
+      "budget": 64,
+      "bytes": 197278,
+      "cohort": 0,
+      "id": "88e60195a176b4434763e1ea",
+      "path": "mqft_restore76_20261127/data/L17/base/88e60195a176b4434763e1ea.jsonl.gz",
+      "seed": 10142946563966245165,
+      "sha256": "0bb165b2ac2a511da79b8ba4f5bb5fbd301b6f1a3f2901925d373ef3364c484d"
+    },
+    {
+      "budget": 64,
+      "bytes": 191896,
+      "cohort": 0,
+      "id": "3e3816db2978fea031894d26",
+      "path": "mqft_restore76_20261127/data/L17/base/3e3816db2978fea031894d26.jsonl.gz",
+      "seed": 15868406414982897587,
+      "sha256": "d15a0b5d71fbfd1311954f667a32e53119c9b9b61706c73b5dd3e0705b2fc8f0"
+    },
+    {
+      "budget": 64,
+      "bytes": 190363,
+      "cohort": 0,
+      "id": "440c526e8010cedf4bf3a734",
+      "path": "mqft_restore76_20261127/data/L17/base/440c526e8010cedf4bf3a734.jsonl.gz",
+      "seed": 15165935253000148704,
+      "sha256": "7bf983c72c555cffe031c802d35543507ef4b77e0c3265361afb4d2272e6e72a"
+    },
+    {
+      "budget": 64,
+      "bytes": 189163,
+      "cohort": 0,
+      "id": "1be9d02b243ff6d1dc12a37b",
+      "path": "mqft_restore76_20261127/data/L17/base/1be9d02b243ff6d1dc12a37b.jsonl.gz",
+      "seed": 1081040410498857776,
+      "sha256": "47216b26068a57d511331c1a1960a77e22f39f77f565edfdf9c89672f44c95c2"
+    },
+    {
+      "budget": 64,
+      "bytes": 191617,
+      "cohort": 0,
+      "id": "fa1f34c887a8ff0bf0bd5f76",
+      "path": "mqft_restore76_20261127/data/L17/base/fa1f34c887a8ff0bf0bd5f76.jsonl.gz",
+      "seed": 14442779969857827537,
+      "sha256": "e45b1f23271586e5e9b3ad3ce84b970227ced053fc112dee6cddfcd09b027651"
+    },
+    {
+      "budget": 64,
+      "bytes": 186777,
+      "cohort": 0,
+      "id": "21b34a7813414afca2c3370e",
+      "path": "mqft_restore76_20261127/data/L17/base/21b34a7813414afca2c3370e.jsonl.gz",
+      "seed": 8472557704059585205,
+      "sha256": "7c72c51f1f35d424dfe0ad6d9dc83828b5820009a8a611cae6c4d79ce1303e0b"
+    },
+    {
+      "budget": 64,
+      "bytes": 185762,
+      "cohort": 0,
+      "id": "6deab7c62810df90a36fea71",
+      "path": "mqft_restore76_20261127/data/L17/base/6deab7c62810df90a36fea71.jsonl.gz",
+      "seed": 9391416556824785906,
+      "sha256": "7ce53ab1eef1d91b24bab798819dea1867526feb0b2096664b556e02ea11f92a"
+    },
+    {
+      "budget": 64,
+      "bytes": 185014,
+      "cohort": 0,
+      "id": "6f2f1128e69e1ba53362d249",
+      "path": "mqft_restore76_20261127/data/L17/base/6f2f1128e69e1ba53362d249.jsonl.gz",
+      "seed": 8613994663688325299,
+      "sha256": "dabb09d94612adab8bfcd3652693f12bc9faabe12d18d2d4e9cebb54031dc047"
+    },
+    {
+      "budget": 64,
+      "bytes": 186946,
+      "cohort": 0,
+      "id": "fa38433bf151be82065cc86d",
+      "path": "mqft_restore76_20261127/data/L17/base/fa38433bf151be82065cc86d.jsonl.gz",
+      "seed": 17232115177220744049,
+      "sha256": "2646d7391ff5b673cad778616fc2da01ba349ebcb904d2fe06787a2510e17597"
+    },
+    {
+      "budget": 64,
+      "bytes": 186794,
+      "cohort": 0,
+      "id": "14cc5316309fa904e33453f3",
+      "path": "mqft_restore76_20261127/data/L17/base/14cc5316309fa904e33453f3.jsonl.gz",
+      "seed": 6518803179240693031,
+      "sha256": "ed9286d3b27fda1b690a3ebbb4160e0eb8e3ea5c3e2b18526fbc3dcaa2104f79"
+    },
+    {
+      "budget": 64,
+      "bytes": 189521,
+      "cohort": 0,
+      "id": "6bab05d176977d3c50bc753a",
+      "path": "mqft_restore76_20261127/data/L17/base/6bab05d176977d3c50bc753a.jsonl.gz",
+      "seed": 8400923856349751744,
+      "sha256": "f327e88f8b79e574de498d7cc25a0fa9cda7e853c990dd158876c5758c760863"
+    },
+    {
+      "budget": 64,
+      "bytes": 190489,
+      "cohort": 0,
+      "id": "6da123d0ebd0af767e8466f6",
+      "path": "mqft_restore76_20261127/data/L17/base/6da123d0ebd0af767e8466f6.jsonl.gz",
+      "seed": 16711466919554177710,
+      "sha256": "f68b064735cca76f8cf90bc9d1c4ce91aaf7d6c819a5c0e721dd91a1e5e3fb2c"
+    },
+    {
+      "budget": 64,
+      "bytes": 187975,
+      "cohort": 0,
+      "id": "4ca36196b67b1a386f44c228",
+      "path": "mqft_restore76_20261127/data/L17/base/4ca36196b67b1a386f44c228.jsonl.gz",
+      "seed": 10025219035401316226,
+      "sha256": "9bfb8683b846d781ed81cccde98e11b2d4d77c1d39134567a67d62dba853ae1b"
+    },
+    {
+      "budget": 64,
+      "bytes": 187888,
+      "cohort": 0,
+      "id": "950510a8beb42903b3bfa482",
+      "path": "mqft_restore76_20261127/data/L17/base/950510a8beb42903b3bfa482.jsonl.gz",
+      "seed": 17046885104818119803,
+      "sha256": "31f2fe267c1c191de01510ebfcd936550720b186340a942d548bc2bb57406359"
+    },
+    {
+      "budget": 64,
+      "bytes": 188512,
+      "cohort": 0,
+      "id": "589b792f355f75c930b3fa40",
+      "path": "mqft_restore76_20261127/data/L17/base/589b792f355f75c930b3fa40.jsonl.gz",
+      "seed": 12936673212864793900,
+      "sha256": "9118973031aba9cc4be02f400d2afa8790f728efa53c621f21433b3dbec1e43b"
+    },
+    {
+      "budget": 64,
+      "bytes": 185501,
+      "cohort": 0,
+      "id": "707469851e670cda1cf4aad9",
+      "path": "mqft_restore76_20261127/data/L17/base/707469851e670cda1cf4aad9.jsonl.gz",
+      "seed": 14859440186519611494,
+      "sha256": "34de385cb800b5ce5b1a69a28341704e4a03fa73dd8d5dce174caf2942b82b4a"
+    },
+    {
+      "budget": 64,
+      "bytes": 187155,
+      "cohort": 0,
+      "id": "334a0b7f26be175abb222536",
+      "path": "mqft_restore76_20261127/data/L17/base/334a0b7f26be175abb222536.jsonl.gz",
+      "seed": 16736673754339606922,
+      "sha256": "4326363cfffac253abdef06ee78e6ea79ecc672e231fd2e3e000e4adf06bbbca"
+    },
+    {
+      "budget": 64,
+      "bytes": 195064,
+      "cohort": 0,
+      "id": "74edd94beebaa2753eeb891e",
+      "path": "mqft_restore76_20261127/data/L17/base/74edd94beebaa2753eeb891e.jsonl.gz",
+      "seed": 5075042912351308876,
+      "sha256": "3cb0c81ecf60c2cc6236e9c224396bad3d50eb2e3c30839d72928bba9e4e03e3"
+    },
+    {
+      "budget": 64,
+      "bytes": 194593,
+      "cohort": 0,
+      "id": "d676fa1c825a5b845e516e2c",
+      "path": "mqft_restore76_20261127/data/L17/base/d676fa1c825a5b845e516e2c.jsonl.gz",
+      "seed": 15359691307022811526,
+      "sha256": "024348317ebda0281a42af8e74358eee98b8ffbf9491ef39980ec95eef933c24"
+    },
+    {
+      "budget": 64,
+      "bytes": 194301,
+      "cohort": 0,
+      "id": "30dbf7e6b9f889e94e56be65",
+      "path": "mqft_restore76_20261127/data/L17/base/30dbf7e6b9f889e94e56be65.jsonl.gz",
+      "seed": 14777125108189701257,
+      "sha256": "12537b212361f23df93cb2cfc55e22c798ccd9600df3522ff2b3f1631789a986"
+    },
+    {
+      "budget": 64,
+      "bytes": 193534,
+      "cohort": 0,
+      "id": "8ebc95569a7708ebbc821776",
+      "path": "mqft_restore76_20261127/data/L17/base/8ebc95569a7708ebbc821776.jsonl.gz",
+      "seed": 9276291014524195456,
+      "sha256": "8385840b5ba7e1034a8dc549f6b9b45959eeb07f71ec8c9c27947eb3255c09ea"
+    },
+    {
+      "budget": 64,
+      "bytes": 198768,
+      "cohort": 0,
+      "id": "69cfa6ccbc699258695a8310",
+      "path": "mqft_restore76_20261127/data/L17/base/69cfa6ccbc699258695a8310.jsonl.gz",
+      "seed": 8579742895038724070,
+      "sha256": "e362a459a4e7c6f9db1d61bf9abaeee5b27f05eaa65fb3e5a64d2bdb26c09b37"
+    },
+    {
+      "budget": 64,
+      "bytes": 195235,
+      "cohort": 0,
+      "id": "42d66be1966f5e448c995f8a",
+      "path": "mqft_restore76_20261127/data/L17/base/42d66be1966f5e448c995f8a.jsonl.gz",
+      "seed": 9975283502508591164,
+      "sha256": "692c2f761ac0f0740b3bef37673cdebe1587724cd96dd07948edd4c17b4d9cdb"
+    },
+    {
+      "budget": 64,
+      "bytes": 199626,
+      "cohort": 0,
+      "id": "e25026af4249776074e47b00",
+      "path": "mqft_restore76_20261127/data/L17/base/e25026af4249776074e47b00.jsonl.gz",
+      "seed": 14317910182760018655,
+      "sha256": "64a44ad5597aa19db435bb1a1834431439acd1052339cb9069f7baffb14f5adb"
+    },
+    {
+      "budget": 64,
+      "bytes": 196136,
+      "cohort": 0,
+      "id": "e344752f8459405896d5dc52",
+      "path": "mqft_restore76_20261127/data/L17/base/e344752f8459405896d5dc52.jsonl.gz",
+      "seed": 15644105719780342647,
+      "sha256": "38b0ff6d89cf2648fb133755108abc222db19336d4c26066cbc98d8b9aaeaec4"
+    },
+    {
+      "budget": 64,
+      "bytes": 196148,
+      "cohort": 0,
+      "id": "5a3369132ae71e3dd39fa645",
+      "path": "mqft_restore76_20261127/data/L17/base/5a3369132ae71e3dd39fa645.jsonl.gz",
+      "seed": 13168805712627740226,
+      "sha256": "8ffaba119bdd88a8923057f007079f40fdd4db3da5347e351c87e15e5804b279"
+    },
+    {
+      "budget": 64,
+      "bytes": 194511,
+      "cohort": 0,
+      "id": "777225f4e024a58e6ec0e904",
+      "path": "mqft_restore76_20261127/data/L17/base/777225f4e024a58e6ec0e904.jsonl.gz",
+      "seed": 5637338911591733807,
+      "sha256": "83e7b4fb20809686abce48eb517545f8fac4282659afa8a183bfb2040d67d269"
+    },
+    {
+      "budget": 64,
+      "bytes": 193815,
+      "cohort": 0,
+      "id": "4af49b70e8e32145e7f3d8bf",
+      "path": "mqft_restore76_20261127/data/L17/base/4af49b70e8e32145e7f3d8bf.jsonl.gz",
+      "seed": 8921241729700103877,
+      "sha256": "59e8a1f12564f4b9085f510f5a09495a46caabaaacff0c031c73106a992299ca"
+    },
+    {
+      "budget": 64,
+      "bytes": 192990,
+      "cohort": 0,
+      "id": "1a5eaaeb50498f25842783eb",
+      "path": "mqft_restore76_20261127/data/L17/base/1a5eaaeb50498f25842783eb.jsonl.gz",
+      "seed": 1960081458450813778,
+      "sha256": "abcb16df7437328f9c288a127ac408c16b1eddac279463194179f142535801c2"
+    },
+    {
+      "budget": 64,
+      "bytes": 188941,
+      "cohort": 0,
+      "id": "41b680e60a2b04e7bbcbb582",
+      "path": "mqft_restore76_20261127/data/L17/base/41b680e60a2b04e7bbcbb582.jsonl.gz",
+      "seed": 7317030344547497033,
+      "sha256": "8b841baebde5041a9223fbeb9491b31e94767ecac9539223c7036bc59cd0d78b"
+    },
+    {
+      "budget": 64,
+      "bytes": 191886,
+      "cohort": 0,
+      "id": "2845ce964843aba984d82225",
+      "path": "mqft_restore76_20261127/data/L17/base/2845ce964843aba984d82225.jsonl.gz",
+      "seed": 6500770391921192158,
+      "sha256": "450f14be1c225326b5674a8aaca1403e25dfa0c749445147597b2824ded76462"
+    },
+    {
+      "budget": 64,
+      "bytes": 190073,
+      "cohort": 0,
+      "id": "616356fc4ee93c21cd8a640e",
+      "path": "mqft_restore76_20261127/data/L17/base/616356fc4ee93c21cd8a640e.jsonl.gz",
+      "seed": 4306078765799019703,
+      "sha256": "38284f939a5e9a3327f7251c591ec62c8d0b9d09eb45354d9af61a64fd1000bb"
+    },
+    {
+      "budget": 64,
+      "bytes": 190128,
+      "cohort": 0,
+      "id": "ec4c0e538c7ea5b2e54b9f2b",
+      "path": "mqft_restore76_20261127/data/L17/base/ec4c0e538c7ea5b2e54b9f2b.jsonl.gz",
+      "seed": 13293928913950381797,
+      "sha256": "3ae193f40c26df104c39e6bae58979e42f53097425c83f957234365d55c78c2a"
+    },
+    {
+      "budget": 64,
+      "bytes": 189304,
+      "cohort": 0,
+      "id": "f5899ff9c49bc7c3b29e1fb5",
+      "path": "mqft_restore76_20261127/data/L17/base/f5899ff9c49bc7c3b29e1fb5.jsonl.gz",
+      "seed": 13515166383327946779,
+      "sha256": "e80ac776c75c25d07c29e2b87ae2d5d9b0a56584c6424312c3cbdde964e475f3"
+    },
+    {
+      "budget": 64,
+      "bytes": 189345,
+      "cohort": 0,
+      "id": "d25fffdd782b2992f0d3fbc7",
+      "path": "mqft_restore76_20261127/data/L17/base/d25fffdd782b2992f0d3fbc7.jsonl.gz",
+      "seed": 15901185381898874286,
+      "sha256": "896b6ea4f8dcd3d0783ad4508787f8cd83573fd2004dd935c883e9e2c78ba871"
+    },
+    {
+      "budget": 64,
+      "bytes": 192445,
+      "cohort": 0,
+      "id": "9e25c3bcff7ca76a47fa0dd6",
+      "path": "mqft_restore76_20261127/data/L17/base/9e25c3bcff7ca76a47fa0dd6.jsonl.gz",
+      "seed": 124847841966661371,
+      "sha256": "a404c61f6dc6b9a1e4b12c0a25f090a6fd1fb93b170ab84f3cef47a212b0681c"
+    },
+    {
+      "budget": 64,
+      "bytes": 191328,
+      "cohort": 0,
+      "id": "44a63c328105047d0a461870",
+      "path": "mqft_restore76_20261127/data/L17/base/44a63c328105047d0a461870.jsonl.gz",
+      "seed": 5089614581379277160,
+      "sha256": "6e634566a835ab0ed7bed28063d06486638b30732d0928f385ea7ac67c3b7ef2"
+    },
+    {
+      "budget": 64,
+      "bytes": 194403,
+      "cohort": 0,
+      "id": "5eec4f6b88321eebd2c6e6a5",
+      "path": "mqft_restore76_20261127/data/L17/base/5eec4f6b88321eebd2c6e6a5.jsonl.gz",
+      "seed": 16948581258944338312,
+      "sha256": "342ede3810608c606cf9214d80eebaef9fff3f06498ce441322a89fce7d7733c"
+    },
+    {
+      "budget": 64,
+      "bytes": 194608,
+      "cohort": 0,
+      "id": "0ad3fb65fd018866ecf5077c",
+      "path": "mqft_restore76_20261127/data/L17/base/0ad3fb65fd018866ecf5077c.jsonl.gz",
+      "seed": 12027781308109164497,
+      "sha256": "af64ff85e97f214cde6e1c952b94685d00cf5c6ae649b428142c3c18a004e59b"
+    },
+    {
+      "budget": 64,
+      "bytes": 192059,
+      "cohort": 0,
+      "id": "ad71e299bc7a492233b5adda",
+      "path": "mqft_restore76_20261127/data/L17/base/ad71e299bc7a492233b5adda.jsonl.gz",
+      "seed": 14380700068625462956,
+      "sha256": "78da5cd2c43bf3cb688985b863bcde6395b75161d482e47d9ea6efee272a8f17"
+    },
+    {
+      "budget": 64,
+      "bytes": 194976,
+      "cohort": 0,
+      "id": "c67640391bc48daa2b3e0ea9",
+      "path": "mqft_restore76_20261127/data/L17/base/c67640391bc48daa2b3e0ea9.jsonl.gz",
+      "seed": 11473865314480740983,
+      "sha256": "3b747828dedccabc669f9b501993aaba01cad0bce0ac439e2888cbbba1137cd4"
+    },
+    {
+      "budget": 64,
+      "bytes": 183917,
+      "cohort": 0,
+      "id": "86086b20af5b345c9627803b",
+      "path": "mqft_restore76_20261127/data/L17/base/86086b20af5b345c9627803b.jsonl.gz",
+      "seed": 5060243517325434921,
+      "sha256": "7050479927cd0436e61be0c4e5fe8a58bef3ab973fec5ff65faf1ff5410641ad"
+    },
+    {
+      "budget": 64,
+      "bytes": 181876,
+      "cohort": 0,
+      "id": "2321f8f304db0560ad9f32b0",
+      "path": "mqft_restore76_20261127/data/L17/base/2321f8f304db0560ad9f32b0.jsonl.gz",
+      "seed": 15287963296833002111,
+      "sha256": "7d86ddfa1d1b6acc473d319d0e016edf83aa0ce6697743650af3703ac01971c1"
+    },
+    {
+      "budget": 64,
+      "bytes": 183744,
+      "cohort": 0,
+      "id": "f51b53a290f44fc53ee246c5",
+      "path": "mqft_restore76_20261127/data/L17/base/f51b53a290f44fc53ee246c5.jsonl.gz",
+      "seed": 17722864686166268191,
+      "sha256": "3a64d6b78ec6c21179c749db8cafabcc0c163add4790a85fecf9e96d2d36e6e4"
+    },
+    {
+      "budget": 64,
+      "bytes": 181761,
+      "cohort": 0,
+      "id": "d9ffdd28113ca4f3de233e17",
+      "path": "mqft_restore76_20261127/data/L17/base/d9ffdd28113ca4f3de233e17.jsonl.gz",
+      "seed": 9418464718309941422,
+      "sha256": "d34bc94b8cada18de001325f6c2d26b187083b14caefb7b394c07164ceb610e7"
+    },
+    {
+      "budget": 64,
+      "bytes": 188121,
+      "cohort": 0,
+      "id": "7d6ab20597b691cba03d5aee",
+      "path": "mqft_restore76_20261127/data/L17/base/7d6ab20597b691cba03d5aee.jsonl.gz",
+      "seed": 198703783196567546,
+      "sha256": "6469c5f5de92228bfd3a27d0f4b203dabe53ee2af23f60669f33507221cf439b"
+    },
+    {
+      "budget": 64,
+      "bytes": 185338,
+      "cohort": 0,
+      "id": "0fd69e711ecdffb6dd39ac75",
+      "path": "mqft_restore76_20261127/data/L17/base/0fd69e711ecdffb6dd39ac75.jsonl.gz",
+      "seed": 8010906305667365090,
+      "sha256": "be65caa71188b3d2ae48d48ec50f5f2a117a99a555041ee37b12f4296aebd044"
+    },
+    {
+      "budget": 64,
+      "bytes": 186893,
+      "cohort": 0,
+      "id": "0023e166b76514539f77af1d",
+      "path": "mqft_restore76_20261127/data/L17/base/0023e166b76514539f77af1d.jsonl.gz",
+      "seed": 5062968634138421016,
+      "sha256": "d74d75da9cad4fab31c20d5d15c4a4681cff93fd7c740feb5921c1921c7dff53"
+    },
+    {
+      "budget": 64,
+      "bytes": 185751,
+      "cohort": 0,
+      "id": "c2850e0e61d32a6a4c4f650f",
+      "path": "mqft_restore76_20261127/data/L17/base/c2850e0e61d32a6a4c4f650f.jsonl.gz",
+      "seed": 4538003942099036061,
+      "sha256": "c3fcf36bf70872faac46a6d20ef68d9253b070f64ba8685c4631616d3366d940"
+    },
+    {
+      "budget": 64,
+      "bytes": 251855,
+      "cohort": 0,
+      "id": "94a6c2a37ae39709132f1d7b",
+      "path": "mqft_restore76_20261127/data/L17/base/94a6c2a37ae39709132f1d7b.jsonl.gz",
+      "seed": 12134595001517564487,
+      "sha256": "c33d1578430d16bf4d02c5dacdbb48cd1ac7824590a9fbc2f777e586efe2259a"
+    },
+    {
+      "budget": 64,
+      "bytes": 251391,
+      "cohort": 0,
+      "id": "ccf5facc5db9d53127fa6d83",
+      "path": "mqft_restore76_20261127/data/L17/base/ccf5facc5db9d53127fa6d83.jsonl.gz",
+      "seed": 11977841070994642141,
+      "sha256": "df4f7ea213301a2cdddd3458793b2c39b5519fc5489cfc270abcae879e6c2a07"
+    },
+    {
+      "budget": 64,
+      "bytes": 253135,
+      "cohort": 0,
+      "id": "8f856fb0c14d804f975ff08e",
+      "path": "mqft_restore76_20261127/data/L17/base/8f856fb0c14d804f975ff08e.jsonl.gz",
+      "seed": 117346402867121507,
+      "sha256": "3e2b22d7c7c1c1bc8e9b5c2c94580b6b21ceba13a0281879a456b745b3f1eed6"
+    },
+    {
+      "budget": 64,
+      "bytes": 251700,
+      "cohort": 0,
+      "id": "d1f130b0e818521c4cf34749",
+      "path": "mqft_restore76_20261127/data/L17/base/d1f130b0e818521c4cf34749.jsonl.gz",
+      "seed": 8142626232057365183,
+      "sha256": "de35a9f969bee9002f444c31902645ac30ddada5471fc4f8268860696f0dedc1"
+    },
+    {
+      "budget": 64,
+      "bytes": 250467,
+      "cohort": 0,
+      "id": "8c45699235f038ec5f24fdce",
+      "path": "mqft_restore76_20261127/data/L17/base/8c45699235f038ec5f24fdce.jsonl.gz",
+      "seed": 16078010779513580896,
+      "sha256": "8f47a0dbefd93707fde204f29e434603f85f61bdb59f8b8849c3244eedbd5cda"
+    },
+    {
+      "budget": 64,
+      "bytes": 253638,
+      "cohort": 0,
+      "id": "fe457ea52910104b0236a2a5",
+      "path": "mqft_restore76_20261127/data/L17/base/fe457ea52910104b0236a2a5.jsonl.gz",
+      "seed": 15645123749163533711,
+      "sha256": "947df8fcb826ef612a3936c669f2445b8828c4264aa7c60188418e8d51fa8ba8"
+    },
+    {
+      "budget": 64,
+      "bytes": 249003,
+      "cohort": 0,
+      "id": "867f9905b6476e83a45c917d",
+      "path": "mqft_restore76_20261127/data/L17/base/867f9905b6476e83a45c917d.jsonl.gz",
+      "seed": 3478748087092864093,
+      "sha256": "9b461d223f54cdc46ee18b590c186baffa6d832b5dae169b35c9560e16d30d22"
+    },
+    {
+      "budget": 64,
+      "bytes": 257259,
+      "cohort": 0,
+      "id": "a27e14a0e8cd44f33d0697dc",
+      "path": "mqft_restore76_20261127/data/L17/base/a27e14a0e8cd44f33d0697dc.jsonl.gz",
+      "seed": 8486096785520708080,
+      "sha256": "4d2ea8aa530bc4fa041617dc4f7f997b36de868ebae99752cbef3c8b0ed14294"
+    },
+    {
+      "budget": 64,
+      "bytes": 255851,
+      "cohort": 0,
+      "id": "1c6b2a2ea73eb752eb0ca29e",
+      "path": "mqft_restore76_20261127/data/L17/base/1c6b2a2ea73eb752eb0ca29e.jsonl.gz",
+      "seed": 634165129938305767,
+      "sha256": "38eab6f15e0f458e55845d1988fea44e85fb640e89ad5b2dbfb21c6706150c2f"
+    },
+    {
+      "budget": 64,
+      "bytes": 255574,
+      "cohort": 0,
+      "id": "1f5a2feb97aca82c5c54d368",
+      "path": "mqft_restore76_20261127/data/L17/base/1f5a2feb97aca82c5c54d368.jsonl.gz",
+      "seed": 14888068600390482557,
+      "sha256": "92672b950757eb97b1d2c872e817db0beb3f4fae076ebce6f6037364cab25299"
+    },
+    {
+      "budget": 64,
+      "bytes": 251709,
+      "cohort": 0,
+      "id": "b309786002c88c223cc67c6b",
+      "path": "mqft_restore76_20261127/data/L17/base/b309786002c88c223cc67c6b.jsonl.gz",
+      "seed": 326035656448814167,
+      "sha256": "12121b1f582bbf1da272d78e9c7d550b265f34c431f30ad1b6f27c51d8bd6e1d"
+    },
+    {
+      "budget": 64,
+      "bytes": 257410,
+      "cohort": 0,
+      "id": "624baa21ddabaa3d71d80149",
+      "path": "mqft_restore76_20261127/data/L17/base/624baa21ddabaa3d71d80149.jsonl.gz",
+      "seed": 7237476730997666728,
+      "sha256": "d351989859a9aa8f81cbe34aee2db23f3f0f414905585e79dfa37bfbb71aca2b"
+    },
+    {
+      "budget": 64,
+      "bytes": 268014,
+      "cohort": 0,
+      "id": "1fae4e0c23baf15ef6f1f7e4",
+      "path": "mqft_restore76_20261127/data/L17/base/1fae4e0c23baf15ef6f1f7e4.jsonl.gz",
+      "seed": 15909271638149573113,
+      "sha256": "3067111d90795a1eb693bdbee37a29f3bdc7bb2bc2f9853514f61bc523617a6d"
+    },
+    {
+      "budget": 64,
+      "bytes": 270521,
+      "cohort": 0,
+      "id": "8588c19ba8d0b02509f84566",
+      "path": "mqft_restore76_20261127/data/L17/base/8588c19ba8d0b02509f84566.jsonl.gz",
+      "seed": 2919909554541115885,
+      "sha256": "d9d3b1634c151d24788654d74a758a1fbc62fff2d7bf20cccf142d9a688f20de"
+    },
+    {
+      "budget": 64,
+      "bytes": 266508,
+      "cohort": 0,
+      "id": "70327e73c81a2f7b3bd919ca",
+      "path": "mqft_restore76_20261127/data/L17/base/70327e73c81a2f7b3bd919ca.jsonl.gz",
+      "seed": 2564895319347271322,
+      "sha256": "25f0235ee833c2c4ac5038ef935db0ad13abbf55da0caada80a29d3c11f28043"
+    },
+    {
+      "budget": 64,
+      "bytes": 271939,
+      "cohort": 0,
+      "id": "5036bcd6af7903b23253b838",
+      "path": "mqft_restore76_20261127/data/L17/base/5036bcd6af7903b23253b838.jsonl.gz",
+      "seed": 10142946563966245165,
+      "sha256": "fd2c08eb41c9654a2125ccbb577c329e6ae147041e95b07f38ba8270f833458f"
+    },
+    {
+      "budget": 64,
+      "bytes": 254618,
+      "cohort": 0,
+      "id": "3beac3b692ca86aa7fae1ff2",
+      "path": "mqft_restore76_20261127/data/L17/base/3beac3b692ca86aa7fae1ff2.jsonl.gz",
+      "seed": 15868406414982897587,
+      "sha256": "0f0e605220ec52c25eec57b98f5cb28758a7e6e07ff6e6f818fc44bcbaf6faaa"
+    },
+    {
+      "budget": 64,
+      "bytes": 255181,
+      "cohort": 0,
+      "id": "ed0b58f09660f08a03b15122",
+      "path": "mqft_restore76_20261127/data/L17/base/ed0b58f09660f08a03b15122.jsonl.gz",
+      "seed": 15165935253000148704,
+      "sha256": "ce7c7465520e558c8555c0e9be18911699d334114ad15a8a5aec143fb3bac9d1"
+    },
+    {
+      "budget": 64,
+      "bytes": 252703,
+      "cohort": 0,
+      "id": "28e15a040ddef052ea16ed6f",
+      "path": "mqft_restore76_20261127/data/L17/base/28e15a040ddef052ea16ed6f.jsonl.gz",
+      "seed": 1081040410498857776,
+      "sha256": "dd060f08cb45e6afd95f5ca12049958b5e7a2c2aaa15789d8531cbbb53c9b0e8"
+    },
+    {
+      "budget": 64,
+      "bytes": 254977,
+      "cohort": 0,
+      "id": "f236698894c64fe08aeb612a",
+      "path": "mqft_restore76_20261127/data/L17/base/f236698894c64fe08aeb612a.jsonl.gz",
+      "seed": 14442779969857827537,
+      "sha256": "90a9962775b116de03b530d8af5c0cc41628a748876102c8e10da5a16033ad6e"
+    },
+    {
+      "budget": 64,
+      "bytes": 247279,
+      "cohort": 0,
+      "id": "df3a40281b3e3b90bbaa67f3",
+      "path": "mqft_restore76_20261127/data/L17/base/df3a40281b3e3b90bbaa67f3.jsonl.gz",
+      "seed": 8472557704059585205,
+      "sha256": "a9093d4759344bb99cfa32b36518653dbc11dd5b877493ae1f7fce38aa82cdf7"
+    },
+    {
+      "budget": 64,
+      "bytes": 245958,
+      "cohort": 0,
+      "id": "5c5bb0a46dc81109d51825e1",
+      "path": "mqft_restore76_20261127/data/L17/base/5c5bb0a46dc81109d51825e1.jsonl.gz",
+      "seed": 9391416556824785906,
+      "sha256": "60f9c23d536c1eef55d057f8fee66b0eeae2a8ac4535b7a5a1c8ab08b717a106"
+    },
+    {
+      "budget": 64,
+      "bytes": 252411,
+      "cohort": 0,
+      "id": "e0d085866a43f4f7970b356f",
+      "path": "mqft_restore76_20261127/data/L17/base/e0d085866a43f4f7970b356f.jsonl.gz",
+      "seed": 8613994663688325299,
+      "sha256": "3f809f1c17b0d6376c1ab4729d9224156864fb796f9f226c579fd9bceaa70d1f"
+    },
+    {
+      "budget": 64,
+      "bytes": 251477,
+      "cohort": 0,
+      "id": "221b1e21e19977ae8fae39da",
+      "path": "mqft_restore76_20261127/data/L17/base/221b1e21e19977ae8fae39da.jsonl.gz",
+      "seed": 17232115177220744049,
+      "sha256": "6bd89c5d1d86ba823b5a7cc737c34fda860b7f6b426fa3b2565d155515048dfc"
+    },
+    {
+      "budget": 64,
+      "bytes": 258676,
+      "cohort": 0,
+      "id": "b943853459123f1c70bef18b",
+      "path": "mqft_restore76_20261127/data/L17/base/b943853459123f1c70bef18b.jsonl.gz",
+      "seed": 6518803179240693031,
+      "sha256": "032360d47c79095db9fc20f2652eba6700def6c18b8e4bfa4762442d4c08437c"
+    },
+    {
+      "budget": 64,
+      "bytes": 252758,
+      "cohort": 0,
+      "id": "5459938430ae50149ffd223a",
+      "path": "mqft_restore76_20261127/data/L17/base/5459938430ae50149ffd223a.jsonl.gz",
+      "seed": 8400923856349751744,
+      "sha256": "1f7bf7eca8ff8b80938c31c6c8591d887dc19f56aaf503c11097a270c9f4f78b"
+    },
+    {
+      "budget": 64,
+      "bytes": 253765,
+      "cohort": 0,
+      "id": "9ca6bc9fd664722db4843276",
+      "path": "mqft_restore76_20261127/data/L17/base/9ca6bc9fd664722db4843276.jsonl.gz",
+      "seed": 16711466919554177710,
+      "sha256": "4df1ae1d4a75ede3fb57f05e001de9a111d997f2fc5334c8d3b4c3eb655220cc"
+    },
+    {
+      "budget": 64,
+      "bytes": 259070,
+      "cohort": 0,
+      "id": "618d33143836911e7035cd26",
+      "path": "mqft_restore76_20261127/data/L17/base/618d33143836911e7035cd26.jsonl.gz",
+      "seed": 10025219035401316226,
+      "sha256": "dbd2b15d53f2bf816d46a9f29c9526b1e22663270d6cf5817f6e9b5f06fff876"
+    },
+    {
+      "budget": 64,
+      "bytes": 252735,
+      "cohort": 0,
+      "id": "e78813b3154c80e24c4f3b85",
+      "path": "mqft_restore76_20261127/data/L17/base/e78813b3154c80e24c4f3b85.jsonl.gz",
+      "seed": 17046885104818119803,
+      "sha256": "5477d2995f8454d85c41c12bfe4db2e9d30c2bd975d9d52f8451e03f15d8bd50"
+    },
+    {
+      "budget": 64,
+      "bytes": 252132,
+      "cohort": 0,
+      "id": "05b0cd186d090caa54dbff38",
+      "path": "mqft_restore76_20261127/data/L17/base/05b0cd186d090caa54dbff38.jsonl.gz",
+      "seed": 12936673212864793900,
+      "sha256": "de0d16db995e403c3b9985166d89e72d473e07a340991c69ea08ecbb53e0dd5a"
+    },
+    {
+      "budget": 64,
+      "bytes": 251930,
+      "cohort": 0,
+      "id": "17fdf84eb864a29640b74267",
+      "path": "mqft_restore76_20261127/data/L17/base/17fdf84eb864a29640b74267.jsonl.gz",
+      "seed": 14859440186519611494,
+      "sha256": "4c2900c03433827ff5dc9e0f5be1bf70c3d5fd151fbd9f15e3a199854881f547"
+    },
+    {
+      "budget": 64,
+      "bytes": 250670,
+      "cohort": 0,
+      "id": "24e88bb0e9a3bfd70dd4d760",
+      "path": "mqft_restore76_20261127/data/L17/base/24e88bb0e9a3bfd70dd4d760.jsonl.gz",
+      "seed": 16736673754339606922,
+      "sha256": "7fe0c6352023fa5c61c00c3c5f8f33048131122fe75bc79be7411734ce68832f"
+    },
+    {
+      "budget": 64,
+      "bytes": 261375,
+      "cohort": 0,
+      "id": "f603bd6ee42c6bb3515fcc7e",
+      "path": "mqft_restore76_20261127/data/L17/base/f603bd6ee42c6bb3515fcc7e.jsonl.gz",
+      "seed": 5075042912351308876,
+      "sha256": "e0db923533812852c74110b8bbf96dceb4df7250256ab71ffc1ff48995da12d0"
+    },
+    {
+      "budget": 64,
+      "bytes": 260979,
+      "cohort": 0,
+      "id": "d3930ee6440e6628c33bbf1c",
+      "path": "mqft_restore76_20261127/data/L17/base/d3930ee6440e6628c33bbf1c.jsonl.gz",
+      "seed": 15359691307022811526,
+      "sha256": "1950bc05b6d0860bf36c45bad60ed83dbe2744ae527a804efcf14670718b2f3d"
+    },
+    {
+      "budget": 64,
+      "bytes": 260271,
+      "cohort": 0,
+      "id": "f39bf7fc2e415937de0807e3",
+      "path": "mqft_restore76_20261127/data/L17/base/f39bf7fc2e415937de0807e3.jsonl.gz",
+      "seed": 14777125108189701257,
+      "sha256": "1b1c26c66dd9cb3d70535a2e7c186dd8999ad356e41e63b363c9148677539f94"
+    },
+    {
+      "budget": 64,
+      "bytes": 258777,
+      "cohort": 0,
+      "id": "9261ed71890f56af15073dd1",
+      "path": "mqft_restore76_20261127/data/L17/base/9261ed71890f56af15073dd1.jsonl.gz",
+      "seed": 9276291014524195456,
+      "sha256": "0de9a4d1ef47ec2af04dce9d12c66a90092c44ab28d79ec10f0d1e4e92aa915b"
+    },
+    {
+      "budget": 64,
+      "bytes": 263948,
+      "cohort": 0,
+      "id": "c6ee789a06fe9e3232b5e642",
+      "path": "mqft_restore76_20261127/data/L17/base/c6ee789a06fe9e3232b5e642.jsonl.gz",
+      "seed": 8579742895038724070,
+      "sha256": "ddd3a0218ae79a5a5ee34b21aa38f468ca8ed387ba88e215096d7ce3057f219f"
+    },
+    {
+      "budget": 64,
+      "bytes": 272002,
+      "cohort": 0,
+      "id": "f0912fef1403ae67de9c6d26",
+      "path": "mqft_restore76_20261127/data/L17/base/f0912fef1403ae67de9c6d26.jsonl.gz",
+      "seed": 9975283502508591164,
+      "sha256": "5b438a5a78232f5ac3a3575e621cc0e7bc16a5f6db5277309856a99c2bc72ecc"
+    },
+    {
+      "budget": 64,
+      "bytes": 270645,
+      "cohort": 0,
+      "id": "d974ffeeb6c67619f23e7b7b",
+      "path": "mqft_restore76_20261127/data/L17/base/d974ffeeb6c67619f23e7b7b.jsonl.gz",
+      "seed": 14317910182760018655,
+      "sha256": "64746f1c7ac3133192064c6310e8d19f8c7adf122d2c5a2fe3202137fb2ab6a0"
+    },
+    {
+      "budget": 64,
+      "bytes": 273715,
+      "cohort": 0,
+      "id": "752aa6a8bed08eb3b0bf5c05",
+      "path": "mqft_restore76_20261127/data/L17/base/752aa6a8bed08eb3b0bf5c05.jsonl.gz",
+      "seed": 15644105719780342647,
+      "sha256": "720030269c1c96f5e2ec970bcff88ed72b653bfcd788b99656ddb76076b689df"
+    },
+    {
+      "budget": 64,
+      "bytes": 261548,
+      "cohort": 0,
+      "id": "ff741b556bb8e22134699fe8",
+      "path": "mqft_restore76_20261127/data/L17/base/ff741b556bb8e22134699fe8.jsonl.gz",
+      "seed": 13168805712627740226,
+      "sha256": "70b88357b142e131be77e5ce2ac33bc6a910dd2abbb3da2e071ba85ecbf660d5"
+    },
+    {
+      "budget": 64,
+      "bytes": 265056,
+      "cohort": 0,
+      "id": "cb724bdad82f4613cb8d52fe",
+      "path": "mqft_restore76_20261127/data/L17/base/cb724bdad82f4613cb8d52fe.jsonl.gz",
+      "seed": 5637338911591733807,
+      "sha256": "6634cde063862c5ac730e7379ba0165eccbc2ba16d57542547d8e51218674e50"
+    },
+    {
+      "budget": 64,
+      "bytes": 256749,
+      "cohort": 0,
+      "id": "dfc46faebba5ee8af5824984",
+      "path": "mqft_restore76_20261127/data/L17/base/dfc46faebba5ee8af5824984.jsonl.gz",
+      "seed": 8921241729700103877,
+      "sha256": "225c52638b91557d149a9f8bd9484515889770c7a5845fb43556a92d6f21951a"
+    },
+    {
+      "budget": 64,
+      "bytes": 259801,
+      "cohort": 0,
+      "id": "86967683cb420b3547e52835",
+      "path": "mqft_restore76_20261127/data/L17/base/86967683cb420b3547e52835.jsonl.gz",
+      "seed": 1960081458450813778,
+      "sha256": "14ea3b43475529ef8250ba45d18563513167fee2a8c8820da81b27b0d20c7afe"
+    },
+    {
+      "budget": 64,
+      "bytes": 259128,
+      "cohort": 0,
+      "id": "c5945e1dd06eda9e02c04d7b",
+      "path": "mqft_restore76_20261127/data/L17/base/c5945e1dd06eda9e02c04d7b.jsonl.gz",
+      "seed": 7317030344547497033,
+      "sha256": "427e22f7b302ab8b886e79b668cb9c3f5dd73f4d3547db260747b4d34f93c23e"
+    },
+    {
+      "budget": 64,
+      "bytes": 256716,
+      "cohort": 0,
+      "id": "5c40e1ec3cfc93906a192fd2",
+      "path": "mqft_restore76_20261127/data/L17/base/5c40e1ec3cfc93906a192fd2.jsonl.gz",
+      "seed": 6500770391921192158,
+      "sha256": "ef99f61c385a3a82cdf18b0cf78b6106c55ca56a5ff2ffc9277b206ac990e25a"
+    },
+    {
+      "budget": 64,
+      "bytes": 256738,
+      "cohort": 0,
+      "id": "fe85e7fbcc95b1614b4254da",
+      "path": "mqft_restore76_20261127/data/L17/base/fe85e7fbcc95b1614b4254da.jsonl.gz",
+      "seed": 4306078765799019703,
+      "sha256": "762ac5a502a8cc98e998366d6bb3f86ac399ddc7bd1d3859a50c901ee87a1fbf"
+    },
+    {
+      "budget": 64,
+      "bytes": 258880,
+      "cohort": 0,
+      "id": "2cd78aa7192a818a4ea4dd07",
+      "path": "mqft_restore76_20261127/data/L17/base/2cd78aa7192a818a4ea4dd07.jsonl.gz",
+      "seed": 13293928913950381797,
+      "sha256": "a9f58966eaac8e8b196a7500277f7d8c80c5c743958986a4832e07f31f6a2601"
+    },
+    {
+      "budget": 64,
+      "bytes": 252993,
+      "cohort": 0,
+      "id": "9e2271ac1e16fedcca035674",
+      "path": "mqft_restore76_20261127/data/L17/base/9e2271ac1e16fedcca035674.jsonl.gz",
+      "seed": 13515166383327946779,
+      "sha256": "b30106cfcf0bb998900402944e7de99b911fad46aedbb8b8c819ea8cc40053f0"
+    },
+    {
+      "budget": 64,
+      "bytes": 258747,
+      "cohort": 0,
+      "id": "654590d7ac6d45470add4577",
+      "path": "mqft_restore76_20261127/data/L17/base/654590d7ac6d45470add4577.jsonl.gz",
+      "seed": 15901185381898874286,
+      "sha256": "2c17a932ee9d597b7a37a45ba1b7ce5ceef89c60b4ec041b7288317598821974"
+    },
+    {
+      "budget": 64,
+      "bytes": 257648,
+      "cohort": 0,
+      "id": "e7ba32f1b8ffc7659f3166c7",
+      "path": "mqft_restore76_20261127/data/L17/base/e7ba32f1b8ffc7659f3166c7.jsonl.gz",
+      "seed": 124847841966661371,
+      "sha256": "5c6e7ccb65451092c2700a95c08bc8299962fc0b55051766fe646ebd6f248439"
+    },
+    {
+      "budget": 64,
+      "bytes": 257193,
+      "cohort": 0,
+      "id": "e69a16f3cf9907c3d7ef92cd",
+      "path": "mqft_restore76_20261127/data/L17/base/e69a16f3cf9907c3d7ef92cd.jsonl.gz",
+      "seed": 5089614581379277160,
+      "sha256": "79aee788aec5b7820cdd89ee99033f1b4e76125d74e941204450090cbcffd2ae"
+    },
+    {
+      "budget": 64,
+      "bytes": 261165,
+      "cohort": 0,
+      "id": "1c0a308038c8169109ec5412",
+      "path": "mqft_restore76_20261127/data/L17/base/1c0a308038c8169109ec5412.jsonl.gz",
+      "seed": 16948581258944338312,
+      "sha256": "a5922748d7d4396614d13619dd10a5845196efbc35f1702414393810982c67eb"
+    },
+    {
+      "budget": 64,
+      "bytes": 268799,
+      "cohort": 0,
+      "id": "e6f2ab2c4208072069d43024",
+      "path": "mqft_restore76_20261127/data/L17/base/e6f2ab2c4208072069d43024.jsonl.gz",
+      "seed": 12027781308109164497,
+      "sha256": "297fa8ec29a2053585bcd2f02f0e19da8f88705d3c8f951b57f1f08e745dcc2a"
+    },
+    {
+      "budget": 64,
+      "bytes": 261608,
+      "cohort": 0,
+      "id": "c1190f0cb68057f30c85655d",
+      "path": "mqft_restore76_20261127/data/L17/base/c1190f0cb68057f30c85655d.jsonl.gz",
+      "seed": 14380700068625462956,
+      "sha256": "25be3940bee57953ced470c51456ab258ccdea299426bff923bb179a9b606bc1"
+    },
+    {
+      "budget": 64,
+      "bytes": 265338,
+      "cohort": 0,
+      "id": "60cfa5332d1605cda8a9990d",
+      "path": "mqft_restore76_20261127/data/L17/base/60cfa5332d1605cda8a9990d.jsonl.gz",
+      "seed": 11473865314480740983,
+      "sha256": "4f3edbf9982c6f06c58fb22799d7b2fb59e8555030c14355621f88cb1d8995dd"
+    },
+    {
+      "budget": 64,
+      "bytes": 241536,
+      "cohort": 0,
+      "id": "af465c6a91aa293430cb0b94",
+      "path": "mqft_restore76_20261127/data/L17/base/af465c6a91aa293430cb0b94.jsonl.gz",
+      "seed": 5060243517325434921,
+      "sha256": "327b5a5618b9f31b21e4685bfc18dee1239a889975fa12c73b734d6f8b173404"
+    },
+    {
+      "budget": 64,
+      "bytes": 233607,
+      "cohort": 0,
+      "id": "98da870f2e36d89ce28a0d42",
+      "path": "mqft_restore76_20261127/data/L17/base/98da870f2e36d89ce28a0d42.jsonl.gz",
+      "seed": 15287963296833002111,
+      "sha256": "63bcbdb727e0be35b23eacee88f47c64e518a1bb0b74378facdd1c0662b21bd6"
+    },
+    {
+      "budget": 64,
+      "bytes": 235223,
+      "cohort": 0,
+      "id": "7efa048d969b841d9779a17a",
+      "path": "mqft_restore76_20261127/data/L17/base/7efa048d969b841d9779a17a.jsonl.gz",
+      "seed": 17722864686166268191,
+      "sha256": "232046ea09ae7608af554b40fcfd297c3a408368cd15ff1b4a623bb4585e153d"
+    },
+    {
+      "budget": 64,
+      "bytes": 242445,
+      "cohort": 0,
+      "id": "c056ba5afc9f2a16d4689956",
+      "path": "mqft_restore76_20261127/data/L17/base/c056ba5afc9f2a16d4689956.jsonl.gz",
+      "seed": 9418464718309941422,
+      "sha256": "8d09484373dc8ccf8033b6dedfda6b790c64c4e9129798b2c5f135b7435adb55"
+    },
+    {
+      "budget": 64,
+      "bytes": 246651,
+      "cohort": 0,
+      "id": "d7166c3c47566051d4b859a9",
+      "path": "mqft_restore76_20261127/data/L17/base/d7166c3c47566051d4b859a9.jsonl.gz",
+      "seed": 198703783196567546,
+      "sha256": "c9c9032ed631ec45612e8f293cb0d42a5b4020a01c8685a692179168d3041d22"
+    },
+    {
+      "budget": 64,
+      "bytes": 245011,
+      "cohort": 0,
+      "id": "627d2231e287a759eaadecf1",
+      "path": "mqft_restore76_20261127/data/L17/base/627d2231e287a759eaadecf1.jsonl.gz",
+      "seed": 8010906305667365090,
+      "sha256": "ca5237ed0373c54e0d18d59b139500b0a84a118c4582afc0048cd9d9a49f238b"
+    },
+    {
+      "budget": 64,
+      "bytes": 242662,
+      "cohort": 0,
+      "id": "fd460d813a3f267a30f738c0",
+      "path": "mqft_restore76_20261127/data/L17/base/fd460d813a3f267a30f738c0.jsonl.gz",
+      "seed": 5062968634138421016,
+      "sha256": "5933dde3706d81516677e4b9ef1bb4d9b83f37a226da9950d99f5431974f9fb6"
+    },
+    {
+      "budget": 64,
+      "bytes": 247774,
+      "cohort": 0,
+      "id": "bf5a38c869b2da71c7870bd9",
+      "path": "mqft_restore76_20261127/data/L17/base/bf5a38c869b2da71c7870bd9.jsonl.gz",
+      "seed": 4538003942099036061,
+      "sha256": "8e87a9988767353bf6acd982ea1e700390c42d2147bb688745e2e4dbf4feb2a9"
+    },
+    {
+      "budget": 64,
+      "bytes": 241059,
+      "cohort": 0,
+      "id": "b9916f83307f310d31cc3ad7",
+      "path": "mqft_restore76_20261127/data/L17/base/b9916f83307f310d31cc3ad7.jsonl.gz",
+      "seed": 12134595001517564487,
+      "sha256": "eaad90eb03ec2ef5de07cafc73a425414005260e8f544b5dd5beb5724db589c8"
+    },
+    {
+      "budget": 64,
+      "bytes": 238115,
+      "cohort": 0,
+      "id": "13f64fe43e52ed585a8bc3b2",
+      "path": "mqft_restore76_20261127/data/L17/base/13f64fe43e52ed585a8bc3b2.jsonl.gz",
+      "seed": 11977841070994642141,
+      "sha256": "a12192739471c138a4125df801129c936913632fc5c77aa9a9b4026b787168ac"
+    },
+    {
+      "budget": 64,
+      "bytes": 237122,
+      "cohort": 0,
+      "id": "eb64fc6c6764b523fa6cdeb2",
+      "path": "mqft_restore76_20261127/data/L17/base/eb64fc6c6764b523fa6cdeb2.jsonl.gz",
+      "seed": 117346402867121507,
+      "sha256": "ebc2531b59421ad4a1c2be49e5bb308d35ddd8bc2b62ea343d194f0e533dc752"
+    },
+    {
+      "budget": 64,
+      "bytes": 240568,
+      "cohort": 0,
+      "id": "154e375e27a4f74bf1846d26",
+      "path": "mqft_restore76_20261127/data/L17/base/154e375e27a4f74bf1846d26.jsonl.gz",
+      "seed": 8142626232057365183,
+      "sha256": "92259939e329762d0411d3e56a009895dd103c80cc5d946f16fb10a57f562e1c"
+    },
+    {
+      "budget": 64,
+      "bytes": 246245,
+      "cohort": 0,
+      "id": "a4887244f5d039028427f1a4",
+      "path": "mqft_restore76_20261127/data/L17/base/a4887244f5d039028427f1a4.jsonl.gz",
+      "seed": 16078010779513580896,
+      "sha256": "9a3a0086226b4ec1f145ae23bce254e32ee880f46be159720e526f8e608a9793"
+    },
+    {
+      "budget": 64,
+      "bytes": 244435,
+      "cohort": 0,
+      "id": "d35f4f23454f7cd69db99fb6",
+      "path": "mqft_restore76_20261127/data/L17/base/d35f4f23454f7cd69db99fb6.jsonl.gz",
+      "seed": 15645123749163533711,
+      "sha256": "4a1f77f202b531c91e8dfd14e3acda0ea94d218b941319ffc32b198a4247462c"
+    },
+    {
+      "budget": 64,
+      "bytes": 248472,
+      "cohort": 0,
+      "id": "c2262374145a245360a12561",
+      "path": "mqft_restore76_20261127/data/L17/base/c2262374145a245360a12561.jsonl.gz",
+      "seed": 3478748087092864093,
+      "sha256": "0987853a7077edefba396db3b0db25a9f4a8de9c1f738dcdec790a80bd63e8ed"
+    },
+    {
+      "budget": 64,
+      "bytes": 250605,
+      "cohort": 0,
+      "id": "cb77901032dc657122a49769",
+      "path": "mqft_restore76_20261127/data/L17/base/cb77901032dc657122a49769.jsonl.gz",
+      "seed": 8486096785520708080,
+      "sha256": "2756ed5416d2b5917f5d5d8fbf40d5dbcd9b61c655e1cf1d6d9566b39abba1b2"
+    },
+    {
+      "budget": 64,
+      "bytes": 245423,
+      "cohort": 0,
+      "id": "83e42703b03e87245dcce46d",
+      "path": "mqft_restore76_20261127/data/L17/base/83e42703b03e87245dcce46d.jsonl.gz",
+      "seed": 634165129938305767,
+      "sha256": "5569b69445d8b6cd8b5d7dfd9e70ea37001038918aa44dabc3f98c13fc906184"
+    },
+    {
+      "budget": 64,
+      "bytes": 237179,
+      "cohort": 0,
+      "id": "38defcaf9de2ed1a596bb8cc",
+      "path": "mqft_restore76_20261127/data/L17/base/38defcaf9de2ed1a596bb8cc.jsonl.gz",
+      "seed": 14888068600390482557,
+      "sha256": "8b7c60c89a2c8528019295dbc6b6f7cad7953ec807282421668e79f058f004cb"
+    },
+    {
+      "budget": 64,
+      "bytes": 239553,
+      "cohort": 0,
+      "id": "09621bbf7ce218044c65f57a",
+      "path": "mqft_restore76_20261127/data/L17/base/09621bbf7ce218044c65f57a.jsonl.gz",
+      "seed": 326035656448814167,
+      "sha256": "1f5c92784452375c6ac929cc4c0ab27a19e863d25f93b177e8c983668a3deee1"
+    },
+    {
+      "budget": 64,
+      "bytes": 240378,
+      "cohort": 0,
+      "id": "777fd848ad162fd256f29350",
+      "path": "mqft_restore76_20261127/data/L17/base/777fd848ad162fd256f29350.jsonl.gz",
+      "seed": 7237476730997666728,
+      "sha256": "8a02b221ce6f6de7cc412e4fff1a880e20e2844a637ec9d2608fa9d9aefe3bde"
+    },
+    {
+      "budget": 64,
+      "bytes": 261179,
+      "cohort": 0,
+      "id": "3264fc22cb6578323a2d8e2e",
+      "path": "mqft_restore76_20261127/data/L17/base/3264fc22cb6578323a2d8e2e.jsonl.gz",
+      "seed": 15909271638149573113,
+      "sha256": "ad380cba37836d68c0999e9b4758274cc562ba0031464868e42f41dafad41a06"
+    },
+    {
+      "budget": 64,
+      "bytes": 264403,
+      "cohort": 0,
+      "id": "4719b83f202a62ecfa1c6a06",
+      "path": "mqft_restore76_20261127/data/L17/base/4719b83f202a62ecfa1c6a06.jsonl.gz",
+      "seed": 2919909554541115885,
+      "sha256": "398cce3c7c06896b14a836c0bdc5d66d21e2a4ba30f1113d253cf9939948380a"
+    },
+    {
+      "budget": 64,
+      "bytes": 262487,
+      "cohort": 0,
+      "id": "33bc1cde440719ed2c7bd1ef",
+      "path": "mqft_restore76_20261127/data/L17/base/33bc1cde440719ed2c7bd1ef.jsonl.gz",
+      "seed": 2564895319347271322,
+      "sha256": "258715dbb5def04616f68a0c0a75ff633fedd3aef05e2e43be7b1f17d70ce3fd"
+    },
+    {
+      "budget": 64,
+      "bytes": 261295,
+      "cohort": 0,
+      "id": "2ecef017fc7c02beaeff3298",
+      "path": "mqft_restore76_20261127/data/L17/base/2ecef017fc7c02beaeff3298.jsonl.gz",
+      "seed": 10142946563966245165,
+      "sha256": "864a3afa50b359aa9c0b7c4109a02bb128655a1d0391b528df57aeeae163e327"
+    },
+    {
+      "budget": 64,
+      "bytes": 247159,
+      "cohort": 0,
+      "id": "906dc23942cf69dd7016ce4b",
+      "path": "mqft_restore76_20261127/data/L17/base/906dc23942cf69dd7016ce4b.jsonl.gz",
+      "seed": 15868406414982897587,
+      "sha256": "50655aedcc00f82a99081672a5bf57af42a4b7e396b6328226407b690cc57646"
+    },
+    {
+      "budget": 64,
+      "bytes": 244456,
+      "cohort": 0,
+      "id": "7866a7e4e9a6b962c9ed0b9c",
+      "path": "mqft_restore76_20261127/data/L17/base/7866a7e4e9a6b962c9ed0b9c.jsonl.gz",
+      "seed": 15165935253000148704,
+      "sha256": "da52d454e2f0c912472d7a16c3bf04905aa92d6b96e3fc2b585b282759de72a1"
+    },
+    {
+      "budget": 64,
+      "bytes": 245526,
+      "cohort": 0,
+      "id": "159eab189c770989368a9519",
+      "path": "mqft_restore76_20261127/data/L17/base/159eab189c770989368a9519.jsonl.gz",
+      "seed": 1081040410498857776,
+      "sha256": "23006f938a4cbada761943fa791a44a49cf6059b1904bd428a4dfde1fec623c7"
+    },
+    {
+      "budget": 64,
+      "bytes": 246545,
+      "cohort": 0,
+      "id": "ae922c002ae4a5d870bc470e",
+      "path": "mqft_restore76_20261127/data/L17/base/ae922c002ae4a5d870bc470e.jsonl.gz",
+      "seed": 14442779969857827537,
+      "sha256": "bcb99454c8ed6999c24c754e67e130d3395ff9004940c8eb150c73627d28c5e5"
+    },
+    {
+      "budget": 64,
+      "bytes": 244500,
+      "cohort": 0,
+      "id": "fbdafda965b62077541ce3de",
+      "path": "mqft_restore76_20261127/data/L17/base/fbdafda965b62077541ce3de.jsonl.gz",
+      "seed": 8472557704059585205,
+      "sha256": "16aed97d00bd5e47337c7b823a1b28c7d1f5f728ecd34ef012add27ff4d178a7"
+    },
+    {
+      "budget": 64,
+      "bytes": 237419,
+      "cohort": 0,
+      "id": "b491c45a20358e82d87e91c2",
+      "path": "mqft_restore76_20261127/data/L17/base/b491c45a20358e82d87e91c2.jsonl.gz",
+      "seed": 9391416556824785906,
+      "sha256": "6e4e8156ca417c10d675e32d9146a76cf9c1e23655650f597b79a8258fbed523"
+    },
+    {
+      "budget": 64,
+      "bytes": 244594,
+      "cohort": 0,
+      "id": "2ab6e7fce60d7af0ec111527",
+      "path": "mqft_restore76_20261127/data/L17/base/2ab6e7fce60d7af0ec111527.jsonl.gz",
+      "seed": 8613994663688325299,
+      "sha256": "2e401194b0235bdb2c78aad3b78229ed2e6a89c1cec3b67487670496f3e5be05"
+    },
+    {
+      "budget": 64,
+      "bytes": 238024,
+      "cohort": 0,
+      "id": "200c529e6cd81a9fa7e82a45",
+      "path": "mqft_restore76_20261127/data/L17/base/200c529e6cd81a9fa7e82a45.jsonl.gz",
+      "seed": 17232115177220744049,
+      "sha256": "14529fb87af0e52d411c28e0c3d532ba38b4d3fc53f86a5fa51b1ded41a0b3c7"
+    },
+    {
+      "budget": 64,
+      "bytes": 252953,
+      "cohort": 0,
+      "id": "266e92f805abf91544d59e56",
+      "path": "mqft_restore76_20261127/data/L17/base/266e92f805abf91544d59e56.jsonl.gz",
+      "seed": 6518803179240693031,
+      "sha256": "18906992b34efe7bc0a967eac39d0b3d536cd62202da61e329325658c0b97064"
+    },
+    {
+      "budget": 64,
+      "bytes": 252212,
+      "cohort": 0,
+      "id": "e51318d8d90ff3d96edfce28",
+      "path": "mqft_restore76_20261127/data/L17/base/e51318d8d90ff3d96edfce28.jsonl.gz",
+      "seed": 8400923856349751744,
+      "sha256": "b75223a465e4fffe3e3bac9726a20150dda9fc9cb900a655b273044310b9f92d"
+    },
+    {
+      "budget": 64,
+      "bytes": 247411,
+      "cohort": 0,
+      "id": "5bd1087a561237d6c1a7bb9a",
+      "path": "mqft_restore76_20261127/data/L17/base/5bd1087a561237d6c1a7bb9a.jsonl.gz",
+      "seed": 16711466919554177710,
+      "sha256": "60e55ea07e140503a7e0136ea3eac972d5c17cb0447eb1efb667b0e3768cc689"
+    },
+    {
+      "budget": 64,
+      "bytes": 249036,
+      "cohort": 0,
+      "id": "ce966d809072b4301709c4e6",
+      "path": "mqft_restore76_20261127/data/L17/base/ce966d809072b4301709c4e6.jsonl.gz",
+      "seed": 10025219035401316226,
+      "sha256": "d57a21706c5ea08ded92038e94f63db03a6dc99afe8ef0ead210dd191cdd32d7"
+    },
+    {
+      "budget": 64,
+      "bytes": 243541,
+      "cohort": 0,
+      "id": "9c6fb4164f11b4f0c448ca51",
+      "path": "mqft_restore76_20261127/data/L17/base/9c6fb4164f11b4f0c448ca51.jsonl.gz",
+      "seed": 17046885104818119803,
+      "sha256": "ca47c10b19cc3d0d6dbb9460162a916fe3228d5242bb9d61f516218cd3c614b5"
+    },
+    {
+      "budget": 64,
+      "bytes": 242072,
+      "cohort": 0,
+      "id": "c7ac9a192860cf8ed03425fc",
+      "path": "mqft_restore76_20261127/data/L17/base/c7ac9a192860cf8ed03425fc.jsonl.gz",
+      "seed": 12936673212864793900,
+      "sha256": "fa2bd942522b52d8fbb9a75d632aa5a4d78bc1416bac9f541c54a21da0e6a3bc"
+    },
+    {
+      "budget": 64,
+      "bytes": 238498,
+      "cohort": 0,
+      "id": "d5942c4b61bb20369bc053f4",
+      "path": "mqft_restore76_20261127/data/L17/base/d5942c4b61bb20369bc053f4.jsonl.gz",
+      "seed": 14859440186519611494,
+      "sha256": "de626178292233632ef468e67d833b9d5a156f3da9a34246f245113d30ad9746"
+    },
+    {
+      "budget": 64,
+      "bytes": 241490,
+      "cohort": 0,
+      "id": "f175abfe5303d2633f52edb8",
+      "path": "mqft_restore76_20261127/data/L17/base/f175abfe5303d2633f52edb8.jsonl.gz",
+      "seed": 16736673754339606922,
+      "sha256": "4fb3b3222bb50454ebc63ccbe55440795e6517d0b8fd1a82c7350f302091228b"
+    },
+    {
+      "budget": 64,
+      "bytes": 255264,
+      "cohort": 0,
+      "id": "b6b855062adf3ef98f7ef3aa",
+      "path": "mqft_restore76_20261127/data/L17/base/b6b855062adf3ef98f7ef3aa.jsonl.gz",
+      "seed": 5075042912351308876,
+      "sha256": "7a3510d00a5d831e8fcbe6f3437a808055cc5c81e8d7a0c8b75c2728eeded4e0"
+    },
+    {
+      "budget": 64,
+      "bytes": 254292,
+      "cohort": 0,
+      "id": "681dabe468ff1146e8e74110",
+      "path": "mqft_restore76_20261127/data/L17/base/681dabe468ff1146e8e74110.jsonl.gz",
+      "seed": 15359691307022811526,
+      "sha256": "e007265c6f5b21abe1245ff477858b38ea91e458f0205b8f233de3b52d0b8892"
+    },
+    {
+      "budget": 64,
+      "bytes": 252614,
+      "cohort": 0,
+      "id": "2f285e8efe0c263a8ac5c661",
+      "path": "mqft_restore76_20261127/data/L17/base/2f285e8efe0c263a8ac5c661.jsonl.gz",
+      "seed": 14777125108189701257,
+      "sha256": "f1b6019211d80ad80f24ae5d629ed646bd0ede03528b988d5d37cd71f3aaff2a"
+    },
+    {
+      "budget": 64,
+      "bytes": 255897,
+      "cohort": 0,
+      "id": "0fefcbb3eb67ec33d6f2773c",
+      "path": "mqft_restore76_20261127/data/L17/base/0fefcbb3eb67ec33d6f2773c.jsonl.gz",
+      "seed": 9276291014524195456,
+      "sha256": "af34356f51eea46ba8b2245652508bfdf9baac7db6743853e7858cc9972f41cb"
+    },
+    {
+      "budget": 64,
+      "bytes": 268246,
+      "cohort": 0,
+      "id": "77b9706a08183b34197a6c5e",
+      "path": "mqft_restore76_20261127/data/L17/base/77b9706a08183b34197a6c5e.jsonl.gz",
+      "seed": 8579742895038724070,
+      "sha256": "d01a86311a6333de8146666b583514b205ca267912b963d1aa8ff348d9509b09"
+    },
+    {
+      "budget": 64,
+      "bytes": 265936,
+      "cohort": 0,
+      "id": "a6517ac4fef2231621a76420",
+      "path": "mqft_restore76_20261127/data/L17/base/a6517ac4fef2231621a76420.jsonl.gz",
+      "seed": 9975283502508591164,
+      "sha256": "e685206c4edeeabecacdcd14e6f99b58122a14fad288973080cbfb5651688a54"
+    },
+    {
+      "budget": 64,
+      "bytes": 267570,
+      "cohort": 0,
+      "id": "5a1e8f183eaf08f668acf2fa",
+      "path": "mqft_restore76_20261127/data/L17/base/5a1e8f183eaf08f668acf2fa.jsonl.gz",
+      "seed": 14317910182760018655,
+      "sha256": "c3fcf6a57fb515b34b48fd0533dbc6af944e67ea2874f1e83bd7ff4446f9ef82"
+    },
+    {
+      "budget": 64,
+      "bytes": 266077,
+      "cohort": 0,
+      "id": "9771c1adf72d0ec897082ffd",
+      "path": "mqft_restore76_20261127/data/L17/base/9771c1adf72d0ec897082ffd.jsonl.gz",
+      "seed": 15644105719780342647,
+      "sha256": "83657c13ef6e5c5d91c46c0d0b1f675a5039710c41844d546b277a5ff1a31b64"
+    },
+    {
+      "budget": 64,
+      "bytes": 248585,
+      "cohort": 0,
+      "id": "4bf47ce534f5e95bff9827e7",
+      "path": "mqft_restore76_20261127/data/L17/base/4bf47ce534f5e95bff9827e7.jsonl.gz",
+      "seed": 13168805712627740226,
+      "sha256": "58f99f31e79fe41843b55a9f12f2b2df1d1a326377ca06c928dccad82eb5a118"
+    },
+    {
+      "budget": 64,
+      "bytes": 246084,
+      "cohort": 0,
+      "id": "c3be535c2d20077c938afa22",
+      "path": "mqft_restore76_20261127/data/L17/base/c3be535c2d20077c938afa22.jsonl.gz",
+      "seed": 5637338911591733807,
+      "sha256": "e0c010abd9a7e36bda5753cb09cb590cd7a9ee434fc5caad97667f2ca4d1cf21"
+    },
+    {
+      "budget": 64,
+      "bytes": 249721,
+      "cohort": 0,
+      "id": "b2f7853864d5ffb1049402bf",
+      "path": "mqft_restore76_20261127/data/L17/base/b2f7853864d5ffb1049402bf.jsonl.gz",
+      "seed": 8921241729700103877,
+      "sha256": "638b86cd72a502bdfbe0a3f7378af098d60f606abbdbb3fb784ae93d51607406"
+    },
+    {
+      "budget": 64,
+      "bytes": 248422,
+      "cohort": 0,
+      "id": "70565fdc866f74788c46cf54",
+      "path": "mqft_restore76_20261127/data/L17/base/70565fdc866f74788c46cf54.jsonl.gz",
+      "seed": 1960081458450813778,
+      "sha256": "87842682b2188c3f3be9194754715050a827802f81ad2bcf005dd8ef0520bec9"
+    },
+    {
+      "budget": 64,
+      "bytes": 256463,
+      "cohort": 0,
+      "id": "1936bd2c3df8f460f8538b9b",
+      "path": "mqft_restore76_20261127/data/L17/base/1936bd2c3df8f460f8538b9b.jsonl.gz",
+      "seed": 7317030344547497033,
+      "sha256": "118598dbc7aefd788d446faa2797ac7cf1e9d59bd73066b028a2f5636929b2f2"
+    },
+    {
+      "budget": 64,
+      "bytes": 255433,
+      "cohort": 0,
+      "id": "65ffc71ba0bccaf172c8cc4e",
+      "path": "mqft_restore76_20261127/data/L17/base/65ffc71ba0bccaf172c8cc4e.jsonl.gz",
+      "seed": 6500770391921192158,
+      "sha256": "0baafbc2419d4e5858ec8bbe8b690b363b0a0fc6ff9bcfe721f3ff99041085ab"
+    },
+    {
+      "budget": 64,
+      "bytes": 248286,
+      "cohort": 0,
+      "id": "ef6d58841447701392906c5d",
+      "path": "mqft_restore76_20261127/data/L17/base/ef6d58841447701392906c5d.jsonl.gz",
+      "seed": 4306078765799019703,
+      "sha256": "d4aa4cd065d522a6b067bff30383b7dfcaffcaf9bc2568ec462207c1b9d25f08"
+    },
+    {
+      "budget": 64,
+      "bytes": 254355,
+      "cohort": 0,
+      "id": "7f6758a3a7e91017679340a0",
+      "path": "mqft_restore76_20261127/data/L17/base/7f6758a3a7e91017679340a0.jsonl.gz",
+      "seed": 13293928913950381797,
+      "sha256": "94c3a96487caa26b747187997ec9c49ed538ff4761dc10207e3bb42d3f23d45c"
+    },
+    {
+      "budget": 64,
+      "bytes": 256029,
+      "cohort": 0,
+      "id": "1180685c28fb856b8ded52f0",
+      "path": "mqft_restore76_20261127/data/L17/base/1180685c28fb856b8ded52f0.jsonl.gz",
+      "seed": 13515166383327946779,
+      "sha256": "ad4ed330d98eef253237e58b2621783d8bb5bf978b0639628dd5474955edcc1f"
+    },
+    {
+      "budget": 64,
+      "bytes": 246499,
+      "cohort": 0,
+      "id": "69260ff36578c86588b2ca61",
+      "path": "mqft_restore76_20261127/data/L17/base/69260ff36578c86588b2ca61.jsonl.gz",
+      "seed": 15901185381898874286,
+      "sha256": "b9124337b0f80388508e9fdd56f81d51c200c163686e77bc0e5f091f8699d760"
+    },
+    {
+      "budget": 64,
+      "bytes": 250294,
+      "cohort": 0,
+      "id": "631b56b98ac1c7bb57fd98b8",
+      "path": "mqft_restore76_20261127/data/L17/base/631b56b98ac1c7bb57fd98b8.jsonl.gz",
+      "seed": 124847841966661371,
+      "sha256": "418c2ec05a3bb2cad3a37cd06f451b4dea4bcc6072bfa19a0d93453c9eb12292"
+    },
+    {
+      "budget": 64,
+      "bytes": 247179,
+      "cohort": 0,
+      "id": "b27d817ccaa7acb99441b307",
+      "path": "mqft_restore76_20261127/data/L17/base/b27d817ccaa7acb99441b307.jsonl.gz",
+      "seed": 5089614581379277160,
+      "sha256": "292f84bdc2206ae6170134bc816788b0f47af2403d9453f92670bc6214f67279"
+    },
+    {
+      "budget": 64,
+      "bytes": 259803,
+      "cohort": 0,
+      "id": "3d50c50c2c89f52cfac74b85",
+      "path": "mqft_restore76_20261127/data/L17/base/3d50c50c2c89f52cfac74b85.jsonl.gz",
+      "seed": 16948581258944338312,
+      "sha256": "a9314ce99e17f308d7891e062e5acc6648bcdc57f361c6700755621e6b577573"
+    },
+    {
+      "budget": 64,
+      "bytes": 263137,
+      "cohort": 0,
+      "id": "bb53e4a1f56bf06b7c0c00df",
+      "path": "mqft_restore76_20261127/data/L17/base/bb53e4a1f56bf06b7c0c00df.jsonl.gz",
+      "seed": 12027781308109164497,
+      "sha256": "3f2c8e36d60d533803a9312195d7b5e5c09098e049f657ae64d84ea577b3ab87"
+    },
+    {
+      "budget": 64,
+      "bytes": 265987,
+      "cohort": 0,
+      "id": "988ea1d2c125d55977ffb762",
+      "path": "mqft_restore76_20261127/data/L17/base/988ea1d2c125d55977ffb762.jsonl.gz",
+      "seed": 14380700068625462956,
+      "sha256": "874430a091c3d4608212edacde6722586bbfd20f5e27435aff8c435fe6e6a11c"
+    },
+    {
+      "budget": 64,
+      "bytes": 260459,
+      "cohort": 0,
+      "id": "45c72821ce9be89ad606dc0c",
+      "path": "mqft_restore76_20261127/data/L17/base/45c72821ce9be89ad606dc0c.jsonl.gz",
+      "seed": 11473865314480740983,
+      "sha256": "05cf353368d22d9b09ff71e6cda75d25831fcca8ace146963792710a7d04b861"
+    },
+    {
+      "budget": 64,
+      "bytes": 221902,
+      "cohort": 0,
+      "id": "5c70dcccfc846e9a2d7032e8",
+      "path": "mqft_restore76_20261127/data/L17/base/5c70dcccfc846e9a2d7032e8.jsonl.gz",
+      "seed": 5060243517325434921,
+      "sha256": "3e28f2976713870ffc6adbc27ee2ead82cabc0cfa0b30714a97bc37afc2a960f"
+    },
+    {
+      "budget": 64,
+      "bytes": 221268,
+      "cohort": 0,
+      "id": "6ee0e11a5f7b10424712e062",
+      "path": "mqft_restore76_20261127/data/L17/base/6ee0e11a5f7b10424712e062.jsonl.gz",
+      "seed": 15287963296833002111,
+      "sha256": "c43f0e3edad501dee564bac7c69b4e6d7af5f6895ef8355884db9556dd0c641b"
+    },
+    {
+      "budget": 64,
+      "bytes": 218305,
+      "cohort": 0,
+      "id": "a390a00a80b51ac92f83cab8",
+      "path": "mqft_restore76_20261127/data/L17/base/a390a00a80b51ac92f83cab8.jsonl.gz",
+      "seed": 17722864686166268191,
+      "sha256": "807c113f50ac3c10be09d5887203277716f0100cb6a072d8098a5db554d7f606"
+    },
+    {
+      "budget": 64,
+      "bytes": 223601,
+      "cohort": 0,
+      "id": "3a0c5288f18e0c6a3ee493d7",
+      "path": "mqft_restore76_20261127/data/L17/base/3a0c5288f18e0c6a3ee493d7.jsonl.gz",
+      "seed": 9418464718309941422,
+      "sha256": "5e2abf627a3bef53bd94c621701cb08ea7c9b94e88287ee74786d18459be1f58"
+    },
+    {
+      "budget": 64,
+      "bytes": 228314,
+      "cohort": 0,
+      "id": "fc4e717f2cd625a4c55402e3",
+      "path": "mqft_restore76_20261127/data/L17/base/fc4e717f2cd625a4c55402e3.jsonl.gz",
+      "seed": 198703783196567546,
+      "sha256": "32149b82e0d822c579b09efb6d761f91e8c2c8e04854865b01d4e4bffee82836"
+    },
+    {
+      "budget": 64,
+      "bytes": 229078,
+      "cohort": 0,
+      "id": "c60730c98904671e7e909276",
+      "path": "mqft_restore76_20261127/data/L17/base/c60730c98904671e7e909276.jsonl.gz",
+      "seed": 8010906305667365090,
+      "sha256": "609f8da1220d0f95836839cdd056a7325f0f8c4d03b048c10e605a2691d459d8"
+    },
+    {
+      "budget": 64,
+      "bytes": 229741,
+      "cohort": 0,
+      "id": "851564edd53087ad72362aa9",
+      "path": "mqft_restore76_20261127/data/L17/base/851564edd53087ad72362aa9.jsonl.gz",
+      "seed": 5062968634138421016,
+      "sha256": "6a5bd432603cd4fa5a5afd9fea520c7faf5baeaa3f974330f09625fe2eeb2357"
+    },
+    {
+      "budget": 64,
+      "bytes": 231154,
+      "cohort": 0,
+      "id": "0743cfa7e2755e1d32f4a395",
+      "path": "mqft_restore76_20261127/data/L17/base/0743cfa7e2755e1d32f4a395.jsonl.gz",
+      "seed": 4538003942099036061,
+      "sha256": "ec53c0ae872f542153d97b631a1cc10cafdca5e696e7b63e81f052e909eb3edd"
+    },
+    {
+      "budget": 64,
+      "bytes": 183009,
+      "cohort": 1,
+      "id": "8e2fad328befe1d1a7e92a23",
+      "path": "mqft_restore77_20261127/data/L17/base/8e2fad328befe1d1a7e92a23.jsonl.gz",
+      "seed": 7324765574755134255,
+      "sha256": "ccdb5fca1feeda5ea1423e92136e68c5ecb22ef229e0f489bfd729e2a8eb94df"
+    },
+    {
+      "budget": 64,
+      "bytes": 186254,
+      "cohort": 1,
+      "id": "5c6e5ec339e63f9f0023b313",
+      "path": "mqft_restore77_20261127/data/L17/base/5c6e5ec339e63f9f0023b313.jsonl.gz",
+      "seed": 3546893540080606648,
+      "sha256": "c5e6b525ebad55895d5938a879c11d4fe04a68a8b033f17b5b86fb09930d606d"
+    },
+    {
+      "budget": 64,
+      "bytes": 184885,
+      "cohort": 1,
+      "id": "ee1bd6ac44aa8dcea63b8ddd",
+      "path": "mqft_restore77_20261127/data/L17/base/ee1bd6ac44aa8dcea63b8ddd.jsonl.gz",
+      "seed": 5436321416726548770,
+      "sha256": "9ebfa1dbd4d8e7fcb014edf56d9e598743cc765e85ab3f1f5716aa5bdc37d478"
+    },
+    {
+      "budget": 64,
+      "bytes": 186409,
+      "cohort": 1,
+      "id": "3c4cc6cd80f7abd2a0ee59b8",
+      "path": "mqft_restore77_20261127/data/L17/base/3c4cc6cd80f7abd2a0ee59b8.jsonl.gz",
+      "seed": 7288069599323531972,
+      "sha256": "8d4978ea506437b52f74259764619b34107adcf5d5fe52e64307a8ddaa5099fe"
+    },
+    {
+      "budget": 64,
+      "bytes": 190988,
+      "cohort": 1,
+      "id": "92f9e4401a0271b8a69457bd",
+      "path": "mqft_restore77_20261127/data/L17/base/92f9e4401a0271b8a69457bd.jsonl.gz",
+      "seed": 16194665669456382412,
+      "sha256": "1696c9309e20cdfa2a6bb7f4072974acb17fa59b00435b28b61a7c93b9955328"
+    },
+    {
+      "budget": 64,
+      "bytes": 192142,
+      "cohort": 1,
+      "id": "12f458fc1810a3e7e5cf4741",
+      "path": "mqft_restore77_20261127/data/L17/base/12f458fc1810a3e7e5cf4741.jsonl.gz",
+      "seed": 15735048636161104398,
+      "sha256": "985652de33751810ee7b7ce7871443734f091dbd9b56f9dbb923e2dd072bb620"
+    },
+    {
+      "budget": 64,
+      "bytes": 191294,
+      "cohort": 1,
+      "id": "08099eaf44d4da651bac9941",
+      "path": "mqft_restore77_20261127/data/L17/base/08099eaf44d4da651bac9941.jsonl.gz",
+      "seed": 17593703744436673228,
+      "sha256": "19b2a09d93d2ac2b9e51a13c6e98beed93c4a3f34c24d536157c81285bee5381"
+    },
+    {
+      "budget": 64,
+      "bytes": 190655,
+      "cohort": 1,
+      "id": "08af6a7e7c0a67833dc4cc2e",
+      "path": "mqft_restore77_20261127/data/L17/base/08af6a7e7c0a67833dc4cc2e.jsonl.gz",
+      "seed": 12267994622311420804,
+      "sha256": "c13f669d39106db2813c34781877df566c534dec5b8e18bf2d898aca1c8ce29f"
+    },
+    {
+      "budget": 64,
+      "bytes": 185330,
+      "cohort": 1,
+      "id": "c1020a1cb0408c7958920af3",
+      "path": "mqft_restore77_20261127/data/L17/base/c1020a1cb0408c7958920af3.jsonl.gz",
+      "seed": 13891287951154435357,
+      "sha256": "ea44c6fcc8aebf9bd5cafb8ce35254f77f0f3ae5d19919bcbb9bd46102d75e9c"
+    },
+    {
+      "budget": 64,
+      "bytes": 186543,
+      "cohort": 1,
+      "id": "d9e6c82b5076aa3ec1aaef1c",
+      "path": "mqft_restore77_20261127/data/L17/base/d9e6c82b5076aa3ec1aaef1c.jsonl.gz",
+      "seed": 3449963843051883136,
+      "sha256": "60dc867feb00f25c2feb4bc0a59f5e68efb5e0f1830d64bc5f35f5430436822e"
+    },
+    {
+      "budget": 64,
+      "bytes": 185058,
+      "cohort": 1,
+      "id": "6879ed9a9772ccd7c2426a9e",
+      "path": "mqft_restore77_20261127/data/L17/base/6879ed9a9772ccd7c2426a9e.jsonl.gz",
+      "seed": 10853990503180220330,
+      "sha256": "b9f926c7c81ac908f629566f2227fe2f70bd402eef0d88615834ff9705655ce4"
+    },
+    {
+      "budget": 64,
+      "bytes": 186439,
+      "cohort": 1,
+      "id": "790930a13464e107502c1521",
+      "path": "mqft_restore77_20261127/data/L17/base/790930a13464e107502c1521.jsonl.gz",
+      "seed": 13961983517997432456,
+      "sha256": "b781241bfae5631bdeefd0226949d0f34eba438c9bd861ee7e56f87fa377c91f"
+    },
+    {
+      "budget": 64,
+      "bytes": 186955,
+      "cohort": 1,
+      "id": "2eef825c19786539fb0723fb",
+      "path": "mqft_restore77_20261127/data/L17/base/2eef825c19786539fb0723fb.jsonl.gz",
+      "seed": 7085921318394262068,
+      "sha256": "3c4fbcf4495bc9e5216dbff28ab854a2b45f130aec203a5ae7996079dfa6f4d3"
+    },
+    {
+      "budget": 64,
+      "bytes": 191866,
+      "cohort": 1,
+      "id": "d9356d9e7d5ecb2904efa4e2",
+      "path": "mqft_restore77_20261127/data/L17/base/d9356d9e7d5ecb2904efa4e2.jsonl.gz",
+      "seed": 13302388886568854047,
+      "sha256": "30b652cbe2d4ce36a0ca7d8730b497549dfcc8b64ebaff18c3e48ae86abcb77d"
+    },
+    {
+      "budget": 64,
+      "bytes": 191320,
+      "cohort": 1,
+      "id": "15348e9f1c0b8b641c0c1261",
+      "path": "mqft_restore77_20261127/data/L17/base/15348e9f1c0b8b641c0c1261.jsonl.gz",
+      "seed": 13797500341020814678,
+      "sha256": "9b8b864593cfe801c45d2702f1a84c3282fde22ed57e52ad05143f501c5d5616"
+    },
+    {
+      "budget": 64,
+      "bytes": 191004,
+      "cohort": 1,
+      "id": "7270f8e7d46d798bc0f21869",
+      "path": "mqft_restore77_20261127/data/L17/base/7270f8e7d46d798bc0f21869.jsonl.gz",
+      "seed": 14638160372598757705,
+      "sha256": "e526c9cfa0e266dd03c5ddf70fb58e0e3173a2f31ecd623e456f6a0ff86a89a9"
+    },
+    {
+      "budget": 64,
+      "bytes": 192734,
+      "cohort": 1,
+      "id": "f5c0ceee6f4e085179110f74",
+      "path": "mqft_restore77_20261127/data/L17/base/f5c0ceee6f4e085179110f74.jsonl.gz",
+      "seed": 4198130826693345375,
+      "sha256": "05977ecf9d69e320bbc91f6a68bc24e934a93a97ff03babe29ee5ed39b86f2c2"
+    },
+    {
+      "budget": 64,
+      "bytes": 193119,
+      "cohort": 1,
+      "id": "ef2367f2f6ea875861e36925",
+      "path": "mqft_restore77_20261127/data/L17/base/ef2367f2f6ea875861e36925.jsonl.gz",
+      "seed": 784166418167077526,
+      "sha256": "c32cd0e02bc66f302aa5c856c68f02931bd710bd3050f6a3a11fcfd438c01fcd"
+    },
+    {
+      "budget": 64,
+      "bytes": 193172,
+      "cohort": 1,
+      "id": "a2b31999b758a3674f211cff",
+      "path": "mqft_restore77_20261127/data/L17/base/a2b31999b758a3674f211cff.jsonl.gz",
+      "seed": 15133255271789660088,
+      "sha256": "7bad988a6af073a6fc7287d23c08d286a1847b0266fa32858ddbe3a39ed060d1"
+    },
+    {
+      "budget": 64,
+      "bytes": 192201,
+      "cohort": 1,
+      "id": "dcb6d312da89cf68f8b6a905",
+      "path": "mqft_restore77_20261127/data/L17/base/dcb6d312da89cf68f8b6a905.jsonl.gz",
+      "seed": 14560728626946594607,
+      "sha256": "5c8f70cb8cb671ab0e7329489ca0b2c529a7035bb80d2f4fba2194c916efacd2"
+    },
+    {
+      "budget": 64,
+      "bytes": 193646,
+      "cohort": 1,
+      "id": "a3bc7f052b8204b5f0ca9a14",
+      "path": "mqft_restore77_20261127/data/L17/base/a3bc7f052b8204b5f0ca9a14.jsonl.gz",
+      "seed": 1300932316710366667,
+      "sha256": "e28daba6a96aca2eeaeb460b4fae26173bd16b1e0af6f46e24dbcecdc5ee71a9"
+    },
+    {
+      "budget": 64,
+      "bytes": 197522,
+      "cohort": 1,
+      "id": "457bdd9be23bbd55e18c22cc",
+      "path": "mqft_restore77_20261127/data/L17/base/457bdd9be23bbd55e18c22cc.jsonl.gz",
+      "seed": 13953506466899903936,
+      "sha256": "c5fd6a7e4a8b7d9ac84c1a49e2bf59eebf3ab4e83061a7ce184800aa0dc1c91f"
+    },
+    {
+      "budget": 64,
+      "bytes": 191045,
+      "cohort": 1,
+      "id": "0909b81ca8a39618aa947908",
+      "path": "mqft_restore77_20261127/data/L17/base/0909b81ca8a39618aa947908.jsonl.gz",
+      "seed": 8759243476482553821,
+      "sha256": "a3b4ee602a38a6d68a5a5ad892b9735ced50907eb45430059d81bca22a6d76c5"
+    },
+    {
+      "budget": 64,
+      "bytes": 193844,
+      "cohort": 1,
+      "id": "21ef25684c63f95c76d516e1",
+      "path": "mqft_restore77_20261127/data/L17/base/21ef25684c63f95c76d516e1.jsonl.gz",
+      "seed": 7515459237821442363,
+      "sha256": "66b0248ddb20b5f74bedec443402760b7f64aad77c37e594157caa3981ab4913"
+    },
+    {
+      "budget": 64,
+      "bytes": 189483,
+      "cohort": 1,
+      "id": "46d30ea1c718b8ec326160d9",
+      "path": "mqft_restore77_20261127/data/L17/base/46d30ea1c718b8ec326160d9.jsonl.gz",
+      "seed": 4028572836877689291,
+      "sha256": "9e8980f52f4623c267b450584a9b2d87dea973b9af1fe369ad2cfe2c58314ee9"
+    },
+    {
+      "budget": 64,
+      "bytes": 191169,
+      "cohort": 1,
+      "id": "bc786176c206e576ac58d87e",
+      "path": "mqft_restore77_20261127/data/L17/base/bc786176c206e576ac58d87e.jsonl.gz",
+      "seed": 14466018528230786983,
+      "sha256": "f6158564cb9e81e48facca483361f39be7773498d527b112a044ab3b364ea8a9"
+    },
+    {
+      "budget": 64,
+      "bytes": 192650,
+      "cohort": 1,
+      "id": "abf12e9d05b93d32bf588bcd",
+      "path": "mqft_restore77_20261127/data/L17/base/abf12e9d05b93d32bf588bcd.jsonl.gz",
+      "seed": 6143200061469944700,
+      "sha256": "200b487ecdb769b2e3810b25693dab1d9a00f26f4b5bb85732f57f0b6955b526"
+    },
+    {
+      "budget": 64,
+      "bytes": 190817,
+      "cohort": 1,
+      "id": "09e87f55ae11ea26285a03b3",
+      "path": "mqft_restore77_20261127/data/L17/base/09e87f55ae11ea26285a03b3.jsonl.gz",
+      "seed": 14519871609994930910,
+      "sha256": "64545e630f67bb99abac6963657f4a80fc615cd4f21b3667964aec1fea225e14"
+    },
+    {
+      "budget": 64,
+      "bytes": 192857,
+      "cohort": 1,
+      "id": "6315b50ad95a2ae0c0b5585f",
+      "path": "mqft_restore77_20261127/data/L17/base/6315b50ad95a2ae0c0b5585f.jsonl.gz",
+      "seed": 16041475035663374401,
+      "sha256": "89272907385557f0c7c36ad7bbbc36a54f1d926e702ef9dfe1b26118c686e2b9"
+    },
+    {
+      "budget": 64,
+      "bytes": 190214,
+      "cohort": 1,
+      "id": "3abf25c7ccdf3176df696648",
+      "path": "mqft_restore77_20261127/data/L17/base/3abf25c7ccdf3176df696648.jsonl.gz",
+      "seed": 10012898066817105832,
+      "sha256": "467e7cac9613a35604e089d1adb05716b978177e01373bfe89c64f84775f4082"
+    },
+    {
+      "budget": 64,
+      "bytes": 187652,
+      "cohort": 1,
+      "id": "00548cef92234b20f0bfb1a7",
+      "path": "mqft_restore77_20261127/data/L17/base/00548cef92234b20f0bfb1a7.jsonl.gz",
+      "seed": 13569798920741285409,
+      "sha256": "79b7d951171a2a4fbf576e4f46edac6a8b15dfd004b4786396b4b8c8a40194c1"
+    },
+    {
+      "budget": 64,
+      "bytes": 190100,
+      "cohort": 1,
+      "id": "38b2d798cfd05bcb71c76014",
+      "path": "mqft_restore77_20261127/data/L17/base/38b2d798cfd05bcb71c76014.jsonl.gz",
+      "seed": 13064206976501073285,
+      "sha256": "bdc350e22055fa4cae0c9e009acfcec555caf077d2687e450b94e43dfd757520"
+    },
+    {
+      "budget": 64,
+      "bytes": 179223,
+      "cohort": 1,
+      "id": "b88645025d39893ada1ae791",
+      "path": "mqft_restore77_20261127/data/L17/base/b88645025d39893ada1ae791.jsonl.gz",
+      "seed": 6328789031537194002,
+      "sha256": "0e178afdf25ec0e4ee5be56498a834b3098c45147f962e96a9f5abd1963a94da"
+    },
+    {
+      "budget": 64,
+      "bytes": 178833,
+      "cohort": 1,
+      "id": "a7851a41363d347a1fdd1e2b",
+      "path": "mqft_restore77_20261127/data/L17/base/a7851a41363d347a1fdd1e2b.jsonl.gz",
+      "seed": 6371652894459850262,
+      "sha256": "3013d057321834613a2cc358be6daba445028c929cdbbbbbc935b03de7dc778d"
+    },
+    {
+      "budget": 64,
+      "bytes": 179345,
+      "cohort": 1,
+      "id": "86aa0699730c74eea47d35b4",
+      "path": "mqft_restore77_20261127/data/L17/base/86aa0699730c74eea47d35b4.jsonl.gz",
+      "seed": 14581034090820534417,
+      "sha256": "ddefbb3baed90dd4bc4e0c077449fe68a836cf8d3f6153974223af62e02f8fc5"
+    },
+    {
+      "budget": 64,
+      "bytes": 181122,
+      "cohort": 1,
+      "id": "0a47b188f5f40bae949aaf2d",
+      "path": "mqft_restore77_20261127/data/L17/base/0a47b188f5f40bae949aaf2d.jsonl.gz",
+      "seed": 16746689126772086037,
+      "sha256": "b72c5f1b7b3a4de49d6568e3fc5135dff5a206fd8940a72bf5dce931e75a05df"
+    },
+    {
+      "budget": 64,
+      "bytes": 187538,
+      "cohort": 1,
+      "id": "456871d5aca766be0678bdb4",
+      "path": "mqft_restore77_20261127/data/L17/base/456871d5aca766be0678bdb4.jsonl.gz",
+      "seed": 5107248654131010738,
+      "sha256": "7cc7dd6405b583fc75f5e45674b8852d57bb3491766cd39f790ba4b858f75b8c"
+    },
+    {
+      "budget": 64,
+      "bytes": 185343,
+      "cohort": 1,
+      "id": "0a11902b5278922ac24a6733",
+      "path": "mqft_restore77_20261127/data/L17/base/0a11902b5278922ac24a6733.jsonl.gz",
+      "seed": 2701813489200202873,
+      "sha256": "47e12df0a3ca4295a1c2d3479e63fb9133a10979964e657184c65f67bf675644"
+    },
+    {
+      "budget": 64,
+      "bytes": 187041,
+      "cohort": 1,
+      "id": "f6bf5312b885a846f81a8edc",
+      "path": "mqft_restore77_20261127/data/L17/base/f6bf5312b885a846f81a8edc.jsonl.gz",
+      "seed": 5617561907535781992,
+      "sha256": "51a7b33ec4e76bb8a3a006f8304f6b6b7bc8ed651978b625852d2736f137c6a9"
+    },
+    {
+      "budget": 64,
+      "bytes": 186258,
+      "cohort": 1,
+      "id": "acb55a7b18806bf222aab45f",
+      "path": "mqft_restore77_20261127/data/L17/base/acb55a7b18806bf222aab45f.jsonl.gz",
+      "seed": 6356747959634200534,
+      "sha256": "6e3172df7880c5440c38c5d430e8ba83264f9a3df69c98a4a2c85e30a0bf7c82"
+    },
+    {
+      "budget": 64,
+      "bytes": 177976,
+      "cohort": 1,
+      "id": "f65b886e95c2b7c5a47c2ace",
+      "path": "mqft_restore77_20261127/data/L17/base/f65b886e95c2b7c5a47c2ace.jsonl.gz",
+      "seed": 8145076626776617769,
+      "sha256": "9feb0f4abf827752b600378eb6060487674a838eb2aa2edd3c65cfbd86820761"
+    },
+    {
+      "budget": 64,
+      "bytes": 176563,
+      "cohort": 1,
+      "id": "de1859683b889941c7f1dced",
+      "path": "mqft_restore77_20261127/data/L17/base/de1859683b889941c7f1dced.jsonl.gz",
+      "seed": 8000976006139282368,
+      "sha256": "de5d73c34d583dc780877a9d29dee2e23f9cd640a8703b2652cd73e5abfa928e"
+    },
+    {
+      "budget": 64,
+      "bytes": 177476,
+      "cohort": 1,
+      "id": "e53b59a4ccb0634a7af044aa",
+      "path": "mqft_restore77_20261127/data/L17/base/e53b59a4ccb0634a7af044aa.jsonl.gz",
+      "seed": 13666582178726365561,
+      "sha256": "3b4ba5a4111e5fe3ab41cb5bc154f3353cd617c5e3e76cd11416aa8bdcc7c3bc"
+    },
+    {
+      "budget": 64,
+      "bytes": 172971,
+      "cohort": 1,
+      "id": "e7c48c53f5552bfc0833b0ef",
+      "path": "mqft_restore77_20261127/data/L17/base/e7c48c53f5552bfc0833b0ef.jsonl.gz",
+      "seed": 11704875343662180552,
+      "sha256": "882c27ce1a49d239ea843876629c40f6ad667b70eae139430d73a4f8f70617ac"
+    },
+    {
+      "budget": 64,
+      "bytes": 186214,
+      "cohort": 1,
+      "id": "374a4794e58edb8849036263",
+      "path": "mqft_restore77_20261127/data/L17/base/374a4794e58edb8849036263.jsonl.gz",
+      "seed": 5416280235700528011,
+      "sha256": "a6ac7a595ac43cf06ebacb935c18d65349c4fade9f2fb5b2268a4165ba19b88d"
+    },
+    {
+      "budget": 64,
+      "bytes": 184650,
+      "cohort": 1,
+      "id": "8f582bcaa001536d22e8a7e0",
+      "path": "mqft_restore77_20261127/data/L17/base/8f582bcaa001536d22e8a7e0.jsonl.gz",
+      "seed": 13005809699664022490,
+      "sha256": "bf1b9663ed10933ef6272b8f5df9a53c509e6ea1248dd9168b22df866c45ff76"
+    },
+    {
+      "budget": 64,
+      "bytes": 184456,
+      "cohort": 1,
+      "id": "411720aece75c84e9203920a",
+      "path": "mqft_restore77_20261127/data/L17/base/411720aece75c84e9203920a.jsonl.gz",
+      "seed": 14298400648282280265,
+      "sha256": "3401417bd28896095c5fe0c35eb5a459b155899f8d99ade3cd107318015febec"
+    },
+    {
+      "budget": 64,
+      "bytes": 184958,
+      "cohort": 1,
+      "id": "1a28232d0d9792e38ba8cdd5",
+      "path": "mqft_restore77_20261127/data/L17/base/1a28232d0d9792e38ba8cdd5.jsonl.gz",
+      "seed": 9915264376572024695,
+      "sha256": "ea5f03f5ba2582ebf1fafbb047f2d6d6d9bf953e50f57394c6f6f68137821f06"
+    },
+    {
+      "budget": 64,
+      "bytes": 186520,
+      "cohort": 1,
+      "id": "3e22d594eb13f7d834664441",
+      "path": "mqft_restore77_20261127/data/L17/base/3e22d594eb13f7d834664441.jsonl.gz",
+      "seed": 7361499597666446765,
+      "sha256": "5d14754d00aa718256b3e7ddc07215fe59b45183fc12ec2fed805dec1989fd4c"
+    },
+    {
+      "budget": 64,
+      "bytes": 185779,
+      "cohort": 1,
+      "id": "0e0a47e2c4e77334f52399f6",
+      "path": "mqft_restore77_20261127/data/L17/base/0e0a47e2c4e77334f52399f6.jsonl.gz",
+      "seed": 5004847517976164863,
+      "sha256": "62fc664170c6031f582aef423923e5696e46c2bd06415e88fcc14f2bbb9c44ba"
+    },
+    {
+      "budget": 64,
+      "bytes": 183667,
+      "cohort": 1,
+      "id": "7021d9bc3117eae165c8496c",
+      "path": "mqft_restore77_20261127/data/L17/base/7021d9bc3117eae165c8496c.jsonl.gz",
+      "seed": 2309884686720400488,
+      "sha256": "e17952833e18dd96ace1c2f8dabb85aaaa6e5a51a0e1aa823b93bda2af47e0df"
+    },
+    {
+      "budget": 64,
+      "bytes": 183831,
+      "cohort": 1,
+      "id": "55706b7690011ff3e4241ec7",
+      "path": "mqft_restore77_20261127/data/L17/base/55706b7690011ff3e4241ec7.jsonl.gz",
+      "seed": 7341931168463303709,
+      "sha256": "6b4cab31aefab7c637e9820139366a52dc4b9acfb77d78238178bf63e483d192"
+    },
+    {
+      "budget": 64,
+      "bytes": 189611,
+      "cohort": 1,
+      "id": "638728725b163a679abfa348",
+      "path": "mqft_restore77_20261127/data/L17/base/638728725b163a679abfa348.jsonl.gz",
+      "seed": 2935299409534205795,
+      "sha256": "981f244529aa62a2fa3e68803a19d598e44844b8f1a088294afa3867a8d6140d"
+    },
+    {
+      "budget": 64,
+      "bytes": 187768,
+      "cohort": 1,
+      "id": "5f540c3d5b19d2de8fe00f6b",
+      "path": "mqft_restore77_20261127/data/L17/base/5f540c3d5b19d2de8fe00f6b.jsonl.gz",
+      "seed": 12242010143539158246,
+      "sha256": "b7a900aeb6d7bd16a96b70fb4de2051349b4b85428d6d53a7b43d40d4b5ba6d4"
+    },
+    {
+      "budget": 64,
+      "bytes": 188906,
+      "cohort": 1,
+      "id": "3593767747ff85501f974055",
+      "path": "mqft_restore77_20261127/data/L17/base/3593767747ff85501f974055.jsonl.gz",
+      "seed": 5619773462075510868,
+      "sha256": "a433cca2db1ea47031f31627df1fa468f0dc6990dd29eaeb60f536f8a4c0e29a"
+    },
+    {
+      "budget": 64,
+      "bytes": 189363,
+      "cohort": 1,
+      "id": "2adb474e86d24f96741f6013",
+      "path": "mqft_restore77_20261127/data/L17/base/2adb474e86d24f96741f6013.jsonl.gz",
+      "seed": 785592984873387058,
+      "sha256": "2b6319a33c82c082e1d002f6d303d1d3697a2689ab8a3f448e9f7e11372b7907"
+    },
+    {
+      "budget": 64,
+      "bytes": 189336,
+      "cohort": 1,
+      "id": "d420205d7e118220eba04d9a",
+      "path": "mqft_restore77_20261127/data/L17/base/d420205d7e118220eba04d9a.jsonl.gz",
+      "seed": 11141194704512295268,
+      "sha256": "da3e073941c083d0a476eb4c779e565cd1f904994ccb3717bab08804ebac29e5"
+    },
+    {
+      "budget": 64,
+      "bytes": 192164,
+      "cohort": 1,
+      "id": "88dcd155d9db60ba2689448d",
+      "path": "mqft_restore77_20261127/data/L17/base/88dcd155d9db60ba2689448d.jsonl.gz",
+      "seed": 939922234809642552,
+      "sha256": "df1d01b40b4a224286d0e1e54756319f99a483b6dec68853ff8fb219b24adc0b"
+    },
+    {
+      "budget": 64,
+      "bytes": 190416,
+      "cohort": 1,
+      "id": "2799b8b9f65aae77365f0d41",
+      "path": "mqft_restore77_20261127/data/L17/base/2799b8b9f65aae77365f0d41.jsonl.gz",
+      "seed": 16492907364642096249,
+      "sha256": "082103f62c6efea14c156674f6e59df2f55307d279b8f5358396a42f38a5f335"
+    },
+    {
+      "budget": 64,
+      "bytes": 191720,
+      "cohort": 1,
+      "id": "bed46f2efed0c7ae2b4c672d",
+      "path": "mqft_restore77_20261127/data/L17/base/bed46f2efed0c7ae2b4c672d.jsonl.gz",
+      "seed": 11723049361750177307,
+      "sha256": "063c3add12fcaaf9968e7024192f888e550de1285e3f36ecc21f22d5e7390224"
+    },
+    {
+      "budget": 64,
+      "bytes": 192507,
+      "cohort": 1,
+      "id": "423159a069b7e62d49e87109",
+      "path": "mqft_restore77_20261127/data/L17/base/423159a069b7e62d49e87109.jsonl.gz",
+      "seed": 3625403617418962816,
+      "sha256": "13201869e9363c6396092d582b0f1d88421bffd5778f60ec7eff03d5aeb74aab"
+    },
+    {
+      "budget": 64,
+      "bytes": 189737,
+      "cohort": 1,
+      "id": "5b6f72d135db1c94dda9ec3d",
+      "path": "mqft_restore77_20261127/data/L17/base/5b6f72d135db1c94dda9ec3d.jsonl.gz",
+      "seed": 15655376790114896032,
+      "sha256": "067d291080d84294dda5fe1738e77e5d44445a6f73394b293350c6d351e2df9b"
+    },
+    {
+      "budget": 64,
+      "bytes": 190109,
+      "cohort": 1,
+      "id": "7a3e0727bd6b95f4cd2055a7",
+      "path": "mqft_restore77_20261127/data/L17/base/7a3e0727bd6b95f4cd2055a7.jsonl.gz",
+      "seed": 5304466078517761015,
+      "sha256": "6dcfcd1d3c7d62101897251fe7f95e0ef024997cc8d9c831b7445d2cf89dfcf2"
+    },
+    {
+      "budget": 64,
+      "bytes": 189678,
+      "cohort": 1,
+      "id": "0ae8e00a861fc0c53309c1d1",
+      "path": "mqft_restore77_20261127/data/L17/base/0ae8e00a861fc0c53309c1d1.jsonl.gz",
+      "seed": 12025388847288098645,
+      "sha256": "4264e6ca47b8948bdf49706e7033866a3326063520057aaa5ab07f0388e8112c"
+    },
+    {
+      "budget": 64,
+      "bytes": 254722,
+      "cohort": 1,
+      "id": "d3acea6900b680fcea19fbbc",
+      "path": "mqft_restore77_20261127/data/L17/base/d3acea6900b680fcea19fbbc.jsonl.gz",
+      "seed": 7324765574755134255,
+      "sha256": "9ffa4c423bb0f601e7ada7b653b81e2207cbfecdecd04e21bcdcbaa117c5ff5b"
+    },
+    {
+      "budget": 64,
+      "bytes": 256638,
+      "cohort": 1,
+      "id": "48a12b796c6cd8f56ac9902f",
+      "path": "mqft_restore77_20261127/data/L17/base/48a12b796c6cd8f56ac9902f.jsonl.gz",
+      "seed": 3546893540080606648,
+      "sha256": "cffdd5bda9807a1cfce0d39d63febf6b11b64c6759b9ef09daf43d5cd57b2476"
+    },
+    {
+      "budget": 64,
+      "bytes": 257717,
+      "cohort": 1,
+      "id": "f538036e94d14b2000d702b0",
+      "path": "mqft_restore77_20261127/data/L17/base/f538036e94d14b2000d702b0.jsonl.gz",
+      "seed": 5436321416726548770,
+      "sha256": "b6993b665fea3247b8c127543b69708abf7a31bd38ab613e92754d33ee51d317"
+    },
+    {
+      "budget": 64,
+      "bytes": 257900,
+      "cohort": 1,
+      "id": "7e3ab601adaaa40be3becce6",
+      "path": "mqft_restore77_20261127/data/L17/base/7e3ab601adaaa40be3becce6.jsonl.gz",
+      "seed": 7288069599323531972,
+      "sha256": "c827630545be0960a0f75aee8656f3f92c689956ee1d9cf0244dd1cf5ca1826e"
+    },
+    {
+      "budget": 64,
+      "bytes": 261385,
+      "cohort": 1,
+      "id": "92ddcdf7a4951d068e434438",
+      "path": "mqft_restore77_20261127/data/L17/base/92ddcdf7a4951d068e434438.jsonl.gz",
+      "seed": 16194665669456382412,
+      "sha256": "5cd0f3df5ae2cf261e2e649f3b26949ccccaf12d8de7c1052e305cad9f2d065b"
+    },
+    {
+      "budget": 64,
+      "bytes": 266016,
+      "cohort": 1,
+      "id": "68fa93f70aaaef78abd0710a",
+      "path": "mqft_restore77_20261127/data/L17/base/68fa93f70aaaef78abd0710a.jsonl.gz",
+      "seed": 15735048636161104398,
+      "sha256": "6fff8a3cdd90bc97c8652307604083e2fb1a3e3e69923529f3b0f7d2c9256456"
+    },
+    {
+      "budget": 64,
+      "bytes": 262806,
+      "cohort": 1,
+      "id": "dd7668561bc4f1bc0fd99c79",
+      "path": "mqft_restore77_20261127/data/L17/base/dd7668561bc4f1bc0fd99c79.jsonl.gz",
+      "seed": 17593703744436673228,
+      "sha256": "774682e4b6d3fab4b05d235ba46d19f947ea50aad452b6a5973e2941707b1940"
+    },
+    {
+      "budget": 64,
+      "bytes": 265664,
+      "cohort": 1,
+      "id": "6387db2e3a0386e973404a22",
+      "path": "mqft_restore77_20261127/data/L17/base/6387db2e3a0386e973404a22.jsonl.gz",
+      "seed": 12267994622311420804,
+      "sha256": "cb3a1e3362f80ef7ab0a7a825a5e119209fdabaa872b3c2ae0525bb893770ade"
+    },
+    {
+      "budget": 64,
+      "bytes": 252246,
+      "cohort": 1,
+      "id": "5899ad27da350ada55dd3650",
+      "path": "mqft_restore77_20261127/data/L17/base/5899ad27da350ada55dd3650.jsonl.gz",
+      "seed": 13891287951154435357,
+      "sha256": "816cb38e6ea5efb75034f2464b2e8c4998969d701389c19a9a2f1697b5206220"
+    },
+    {
+      "budget": 64,
+      "bytes": 252749,
+      "cohort": 1,
+      "id": "fcb3877b02ecc979cb29fb19",
+      "path": "mqft_restore77_20261127/data/L17/base/fcb3877b02ecc979cb29fb19.jsonl.gz",
+      "seed": 3449963843051883136,
+      "sha256": "0d081c72ab4182a96604cbdde8305ba23238ced5554bd5d44f6670d20842a205"
+    },
+    {
+      "budget": 64,
+      "bytes": 248798,
+      "cohort": 1,
+      "id": "45d5b781ac0ecfc54637cc4f",
+      "path": "mqft_restore77_20261127/data/L17/base/45d5b781ac0ecfc54637cc4f.jsonl.gz",
+      "seed": 10853990503180220330,
+      "sha256": "8281aafbea238cdf9a323134f4f34cbf04f708c7751c67cee0391af68e8d40f8"
+    },
+    {
+      "budget": 64,
+      "bytes": 252095,
+      "cohort": 1,
+      "id": "512c3e83c0cf8a616ddc9bfe",
+      "path": "mqft_restore77_20261127/data/L17/base/512c3e83c0cf8a616ddc9bfe.jsonl.gz",
+      "seed": 13961983517997432456,
+      "sha256": "4ef4e95a5ebb416e612322f1a11601040a2efde636fa7f188ac0834d5ed803eb"
+    },
+    {
+      "budget": 64,
+      "bytes": 255184,
+      "cohort": 1,
+      "id": "33f2fdf44af21e8a656acdec",
+      "path": "mqft_restore77_20261127/data/L17/base/33f2fdf44af21e8a656acdec.jsonl.gz",
+      "seed": 7085921318394262068,
+      "sha256": "c71c3f776ea1ec36249b9203797802bccca70e89e60fb375031a98ecacc987bf"
+    },
+    {
+      "budget": 64,
+      "bytes": 253558,
+      "cohort": 1,
+      "id": "e163236c27e55ac91421c5f9",
+      "path": "mqft_restore77_20261127/data/L17/base/e163236c27e55ac91421c5f9.jsonl.gz",
+      "seed": 13302388886568854047,
+      "sha256": "9351d661951df1664c2f8759708b503d844c6fec3a61cde52cbceb8e093e12fe"
+    },
+    {
+      "budget": 64,
+      "bytes": 257159,
+      "cohort": 1,
+      "id": "a59fe9c230362cc240bf83b9",
+      "path": "mqft_restore77_20261127/data/L17/base/a59fe9c230362cc240bf83b9.jsonl.gz",
+      "seed": 13797500341020814678,
+      "sha256": "a1f216ec2491b50d4adfe323cffbf6ef89dd69ab7ac1ef95f6619fa01a8a40fd"
+    },
+    {
+      "budget": 64,
+      "bytes": 255439,
+      "cohort": 1,
+      "id": "9fcfe5b69ef875cbde128900",
+      "path": "mqft_restore77_20261127/data/L17/base/9fcfe5b69ef875cbde128900.jsonl.gz",
+      "seed": 14638160372598757705,
+      "sha256": "76e28ef0a8448d5ba869e9734399dfa148c272a474db2336c599a62e216ea668"
+    },
+    {
+      "budget": 64,
+      "bytes": 258372,
+      "cohort": 1,
+      "id": "0d20a952a44776ac3189ddb7",
+      "path": "mqft_restore77_20261127/data/L17/base/0d20a952a44776ac3189ddb7.jsonl.gz",
+      "seed": 4198130826693345375,
+      "sha256": "f711c34d5414d372eed3d958e8fef806337484324e1517028ede99f613ddad0b"
+    },
+    {
+      "budget": 64,
+      "bytes": 263471,
+      "cohort": 1,
+      "id": "e6ba8e4e588198d2691bfb2f",
+      "path": "mqft_restore77_20261127/data/L17/base/e6ba8e4e588198d2691bfb2f.jsonl.gz",
+      "seed": 784166418167077526,
+      "sha256": "038a6c8b080b456314f53675228c39e89b7b3f8ac832dd93b455b0603500c322"
+    },
+    {
+      "budget": 64,
+      "bytes": 262819,
+      "cohort": 1,
+      "id": "58a87757963da42aceefa1f7",
+      "path": "mqft_restore77_20261127/data/L17/base/58a87757963da42aceefa1f7.jsonl.gz",
+      "seed": 15133255271789660088,
+      "sha256": "0ddc4928568ce64ca5418f71cc141f0760988428b2c893e9119d123f9d0b4aec"
+    },
+    {
+      "budget": 64,
+      "bytes": 261656,
+      "cohort": 1,
+      "id": "ce33f71d67cc4ac4f325bd57",
+      "path": "mqft_restore77_20261127/data/L17/base/ce33f71d67cc4ac4f325bd57.jsonl.gz",
+      "seed": 14560728626946594607,
+      "sha256": "2ce55f6caf8af1193479af9fb3c6b77d0937d2e106229cee52b23420748bc92c"
+    },
+    {
+      "budget": 64,
+      "bytes": 256005,
+      "cohort": 1,
+      "id": "6f84d8fd99dedc37bae76ae3",
+      "path": "mqft_restore77_20261127/data/L17/base/6f84d8fd99dedc37bae76ae3.jsonl.gz",
+      "seed": 1300932316710366667,
+      "sha256": "d5c807f73faccdbfb269362b2237c533482694670a2780f8b59a3137542015e3"
+    },
+    {
+      "budget": 64,
+      "bytes": 262134,
+      "cohort": 1,
+      "id": "4be5b5522260c30770d1c526",
+      "path": "mqft_restore77_20261127/data/L17/base/4be5b5522260c30770d1c526.jsonl.gz",
+      "seed": 13953506466899903936,
+      "sha256": "384d51f34e92f78778d123d0f46a410e5872626349cebd8e874d41dbd93a1118"
+    },
+    {
+      "budget": 64,
+      "bytes": 253889,
+      "cohort": 1,
+      "id": "d7683808865955c4c0fbe3b4",
+      "path": "mqft_restore77_20261127/data/L17/base/d7683808865955c4c0fbe3b4.jsonl.gz",
+      "seed": 8759243476482553821,
+      "sha256": "7fe22d79593438b1efaf27edbc1ab42298dade27a0a4279b84a548fbf5c5a9a2"
+    },
+    {
+      "budget": 64,
+      "bytes": 261804,
+      "cohort": 1,
+      "id": "714cd941b3eec2ecafa482bb",
+      "path": "mqft_restore77_20261127/data/L17/base/714cd941b3eec2ecafa482bb.jsonl.gz",
+      "seed": 7515459237821442363,
+      "sha256": "b3d675e35e993bdb58765719b96a866fdf190779aabe6b6b3f26d755b02f173c"
+    },
+    {
+      "budget": 64,
+      "bytes": 256476,
+      "cohort": 1,
+      "id": "e97811f74cadeea1bd0f605f",
+      "path": "mqft_restore77_20261127/data/L17/base/e97811f74cadeea1bd0f605f.jsonl.gz",
+      "seed": 4028572836877689291,
+      "sha256": "38858d7bf5d8737ae84cd64de0177ffba79dbc0d6cb043ae3d6957e5564915e2"
+    },
+    {
+      "budget": 64,
+      "bytes": 255043,
+      "cohort": 1,
+      "id": "6b314b518a028d4cb058a171",
+      "path": "mqft_restore77_20261127/data/L17/base/6b314b518a028d4cb058a171.jsonl.gz",
+      "seed": 14466018528230786983,
+      "sha256": "eaf270f946b8b05581627dda7f95cdad3d16a84e8355b6e190b9f8cd8ce00071"
+    },
+    {
+      "budget": 64,
+      "bytes": 260241,
+      "cohort": 1,
+      "id": "50fa1075384ff0f53942785c",
+      "path": "mqft_restore77_20261127/data/L17/base/50fa1075384ff0f53942785c.jsonl.gz",
+      "seed": 6143200061469944700,
+      "sha256": "b673fd13d7757aace03203623a38952cecca28d372c2e63bddde150b6c9d074b"
+    },
+    {
+      "budget": 64,
+      "bytes": 254899,
+      "cohort": 1,
+      "id": "2d13fbc673a130e380285e1b",
+      "path": "mqft_restore77_20261127/data/L17/base/2d13fbc673a130e380285e1b.jsonl.gz",
+      "seed": 14519871609994930910,
+      "sha256": "c78060584355741094596e635d1542e5ec45974dd0cdf225a21627f1b027e8ed"
+    },
+    {
+      "budget": 64,
+      "bytes": 264112,
+      "cohort": 1,
+      "id": "85686fc72f71b05aa3ee2c62",
+      "path": "mqft_restore77_20261127/data/L17/base/85686fc72f71b05aa3ee2c62.jsonl.gz",
+      "seed": 16041475035663374401,
+      "sha256": "63bef184133b1856ecd3b8dcbbeca7c5243ae7798e34e2c35a51f07c79b1005b"
+    },
+    {
+      "budget": 64,
+      "bytes": 261893,
+      "cohort": 1,
+      "id": "54764388f94372600f5e33e4",
+      "path": "mqft_restore77_20261127/data/L17/base/54764388f94372600f5e33e4.jsonl.gz",
+      "seed": 10012898066817105832,
+      "sha256": "aebadeaec84c3c724780942733f75c607d3b448e0477586305f5ddd48f6beb9d"
+    },
+    {
+      "budget": 64,
+      "bytes": 263507,
+      "cohort": 1,
+      "id": "415347bf4a57d63f066b0055",
+      "path": "mqft_restore77_20261127/data/L17/base/415347bf4a57d63f066b0055.jsonl.gz",
+      "seed": 13569798920741285409,
+      "sha256": "83571d3ce0b1cfb22e5ba60a5fbea2a9758763f8e2eed2b04f94253d8eb1214d"
+    },
+    {
+      "budget": 64,
+      "bytes": 262132,
+      "cohort": 1,
+      "id": "7f0c5ff17144aa772f03e620",
+      "path": "mqft_restore77_20261127/data/L17/base/7f0c5ff17144aa772f03e620.jsonl.gz",
+      "seed": 13064206976501073285,
+      "sha256": "d5f930cc71a9371669f64c2e6cc592aa78508177b5b85f378fc405738a0d458d"
+    },
+    {
+      "budget": 64,
+      "bytes": 233741,
+      "cohort": 1,
+      "id": "2fbf0c801421ae4f5834cd79",
+      "path": "mqft_restore77_20261127/data/L17/base/2fbf0c801421ae4f5834cd79.jsonl.gz",
+      "seed": 6328789031537194002,
+      "sha256": "adcd34c235b316bf21c9609e268b1f5b9b05766721baf7a11838641f09c13c10"
+    },
+    {
+      "budget": 64,
+      "bytes": 236319,
+      "cohort": 1,
+      "id": "0c49ffa8dd21310910bbc34c",
+      "path": "mqft_restore77_20261127/data/L17/base/0c49ffa8dd21310910bbc34c.jsonl.gz",
+      "seed": 6371652894459850262,
+      "sha256": "1f5dec8c72904968e52c809923a3357df84c2baacd206ee2aa37943e08695034"
+    },
+    {
+      "budget": 64,
+      "bytes": 230932,
+      "cohort": 1,
+      "id": "ff3fdee05c1455d76d838074",
+      "path": "mqft_restore77_20261127/data/L17/base/ff3fdee05c1455d76d838074.jsonl.gz",
+      "seed": 14581034090820534417,
+      "sha256": "babd24778faf357b32aa86e8e208f5431ceef0397361b811a6b15869faee2596"
+    },
+    {
+      "budget": 64,
+      "bytes": 234978,
+      "cohort": 1,
+      "id": "2d219b96023e550fc684a8f5",
+      "path": "mqft_restore77_20261127/data/L17/base/2d219b96023e550fc684a8f5.jsonl.gz",
+      "seed": 16746689126772086037,
+      "sha256": "c1f9149ffb334498897e8a44f6dfcb2d774bcb58884a56b52307061a05ed5c03"
+    },
+    {
+      "budget": 64,
+      "bytes": 251131,
+      "cohort": 1,
+      "id": "d518c87ef775d982daecf0fe",
+      "path": "mqft_restore77_20261127/data/L17/base/d518c87ef775d982daecf0fe.jsonl.gz",
+      "seed": 5107248654131010738,
+      "sha256": "30312474b2f343f8687fee36e0f907dc9f19de1cf3866f1cd9febce7f5755648"
+    },
+    {
+      "budget": 64,
+      "bytes": 253878,
+      "cohort": 1,
+      "id": "8cd580af1851602a789227dd",
+      "path": "mqft_restore77_20261127/data/L17/base/8cd580af1851602a789227dd.jsonl.gz",
+      "seed": 2701813489200202873,
+      "sha256": "29177cd927df3afa4ece293835e07eff747fb10df293aa964400cdd8c0fd9fb2"
+    },
+    {
+      "budget": 64,
+      "bytes": 251950,
+      "cohort": 1,
+      "id": "e1a70792af131b24f67eccf6",
+      "path": "mqft_restore77_20261127/data/L17/base/e1a70792af131b24f67eccf6.jsonl.gz",
+      "seed": 5617561907535781992,
+      "sha256": "6439a93daabb8677faa778b9df05e34dc5fb18e7d8ac09b46dcd02cb1ef274d4"
+    },
+    {
+      "budget": 64,
+      "bytes": 247966,
+      "cohort": 1,
+      "id": "d6c551af313cfee895a81b31",
+      "path": "mqft_restore77_20261127/data/L17/base/d6c551af313cfee895a81b31.jsonl.gz",
+      "seed": 6356747959634200534,
+      "sha256": "6a7efbc2e58f0be0457f8a29bb5eab33146fb494800b322b8102e8b866362429"
+    },
+    {
+      "budget": 64,
+      "bytes": 232662,
+      "cohort": 1,
+      "id": "ec8cb8e0ebceb0be3d10662a",
+      "path": "mqft_restore77_20261127/data/L17/base/ec8cb8e0ebceb0be3d10662a.jsonl.gz",
+      "seed": 8145076626776617769,
+      "sha256": "4e58bece55c367c3167e3b5f54d02194f96216b182a246eae584e72602ae3f61"
+    },
+    {
+      "budget": 64,
+      "bytes": 229180,
+      "cohort": 1,
+      "id": "c5fedacab72cddd4226c6bca",
+      "path": "mqft_restore77_20261127/data/L17/base/c5fedacab72cddd4226c6bca.jsonl.gz",
+      "seed": 8000976006139282368,
+      "sha256": "44d509608de6341c5d52103ca31c3c8c98bd666977af795b68cfb053e6703271"
+    },
+    {
+      "budget": 64,
+      "bytes": 234727,
+      "cohort": 1,
+      "id": "2a7974a1f909a7f4730948cc",
+      "path": "mqft_restore77_20261127/data/L17/base/2a7974a1f909a7f4730948cc.jsonl.gz",
+      "seed": 13666582178726365561,
+      "sha256": "394fad4f6e624b122099645814128cbf0cf037ad08c008e8e578a84ee557d117"
+    },
+    {
+      "budget": 64,
+      "bytes": 232917,
+      "cohort": 1,
+      "id": "719f8c74f095c11b41167949",
+      "path": "mqft_restore77_20261127/data/L17/base/719f8c74f095c11b41167949.jsonl.gz",
+      "seed": 11704875343662180552,
+      "sha256": "4fb6f9ee2ffc572c6647e5b0107291ec1a40ebb37aff7c43fd16e81b63d31a1f"
+    },
+    {
+      "budget": 64,
+      "bytes": 253799,
+      "cohort": 1,
+      "id": "d23ada2eb9359bb03e953b9e",
+      "path": "mqft_restore77_20261127/data/L17/base/d23ada2eb9359bb03e953b9e.jsonl.gz",
+      "seed": 5416280235700528011,
+      "sha256": "09068b5ce318f77456a9dd20724806a5d165c50da3dbad96cafe5a9ff3109ed1"
+    },
+    {
+      "budget": 64,
+      "bytes": 249561,
+      "cohort": 1,
+      "id": "971eb9da4d350015a28d2e3b",
+      "path": "mqft_restore77_20261127/data/L17/base/971eb9da4d350015a28d2e3b.jsonl.gz",
+      "seed": 13005809699664022490,
+      "sha256": "809e7c3983ff434bef47c118a85d13e114cdae3f9bf4d417f64702a290532b2f"
+    },
+    {
+      "budget": 64,
+      "bytes": 254390,
+      "cohort": 1,
+      "id": "88f4a1065a816a20babdc243",
+      "path": "mqft_restore77_20261127/data/L17/base/88f4a1065a816a20babdc243.jsonl.gz",
+      "seed": 14298400648282280265,
+      "sha256": "0e8102bb9dec37563339c10637f89dd28f52eee29f58af1cc6351c27b1e759b1"
+    },
+    {
+      "budget": 64,
+      "bytes": 256116,
+      "cohort": 1,
+      "id": "6d4a72c2737b5fe32f87e292",
+      "path": "mqft_restore77_20261127/data/L17/base/6d4a72c2737b5fe32f87e292.jsonl.gz",
+      "seed": 9915264376572024695,
+      "sha256": "aec9423ed358c68dc8ab6ca5c92b49a86bd1105cec1578b510b7bdd3326e99a9"
+    },
+    {
+      "budget": 64,
+      "bytes": 248777,
+      "cohort": 1,
+      "id": "e286e4872b7dd80f3398b42c",
+      "path": "mqft_restore77_20261127/data/L17/base/e286e4872b7dd80f3398b42c.jsonl.gz",
+      "seed": 7361499597666446765,
+      "sha256": "cc1f86855f28f51b53e4c2bffa3da905e8ba31b1909cbf3ea54396e36eec4a82"
+    },
+    {
+      "budget": 64,
+      "bytes": 249815,
+      "cohort": 1,
+      "id": "0c50f46efbbc4dcdc79523b7",
+      "path": "mqft_restore77_20261127/data/L17/base/0c50f46efbbc4dcdc79523b7.jsonl.gz",
+      "seed": 5004847517976164863,
+      "sha256": "4488e206b8c378f42a6e32368aa5b6938d686494f995263aa6ef3cb9f759bb6b"
+    },
+    {
+      "budget": 64,
+      "bytes": 248544,
+      "cohort": 1,
+      "id": "48afaafc1625b742d13c3819",
+      "path": "mqft_restore77_20261127/data/L17/base/48afaafc1625b742d13c3819.jsonl.gz",
+      "seed": 2309884686720400488,
+      "sha256": "b787287c57d3ab627193e2473c4e7f4b5c06b8d471c7b4e6ce120b65d42b79d1"
+    },
+    {
+      "budget": 64,
+      "bytes": 248927,
+      "cohort": 1,
+      "id": "49a7ba0a0f5cbed1e1f9bd79",
+      "path": "mqft_restore77_20261127/data/L17/base/49a7ba0a0f5cbed1e1f9bd79.jsonl.gz",
+      "seed": 7341931168463303709,
+      "sha256": "b3904ae298db1b2049ef1b31bb46bfefa097a03491b0f07962aa4b56fb9a41ea"
+    },
+    {
+      "budget": 64,
+      "bytes": 259107,
+      "cohort": 1,
+      "id": "c397db85deee2a6801c3c9c0",
+      "path": "mqft_restore77_20261127/data/L17/base/c397db85deee2a6801c3c9c0.jsonl.gz",
+      "seed": 2935299409534205795,
+      "sha256": "44e936dfbe1ec26e74ac44ab535aa683c67ad4f9618999880b135dfef5003b28"
+    },
+    {
+      "budget": 64,
+      "bytes": 257307,
+      "cohort": 1,
+      "id": "52c91cd779fc11215dc37a72",
+      "path": "mqft_restore77_20261127/data/L17/base/52c91cd779fc11215dc37a72.jsonl.gz",
+      "seed": 12242010143539158246,
+      "sha256": "a40dd913d3d62dddfb009ad835d04a0147ffba291f562174dac0f39ac684b3fc"
+    },
+    {
+      "budget": 64,
+      "bytes": 263670,
+      "cohort": 1,
+      "id": "12c0638172a9c14ad22d2207",
+      "path": "mqft_restore77_20261127/data/L17/base/12c0638172a9c14ad22d2207.jsonl.gz",
+      "seed": 5619773462075510868,
+      "sha256": "4a29076b9f936eac3e91f28a673a402646cd888e2b403107a639406549e6ab4f"
+    },
+    {
+      "budget": 64,
+      "bytes": 257556,
+      "cohort": 1,
+      "id": "623658e0582cf2a3e22f592a",
+      "path": "mqft_restore77_20261127/data/L17/base/623658e0582cf2a3e22f592a.jsonl.gz",
+      "seed": 785592984873387058,
+      "sha256": "10b3156a8e5693265a332cd87fab992aff344f1d9e4aab1f234793a9395777a7"
+    },
+    {
+      "budget": 64,
+      "bytes": 254479,
+      "cohort": 1,
+      "id": "313a63e4d1f44111a191059f",
+      "path": "mqft_restore77_20261127/data/L17/base/313a63e4d1f44111a191059f.jsonl.gz",
+      "seed": 11141194704512295268,
+      "sha256": "abb535cf2949f3a07d1a3c4cbf3001ad62ae8dcfe69c180ef91107fe5f7d7cdf"
+    },
+    {
+      "budget": 64,
+      "bytes": 252649,
+      "cohort": 1,
+      "id": "ae8b78f380e43c6470afe023",
+      "path": "mqft_restore77_20261127/data/L17/base/ae8b78f380e43c6470afe023.jsonl.gz",
+      "seed": 939922234809642552,
+      "sha256": "7892d0614340bbce90eba9bf4fa0f26017958dffed1f2045d29e9bb0357c18e6"
+    },
+    {
+      "budget": 64,
+      "bytes": 257759,
+      "cohort": 1,
+      "id": "032a0834c8625d2c9338b607",
+      "path": "mqft_restore77_20261127/data/L17/base/032a0834c8625d2c9338b607.jsonl.gz",
+      "seed": 16492907364642096249,
+      "sha256": "0af0fb2d00e52acd6658fbd0d4b94dbc135bcc045bab141fa502e59efcf691a8"
+    },
+    {
+      "budget": 64,
+      "bytes": 254444,
+      "cohort": 1,
+      "id": "b0e171dee46dec23d4bd409f",
+      "path": "mqft_restore77_20261127/data/L17/base/b0e171dee46dec23d4bd409f.jsonl.gz",
+      "seed": 11723049361750177307,
+      "sha256": "5707cde4698e7471644b975d509ea887aa19b4a4e8864c3c0693e0fc85ca81f5"
+    },
+    {
+      "budget": 64,
+      "bytes": 260487,
+      "cohort": 1,
+      "id": "179609327e3258f1a056d8dc",
+      "path": "mqft_restore77_20261127/data/L17/base/179609327e3258f1a056d8dc.jsonl.gz",
+      "seed": 3625403617418962816,
+      "sha256": "7f9f5b7e438df03eff7d847d34b83edfec8d83d531f4d8a0723d90f94750209f"
+    },
+    {
+      "budget": 64,
+      "bytes": 256158,
+      "cohort": 1,
+      "id": "e23568be3d3a169b9f5b439d",
+      "path": "mqft_restore77_20261127/data/L17/base/e23568be3d3a169b9f5b439d.jsonl.gz",
+      "seed": 15655376790114896032,
+      "sha256": "268777b3df7892abdb1691c5436d7be6c1a46bc4aa3957c6a5da4cf2d9bfe962"
+    },
+    {
+      "budget": 64,
+      "bytes": 262118,
+      "cohort": 1,
+      "id": "86ab22a87bee92592721023b",
+      "path": "mqft_restore77_20261127/data/L17/base/86ab22a87bee92592721023b.jsonl.gz",
+      "seed": 5304466078517761015,
+      "sha256": "0f79cc6d3a9887341c929ddb9fd56ab2d534506dbc7e9e1c9f8524d7c39def29"
+    },
+    {
+      "budget": 64,
+      "bytes": 261632,
+      "cohort": 1,
+      "id": "450f995c40592d33c9b4904b",
+      "path": "mqft_restore77_20261127/data/L17/base/450f995c40592d33c9b4904b.jsonl.gz",
+      "seed": 12025388847288098645,
+      "sha256": "f8e1b5bc0a682643bd8987e96eea5bac5d3162d629e8b99c9db2257311d28a10"
+    },
+    {
+      "budget": 64,
+      "bytes": 250234,
+      "cohort": 1,
+      "id": "dd2dbc28b34636c8337f8c89",
+      "path": "mqft_restore77_20261127/data/L17/base/dd2dbc28b34636c8337f8c89.jsonl.gz",
+      "seed": 7324765574755134255,
+      "sha256": "5fe97b101c486bf08ff34ee4000167f2764cc3890498702322e537fa3ba24d57"
+    },
+    {
+      "budget": 64,
+      "bytes": 247430,
+      "cohort": 1,
+      "id": "c851ff47b45f252058c1ebf2",
+      "path": "mqft_restore77_20261127/data/L17/base/c851ff47b45f252058c1ebf2.jsonl.gz",
+      "seed": 3546893540080606648,
+      "sha256": "681bcc6b18a5cd942d151b688df6809d5513458bd0937548f99d3306d75548a3"
+    },
+    {
+      "budget": 64,
+      "bytes": 244291,
+      "cohort": 1,
+      "id": "c58c76d8440b6cae2d6a1e58",
+      "path": "mqft_restore77_20261127/data/L17/base/c58c76d8440b6cae2d6a1e58.jsonl.gz",
+      "seed": 5436321416726548770,
+      "sha256": "d750d6a6ea1ffa313e25b5c5c5be18481ec4f64afbd644b110a142dcc1d8e316"
+    },
+    {
+      "budget": 64,
+      "bytes": 243776,
+      "cohort": 1,
+      "id": "c8294cfc78aba4cf87291e39",
+      "path": "mqft_restore77_20261127/data/L17/base/c8294cfc78aba4cf87291e39.jsonl.gz",
+      "seed": 7288069599323531972,
+      "sha256": "44c6939f677baa2c9c11dbb7edf385df7692860b765e9006255693be021da5a7"
+    },
+    {
+      "budget": 64,
+      "bytes": 257772,
+      "cohort": 1,
+      "id": "2c7c271413e01b3216cef6ed",
+      "path": "mqft_restore77_20261127/data/L17/base/2c7c271413e01b3216cef6ed.jsonl.gz",
+      "seed": 16194665669456382412,
+      "sha256": "3759b51be8126f631c32de188f048545d1b088bc227b3b8968927b5bb6305f62"
+    },
+    {
+      "budget": 64,
+      "bytes": 257176,
+      "cohort": 1,
+      "id": "8e382f6f1ca13f21e30e3a20",
+      "path": "mqft_restore77_20261127/data/L17/base/8e382f6f1ca13f21e30e3a20.jsonl.gz",
+      "seed": 15735048636161104398,
+      "sha256": "bc8a84a059b3f18ecc3e2a4ebf8c2b60e98e85ee2ea24b3546eb903d85858296"
+    },
+    {
+      "budget": 64,
+      "bytes": 255690,
+      "cohort": 1,
+      "id": "cba6d3d68e530fabb2ed97fe",
+      "path": "mqft_restore77_20261127/data/L17/base/cba6d3d68e530fabb2ed97fe.jsonl.gz",
+      "seed": 17593703744436673228,
+      "sha256": "9a0c373fba7414295a715ec05ddd7543aee90279f2241179992a2b1ece2157bc"
+    },
+    {
+      "budget": 64,
+      "bytes": 257483,
+      "cohort": 1,
+      "id": "bc85eb8139bdfde33166badc",
+      "path": "mqft_restore77_20261127/data/L17/base/bc85eb8139bdfde33166badc.jsonl.gz",
+      "seed": 12267994622311420804,
+      "sha256": "19495a353fbd6756955e9250c7dc82651cf1c32547eb5ddb16e9e47732236d53"
+    },
+    {
+      "budget": 64,
+      "bytes": 233894,
+      "cohort": 1,
+      "id": "9a079f23c5827580931ac47c",
+      "path": "mqft_restore77_20261127/data/L17/base/9a079f23c5827580931ac47c.jsonl.gz",
+      "seed": 13891287951154435357,
+      "sha256": "cd7ebe8ad3f09090f12ae19866f432dc4cad3f990608975de23551a2377c17c8"
+    },
+    {
+      "budget": 64,
+      "bytes": 245964,
+      "cohort": 1,
+      "id": "130c074e814d8ea978911024",
+      "path": "mqft_restore77_20261127/data/L17/base/130c074e814d8ea978911024.jsonl.gz",
+      "seed": 3449963843051883136,
+      "sha256": "ed3bf32b32ca4e04c4fea41f68835eb20ee1690e9f9ac5ba7a7027305db1c2f9"
+    },
+    {
+      "budget": 64,
+      "bytes": 235217,
+      "cohort": 1,
+      "id": "ae175b32d4facf45db695368",
+      "path": "mqft_restore77_20261127/data/L17/base/ae175b32d4facf45db695368.jsonl.gz",
+      "seed": 10853990503180220330,
+      "sha256": "de23811f26e12605093769e5e8026ee91862c1431bdae24b619750ad22b01795"
+    },
+    {
+      "budget": 64,
+      "bytes": 245964,
+      "cohort": 1,
+      "id": "685ddde1ecc875c0f3678e22",
+      "path": "mqft_restore77_20261127/data/L17/base/685ddde1ecc875c0f3678e22.jsonl.gz",
+      "seed": 13961983517997432456,
+      "sha256": "398b98bb629523ae023eb67347bb59bbbb1f702536b8f0143d5768da695c3a43"
+    },
+    {
+      "budget": 64,
+      "bytes": 249340,
+      "cohort": 1,
+      "id": "0093117723261a7aad904023",
+      "path": "mqft_restore77_20261127/data/L17/base/0093117723261a7aad904023.jsonl.gz",
+      "seed": 7085921318394262068,
+      "sha256": "a13798b73774cf9c509dff13318fcfd94edd1e02952184487d7592dd8a1e5fa7"
+    },
+    {
+      "budget": 64,
+      "bytes": 248900,
+      "cohort": 1,
+      "id": "7f689aa3c0dd6e7380d49384",
+      "path": "mqft_restore77_20261127/data/L17/base/7f689aa3c0dd6e7380d49384.jsonl.gz",
+      "seed": 13302388886568854047,
+      "sha256": "54b090b70b99763fa6f86629c61131bcb2a82060f0a839a381d589aee36d01e2"
+    },
+    {
+      "budget": 64,
+      "bytes": 250096,
+      "cohort": 1,
+      "id": "5729f24e9834d5ec68b68173",
+      "path": "mqft_restore77_20261127/data/L17/base/5729f24e9834d5ec68b68173.jsonl.gz",
+      "seed": 13797500341020814678,
+      "sha256": "8c3282b37e04a61788040ff108d803d4b0236f16f5226c8564a75a3b3583ccc8"
+    },
+    {
+      "budget": 64,
+      "bytes": 251792,
+      "cohort": 1,
+      "id": "903a06a388241ae7c741d173",
+      "path": "mqft_restore77_20261127/data/L17/base/903a06a388241ae7c741d173.jsonl.gz",
+      "seed": 14638160372598757705,
+      "sha256": "e3e755536afcb15d306a3346db0cbec133d667f7657d88fe3a280de17261a36b"
+    },
+    {
+      "budget": 64,
+      "bytes": 244870,
+      "cohort": 1,
+      "id": "0858306f9cb10ae1bacb317d",
+      "path": "mqft_restore77_20261127/data/L17/base/0858306f9cb10ae1bacb317d.jsonl.gz",
+      "seed": 4198130826693345375,
+      "sha256": "385718f9ddf350b84ef6cb31950c9cb30e1d585ac8d9c487d3471b8fd9c61031"
+    },
+    {
+      "budget": 64,
+      "bytes": 250832,
+      "cohort": 1,
+      "id": "d276c2c1dbd7b07d100a3d16",
+      "path": "mqft_restore77_20261127/data/L17/base/d276c2c1dbd7b07d100a3d16.jsonl.gz",
+      "seed": 784166418167077526,
+      "sha256": "19c1eb0f222edc5c8415554751236e6bf7d0e74cbee0e97c82eea325c6c58a81"
+    },
+    {
+      "budget": 64,
+      "bytes": 251662,
+      "cohort": 1,
+      "id": "ce169a3a464d0d06973ef576",
+      "path": "mqft_restore77_20261127/data/L17/base/ce169a3a464d0d06973ef576.jsonl.gz",
+      "seed": 15133255271789660088,
+      "sha256": "a8731521957890c3ae2636811ce42e6c2022feefb07615dfabb40bea23197d79"
+    },
+    {
+      "budget": 64,
+      "bytes": 251044,
+      "cohort": 1,
+      "id": "9f65b3f50ef0e1dd25f71dde",
+      "path": "mqft_restore77_20261127/data/L17/base/9f65b3f50ef0e1dd25f71dde.jsonl.gz",
+      "seed": 14560728626946594607,
+      "sha256": "98e7e44cf9d332315a907f3e5507a784752119ceb0c306d6c351742306b6ab07"
+    },
+    {
+      "budget": 64,
+      "bytes": 246451,
+      "cohort": 1,
+      "id": "9fb4c2c6d37889f08ecd21bc",
+      "path": "mqft_restore77_20261127/data/L17/base/9fb4c2c6d37889f08ecd21bc.jsonl.gz",
+      "seed": 1300932316710366667,
+      "sha256": "d06bc49fdd54f309ea8d3ae8b881eef855298658328e65bb8e7ca7178338ccf4"
+    },
+    {
+      "budget": 64,
+      "bytes": 251613,
+      "cohort": 1,
+      "id": "b74fb197f48022aae835a253",
+      "path": "mqft_restore77_20261127/data/L17/base/b74fb197f48022aae835a253.jsonl.gz",
+      "seed": 13953506466899903936,
+      "sha256": "63a894cc21250e62f68f91bfb28cac3b22799ce70c823d78ef3d29f28ed2e551"
+    },
+    {
+      "budget": 64,
+      "bytes": 245255,
+      "cohort": 1,
+      "id": "db95cadbf2bc518bc0306a4d",
+      "path": "mqft_restore77_20261127/data/L17/base/db95cadbf2bc518bc0306a4d.jsonl.gz",
+      "seed": 8759243476482553821,
+      "sha256": "4f8218286972924d22b2f25a84f91289d38c15fd65fdda4bf6aec7e5ddfc0e7a"
+    },
+    {
+      "budget": 64,
+      "bytes": 250566,
+      "cohort": 1,
+      "id": "4931babcb704d71b89cd2cb4",
+      "path": "mqft_restore77_20261127/data/L17/base/4931babcb704d71b89cd2cb4.jsonl.gz",
+      "seed": 7515459237821442363,
+      "sha256": "2655d4245342ad4af10df699b65da57d74704c40a60bafaf4265b97e1c18fbb4"
+    },
+    {
+      "budget": 64,
+      "bytes": 247356,
+      "cohort": 1,
+      "id": "2fb99f68c7782cdba71467b8",
+      "path": "mqft_restore77_20261127/data/L17/base/2fb99f68c7782cdba71467b8.jsonl.gz",
+      "seed": 4028572836877689291,
+      "sha256": "21475ff526fa1bb71ecd4b179313e580b9c7dd6ba009d77abf9ac20327a9d706"
+    },
+    {
+      "budget": 64,
+      "bytes": 248177,
+      "cohort": 1,
+      "id": "d4e1be5250a995b49a46cd96",
+      "path": "mqft_restore77_20261127/data/L17/base/d4e1be5250a995b49a46cd96.jsonl.gz",
+      "seed": 14466018528230786983,
+      "sha256": "a0b531537f9718e8ea863996399cdac5638bbcd00cf9da40d4ba56ea7f9f3912"
+    },
+    {
+      "budget": 64,
+      "bytes": 248900,
+      "cohort": 1,
+      "id": "f6d5c94b5347d5b930b28a2a",
+      "path": "mqft_restore77_20261127/data/L17/base/f6d5c94b5347d5b930b28a2a.jsonl.gz",
+      "seed": 6143200061469944700,
+      "sha256": "b66928ddb729aab154c33997b0df4f716e7e9e3371265066c47709c037e38894"
+    },
+    {
+      "budget": 64,
+      "bytes": 249111,
+      "cohort": 1,
+      "id": "abfbc137b76949a9b661667f",
+      "path": "mqft_restore77_20261127/data/L17/base/abfbc137b76949a9b661667f.jsonl.gz",
+      "seed": 14519871609994930910,
+      "sha256": "d0463ba91cf0fd51597e0f6eebcef63200c2c1afeb8c252d39e427cbf2c907ed"
+    },
+    {
+      "budget": 64,
+      "bytes": 252897,
+      "cohort": 1,
+      "id": "1a4177fa4776efac3c548a90",
+      "path": "mqft_restore77_20261127/data/L17/base/1a4177fa4776efac3c548a90.jsonl.gz",
+      "seed": 16041475035663374401,
+      "sha256": "9a6a2b13bc0c3451782b586a496a9efedd36318d036adf2f839588eb725a686d"
+    },
+    {
+      "budget": 64,
+      "bytes": 258811,
+      "cohort": 1,
+      "id": "26d4167a22f510c476bad13d",
+      "path": "mqft_restore77_20261127/data/L17/base/26d4167a22f510c476bad13d.jsonl.gz",
+      "seed": 10012898066817105832,
+      "sha256": "f846d272204fd3ed301e4839c30a771fcae1230476fce43939bcc1e6f0d6e810"
+    },
+    {
+      "budget": 64,
+      "bytes": 252844,
+      "cohort": 1,
+      "id": "613cc9334a4963d124451c40",
+      "path": "mqft_restore77_20261127/data/L17/base/613cc9334a4963d124451c40.jsonl.gz",
+      "seed": 13569798920741285409,
+      "sha256": "42c8126b404cc04a9edb3613e4cad21a23626daf5a69f367af9431bdf690ac28"
+    },
+    {
+      "budget": 64,
+      "bytes": 256491,
+      "cohort": 1,
+      "id": "2499691201475dcb80de1f93",
+      "path": "mqft_restore77_20261127/data/L17/base/2499691201475dcb80de1f93.jsonl.gz",
+      "seed": 13064206976501073285,
+      "sha256": "106dbfd0a94c02f5aedd0e19266f8b9c8ff9fc550d02dede46e6616a451d8428"
+    },
+    {
+      "budget": 64,
+      "bytes": 223008,
+      "cohort": 1,
+      "id": "e7b406459b9ba2c47b53f145",
+      "path": "mqft_restore77_20261127/data/L17/base/e7b406459b9ba2c47b53f145.jsonl.gz",
+      "seed": 6328789031537194002,
+      "sha256": "54c1210d8da7f4affc4067c35947ba42598b812b2a254f7fac61d7bc61517551"
+    },
+    {
+      "budget": 64,
+      "bytes": 219571,
+      "cohort": 1,
+      "id": "895d6ef2b08d59ba7beaa1c4",
+      "path": "mqft_restore77_20261127/data/L17/base/895d6ef2b08d59ba7beaa1c4.jsonl.gz",
+      "seed": 6371652894459850262,
+      "sha256": "037de41fb6934cf553055c3588d12ccd1a921ebbb27aade86c7b5c39fa8ce699"
+    },
+    {
+      "budget": 64,
+      "bytes": 222286,
+      "cohort": 1,
+      "id": "9d7a96d5045eebf0d153e850",
+      "path": "mqft_restore77_20261127/data/L17/base/9d7a96d5045eebf0d153e850.jsonl.gz",
+      "seed": 14581034090820534417,
+      "sha256": "108526e704646cf7f625b368e4bc1fa2bfbbdc919d624a81b099462c5083e148"
+    },
+    {
+      "budget": 64,
+      "bytes": 218396,
+      "cohort": 1,
+      "id": "8c2a5a025cd88311eaca385f",
+      "path": "mqft_restore77_20261127/data/L17/base/8c2a5a025cd88311eaca385f.jsonl.gz",
+      "seed": 16746689126772086037,
+      "sha256": "02ee23c97b1ee0ada6a1bc484b3ce56227a1f632094cb27bb4a08771b53a8923"
+    },
+    {
+      "budget": 64,
+      "bytes": 241450,
+      "cohort": 1,
+      "id": "75754b7695593bd432cf28e8",
+      "path": "mqft_restore77_20261127/data/L17/base/75754b7695593bd432cf28e8.jsonl.gz",
+      "seed": 5107248654131010738,
+      "sha256": "47be6c3c71876a018070f0f46b763fa65ef50afcad489263cd4a9b669986b66c"
+    },
+    {
+      "budget": 64,
+      "bytes": 240634,
+      "cohort": 1,
+      "id": "dce2cd4c9ceb0daf9a1b089f",
+      "path": "mqft_restore77_20261127/data/L17/base/dce2cd4c9ceb0daf9a1b089f.jsonl.gz",
+      "seed": 2701813489200202873,
+      "sha256": "e5d19e6a4eea938ed8d51017a37fa9d1329e5f3bf9df61101cf503dea8ddbb08"
+    },
+    {
+      "budget": 64,
+      "bytes": 240752,
+      "cohort": 1,
+      "id": "548caecec28f12690271689d",
+      "path": "mqft_restore77_20261127/data/L17/base/548caecec28f12690271689d.jsonl.gz",
+      "seed": 5617561907535781992,
+      "sha256": "80eb6d7faccd1edb11694e255ffd395f33b92be7cb73a02fd76554fcc3a42e11"
+    },
+    {
+      "budget": 64,
+      "bytes": 241148,
+      "cohort": 1,
+      "id": "9d1f2eb7c54b5e51c31d3405",
+      "path": "mqft_restore77_20261127/data/L17/base/9d1f2eb7c54b5e51c31d3405.jsonl.gz",
+      "seed": 6356747959634200534,
+      "sha256": "c3f84267ffa13455579dfcc3253072b4345be34179cad9bf9abec06edbfab8b7"
+    },
+    {
+      "budget": 64,
+      "bytes": 212991,
+      "cohort": 1,
+      "id": "52122536051586e66f69ec95",
+      "path": "mqft_restore77_20261127/data/L17/base/52122536051586e66f69ec95.jsonl.gz",
+      "seed": 8145076626776617769,
+      "sha256": "6ed25c33d5c1fa1277908f4fbe0c34776291f9e9125eb48a06309f6e74bc9305"
+    },
+    {
+      "budget": 64,
+      "bytes": 212992,
+      "cohort": 1,
+      "id": "45ba883e0694b18eaae9affc",
+      "path": "mqft_restore77_20261127/data/L17/base/45ba883e0694b18eaae9affc.jsonl.gz",
+      "seed": 8000976006139282368,
+      "sha256": "a0381b766a75f6703f75c43f88152a124d3666926068ea706ce04632f60aeaab"
+    },
+    {
+      "budget": 64,
+      "bytes": 214303,
+      "cohort": 1,
+      "id": "233334a4b8a58bee347fc879",
+      "path": "mqft_restore77_20261127/data/L17/base/233334a4b8a58bee347fc879.jsonl.gz",
+      "seed": 13666582178726365561,
+      "sha256": "c94d93d18b9fe71020d44e347e544a123fe8f2af6db91fc2abd3a8baa9fb49bc"
+    },
+    {
+      "budget": 64,
+      "bytes": 216183,
+      "cohort": 1,
+      "id": "2b1a5eeffa0724871fbbf352",
+      "path": "mqft_restore77_20261127/data/L17/base/2b1a5eeffa0724871fbbf352.jsonl.gz",
+      "seed": 11704875343662180552,
+      "sha256": "1e57a3f088e45114d796a4f399159109df2c0f1c6fc80fe6b16207e5bfbf33e6"
+    },
+    {
+      "budget": 64,
+      "bytes": 243030,
+      "cohort": 1,
+      "id": "e2f92a9e70981d8a04e40369",
+      "path": "mqft_restore77_20261127/data/L17/base/e2f92a9e70981d8a04e40369.jsonl.gz",
+      "seed": 5416280235700528011,
+      "sha256": "4a38e5d239c6c853135de28274d2b7e68bb65c28229aab2fdddfbe95fe1e6d46"
+    },
+    {
+      "budget": 64,
+      "bytes": 243959,
+      "cohort": 1,
+      "id": "401b35ac8d49e29253e4bf78",
+      "path": "mqft_restore77_20261127/data/L17/base/401b35ac8d49e29253e4bf78.jsonl.gz",
+      "seed": 13005809699664022490,
+      "sha256": "599d8a4b088e310342c0602f120c6764074aaa075ac81f841cdae59beaa7df1a"
+    },
+    {
+      "budget": 64,
+      "bytes": 246858,
+      "cohort": 1,
+      "id": "7bec96ef1b41213ef67081ec",
+      "path": "mqft_restore77_20261127/data/L17/base/7bec96ef1b41213ef67081ec.jsonl.gz",
+      "seed": 14298400648282280265,
+      "sha256": "43c9ebc98f6205d707a2378c10bad36435913513c2577d10c129d483c3576628"
+    },
+    {
+      "budget": 64,
+      "bytes": 243096,
+      "cohort": 1,
+      "id": "09e5ae677a0c5fd1e7a7c4dd",
+      "path": "mqft_restore77_20261127/data/L17/base/09e5ae677a0c5fd1e7a7c4dd.jsonl.gz",
+      "seed": 9915264376572024695,
+      "sha256": "44bc9997c96006a2e330569d287a35cfdf5e30e16be1def20ff95fb28b6a8e8c"
+    },
+    {
+      "budget": 64,
+      "bytes": 239716,
+      "cohort": 1,
+      "id": "ee6814ca70f935f2482f63d3",
+      "path": "mqft_restore77_20261127/data/L17/base/ee6814ca70f935f2482f63d3.jsonl.gz",
+      "seed": 7361499597666446765,
+      "sha256": "a703201359f4e7e846839a9afcec7abe973fe3cd35af3a47f31f5b7619905665"
+    },
+    {
+      "budget": 64,
+      "bytes": 238694,
+      "cohort": 1,
+      "id": "cef25f27ad1f863d6f057581",
+      "path": "mqft_restore77_20261127/data/L17/base/cef25f27ad1f863d6f057581.jsonl.gz",
+      "seed": 5004847517976164863,
+      "sha256": "37e5f805cfd7401f1e52803d09feccf7cf3c8e90fb1531bbb9c8e0c7d9b15136"
+    },
+    {
+      "budget": 64,
+      "bytes": 244792,
+      "cohort": 1,
+      "id": "b97ccde51e06565d8f2c9e67",
+      "path": "mqft_restore77_20261127/data/L17/base/b97ccde51e06565d8f2c9e67.jsonl.gz",
+      "seed": 2309884686720400488,
+      "sha256": "89a0cd7bec532c0c62d9e3b094b5b71cf23f5d3ba728943e1d693686df398082"
+    },
+    {
+      "budget": 64,
+      "bytes": 242312,
+      "cohort": 1,
+      "id": "967503f712c7b7cbb5a50d94",
+      "path": "mqft_restore77_20261127/data/L17/base/967503f712c7b7cbb5a50d94.jsonl.gz",
+      "seed": 7341931168463303709,
+      "sha256": "c4860087a2cb94e8aaff476fff3cc3d2dd9781b598ee00c5affde835a5cff97f"
+    },
+    {
+      "budget": 64,
+      "bytes": 249110,
+      "cohort": 1,
+      "id": "5c4e8d6cfd12d76d87fe4caa",
+      "path": "mqft_restore77_20261127/data/L17/base/5c4e8d6cfd12d76d87fe4caa.jsonl.gz",
+      "seed": 2935299409534205795,
+      "sha256": "989bbc5b71cd09aa7e2878000b941b7ceb5d5529c62351c25443235b1d372d19"
+    },
+    {
+      "budget": 64,
+      "bytes": 254575,
+      "cohort": 1,
+      "id": "f3ad32d4c5f6c20eb34586e3",
+      "path": "mqft_restore77_20261127/data/L17/base/f3ad32d4c5f6c20eb34586e3.jsonl.gz",
+      "seed": 12242010143539158246,
+      "sha256": "8147a86938946ced2beb0721a05adf7215fad7886b29a19cf14a6c79c4e6e00b"
+    },
+    {
+      "budget": 64,
+      "bytes": 251831,
+      "cohort": 1,
+      "id": "7baee3246635a3dad1f24e11",
+      "path": "mqft_restore77_20261127/data/L17/base/7baee3246635a3dad1f24e11.jsonl.gz",
+      "seed": 5619773462075510868,
+      "sha256": "244cbbc7546baa6294a87d56199b421e5e505bfb5afcb4a7710281434f04be96"
+    },
+    {
+      "budget": 64,
+      "bytes": 249006,
+      "cohort": 1,
+      "id": "ee7003715155005090d379bf",
+      "path": "mqft_restore77_20261127/data/L17/base/ee7003715155005090d379bf.jsonl.gz",
+      "seed": 785592984873387058,
+      "sha256": "4278c067c65bb06e1fcfb0061e47acbd59944d2565780b604d69fc6dcea7e842"
+    },
+    {
+      "budget": 64,
+      "bytes": 246404,
+      "cohort": 1,
+      "id": "0d8f23a7b5fdffc1e59f2ef5",
+      "path": "mqft_restore77_20261127/data/L17/base/0d8f23a7b5fdffc1e59f2ef5.jsonl.gz",
+      "seed": 11141194704512295268,
+      "sha256": "ec033af21c55ebcc066c57feb9042788218d168c174d2f24cd0fd14738878c5f"
+    },
+    {
+      "budget": 64,
+      "bytes": 242051,
+      "cohort": 1,
+      "id": "b451af7e6d8d69f3f07588bd",
+      "path": "mqft_restore77_20261127/data/L17/base/b451af7e6d8d69f3f07588bd.jsonl.gz",
+      "seed": 939922234809642552,
+      "sha256": "272b9a9d60822b97ad5eeaea047b470f2a10b809d0752b1a53213239e50d1c0f"
+    },
+    {
+      "budget": 64,
+      "bytes": 241593,
+      "cohort": 1,
+      "id": "3e97c0fd5cdb35d572e9e0f5",
+      "path": "mqft_restore77_20261127/data/L17/base/3e97c0fd5cdb35d572e9e0f5.jsonl.gz",
+      "seed": 16492907364642096249,
+      "sha256": "2e8026e2231b0be680e2acf1d8367085f1f21f9d2667fdaccfce19a81161ece9"
+    },
+    {
+      "budget": 64,
+      "bytes": 245536,
+      "cohort": 1,
+      "id": "7c13c1c58b9d46e4d7457b20",
+      "path": "mqft_restore77_20261127/data/L17/base/7c13c1c58b9d46e4d7457b20.jsonl.gz",
+      "seed": 11723049361750177307,
+      "sha256": "b930be769fed78e0d7574001c67ebd80fc4ea123d424e7ebf19a71bf77ecbcf8"
+    },
+    {
+      "budget": 64,
+      "bytes": 254654,
+      "cohort": 1,
+      "id": "da6462dbe3847a2a21c53e44",
+      "path": "mqft_restore77_20261127/data/L17/base/da6462dbe3847a2a21c53e44.jsonl.gz",
+      "seed": 3625403617418962816,
+      "sha256": "8c5eef64cb5856eef5d1c501e4d292ae6742b63de3650a6724b6e685a6ceac52"
+    },
+    {
+      "budget": 64,
+      "bytes": 253148,
+      "cohort": 1,
+      "id": "d8b3d6e6511efd12b046923e",
+      "path": "mqft_restore77_20261127/data/L17/base/d8b3d6e6511efd12b046923e.jsonl.gz",
+      "seed": 15655376790114896032,
+      "sha256": "63a96dfbdd7c58d0bad7ae9b0456f38fed9bf100efa499e702d409d9e631795f"
+    },
+    {
+      "budget": 64,
+      "bytes": 255259,
+      "cohort": 1,
+      "id": "e1e82c043a66fa311d510b96",
+      "path": "mqft_restore77_20261127/data/L17/base/e1e82c043a66fa311d510b96.jsonl.gz",
+      "seed": 5304466078517761015,
+      "sha256": "2e95ea0018e6bc632a725c7109a4e7686df4256ff35adec18395f6bf35093a01"
+    },
+    {
+      "budget": 64,
+      "bytes": 252579,
+      "cohort": 1,
+      "id": "b79fd3b4acd4f8f24f7824fc",
+      "path": "mqft_restore77_20261127/data/L17/base/b79fd3b4acd4f8f24f7824fc.jsonl.gz",
+      "seed": 12025388847288098645,
+      "sha256": "855ba37d5fea360e478a4030ae34f549f2d27dc35da294e7805abacb844b68bb"
+    }
+  ],
+  "root_draws": 24576,
+  "scope": "R76 independently authenticated selected B64 subset plus all R77 independent geometry paths, exact root/RNG/backup replay",
+  "train_backups": 12288,
+  "train_bytes": 44384426,
+  "train_paths": 192
+}

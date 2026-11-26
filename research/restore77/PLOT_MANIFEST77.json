@@ -1,0 +1,129 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "original_fixed_point_audit",
+      "ids": [
+        "L37",
+        "Q09",
+        "Q13"
+      ],
+      "pdf_sha": "08814fc59b2f2c7f2ab4d6ebd77bc384d611c4002e5b91c25fa8891540c4a234",
+      "png_sha": "35277e55c36839ff3f66e26a33ba5295668cfceb94f48a49a3dab4c6aac8f9e7",
+      "scope": "Exact original beta-function residual and conditional frozen-tau unstable point; lambda eig example epsilon=1; not native physical RG."
+    },
+    {
+      "figure": "historical_augmented_collisions",
+      "ids": [
+        "L13",
+        "L37",
+        "L38"
+      ],
+      "pdf_sha": "68042cda5a1b51b0af317a2460f2a691bc57596021097a9f8d8cdb9d1dca6d1b",
+      "png_sha": "4109082b225f4f5036e889d817a2042663543a29ce4370bc2160a37d9fd2b9b8",
+      "scope": "Reevaluation of 112 authenticated R72 count collisions; only nested bin comparisons, exact marks unique in this subset."
+    },
+    {
+      "figure": "fresh_nonlumpability",
+      "ids": [
+        "L13",
+        "L37",
+        "L38"
+      ],
+      "pdf_sha": "8381fa998f6e546be6b7562695fa7d30ee52439b77dc8297311ad6775cbd5158",
+      "png_sha": "9003e6ffe289f0fc77beda0fda69733f6ee411687de3cf6a20f9afb730162cff",
+      "scope": "New geometry, same root/time collisions; pair counts depend on state resolution and do not estimate population prevalence."
+    },
+    {
+      "figure": "heldout_one_step",
+      "ids": [
+        "L13",
+        "L35",
+        "L38"
+      ],
+      "pdf_sha": "0b2e8aa7757f806df7ee18d4f0a9608d3572c8d0e08052671e15ecbe51f32894",
+      "png_sha": "a15847eefa4892ad7f08f4543d5b886422fa7e52a994fdd68d61a34b887f4233",
+      "scope": "New geometry one-step common targets, separate conditional models, equal-stratum averages."
+    },
+    {
+      "figure": "chapman_kolmogorov_defect",
+      "ids": [
+        "L29",
+        "L35",
+        "L36",
+        "L37"
+      ],
+      "pdf_sha": "0cf620ab993693952b28d5d20c2a1e5169062be83537763ccc8b9b7dbc0e5e77",
+      "png_sha": "d99794478f92a4dbb22599c27b1b8329a3d1242b1abfb854ad505f3c13241e94",
+      "scope": "Composition of fitted one-step matrices vs direct fitted block laws; not exact lumpability theorem."
+    },
+    {
+      "figure": "autonomous_cgf",
+      "ids": [
+        "L29",
+        "L35",
+        "Q11",
+        "Q13"
+      ],
+      "pdf_sha": "f6b05e6340a6505cd050532fe6037164e7d3d3faa08649475006d3375981525d",
+      "png_sha": "7a45eefc0378efae722a93f209ade72f8df3b02b93d867a0d91b629e73e12ee8",
+      "scope": "Forward from observed initial state only; actual heldout CGF not fed into kernels."
+    },
+    {
+      "figure": "reference_markov_fixed_point",
+      "ids": [
+        "L35",
+        "L36",
+        "L37",
+        "Q11"
+      ],
+      "pdf_sha": "275cef1593a67fd553336005f2f2cd89a101d39bad74c1bdb7fa2d195b7e9d6d",
+      "png_sha": "14e4a7033021eceefe3bb26b0f3579dfdc5cab3571d9bf98dd30a21f15cb3a99",
+      "scope": "Stationary projector of smoothed finite learned kernel; mathematical reference, not native RG fixed point."
+    },
+    {
+      "figure": "gaussian_probability_rg",
+      "ids": [
+        "L37",
+        "L38",
+        "Q09",
+        "Q11"
+      ],
+      "pdf_sha": "3247f12263811a4db3723a534008feb6a36f2129b35d3b6c4ee0e9b67c03ac62",
+      "png_sha": "1ec322126e789001c8f0c88bfd5b55e3b446a4f534d362ae60be82d5bce4307c",
+      "scope": "Exact independent-sum fixed law and finite binomial control, not physical Wilson\u2013Fisher."
+    },
+    {
+      "figure": "native_block_rg_defect",
+      "ids": [
+        "L35",
+        "L37",
+        "L38",
+        "Q11"
+      ],
+      "pdf_sha": "84cb65181f2d6d55e0ba7e996da83e2ab963d58c9891254c200c84c973fcab1a",
+      "png_sha": "e7ce39d5b360bf3166f7314e1ae97fe07157e4b970655613c26523bd7aeab4c9",
+      "scope": "Actual aligned late blocks, fixed training normalization; independent-convolution reference errors."
+    },
+    {
+      "figure": "adjacent_block_dependence",
+      "ids": [
+        "L13",
+        "L29",
+        "L38",
+        "Q13"
+      ],
+      "pdf_sha": "3713e69325e798b011ba7d6ffb2d8d7e1ef3034905d22714ceae026c24550461",
+      "png_sha": "dbfad6ae7a426aa5e23192a09ca932860f613a49ead68583a3956c186de6999e",
+      "scope": "Dependence and marginal mismatch separated; mixtures can contribute, no universal population memory estimate."
+    }
+  ],
+  "sources": {
+    "CLOSURE77.json": "f640ee87bc64cb08e309c5fc59ae28c27e61f46c16d83a8c50f55170d2287d83",
+    "INDEPENDENT77.json": "c2880e1270f7a9e29684e9bc54c0d367fb333d07159c757db9052cee6c182c87",
+    "ORIGINAL_RG_AUDIT77.json": "f80c8bfc577c517a1859986a9e73046ae844f59d48ec0fec76c68dcf9802cdaf",
+    "RG77.json": "4774816825943c02cc3b027bcee6b495b42f35a7bd9d7d4e3d5552d1caff2a6d",
+    "SUMMARY77.json": "0b96995a40b26751a3c43dbb4c9f303553b2a1dd9c95a33a4a512753da985401",
+    "plot77.py": "c16660634bf2f6803bd6b8d793737f427e917a278d7c3d7678a63712719fe043"
+  }
+}
