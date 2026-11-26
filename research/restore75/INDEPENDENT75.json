@@ -1,0 +1,13 @@
+{
+  "continuum_reference_error": 4.440892098500626e-16,
+  "full_and_path_scattering_cases": 576,
+  "max_aggregate_error": 3.3306690738754696e-16,
+  "max_compensator_error": 2.220446049250313e-16,
+  "max_detector_error": 6.036837696399289e-16,
+  "max_lead_matching_error": 1.0436096431476471e-14,
+  "max_phase_matching_error": 1.9595436384634013e-14,
+  "phase_scattering_cases": 288,
+  "raw_contexts": 96,
+  "scope": "independent union-find threshold certificate and explicit lead boundary matching, expm detector, raw context subset, full root aggregate, historical episode and continuum matching; same-agent independent implementation",
+  "status": "PASS_SCOPED"
+}

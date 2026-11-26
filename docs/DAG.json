@@ -56,7 +56,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-06",
+  "entry": "X-BARRIER",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -119,9 +119,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R75 actual native barrier/first passage and explicit coherent transport with controlled WKB",
-    "Independent size criticality, population and gauge/fixed-point checks",
-    "Operational coherent multi-time and final-decision redundancy; physically calibrated thermal bath only if identifiable"
+    "R76 independent common evaluator size/budget/beta criticality and null",
+    "R77 autonomous RG fixed point and augmented closure",
+    "R78 structural gauge and R79 original quality report; final original scientific requirements"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -140,7 +140,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE75-BARRIER-FIRST-PASSAGE-WKB",
+  "next_stage_id": "MQFT-RESTORE76-INDEPENDENT-FINITE-SIZE-CRITICALITY",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -625,6 +625,11 @@
       "record_repeat_followup": "RESTORE36 actual disjoint vs overlapping records, injective empirical MI artifact, declared complex coherent/tag/CQ lifts and label-write channel. Preserve all scope limits; no native physical phase or general scaling.",
       "remaining_scope": "original across-game value recovery, physical identification of coordinate, kinetic term, phase and hbar, coherent full-support/parallel/GPU and native strength; local detector gate suppresses native crossing, no performance benefit established",
       "response_selector_followup": "RESTORE35 true path-score response and independent utility; fixed contrast correction not admitted, declared complex phase/noise controls preserve diagonal utility, change coherent probe. No general quantum advantage.",
+      "restore75_followup": {
+        "artifact": "mqft_restore75_20261127/{FIRST_RESULTS75.json,TRANSPORT75.json,GAMES75.json}",
+        "evidence": "3072 fresh actual native full-support paths, 3071 risk-eligible geometries, exact minimax and predictable hazard, 95%+ nonneighbor hits; 96 declared score graph models, 288 energies, full/path exact scattering, WKB/continuum and gauge/phase/detector controls; 16 historical same-side game episodes.",
+        "remaining": "Native physical coordinate, kinetic action, energy and phase not identified; finite graph model not physical tunneling observation; historical game censoring potentially informative."
+      },
       "retained_evidence": "\uc5ed\uc0ac\uc801 \uc2e4\uc81c path\uc640 \ubcc0\ud654 \uc9c0\uc810, reference barrier \ubaa8\ud615.",
       "source": "ensemble_analyzer_complete.py::_plot_tunneling\uc640 tunneling producer."
     },
@@ -692,6 +697,11 @@
         "artifact": "mqft_restore74_20261126/INDEPENDENT74.json",
         "evidence": "Full-rank reference Petz recovery, separate measured TPM fluctuation relation and independently verified finite complex matrix functions.",
         "remaining": "Reference dependence, no unique physical time reversal, operational coherent multi-time channel."
+      },
+      "restore75_followup": {
+        "artifact": "mqft_restore75_20261127/TRANSPORT75.json",
+        "evidence": "Complex Hermitian graph dynamics, lead matching, plaquette phase, same-H coherent/dephased detector comparison.",
+        "remaining": "Actual operational coherent phase readout, not native stochastic path quantum identification."
       },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
@@ -904,7 +914,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-05",
+  "previous_entry": "REPLAN-06",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -3229,8 +3239,47 @@
     "reused_R73_branch_paths": 4544,
     "status": "scoped_native_response_reference_reverse_model"
   },
-  "revision": "RESTORE74_20261126",
-  "scope": "Actual causal native pulse response and explicit reference-dependent quantum reverse/energy model",
+  "restore75": {
+    "AUDIT75.json_sha256": "263ffaab8654959a52f63d0d9531aa3be9b3df67a6ae7f3933623082227fc2ce",
+    "DRIFT_WATCHDOG.md_sha256": "d7c2654fc6b35aad3b92e15ebea89bdf3b3aacfa9b843d6c8f1b597679de46c0",
+    "FIRST_RESULTS75.json_sha256": "4a2e4b883b45e2e7db703b09126b89792dc2b5cd92eca0e4dfd6afc132b7e95f",
+    "GAMES75.json_sha256": "2ad9bc06caecb73ce8d13eca67fa8c2d9f381d624e974049d42e3f3f46ae8e37",
+    "INDEPENDENT75.json_sha256": "6565d971922a578bcd4d97cc3e222f66ca2d921368e80a6eb3a40d3eead30754",
+    "NEXT_DYNAMICS.md_sha256": "c4fd8cdd807a0bc1281e7ea0124039873b5fd2d591b0cc57c43ee8ed606ba9d7",
+    "ORIGINAL_OUTPUT_EVIDENCE75.csv_sha256": "ea3241b0bae7884da575c089d5990d1534cea6919beadbb109d6170635f57707",
+    "ORIGINAL_OUTPUT_PROGRESS75.csv_sha256": "a24078613481b5fed7837091663e1ffa28e140fda7e90bd24734311b65767595",
+    "ORIGINAL_SOURCE75.json_sha256": "2d2607f61e95e4a73f30fbf9a73950f6db4d92bdc943565124d7822060a000d1",
+    "PLOT_INVENTORY75.csv_sha256": "bd7c97c656482d6c37563d8594ec174c3906cc9b2c7e2f9d8bc526cc6568aaca",
+    "PLOT_MANIFEST75.json_sha256": "36c3fd20d796195a244cb451842a6e31dc3a50c7aabaef3429de60bc052ef58e",
+    "PROGRESS75.json_sha256": "a871f059310a43c1d01428f2a74e87269862df122ca866059f4142c46aae05b3",
+    "REGISTRATION.json_sha256": "e061219c7a98b73606d841b2f0c9d072b949ea2a466e68fdcbd4a97d92d775f7",
+    "THEORY.md_sha256": "65a2aeb3df4a8c75cb3d571425d8a048ef145c70e4643a71aed44f057b75e76e",
+    "TRANSPORT75.json_sha256": "880c58431075098f18470723210f64bff3f0d1c6df1815875bf6b372fc097895",
+    "additional_plot_nodes": 0,
+    "animations": 0,
+    "cumulative_fixed_root_histories": 76472,
+    "eligible_paths": 3071,
+    "figures": 12,
+    "fresh_backups": 393216,
+    "fresh_fixed_root_histories": 3072,
+    "graph_contexts": 96,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 5,
+    "original_evidence_union_R55_R75": 114,
+    "original_obligations": 121,
+    "parent_commit": "11aaf8483fb3a8ab18c6c557039891d9140a8c46",
+    "parent_dag_sha256": "cbf927fa05a0f7b9c69fdc9a37d2d25e83d4a4be9ce5558b63ed74619b12dd95",
+    "prior_games": 16,
+    "raw_bytes": 559452910,
+    "remaining": "physical native phase, coordinate/kinetic scale, population; independent criticality and RG, structure and final certification",
+    "retained_pairs": 607,
+    "stationary_energies_contexts": 288,
+    "status": "scoped_native_first_passage_graph_transport"
+  },
+  "revision": "RESTORE75_20261127",
+  "scope": "Actual full-risk native first passage and declared score-graph coherent transport",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE74-DRIVEN-REVERSE-THERMAL"
+  "supersedes_next": "MQFT-RESTORE75-BARRIER-FIRST-PASSAGE-WKB"
 }

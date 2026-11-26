@@ -1,25 +1,24 @@
-# RESTORE74 20-stage ledger
-Stages executed within this round. Theory contract recorded before generation; independent numerical verification follows simulation. Stage boundaries are logical, not 20 isolated agent invocations.
-| Stage | Executed work | Evidence |
+# RESTORE75 stage ledger
+| Stage | Work | Evidence |
 |---|---|---|
-| R1 | R69 charter and R73 parent inspection | THEORY.md, REGISTRATION.json |
-| R2 | Original proposal versions and thermodynamics source review | ORIGINAL_SOURCE74.json |
-| R3 | Literature contrast: Petz, quantum trajectories, nonequilibrium response | THEORY.md |
-| R4 | Native source tilt and path likelihood derivation | THEORY.md, plan74.py |
-| R5 | Martingale score and predictable covariance correction, causal null | THEORY.md, response74.py |
-| R6 | Fine classical-quantum channel, Petz reverse, TPM IFT and support | THEORY.md, petz74.py |
-| R7 | Conditional Gibbs derivative and two-level capacity | THEORY.md, response74.py |
-| R8 | Nonparallel dephasing fixed points and switched-Hamiltonian ledger | THEORY.md, petz74.py |
-| R9 | Distinguish statistical response from equilibrium FDT and physical thermal claims; scoped acceptance | THEORY.md |
-| R10 | Lock 16-root paired protocol, evidence and original target map | REGISTRATION.json, plans/ |
-| C1 | Create isolated native pulse patch from parent source | pulse74.patch, PULSE_PATCH74.json |
-| C2 | Compile native g0/g3 and Rapfi pulse backend | build74.py, logs/build74.log |
-| C3 | Validate root/seed/evaluator registration and fresh geometry | plan74.py, ROOT_PREPARATION.json |
-| C4 | Generate 2,304 real paths, B128 | generate74.py, RUN_SHARDS.json, RAPFI_RECEIPTS74.json |
-| C5 | Recompute native and Rapfi actual raw conditional laws | audit_native74.py, audit_rapfi74.py, AUDIT74.json |
-| C6 | Pulse direct finite difference, reweighting, derivative, capacity, ledger | response74.py, RESPONSE74.json, PULSE74.npz |
-| C7 | Reconstruct actual fine Kraus blocks, Petz, TPM, switched H | petz74.py, PETZ74.json |
-| C8 | Separate 2x2 analytical implementation and subset audit | verify74.py, INDEPENDENT74.json |
-| C9 | 11 plots in two formats and 1 animation; original crosswalk | plot74.py, PLOT_MANIFEST74.json, ORIGINAL_OUTPUT_EVIDENCE74.csv |
-| C10 | Update DAG, publish clean commit, verify two snapshots and retire duplicate predecessor locations | publish74.py, backup74.py, receipts |
-Scientific scope verified for R1-C9; publication and backup status established by actual receipts, not by this ledger alone.
+| R1 | R69 authority and R74 parent, original X-BARRIER target | THEORY.md |
+| R2 | R20/R27/R58, original producer/renderer and literature | ORIGINAL_SOURCE75.json |
+| R3 | Separate native time, spatial coordinate and model time | THEORY.md |
+| R4 | Three routes: native passage, full graph scattering, monitored dynamics | THEORY.md |
+| R5 | Derive minimax, predictable hazard, lattice transfer, reference lead and detector recursions | THEORY.md |
+| R6 | Counterexample to native adjacency, scope and phase/gauge adversarial checks | THEORY.md, INDEPENDENT75.json |
+| R7 | Wolfram det transfer and acosh expansion, rectangular/continuum controls | THEORY.md, TRANSPORT75.json |
+| R8 | Scoped prediction and no universal coherent enhancement | RESULTS_KO.md |
+| R9 | Explicit computational conventions, risk set and frozen landscape | THEORY.md |
+| R10 | Locked data protocol and followup | REGISTRATION.json, NEXT_DYNAMICS.md |
+| C1 | Register exact source/weights and new geometry | REGISTRATION.json |
+| C2 | Inspect raw law schema and existing pinned R74 zero pulse path | audit_native74.py, audit_rapfi74.py |
+| C3 | Dijkstra/BFS minimax, sparse lead solve, detector recurrence and censor accounting | first75.py, transport75.py |
+| C4 | 12 native workers, 8 Rapfi workers; 8 graph/audit workers | generate75.py |
+| C5 | Execute 3072 fresh histories and 16 historical game analyses | RUN_SHARDS.json, GAMES75.json |
+| C6 | Full native replay, exact barrier threshold and mass checks | AUDIT75.json |
+| C7 | Full graph/path, flux, phase, dephased controls | TRANSPORT75.json |
+| C8 | Explicit matching, expm, independent union-find, continuum benchmark | INDEPENDENT75.json |
+| C9 | Typed negative results and 12 two-format plots | PLOT_MANIFEST75.json |
+| C10 | DAG, publication and two incremental verified snapshots | publish75.py, backup75.py, receipts |
+The theory contract was written before data generation. Some R6–R8 conclusions depend on later numerical evidence; stage ledger is logical coverage, not twenty separate isolated native agents or strictly serial stage execution.

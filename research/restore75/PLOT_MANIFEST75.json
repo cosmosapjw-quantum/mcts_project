@@ -1,0 +1,137 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "actual_score_minimax_graph",
+      "ids": [
+        "G20",
+        "G21",
+        "G22"
+      ],
+      "pdf_sha": "e40ef12808a562dabfa1efb0cfaba77d8fb3526c28c068749ab90c5e23be81b0",
+      "png_sha": "fc61a5b47a67faa95a607c2a350800d40d9580cdeec82a8f550aeef0339e65f7",
+      "scope": "Registered core 0 contexts; actual score graph and shortest minimax path, not native adjacency constraint."
+    },
+    {
+      "figure": "native_first_passage",
+      "ids": [
+        "L10",
+        "G19",
+        "G22"
+      ],
+      "pdf_sha": "a3fd3b23c400725c4fda051e780111e020ef2d23d4bd0521d2b3da2028f3125d",
+      "png_sha": "6f119b5a5f823ec731e8e3b92e7a46045ade27ec2f2ea240eccadfb5abea8ee9",
+      "scope": "First subsequent hit and fixed initial hazard with complete risk set, no causal comparison."
+    },
+    {
+      "figure": "native_hazard_martingale",
+      "ids": [
+        "G19",
+        "G22"
+      ],
+      "pdf_sha": "1fca511a5355f963e697d46b20bfc7a44a62b2b758a9e74bd16888c2cc8f3454",
+      "png_sha": "cf870093afd2bc1ac12ae2c6245c1aa18456b7ed201f81a6af6da7f16e775341",
+      "scope": "Pointwise root block intervals; predictable compensator check, not universal equivalence."
+    },
+    {
+      "figure": "native_barrier_risk",
+      "ids": [
+        "G19",
+        "G20",
+        "G22"
+      ],
+      "pdf_sha": "187e0c865ad9da38b22a9d055ba9cd785b48ac68cc560c2bb16779677bc4f1f4",
+      "png_sha": "1199c3709875717000cdb5cba9fe8a65f9f5a29ae36e9d7550da373981fd302c",
+      "scope": "All eligible paths including censored; descriptive selection-dependent landscape."
+    },
+    {
+      "figure": "native_rmst_and_nonlocality",
+      "ids": [
+        "L10",
+        "G20",
+        "G22"
+      ],
+      "pdf_sha": "3b61b5f09e6a8b1ca84dd1c0b57ec643d380524defaa7fd07c3e262ddcd10e7f",
+      "png_sha": "b31a96b2ebf694c9cea42430b023b2b08bdf02aad6312c051cf129f1af1d8a85",
+      "scope": "RMST and direct nonlocality witness; geometric barrier is not required native path."
+    },
+    {
+      "figure": "rectangular_wkb",
+      "ids": [
+        "G21",
+        "G22"
+      ],
+      "pdf_sha": "9238e1623d8512cb17b090e9773d25ff3444260f340d28e2d99481e07316ba98",
+      "png_sha": "c1cdfb5bcdb25bc8850fd0f2fc5a1d2540ef0c60d246a64e2468706ebaad1d48",
+      "scope": "Exact rectangular control and lattice asymptotic slopes; not a native passage formula."
+    },
+    {
+      "figure": "continuum_wkb_limit",
+      "ids": [
+        "G21"
+      ],
+      "pdf_sha": "960f807d4df5dd838b50d37a12737cd92a6025800da8baaf609fd3503f420031",
+      "png_sha": "38251839edd85fcfa5d5dc059263341e6446318790c5d5c2a8b7279fabb630ec",
+      "scope": "Fixed width and physical model coefficient; convergence of lattice scattering, not calibrated native hbar."
+    },
+    {
+      "figure": "graph_vs_path_transmission",
+      "ids": [
+        "G21",
+        "G22"
+      ],
+      "pdf_sha": "5784c0d18936330b362794bb9ea529cd6ec1f33da75f322d1d95d658c258d097",
+      "png_sha": "26a5eee14fec5513f9bd01c7fe89d97db4b2e5497b7b2cb4d20c1fe430b7c625",
+      "scope": "Actual frozen score graphs; graph and single-path transmissions can differ by orders of magnitude."
+    },
+    {
+      "figure": "native_path_wkb_error",
+      "ids": [
+        "G21"
+      ],
+      "pdf_sha": "57bbfd9c06596de53d5ffe6cb46c2d8f11b6ac095fcca9b008b0026837e9f446",
+      "png_sha": "fc27149e29fc6f7b85916d7c71c0f89da1ae40c8bc6b558d938378e308a78476",
+      "scope": "Unfitted local evanescent actions on actual minimax paths; no uniform WKB quantitative validity."
+    },
+    {
+      "figure": "graph_phase_transport",
+      "ids": [
+        "G21",
+        "G22"
+      ],
+      "pdf_sha": "ccd173e66403e9069e4d78b95cded168a9e0c5d041882a53a95fa13ef07f9d48",
+      "png_sha": "d19571aa3755a5a10ebe85276fca870938ddc911921886dbd62e1f740a9cc61b",
+      "scope": "Defined link phase, gauge test and time-reversal reciprocity; not native measured phase."
+    },
+    {
+      "figure": "graph_detector_coherence",
+      "ids": [
+        "G19",
+        "G22"
+      ],
+      "pdf_sha": "6a9d63ec3161f7b184f1fd624773e88b0771083ce6eceb73d207839a8f64592d",
+      "png_sha": "a66ed56bdbafa8c7614109f47ad2d60c72d55b3e3535bc9f9501cc3dc315fee1",
+      "scope": "Same H and cadence, coherent vs exact fully dephased classical chain; not stationary T or native time."
+    },
+    {
+      "figure": "across_game_drawdown",
+      "ids": [
+        "L10",
+        "G19",
+        "G20",
+        "G22"
+      ],
+      "pdf_sha": "fe77759495ec4cad02c3c3615fee2c7d286d8d01c3b49af337a06271446ff193",
+      "png_sha": "47e259b77ce5ba77fc3eabd645bfba25715abe4808611373dd1fe2716a256c60",
+      "scope": "Historical actual same-side root value recovery; informative terminal censoring, no population probability claim."
+    }
+  ],
+  "sources": {
+    "AUDIT75.json": "263ffaab8654959a52f63d0d9531aa3be9b3df67a6ae7f3933623082227fc2ce",
+    "FIRST_RESULTS75.json": "4a2e4b883b45e2e7db703b09126b89792dc2b5cd92eca0e4dfd6afc132b7e95f",
+    "GAMES75.json": "2ad9bc06caecb73ce8d13eca67fa8c2d9f381d624e974049d42e3f3f46ae8e37",
+    "INDEPENDENT75.json": "6565d971922a578bcd4d97cc3e222f66ca2d921368e80a6eb3a40d3eead30754",
+    "TRANSPORT75.json": "880c58431075098f18470723210f64bff3f0d1c6df1815875bf6b372fc097895",
+    "plot75.py": "5d48b258fbc8b6072ae627d1062bd12ad923bd17ad542d0934d8d787a9041746"
+  }
+}

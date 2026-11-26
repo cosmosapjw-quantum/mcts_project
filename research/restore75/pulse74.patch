@@ -1,0 +1,50 @@
+--- a/backend/src/mqft_train_schedule66.rs
++++ b/backend/src/mqft_train_schedule66.rs
+@@ -5,11 +5,11 @@
+ #[serde(deny_unknown_fields)]
+ struct Job66{id:String,moves:Vec<usize>,sources:[usize;2],seed:u64,budget:u32,width:usize,beta:f64,generation:usize,core:usize,rep:usize,arm:String}
+ fn one(j:&Job66,net:Arc<Net>)->Result<Value,String>{
+- if j.width!=4 || j.budget!=128 || !["forward","counter"].contains(&j.arm.as_str()){return Err("invalid schedule experiment".into())}
++ if j.width!=4 || j.budget!=128 || !["forward","counter","zero74","plus74","minus74"].contains(&j.arm.as_str()){return Err("invalid schedule experiment".into())}
+  let s=state(&j.moves)?;let legal=s.legal_moves();
+  if s.is_terminal()||j.sources[0]==j.sources[1]||j.sources.iter().any(|a|!legal.contains(a)){return Err("invalid source pair".into())}
+  let old=ControlJob{id:j.id.clone(),moves:j.moves.clone(),source:j.sources[0],seed:j.seed,budget:j.budget,width:j.width,beta:j.beta,h:0.,d4:false,generation:j.generation,core:j.core,orientation:0,rep:j.rep,cohort:"schedule66".into()};
+- let hs=(0..128).map(|t|{let h=-0.45+0.9*(t/4) as f64/31.;if j.arm=="forward"{h}else{-h}}).collect();
++ let hs=(0..128).map(|t|{if j.arm.ends_with("74"){if (32..36).contains(&t){match j.arm.as_str(){"plus74"=>0.35,"minus74"=>-0.35,_=>0.}}else{0.}}else{let h=-0.45+0.9*(t/4) as f64/31.;if j.arm=="forward"{h}else{-h}}}).collect();
+  let raw=execute_schedule(&old,net,None,None,None,Some(hs))?;
+  Ok(json!({"schema":"mqft.trained.schedule66.v1","input":j,"trace":raw}))
+ 
+--- a/backend/src/mqft_arena68.rs
++++ b/backend/src/mqft_arena68.rs
+@@ -7,7 +7,7 @@
+ use std::{sync::{Arc,atomic::Ordering},io::{self,BufRead,Write},time::Instant};
+ #[derive(Deserialize,Debug)]
+ #[serde(deny_unknown_fields)]
+-struct Request {moves:Vec<usize>,seed:u64,budget:u32,arm:String}
++struct Request {moves:Vec<usize>,seed:u64,budget:u32,arm:String,#[serde(default)] source74:Option<usize>,#[serde(default)] pulse74:Option<f64>}
+ #[derive(Serialize)]
+ struct EvalRec {id:u64,state_hash:String,side:i8,wdl:[f64;3],scores:Vec<(u16,i32)>,clean:f32,delivered:f32,mask:[u8;3],syndrome:[u8;2],corrected:usize}
+ struct Eval {seed:u64,arm:String,records:Mutex<Vec<EvalRec>>}
+@@ -35,11 +35,12 @@
+  let mut s=Gomoku15::freestyle();
+  for &a in &j.moves{if s.is_terminal(){return Err("terminal prefix".into())}let m=s.idx_to_move(a).filter(|m|s.legal_moves().contains(m)).ok_or("illegal move")?;s.apply_move_in_place_no_undo(m);}
+  if s.is_terminal(){return Err("terminal root".into())}
++ if j.source74.is_some()!=j.pulse74.is_some() || j.source74.is_some_and(|a|j.arm!="clean"||j.budget!=128||!s.idx_to_move(a).is_some_and(|m|s.legal_moves().contains(&m))) || j.pulse74.is_some_and(|h| ![-0.35,0.,0.35].contains(&h)){return Err("bad pulse74".into())}
+  let t0=Instant::now();let ev=Arc::new(Eval{seed:j.seed,arm:j.arm.clone(),records:Mutex::new(vec![])});
+  let mut cfg=MctsConfig::evaluation(1.4);cfg.tt_enabled=false;cfg.root_forced_win=false;cfg.exact_terminal_value=false;cfg.fpu_reduction=0.;cfg.vl_mode=VlMode::Fixed;cfg.seed=Some(j.seed);cfg.pw=None;
+  let mut eng=MctsEngine::new(s.clone(),ev.clone(),cfg);
+  let law=LawSpec{kind:"iid".into(),beta_p:vec![10./3.],beta_q:vec![10./3.],proposal:"p".into(),logit_h:0.};
+- eng.par_ctrl.mqft_record=true;eng.par_ctrl.mqft_sampler=Some(Mutex::new(Sampler::new_field(law,vec![0.;225],j.seed)));
++ eng.par_ctrl.mqft_record=true;eng.par_ctrl.mqft_sampler=Some(Mutex::new(if let (Some(a),Some(h))=(j.source74,j.pulse74){Sampler::new_schedule66(law,a,(0..128).map(|t|if (32..36).contains(&t){h}else{0.}).collect(),j.seed)}else{Sampler::new_field(law,vec![0.;225],j.seed)}));
+  let tr=Arc::new(Trace::default());eng.mqft_trace=Some(tr.clone());mqft_trace::clear_eval();
+  let mut cuts=vec![];
+  for phase in 1..=j.budget/4{
+@@ -65,7 +66,7 @@
+  let mut events=vec![];
+  for e in es.iter(){let mut z=serde_json::to_value(e).unwrap();let d=z["root_selection"]["law"].as_object_mut().unwrap();assert_eq!(d["p"],d["q"]);assert_eq!(d["p"],d["b"]);for key in ["q","b","log_q","log_b","log_q_path","log_b_path"]{d.remove(key);}events.push(z);}
+  let n=cuts.last().unwrap()["n"].as_array().unwrap();let action=(0..225).filter(|&a|n[a].as_u64().unwrap()>0).max_by_key(|&a|(n[a].as_u64().unwrap(),std::cmp::Reverse(a))).unwrap();
+- Ok(json!({"schema":"mqft.arena68.search.v1","moves":j.moves,"arm":j.arm,"seed":j.seed,"budget":j.budget,"action":action,"side":s.current_player(),"state_hash":format!("{:016x}",s.tt_hash()),"cuts":cuts,"events":events,"evaluations":&*rec,"elapsed_ns":t0.elapsed().as_nanos() as u64}))
++ Ok(json!({"schema":"mqft.arena68.search.v1","moves":j.moves,"arm":j.arm,"seed":j.seed,"budget":j.budget,"source74":j.source74,"pulse74":j.pulse74,"action":action,"side":s.current_player(),"state_hash":format!("{:016x}",s.tt_hash()),"cuts":cuts,"events":events,"evaluations":&*rec,"elapsed_ns":t0.elapsed().as_nanos() as u64}))
+ }
+ pub fn serve()->Result<(),String>{
+  let mut out=io::BufWriter::new(io::stdout().lock());
