@@ -1,0 +1,1643 @@
+{
+  "binary_sha": "3321dfa4fc86afe5a1e45d1972f040590757f15bb631a75de25a0c664a72d5f9",
+  "budget": 64,
+  "cores": [
+    {
+      "id": 0,
+      "moves": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "orbit": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000200000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "seed": 17988607571215715288
+    },
+    {
+      "id": 1,
+      "moves": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "orbit": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000100000000000000000200000002000000000000000000000000010000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "seed": 7391210878413069471
+    },
+    {
+      "id": 2,
+      "moves": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "orbit": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000100000000000000000200000200000000000000000000000000000000000000000000000000000002010000020100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "seed": 12563908776536166203
+    },
+    {
+      "id": 3,
+      "moves": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "orbit": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "seed": 7459769631339492350
+    },
+    {
+      "id": 4,
+      "moves": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "orbit": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000100000000020000000000000000000000000000000000000000000000000000010002000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "seed": 1846604275917190861
+    },
+    {
+      "id": 5,
+      "moves": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "orbit": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000001020002000000000000000000000000000001000000000000000000000001000000000000000000000000000000000000020000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "seed": 102174949338719135
+    },
+    {
+      "id": 6,
+      "moves": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "orbit": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "seed": 13710788587145541613
+    },
+    {
+      "id": 7,
+      "moves": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "orbit": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010200000000000000000002000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "seed": 11825189742788018923
+    }
+  ],
+  "evaluator": "pinned direct MixNet policy and WDL (not lookahead v1)",
+  "external": {
+    "files": {
+      "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+      "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+      "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+    },
+    "license": "GPL-3.0",
+    "release": "250615",
+    "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+    "rules": "freestyle15",
+    "score_semantics": "external strong move proxy, not exact",
+    "source": "https://github.com/dhbloo/rapfi"
+  },
+  "external_ms": 50,
+  "game_wall_cap_seconds": 240,
+  "jobs": [
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c00_s2",
+      "match": "ext_clean",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "rapfi",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c00_s0",
+      "match": "ext_clean",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "rapfi",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c00_s2",
+      "match": "ext_single",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "rapfi",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c00_s0",
+      "match": "ext_single",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "rapfi",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c00_s2",
+      "match": "ext_recovery",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "rapfi",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c00_s0",
+      "match": "ext_recovery",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "rapfi",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c00_s2",
+      "match": "internal_recovery_single",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "single",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c00_s0",
+      "match": "internal_recovery_single",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "single",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c00_s2",
+      "match": "internal_recovery_clean",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "clean",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 0,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c00_s0",
+      "match": "internal_recovery_clean",
+      "opening": [
+        160,
+        114,
+        64,
+        82
+      ],
+      "opponent": "clean",
+      "seed": 17988607571215715288
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c01_s2",
+      "match": "ext_clean",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "rapfi",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c01_s0",
+      "match": "ext_clean",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "rapfi",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c01_s2",
+      "match": "ext_single",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "rapfi",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c01_s0",
+      "match": "ext_single",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "rapfi",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c01_s2",
+      "match": "ext_recovery",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "rapfi",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c01_s0",
+      "match": "ext_recovery",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "rapfi",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c01_s2",
+      "match": "internal_recovery_single",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "single",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c01_s0",
+      "match": "internal_recovery_single",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "single",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c01_s2",
+      "match": "internal_recovery_clean",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "clean",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 1,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c01_s0",
+      "match": "internal_recovery_clean",
+      "opening": [
+        130,
+        128,
+        157,
+        68,
+        99,
+        110
+      ],
+      "opponent": "clean",
+      "seed": 7391210878413069471
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c02_s2",
+      "match": "ext_clean",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "rapfi",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c02_s0",
+      "match": "ext_clean",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "rapfi",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c02_s2",
+      "match": "ext_single",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "rapfi",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c02_s0",
+      "match": "ext_single",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "rapfi",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c02_s2",
+      "match": "ext_recovery",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "rapfi",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c02_s0",
+      "match": "ext_recovery",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "rapfi",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c02_s2",
+      "match": "internal_recovery_single",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "single",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c02_s0",
+      "match": "internal_recovery_single",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "single",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c02_s2",
+      "match": "internal_recovery_clean",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "clean",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 2,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c02_s0",
+      "match": "internal_recovery_clean",
+      "opening": [
+        69,
+        84,
+        66,
+        112,
+        129,
+        144,
+        80,
+        157
+      ],
+      "opponent": "clean",
+      "seed": 12563908776536166203
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c03_s2",
+      "match": "ext_clean",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "rapfi",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c03_s0",
+      "match": "ext_clean",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "rapfi",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c03_s2",
+      "match": "ext_single",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "rapfi",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c03_s0",
+      "match": "ext_single",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "rapfi",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c03_s2",
+      "match": "ext_recovery",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "rapfi",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c03_s0",
+      "match": "ext_recovery",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "rapfi",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c03_s2",
+      "match": "internal_recovery_single",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "single",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c03_s0",
+      "match": "internal_recovery_single",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "single",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c03_s2",
+      "match": "internal_recovery_clean",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "clean",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 3,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c03_s0",
+      "match": "internal_recovery_clean",
+      "opening": [
+        84,
+        64,
+        100,
+        139
+      ],
+      "opponent": "clean",
+      "seed": 7459769631339492350
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c04_s2",
+      "match": "ext_clean",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "rapfi",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c04_s0",
+      "match": "ext_clean",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "rapfi",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c04_s2",
+      "match": "ext_single",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "rapfi",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c04_s0",
+      "match": "ext_single",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "rapfi",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c04_s2",
+      "match": "ext_recovery",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "rapfi",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c04_s0",
+      "match": "ext_recovery",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "rapfi",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c04_s2",
+      "match": "internal_recovery_single",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "single",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c04_s0",
+      "match": "internal_recovery_single",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "single",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c04_s2",
+      "match": "internal_recovery_clean",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "clean",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 4,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c04_s0",
+      "match": "internal_recovery_clean",
+      "opening": [
+        143,
+        139,
+        94,
+        110,
+        115,
+        141
+      ],
+      "opponent": "clean",
+      "seed": 1846604275917190861
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c05_s2",
+      "match": "ext_clean",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "rapfi",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c05_s0",
+      "match": "ext_clean",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "rapfi",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c05_s2",
+      "match": "ext_single",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "rapfi",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c05_s0",
+      "match": "ext_single",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "rapfi",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c05_s2",
+      "match": "ext_recovery",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "rapfi",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c05_s0",
+      "match": "ext_recovery",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "rapfi",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c05_s2",
+      "match": "internal_recovery_single",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "single",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c05_s0",
+      "match": "internal_recovery_single",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "single",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c05_s2",
+      "match": "internal_recovery_clean",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "clean",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 5,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c05_s0",
+      "match": "internal_recovery_clean",
+      "opening": [
+        125,
+        84,
+        70,
+        145,
+        95,
+        126,
+        113,
+        128
+      ],
+      "opponent": "clean",
+      "seed": 102174949338719135
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c06_s2",
+      "match": "ext_clean",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "rapfi",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c06_s0",
+      "match": "ext_clean",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "rapfi",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c06_s2",
+      "match": "ext_single",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "rapfi",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c06_s0",
+      "match": "ext_single",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "rapfi",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c06_s2",
+      "match": "ext_recovery",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "rapfi",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c06_s0",
+      "match": "ext_recovery",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "rapfi",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c06_s2",
+      "match": "internal_recovery_single",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "single",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c06_s0",
+      "match": "internal_recovery_single",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "single",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c06_s2",
+      "match": "internal_recovery_clean",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "clean",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 6,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c06_s0",
+      "match": "internal_recovery_clean",
+      "opening": [
+        70,
+        94,
+        80,
+        144
+      ],
+      "opponent": "clean",
+      "seed": 13710788587145541613
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c07_s2",
+      "match": "ext_clean",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "rapfi",
+      "seed": 11825189742788018923
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "clean",
+      "id": "ext_clean_c07_s0",
+      "match": "ext_clean",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "rapfi",
+      "seed": 11825189742788018923
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c07_s2",
+      "match": "ext_single",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "rapfi",
+      "seed": 11825189742788018923
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "single",
+      "id": "ext_single_c07_s0",
+      "match": "ext_single",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "rapfi",
+      "seed": 11825189742788018923
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c07_s2",
+      "match": "ext_recovery",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "rapfi",
+      "seed": 11825189742788018923
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "ext_recovery_c07_s0",
+      "match": "ext_recovery",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "rapfi",
+      "seed": 11825189742788018923
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c07_s2",
+      "match": "internal_recovery_single",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "single",
+      "seed": 11825189742788018923
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_single_c07_s0",
+      "match": "internal_recovery_single",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "single",
+      "seed": 11825189742788018923
+    },
+    {
+      "budget": 64,
+      "color": 1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c07_s2",
+      "match": "internal_recovery_clean",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "clean",
+      "seed": 11825189742788018923
+    },
+    {
+      "budget": 64,
+      "color": -1,
+      "core": 7,
+      "external_ms": 50,
+      "focal": "recovery",
+      "id": "internal_recovery_clean_c07_s0",
+      "match": "internal_recovery_clean",
+      "opening": [
+        96,
+        99,
+        115,
+        141,
+        80,
+        65
+      ],
+      "opponent": "clean",
+      "seed": 11825189742788018923
+    }
+  ],
+  "parent": "f52b593f6a3ed5682b3b583b927ac865ea594d0e",
+  "prior_9x9_weights": {
+    "0": {
+      "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+      "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+    },
+    "3": {
+      "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+      "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+    }
+  },
+  "prior_registration_sha": "5561f292bcd8b745e6ca94474182bb5aecbb1c704e3b94d115403fed69bf0aef",
+  "root_law": "iid wave4 beta=10/3",
+  "rule": "freestyle15",
+  "scope": "80 complete-game attempts, 8 opening blocks, two colors; independent external search but shared pretrained NNUE; no equal-time claim",
+  "seed_contract": "SHA256(680001,core), then SHA256(game seed,absolute ply); same ordinal across conditions",
+  "workers": 8
+}

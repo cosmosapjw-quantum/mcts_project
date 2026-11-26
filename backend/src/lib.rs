@@ -12,3 +12,6 @@ mod ablation_refresh;
 
 #[cfg(feature = "mqft-train")]
 pub mod mqft_train;
+
+#[cfg(feature = "mqft-train")]
+mod mqft_arena68;

@@ -1,0 +1,98 @@
+{
+  "animations": [
+    {
+      "bytes": 94643,
+      "frames": 5,
+      "ids": [
+        "Q33"
+      ],
+      "name": "Q33_actual_spatial_evolution.gif",
+      "sha256": "45f1f6f4cd0304d57ac09ae38253e9f4cef4dc6446ab70f7a78c43702daa66a8"
+    },
+    {
+      "bytes": 76152,
+      "frames": 8,
+      "ids": [
+        "Q39"
+      ],
+      "name": "Q39_actual_game_entropy.gif",
+      "sha256": "07c332eff5b5fc6a5abe1bf2e46512dd55d4c2b79f5db6511b287f51b456830d"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "L12_arena_outcomes",
+      "ids": [
+        "L12"
+      ],
+      "pdf_sha": "6a9148b8848cd52bc30a0be858cfaa479fbba8ceb2f13543552b3798f9b755cf",
+      "png_sha": "7e17163c44468995caa67fe44043e72dea033e1e332c29fbcacdd1a9b8b43e53"
+    },
+    {
+      "figure": "L12_paired_score_bounds",
+      "ids": [
+        "L12"
+      ],
+      "pdf_sha": "66abb7b30b8737630968d6b299a29626089ed94f5c9a8cf88e7283fb8235e5c0",
+      "png_sha": "a512a62406b4eaa7b3a2b469dfa59a6c6dbd0ee600f9f18facae36a5a6afa660"
+    },
+    {
+      "figure": "L23_15x15_native_recovery",
+      "ids": [
+        "L23",
+        "L12"
+      ],
+      "pdf_sha": "d7b69bef542a3c198cc24e00c4a2db29c606ba6a26e98c08bd66d1718ac22c79",
+      "png_sha": "e4a751c5b6833d35462087d8120fe756d8266c1f6afa8bdfdeb0a5b77ead254a"
+    },
+    {
+      "figure": "Q36_actual_budget_entropy",
+      "ids": [
+        "Q36",
+        "Q39"
+      ],
+      "pdf_sha": "ca003380578f3e31633e016acedf73b8669ea77ddd6d5f29fb3df4e6a13fafd2",
+      "png_sha": "37a91b7e8cea4363ec1e452ff557e98b3db4d3c6f79726344dc24fac321cb222"
+    },
+    {
+      "figure": "Q37_actual_information_flow",
+      "ids": [
+        "Q37"
+      ],
+      "pdf_sha": "eba9a73da3ce913e119a79c92f8d7adc200f1bddfb0b14073c4b8d7313e9c0c9",
+      "png_sha": "e304d4a7da27a4f68f5edf7b615dae9bf6c32cc76c0c67d338d700e1ee3230bd"
+    },
+    {
+      "figure": "Q39_actual_game_entropy",
+      "ids": [
+        "Q39",
+        "Q36"
+      ],
+      "pdf_sha": "345051ee3dbff102be7507649e140349025f907e02ecd7e0bd83eaf4399b1ac0",
+      "png_sha": "eab51307c010ec1b4a6e8a8da32595f04d580447d54409c962df88f34c08b02b"
+    },
+    {
+      "figure": "Q33_actual_spatial_correlation",
+      "ids": [
+        "Q33"
+      ],
+      "pdf_sha": "056d507a8b348a577b1481835cca96211836570e4582d6f1a399bc767568e79d",
+      "png_sha": "dfc6a83fe939f9b7ca215979307efe262ba43dae8c7b9f544bb915ead1b7e260"
+    },
+    {
+      "figure": "L12_native_prior_cold_start",
+      "ids": [
+        "L12"
+      ],
+      "pdf_sha": "4658833ca6ba06080b0fe9efe41e20fdba80dca57da5dfaf54a83cea677843b8",
+      "png_sha": "fad63e8ddec8f283c37a457cdcb12856a0af81bdf88d1e7e0381a7f181f4d38c"
+    }
+  ],
+  "sources": {
+    "AUDIT68.json": "fc32155493abcc4b2b0209ab7994151ae14b68ba712af42c9ebf981cd75093d6",
+    "INFORMATION68.json": "470fc8ebc44da29b57f36535d173f0cf1f6d841e7042f0ee1e92a6517b5df757",
+    "PHYSICS_RESULTS.json": "fe96844a5580cb5b4bffe0d4e4751a65634c244217e3a6eda03fdf81d23986a8",
+    "SPATIAL68.json": "ddb4c9b9a3a621ee919c124acf307675c7ca48929f49908598e8b12d37452ee1",
+    "TACTICAL68.json": "eec40f36bba57bad325d76d6358b6c79af906c67b2ce21eb06392f8198503dd8"
+  }
+}

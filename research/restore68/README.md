@@ -1,0 +1,2 @@
+# RESTORE68
+Actual 15x15 freestyle arena on pinned MixNet direct policy/WDL, with opt-in native sign-fault and syndrome recovery. Same pretrained engine weights but different alpha-beta external search; fixed time and backup budgets are distinct. 78 completed/80 registered games, 2 incomplete external responses retained. Raw paths, diagnostics, original sources, entropy/spatial/record panels and actual animations in snapshot. No new training or Elo claim. Run in full stage context. See docs/RESTORE68_RESULTS.md.

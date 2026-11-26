@@ -1,23 +1,23 @@
-# RESTORE67 R/C stages
+# RESTORE68 R/C stages
 | Stage | Actual result | Status |
 |---|---|---|
-| R1 | exact parent and original QEC target, fixed matched roots | scoped complete |
-| R2 | R22 and original source audit; coherent/correlated QEC literature | scoped complete |
-| R3 | explicit V, syndrome, recovery and X-only domain | derived |
-| R4 | iid, mixed/common, coherent, phase and native classical control | scoped complete |
-| R5 | logical polynomial and coherent commutator; conditional detection | derived |
-| R6 | Knill-Laflamme, Choi, coherent-vs-Pauli and external comparator bounds | checked |
-| R7 | Wolfram and 6M independent auxiliary draws, actual channel application | verified |
-| R8 | actual evaluator fault/recovery and independent benchmark contrasts | scoped verified |
-| R9 | L23/L21/L12 scoped original results | scoped verified |
-| R10 | retained negative evidence and 15x15/complete-game next contract | scoped complete |
-| C1 | exact trained and external runtime identities | scoped complete |
-| C2 | sampler/evaluator/backup and original code audit | scoped complete |
-| C3 | deterministic fault transport and syndrome decoder | implemented |
-| C4 | frozen 3200 native jobs and 96 external queries | verified |
-| C5 | Rust fault67 + actual generation | verified |
-| C6 | compile correction, legacy regression, Rust/Python tests | verified |
-| C7 | full path and mask audit, independent RNG and sampled evaluator | verified scoped |
-| C8 | paired bootstrap, independent g3/Rapfi benchmark | verified |
-| C9 | 8 plot pairs visual QA, independent matrix/semantic comparison; native subagent NOT_RUN | scoped verified |
-| C10 | DAG, Git, snapshot receipts | receipt required |
+| R1 | original objective, parent, matched arena and outcomes | scoped complete |
+| R2 | source audit, Rapfi and paired-game method | scoped complete |
+| R3 | direct size-compatible NNUE and exact fault law | derived |
+| R4 | independent alpha-beta and native color-swap comparators | scoped complete |
+| R5 | paired score/missing bounds, entropy/MI/variance definitions | derived |
+| R6 | matched-block scope, shared evaluator, fixed time vs backups | checked |
+| R7 | actual legality/trace replay and raw NNUE requery | verified |
+| R8 | actual 78 completed games, two failures, small-sample outcome | scoped verified |
+| R9 | actual spatial/entropy/MI panels and cold-start diagnostic | scoped verified |
+| R10 | next prior-informed heldout protocol and preserved negative evidence | scoped complete |
+| C1 | exact parent/model/engine identity | scoped complete |
+| C2 | native backend, external protocol, original code | scoped complete |
+| C3 | direct MixNet evaluator, native sign decoder and trace | implemented |
+| C4 | registered 80 games, 8 parallel workers | verified |
+| C5 | Rust opt-in mode, actual arena | verified |
+| C6 | Rust/Python regressions, smoke and failed responses retained | verified scoped |
+| C7 | all actual traces and independent NNUE requery | verified |
+| C8 | opening-block inference, actual costs and entropy | verified scoped |
+| C9 | 8 plot pairs,2 GIFs, visual QA, native subagent NOT_RUN | scoped verified |
+| C10 | Git, DAG, verified two-copy snapshot | receipt required |

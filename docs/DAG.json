@@ -54,7 +54,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "X-TRAIN",
+  "entry": "REPLAN-07",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -133,7 +133,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE68-SIZE-COMPATIBLE-PRETRAINED-ENGINE-ARENA",
+  "next_stage_id": "MQFT-RESTORE69-PRIOR-INFORMED-ROOT-GENERATOR",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -156,6 +156,11 @@
       "record_repeat_followup": "RESTORE36: 256 new independent-seed native searches, 8192 backups, eight previous roots, 1024 verified tree cuts. No new games.",
       "remaining_scope": "Independent game distribution, fixed matched roots and trained evaluator remain separate design options.",
       "restore37_followup": "Priority returns to original complete-game outputs; fixed-root and declared model measurements do not substitute for these.",
+      "restore68_followup": {
+        "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
+        "evidence": "New actual complete-game trace path on 15x15, all 80 receipts replayed and external NNUE pinned.",
+        "remaining": "No complete strength certification; two response failures retained."
+      },
       "retained_evidence": "STATE14\u201316\uc758 terminal\u00b7player frame \ubc0f native event \uae30\ub85d, RESTORE01\uc758 N,W,\uc81c2\ubaa8\uba58\ud2b8\u00b7\uc2e4\uc81c path\u00b7snapshot, \uc774\ud6c4 raw receipt\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \uace0\uc815 \uad6d\uba74\uc5d0\uc11c \ud655\uc778\ub41c \uacc4\uce21 \uc0c1\ud0dc\ub97c \uc720\uc9c0\ud55c\ub2e4.",
       "selector_trace_followup": "RESTORE35 325 new searches, 6024 backups, 581 exact tree cuts, four new full games plus four color-swapped arena games.",
       "size_followup": "RESTORE34 96 fixed-root actual searches on four prior games with L=9/11/13, 6144 backups and 384 cuts; no new games.",
@@ -366,6 +371,11 @@
         "evidence": "Fresh independent same-geometry Fisher/legacy scalar source rechecks; no physical critical response inference.",
         "remaining": "Fixed-root and geometry uncertainty differ; critical scaling unresolved."
       },
+      "restore68_followup": {
+        "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
+        "evidence": "Actual L15 connected spatial visit-field correlation across five budget cuts, original Q33 animation.",
+        "remaining": "Multi-size correlation length and critical scaling unresolved."
+      },
       "retained_evidence": "STATE06 \uc2e4\uc81c c_PUCT sweep, RESTORE04 \uc2e4\uc81c subtree volume, graph covariance, finite source\uc640 whole-seed uncertainty. \ub3c4\ud574\uc6a9 Ising/FSS\ub294 \ucd94\uc815\uae30 \ub300\uc870.",
       "source": "cpuct_phase_transition_validator.py, finite_size_scaling.py, plot_statistical_physics.py::plot_correlation_functions/plot_susceptibility_analysis, plot_critical_phenomena_scaling.py::plot_scaling_functions.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -415,6 +425,11 @@
         "artifact": "mqft_restore66_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT66.json,VERIFY_AUX66.json,THERMAL66.json,ERASURE66.json,FEEDBACK66.json}",
         "evidence": "Binary pilot pair erasure and record-conditioned feedback with independent normalized reverse, explicit detector accuracy and costs omitted.",
         "remaining": "Physical record preparation/reset and complete joint cycle/quantum record redundancy remain."
+      },
+      "restore68_followup": {
+        "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
+        "evidence": "Actual L15 classical visit/conditional entropy and empirical wave-index MI, Q36/Q37/Q39 scoped.",
+        "remaining": "Entanglement, quantum discord, across-size entropy/records remain."
       },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
@@ -503,6 +518,11 @@
         "artifact": "mqft_restore67_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT67.json,QEC67.json,STATE_RECOVERY67.json,RAPFI67.json}",
         "evidence": "Recovery improves noisy internal high-budget proxy, not established external g3 agreement.",
         "remaining": "No production admission or Elo, full paired games next."
+      },
+      "restore68_followup": {
+        "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
+        "evidence": "Actual recovery vs noisy and clean complete-game comparison, limited 8 opening blocks; first-wave uniform diagnostic.",
+        "remaining": "No general utility admission; prior-informed stochastic root law and conventional PUCT comparator."
       },
       "retained_evidence": "STATE14\u201316 value/terminal \uad50\uc815, \ube44\uc6a9, RESTORE03 forced probe\uc640 RESTORE07\u201308 matching\u00b7\ub3c5\ub9bd rollout \ud3c9\uac00 \ubc29\ubc95. \uc77c\ubc18 \uae30\ub825 \ubc0f \uc54c\uace0\ub9ac\uc998 \uc774\ub4dd\uc740 \ubbf8\uc815.",
       "scientific_disposition": "no robust incremental benefit established versus both retuned PUCT and matched classical count control; preserve counterevidence, do not tune to force win",
@@ -631,6 +651,11 @@
         "evidence": "Actual evaluator sign fault and syndrome recovery, explicit restricted quantum code, coherent/correlated failure and actual independent reference.",
         "remaining": "General noise, hardware and matched 15x15+ full-game utility remain."
       },
+      "restore68_followup": {
+        "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
+        "evidence": "Actual sign transport recovery on 15x15 complete-game traces, same evaluator and cost proxy.",
+        "remaining": "No physical hardware fault tolerance or general utility claim."
+      },
       "retained_evidence": "\uace0\uc804 \ud2b8\ub9ac topology \ubc0f \ub3c5\ub9bd complex/QEC reference.",
       "source": "ensemble_analyzer_complete.py::_plot_topological_analysis/_plot_quantum_error_correction."
     },
@@ -735,6 +760,11 @@
         "evidence": "Actual g0/g3 and pinned Rapfi external 9 fallback / 15 NNUE executed; 3200 trained native paths.",
         "remaining": "Size compatible 15x15 trained native full-game and independent utility next."
       },
+      "restore68_followup": {
+        "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
+        "evidence": "Actual direct 15x15 pretrained MixNet policy/WDL with 78 complete games and 2 incomplete external responses, native and Rapfi color-swapped arena.",
+        "remaining": "Strong independent opponent, no proven recovery strength, prior-informed root law heldout and compute matching next."
+      },
       "retained_evidence": "\uae30\uc874 evaluator/query/\uc9c0\uc5f0 \uc790\ub8cc\ub294 \ud0d0\uc0c9 \ube44\uc6a9 \ub300\uc870.",
       "source": "training_metrics.py::export_for_plotting/plot_training_curves, \ucd08\uae30 vectorized-mcts guide."
     }
@@ -767,7 +797,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "X-STRUCT",
+  "previous_entry": "X-TRAIN",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -2803,8 +2833,50 @@
     "total_marked_histories": 60088,
     "utility": "g3 internal proxy improved versus single noisy; g3 independent Rapfi9 agreement not improved"
   },
-  "revision": "RESTORE67_20261126",
-  "scope": "Actual native evaluator sign transport fault recovery and explicit auxiliary quantum code; external engine independent comparison",
+  "restore68": {
+    "AUDIT68.json_sha256": "fc32155493abcc4b2b0209ab7994151ae14b68ba712af42c9ebf981cd75093d6",
+    "CAMPAIGN68.json_sha256": "b3f65bee890291fd563b53ea14664263186f680b3a06ba507e78f778140e2e08",
+    "DIAGNOSTICS68.json_sha256": "78a538883138acad2a0607a8816d45e4f8d8a3ca1c31a61266f33a5cce2aedaa",
+    "INFORMATION68.json_sha256": "470fc8ebc44da29b57f36535d173f0cf1f6d841e7042f0ee1e92a6517b5df757",
+    "LEGACY_REGRESSION68.json_sha256": "f9ae118c5c24517ac67e02948ec1045d970f7bd5b381ebc43435756b540063cc",
+    "ORIGINAL_OUTPUT_EVIDENCE68.csv_sha256": "35f48e573f41859f705dddbdc26b026caa5eda3ddec455d2af90b7a1f96693f8",
+    "ORIGINAL_OUTPUT_PROGRESS68.csv_sha256": "1db637437925e3dd11a3b7c3bbd58e4360301ece5f34523c08cb779617843af6",
+    "ORIGINAL_SOURCE_AUDIT68.json_sha256": "50d820fabf288dbd3f4cda954d4b31d287a442d0c22b4b06fac308ff6e2fa4f3",
+    "PHYSICS_RESULTS.json_sha256": "fe96844a5580cb5b4bffe0d4e4751a65634c244217e3a6eda03fdf81d23986a8",
+    "PLOT_INVENTORY68.csv_sha256": "5c6bf04c48881f191a10a6a0df487f52882b0517bc5cdfbcf2022fc0a123a626",
+    "PLOT_MANIFEST68.json_sha256": "a9f3956ac29fc757011368683660581d0dc849bb3882f80f3a0d37c514c66006",
+    "PROGRESS68.json_sha256": "434a17ec0c6ca97f22503eda59c528c32972ae201d07f0ef8899f6a0fd9443a2",
+    "REGISTRATION.json_sha256": "5465c633a6f83cb776147bb3073244853cd676797f572a79a50cd8c23288fd2e",
+    "RNG_AUDIT68.json_sha256": "d35637de5bdeab38328fdbbb0cc282b9462958ebae50e7724e664393955a8f0c",
+    "SPATIAL68.json_sha256": "ddb4c9b9a3a621ee919c124acf307675c7ca48929f49908598e8b12d37452ee1",
+    "TACTICAL68.json_sha256": "eec40f36bba57bad325d76d6358b6c79af906c67b2ce21eb06392f8198503dd8",
+    "additional_plot_nodes": 0,
+    "evaluator_calls": 53886,
+    "external_moves": 471,
+    "figures": 8,
+    "fresh_backups": 54592,
+    "fresh_fixed_root_histories": 0,
+    "incomplete_games": 2,
+    "native_searched_plies_including_incomplete": 853,
+    "native_subagent": "NOT_RUN",
+    "new_animations": 2,
+    "new_full_game_search_plies": 827,
+    "new_games": 78,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 6,
+    "original_evidence_union_R55_R68": 76,
+    "original_plot_tasks": 121,
+    "parent_dag_sha256": "fa48a96ccc0d7294505f11a2d9bf446bb5aca7dd04e82b47734b57fa4ad81bd1",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 106849611,
+    "registered_games": 80,
+    "retained_pairs": 536,
+    "status": "scoped_15x15_actual_complete_game_arena",
+    "total_marked_histories": 60088,
+    "utility": "limited paired results not established; cold-start uniform despite peaked NNUE prior; immediate win and unique defense all selected"
+  },
+  "revision": "RESTORE68_20261126",
+  "scope": "Actual 15x15 pretrained direct NNUE arena, fault recovery and native game-temporal observables",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE67-FAULT-INJECTED-QEC-RECOVERY"
+  "supersedes_next": "MQFT-RESTORE68-SIZE-COMPATIBLE-PRETRAINED-ENGINE-ARENA"
 }
