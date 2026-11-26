@@ -75,6 +75,7 @@ pub struct Sampler {
     field: Option<Vec<f64>>,
     phase64: Option<Phase64>,
     phase65: Option<Phase65>,
+    schedule66: Option<Vec<f64>>,
     rng: StdRng,
     t: usize,
     lp: f64,
@@ -247,6 +248,7 @@ impl Sampler {
             field: None,
             phase64: None,
             phase65: None,
+            schedule66: None,
             rng: StdRng::seed_from_u64(seed),
             t: 0,
             lp: 0.,
@@ -267,6 +269,12 @@ impl Sampler {
         assert!(spec.kind=="iid" && spec.proposal=="p" && spec.logit_h==0. && spec.beta_p==spec.beta_q);
         let mut out=Self::new(spec,None,seed);out.phase65=Some(phase);out
     }
+    /// Opt-in deterministic external source schedule (same-order history).
+    pub fn new_schedule66(spec:LawSpec,source:usize,schedule:Vec<f64>,seed:u64)->Self{
+        assert!(spec.kind=="iid"&&spec.proposal=="p"&&spec.beta_p==spec.beta_q&&spec.logit_h==0.);
+        assert!(!schedule.is_empty()&&schedule.iter().all(|x|x.is_finite()&&x.abs()<=20.));
+        let mut out=Self::new(spec,Some(source),seed);out.schedule66=Some(schedule);out
+    }
     pub fn draw(
         &mut self,
         actions: Vec<usize>,
@@ -274,6 +282,7 @@ impl Sampler {
         active: Vec<bool>,
     ) -> (usize, Draw) {
         let t = self.t;
+        let h=if let Some(hs)=self.schedule66.as_ref(){hs[t]}else{self.spec.logit_h};
         let beta_p = self.spec.beta_p[if self.spec.beta_p.len() == 1 { 0 } else { t }];
         let beta_q = self.spec.beta_q[if self.spec.beta_q.len() == 1 { 0 } else { t }];
         let mut p = softmax(
@@ -282,7 +291,7 @@ impl Sampler {
             &actions,
             beta_p,
             self.source,
-            self.spec.logit_h,
+            h,
             self.field.as_deref(),
         );
         let mut q = softmax(
@@ -291,7 +300,7 @@ impl Sampler {
             &actions,
             beta_q,
             self.source,
-            self.spec.logit_h,
+            h,
             self.field.as_deref(),
         );
         let phase64=if let Some(ph)=self.phase64.as_mut(){
@@ -346,7 +355,7 @@ impl Sampler {
                 active,
                 beta_p,
                 beta_q,
-                logit_h: self.spec.logit_h,
+                logit_h: h,
                 source: self.source,
                 alpha,
                 u,

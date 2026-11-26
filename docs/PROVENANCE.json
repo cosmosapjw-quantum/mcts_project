@@ -2190,6 +2190,63 @@
       }
     }
   },
+  "restore66": {
+    "AUDIT66.json_sha256": "d2b45be73fd6a6b0fc9814d0a576858b7fa99121363acad6332a019e2e338c47",
+    "ERASURE66.json_sha256": "cb6be8986d937a4ed68d8045fc709cbf3aac67e50a98bd4e35f7194c00167013",
+    "FEEDBACK66.json_sha256": "366509973095b4a6bad8ae2bc4605e9c9e31fc6087f7a52802eb64bf8b94140d",
+    "FEEDBACK_CONTRACT66.md_sha256": "a4b9a56637a71785f05f31947dbb85eba9ee67dc899708ecf956d239e07b88e3",
+    "LEGACY_REGRESSION66.json_sha256": "d0ef7f90db1fc78a57a981acb640b01d2ada13939706628c4ab0ccbc30735208",
+    "NATIVE66.npz_sha256": "c47d9975f7520bf1f380ff56cfcd64f297c68ccb0f4b8c0195b5bb194aa21e45",
+    "ORIGINAL_OUTPUT_EVIDENCE66.csv_sha256": "5711f66bb00364512c69e448e9dcb906c1c67d356c368b4b50abb378306bf76e",
+    "ORIGINAL_OUTPUT_PROGRESS66.csv_sha256": "f7991040d24c4ccfa6b6d5fad5082a6fdea86ba65aa91e36e7755f861a8e8bb4",
+    "ORIGINAL_SOURCE_AUDIT66.json_sha256": "c9b6438e98d311d71d84d7533b45f2ec9ed34dde1e2e54ca9eb7026cd859d394",
+    "PHYSICS_RESULTS.json_sha256": "1757ae1f6aaf77da1d3e7c4f730317a6e38159bc32d8f50a3e175cd703b67fdf",
+    "PLOT_INVENTORY66.csv_sha256": "9e5c939537b5bb7fa09cdacf9b5b019845019532f22c9aba00c8148eed9509dd",
+    "PLOT_MANIFEST66.json_sha256": "ce9f1d36efc647006f0cf7542165c77615f74c6c30bd46e3b50f27959a452599",
+    "PROGRESS66.json_sha256": "3149a800ff2ec43fb49715822c04e5301f01b73b24ddecde4d0ccb03a70edd47",
+    "REGISTRATION.json_sha256": "0426dc435e7ef0127a1cae1f320fa8f5c94d374bf0b71b592f9b1b67716fbd75",
+    "RNG_AUDIT66.json_sha256": "69fe22978808fe153b8b9974723bf972f5ba1cee82a97471a7ebc9ae74f9726a",
+    "THERMAL66.json_sha256": "554dae157e8eda9c843d0d080cd9c25b8aee3cc8be6a516eb38dbcfb8597cb26",
+    "THERMAL_SCHEDULES.json_sha256": "c2c1a3f447addbf7460a51124c0c5f6882cdbf8927311064a02e4c6b4166f8af",
+    "VERIFY_AUX66.json_sha256": "890d281d0cfac31dfcd25ca07512d0c2493dd48a9d715f695c33f2fd22d23968",
+    "additional_plot_nodes": 0,
+    "auxiliary_paths": 6291456,
+    "auxiliary_protocol_files": 960,
+    "auxiliary_transitions": 92012544,
+    "dag_sha256": "f08f368fb1a07222dfa5394ec86314065a5e9251b241eb412556c93e994de527",
+    "evaluator_calls": 394243,
+    "figures": 11,
+    "finite_estimator_limit": "alpha1 reverse IFT two individual intervals exclude unity; g3 F native conditional KL residual excludes zero; BAR improves all four MAE",
+    "fresh_backups": 393216,
+    "fresh_fixed_root_histories": 3072,
+    "native_reverse": "NOT_IMPLEMENTED_same_forward_tree_clock",
+    "native_subagent": "NOT_RUN",
+    "new_animations": 2,
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 14,
+    "original_evidence_union_R55_R66": 70,
+    "original_plot_tasks": 121,
+    "parent": "1f2b38b8940e676c283b68b0fe52029e83d121eacc92a4ffec1f7a1862c30dee",
+    "parent_commit": "6340af6613074737daa30f95115648ce1d51be80",
+    "parent_dag_sha256": "1f2b38b8940e676c283b68b0fe52029e83d121eacc92a4ffec1f7a1862c30dee",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 400734361,
+    "retained_pairs": 520,
+    "status": "scoped_native_schedule_and_auxiliary_thermodynamic_models",
+    "total_marked_histories": 56888,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

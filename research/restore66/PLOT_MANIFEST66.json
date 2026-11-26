@@ -1,0 +1,137 @@
+{
+  "animations": [
+    {
+      "bytes": 167155,
+      "frames": 9,
+      "ids": [
+        "Q22"
+      ],
+      "name": "Q22_jarzynski_actual_convergence.gif",
+      "sha256": "084677d1bb91f76b03ce0290d473562e90be4ca7c7cfd007a4fb0d9daf9b8636"
+    },
+    {
+      "bytes": 182786,
+      "frames": 9,
+      "ids": [
+        "Q04"
+      ],
+      "name": "Q04_thermal_actual_schedule.gif",
+      "sha256": "b27d5c066d46670d65de8f39340264f2e3b52c7a8909c7b3195d9283d86a3a6d"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "Q05_native_schedule_path_ratio",
+      "ids": [
+        "Q05"
+      ],
+      "pdf_sha": "9418ddc9168f2c3b27c7d22964050e08da0691388003481ac6a0144d4063fcb2",
+      "png_sha": "a981a7187c4012e490716f541d9e49e894d0a263327c33a903d13253aafff967"
+    },
+    {
+      "figure": "L08_L32_native_record_entropy",
+      "ids": [
+        "L08",
+        "L32",
+        "Q38"
+      ],
+      "pdf_sha": "caa8d1019a7cc01bd9c4c632a9ba17b8ba5c42ecb933f9144373011b4c828b84",
+      "png_sha": "921ac802ba5af03e5825fc4ad95f66a13f0809f8d0256cc5e75a4fa3473824bb"
+    },
+    {
+      "figure": "Q19_Q20_Crooks_path_ensembles",
+      "ids": [
+        "Q19",
+        "Q20",
+        "Q21"
+      ],
+      "pdf_sha": "eb894641e133f07906aeaefcf9a801a6de7aa8d47f83f1cf179e3483c42b8370",
+      "png_sha": "564a060e711b9194ce412721dc76ccd8ad5460298f24548e00a33ccea6ed89d9"
+    },
+    {
+      "figure": "Q19_Q23_free_energy_estimator_audit",
+      "ids": [
+        "Q19",
+        "Q23"
+      ],
+      "pdf_sha": "fab142f44545c7945acf84ded54d880f04bbf6c7e0d9ad4b20512dcb46e3a223",
+      "png_sha": "ada22e04b9c4a9f1b9463097cb265bd4f8fbf4936bbfc7b5fd1cb8b54398633a"
+    },
+    {
+      "figure": "Q22_Jarzynski_convergence",
+      "ids": [
+        "Q19",
+        "Q22"
+      ],
+      "pdf_sha": "0fe0341b5e1ab398fc444983eb78ca8d2d0f28d2e66bf795a8d3bce3ba730a78",
+      "png_sha": "2bd819d458917c9cecdc3b20501142171872ba3fbc7cb3426a1f7031c6e863d1"
+    },
+    {
+      "figure": "Q01_Q03_Q04_thermal_evolution",
+      "ids": [
+        "Q01",
+        "Q03",
+        "Q04",
+        "L06",
+        "L33"
+      ],
+      "pdf_sha": "ecefcce67ed474502a1cb63f91bc25fd7b1e6fed06ecb3158417ff62e27a35fc",
+      "png_sha": "9d70df246c2cf3c527a8f5fdceaf9637e3b205ef81410022bab8ae48f1fdf57d"
+    },
+    {
+      "figure": "Q05_Q38_entropy_production",
+      "ids": [
+        "Q05",
+        "Q38",
+        "Q01"
+      ],
+      "pdf_sha": "7da7298c2b52e8463f64b4fe9e42ccfddae93dbf360be6fb76d13fe6181aff0e",
+      "png_sha": "abc4c8d90cba2e3ad4407d0a02ca7c9b1de5defcf10c6613d65be50c42e2888f"
+    },
+    {
+      "figure": "Q20_Q21_actual_work_paths",
+      "ids": [
+        "Q20",
+        "Q21"
+      ],
+      "pdf_sha": "365b8d9f8cc0bc9a4c462ce115a8ba6f9df89eaa4ac6ba4f623db563370b58a4",
+      "png_sha": "af477e5e2fc0add9c9c3ae7ebf97a02d9cc6572912747e80feda4b3f0fce536d"
+    },
+    {
+      "figure": "L32_L08_record_erasure_work",
+      "ids": [
+        "L32",
+        "L08",
+        "Q38"
+      ],
+      "pdf_sha": "04d0a7a4d7469b4957675ff11ad65e7b8c70b10f90a9dfb1423f752201201577",
+      "png_sha": "57b942c12f9f29dc47a9832e837304e1f0bbe1e5e540e199a5f9190a86ef2504"
+    },
+    {
+      "figure": "L08_L32_information_feedback",
+      "ids": [
+        "L08",
+        "L32",
+        "Q23"
+      ],
+      "pdf_sha": "ea1bed989e8000ca2013b3a33fa32065258f3d1707e2cc71ece2512ef991c93e",
+      "png_sha": "c89fac202fa9868d239d534697035cc4414217ae4b8a89945d0d614cbfc3e218"
+    },
+    {
+      "figure": "Q38_model_equilibrium_entropy_capacity",
+      "ids": [
+        "Q38"
+      ],
+      "pdf_sha": "697140d5c683aa66ee536f0ed579038108901cb9aa63ba1273da3b9de5cdca69",
+      "png_sha": "a4bd664e126a35af2b26ea1bfa5e720f4d91cc5461ca2e4284a6690b779c5cbc"
+    }
+  ],
+  "scope": "native and auxiliary models distinguished on panels; no measured physical CPU heat",
+  "sources": {
+    "ERASURE66.json": "cb6be8986d937a4ed68d8045fc709cbf3aac67e50a98bd4e35f7194c00167013",
+    "FEEDBACK66.json": "366509973095b4a6bad8ae2bc4605e9c9e31fc6087f7a52802eb64bf8b94140d",
+    "NATIVE66.npz": "c47d9975f7520bf1f380ff56cfcd64f297c68ccb0f4b8c0195b5bb194aa21e45",
+    "PHYSICS_RESULTS.json": "1757ae1f6aaf77da1d3e7c4f730317a6e38159bc32d8f50a3e175cd703b67fdf",
+    "THERMAL66.json": "554dae157e8eda9c843d0d080cd9c25b8aee3cc8be6a516eb38dbcfb8597cb26"
+  }
+}

@@ -54,7 +54,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-06",
+  "entry": "X-STRUCT",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -133,7 +133,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE66-THERMODYNAMIC-RECORD-WORK-PROTOCOL",
+  "next_stage_id": "MQFT-RESTORE67-FAULT-INJECTED-QEC-RECOVERY",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -187,6 +187,11 @@
         "artifact": "mqft_restore61_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,DIAGNOSTICS61.json,CONTROL_AUDIT61.json}",
         "evidence": "Matched trained native prior versus visit entropy and negative mean root mark; different entropy trend under new stochastic selector/design.",
         "remaining": "Physical temperature and equilibrium entropy identification unresolved."
+      },
+      "restore66_followup": {
+        "artifact": "mqft_restore66_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT66.json,VERIFY_AUX66.json,THERMAL66.json,ERASURE66.json,FEEDBACK66.json}",
+        "evidence": "Actual native conditional record entropy and auxiliary Gibbs fixed-spectrum entropy/capacity; explicit energy unit declared.",
+        "remaining": "Native thermometry/physical bath not identified; no criticality inference."
       },
       "retained_evidence": "STATE06 c_PUCT sweep, RESTORE01 \uc608\uc0b0\ubcc4 \uc2e4\uce21\uacfc fit \uc9c4\ub2e8. \uacbd\ub85c dominance\u00b7overlap \ubc0f STATE16 \uc870\uac74\ubd80 \uc120\ud0dd \ud1b5\uacc4\ub294 \ud45c\ubcf8\uacfc clock\uc774 \ub9de\uc73c\uba74 \uacb0\ud569\ud55c\ub2e4.",
       "source": "ensemble_analyzer_complete.py::_plot_authentic_temperature, honest_plots.py::plot_temperature_extraction/plot_temperature_scaling, \uacbd\ub85c \ud328\ub110 L16. v6 validation\uc758 \u03b2\uc640 mean-field \uc608\uce21.",
@@ -252,6 +257,11 @@
         "artifact": "mqft_restore65_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT65.json,GENERATOR65.json}",
         "evidence": "Exact finite tilted instrument count generator and rank-one covariance correction; all 49152 persistent waves analyzed, conditional mixture NLL improved.",
         "remaining": "Cross-wave quantum/coarse closure, physical action/1PI and reverse protocol remain."
+      },
+      "restore66_followup": {
+        "artifact": "mqft_restore66_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT66.json,VERIFY_AUX66.json,THERMAL66.json,ERASURE66.json,FEEDBACK66.json}",
+        "evidence": "Actual same-order native path RN law and finite thermal tilted transfer, exact Crooks/Jarzynski in defined auxiliary kernel.",
+        "remaining": "Native tree reverse and physical 1PI/field action still unresolved; rare-event ESS."
       },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
@@ -401,6 +411,11 @@
         "evidence": "Actual outcome-conditioned auxiliary Kraus record and selective purity; Q27 animation.",
         "remaining": "Physical environmental records/redundancy and thermodynamic cost unresolved."
       },
+      "restore66_followup": {
+        "artifact": "mqft_restore66_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT66.json,VERIFY_AUX66.json,THERMAL66.json,ERASURE66.json,FEEDBACK66.json}",
+        "evidence": "Binary pilot pair erasure and record-conditioned feedback with independent normalized reverse, explicit detector accuracy and costs omitted.",
+        "remaining": "Physical record preparation/reset and complete joint cycle/quantum record redundancy remain."
+      },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -440,6 +455,11 @@
       "response_selector_followup": "RESTORE35 true path-score response and independent utility; fixed contrast correction not admitted, declared complex phase/noise controls preserve diagonal utility, change coherent probe. No general quantum advantage.",
       "restore37_followup": "Actual same-clock P/Q/L/B, bounded path mixture, no generic variance improvement; declared finite Gibbs reset with identical M marginals, correlation entropy term; no physical reverse, native bath or strength.",
       "restore38_followup": "mqft_restore38_20261125/ORIGINAL_CROSSWALK.json; partial new longitudinal observables and matched-opening controls; no promotion of existing unresolved physical claims or selector admission.",
+      "restore66_followup": {
+        "artifact": "mqft_restore66_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT66.json,VERIFY_AUX66.json,THERMAL66.json,ERASURE66.json,FEEDBACK66.json}",
+        "evidence": "Actual native same-order source schedule contrast plus finite auxiliary Gibbs F/R work/heat, binary record erasure and measurement-conditioned feedback; independently audited 6291456 auxiliary paths.",
+        "remaining": "Native physical reverse/energy calibration and device cycle unresolved; two finite-sample reverse IFT failures retained."
+      },
       "retained_evidence": "A09/A10 reference \ubc0f RESTORE06 frozen-root identities\u00b7native switching/backup score\u00b7same-clock likelihood. RESTORE07/08\uc758 matched controls\u00b7cost\u00b7\ud640\ub4dc\uc544\uc6c3 rollout\uc740 feedback \ub300\uc870\uc5d0 \ud55c\uc815\ud55c\ub2e4.",
       "source": "plot_thermodynamics.py::plot_non_equilibrium_thermodynamics/plot_thermodynamic_cycles, plot_jarzynski_equality.py::plot_jarzynski_verification/plot_work_fluctuation_analysis, L08/L18/L32.",
       "thermal_path_followup": "RESTORE30 explicit interacting finite canonical H, exact thermal trace/Matsubara/KMS, thermofield and CP coherent-state measures, nonGaussian influence positivity; Gibbs projection of prior R nonthermal. Preserve earlier native thermodynamics and no native FT claim."
@@ -591,6 +611,11 @@
       "remaining_scope": "Original across-game landscape/continuum Morse, v5 pruning law, actual evaluator and backup fault injection, trained/parallel recovery and hardware noisy syndrome/decoder, physically identified gauge flux/topological phase remain unresolved",
       "representation_policy": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
       "response_selector_followup": "RESTORE35 true path-score response and independent utility; fixed contrast correction not admitted, declared complex phase/noise controls preserve diagonal utility, change coherent probe. No general quantum advantage.",
+      "restore66_followup": {
+        "artifact": "mqft_restore66_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT66.json,VERIFY_AUX66.json,THERMAL66.json,ERASURE66.json,FEEDBACK66.json}",
+        "evidence": "Original thermodynamic/record target crosswalk and independent finite-model validation; next actual QEC fault injection.",
+        "remaining": "Actual logical/noise recovery and native utility not tested in R66."
+      },
       "retained_evidence": "\uace0\uc804 \ud2b8\ub9ac topology \ubc0f \ub3c5\ub9bd complex/QEC reference.",
       "source": "ensemble_analyzer_complete.py::_plot_topological_analysis/_plot_quantum_error_correction."
     },
@@ -722,7 +747,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "X-REP",
+  "previous_entry": "REPLAN-06",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -2668,8 +2693,52 @@
     "total_marked_histories": 53816,
     "utility": "g3 persistent plus worse top5 and Q regret proxy vs baseline; no production admission"
   },
-  "revision": "RESTORE65_20261126",
-  "scope": "Persistent native selective auxiliary instrument, exact conditional wave generator and independent utility proxy",
+  "restore66": {
+    "AUDIT66.json_sha256": "d2b45be73fd6a6b0fc9814d0a576858b7fa99121363acad6332a019e2e338c47",
+    "ERASURE66.json_sha256": "cb6be8986d937a4ed68d8045fc709cbf3aac67e50a98bd4e35f7194c00167013",
+    "FEEDBACK66.json_sha256": "366509973095b4a6bad8ae2bc4605e9c9e31fc6087f7a52802eb64bf8b94140d",
+    "FEEDBACK_CONTRACT66.md_sha256": "a4b9a56637a71785f05f31947dbb85eba9ee67dc899708ecf956d239e07b88e3",
+    "LEGACY_REGRESSION66.json_sha256": "d0ef7f90db1fc78a57a981acb640b01d2ada13939706628c4ab0ccbc30735208",
+    "NATIVE66.npz_sha256": "c47d9975f7520bf1f380ff56cfcd64f297c68ccb0f4b8c0195b5bb194aa21e45",
+    "ORIGINAL_OUTPUT_EVIDENCE66.csv_sha256": "5711f66bb00364512c69e448e9dcb906c1c67d356c368b4b50abb378306bf76e",
+    "ORIGINAL_OUTPUT_PROGRESS66.csv_sha256": "f7991040d24c4ccfa6b6d5fad5082a6fdea86ba65aa91e36e7755f861a8e8bb4",
+    "ORIGINAL_SOURCE_AUDIT66.json_sha256": "c9b6438e98d311d71d84d7533b45f2ec9ed34dde1e2e54ca9eb7026cd859d394",
+    "PHYSICS_RESULTS.json_sha256": "1757ae1f6aaf77da1d3e7c4f730317a6e38159bc32d8f50a3e175cd703b67fdf",
+    "PLOT_INVENTORY66.csv_sha256": "9e5c939537b5bb7fa09cdacf9b5b019845019532f22c9aba00c8148eed9509dd",
+    "PLOT_MANIFEST66.json_sha256": "ce9f1d36efc647006f0cf7542165c77615f74c6c30bd46e3b50f27959a452599",
+    "PROGRESS66.json_sha256": "3149a800ff2ec43fb49715822c04e5301f01b73b24ddecde4d0ccb03a70edd47",
+    "REGISTRATION.json_sha256": "0426dc435e7ef0127a1cae1f320fa8f5c94d374bf0b71b592f9b1b67716fbd75",
+    "RNG_AUDIT66.json_sha256": "69fe22978808fe153b8b9974723bf972f5ba1cee82a97471a7ebc9ae74f9726a",
+    "THERMAL66.json_sha256": "554dae157e8eda9c843d0d080cd9c25b8aee3cc8be6a516eb38dbcfb8597cb26",
+    "THERMAL_SCHEDULES.json_sha256": "c2c1a3f447addbf7460a51124c0c5f6882cdbf8927311064a02e4c6b4166f8af",
+    "VERIFY_AUX66.json_sha256": "890d281d0cfac31dfcd25ca07512d0c2493dd48a9d715f695c33f2fd22d23968",
+    "additional_plot_nodes": 0,
+    "auxiliary_paths": 6291456,
+    "auxiliary_protocol_files": 960,
+    "auxiliary_transitions": 92012544,
+    "evaluator_calls": 394243,
+    "figures": 11,
+    "finite_estimator_limit": "alpha1 reverse IFT two individual intervals exclude unity; g3 F native conditional KL residual excludes zero; BAR improves all four MAE",
+    "fresh_backups": 393216,
+    "fresh_fixed_root_histories": 3072,
+    "native_reverse": "NOT_IMPLEMENTED_same_forward_tree_clock",
+    "native_subagent": "NOT_RUN",
+    "new_animations": 2,
+    "new_full_game_search_plies": 0,
+    "new_games": 0,
+    "next_contract": "docs/NEXT_DYNAMICS.md",
+    "original_evidence_items": 14,
+    "original_evidence_union_R55_R66": 70,
+    "original_plot_tasks": 121,
+    "parent_dag_sha256": "1f2b38b8940e676c283b68b0fe52029e83d121eacc92a4ffec1f7a1862c30dee",
+    "prior_admissions": "preserved",
+    "raw_gzip_bytes": 400734361,
+    "retained_pairs": 520,
+    "status": "scoped_native_schedule_and_auxiliary_thermodynamic_models",
+    "total_marked_histories": 56888
+  },
+  "revision": "RESTORE66_20261126",
+  "scope": "Actual native same-order likelihood and explicit auxiliary finite thermodynamic work/heat/feedback",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE65-PERSISTENT-PHASE-INSTRUMENT-UTILITY"
+  "supersedes_next": "MQFT-RESTORE66-THERMODYNAMIC-RECORD-WORK-PROTOCOL"
 }

@@ -1,0 +1,128 @@
+[
+  {
+    "arm": "baseline",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 0,
+    "id": "g0_c00_r0_baseline",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 0,
+    "seed": 8722622249923136996,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  },
+  {
+    "arm": "fresh64",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 0,
+    "id": "g0_c00_r0_fresh64",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 0,
+    "seed": 8722622249923136996,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  },
+  {
+    "arm": "reset_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 0,
+    "id": "g0_c00_r0_reset_plus",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 0,
+    "seed": 8722622249923136996,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_plus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 0,
+    "id": "g0_c00_r0_persist_plus",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 0,
+    "seed": 8722622249923136996,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_minus",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 0,
+    "id": "g0_c00_r0_persist_minus",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 0,
+    "seed": 8722622249923136996,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  },
+  {
+    "arm": "persist_dephased",
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "core": 0,
+    "generation": 0,
+    "id": "g0_c00_r0_persist_dephased",
+    "moves": [
+      20,
+      13,
+      73,
+      29
+    ],
+    "rep": 0,
+    "seed": 8722622249923136996,
+    "sources": [
+      21,
+      23
+    ],
+    "width": 4
+  }
+]
