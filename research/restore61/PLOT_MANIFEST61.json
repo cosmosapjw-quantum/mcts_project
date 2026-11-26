@@ -1,0 +1,86 @@
+{
+  "figures": [
+    {
+      "figure": "G01_G03_L04_trained_native_prefix",
+      "ids": [
+        "G01",
+        "G03",
+        "L04"
+      ],
+      "pdf_sha": "3bbe5d340e48b6c46d08341d17683c2bd87529f2e688f6e9537093740567b0f9",
+      "png_sha": "3d072073d229cd63a407894088920d68abb33bf6685d7c41d3fb226d4eddfe7b"
+    },
+    {
+      "figure": "G07_Q32_source_response",
+      "ids": [
+        "G07",
+        "Q32",
+        "L16"
+      ],
+      "pdf_sha": "609fa82cb868f66696690e7880a72e170eade1a2278a272adeaee498149c4b1b",
+      "png_sha": "d76574a2716e41d6cb32c5359750443d765b3e2f8410cc6b069e71830ae5457c"
+    },
+    {
+      "figure": "G07_Q32_adaptive_variance_fisher",
+      "ids": [
+        "G07",
+        "Q32"
+      ],
+      "pdf_sha": "35d3cae216a863c0a17751795c1b35a0611b47582885465a04beb86aaace299d",
+      "png_sha": "4b6559fb7e902f7d19d1b2d93536ef0529a11240af4d91c93cc0c6142ea1b3a3"
+    },
+    {
+      "figure": "L16_empirical_count_action",
+      "ids": [
+        "L16"
+      ],
+      "pdf_sha": "727a71d5dd72ea226423f3ccba3c6c3037b7ddfcd40dce1ac6367c42e49df782",
+      "png_sha": "ed24ea0206c37b0e79fdcd6b94e879d3c6d53d2199daf60250dfbf6131457331"
+    },
+    {
+      "figure": "L16_action_legendre_ess",
+      "ids": [
+        "L16"
+      ],
+      "pdf_sha": "455fc44d427f0e470214edddbd251f568009e67e2f9d25f31cfe65bcf104facc",
+      "png_sha": "ea3ca8c7f753073d9267fee1082a57898428c68b59601a6ae827b90202d5ad13"
+    },
+    {
+      "figure": "L16_D4_readout_and_search",
+      "ids": [
+        "L16"
+      ],
+      "pdf_sha": "43dc7688d9f4f410c35842e838fbfeb6bbc9f18bcf51f5d8564529e8addc326a",
+      "png_sha": "521e52be8d404290e895aedb2410187d3dc59bb54a07981f4fd023d3205be142"
+    },
+    {
+      "figure": "L13_L29_L38_trained_budget_flow",
+      "ids": [
+        "L13",
+        "L29",
+        "L38",
+        "Q09",
+        "Q11"
+      ],
+      "pdf_sha": "8276039ed7021e44e9442d4694ac351c69504a045777ae9ed8201606811b5a0d",
+      "png_sha": "0c15618760440371507f8433880e7b5431dfea5ce72d63c257fbfb2017bc3cfe"
+    },
+    {
+      "figure": "Q09_Q11_L35_L36_finite_flow",
+      "ids": [
+        "Q09",
+        "Q11",
+        "L35",
+        "L36"
+      ],
+      "pdf_sha": "fb02bd1fe873c0375763056aba260523ad914585d0f1c30ba61d1a083fa3ccd9",
+      "png_sha": "9fd3f1d7f08944a447d3e8e8e749f8fd41c73d1c835b70a4947f8315ed072089"
+    }
+  ],
+  "sources": {
+    "CONTROL61.npz": "d4a840aec2d364f38b2ceb4abb0d4cd97947aaac6bb78ed5530eb5e4fb9ea661",
+    "DIAGNOSTICS61.json": "4ebde5fa21b2d22b6f2e720720f9de0fdb78214f8877724b4edf0f06a1760ec2",
+    "PHYSICS_RESULTS.json": "8fe8723cdc34f016fba6b68ac215130de7a2502d6c148cbb03e06d5421e16b92",
+    "R60_PREFIX61.npz": "990cc63f4ffe7e18a249dc2a4a432cb9a322c758cc4f3a6eca62c1094b17a363"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "byte_identical": true,
+  "fixtures_sha": "b3a37ac5f0e5752d2242666522e39345f53f4ad0fa7bd810f397722b11d1be4d",
+  "n": 512,
+  "new_binary_sha": "5126ce917cba290507ec2da5442d810df3d860e3c8df7c8f381f07bc9fac3b6b",
+  "old_binary_sha": "5631269efce3de5ae38ad8c03bd6fe1b851d5c06eadf6beee7fb10df0f50b5b0",
+  "scope": "R60 vs R61 single-orientation inference on same input and weights"
+}

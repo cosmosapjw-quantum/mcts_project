@@ -134,6 +134,8 @@ pub fn main_cli()->Result<(),String>{
     unsafe {openblas_set_num_threads(1);}
     let a:Vec<String>=std::env::args().collect();
     match a.get(1).map(String::as_str){
+      Some("control") if a.len()==6=>controlled61::run(&a[2],&a[3],&a[4],&a[5]),
+      Some("infer_d4") if a.len()==4=>controlled61::infer(&a[2],&a[3]),
       Some("infer") if a.len()==4=>{
         let n=Net::load(&a[2])?;let moves:Vec<Vec<usize>>=serde_json::from_str(&fs::read_to_string(&a[3]).map_err(|e|e.to_string())?).map_err(|e|e.to_string())?;
         let mut out=vec![];for m in moves{let s=state(&m)?;if s.is_terminal(){return Err("terminal fixture".into())}let (p,v)=n.forward(&s);out.push(json!({"moves":m,"p":p,"v":v,"side":s.current_player()}));}
@@ -167,3 +169,6 @@ mod tests{
  }
  #[test]fn terminal_sign(){let s=state(&[0,9,1,10,2,11,3,12,4]).unwrap();assert!(s.is_terminal());assert_eq!(s.outcome(),-1.);assert_eq!(s.current_player(),-1);}
 }
+
+#[path="mqft_train_controlled61.rs"]
+mod controlled61;

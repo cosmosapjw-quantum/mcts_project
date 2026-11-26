@@ -1,0 +1,128 @@
+[
+  {
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "cohort": "response",
+    "core": 0,
+    "d4": false,
+    "generation": 0,
+    "h": -0.35,
+    "id": "r_g0_c00_w1_h0_r0",
+    "moves": [
+      62,
+      79,
+      73,
+      75
+    ],
+    "orientation": 0,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "source": 30,
+    "width": 1
+  },
+  {
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "cohort": "response",
+    "core": 0,
+    "d4": false,
+    "generation": 0,
+    "h": 0.0,
+    "id": "r_g0_c00_w1_h1_r0",
+    "moves": [
+      62,
+      79,
+      73,
+      75
+    ],
+    "orientation": 0,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "source": 30,
+    "width": 1
+  },
+  {
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "cohort": "response",
+    "core": 0,
+    "d4": false,
+    "generation": 0,
+    "h": 0.35,
+    "id": "r_g0_c00_w1_h2_r0",
+    "moves": [
+      62,
+      79,
+      73,
+      75
+    ],
+    "orientation": 0,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "source": 30,
+    "width": 1
+  },
+  {
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "cohort": "response",
+    "core": 0,
+    "d4": false,
+    "generation": 0,
+    "h": -0.35,
+    "id": "r_g0_c00_w4_h0_r0",
+    "moves": [
+      62,
+      79,
+      73,
+      75
+    ],
+    "orientation": 0,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "source": 30,
+    "width": 4
+  },
+  {
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "cohort": "response",
+    "core": 0,
+    "d4": false,
+    "generation": 0,
+    "h": 0.0,
+    "id": "r_g0_c00_w4_h1_r0",
+    "moves": [
+      62,
+      79,
+      73,
+      75
+    ],
+    "orientation": 0,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "source": 30,
+    "width": 4
+  },
+  {
+    "beta": 3.3333333333333335,
+    "budget": 128,
+    "cohort": "response",
+    "core": 0,
+    "d4": false,
+    "generation": 0,
+    "h": 0.35,
+    "id": "r_g0_c00_w4_h2_r0",
+    "moves": [
+      62,
+      79,
+      73,
+      75
+    ],
+    "orientation": 0,
+    "rep": 0,
+    "seed": 5394026107296787052,
+    "source": 30,
+    "width": 4
+  }
+]

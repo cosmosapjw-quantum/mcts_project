@@ -1,23 +1,23 @@
-# RESTORE60 stage ledger
-| stage | evidence | state |
+# RESTORE61 stage ledger
+| stage | actual evidence | state |
 |---|---|---|
-| R1 | exact parent, original L46/L47, R23 architecture vs original ResNet | complete scoped |
-| R2 | primary AlphaZero, Expert Iteration, start-distribution literature, original recorder and multitask guide | complete scoped |
-| R3 | legality, current-player z, budget and D4 conventions | complete scoped |
-| R4 | optional canonical bridge vs external IPC vs historical adapter; actual feedback design | complete scoped |
-| R5 | CE derivative, conditional minimizers, negamax, empirical variance decomposition | derived |
-| R6 | terminal sign, finite loss/strength distinctions, symmetry/control | complete scoped |
-| R7 | Wolfram exact derivative, fixture parity and actual-state recomputation | checked |
-| R8 | three generations and scaled paired arena, qualified strength and negative results | verified finite scope |
-| R9 | exact original-format export, native trained physics mapping | complete scoped |
-| R10 | revised DAG, drift and RESTORE61 work | complete scoped |
-| C1 | parent and original source/weights inspection | complete scoped |
-| C2 | feature-gated Gomoku9 evaluator schema and checkpoint export | complete scoped |
-| C3 | Rust/OpenBLAS padded conv, legal softmax, value, native trace | implemented |
-| C4 | 2 pilot generations + separately registered B128 extension; 1592 games | verified |
-| C5 | 1400 optimizer updates, g0→g3 lineage and inference | verified |
-| C6 | 387 Rust passed/14 ignored, 60 Python passed/17 subtests | verified |
-| C7 | full path/rule/backup replay, 931 sampled state outputs, 384 matched roots | verified scoped |
-| C8 | 800 exact replay steps, paired uncertainty, D4 and budget diagnostics | verified |
-| C9 | five plot pairs, PNG/PDF inspection and visual contact sheet; native subagent NOT_RUN | verified scoped |
-| C10 | source, Git, DAG and verified backup receipts | operational result recorded by receipts |
+| R1 | exact parent, original target crosswalk, response and D4 contract | complete scoped |
+| R2 | Glynn likelihood ratio, Tokui/Sato estimator variance, group averaging and original archive source | complete scoped |
+| R3 | adaptive history, source only logit, marks and wave clock | complete scoped |
+| R4 | direct CRN, score/reweight, frozen binomial, D4 projection | complete scoped |
+| R5 | path response, Fisher, Hessian, RN ratio, finite variance decomposition | derived |
+| R6 | 2-step counterexample, D4 proof, finite CGF scope | checked |
+| R7 | Wolfram, fractions and independent actual trace experiments | checked |
+| R8 | response positive, learning contrast unresolved, D4 ordering witness | verified finite scope |
+| R9 | numerical action, coarse count CGF, actual dyadic flow and original output mapping | complete scoped |
+| R10 | durable DAG and next closure contract | complete scoped |
+| C1 | exact source/weights/original and prior baseline data | complete scoped |
+| C2 | canonical sampler, wave, evaluator shape and chronology inspection | complete scoped |
+| C3 | causal trace replay, root source/average readout algorithms | implemented |
+| C4 | frozen 32 cores, 8 seeds, 3584 jobs, parallel CPU design | verified |
+| C5 | opt-in Rust control and D4 mode; 425984 backups and old trace reduction | verified |
+| C6 | 389 Rust pass, 60 Python pass +17 subtests; legacy inference unchanged | verified |
+| C7 | every event probability, rule, clock, sign, N/W/S2, RNG; 672 sampled evaluator parity | verified scoped |
+| C8 | paired bootstrap, Fisher, finite CGF and ESS; D4 first divergence | verified |
+| C9 | 8 plots, review, scoped output overlays; independent native subagent NOT_RUN | scoped verified |
+| C10 | Git, archive and cleanup receipts | operational evidence recorded by receipts |

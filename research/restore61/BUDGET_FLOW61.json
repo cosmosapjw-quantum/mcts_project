@@ -1,0 +1,165 @@
+{
+  "rows": [
+    {
+      "dE_dlogB": -0.029993053552508697,
+      "dH_dlogB": 0.9069490112156794,
+      "generation": 0,
+      "k_high": 8,
+      "k_low": 4,
+      "width": 1
+    },
+    {
+      "dE_dlogB": -0.07956960596320367,
+      "dH_dlogB": 0.8436341769190626,
+      "generation": 0,
+      "k_high": 16,
+      "k_low": 8,
+      "width": 1
+    },
+    {
+      "dE_dlogB": -0.1335314639086964,
+      "dH_dlogB": 0.7141438520298596,
+      "generation": 0,
+      "k_high": 32,
+      "k_low": 16,
+      "width": 1
+    },
+    {
+      "dE_dlogB": -0.24821779859296111,
+      "dH_dlogB": 0.461126651959539,
+      "generation": 0,
+      "k_high": 64,
+      "k_low": 32,
+      "width": 1
+    },
+    {
+      "dE_dlogB": -0.3771181122250833,
+      "dH_dlogB": -0.12511658367629538,
+      "generation": 0,
+      "k_high": 128,
+      "k_low": 64,
+      "width": 1
+    },
+    {
+      "dE_dlogB": -0.034971805721445745,
+      "dH_dlogB": 0.8534583495840221,
+      "generation": 0,
+      "k_high": 8,
+      "k_low": 4,
+      "width": 4
+    },
+    {
+      "dE_dlogB": -0.06598977863966124,
+      "dH_dlogB": 0.8012150433641239,
+      "generation": 0,
+      "k_high": 16,
+      "k_low": 8,
+      "width": 4
+    },
+    {
+      "dE_dlogB": -0.1257402124220112,
+      "dH_dlogB": 0.7471672292525214,
+      "generation": 0,
+      "k_high": 32,
+      "k_low": 16,
+      "width": 4
+    },
+    {
+      "dE_dlogB": -0.2588214907653201,
+      "dH_dlogB": 0.4697283573542047,
+      "generation": 0,
+      "k_high": 64,
+      "k_low": 32,
+      "width": 4
+    },
+    {
+      "dE_dlogB": -0.3825529627780274,
+      "dH_dlogB": -0.09936142515754343,
+      "generation": 0,
+      "k_high": 128,
+      "k_low": 64,
+      "width": 4
+    },
+    {
+      "dE_dlogB": 0.020995523792216433,
+      "dH_dlogB": 0.8257337390918136,
+      "generation": 3,
+      "k_high": 8,
+      "k_low": 4,
+      "width": 1
+    },
+    {
+      "dE_dlogB": 0.01391215927307471,
+      "dH_dlogB": 0.7993309374405572,
+      "generation": 3,
+      "k_high": 16,
+      "k_low": 8,
+      "width": 1
+    },
+    {
+      "dE_dlogB": 0.003761811850837303,
+      "dH_dlogB": 0.7719787159451079,
+      "generation": 3,
+      "k_high": 32,
+      "k_low": 16,
+      "width": 1
+    },
+    {
+      "dE_dlogB": -0.009546469483049045,
+      "dH_dlogB": 0.6904103605943183,
+      "generation": 3,
+      "k_high": 64,
+      "k_low": 32,
+      "width": 1
+    },
+    {
+      "dE_dlogB": -0.04856015874085144,
+      "dH_dlogB": 0.3382748441324211,
+      "generation": 3,
+      "k_high": 128,
+      "k_low": 64,
+      "width": 1
+    },
+    {
+      "dE_dlogB": 0.07065308548448905,
+      "dH_dlogB": 0.7235564452786959,
+      "generation": 3,
+      "k_high": 8,
+      "k_low": 4,
+      "width": 4
+    },
+    {
+      "dE_dlogB": 0.03079628370104237,
+      "dH_dlogB": 0.72357972054789,
+      "generation": 3,
+      "k_high": 16,
+      "k_low": 8,
+      "width": 4
+    },
+    {
+      "dE_dlogB": 0.014633899833329713,
+      "dH_dlogB": 0.7532459079247864,
+      "generation": 3,
+      "k_high": 32,
+      "k_low": 16,
+      "width": 4
+    },
+    {
+      "dE_dlogB": -0.006408058817903315,
+      "dH_dlogB": 0.7008182101660615,
+      "generation": 3,
+      "k_high": 64,
+      "k_low": 32,
+      "width": 4
+    },
+    {
+      "dE_dlogB": -0.038521685281242585,
+      "dH_dlogB": 0.37054373239917526,
+      "generation": 3,
+      "k_high": 128,
+      "k_low": 64,
+      "width": 4
+    }
+  ],
+  "scope": "actual finite log-budget increments, not autonomous RG beta functions"
+}
