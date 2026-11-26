@@ -1,0 +1,578 @@
+[
+  {
+    "L": 13,
+    "core": 1,
+    "job": "03f56eaa63018abec5b44c88",
+    "path": "mqft_restore59_20261126/data/heldout-L13/03f56eaa63018abec5b44c88.jsonl.gz",
+    "root": "8cd08f04984f8fd2",
+    "seed": 1484330139038591231,
+    "sha": "7693669aca64e7058370364f6f12f8937168656929d2926b18136ed639467b2c"
+  },
+  {
+    "L": 13,
+    "core": 3,
+    "job": "3059dd8f337acea3f0ad3c85",
+    "path": "mqft_restore59_20261126/data/heldout-L13/3059dd8f337acea3f0ad3c85.jsonl.gz",
+    "root": "593f43bed078e0a8",
+    "seed": 10474659819773393388,
+    "sha": "4364cdbaeaf04465bc5f8199e467dc6f362888b517e1155fb14c168fccb8029d"
+  },
+  {
+    "L": 13,
+    "core": 1,
+    "job": "356c3ff514a54e9b074dcbbb",
+    "path": "mqft_restore59_20261126/data/heldout-L13/356c3ff514a54e9b074dcbbb.jsonl.gz",
+    "root": "8cd08f04984f8fd2",
+    "seed": 6505843055564036550,
+    "sha": "c900e3df0ae1577db7024679db20b8c706137d81866234cd4fe9c8310ab029e5"
+  },
+  {
+    "L": 13,
+    "core": 2,
+    "job": "3b60f58dc86230c3e389c9b8",
+    "path": "mqft_restore59_20261126/data/heldout-L13/3b60f58dc86230c3e389c9b8.jsonl.gz",
+    "root": "358d46ac9a7353ee",
+    "seed": 12137361288992858476,
+    "sha": "9848c73bfbf4054b83e2e0bf99c1d1f1ca1b66d0c51da825f9a8951d6b485d90"
+  },
+  {
+    "L": 13,
+    "core": 0,
+    "job": "3e84ed8755249bfa8bb9b6dc",
+    "path": "mqft_restore59_20261126/data/heldout-L13/3e84ed8755249bfa8bb9b6dc.jsonl.gz",
+    "root": "27ba58d514d9ca57",
+    "seed": 1932959764325605069,
+    "sha": "90d0aab2066dba51b480bbe78e29905665a3095d44aa650d952890ee0be4be8a"
+  },
+  {
+    "L": 13,
+    "core": 0,
+    "job": "4255eb49e6e65604225f1d09",
+    "path": "mqft_restore59_20261126/data/heldout-L13/4255eb49e6e65604225f1d09.jsonl.gz",
+    "root": "27ba58d514d9ca57",
+    "seed": 475859621937832553,
+    "sha": "660dd6fe5edbc5e6a6d05ad218bdfb1b75c58fdbc14b441e4e4984ca900d51a9"
+  },
+  {
+    "L": 13,
+    "core": 1,
+    "job": "43ad8379132662a69722679d",
+    "path": "mqft_restore59_20261126/data/heldout-L13/43ad8379132662a69722679d.jsonl.gz",
+    "root": "8cd08f04984f8fd2",
+    "seed": 11186306909207796308,
+    "sha": "dfdd7298bc85a951a9dab9ad6ac7a0749b426e45bdc69e4fe1d427061be08fe8"
+  },
+  {
+    "L": 13,
+    "core": 0,
+    "job": "49f0f351c3ed181e4ff0152a",
+    "path": "mqft_restore59_20261126/data/heldout-L13/49f0f351c3ed181e4ff0152a.jsonl.gz",
+    "root": "27ba58d514d9ca57",
+    "seed": 1936242610867327905,
+    "sha": "a9ab78016f5c9c3858244dfb42beeb01358b931112fa8b87b8a2c928c6b8f6e8"
+  },
+  {
+    "L": 13,
+    "core": 0,
+    "job": "4c13edae01e3402e70c80980",
+    "path": "mqft_restore59_20261126/data/heldout-L13/4c13edae01e3402e70c80980.jsonl.gz",
+    "root": "27ba58d514d9ca57",
+    "seed": 15629761148993101170,
+    "sha": "86f604ade4e45baf2b1717ca7b2bf631e4025278664d9ebd29efd6958ef8d3e7"
+  },
+  {
+    "L": 13,
+    "core": 3,
+    "job": "514f3c83591f55a355f66579",
+    "path": "mqft_restore59_20261126/data/heldout-L13/514f3c83591f55a355f66579.jsonl.gz",
+    "root": "593f43bed078e0a8",
+    "seed": 1310680056933047465,
+    "sha": "c741ea76c6ef0934e39e7ea8f587582742268ced3a32f866ebdbd1bc6b4993b5"
+  },
+  {
+    "L": 13,
+    "core": 1,
+    "job": "64911cd732f8b6269407cf42",
+    "path": "mqft_restore59_20261126/data/heldout-L13/64911cd732f8b6269407cf42.jsonl.gz",
+    "root": "8cd08f04984f8fd2",
+    "seed": 3264529531342130909,
+    "sha": "5075ca62884d4f75fa6779fd4ef098a928294eb70aff29734af2a23bbc2d9d4b"
+  },
+  {
+    "L": 13,
+    "core": 2,
+    "job": "789b7643840168927c970653",
+    "path": "mqft_restore59_20261126/data/heldout-L13/789b7643840168927c970653.jsonl.gz",
+    "root": "358d46ac9a7353ee",
+    "seed": 9908083211513104630,
+    "sha": "bd54d5892fd06ca09945f0751c5bfcc0fe5fd252a38fb70e976d64fc078b477f"
+  },
+  {
+    "L": 13,
+    "core": 2,
+    "job": "7afbcc1279b2748ce7987dac",
+    "path": "mqft_restore59_20261126/data/heldout-L13/7afbcc1279b2748ce7987dac.jsonl.gz",
+    "root": "358d46ac9a7353ee",
+    "seed": 847309821095063840,
+    "sha": "ac2a7091fa068f7a702ac1fb609c81a933dea029afcc1b742ff077400d01577b"
+  },
+  {
+    "L": 13,
+    "core": 2,
+    "job": "7fc853867b1a592b56bfc507",
+    "path": "mqft_restore59_20261126/data/heldout-L13/7fc853867b1a592b56bfc507.jsonl.gz",
+    "root": "358d46ac9a7353ee",
+    "seed": 6332735758807584228,
+    "sha": "d04632d001b420cbdf2d013925bfa04528c83904c09ad844b16e2fe8dc694395"
+  },
+  {
+    "L": 13,
+    "core": 0,
+    "job": "820e5147461f1f82db698a9d",
+    "path": "mqft_restore59_20261126/data/heldout-L13/820e5147461f1f82db698a9d.jsonl.gz",
+    "root": "27ba58d514d9ca57",
+    "seed": 6589144991565966203,
+    "sha": "8e0eb5b8e1244c99b67d36b0c7be2b996c6e71bae5473c03c99853af0a829249"
+  },
+  {
+    "L": 13,
+    "core": 2,
+    "job": "82c826d418a9bce189126ae2",
+    "path": "mqft_restore59_20261126/data/heldout-L13/82c826d418a9bce189126ae2.jsonl.gz",
+    "root": "358d46ac9a7353ee",
+    "seed": 2267526533064615480,
+    "sha": "d0e04317c56a3734942ce823fb02888fc63f2b6730d5d6ef56f1073a216a8fe2"
+  },
+  {
+    "L": 13,
+    "core": 2,
+    "job": "907ea71f5a314cea9475eb5a",
+    "path": "mqft_restore59_20261126/data/heldout-L13/907ea71f5a314cea9475eb5a.jsonl.gz",
+    "root": "358d46ac9a7353ee",
+    "seed": 13314120152678042623,
+    "sha": "9337a787449ae2143ddaff6ec3d399658f6601ac49e05294c623350790642b42"
+  },
+  {
+    "L": 13,
+    "core": 1,
+    "job": "9525a526571d660062e539f5",
+    "path": "mqft_restore59_20261126/data/heldout-L13/9525a526571d660062e539f5.jsonl.gz",
+    "root": "8cd08f04984f8fd2",
+    "seed": 11263360356446386298,
+    "sha": "11813733c2294c21d85141df5f579303aab300d90260bef314073ec088355f6a"
+  },
+  {
+    "L": 13,
+    "core": 0,
+    "job": "957692bebbd46c1a440159b2",
+    "path": "mqft_restore59_20261126/data/heldout-L13/957692bebbd46c1a440159b2.jsonl.gz",
+    "root": "27ba58d514d9ca57",
+    "seed": 11455082532868356575,
+    "sha": "8915ea9ee318412c4333cc75388055b390b9f02b05df546e67be9ef751223d44"
+  },
+  {
+    "L": 13,
+    "core": 2,
+    "job": "9e31ca9f13e2b8f53daf48e9",
+    "path": "mqft_restore59_20261126/data/heldout-L13/9e31ca9f13e2b8f53daf48e9.jsonl.gz",
+    "root": "358d46ac9a7353ee",
+    "seed": 12359612370841675761,
+    "sha": "e7da2b0a9122cb4bc0307af244c3ceb09939e5d04119940b28163d08977812bc"
+  },
+  {
+    "L": 13,
+    "core": 3,
+    "job": "a4d7c4d35761de2b8aee8157",
+    "path": "mqft_restore59_20261126/data/heldout-L13/a4d7c4d35761de2b8aee8157.jsonl.gz",
+    "root": "593f43bed078e0a8",
+    "seed": 5453274081367212866,
+    "sha": "04a84e79e0420eac65dcfc401b431512c288075ee00479814f90b798521b9f98"
+  },
+  {
+    "L": 13,
+    "core": 0,
+    "job": "ac03e6adb81e2ce2d3fce5de",
+    "path": "mqft_restore59_20261126/data/heldout-L13/ac03e6adb81e2ce2d3fce5de.jsonl.gz",
+    "root": "27ba58d514d9ca57",
+    "seed": 16730288975641573878,
+    "sha": "5e1b19db86907dc0bd525bfd2215320283d053b579c5e02dbb0eba135c5ee2e7"
+  },
+  {
+    "L": 13,
+    "core": 1,
+    "job": "c2d25429c4dfdd38bf89cda2",
+    "path": "mqft_restore59_20261126/data/heldout-L13/c2d25429c4dfdd38bf89cda2.jsonl.gz",
+    "root": "8cd08f04984f8fd2",
+    "seed": 522663463191690214,
+    "sha": "79d78b9a65418dc2ea1ee4051e51d317e4b7a596802d38ec8acccd23f6c9b181"
+  },
+  {
+    "L": 13,
+    "core": 1,
+    "job": "c7e36c01aa13f8e5550ca93d",
+    "path": "mqft_restore59_20261126/data/heldout-L13/c7e36c01aa13f8e5550ca93d.jsonl.gz",
+    "root": "8cd08f04984f8fd2",
+    "seed": 14205449168311583915,
+    "sha": "f160f171d869cb5fc7233021b0b40c770cfeddfc100fe23b7159260d2746357f"
+  },
+  {
+    "L": 13,
+    "core": 3,
+    "job": "d15679c43c2ccb29b2ed44a7",
+    "path": "mqft_restore59_20261126/data/heldout-L13/d15679c43c2ccb29b2ed44a7.jsonl.gz",
+    "root": "593f43bed078e0a8",
+    "seed": 1322026996596537004,
+    "sha": "87adeac38808d7a0189e51bb55bc2cd48ef6734f21158f8134018dbf8eceff23"
+  },
+  {
+    "L": 13,
+    "core": 3,
+    "job": "d53d0526cc5005d830c78580",
+    "path": "mqft_restore59_20261126/data/heldout-L13/d53d0526cc5005d830c78580.jsonl.gz",
+    "root": "593f43bed078e0a8",
+    "seed": 12493533344892091727,
+    "sha": "e34e775f12d43ce278a4c21c56361068c5e66afe4fb094c53f514e109eb1fdeb"
+  },
+  {
+    "L": 13,
+    "core": 0,
+    "job": "d8a2f95845f1af2306a5fa87",
+    "path": "mqft_restore59_20261126/data/heldout-L13/d8a2f95845f1af2306a5fa87.jsonl.gz",
+    "root": "27ba58d514d9ca57",
+    "seed": 14446715655227334698,
+    "sha": "39c28ffe5b1c0a741bbc961fd228e7ea8b44bba3f9b77b32ce4e6a74f766c318"
+  },
+  {
+    "L": 13,
+    "core": 3,
+    "job": "e486329ef6b831f2320eeebe",
+    "path": "mqft_restore59_20261126/data/heldout-L13/e486329ef6b831f2320eeebe.jsonl.gz",
+    "root": "593f43bed078e0a8",
+    "seed": 12474157769961627780,
+    "sha": "1868e2ba87dd77c4b17cfd4497465cf1009626bbdcf24d72640dfca45577789e"
+  },
+  {
+    "L": 13,
+    "core": 1,
+    "job": "eaf40a0b7c6c8edbab409915",
+    "path": "mqft_restore59_20261126/data/heldout-L13/eaf40a0b7c6c8edbab409915.jsonl.gz",
+    "root": "8cd08f04984f8fd2",
+    "seed": 7233015201202087873,
+    "sha": "74745665eec3234bc2ed13bdf85622110bd7e7c01caa093e1c5becedf437f9dc"
+  },
+  {
+    "L": 13,
+    "core": 3,
+    "job": "f0134bad212ecd2a44d8a081",
+    "path": "mqft_restore59_20261126/data/heldout-L13/f0134bad212ecd2a44d8a081.jsonl.gz",
+    "root": "593f43bed078e0a8",
+    "seed": 7602445637132319551,
+    "sha": "ca490dc9d5d715025251a9282694e785c9e09c858d41c92bb3af98e87dafc91b"
+  },
+  {
+    "L": 13,
+    "core": 3,
+    "job": "f0287542e451ab015018cada",
+    "path": "mqft_restore59_20261126/data/heldout-L13/f0287542e451ab015018cada.jsonl.gz",
+    "root": "593f43bed078e0a8",
+    "seed": 16156665794075379767,
+    "sha": "f6c0f9c5dd2698e28ac8131a594c1534ae6f366abd71287b76b6f996d309c91b"
+  },
+  {
+    "L": 13,
+    "core": 2,
+    "job": "f11672103eceaa4a0b70a3c4",
+    "path": "mqft_restore59_20261126/data/heldout-L13/f11672103eceaa4a0b70a3c4.jsonl.gz",
+    "root": "358d46ac9a7353ee",
+    "seed": 8209288902382860680,
+    "sha": "268fb0d79a7083f4de3935b8ef49ae17dbc8b999e19bddcfd1449f095b723f2d"
+  },
+  {
+    "L": 21,
+    "core": 0,
+    "job": "04c4721f477b35e1b02f9806",
+    "path": "mqft_restore59_20261126/data/heldout-L21/04c4721f477b35e1b02f9806.jsonl.gz",
+    "root": "6a5a63a7d11bc2c5",
+    "seed": 6205854908547059318,
+    "sha": "851f1ec75168070bd727bbce30c8399491db8dc995524c4d50d2fddf3529d3ab"
+  },
+  {
+    "L": 21,
+    "core": 1,
+    "job": "06143591a261cbee57c5ea03",
+    "path": "mqft_restore59_20261126/data/heldout-L21/06143591a261cbee57c5ea03.jsonl.gz",
+    "root": "0a158f021927d1e0",
+    "seed": 14991565871723124456,
+    "sha": "d8e7ea744f9c941ece671dea1dce21ea4e09c3ed639a89eacdea1dd429deda89"
+  },
+  {
+    "L": 21,
+    "core": 3,
+    "job": "098e37552055ff545f5d2232",
+    "path": "mqft_restore59_20261126/data/heldout-L21/098e37552055ff545f5d2232.jsonl.gz",
+    "root": "752d728920d891ae",
+    "seed": 15475410401179310475,
+    "sha": "f2cf8d0533487979060ad1e0d5be861fa6073f0aa062ee66403b772d4bd5b64e"
+  },
+  {
+    "L": 21,
+    "core": 2,
+    "job": "0fac8efea2c4fca121cf7cce",
+    "path": "mqft_restore59_20261126/data/heldout-L21/0fac8efea2c4fca121cf7cce.jsonl.gz",
+    "root": "98c85a8c69a80815",
+    "seed": 9602292340171589847,
+    "sha": "82079ebce70703a50add21ba9856c68bb950ac013c94c9b6baa8705f506a3a0d"
+  },
+  {
+    "L": 21,
+    "core": 1,
+    "job": "1196e83152533d7f5bd1afda",
+    "path": "mqft_restore59_20261126/data/heldout-L21/1196e83152533d7f5bd1afda.jsonl.gz",
+    "root": "0a158f021927d1e0",
+    "seed": 14093503058318589012,
+    "sha": "120c446d0d8a85fb2d68e6264ae71e9c2e1883acce8563f29c6c02b7fb611ca9"
+  },
+  {
+    "L": 21,
+    "core": 0,
+    "job": "14e9aae05892917a9d46e9da",
+    "path": "mqft_restore59_20261126/data/heldout-L21/14e9aae05892917a9d46e9da.jsonl.gz",
+    "root": "6a5a63a7d11bc2c5",
+    "seed": 17363783202956282178,
+    "sha": "5c296dd79d8aa81c6d91c106b34ce56468e9d6be34f6ad9ea4d1ff513510fa4b"
+  },
+  {
+    "L": 21,
+    "core": 3,
+    "job": "1868f9acad540ce3c0c1f3c7",
+    "path": "mqft_restore59_20261126/data/heldout-L21/1868f9acad540ce3c0c1f3c7.jsonl.gz",
+    "root": "752d728920d891ae",
+    "seed": 14396419512339599621,
+    "sha": "6a0ed84a3dfcab1150771aee6dadd09801b49a88a7d3adcec77ea44b8856d351"
+  },
+  {
+    "L": 21,
+    "core": 1,
+    "job": "1e1626545f7f2d62c083e697",
+    "path": "mqft_restore59_20261126/data/heldout-L21/1e1626545f7f2d62c083e697.jsonl.gz",
+    "root": "0a158f021927d1e0",
+    "seed": 16265238792195532565,
+    "sha": "ee1e1ad5a3e7de7ca3c3b7a810cba38ba394c76d538dbefd57e3a6d32119e5d3"
+  },
+  {
+    "L": 21,
+    "core": 1,
+    "job": "2b01155497a14d08d9fae650",
+    "path": "mqft_restore59_20261126/data/heldout-L21/2b01155497a14d08d9fae650.jsonl.gz",
+    "root": "0a158f021927d1e0",
+    "seed": 12162947658705182877,
+    "sha": "884b406013367ff3654e540af9a159857166e382fd9d043079700f281cb9e1aa"
+  },
+  {
+    "L": 21,
+    "core": 3,
+    "job": "2f4d7e43a46ad666abfb10a4",
+    "path": "mqft_restore59_20261126/data/heldout-L21/2f4d7e43a46ad666abfb10a4.jsonl.gz",
+    "root": "752d728920d891ae",
+    "seed": 301840717034698267,
+    "sha": "386d09c87eedeed51bba8c0a4e1aae2eb4049701117c41e792865f383d924904"
+  },
+  {
+    "L": 21,
+    "core": 0,
+    "job": "318c6614acaaf0155ca7a5d7",
+    "path": "mqft_restore59_20261126/data/heldout-L21/318c6614acaaf0155ca7a5d7.jsonl.gz",
+    "root": "6a5a63a7d11bc2c5",
+    "seed": 17771652351503543178,
+    "sha": "6bb6dd81d5a492bb638ed50b1f2acf49f6255282569ffe5d18d401eae0b140f0"
+  },
+  {
+    "L": 21,
+    "core": 1,
+    "job": "38c52bb71f881921f4d9431e",
+    "path": "mqft_restore59_20261126/data/heldout-L21/38c52bb71f881921f4d9431e.jsonl.gz",
+    "root": "0a158f021927d1e0",
+    "seed": 881388337241247106,
+    "sha": "98c9dd54285f110629accce2fd10d74a2a72120f85a09ed8a00130747e08a136"
+  },
+  {
+    "L": 21,
+    "core": 1,
+    "job": "40218cc1c1969070cdb6c974",
+    "path": "mqft_restore59_20261126/data/heldout-L21/40218cc1c1969070cdb6c974.jsonl.gz",
+    "root": "0a158f021927d1e0",
+    "seed": 1149866087436450863,
+    "sha": "03d85a808360d5b6e11bef428c4d877b6eb4ed7187809aba76fad1c4444e474e"
+  },
+  {
+    "L": 21,
+    "core": 3,
+    "job": "420e4d2aa0fb430f6224ae47",
+    "path": "mqft_restore59_20261126/data/heldout-L21/420e4d2aa0fb430f6224ae47.jsonl.gz",
+    "root": "752d728920d891ae",
+    "seed": 15714097511862192312,
+    "sha": "58a677caafc2c6f3e8f11d2c6c26b37675cfb91d4e70c9104b43a32ab5d3d501"
+  },
+  {
+    "L": 21,
+    "core": 0,
+    "job": "43c9a63131b8672f2268bc2f",
+    "path": "mqft_restore59_20261126/data/heldout-L21/43c9a63131b8672f2268bc2f.jsonl.gz",
+    "root": "6a5a63a7d11bc2c5",
+    "seed": 12869846686214563563,
+    "sha": "cde04c01009ecf6d953565783e8c5b8fa3cc833f7b7a8af6ebe9ff6da7b6e075"
+  },
+  {
+    "L": 21,
+    "core": 1,
+    "job": "5417bb39997b49d2557ffd57",
+    "path": "mqft_restore59_20261126/data/heldout-L21/5417bb39997b49d2557ffd57.jsonl.gz",
+    "root": "0a158f021927d1e0",
+    "seed": 15008172524411737813,
+    "sha": "621af04f3b87d4aeb4df8c442b6e50a63f7f51388e2d0b57dfc9afb267c2de66"
+  },
+  {
+    "L": 21,
+    "core": 2,
+    "job": "5eea89a213eba2a345c4a0ea",
+    "path": "mqft_restore59_20261126/data/heldout-L21/5eea89a213eba2a345c4a0ea.jsonl.gz",
+    "root": "98c85a8c69a80815",
+    "seed": 7689451146800170124,
+    "sha": "449406edae2fc0642d88fc413b8a070a286ff9a80c1104f4d9351e9a10931082"
+  },
+  {
+    "L": 21,
+    "core": 3,
+    "job": "619b958f5e1f2fdf278d49b5",
+    "path": "mqft_restore59_20261126/data/heldout-L21/619b958f5e1f2fdf278d49b5.jsonl.gz",
+    "root": "752d728920d891ae",
+    "seed": 1043072382927429777,
+    "sha": "1073642de87aa1f51b6bf427cc0e19e213ae2ed8dba396540baf658577cf0f70"
+  },
+  {
+    "L": 21,
+    "core": 1,
+    "job": "66df362cd4686ab2ea434244",
+    "path": "mqft_restore59_20261126/data/heldout-L21/66df362cd4686ab2ea434244.jsonl.gz",
+    "root": "0a158f021927d1e0",
+    "seed": 18332144419901879347,
+    "sha": "f25f4aca2db72d253d4bfb40501a5be35469dcdf28357be68b03578bd6806946"
+  },
+  {
+    "L": 21,
+    "core": 2,
+    "job": "6ff6ac4949842439865d5aee",
+    "path": "mqft_restore59_20261126/data/heldout-L21/6ff6ac4949842439865d5aee.jsonl.gz",
+    "root": "98c85a8c69a80815",
+    "seed": 14643852956506196588,
+    "sha": "5a11caf99e397901560b63468e686cceec9680e864d48c645792759387185635"
+  },
+  {
+    "L": 21,
+    "core": 0,
+    "job": "7e8d3aa9b59feba3ce8ff333",
+    "path": "mqft_restore59_20261126/data/heldout-L21/7e8d3aa9b59feba3ce8ff333.jsonl.gz",
+    "root": "6a5a63a7d11bc2c5",
+    "seed": 7995350384741669326,
+    "sha": "ffdfecc55bca980ea864fc042bea5dbd56b761d0d2b828794112404ff65d99ff"
+  },
+  {
+    "L": 21,
+    "core": 2,
+    "job": "7ed09e7787d1705bf280e82d",
+    "path": "mqft_restore59_20261126/data/heldout-L21/7ed09e7787d1705bf280e82d.jsonl.gz",
+    "root": "98c85a8c69a80815",
+    "seed": 9576223922573579012,
+    "sha": "68adaed14c3ffee354a048dca0079e1c4d504a4930722efb90df7bee557ad8aa"
+  },
+  {
+    "L": 21,
+    "core": 0,
+    "job": "813b5952d2adc2dbe60fef71",
+    "path": "mqft_restore59_20261126/data/heldout-L21/813b5952d2adc2dbe60fef71.jsonl.gz",
+    "root": "6a5a63a7d11bc2c5",
+    "seed": 2682438602851129031,
+    "sha": "5c07695dc226900ee4115b3cf4b4338c836f59d2d41f5ce8c198b72ea7b32931"
+  },
+  {
+    "L": 21,
+    "core": 2,
+    "job": "85628c72bf01a0d9a889c36e",
+    "path": "mqft_restore59_20261126/data/heldout-L21/85628c72bf01a0d9a889c36e.jsonl.gz",
+    "root": "98c85a8c69a80815",
+    "seed": 8614589418423237981,
+    "sha": "33ac7dbb922c3bd3df74293b40dbc0d9edffcfa2af37be794a728e230016d1d3"
+  },
+  {
+    "L": 21,
+    "core": 3,
+    "job": "85f411c875ac2af086cc05cd",
+    "path": "mqft_restore59_20261126/data/heldout-L21/85f411c875ac2af086cc05cd.jsonl.gz",
+    "root": "752d728920d891ae",
+    "seed": 1013043067239855469,
+    "sha": "80a56ebdacfe161f73d4d3fe36de9440d09078b92d2900efe2efd422a885acd0"
+  },
+  {
+    "L": 21,
+    "core": 2,
+    "job": "97699e4ea71fea50e770af82",
+    "path": "mqft_restore59_20261126/data/heldout-L21/97699e4ea71fea50e770af82.jsonl.gz",
+    "root": "98c85a8c69a80815",
+    "seed": 6800402755803289623,
+    "sha": "c16d6f0c53e8acf71048d63666d7911059f913ec9b29531ccef52aaf5063ae84"
+  },
+  {
+    "L": 21,
+    "core": 3,
+    "job": "a1ac7019caf304dc025e290c",
+    "path": "mqft_restore59_20261126/data/heldout-L21/a1ac7019caf304dc025e290c.jsonl.gz",
+    "root": "752d728920d891ae",
+    "seed": 14391176248442746685,
+    "sha": "0deab460aee4110fe4eefb08d82f82f92c17723dfedaa1bce122c89c13f4c6d0"
+  },
+  {
+    "L": 21,
+    "core": 2,
+    "job": "a98ba40a2703a96e9cb220d6",
+    "path": "mqft_restore59_20261126/data/heldout-L21/a98ba40a2703a96e9cb220d6.jsonl.gz",
+    "root": "98c85a8c69a80815",
+    "seed": 7432145169578956354,
+    "sha": "4599e069128f2e2844619772b9e27d162cbde24baa65204b8bbe4c02a1f23a4a"
+  },
+  {
+    "L": 21,
+    "core": 0,
+    "job": "ad92dc78894d046e88ff9c13",
+    "path": "mqft_restore59_20261126/data/heldout-L21/ad92dc78894d046e88ff9c13.jsonl.gz",
+    "root": "6a5a63a7d11bc2c5",
+    "seed": 2427030468946803613,
+    "sha": "2d512ca252724d010e08c016af7bab77656512a1d7907653cbd1389eda6cad05"
+  },
+  {
+    "L": 21,
+    "core": 2,
+    "job": "c4e6f8e608d09de4e1381a8e",
+    "path": "mqft_restore59_20261126/data/heldout-L21/c4e6f8e608d09de4e1381a8e.jsonl.gz",
+    "root": "98c85a8c69a80815",
+    "seed": 9219958095829994368,
+    "sha": "75df3d01b10954fe5cee44787b9307fed3d3f0e936abbc60e21c4fc9c40e586d"
+  },
+  {
+    "L": 21,
+    "core": 0,
+    "job": "cb25cf2837069ddb7c848aae",
+    "path": "mqft_restore59_20261126/data/heldout-L21/cb25cf2837069ddb7c848aae.jsonl.gz",
+    "root": "6a5a63a7d11bc2c5",
+    "seed": 12060742061962132435,
+    "sha": "03ff85ef174fb0fc92d4aaba89bd1834e072eb74a51e8e80d14b85fa1990a33d"
+  },
+  {
+    "L": 21,
+    "core": 3,
+    "job": "d28b522a62617af946467317",
+    "path": "mqft_restore59_20261126/data/heldout-L21/d28b522a62617af946467317.jsonl.gz",
+    "root": "752d728920d891ae",
+    "seed": 8224219128887827750,
+    "sha": "2dc7e0d30a63de9563a0df979b682380cb3ffe830562bd1480f98b7b702a341d"
+  }
+]

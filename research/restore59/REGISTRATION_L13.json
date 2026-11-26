@@ -1,0 +1,129 @@
+{
+  "L": 13,
+  "backend_sha": "bcd065e7fda0c896df872b156a7a98655d0e2af184b9175ff83927e2a293f301",
+  "jobs": 32,
+  "model": {
+    "files": {
+      "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+      "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+      "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+    },
+    "license": "GPL-3.0",
+    "release": "250615",
+    "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+    "rules": "freestyle13",
+    "score_semantics": "external strong move proxy, not exact",
+    "source": "https://github.com/dhbloo/rapfi"
+  },
+  "plan_hash": "6d16f9accb2b2557ebb7ce24b46ad9da2aca34d9c0e0dc01f0a5f7009852f091",
+  "positions": [
+    {
+      "id": "L13_core0",
+      "moves": [
+        84,
+        70,
+        48,
+        122,
+        121,
+        73,
+        125,
+        109,
+        132,
+        167
+      ],
+      "source_action": 85
+    },
+    {
+      "id": "L13_core1",
+      "moves": [
+        84,
+        96,
+        100,
+        108,
+        56,
+        123,
+        124,
+        57,
+        138,
+        62
+      ],
+      "source_action": 85
+    },
+    {
+      "id": "L13_core2",
+      "moves": [
+        84,
+        108,
+        59,
+        112,
+        48,
+        121,
+        126,
+        56,
+        139,
+        30
+      ],
+      "source_action": 85
+    },
+    {
+      "id": "L13_core3",
+      "moves": [
+        84,
+        45,
+        60,
+        99,
+        56,
+        74,
+        68,
+        47,
+        153,
+        14
+      ],
+      "source_action": 85
+    }
+  ],
+  "scope": "prospective four new cores, 8 replicates, B32 beta10/3 iid; training R58 only",
+  "source_manifest_sha": "26d963b942f8b494daa4545e9d6272991093b377eacb4f2964cd2451101fe502",
+  "templates15": [
+    [
+      112,
+      96,
+      70,
+      156,
+      155,
+      99,
+      159,
+      141
+    ],
+    [
+      112,
+      126,
+      130,
+      140,
+      80,
+      157,
+      158,
+      81
+    ],
+    [
+      112,
+      140,
+      83,
+      144,
+      70,
+      155,
+      160,
+      80
+    ],
+    [
+      112,
+      67,
+      84,
+      129,
+      80,
+      100,
+      94,
+      69
+    ]
+  ]
+}

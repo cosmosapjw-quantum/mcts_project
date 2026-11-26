@@ -1,0 +1,2 @@
+RESTORE59 native fixed-root adaptive mark prediction.
+Use exact stage directory and R58/R49 inputs recorded in manifest; canonical backend is unchanged. Run plan59.py and execute59.sh in the stage context, then predict59.py train before evaluate, diagnose59.py, render59.py, progress59.py. Raw traces, prediction/feature arrays, plots and full predecessor are stored in the verified local/Dropbox backup, not Git. Secondary diagnostics are exploratory. See docs/RESTORE59_RESULTS.md.

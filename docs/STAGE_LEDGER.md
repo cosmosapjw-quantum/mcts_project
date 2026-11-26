@@ -1,20 +1,23 @@
-# RESTORE58 stage evidence
-R1 parent/original archive and guide identity; R2 source-specific
-critical, barrier, topology and error-output scope; R3 fixed total,
-conditional hazard and geometric referents; R4 registered L/B/beta
-grid and two independent cores; R5 covariance/martingale/CRN,
-minimax, Euler and parity derivations; R6 exact fixtures and
-mathematical boundary conditions; R7 actual independent replay,
-case calculations; R8 unstable slopes and sparse contrast
-negative outcome; R9 original-item mapping and derived plots;
-R10 next bounded original output contract.
-C1 exact R49 size-runtime/MixNet identities; C2 inspect source
-and cut semantics; C3 physics58 implementation; C4 five-size
-registered bounded execution; C5 480 actual histories; C6
-385 Rust and60 Python tests; C7 independent root/sample RNG,
-score/ratio/prefix, DFS/minimax, parity checks; C8 exact CRN
-distribution and covariance/scaling diagnostics; C9 plot
-decode/manifest, item evidence, no independent subagent;
-C10 publish, DAG and sealed two-copy verified archive before
-duplicate cleanup. Data-dependent R7-R10 finalized after actual
-C execution. No claim that all physical goals completed.
+# RESTORE59 stage ledger
+| stage | evidence | state |
+|---|---|---|
+| R1 | parent/original identities and scope | complete scoped |
+| R2 | primary PSR and scoring literature, original functions | complete scoped |
+| R3 | filtration, state vs history definitions | complete scoped |
+| R4 | nested candidates and counterexample | complete scoped |
+| R5 | conditional-mean risk identity and score limit | derived |
+| R6 | bounded marks, clipping, causal and interpretation checks | complete scoped |
+| R7 | Wolfram symbolic identity; separate numerical audit | checked |
+| R8 | negative primary incremental history result; exploratory categorical lag | complete scoped |
+| R9 | fixed regression and native mapping | complete scoped |
+| R10 | result, drift and next contract | complete scoped |
+| C1 | source and exact trace schema | complete scoped |
+| C2 | registration and causal feature contract | complete scoped |
+| C3 | NumPy implementation | implemented |
+| C4 | 64 actual native jobs/2048 backups; no failures | verified |
+| C5 | train-only fitting and prospective new-root test | verified |
+| C6 | 48 Python passed,12 skipped; no Rust change/rerun | scoped verified |
+| C7 | receipt, signs, counts, W,S2 and perturbation | scoped verified |
+| C8 | augmented least squares, exploratory centered ACF, transition risk | checked |
+| C9 | 4 plot pairs and 121-item overlay; native subagent NOT_RUN | scoped verified |
+| C10 | DAG/provenance/source, backup and cleanup receipts | operational evidence in external receipts |

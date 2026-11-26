@@ -1,29 +1,5 @@
-# RESTORE59: original quantum/continuation and training evidence
-1. REPLAN-04.C: keep R58 five-size matched density pilot and
-   counting/adaptive decomposition. No further routine fit:
-   before any exponent, test wider independent geometry blocks,
-   fixed control/budget and scaling window, uncertainty and
-   prospective held-out sizes. Physical xi still unidentified.
-2. X-BARRIER: native first detection and geometric minimax only;
-   quantum tunneling needs independent declared transport
-   generator, coherent versus classical controls and identifiable
-   action/mass/hbar. No WKB fit to native selector probabilities.
-3. X-STRUCT: actual planar H0/Betti and trie topology, offline
-   single-error correction verified; next explicit declared
-   gauge/quantum-code reference or genuine fault model and
-   recovery; keep topology/record/quantum referents separate.
-4. X-TRAIN: check exact original training outputs and available
-   checkpoint/evaluator identities. Prioritize actual compatible
-   iterative self-play learning and independent matched arena,
-   not speed or proxy search quality. Register bounded pilot
-   only after source/weight compatibility; no invented curves.
-5. REPLAN-03/X-MEMORY: adaptive continuation prediction remains
-   unresolved. R57 prospective mark control negative retained.
-   Construct genuine state-dependent conditional predictor before
-   new mark sweep; no repeated stochastic stencils without new
-   discriminating target. Prior A/Q and thermal work preserved.
-6. REPLAN-05/X-REP: prior CPTP/record/erasure conditional references;
-   independent phase-sensitive mechanism, objectivity, effective
-   hbar still unresolved. Maintain actual and declared scope.
-7. Preserve 13 nodes/13 edges/121 original outputs; update
-   item evidence and inventory, avoid plot-count optimization.
+# RESTORE60: actual iterative self-play and training outputs (X-TRAIN)
+1. Preserve R23 teacher runs and compare checkpoint schema/model input/output/action/player conventions with original omoknuni quantum network, and current canonical backend. Build an explicit checkpoint-aware evaluator path (or a separately scoped bridge) with exact source/weight SHA, legality mask, root sign, inference repeatability and native backup receipts; do not imply compatibility before tests.
+2. Register an actual feedback cycle: checkpoint -> complete self-play games -> search visit policy and terminal root-player returns -> policy/value update -> next checkpoint -> independent paired arena. Fixed seeds, common budget and openings; retain failures and no retuning after evaluation. First validate complete iteration end-to-end, then scale independent games within disk budget. Record actual optimizer steps, walltime, training/validation loss, game outcomes and checkpoint lineage; no fabricated Elo.
+3. Reproduce L46/L47 outputs and linked full-game trace/learning comparison. Existing R23 fixed-teacher is a comparator, not the new iterative experiment. If canonical bridge blocked, produce minimal reproducible blocker and keep X-TRAIN partial.
+4. Continue original remaining goals only by identified evidence: native 1PI/physical phase transport and independent hbar, actual critical-scaling/physical xi, dynamical memory/closure and genuine QEC. Keep previous admissions and null results.

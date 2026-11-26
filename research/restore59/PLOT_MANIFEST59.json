@@ -1,0 +1,47 @@
+{
+  "figures": [
+    {
+      "figure": "L40_L41_predictive_comparison",
+      "ids": [
+        "L40",
+        "L41",
+        "L49"
+      ],
+      "pdf_sha": "b90975f2e20690acbc1c4f68ab2354df15f095eb9d75ded4f6d364d23120e7f2",
+      "png_sha": "0889951dc329c638680cc09034d576631614cb9cda535a33371a8dd58c943a4e"
+    },
+    {
+      "figure": "L39_L44_wave_correlations",
+      "ids": [
+        "L39",
+        "L44"
+      ],
+      "pdf_sha": "692d906ed43903855e9a1121d1da285caad5d53564e5b7312eae7a812a72432c",
+      "png_sha": "d43091e57dc7cd791d379fef4c82aa90ba3172ecc9b22cf42bdd971f267c7e0f"
+    },
+    {
+      "figure": "L40_L43_transition_predictions",
+      "ids": [
+        "L40",
+        "L43"
+      ],
+      "pdf_sha": "0a914aea18f11b19bb60e6768dd6ce51e866e071c1a1cd159eae6d2cd2425597",
+      "png_sha": "acf4ac2f66fd200f69da9d8b0d8b4fa303c2219d9271a23b6fb3b01374176bda"
+    },
+    {
+      "figure": "L42_L48_L49_diagnostic_summary",
+      "ids": [
+        "L42",
+        "L48",
+        "L49"
+      ],
+      "pdf_sha": "573a36caa69b7070b0200973c528a1d1e2cd8193545fff465a9cca2fd975a1af",
+      "png_sha": "6cdbb2299f207754b4faa79778fe25bca2e3bab6d76ec90067e01f63e2f73f6a"
+    }
+  ],
+  "sources": {
+    "DIAGNOSTICS59.json": "170bae1216e2d1fb9b6a5b7da4c79afe55f6a9797708257ede85e1ff8cb13cd7",
+    "HELDOUT_PREDICTIONS.npz": "c2527c43b422d7102fdbdbf6652533692e1ea511fa3caab89d48025f086943e5",
+    "PHYSICS_RESULTS.json": "e2f4549e9fdbf5255c7a53842ee8efab2731cbbdc6064d0efd63a6841863ea1d"
+  }
+}
