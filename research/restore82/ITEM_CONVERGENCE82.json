@@ -1,0 +1,67 @@
+{
+  "claims": [
+    {
+      "claim": "For finite root-conditioned laws the population CGF is logsumexp of conditional CGFs and its Hessian exactly decomposes into within-root covariance plus between-root tilted mean covariance. Geometry mixture and intrinsic fluctuation must be distinguished.",
+      "evidence": [
+        "THEORY.md",
+        "TRANSFER82.json",
+        "INDEPENDENT82.json",
+        "SUMMARY82.json"
+      ],
+      "id": "STAT-MIX-05",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Exact mathematical identity and 261 authenticated empirical source cases; between-root fractions depend on coordinates, sampled population and tilt, no physical criticality or universal scale.",
+      "stage": 82,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the registered finite B128 clean evaluator laws, the H32 root+history conditioned weighted suffix forecast has lower proper joint energy score than both transported unconditional suffix and root-only kernel in all six external family-cohort cells; regular root CGF errors also smaller. Exact prefix count/mark bounds and joint donor dependence retained.",
+      "evidence": [
+        "THEORY.md",
+        "MODEL82.json",
+        "TRANSFER82.json",
+        "INDEPENDENT82.json",
+        "SUMMARY82.json"
+      ],
+      "id": "STAT-HISTORY-06",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Two specific external cohorts, 24/32 geometry blocks; not a universal population guarantee, not pre-search prediction or autonomous closure. Root-only gate fails 1/6; history-only can be better than root+history; limited tail ESS and high absolute W error.",
+      "stage": 82,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "STAT-MIX-05;STAT-HISTORY-06",
+      "id": "G07",
+      "open": "STAT-TRANSFER-04",
+      "remaining_final_acceptance": "Measure direct causal field response with same score law and mark, distinguish connected fluctuation and FDT; independent geometry.",
+      "scope": "Corrected root-conditioned statistical response and fluctuation distinction; observed-prefix joint prediction tested on two independent cohorts, native causal field/FDT separate."
+    },
+    {
+      "accepted": "STAT-MIX-05;STAT-HISTORY-06",
+      "id": "L16",
+      "open": "STAT-TRANSFER-04",
+      "remaining_final_acceptance": "Normalized full-support marked path measure with action, overlaps and complex readout where specified; controlled 1PI/loop expansion and independent prediction.",
+      "scope": "Exact root-mixture CGF/Hessian and bounded observed-prefix predictive conditional action; root-only transfer and full physical complex action remain open."
+    },
+    {
+      "accepted": "STAT-MIX-05;STAT-HISTORY-06",
+      "id": "Q32",
+      "open": "STAT-TRANSFER-04",
+      "remaining_final_acceptance": "Measure direct conjugate source response, compare path-score and fluctuation; thermal susceptibility/C only if calibrated T.",
+      "scope": "Exact tilted population covariance split into within-root and between-root terms; actual independent conditional prediction gains with H32, no physical thermal susceptibility."
+    }
+  ],
+  "parent_convergence_sha256": "14915919719539845525326a5d743ff20fa138de731155a4f7e3bfe5d4ef6ef0",
+  "parent_quality_matrix_sha256": "69773393db1c0522b6dfd3f7fb22638c12a05f2ffd6a1093c80da425265ebbf3",
+  "scope": "R82 delta; R79 item contracts and R80/R81 accepted claims retained."
+}

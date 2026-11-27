@@ -1,0 +1,151 @@
+{
+  "cases": [
+    {
+      "backups": 128,
+      "bytes": 134896,
+      "core": 0,
+      "family": 0,
+      "path": "mqft_restore82_20261127/data/compat_schedule0/compat82_g0_c00_r00_zero74.json.gz",
+      "seed": 4120783321833745611,
+      "semantic_sha": "4638ddbe6c3fca19f380a4710f145777ab4e4ec276bea61771a39fb4cd67d744",
+      "sha256": "90bb40f740450cb666ec644ac9afed2ae71773c1b6de4f1d0abc84ac646ec633",
+      "source": "mqft_restore81_20261127/data/schedule0/g0_c00_r00_base81.json.gz",
+      "source_sha": "0618460acee5ecf5960707d373167fc33c6180ab7093ad5db25360b29beb3a7e"
+    },
+    {
+      "backups": 128,
+      "bytes": 138626,
+      "core": 1,
+      "family": 0,
+      "path": "mqft_restore82_20261127/data/compat_schedule0/compat82_g0_c01_r00_zero74.json.gz",
+      "seed": 4302420223150598859,
+      "semantic_sha": "339d735bf28d0912ebedd2544fbf2b166b96fcaef4901ba19d8a4fb1831a3b75",
+      "sha256": "c2d1d20037d16d5e40e28282f223ef92074ae40ebaff7f3fcd91a745e63defa9",
+      "source": "mqft_restore81_20261127/data/schedule0/g0_c01_r00_base81.json.gz",
+      "source_sha": "49a0fb1f008f8e0ad689cd49eee6d2770de79a1ea756be73c8fb342f8e382103"
+    },
+    {
+      "backups": 128,
+      "bytes": 124187,
+      "core": 2,
+      "family": 0,
+      "path": "mqft_restore82_20261127/data/compat_schedule0/compat82_g0_c02_r00_zero74.json.gz",
+      "seed": 3546964449381863217,
+      "semantic_sha": "a0795617dc52c0e9194f89c6d031532e2cdb25e5b39e7b56a24b21602cba6576",
+      "sha256": "d634176f5eb846580806a5f5d69b9eabe86f2a626ba4d5344744c48619171e48",
+      "source": "mqft_restore81_20261127/data/schedule0/g0_c02_r00_base81.json.gz",
+      "source_sha": "6628643ee92649db238d9b3483a4b3da0369558596b808644cc6df811e724395"
+    },
+    {
+      "backups": 128,
+      "bytes": 117335,
+      "core": 3,
+      "family": 0,
+      "path": "mqft_restore82_20261127/data/compat_schedule0/compat82_g0_c03_r00_zero74.json.gz",
+      "seed": 4388151525817617411,
+      "semantic_sha": "d0ddf989f74a0f2a978d0a3d9a925e5672b8e13c2b946c3e8a61499174e48453",
+      "sha256": "041f08852d029968568707c136d292e6c6f6d0dfb2de14bd75c62a4c33182e29",
+      "source": "mqft_restore81_20261127/data/schedule0/g0_c03_r00_base81.json.gz",
+      "source_sha": "746a9a6d1051a449a249c1d1b7f3e765dd8a05b2c1e3f2c4bb9b398ad87f14b4"
+    },
+    {
+      "backups": 128,
+      "bytes": 142467,
+      "core": 0,
+      "family": 1,
+      "path": "mqft_restore82_20261127/data/compat_schedule3/compat82_g3_c00_r00_zero74.json.gz",
+      "seed": 4120783321833745611,
+      "semantic_sha": "6fe29a580b997f4f48697db8be5fc7b5afe60646fcc69a61340b2d2684b7ef98",
+      "sha256": "d26cc72363feb0524cab0c66b1d82d7d77e4ed736a87d0fee53ea2811949986f",
+      "source": "mqft_restore81_20261127/data/schedule3/g3_c00_r00_base81.json.gz",
+      "source_sha": "651de226ea71930f5a20d05e9f5b4f565d6607ab35e5ce18d284bfaad09e0afa"
+    },
+    {
+      "backups": 128,
+      "bytes": 131613,
+      "core": 1,
+      "family": 1,
+      "path": "mqft_restore82_20261127/data/compat_schedule3/compat82_g3_c01_r00_zero74.json.gz",
+      "seed": 4302420223150598859,
+      "semantic_sha": "d32b0412fce4d7918596821643344db3f492dd189fb3c9f706a242d09982bdd4",
+      "sha256": "1390652eda9219c88f4a4b0f6db69dfa8f2a5a8daedfafd2a1bc473d2d083fcf",
+      "source": "mqft_restore81_20261127/data/schedule3/g3_c01_r00_base81.json.gz",
+      "source_sha": "e472831fdc2e9dd1cd267e438b3968e60c4c3830e291a1f00f29119075748572"
+    },
+    {
+      "backups": 128,
+      "bytes": 124762,
+      "core": 2,
+      "family": 1,
+      "path": "mqft_restore82_20261127/data/compat_schedule3/compat82_g3_c02_r00_zero74.json.gz",
+      "seed": 3546964449381863217,
+      "semantic_sha": "0026ba7a6ecc3c8aab61c5f9878850d4247bb6b1417612d6d1146a0ac8493129",
+      "sha256": "589b43e0514c7bb98598318f8e697042fee106e7261271db6d6c8114e920c4b9",
+      "source": "mqft_restore81_20261127/data/schedule3/g3_c02_r00_base81.json.gz",
+      "source_sha": "2e3dfb3c5d0c256bf7d6a724a152f54029a823996c8ed1e8e0dc8374e74f279e"
+    },
+    {
+      "backups": 128,
+      "bytes": 118951,
+      "core": 3,
+      "family": 1,
+      "path": "mqft_restore82_20261127/data/compat_schedule3/compat82_g3_c03_r00_zero74.json.gz",
+      "seed": 4388151525817617411,
+      "semantic_sha": "b261408ede82208603e9e68b375678b99e23979f485d701e015004c93bd64745",
+      "sha256": "45a688c16a5d74f0ec6d81916b0813319426645de9e7fcd6a1663e3c0dce841d",
+      "source": "mqft_restore81_20261127/data/schedule3/g3_c03_r00_base81.json.gz",
+      "source_sha": "c33a250dc7efbc2c60ac2cd609605d0f7e8789276469f1facdc261d4f57cd07e"
+    },
+    {
+      "backups": 128,
+      "bytes": 296310,
+      "core": 0,
+      "family": 2,
+      "path": "mqft_restore82_20261127/data/compat_rapfi/compat82_rapfi_c00_r00_zero74.json.gz",
+      "seed": 3297532099302185937,
+      "semantic_sha": "d70c96c8a0ec380e2f3a240a59fb6790b6fd45cefaab0724cd6640d8d674b139",
+      "sha256": "874e41e674c6159c170f6eaff568f4879c0bc06e2655bcfa7e0f0f022f151c42",
+      "source": "mqft_restore81_20261127/data/rapfi/rapfi_c00_r00_base81.json.gz",
+      "source_sha": "734b48cb83469ba75387e097d00f8d9cdc8082a9d6c048f3b43675dc8fce0fe9"
+    },
+    {
+      "backups": 128,
+      "bytes": 291719,
+      "core": 1,
+      "family": 2,
+      "path": "mqft_restore82_20261127/data/compat_rapfi/compat82_rapfi_c01_r00_zero74.json.gz",
+      "seed": 2089435304709722586,
+      "semantic_sha": "6c6aea7a0d4223f287e83f015682b833f8617016dcf4f52430f64abc14d017d9",
+      "sha256": "1b7e23a891b8888dfac9b49a6ea7b1eb2febacff4d81f871a3b3278457a5669f",
+      "source": "mqft_restore81_20261127/data/rapfi/rapfi_c01_r00_base81.json.gz",
+      "source_sha": "9ce82adbeccc081cff770f2ce5117deb00a0ce234a4a194ab094ae47c0eb1e71"
+    },
+    {
+      "backups": 128,
+      "bytes": 281100,
+      "core": 2,
+      "family": 2,
+      "path": "mqft_restore82_20261127/data/compat_rapfi/compat82_rapfi_c02_r00_zero74.json.gz",
+      "seed": 3645411372759574635,
+      "semantic_sha": "91cb3d754769cf92f77b6a2fbbeb8140f09867043ff9f55de5f645b0d30a75ef",
+      "sha256": "75ee089cb6de0116fa49fe11d65b81600de9ea6dfd3a493edd57e5f8996316cb",
+      "source": "mqft_restore81_20261127/data/rapfi/rapfi_c02_r00_base81.json.gz",
+      "source_sha": "b48d28b1c60fa69cadef65f572a47a570b4fa883e798d6ba2fd339586bc6e16e"
+    },
+    {
+      "backups": 128,
+      "bytes": 224203,
+      "core": 3,
+      "family": 2,
+      "path": "mqft_restore82_20261127/data/compat_rapfi/compat82_rapfi_c03_r00_zero74.json.gz",
+      "seed": 8047114177868739520,
+      "semantic_sha": "cbdb666cbcd9a7edf45ce5cf24dc49a1a2929f006618bb64fab9b7a6a5af8858",
+      "sha256": "2a37d9df66e2b562ef9ac4b639792f520f9866aeafdebb6eca9133f145311a14",
+      "source": "mqft_restore81_20261127/data/rapfi/rapfi_c03_r00_base81.json.gz",
+      "source_sha": "5c7ec674c4daed61690a6b050b2baa503c4f9091d4289849acb46ca59eb82b4b"
+    }
+  ],
+  "diagnostic_backups": 1536,
+  "scope": "12 same-seed clean replays of R81 lambda0 paths on pinned pulse74 binary. All events/cuts/evals equal excluding source metadata, phase register, worker/time. Diagnostic replays excluded from fresh search count.",
+  "status": "PASS_SCOPED"
+}

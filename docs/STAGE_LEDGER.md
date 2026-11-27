@@ -1,24 +1,24 @@
-# R81 R1–R10 / C1–C10
+# R82 R1-R10 / C1-C10
 | Stage | Actual work | Evidence |
 |---|---|---|
-| R1 | R69/R80 authority, original operational phase | THEORY.md |
-| R2 | Original v6 and prior R65/R73/R74/R80, primary literature | ORIGINAL_SOURCE81.json |
-| R3 | Equal-population phase, model vs native physical identification | THEORY.md |
-| R4 | Three-wave noncommuting instrument and six matched arms | THEORY.md, REGISTRATION.json |
-| R5 | Kraus completeness, CQ normalization, phase witness, likelihood law | THEORY.md |
-| R6 | Erasure induction, middle-axis invisibility, vN counterexample, source audit | ORIGINAL_SOURCE81.json, EFFECTS81.json |
-| R7 | Wolfram and independent CP branch products/frozen isometry | INDEPENDENT81.json |
-| R8 | Accept Q-OP-01/Q-CAUSAL-02; record/utility open | CONVERGENCE81.json |
-| R9 | Actual conditional observables, separate frozen records and limits | SUMMARY81.json |
-| R10 | R82 geometry-conditioned population convergence | NEXT_DYNAMICS.md |
-| C1 | Register 24 roots x8 seeds x6 arms x3 eval | REGISTRATION.json |
-| C2 | Inspect actual source and isolate experimental patch | PHASE_PATCH81.json |
-| C3 | Bloch implementation, complex matrix reference, scalar and spectral checks | build81.py, instrument81.py |
-| C4 | CPU workers, bounded B128 and raw files | generate81.py |
-| C5 | Actual3456 searches and isolated build | BUILD81.json, RUN_SHARDS.json |
-| C6 | Full raw native audit, RNG and lib regression | AUDIT81.json, RNG_AUDIT81.json, REGRESSION81.json |
-| C7 | Actual paired effects, RN and frozen 3-time model | EFFECTS81.json, RECORD81.json |
-| C8 | Independent2592 branch products and 72 frozen isometry comparisons | INDEPENDENT81.json |
-| C9 | Three plots, convergence and original item scope | PLOT_MANIFEST81.json, CONVERGENCE81.json |
-| C10 | DAG and item matrix, Git, verified backup and dedup | receipts |
-Theory registration before acquisition, final R6–R8 judgments after data. Logical 20-stage coverage, not 20 isolated native agents.
+| R1 | R69 purpose, R81 parent, STAT-TRANSFER-04 | THEORY.md |
+| R2 | Original action/source-response and prior R79-R81, scoring literature | ORIGINAL_SOURCE82.json |
+| R3 | Root-mixture versus conditional fluctuation and prediction | THEORY.md |
+| R4 | Registered three model routes, six model variants and splits | THEORY.md, REGISTRATION.json |
+| R5 | Tilted mixture covariance, proper joint score, prefix support | THEORY.md |
+| R6 | Root balance, leakage, tail/root ESS and finite sample limits | SUMMARY82.json |
+| R7 | Wolfram two-point mixture and independent direct checks | INDEPENDENT82.json |
+| R8 | Root-only failure retained; two corrected subclaims accepted | CONVERGENCE82.json |
+| R9 | Explicit conditional empirical action/predictive law and measured errors | MODEL82.json, TRANSFER82.json |
+| R10 | Adaptive record next; root-only transfer retained open | NEXT_DYNAMICS.md |
+| C1 | Registered 32 new roots and separate historical train/validation | REGISTRATION.json |
+| C2 | Raw and evaluator identity, prefix features, clean base compatibility | extract82.py, COMPAT82.json |
+| C3 | Root-balanced weighted empirical mixture and prefix suffix transport | population82.py |
+| C4 | Bounded CPU acquisition, blocked folds and test freeze | generate82.py, MODEL82.json |
+| C5 | Actual1536 new paths, diagnostic12 compatibility replays | RUN_SHARDS.json, COMPAT82.json |
+| C6 | Raw4032 replay and independent fresh RNG | AUDIT82.json, RNG_AUDIT82.json |
+| C7 | Frozen six-model external forecasts and tilted root decomposition | TRANSFER82.json |
+| C8 | Independent1008 predictions, all12672 aggregates,312 raw and261 mixtures | INDEPENDENT82.json |
+| C9 | Three relevant plots and scoped claim ledger | PLOT_MANIFEST82.json, CONVERGENCE82.json |
+| C10 | DAG/item matrix, Git, verified snapshots and duplicate cleanup | receipts |
+Theory contract before acquisition; R6–R8 judgments depend on later actual data. Logical stage coverage, not isolated native subagents. No changed production backend, no full legacy regression.

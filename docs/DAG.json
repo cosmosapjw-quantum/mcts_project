@@ -1,7 +1,7 @@
 {
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
-  "convergence_ledger": "CONVERGENCE81.json",
+  "convergence_ledger": "CONVERGENCE82.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -57,7 +57,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "X-REP",
+  "entry": "REPLAN-03",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -120,8 +120,8 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R82 root-conditioned population effective action and independent geometry transfer",
-    "R83 actual adaptive coherent records only if explicitly defined branch-dependent process",
+    "R83 actual adaptive multi-time coherent record branch-dependent extension",
+    "R84 root-only transfer using pre-search child evaluator features if prioritized",
     "Remaining physical calibration, scale/memory, structural and application item-specific conditions"
   ],
   "migration": {
@@ -141,7 +141,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE82-ROOT-CONDITIONED-POPULATION-ACTION",
+  "next_stage_id": "MQFT-RESTORE83-ADAPTIVE-COHERENT-RECORD-DYNAMICS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -335,6 +335,15 @@
         "artifact": "mqft_restore80_20261127/{CONVERGENCE80.json,ACTION80.json,INDEPENDENT80.json,QUALITY_MATRIX80.csv}",
         "evidence": "Corrected ideal categorical marked path action, exact finite Legendre/KL and Hessian duality, 180 bivariate independent-history lattice saddle cases with alias control. 1152 new searches; 768 reused reference; 24 forced replays; independent RNG/coefficients and direct convolution.",
         "remaining": "Native population W transfer, full autonomous joint law, operational complex phase and physical quantum action remain open; original complete node status not inflated."
+      },
+      "restore82_followup": {
+        "accepted_subclaims": [
+          "STAT-MIX-05",
+          "STAT-HISTORY-06"
+        ],
+        "artifact": "mqft_restore82_20261127/{CONVERGENCE82.json,TRANSFER82.json,SUMMARY82.json,INDEPENDENT82.json,QUALITY_MATRIX82.csv}",
+        "evidence": "1536 new clean histories, 2496 authenticated prior histories, 104 geometry orbits; exact root-mixture covariance identities, frozen six-model conditional forecast, H32 root+history improves in all six external family-cohort cells; root-only registered criterion passes 5/6, Rapfi R81 fails.",
+        "remaining": "STAT-TRANSFER-04 open, large absolute W errors and low root ESS; no autonomous closure or physical temperature, full original item certification separate."
       },
       "retained_evidence": "C04\u2013C06\uc758 finite reference\uc640 RESTORE02\u201303\uc758 \uc2e4\uc81c history, forced probe, constrained fluctuation/response\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \ubcc4\ub3c4 oscillator\u00b7\uc5f4\ud575\uc740 \ud574\uc11d/\uad6c\ud604 \ub300\uc870.",
       "second_traversal_evidence": "mqft_restore24_20261125/{THEORY.md,RESULTS_KO.md,model.py,walk_states.npz,walk_metrics.json,phase_response.json,pulse_results.json,edge_states.npz,edge_metrics.json,edge_stationarity.json,verification.json,F01_complex_walk.pdf,F02_entropy.pdf,F03_phase_response.pdf,F04_native_selector.pdf,F05_native_phase_pulse.pdf,F06_edge_dynamics.pdf,F07_edge_matrices.pdf}",
@@ -891,6 +900,15 @@
         "evidence": "Independent count/mark/probability/lag state and homogeneous/clock-conditioned joint donor comparison, multiwave prediction, exact collision witnesses and dependent block law.",
         "remaining": "Learn continuous belief or finite-memory path law on fresh geometries; distinguish within-root from mixture effects."
       },
+      "restore82_followup": {
+        "accepted_subclaims": [
+          "STAT-MIX-05",
+          "STAT-HISTORY-06"
+        ],
+        "artifact": "mqft_restore82_20261127/{CONVERGENCE82.json,TRANSFER82.json,SUMMARY82.json,INDEPENDENT82.json,QUALITY_MATRIX82.csv}",
+        "evidence": "1536 new clean histories, 2496 authenticated prior histories, 104 geometry orbits; exact root-mixture covariance identities, frozen six-model conditional forecast, H32 root+history improves in all six external family-cohort cells; root-only registered criterion passes 5/6, Rapfi R81 fails.",
+        "remaining": "STAT-TRANSFER-04 open, large absolute W errors and low root ESS; no autonomous closure or physical temperature, full original item certification separate."
+      },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -988,8 +1006,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-03",
-  "quality_matrix": "QUALITY_MATRIX81.csv",
+  "previous_entry": "X-REP",
+  "quality_matrix": "QUALITY_MATRIX82.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -3697,8 +3715,65 @@
     "retained_pairs": 650,
     "status": "two_new_corrected_scientific_subclaims_accepted"
   },
-  "revision": "RESTORE81_20261127",
-  "scope": "Convergence: operational software phase instrument and normalized causal CQ history law",
+  "restore82": {
+    "AUDIT82.json_sha256": "719d466b0f2f0974cda751749678be5f06612f646a3879c7ba763385abcb1697",
+    "COMPAT82.json_sha256": "fd73295c8cfd04fdd0be1d5fa0f1da2c4f2127e984a4d036de14d618b5f550ad",
+    "CONVERGENCE82.json_sha256": "688f2b2a684ce8bdc5d33ba8cc38c39cf71ccd7252462ce86d35f9bb72825135",
+    "DRIFT_WATCHDOG.md_sha256": "6003e4115fa1c9938aa4df4e0a38a1910a40a0bfa120c18cd6787eafc9e18d64",
+    "INDEPENDENT82.json_sha256": "6e92acc84ab0ea7437c173e82b74892e17266e55bb1761e5f777ddf595b0d26f",
+    "ITEM_CONVERGENCE82.json_sha256": "c66fdcb2cd15dfc76e432cda3535307c53aa834b0d165aab1565b4408e80b267",
+    "MODEL82.json_sha256": "60dbf30466d3d42e153b21da930ea299a086ad54754dc545ef501076d0221980",
+    "NEXT_DYNAMICS.md_sha256": "b93ad8cd948b5c62e8ff1332016631a9a2da21eeda145d285835e075cd88c17f",
+    "ORIGINAL_OUTPUT_EVIDENCE82.csv_sha256": "f72e37a5d78fad33a9e7c092472f06081cbb55e15d0a653622d69b8695fbef77",
+    "ORIGINAL_OUTPUT_PROGRESS82.csv_sha256": "90c1a9bd35fac5012bf9c647ffb0fdf2ded2838429b2d05e4f0daa1232fa4845",
+    "ORIGINAL_SOURCE82.json_sha256": "df581282bac44ba2ff14636966448dcea46ec849cb23674b9ac43d492e11f911",
+    "PLOT_INVENTORY82.csv_sha256": "afe52772578fdbc32c613bdf206e2ad942d8355330e24ea20bf3079ba7502bc0",
+    "PLOT_MANIFEST82.json_sha256": "a27fa6db906edd5141025dd6e76a22ee4df3ffc1b4526d872e83490eff8710b3",
+    "PROGRESS82.json_sha256": "3b846f61631652ac56db8d2a520ad8aba74302c81b8067d88fcad8cc153d8b07",
+    "QUALITY_MATRIX82.csv_sha256": "b4fe980994acb754c4178dd78323cc68509b1082d3503e1a08373c8847ed92d0",
+    "RAPFI_RECEIPTS82.json_sha256": "4192eb5db7270416ca8241405439cbadf6dd2dbd17aafa2fb5c04623b767192d",
+    "REGISTRATION.json_sha256": "5cf4bf9db06bab7cbbe156966aedacd33021cc76559228697075937f56dbbc7c",
+    "RNG_AUDIT82.json_sha256": "712da30f1095d8656d5b7cb4653761b4f33803355a0fae3d3bfd7b8c8d936a67",
+    "ROOT_PREPARATION.json_sha256": "af9b0c668851ce2082db0ac491385294a4ac69cc85f08da696e392b5be94466e",
+    "RUN_SHARDS.json_sha256": "511e5bd8a0d8c2438a6b6c75d0ce69abf4c6f398c01a0a5dcdcb807151a97f50",
+    "SUMMARY82.json_sha256": "8712db557ee01e43f1270911e6ffb0edfab5a6e8e145288d0658ac2c1be34349",
+    "THEORY.md_sha256": "aa82eafb074f69a3172b7dd898c7d7b2a7a268b1293027bf7006fca9ad2479f1",
+    "TRANSFER82.json_sha256": "27ae5dcf1759a21d6777fb1a89e9043f73b44b429807fa7e2986db57a796dba2",
+    "accepted_corrected_subclaims": 7,
+    "animations": 0,
+    "compatibility_backups": 1536,
+    "compatibility_replays": 12,
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 89080,
+    "figures": 3,
+    "final_scientific_certified": 0,
+    "fresh_backups": 196608,
+    "fresh_fixed_root_histories": 1536,
+    "history_cells_passed": 6,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 3,
+    "original_evidence_union_R55_R82": 121,
+    "original_obligations": 121,
+    "parent_commit": "207d54e87cf5818aa84a8ae3eb5388a3d02c9574",
+    "parent_dag_sha256": "b8929bdf5c083cfa515a28cc3351cc8e4f35606723f592167321b74867cb228e",
+    "raw_bytes": 280011815,
+    "remaining": "Root-only population transfer, adaptive coherent record extension, native physical phase and utility; original item acceptance.",
+    "retained_pairs": 653,
+    "reused_backups": 319488,
+    "reused_paths": 2496,
+    "root_counts": [
+      48,
+      24,
+      32
+    ],
+    "root_only_cells_passed": 5,
+    "status": "two_new_corrected_scientific_subclaims_accepted_root_only_open"
+  },
+  "revision": "RESTORE82_20261127",
+  "scope": "Convergence: root-conditional population mixture and bounded observed-prefix prediction",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE81-OPERATIONAL-QUANTUM-PHASE-INSTRUMENT"
+  "supersedes_next": "MQFT-RESTORE82-ROOT-CONDITIONED-POPULATION-ACTION"
 }

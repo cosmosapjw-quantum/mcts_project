@@ -3354,6 +3354,88 @@
       }
     }
   },
+  "restore82": {
+    "AUDIT82.json_sha256": "719d466b0f2f0974cda751749678be5f06612f646a3879c7ba763385abcb1697",
+    "COMPAT82.json_sha256": "fd73295c8cfd04fdd0be1d5fa0f1da2c4f2127e984a4d036de14d618b5f550ad",
+    "CONVERGENCE82.json_sha256": "688f2b2a684ce8bdc5d33ba8cc38c39cf71ccd7252462ce86d35f9bb72825135",
+    "DRIFT_WATCHDOG.md_sha256": "6003e4115fa1c9938aa4df4e0a38a1910a40a0bfa120c18cd6787eafc9e18d64",
+    "INDEPENDENT82.json_sha256": "6e92acc84ab0ea7437c173e82b74892e17266e55bb1761e5f777ddf595b0d26f",
+    "ITEM_CONVERGENCE82.json_sha256": "c66fdcb2cd15dfc76e432cda3535307c53aa834b0d165aab1565b4408e80b267",
+    "MODEL82.json_sha256": "60dbf30466d3d42e153b21da930ea299a086ad54754dc545ef501076d0221980",
+    "NEXT_DYNAMICS.md_sha256": "b93ad8cd948b5c62e8ff1332016631a9a2da21eeda145d285835e075cd88c17f",
+    "ORIGINAL_OUTPUT_EVIDENCE82.csv_sha256": "f72e37a5d78fad33a9e7c092472f06081cbb55e15d0a653622d69b8695fbef77",
+    "ORIGINAL_OUTPUT_PROGRESS82.csv_sha256": "90c1a9bd35fac5012bf9c647ffb0fdf2ded2838429b2d05e4f0daa1232fa4845",
+    "ORIGINAL_SOURCE82.json_sha256": "df581282bac44ba2ff14636966448dcea46ec849cb23674b9ac43d492e11f911",
+    "PLOT_INVENTORY82.csv_sha256": "afe52772578fdbc32c613bdf206e2ad942d8355330e24ea20bf3079ba7502bc0",
+    "PLOT_MANIFEST82.json_sha256": "a27fa6db906edd5141025dd6e76a22ee4df3ffc1b4526d872e83490eff8710b3",
+    "PROGRESS82.json_sha256": "3b846f61631652ac56db8d2a520ad8aba74302c81b8067d88fcad8cc153d8b07",
+    "QUALITY_MATRIX82.csv_sha256": "b4fe980994acb754c4178dd78323cc68509b1082d3503e1a08373c8847ed92d0",
+    "RAPFI_RECEIPTS82.json_sha256": "4192eb5db7270416ca8241405439cbadf6dd2dbd17aafa2fb5c04623b767192d",
+    "REGISTRATION.json_sha256": "5cf4bf9db06bab7cbbe156966aedacd33021cc76559228697075937f56dbbc7c",
+    "RNG_AUDIT82.json_sha256": "712da30f1095d8656d5b7cb4653761b4f33803355a0fae3d3bfd7b8c8d936a67",
+    "ROOT_PREPARATION.json_sha256": "af9b0c668851ce2082db0ac491385294a4ac69cc85f08da696e392b5be94466e",
+    "RUN_SHARDS.json_sha256": "511e5bd8a0d8c2438a6b6c75d0ce69abf4c6f398c01a0a5dcdcb807151a97f50",
+    "SUMMARY82.json_sha256": "8712db557ee01e43f1270911e6ffb0edfab5a6e8e145288d0658ac2c1be34349",
+    "THEORY.md_sha256": "aa82eafb074f69a3172b7dd898c7d7b2a7a268b1293027bf7006fca9ad2479f1",
+    "TRANSFER82.json_sha256": "27ae5dcf1759a21d6777fb1a89e9043f73b44b429807fa7e2986db57a796dba2",
+    "accepted_corrected_subclaims": 7,
+    "animations": 0,
+    "compatibility_backups": 1536,
+    "compatibility_replays": 12,
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 89080,
+    "dag_sha256": "619e0425a0383a7dbcf438f4c12a20f1bdecaa95e1e973d90ebf692d1d55c0e6",
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 3,
+    "final_scientific_certified": 0,
+    "fresh_backups": 196608,
+    "fresh_fixed_root_histories": 1536,
+    "history_cells_passed": 6,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 3,
+    "original_evidence_union_R55_R82": 121,
+    "original_obligations": 121,
+    "parent_commit": "207d54e87cf5818aa84a8ae3eb5388a3d02c9574",
+    "parent_dag_sha256": "b8929bdf5c083cfa515a28cc3351cc8e4f35606723f592167321b74867cb228e",
+    "pulse_binary_sha": "2a7468f6abc3c39e90146dac9418a3ee3a2e3923d04cab3f5b7b4872edde4f8a",
+    "raw_bytes": 280011815,
+    "remaining": "Root-only population transfer, adaptive coherent record extension, native physical phase and utility; original item acceptance.",
+    "retained_pairs": 653,
+    "reused_backups": 319488,
+    "reused_paths": 2496,
+    "root_counts": [
+      48,
+      24,
+      32
+    ],
+    "root_only_cells_passed": 5,
+    "status": "two_new_corrected_scientific_subclaims_accepted_root_only_open",
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

@@ -1,0 +1,11 @@
+AUDIT 384
+AUDIT 768
+AUDIT 1152
+AUDIT 1536
+AUDIT 1920
+AUDIT 2304
+AUDIT 2688
+AUDIT 3072
+AUDIT 3456
+AUDIT 3840
+AUDIT {'paths': 1536, 'backups': 196608, 'prior_paths': 2496, 'prior_backups': 319488, 'raw_bytes': 280011815, 'all_bytes': 743737058, 'errors': {'score': 0.0, 'probability': 2.886579864025407e-15, 'log_path': 0.0}, 'root_counts': [48, 24, 32], 'fresh_streams': 1024, 'array_sha': '787c0ac14f304ed6c6b95bcbb107a82233fba8f3b7866f5b47c8bf447645d48b', 'scope': 'Reauthenticated 1920 train, 576 R81 clean base, 1536 fresh paths; all raw score/CDF/cut replay, fresh full downstream audit; root/prefix features only.'}

@@ -1,0 +1,46 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "root_mixture_covariance_decomposition",
+      "ids": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "pdf_sha": "141005f81c8c37280c20b0b296d598ce827ec9a90a5947888a73087110599e0c",
+      "png_sha": "0e78a3d0694c5900c57eb34573bbe4611fd4c41b9bd022722ab4bb2044bbe130",
+      "scope": "Exact empirical root-conditional covariance decomposition, per variable, at zero source; not thermodynamic susceptibility."
+    },
+    {
+      "figure": "independent_conditional_prediction",
+      "ids": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "pdf_sha": "b7f88a5b5bc18876b301e497af4d02fa45520bee7a95a8b37fa950eb94757bc2",
+      "png_sha": "2cc024f3c878f133524d341c6a741ae120851380ebb4e9fd651d3fa8adf1f4f8",
+      "scope": "Frozen train-only bandwidths, two disjoint external geometry cohorts; H32 predictions condition on observed prefix, root-only generalization not globally admitted."
+    },
+    {
+      "figure": "transfer_support_and_uncertainty",
+      "ids": [
+        "L16",
+        "Q32"
+      ],
+      "pdf_sha": "bcc44fe4de4c034c95205509e0f228a423e426e67931a765f772e4d0010c144c",
+      "png_sha": "6c3538fd02bcbceac4a8cf9ebc5b4b517a2d756e831732e19be1d04b2a02d034",
+      "scope": "Donor-root ESS (not independent history count), stress diagnostics and pointwise intervals; finite reference noise is not lower error bound."
+    }
+  ],
+  "sources": {
+    "AUDIT82.json": "719d466b0f2f0974cda751749678be5f06612f646a3879c7ba763385abcb1697",
+    "CONVERGENCE82.json": "688f2b2a684ce8bdc5d33ba8cc38c39cf71ccd7252462ce86d35f9bb72825135",
+    "INDEPENDENT82.json": "6e92acc84ab0ea7437c173e82b74892e17266e55bb1761e5f777ddf595b0d26f",
+    "MODEL82.json": "60dbf30466d3d42e153b21da930ea299a086ad54754dc545ef501076d0221980",
+    "SUMMARY82.json": "8712db557ee01e43f1270911e6ffb0edfab5a6e8e145288d0658ac2c1be34349",
+    "TRANSFER82.json": "27ae5dcf1759a21d6777fb1a89e9043f73b44b429807fa7e2986db57a796dba2",
+    "plot82.py": "a079c45e3960f3900536886e922918ed4c33c3e924137eb9a63662b4a573cb62"
+  }
+}

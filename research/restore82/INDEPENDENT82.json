@@ -1,0 +1,36 @@
+{
+  "aggregate_predictions": 12672,
+  "compatibility_cases": 12,
+  "errors": {
+    "W": 1.7763568394002505e-14,
+    "W_RMSE": 0.0,
+    "cov": 4.107825191113079e-15,
+    "energy": 2.831068712794149e-15,
+    "energy_root_means": 0.0,
+    "mixture_W": 8.881784197001252e-16,
+    "mixture_between": 2.7755575615628914e-16,
+    "mixture_cov": 1.970645868709653e-15,
+    "mixture_within": 3.1117957603049584e-16,
+    "mu": 6.5503158452884236e-15,
+    "raw_A": 0.0,
+    "raw_V": 0.0,
+    "raw_X": 0.0,
+    "raw_prefix": 6.129795859788345e-08,
+    "raw_root_core": 0.0,
+    "root_W": 0.0,
+    "tilted_ESS": 2.8705926524708048e-12,
+    "truth_W": 0.0
+  },
+  "independent_predictions": 1008,
+  "raw_paths": 312,
+  "rng": {
+    "binary_sha": "d81c04da4f981717367a1f806ca67ecca6af8b14b5586db06868db9d3631f16b",
+    "independent_uniforms": 131072,
+    "input_sha": "0fc96e82d80d0e02b23f642644111929d59e72bdca35a010ab1d4226d0012077",
+    "max_error": 1.1102230246251565e-16,
+    "streams": 1024
+  },
+  "scope": "Same-agent independent direct weights, explicit pairwise energy and moment covariance, raw prefix/endpoint reduction and aggregate recalculation; no independent native subagent.",
+  "status": "PASS_SCOPED",
+  "tilted_mixture_cases": 261
+}
