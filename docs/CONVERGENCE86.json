@@ -1,0 +1,428 @@
+{
+  "accepted_subclaims": 16,
+  "claims": [
+    {
+      "claim": "For fixed clean deterministic downstream transition maps and ideal conditional categorical root choices, the complete marked history measure is normalized and its action is minus summed log conditional probability. Final visit counts are not this action.",
+      "evidence": [
+        "mqft_restore80_20261127/THEORY.md",
+        "mqft_restore80_20261127/AUDIT80.json",
+        "mqft_restore80_20261127/FORCED_REPLAY80.json",
+        "mqft_restore80_20261127/RNG_AUDIT80.json",
+        "mqft_restore80_20261127/ORIGINAL_SOURCE80.json"
+      ],
+      "id": "STAT-ACTION-01",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Algorithmic ideal randomized law; 24 forced sequences checked. Not a universal theorem for stochastic evaluator or asynchronous scheduling; no physical quantum action.",
+      "stage": 80,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "On finite affinely spanning support, exact normalized log-MGF has positive definite tilted covariance; Legendre gradient and Hessian are dual and Gamma equals tilted relative entropy at image.",
+      "evidence": [
+        "mqft_restore80_20261127/THEORY.md",
+        "mqft_restore80_20261127/ACTION80.json",
+        "mqft_restore80_20261127/INDEPENDENT80.json"
+      ],
+      "id": "STAT-1PI-02",
+      "items": [
+        "L16",
+        "Q21",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Exact mathematical identity for fixed measure; 261 finite empirical source cases; true population law not known.",
+      "stage": 80,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed finite full-lattice law with compact tilts, local independent-replica bivariate saddle has determinant prefactor and explicit Wick correction with relative O(M^-2) remainder. All 180 registered finite cases evaluated; M256 maximum corrected relative error 3.07672e-5.",
+      "evidence": [
+        "mqft_restore80_20261127/THEORY.md",
+        "mqft_restore80_20261127/ACTION80.json",
+        "mqft_restore80_20261127/INDEPENDENT80.json",
+        "mqft_restore80_20261127/SUMMARY80.json"
+      ],
+      "id": "STAT-LOOP-03",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Replica M counts independent whole histories, not B or physical hbar. Uniform asymptotic constant not explicit; finite numerical comparison uses analytic alias control and separate numerical checks, not rigorous floating interval.",
+      "stage": 80,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A fixed reference-mixture generating function predicts arbitrary new geometry populations.",
+      "evidence": [
+        "mqft_restore80_20261127/ACTION80.json",
+        "mqft_restore80_20261127/SUMMARY80.json",
+        "mqft_restore82_20261127/SUMMARY82.json",
+        "mqft_restore82_20261127/TRANSFER82.json",
+        "mqft_restore84_20261127/SUMMARY84.json",
+        "mqft_restore84_20261127/TRANSFER84.json"
+      ],
+      "id": "STAT-TRANSFER-04",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Matched geometry predictions much better than novel geometry; Rapfi novel regular-grid RMSE 1.53661; cannot transfer without root-conditioned population model. No equivalence or autonomous closure claim.",
+      "restore82_update": "Root-only model meets registered criterion 5/6 family-cohort cells; Rapfi R81 lower gain CI negative, g0 fresh vs pool includes zero. H32 observed-prefix conditional forecasts improve in 6/6, distinct claim; absolute source errors remain well above split-half noise. No universal root-only transfer.",
+      "restore84_update": "New registered bounded pre-search transfer criterion passed all three evaluators on 48 independent roots, selected combined ridge vs strongest root-only ridge. Corrected claim STAT-PRESEARCH-07 accepted. Broad arbitrary-population prediction still not admitted; absolute W error, tail/coverage and finite landscape sufficiency limits remain. Retire repeated same feature grid and move to thermal/reverse.",
+      "stage": 80,
+      "status": "OPEN_GENERALIZATION"
+    },
+    {
+      "claim": "In the specified opt-in software selector, fixed equal-population opposite-phase preparations change actual fine-action selection laws; complete Z erasure removes sign dependence. Three sequential noncommuting measurement axes and order swap alter actual conditional law. The effect is operational for this algorithmic register.",
+      "evidence": [
+        "mqft_restore81_20261127/THEORY.md",
+        "mqft_restore81_20261127/AUDIT81.json",
+        "mqft_restore81_20261127/EFFECTS81.json",
+        "mqft_restore81_20261127/INDEPENDENT81.json",
+        "mqft_restore81_20261127/SUMMARY81.json"
+      ],
+      "id": "Q-OP-01",
+      "items": [
+        "L09",
+        "L20",
+        "Q24",
+        "Q42"
+      ],
+      "limit": "576 matched geometry-seed blocks, 3456 paths, bounded 12 active selections; no physical native quantum phase or quantum advantage. First-draw Rapfi observed-minus-pred pointwise CI excludes zero; final utility not established.",
+      "stage": 81,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "At fixed complete classical history, declared Kraus instrument and state-independent channel define a normalized adaptive hybrid CQ path law; the path likelihood ratio under changed intervention is exactly the product of same-history conditional probabilities. Independent unnormalized CP branch products verify 2592 alternate branch evaluations.",
+      "evidence": [
+        "mqft_restore81_20261127/THEORY.md",
+        "mqft_restore81_20261127/AUDIT81.json",
+        "mqft_restore81_20261127/EFFECTS81.json",
+        "mqft_restore81_20261127/INDEPENDENT81.json"
+      ],
+      "id": "Q-CAUSAL-02",
+      "items": [
+        "L16",
+        "L20",
+        "Q24",
+        "Q42",
+        "Q43"
+      ],
+      "limit": "Conditional map uses actual clean deterministic downstream semantics and explicit register; ideal categorical law, finite PRNG distinction. Importance estimates finite and uncertain; no all-geometry equivalence or full adaptive coherent record tomography.",
+      "stage": 81,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Actual adaptive coherent multi-time record state and objectivity/entanglement are identified by measured native trajectories.",
+      "evidence": [
+        "mqft_restore81_20261127/RECORD81.json",
+        "mqft_restore81_20261127/INDEPENDENT81.json",
+        "mqft_restore81_20261127/THEORY.md",
+        "mqft_restore83_20261127/SUMMARY83.json",
+        "mqft_restore83_20261127/RECORD83.json",
+        "mqft_restore83_20261127/FRAGMENTS83.json"
+      ],
+      "id": "Q-RECORD-03",
+      "items": [
+        "L15",
+        "Q25",
+        "Q35",
+        "Q37",
+        "Q45"
+      ],
+      "limit": "Explicit 3-time frozen model (72 contexts) has valid 27x27 density and causal diagonal, no detectable first/rest negativity. Not unique, not actual adaptive coherent recombination, PPT does not establish separability. Native records measured and classically reproducible; adaptive coherent branch extension and redundancy remain open.",
+      "restore83_update": "Actual branch-dependent coherent extension constructed for explicit 8-leaf selective tree and separate normalized pair-restricted protocol; observed diagonal law cannot identify unique dilation (history-tag counterexample). Native coherent recombination/objectivity not demonstrated; success mass tiny, fragment 90% packing absent. Original physical identification remains open.",
+      "stage": 81,
+      "status": "OPEN_ADAPTIVE_COHERENT_RECORD_IDENTIFICATION"
+    },
+    {
+      "claim": "Phase-sensitive register yields robust actual search decision quality or matched-cost game benefit.",
+      "evidence": [
+        "mqft_restore81_20261127/EFFECTS81.json",
+        "mqft_restore81_20261127/SUMMARY81.json"
+      ],
+      "id": "Q-UTILITY-04",
+      "items": [
+        "L16",
+        "Q45"
+      ],
+      "limit": "Native final signed mean mark reversal intervals include zero; recommendation disagreements not ground-truth utility. No games, no optimizer updates, no equal-time claim.",
+      "stage": 81,
+      "status": "OPEN_NOT_ADMITTED"
+    },
+    {
+      "claim": "For finite root-conditioned laws the population CGF is logsumexp of conditional CGFs and its Hessian exactly decomposes into within-root covariance plus between-root tilted mean covariance. Geometry mixture and intrinsic fluctuation must be distinguished.",
+      "evidence": [
+        "mqft_restore82_20261127/THEORY.md",
+        "mqft_restore82_20261127/TRANSFER82.json",
+        "mqft_restore82_20261127/INDEPENDENT82.json",
+        "mqft_restore82_20261127/SUMMARY82.json"
+      ],
+      "id": "STAT-MIX-05",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Exact mathematical identity and 261 authenticated empirical source cases; between-root fractions depend on coordinates, sampled population and tilt, no physical criticality or universal scale.",
+      "stage": 82,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the registered finite B128 clean evaluator laws, the H32 root+history conditioned weighted suffix forecast has lower proper joint energy score than both transported unconditional suffix and root-only kernel in all six external family-cohort cells; regular root CGF errors also smaller. Exact prefix count/mark bounds and joint donor dependence retained.",
+      "evidence": [
+        "mqft_restore82_20261127/THEORY.md",
+        "mqft_restore82_20261127/MODEL82.json",
+        "mqft_restore82_20261127/TRANSFER82.json",
+        "mqft_restore82_20261127/INDEPENDENT82.json",
+        "mqft_restore82_20261127/SUMMARY82.json"
+      ],
+      "id": "STAT-HISTORY-06",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Two specific external cohorts, 24/32 geometry blocks; not a universal population guarantee, not pre-search prediction or autonomous closure. Root-only gate fails 1/6; history-only can be better than root+history; limited tail ESS and high absolute W error.",
+      "stage": 82,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "A branch-dependent coherent extension of the specified three-wave selective native history tree exists: product of actual K_i(H)^4 and bath Kraus, positive abort effect and complete stopped instrument, with all 576 native retained fine-history probabilities reproduced. A distinct source-restricted diagnostic protocol gives a normalized eight-outcome instrument using the same actual branch settings.",
+      "evidence": [
+        "mqft_restore83_20261127/THEORY.md",
+        "mqft_restore83_20261127/TREE83.json",
+        "mqft_restore83_20261127/RECORD83.json",
+        "mqft_restore83_20261127/INDEPENDENT83.json",
+        "mqft_restore83_20261127/SUMMARY83.json"
+      ],
+      "id": "Q-ADAPT-05",
+      "items": [
+        "L15",
+        "L16",
+        "L20",
+        "Q24",
+        "Q35",
+        "Q37",
+        "Q42",
+        "Q43"
+      ],
+      "limit": "Conditional on 72 actual H32 contexts; restricted all-four-identical source event. Actual replays are forced classical diagnostics. Coherent branch control and erased workspace are declared, not performed. Abort post-state not actual omitted-history reconstruction. Pair restriction/forced fillers not native event conditioning.",
+      "stage": 83,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Identical measured retained path probabilities and stopped classical law admit different explicit coherent record completions by retaining or tracing orthogonal history tags; the observed diagonal does not identify record coherence or entanglement. All 72 native-repeat and 72 diagnostic model contexts have nonzero readout contrast in a declared coherent completion; exact success-weighted bound retained.",
+      "evidence": [
+        "mqft_restore83_20261127/THEORY.md",
+        "mqft_restore83_20261127/RECORD83.json",
+        "mqft_restore83_20261127/FRAGMENTS83.json",
+        "mqft_restore83_20261127/FRAGMENT_AUDIT83.json",
+        "mqft_restore83_20261127/SUMMARY83.json"
+      ],
+      "id": "Q-DILATION-06",
+      "items": [
+        "L15",
+        "Q25",
+        "Q35",
+        "Q37",
+        "Q45"
+      ],
+      "limit": "Constructive nonidentifiability from the measured record alone in these declared models, not a physical impossibility of coherent controlled implementation. 31/72 native selective conditional states and 67/72 diagnostic states NPT in at least one split; native selective event very rare, no 90% disjoint fragment redundancy. Physical objectivity and actual operational record coherence remain open.",
+      "stage": 83,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the registered B128 clean search law and fixed evaluator families, adding deterministic full legal-child landscape to root-only predictive features improves proper joint energy score and regular root CGF RMSE over the strongest frozen development-selected static baseline on the new independent 48-root cohort. All three family cells meet the registered gate.",
+      "evidence": [
+        "mqft_restore84_20261127/THEORY.md",
+        "mqft_restore84_20261127/LANDSCAPE84.json",
+        "mqft_restore84_20261127/MODEL84.json",
+        "mqft_restore84_20261127/TRANSFER84.json",
+        "mqft_restore84_20261127/AUDIT84.json",
+        "mqft_restore84_20261127/INDEPENDENT84.json",
+        "mqft_restore84_20261127/SUMMARY84.json"
+      ],
+      "id": "STAT-PRESEARCH-07",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "104 development geometries and 48 new geometry blocks; additional direct child evaluations outside B128, residual transport has bounded/rounded support not exact native fine-history realizability, pointwise intervals, nonzero clipping and absolute W error, coverage and tail limits; no universal transfer or matched-cost utility.",
+      "stage": 84,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "A retained ordered native event ledger has an explicit inverse bookkeeping map; for a fixed quiescent native pulse wave, a normalized multinomial endpoint-deletion reverse reference induces the exact ordered categorical law. On a forward positive-hit postselection the finite RN IFT has correction 1-lambda, lambda equal reverse mass outside forward support.",
+      "evidence": [
+        "mqft_restore85_20261127/THEORY.md",
+        "mqft_restore85_20261127/NATIVE85.json",
+        "mqft_restore85_20261127/WAVE_SAMPLES85.npz",
+        "mqft_restore85_20261127/INDEPENDENT85.json",
+        "mqft_restore85_20261127/SUMMARY85.json"
+      ],
+      "id": "THERMO-LEDGER-01",
+      "items": [
+        "L18",
+        "Q19",
+        "Q21",
+        "Q23"
+      ],
+      "limit": "R74 2304 authenticated native records, 768 H32 contexts; auxiliary reverse and postselection distinct from original unconditioned native process. No reversible native engine state or physical dissipation identified.",
+      "stage": 85,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For a declared branch-driven finite feedback cycle with explicit Gibbs energy, heat-bath LDB, detector and reverse protocol, the exact path log ratio is b W/E* + pointwise information. Generalized IFT equals one minus reverse singular mass, with nontrivial perfect-measurement correction, and first-law/Jensen identities hold. Actual R73/R83 branch scores parameterize the finite model.",
+      "evidence": [
+        "mqft_restore85_20261127/THEORY.md",
+        "mqft_restore85_20261127/BRANCH_ENERGY85.json",
+        "mqft_restore85_20261127/THERMAL85.json",
+        "mqft_restore85_20261127/THERMAL_SAMPLES85.npz",
+        "mqft_restore85_20261127/INDEPENDENT85.json",
+        "mqft_restore85_20261127/SUMMARY85.json"
+      ],
+      "id": "THERMO-FEEDBACK-02",
+      "items": [
+        "L08",
+        "L18",
+        "L32",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q23"
+      ],
+      "limit": "832 declared cases, exact finite triples and independent auxiliary sampling; no feedback device or physical native reservoir executed. Work on system sign, record preparation/reset/controller cost excluded. No general work extraction; imperfect detector rare-weight estimation failures retained.",
+      "stage": 85,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A Gibbs one-time marginal alone cannot identify local detailed balance or stationary entropy production: positive cycle-flux kernels and detailed-balanced iid kernel share every tested actual frozen Gibbs marginal. Energy-temperature common rescaling also leaves the native dimensionless selection law invariant.",
+      "evidence": [
+        "mqft_restore85_20261127/THEORY.md",
+        "mqft_restore85_20261127/STATIONARY85.json",
+        "mqft_restore85_20261127/INDEPENDENT85.json",
+        "mqft_restore85_20261127/SUMMARY85.json"
+      ],
+      "id": "THERMO-ID-03",
+      "items": [
+        "L18",
+        "Q19",
+        "Q20",
+        "Q23"
+      ],
+      "limit": "768 actual frozen marginals, declared alternative kernels; not a claim that the alternative reproduces the authenticated native conditional transition law. Physical calibration remains absent.",
+      "stage": 85,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Actual native MCTS admits independently calibrated physical energy, temperature, reservoir heat and microscopic time reversal.",
+      "evidence": [
+        "mqft_restore85_20261127/THEORY.md",
+        "mqft_restore85_20261127/SUMMARY85.json",
+        "mqft_restore85_20261127/ORIGINAL_SOURCE85.json"
+      ],
+      "id": "THERMO-PHYSICAL-04",
+      "items": [
+        "L08",
+        "L18",
+        "L32",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q23"
+      ],
+      "limit": "Not established; original proposals explicitly reject natural physical energy. No independent physical bath/calibration or hardware-level reverse. Retire repetitive auxiliary fluctuation checks absent a new question.",
+      "stage": 85,
+      "status": "OPEN_PHYSICAL_IDENTIFICATION"
+    },
+    {
+      "claim": "For fixed quiescent history and width-four iid root law, the sector probability vector is sufficient and identifiable for the one-wave sector count law (multinomial). Equal coarse count/mark states need not give equal sector probability, with exact actual native witnesses. Full root N,W,prior and clock determine current PUCT root scores, not deeper mark dynamics.",
+      "evidence": [
+        "THEORY.md",
+        "AUDIT86.json",
+        "MEMORY86.json",
+        "COLLISION_WITNESSES86.json",
+        "INDEPENDENT86.json"
+      ],
+      "id": "MEM-SELECTOR-01",
+      "items": [
+        "L16",
+        "L39"
+      ],
+      "limit": "Fixed clean registered selectors and chosen sectors. Coarse pairs share same root/evaluator/time; no full root-count/NW collision in samples, so full-tree/mark sufficiency not established. Repeated pair counts not independent samples.",
+      "stage": 86,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For any fixed finite trajectory ensemble with clock-dependent coarse conditional projections, the exact two-time conditional propagator has a discrete nonstationary signed memory expansion; recursive kernels equal the orthogonal-residual projection products. Full recurrence exactly reconstructs the direct law.",
+      "evidence": [
+        "THEORY.md",
+        "MODEL86.json",
+        "MEMORY86.json",
+        "INDEPENDENT86.json",
+        "SUMMARY86.json"
+      ],
+      "id": "MEM-PROJECTION-02",
+      "items": [
+        "L16",
+        "L37",
+        "L38",
+        "L39"
+      ],
+      "limit": "Finite empirical projection, not autonomous Markov closure or a native microscopic memory force; no arbitrary population transfer. Truncated signed kernels may require simplex projection.",
+      "stage": 86,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Adaptive multinomial sector counts admit predictable compensation, exact quadratic variation and exponential martingale. Dyadic normalized compensated covariance equals expected averaged predictable covariance; no independent-wave assumption. Actual R76/R77 sector laws and frozen beta-zero reference verify the finite conditional identities.",
+      "evidence": [
+        "THEORY.md",
+        "SCALE86.json",
+        "AUTOCORRELATION86.json",
+        "INDEPENDENT86.json",
+        "SUMMARY86.json"
+      ],
+      "id": "MEM-SCALE-03",
+      "items": [
+        "L38",
+        "L39"
+      ],
+      "limit": "Five finite sizes, two densities, three beta, separate cohorts. Empirical variance and exponential estimates not all calibrated; no native CLT, physical universality, stationary correlation time or spatial RG fixed point.",
+      "stage": 86,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A controlled finite-memory closure of the native marked dynamics yields reliable multi-step transfer and a justified autonomous scale law.",
+      "evidence": [
+        "MEMORY86.json",
+        "SUMMARY86.json",
+        "THEORY.md"
+      ],
+      "id": "MEM-CLOSURE-04",
+      "items": [
+        "L16",
+        "L37",
+        "L38",
+        "L39"
+      ],
+      "limit": "Registered order-four endpoint Brier gate passes3/6 (all point estimates improve). No exact autonomous closure, no established sufficient minimal full tree state, no controlled long-memory cutoff or physical RG. Preserve partial predictive improvement and stop repeating same bin grid.",
+      "stage": 86,
+      "status": "OPEN_FINITE_MEMORY_PREDICTION_AND_AUTONOMOUS_CLOSURE"
+    }
+  ],
+  "final_original_item_certifications": 0,
+  "new_accepted_subclaims": 3,
+  "prior_corrected_report_artifacts": [
+    "L31"
+  ],
+  "scope": "13 prior accepted claims retained; three new exact scoped subclaims. Finite-memory predictive gate not globally met.",
+  "status": "SIXTEEN_BOUNDED_CORRECTED_SUBCLAIMS_ACCEPTED_FIVE_OPEN"
+}

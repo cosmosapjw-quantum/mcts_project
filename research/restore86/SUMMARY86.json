@@ -1,0 +1,361 @@
+{
+  "all_path_receipts": 9408,
+  "coarse_collision_pairs": 1140480,
+  "coarse_unequal_pairs": 1140076,
+  "cumulative_fixed_root": 92536,
+  "fine_NW_collision_pairs": 0,
+  "fine_count_collision_pairs": 0,
+  "fresh_backups": 147456,
+  "fresh_paths": 1152,
+  "gates": [
+    {
+      "CK_TV": 0.12136913036645336,
+      "baseline": 0.6332387838371606,
+      "candidate": 0.6195429301612432,
+      "direct": 0.6177494904949206,
+      "direct_gain_ci": [
+        0.015489293342240064,
+        0.0025222250575491455,
+        0.028456361626930982
+      ],
+      "family": "g0",
+      "gain_ci": [
+        0.013695853675917332,
+        0.002446561438917536,
+        0.024945145912917126
+      ],
+      "group": 3,
+      "pass_registered": true,
+      "roots": 48,
+      "simplex_TV": 0.0010533357159585824,
+      "unsupported": 0.0
+    },
+    {
+      "CK_TV": 0.12373678071273991,
+      "baseline": 0.6331564004027473,
+      "candidate": 0.6235594349658121,
+      "direct": 0.6216411243294786,
+      "direct_gain_ci": [
+        0.011515276073268717,
+        -0.0007347842957592752,
+        0.02376533644229671
+      ],
+      "family": "g0",
+      "gain_ci": [
+        0.009596965436935211,
+        0.00031222965935376323,
+        0.01888170121451666
+      ],
+      "group": 4,
+      "pass_registered": true,
+      "roots": 24,
+      "simplex_TV": 0.00168453635295348,
+      "unsupported": 0.0
+    },
+    {
+      "CK_TV": 0.1444715448935404,
+      "baseline": 0.550661670372732,
+      "candidate": 0.5353843478846988,
+      "direct": 0.5393059003017123,
+      "direct_gain_ci": [
+        0.011355770071019795,
+        -0.014705715146979183,
+        0.03741725528901878
+      ],
+      "family": "g3",
+      "gain_ci": [
+        0.015277322488033438,
+        -0.007897601772736585,
+        0.03845224674880346
+      ],
+      "group": 3,
+      "pass_registered": false,
+      "roots": 48,
+      "simplex_TV": 0.0010908366601168182,
+      "unsupported": 0.0
+    },
+    {
+      "CK_TV": 0.14144713213614532,
+      "baseline": 0.572772256372306,
+      "candidate": 0.5631885928668819,
+      "direct": 0.5697909027037449,
+      "direct_gain_ci": [
+        0.002981353668561225,
+        -0.048082734588237856,
+        0.05404544192536031
+      ],
+      "family": "g3",
+      "gain_ci": [
+        0.009583663505424325,
+        -0.03463490149072443,
+        0.05380222850157308
+      ],
+      "group": 4,
+      "pass_registered": false,
+      "roots": 24,
+      "simplex_TV": 0.0010916004272077354,
+      "unsupported": 0.0
+    },
+    {
+      "CK_TV": 0.12398630309327975,
+      "baseline": 0.4753652986916714,
+      "candidate": 0.44787657970585787,
+      "direct": 0.4529356102523283,
+      "direct_gain_ci": [
+        0.02242968843934312,
+        0.007333745263535954,
+        0.03752563161515029
+      ],
+      "family": "Rapfi",
+      "gain_ci": [
+        0.02748871898581368,
+        0.0119594217097937,
+        0.04301801626183366
+      ],
+      "group": 3,
+      "pass_registered": true,
+      "roots": 48,
+      "simplex_TV": 0.0010001999193776454,
+      "unsupported": 0.0022786458333333335
+    },
+    {
+      "CK_TV": 0.1219382458086688,
+      "baseline": 0.39011319635611197,
+      "candidate": 0.3764719960313759,
+      "direct": 0.3790050802036666,
+      "direct_gain_ci": [
+        0.01110811615244541,
+        -0.007789615629874595,
+        0.030005847934765413
+      ],
+      "family": "Rapfi",
+      "gain_ci": [
+        0.013641200324736076,
+        -0.005429315154706,
+        0.03271171580417815
+      ],
+      "group": 4,
+      "pass_registered": false,
+      "roots": 24,
+      "simplex_TV": 0.0008670028767527078,
+      "unsupported": 0.0
+    }
+  ],
+  "independent": {
+    "cross_tab_pairs": 408,
+    "errors": {
+      "G_cross_tab": 3.774758283725532e-15,
+      "K_inclusion_exclusion": 9.325873406851315e-15,
+      "collision_mark": 0.0,
+      "collision_prob": 0.0,
+      "fresh_raw_count": 0.0,
+      "fresh_raw_mark": 0.0,
+      "fresh_raw_prob": 0.0,
+      "heldout_gain_CI": 1.2108369862318114e-15,
+      "heldout_score_and_CI": 1.5265566588595902e-15,
+      "scale_IFT_CI": 4.440892098500626e-16,
+      "scale_variance_CI": 3.3861802251067274e-15
+    },
+    "heldout_path_start_predictions": 677376,
+    "independent_kernel_cases": 276,
+    "raw_reductions": 90,
+    "scale_cases": 300,
+    "scale_raw_receipts_verified": 1920,
+    "scope": "Separate cross-tab and inclusion-exclusion memory check; forward composition and independent simplex bisection, heldout score CIs, raw collision witnesses and scale reduction; same-agent separate implementation.",
+    "status": "PASS_SCOPED"
+  },
+  "max_sector_TV": 0.7544779945830903,
+  "max_wave_binomial_TV": 0.9609822906357274,
+  "projection_error": 1.2065001775418693e-15,
+  "raw_bytes": 210738348,
+  "registered_passes": 3,
+  "reused_B128_backups": 811008,
+  "reused_B128_paths": 6336,
+  "reused_scale_backups": 122880,
+  "reused_scale_paths": 1920,
+  "scale": [
+    {
+      "beta": 0.0,
+      "blocks": [
+        {
+          "compensated_mean": 0.27503953940549886,
+          "h": 1,
+          "predictable_mean": 0.27425600713187326,
+          "raw_mean": 0.27475662231445314
+        },
+        {
+          "compensated_mean": 0.26912204756099767,
+          "h": 2,
+          "predictable_mean": 0.27425600713187326,
+          "raw_mean": 0.26855621337890623
+        },
+        {
+          "compensated_mean": 0.2654901888719954,
+          "h": 4,
+          "predictable_mean": 0.27425600713187326,
+          "raw_mean": 0.2643585205078125
+        },
+        {
+          "compensated_mean": 0.26662490899399066,
+          "h": 8,
+          "predictable_mean": 0.27425600713187326,
+          "raw_mean": 0.264361572265625
+        },
+        {
+          "compensated_mean": 0.2555154429879813,
+          "h": 16,
+          "predictable_mean": 0.27425600713187326,
+          "raw_mean": 0.25098876953125
+        }
+      ],
+      "lag": [
+        {
+          "compensated": -0.014312242371066427,
+          "h": 1,
+          "raw": -0.015172289412865202
+        },
+        {
+          "compensated": -0.004643427959128966,
+          "h": 2,
+          "raw": -0.005783513544643135
+        },
+        {
+          "compensated": -0.0005510812655123976,
+          "h": 4,
+          "raw": -0.0014626799709230296
+        },
+        {
+          "compensated": 0.010186427422303515,
+          "h": 8,
+          "raw": 0.009192533498093878
+        }
+      ]
+    },
+    {
+      "beta": 3.3333333333333335,
+      "blocks": [
+        {
+          "compensated_mean": 0.505105859513612,
+          "h": 1,
+          "predictable_mean": 0.5054417433267379,
+          "raw_mean": 0.7622692108154296
+        },
+        {
+          "compensated_mean": 0.5064748722758305,
+          "h": 2,
+          "predictable_mean": 0.5054417433267379,
+          "raw_mean": 0.9989524841308594
+        },
+        {
+          "compensated_mean": 0.49854969003822075,
+          "h": 4,
+          "predictable_mean": 0.5054417433267379,
+          "raw_mean": 1.3731979370117187
+        },
+        {
+          "compensated_mean": 0.505194980760837,
+          "h": 8,
+          "predictable_mean": 0.5054417433267379,
+          "raw_mean": 1.9371185302734375
+        },
+        {
+          "compensated_mean": 0.4966046655294605,
+          "h": 16,
+          "predictable_mean": 0.5054417433267379,
+          "raw_mean": 2.797772216796875
+        }
+      ],
+      "lag": [
+        {
+          "compensated": -0.006968330409744529,
+          "h": 1,
+          "raw": 0.28734823329513226
+        },
+        {
+          "compensated": -0.006240247986166998,
+          "h": 2,
+          "raw": 0.23447626072874278
+        },
+        {
+          "compensated": 0.0090201381998085,
+          "h": 4,
+          "raw": 0.21919315727262564
+        },
+        {
+          "compensated": 0.007899320601652226,
+          "h": 8,
+          "raw": 0.1486582677221499
+        }
+      ]
+    },
+    {
+      "beta": 16.0,
+      "blocks": [
+        {
+          "compensated_mean": 0.14413403175131242,
+          "h": 1,
+          "predictable_mean": 0.15965331262840915,
+          "raw_mean": 1.9126115798950196
+        },
+        {
+          "compensated_mean": 0.13826105246724987,
+          "h": 2,
+          "predictable_mean": 0.15965331262840915,
+          "raw_mean": 3.4217075347900385
+        },
+        {
+          "compensated_mean": 0.13216486918933734,
+          "h": 4,
+          "predictable_mean": 0.15965331262840915,
+          "raw_mean": 6.162946319580078
+        },
+        {
+          "compensated_mean": 0.119452152931159,
+          "h": 8,
+          "predictable_mean": 0.15965331262840915,
+          "raw_mean": 10.768959045410156
+        },
+        {
+          "compensated_mean": 0.11437110938528852,
+          "h": 16,
+          "predictable_mean": 0.15965331262840915,
+          "raw_mean": 18.638504028320312
+        }
+      ],
+      "lag": [
+        {
+          "compensated": -0.03552110123194293,
+          "h": 1,
+          "raw": 0.7978109903835878
+        },
+        {
+          "compensated": -0.03847544071317527,
+          "h": 2,
+          "raw": 0.6971237761628353
+        },
+        {
+          "compensated": -0.020942794667908177,
+          "h": 4,
+          "raw": 0.6025695890376288
+        },
+        {
+          "compensated": -0.017589166973184578,
+          "h": 8,
+          "raw": 0.49843735993763066
+        }
+      ]
+    }
+  ],
+  "scale_enumerated_strings": 2488320,
+  "scale_errors": {
+    "beta0_block_logMGF": 2.1432855490388647e-13,
+    "cov": 7.629452625224076e-13,
+    "logMGF": 1.6653345369377348e-15,
+    "mass": 4.829470157119431e-14,
+    "mean": 1.4654943925052066e-13
+  },
+  "scale_exponential_interval_failures": 2,
+  "scale_variance_interval_failures": 33,
+  "scale_wave_cases": 30720,
+  "scope": "Exact conditional projection and martingale laws, bounded predictions only; registered universal six-cell predictive gate fails."
+}

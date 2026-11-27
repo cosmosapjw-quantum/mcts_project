@@ -1,0 +1,147 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "original_attachment_receipt": {
+    "anchor_is_ancestor": true,
+    "git_anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "guide_obligations": 27,
+    "original_output_obligations": 121,
+    "original_source_function_obligations": 94,
+    "original_source_zip_members": 347,
+    "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "scope": "current source hash and history census, not all historical raw executions replayed",
+    "supplied_zip_check_location": "conversation sandbox, original linked library materialization",
+    "supplied_zip_manifest_members_verified": 34,
+    "supplied_zip_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6"
+  },
+  "scope": "Original path, RG fixed point/scale and autocorrelation objectives; exact finite conditional projection and compensated fluctuations, no native RG fixed point.",
+  "spans": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 2390,
+      "function": "_generate_path_integral_plots",
+      "id": "L16",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "observable_fields": [
+        "action",
+        "coherence_evolution",
+        "decoherence",
+        "dominant_paths",
+        "overlap",
+        "path_distance",
+        "path_integral",
+        "path_overlaps",
+        "path_visits",
+        "path_weights",
+        "position",
+        "q_value",
+        "q_value_landscape",
+        "quantum_phenomena",
+        "simulation_counts",
+        "weight",
+        "weights"
+      ],
+      "panel": "A_action_curvature;A_C_paired_source_response",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "bccf5ebd77c7c9f11f3b511ee9cc9afd91c8790c17d64d3e94ec9fbf9f89a02f",
+      "start": 2212
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 232,
+      "function": "plot_fixed_point_analysis",
+      "id": "L37",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/rg_flow_visualizer.py",
+      "member_sha": "e8155b8391697f7bd851689596869accb1758f385d300a48b10e58a65707a8b5",
+      "observable_fields": [
+        "count",
+        "ensemble_analysis",
+        "fixed_points",
+        "mean_coupling",
+        "mean_scale",
+        "mean_scaling_exponent",
+        "n_valid_trajectories",
+        "stability",
+        "std_scaling_exponent",
+        "universality_measure"
+      ],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "f9dc430ff334698896fdf521bfb22f03c3c90761dccce902e2ff88a3b8c90e0a",
+      "start": 148
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 310,
+      "function": "plot_scale_dependent_observables",
+      "id": "L38",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/rg_flow_visualizer.py",
+      "member_sha": "e8155b8391697f7bd851689596869accb1758f385d300a48b10e58a65707a8b5",
+      "observable_fields": [
+        "ensemble_analysis",
+        "ensemble_flow",
+        "entropy",
+        "entropy_std",
+        "participation_ratio",
+        "q_mean",
+        "q_mean_std",
+        "q_variance",
+        "q_variance_std",
+        "scale"
+      ],
+      "panel": "R_budget_and_coarse_flow;R_coarse_graining",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "60c8bb2763f85d0c010cb46831171b7294bd3c6141d1b1c44a726f7fd1d3f588",
+      "start": 234
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 124,
+      "function": "plot_autocorrelation_function",
+      "id": "L39",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/markovian_visualizer.py",
+      "member_sha": "6967f0dfaea9229fc52a2012e0c86fee3c3a928f97f59c221b687e6fbc742a56",
+      "observable_fields": [
+        "autocorrelation",
+        "c1_ci",
+        "correlation_function",
+        "fit_quality",
+        "lags",
+        "primary",
+        "secondary",
+        "tau_c"
+      ],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "8692212de9b14e2382937747ff94337089b731cf9530d6780aa62d76d460fd57",
+      "start": 50
+    }
+  ],
+  "verified_members": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/rg_flow_visualizer.py",
+      "sha256": "e8155b8391697f7bd851689596869accb1758f385d300a48b10e58a65707a8b5"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/markovian_visualizer.py",
+      "sha256": "6967f0dfaea9229fc52a2012e0c86fee3c3a928f97f59c221b687e6fbc742a56"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "claims": [
+    {
+      "claim": "For fixed quiescent history and width-four iid root law, the sector probability vector is sufficient and identifiable for the one-wave sector count law (multinomial). Equal coarse count/mark states need not give equal sector probability, with exact actual native witnesses. Full root N,W,prior and clock determine current PUCT root scores, not deeper mark dynamics.",
+      "evidence": [
+        "THEORY.md",
+        "AUDIT86.json",
+        "MEMORY86.json",
+        "COLLISION_WITNESSES86.json",
+        "INDEPENDENT86.json"
+      ],
+      "id": "MEM-SELECTOR-01",
+      "items": [
+        "L16",
+        "L39"
+      ],
+      "limit": "Fixed clean registered selectors and chosen sectors. Coarse pairs share same root/evaluator/time; no full root-count/NW collision in samples, so full-tree/mark sufficiency not established. Repeated pair counts not independent samples.",
+      "stage": 86,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For any fixed finite trajectory ensemble with clock-dependent coarse conditional projections, the exact two-time conditional propagator has a discrete nonstationary signed memory expansion; recursive kernels equal the orthogonal-residual projection products. Full recurrence exactly reconstructs the direct law.",
+      "evidence": [
+        "THEORY.md",
+        "MODEL86.json",
+        "MEMORY86.json",
+        "INDEPENDENT86.json",
+        "SUMMARY86.json"
+      ],
+      "id": "MEM-PROJECTION-02",
+      "items": [
+        "L16",
+        "L37",
+        "L38",
+        "L39"
+      ],
+      "limit": "Finite empirical projection, not autonomous Markov closure or a native microscopic memory force; no arbitrary population transfer. Truncated signed kernels may require simplex projection.",
+      "stage": 86,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Adaptive multinomial sector counts admit predictable compensation, exact quadratic variation and exponential martingale. Dyadic normalized compensated covariance equals expected averaged predictable covariance; no independent-wave assumption. Actual R76/R77 sector laws and frozen beta-zero reference verify the finite conditional identities.",
+      "evidence": [
+        "THEORY.md",
+        "SCALE86.json",
+        "AUTOCORRELATION86.json",
+        "INDEPENDENT86.json",
+        "SUMMARY86.json"
+      ],
+      "id": "MEM-SCALE-03",
+      "items": [
+        "L38",
+        "L39"
+      ],
+      "limit": "Five finite sizes, two densities, three beta, separate cohorts. Empirical variance and exponential estimates not all calibrated; no native CLT, physical universality, stationary correlation time or spatial RG fixed point.",
+      "stage": 86,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A controlled finite-memory closure of the native marked dynamics yields reliable multi-step transfer and a justified autonomous scale law.",
+      "evidence": [
+        "MEMORY86.json",
+        "SUMMARY86.json",
+        "THEORY.md"
+      ],
+      "id": "MEM-CLOSURE-04",
+      "items": [
+        "L16",
+        "L37",
+        "L38",
+        "L39"
+      ],
+      "limit": "Registered order-four endpoint Brier gate passes3/6 (all point estimates improve). No exact autonomous closure, no established sufficient minimal full tree state, no controlled long-memory cutoff or physical RG. Preserve partial predictive improvement and stop repeating same bin grid.",
+      "stage": 86,
+      "status": "OPEN_FINITE_MEMORY_PREDICTION_AND_AUTONOMOUS_CLOSURE"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "MEM-SELECTOR-01;MEM-PROJECTION-02",
+      "id": "L16",
+      "open": "MEM-CLOSURE-04",
+      "remaining_final_acceptance": "Normalized full-support marked path measure with action, overlaps and complex readout where specified; controlled 1PI/loop expansion and independent prediction.",
+      "scope": "Exact finite nonstationary conditional endpoint memory and actual one-wave selector sufficiency; no full marked autonomous path generator."
+    },
+    {
+      "accepted": "MEM-PROJECTION-02",
+      "id": "L37",
+      "open": "MEM-CLOSURE-04",
+      "remaining_final_acceptance": "Original WF candidate fails beta_g; frozen-tau solution unstable; derive autonomous corrected coupling flow before physical fixed-point claim.",
+      "scope": "Actual coarse nonlumpability and signed finite projection memory obstruct naive autonomous RG; no new physical fixed point, original R77 negative finding retained."
+    },
+    {
+      "accepted": "MEM-PROJECTION-02;MEM-SCALE-03",
+      "id": "L38",
+      "open": "MEM-CLOSURE-04",
+      "remaining_final_acceptance": "Scale-dependent entropy/Q/participation and cumulants with fixed normalization, joint adjacent-block law and uncertainty; controlled limit.",
+      "scope": "Exact compensated martingale dyadic covariance and conditional exponential law with five sizes, three beta; finite-size fluctuation distinct from drift, no CLT or spatial RG claim."
+    },
+    {
+      "accepted": "MEM-SELECTOR-01;MEM-PROJECTION-02;MEM-SCALE-03",
+      "id": "L39",
+      "open": "MEM-CLOSURE-04",
+      "remaining_final_acceptance": "Measure root/time-conditioned autocorrelation with lag and geometry blocks; estimate tau only if resolved model and independent prediction.",
+      "scope": "Actual lag-resolved raw and compensated cross-moments, exact coarse collision witnesses and finite memory prediction; no stationary exponential relaxation time."
+    }
+  ],
+  "parent_convergence_sha256": "6c7547991223791ef980a96dd681f84c302bf6f597b11f8b9d034cf7fed51494",
+  "parent_quality_matrix_sha256": "c5609d5d5fe8b8d4b5a6dfb229878e2bef54f2400c489646fc1bad3ee0ff9ebf",
+  "scope": "R86 delta, original R79 item contracts and prior dispositions retained."
+}

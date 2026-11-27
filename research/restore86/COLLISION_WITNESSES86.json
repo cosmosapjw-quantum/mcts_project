@@ -1,0 +1,167 @@
+{
+  "scope": "Raw actual same-root/time coarse collisions; exact binomial next-wave law difference, not full-tree sufficiency.",
+  "witnesses": [
+    {
+      "binomial_TV": 0.9609822906357274,
+      "clock": 84,
+      "cohort": 0,
+      "family": "g0",
+      "paths": [
+        "mqft_restore79_20261127/data/schedule0/g0_c25_r06_zero74.json.gz",
+        "mqft_restore80_20261127/data/schedule0/g0_c25_r03_zero74.json.gz"
+      ],
+      "prob": [
+        0.04656679226626119,
+        0.8010447868493514
+      ],
+      "sha": [
+        "e9b8167017e07e49d82fdd04731d3a60ef5469546849780c1711c32c0a381166",
+        "aa1f78c970a472d84e4a2038e202a60c11710bc8c85380f42507c083be39d4c4"
+      ]
+    },
+    {
+      "binomial_TV": 0.8735145711870451,
+      "clock": 124,
+      "cohort": 1,
+      "family": "g0",
+      "paths": [
+        "mqft_restore84_20261127/data/schedule0/g0_c22_r00_zero74.json.gz",
+        "mqft_restore84_20261127/data/schedule0/g0_c22_r08_zero74.json.gz"
+      ],
+      "prob": [
+        0.802366848857847,
+        0.14270628482716585
+      ],
+      "sha": [
+        "8fd00e5ac38b16cbbdcbfc20ab7daf425ff3acdfa68081e1fb605f39593cfeb6",
+        "5d6075275cbdcee2ae9aad704b27089b3b6c1d1a11cb8c9fa8a9b8f8ebb91b4d"
+      ]
+    },
+    {
+      "binomial_TV": 0.9321425233074306,
+      "clock": 64,
+      "cohort": 2,
+      "family": "g0",
+      "paths": [
+        "mqft_restore86_20261127/data/schedule0/g0_c11_r04_zero74.json.gz",
+        "mqft_restore86_20261127/data/schedule0/g0_c11_r12_zero74.json.gz"
+      ],
+      "prob": [
+        0.041125247802318084,
+        0.7372537777413708
+      ],
+      "sha": [
+        "3181ac37b05d8ce258f92722cff982ae53c89814e98c26df017a18d0e34f418e",
+        "057981a062796c722c753be2f56220fb5abdad1929c6b6372f67812576686378"
+      ]
+    },
+    {
+      "binomial_TV": 0.9063545962789155,
+      "clock": 16,
+      "cohort": 0,
+      "family": "g3",
+      "paths": [
+        "mqft_restore82_20261127/data/schedule3/g3_c23_r10_zero74.json.gz",
+        "mqft_restore82_20261127/data/schedule3/g3_c23_r14_zero74.json.gz"
+      ],
+      "prob": [
+        0.04568534688041748,
+        0.7024331599811982
+      ],
+      "sha": [
+        "37f92033b5f094d7b60aed816168584a8e966f2ee82333bbb531443577d74014",
+        "8ab3666c38712a940100c77494dde7b97d9e9de4a95d1424809d5036f2c13292"
+      ]
+    },
+    {
+      "binomial_TV": 0.8701981021975299,
+      "clock": 8,
+      "cohort": 1,
+      "family": "g3",
+      "paths": [
+        "mqft_restore84_20261127/data/schedule3/g3_c28_r12_zero74.json.gz",
+        "mqft_restore84_20261127/data/schedule3/g3_c28_r14_zero74.json.gz"
+      ],
+      "prob": [
+        0.6524158239855794,
+        0.031247801400133744
+      ],
+      "sha": [
+        "77a036c0288bfa70fa80e1b8eb5b85bf207c047e0b536db384ce61c79c4f90d7",
+        "017aa9ea2e07b8b3567fef73304a2876bd72ddffcb92030a76ce518754ee02d8"
+      ]
+    },
+    {
+      "binomial_TV": 0.8381662653233612,
+      "clock": 16,
+      "cohort": 2,
+      "family": "g3",
+      "paths": [
+        "mqft_restore86_20261127/data/schedule3/g3_c19_r09_zero74.json.gz",
+        "mqft_restore86_20261127/data/schedule3/g3_c19_r13_zero74.json.gz"
+      ],
+      "prob": [
+        0.2341627252506155,
+        0.8424499492171664
+      ],
+      "sha": [
+        "9963430a59b05b161ff15a1e4baee593d3f4fd6b376036401846306f01831cdf",
+        "1b3494aae922062412449e4bac4f67a3c5c2a88a4c7a2978b50914340d1db2cb"
+      ]
+    },
+    {
+      "binomial_TV": 0.7097961345462709,
+      "clock": 24,
+      "cohort": 0,
+      "family": "Rapfi",
+      "paths": [
+        "mqft_restore80_20261127/data/rapfi/rapfi_c20_r01_zero74.json.gz",
+        "mqft_restore80_20261127/data/rapfi/rapfi_c20_r02_zero74.json.gz"
+      ],
+      "prob": [
+        0.11896130730992852,
+        0.5678744782489006
+      ],
+      "sha": [
+        "cd1a74723c339f2ca8278b85eecf74f818c7aa989243af64bc1ed43dbbf74ad3",
+        "46108c1e9c05bd60a04fe3c81ae7624e5063c97d3b1db857dadf4ac9eb3e7cc7"
+      ]
+    },
+    {
+      "binomial_TV": 0.6689482563418357,
+      "clock": 12,
+      "cohort": 1,
+      "family": "Rapfi",
+      "paths": [
+        "mqft_restore84_20261127/data/rapfi/rapfi_c22_r01_zero74.json.gz",
+        "mqft_restore84_20261127/data/rapfi/rapfi_c22_r11_zero74.json.gz"
+      ],
+      "prob": [
+        0.5218799622060967,
+        0.09827368942791886
+      ],
+      "sha": [
+        "d97af0a0202acace3a024e379cf6d33d0c795344e943365cdd668024714171b6",
+        "1f409dddac3762b9c329599523e0f6b01118e4546d84108a16976caca231de76"
+      ]
+    },
+    {
+      "binomial_TV": 0.5961236379724486,
+      "clock": 44,
+      "cohort": 2,
+      "family": "Rapfi",
+      "paths": [
+        "mqft_restore86_20261127/data/rapfi/rapfi_c14_r02_zero74.json.gz",
+        "mqft_restore86_20261127/data/rapfi/rapfi_c14_r10_zero74.json.gz"
+      ],
+      "prob": [
+        0.09189048463760094,
+        0.46173142193767486
+      ],
+      "sha": [
+        "1b15f4e6cde7df07ef878d54acef21e213dc2d33ef67e138ed026ec423ff9cba",
+        "27e466b9964279d29eb7605540121edabddc364a06db2bd1bae933af5ed3163a"
+      ]
+    }
+  ]
+}

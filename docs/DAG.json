@@ -1,7 +1,7 @@
 {
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
-  "convergence_ledger": "CONVERGENCE85.json",
+  "convergence_ledger": "CONVERGENCE86.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -57,7 +57,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-06",
+  "entry": "X-MEMORY",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -120,9 +120,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R86 explicit history-conditioned dynamics, memory kernel, autonomous closure and controlled scale law",
-    "R87 controlled critical scaling or structural completion if evidence warrants",
-    "Physical thermal or coherent identification only with independently defined calibration/readout; remaining original item acceptance"
+    "R87 controlled finite-size critical scaling, drift/innovation separation and exact beta0 reference",
+    "Remaining structural/original item completion and open autonomous memory only with new constructive mechanism",
+    "Physical thermal/coherent identification only with independent calibration or readout; matched-cost utility separate"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -141,7 +141,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE86-HISTORY-CLOSURE-MEMORY-SCALE",
+  "next_stage_id": "MQFT-RESTORE87-CONTROLLED-CRITICAL-SCALING",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -428,6 +428,16 @@
         "artifact": "mqft_restore77_20261127/{THEORY.md,ORIGINAL_RG_AUDIT77.json,CLOSURE77.json,RG77.json,INDEPENDENT77.json}",
         "evidence": "Original proposed Wilson-Fisher point fails original beta_g; frozen-tau stationary solution unstable; exact IID probability RG and 150 auxiliary homogeneous kernel stationary projectors. 960 new common MixNet paths and 960 authenticated R76 training paths; 300 heldout candidate fits, fresh nonlumpability and CK defects; 112 R72 witnesses rechecked.",
         "remaining": "Exact autonomous closure fails for tested binned states. No native physical coupling RG, fixed point, exponent or universal scaling admitted; finite kernel is reference only."
+      },
+      "restore86_followup": {
+        "accepted_subclaims": [
+          "MEM-SELECTOR-01",
+          "MEM-PROJECTION-02",
+          "MEM-SCALE-03"
+        ],
+        "artifact": "mqft_restore86_20261127/{CONVERGENCE86.json,MEMORY86.json,SCALE86.json,COLLISION_WITNESSES86.json,INDEPENDENT86.json}",
+        "evidence": "1152 actual new and6336 prior B128 paths,1920 B64 scale paths. Exact one-wave count sufficiency, actual coarse nonlumpability, exact nonstationary conditional projection kernel, compensated martingale scale law. Finite order4 external gain passes3/6.",
+        "remaining": "MEM-CLOSURE-04 finite-memory transfer and autonomous marked closure remain open; no exact full NW collision or physical RG/CLT. Original final item acceptance separate."
       },
       "retained_evidence": "STATE coarse memory, RESTORE04 stopped-tree coarse law\u00b7unresolved variance\u00b7closure loss \ubc0f graph/subtree rows. \uae30\uc874 reference flow\ub294 \ucd94\ucd9c\uae30 \ub300\uc870\uc5d0 \uc4f4\ub2e4.",
       "source": "rg_flow.py, rg_flow_tracker.py, subtree_extractor.py, rg_flow_visualizer.py, plot_rg_flow_phase_diagrams.py::plot_beta_functions/plot_rg_trajectories.",
@@ -963,6 +973,16 @@
         "evidence": "2304 fresh native paths; 104 development and 48 independent geometry orbits; 54720 direct root/child evaluator calls; frozen strongest root-only vs landscape ridge, relative ES/CGF criterion 3/3. Independent child, native mark, RNG and selected predictive law checks.",
         "remaining": "Broad arbitrary-population transfer not admitted; finite absolute W, coverage, clipping, extra cost; no repeat feature grid absent new question."
       },
+      "restore86_followup": {
+        "accepted_subclaims": [
+          "MEM-SELECTOR-01",
+          "MEM-PROJECTION-02",
+          "MEM-SCALE-03"
+        ],
+        "artifact": "mqft_restore86_20261127/{CONVERGENCE86.json,MEMORY86.json,SCALE86.json,COLLISION_WITNESSES86.json,INDEPENDENT86.json}",
+        "evidence": "1152 actual new and6336 prior B128 paths,1920 B64 scale paths. Exact one-wave count sufficiency, actual coarse nonlumpability, exact nonstationary conditional projection kernel, compensated martingale scale law. Finite order4 external gain passes3/6.",
+        "remaining": "MEM-CLOSURE-04 finite-memory transfer and autonomous marked closure remain open; no exact full NW collision or physical RG/CLT. Original final item acceptance separate."
+      },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -1060,8 +1080,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-03",
-  "quality_matrix": "QUALITY_MATRIX85.csv",
+  "previous_entry": "REPLAN-06",
+  "quality_matrix": "QUALITY_MATRIX86.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -3987,8 +4007,63 @@
     "status": "three_new_corrected_thermal_subclaims_accepted_physical_identification_open",
     "thermal_cases": 832
   },
-  "revision": "RESTORE85_20261127",
-  "scope": "Convergence: reverse ledger and support-aware finite feedback thermodynamics",
+  "restore86": {
+    "AUDIT86.json_sha256": "6d85f32143427a74de57883b7c15c88163bc5fba8a461048c929c174de29969f",
+    "AUTOCORRELATION86.json_sha256": "af86596a1cc0960d4ad6cbf3f3db3446cc98d0c03f0080397cedca427b066453",
+    "COLLISION_WITNESSES86.json_sha256": "1c4e10290b99ebe409541d5605894ac4efe7674290a46afdbfd2d9d556717032",
+    "CONVERGENCE86.json_sha256": "4a45847457ca734c6a688e87d94bca99127ab5e0729ae9346a742cfb4f3941fb",
+    "DRIFT_WATCHDOG.md_sha256": "55ea36642f10f10262d75562a6cfe20c81c696bbdc1283377f17195add94ed66",
+    "INDEPENDENT86.json_sha256": "1f89908c12218d43c9b6ec78760b0086bbbb8d2b6ce74b40c2ffeca1dbe6659b",
+    "ITEM_CONVERGENCE86.json_sha256": "9c4aa9e13932b7c046f0d3d6f3925cd9c3c19cb3fb162de285b7644470099c08",
+    "MEMORY86.json_sha256": "b784109aafb7a19adc265359c7e98691899fc0451b97c651289ffd7375e4fc52",
+    "MODEL86.json_sha256": "40b5b464defdf91baa7edf1ac1baf37c83c4c06a9c55b21f9b2f9ae8c1ca12f0",
+    "NEXT_DYNAMICS.md_sha256": "8133dbb34069cb96200c37ff8480eda1cc8c71068d273603409544579ff61e6d",
+    "ORIGINAL_OUTPUT_EVIDENCE86.csv_sha256": "762c7a1959c2e9bd8a46ca4db9a8261e0c43800671a6e9e27273fc21e6329e71",
+    "ORIGINAL_OUTPUT_PROGRESS86.csv_sha256": "39a995109ba76199bf8de3dddb5c7ab76860625d9587e3bef58a7dd1c1524e6b",
+    "ORIGINAL_SOURCE86.json_sha256": "8d4c8f5af65000b2ff355c099d600f53e44dac1197c4cc6659f73f08c46f9274",
+    "PLOT_INVENTORY86.csv_sha256": "cb49389f4ebac2e93545fd0e1f2c2ae6895b4588fe24763f6ad73cd7f60da441",
+    "PLOT_MANIFEST86.json_sha256": "615deb1ce5143e5eddcaab1004fedc7a0c3d277a805754674a8377c8bd2b2eb7",
+    "PROGRESS86.json_sha256": "c41cb6600ac6eaf92ca3bdc44b70ba6be6c608e43b8ed6c13d92b5fbaaa1b53c",
+    "QUALITY_MATRIX86.csv_sha256": "1792c812bec13f92fb1c7d8839099697f8bf774009c90234f7ac4d1864c0cf0a",
+    "RAPFI_RECEIPTS86.json_sha256": "7a301b13962864434f120691bd140306d8249b3e8aaf586fd246a27a4cd9804c",
+    "REGISTRATION.json_sha256": "733baff3e405b4c13c242e4719c6297a28543af1be3c225c772f67594fd24174",
+    "RNG_AUDIT86.json_sha256": "ff43169683a458c1898b08dcc60a239bf12d890486f6f28e95b076788f3d9805",
+    "ROOT_PREPARATION.json_sha256": "d99588596536c0704ef8aefb261a56ac75997d26d86ffbb6b48a7e7093eeca68",
+    "RUN_SHARDS.json_sha256": "f4a34a952e6e3008ded2864da9d6cd249ceae13ae455b72a5e2d6f1cd414774b",
+    "SCALE86.json_sha256": "c8c81da518d048e7b8d36ea57a6a5087b7a5252bef696d5340e1242421a6a73a",
+    "SUMMARY86.json_sha256": "714729a3c128552ca503065cf0bd5c0d932711bad9cbd30b76d9dfda9936bada",
+    "THEORY.md_sha256": "85b8c07e9e31a9dcc189af711fb7889bc35874594531c9f833cfd954902ef552",
+    "THEORY_REGISTERED86.md_sha256": "998ec0275414f3911b0a0dc2895800aeed53ebb9e04e3747c9cfba9f9f801acc",
+    "accepted_corrected_subclaims": 16,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 92536,
+    "enumerated_sector_strings": 2488320,
+    "figures": 3,
+    "final_scientific_certified": 0,
+    "fresh_backups": 147456,
+    "fresh_fixed_root_histories": 1152,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 3,
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 4,
+    "original_evidence_union_R55_R86": 121,
+    "original_obligations": 121,
+    "parent_commit": "3a64373980f63c4daea49b6fd255ceb4cc027f04",
+    "parent_dag_sha256": "58f9fa69169c48db0d4dd5a78a59f3d229b9ce741e889781380743668151bfda",
+    "raw_bytes": 210738348,
+    "registered_prediction_passes": 3,
+    "remaining": "Controlled critical scaling, autonomous marked closure, broad population transfer, native coherent readout, physical thermal calibration and utility; original item acceptance.",
+    "retained_pairs": 665,
+    "reused_B128_paths": 6336,
+    "reused_scale_paths": 1920,
+    "scale_wave_cases": 30720,
+    "source_path_receipts": 9408,
+    "status": "three_new_corrected_memory_subclaims_accepted_autonomous_closure_open"
+  },
+  "revision": "RESTORE86_20261127",
+  "scope": "Convergence: exact nonstationary projected memory and compensated scale",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE85-THERMAL-REVERSE-PATH-IDENTIFICATION"
+  "supersedes_next": "MQFT-RESTORE86-HISTORY-CLOSURE-MEMORY-SCALE"
 }

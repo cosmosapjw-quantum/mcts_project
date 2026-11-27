@@ -1,0 +1,48 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "nonstationary_memory_kernel_and_transfer",
+      "ids": [
+        "L16",
+        "L37",
+        "L38",
+        "L39"
+      ],
+      "pdf_sha": "a3a2a3e03bfcb3241d2a39d2bc64713675c47902e7f98dbccd046c2a95bbd290",
+      "png_sha": "ab37501e074162c3c6650e1f03574ff94bbc8400050ed099d91df694f6adf2c6",
+      "scope": "Exact two-time empirical projection and heldout endpoint Brier; signed kernel coefficients not physical RG flow."
+    },
+    {
+      "figure": "coarse_state_nonlumpability",
+      "ids": [
+        "L16",
+        "L37",
+        "L39"
+      ],
+      "pdf_sha": "2bbfb7e40defb1f9ba2f0205297475b9bc231332397b857bc8d31f03a686dc06",
+      "png_sha": "40bb4a06c489b266b5227c25a93051cf212d51d2ed88ebc7e94eae35e57478a1",
+      "scope": "Nine authenticated actual worst coarse-state witnesses; one-wave binomial law differs. No full NW collision observed."
+    },
+    {
+      "figure": "compensated_dyadic_scale_and_correlation",
+      "ids": [
+        "L38",
+        "L39"
+      ],
+      "pdf_sha": "1aca9e1fadaeccb61b74bf7e0f0edf734a4091e28c1a0514da0f1bf6d8ee0788",
+      "png_sha": "89e409a7948f9b0905904b2ce7497339b7ec19c7fcf595e6b414f686271b864d",
+      "scope": "R77 heldout size/density strata, equal descriptive stratum means. Compensated predictable variation identity vs raw pooled variance; no stationary ACF or critical exponent."
+    }
+  ],
+  "sources": {
+    "AUTOCORRELATION86.json": "af86596a1cc0960d4ad6cbf3f3db3446cc98d0c03f0080397cedca427b066453",
+    "COLLISION_WITNESSES86.json": "1c4e10290b99ebe409541d5605894ac4efe7674290a46afdbfd2d9d556717032",
+    "CONVERGENCE86.json": "4a45847457ca734c6a688e87d94bca99127ab5e0729ae9346a742cfb4f3941fb",
+    "INDEPENDENT86.json": "1f89908c12218d43c9b6ec78760b0086bbbb8d2b6ce74b40c2ffeca1dbe6659b",
+    "MEMORY86.json": "b784109aafb7a19adc265359c7e98691899fc0451b97c651289ffd7375e4fc52",
+    "SCALE86.json": "c8c81da518d048e7b8d36ea57a6a5087b7a5252bef696d5340e1242421a6a73a",
+    "SUMMARY86.json": "714729a3c128552ca503065cf0bd5c0d932711bad9cbd30b76d9dfda9936bada",
+    "plot86.py": "de53bceeed95b0c2b50df417e0c3fd3c30d5f5565a01a336c75ddede1d7d54ee"
+  }
+}

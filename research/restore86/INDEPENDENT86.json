@@ -1,0 +1,23 @@
+{
+  "cross_tab_pairs": 408,
+  "errors": {
+    "G_cross_tab": 3.774758283725532e-15,
+    "K_inclusion_exclusion": 9.325873406851315e-15,
+    "collision_mark": 0.0,
+    "collision_prob": 0.0,
+    "fresh_raw_count": 0.0,
+    "fresh_raw_mark": 0.0,
+    "fresh_raw_prob": 0.0,
+    "heldout_gain_CI": 1.2108369862318114e-15,
+    "heldout_score_and_CI": 1.5265566588595902e-15,
+    "scale_IFT_CI": 4.440892098500626e-16,
+    "scale_variance_CI": 3.3861802251067274e-15
+  },
+  "heldout_path_start_predictions": 677376,
+  "independent_kernel_cases": 276,
+  "raw_reductions": 90,
+  "scale_cases": 300,
+  "scale_raw_receipts_verified": 1920,
+  "scope": "Separate cross-tab and inclusion-exclusion memory check; forward composition and independent simplex bisection, heldout score CIs, raw collision witnesses and scale reduction; same-agent separate implementation.",
+  "status": "PASS_SCOPED"
+}
