@@ -1,0 +1,54 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "native_reverse_support_and_ledger",
+      "ids": [
+        "L18",
+        "Q19",
+        "Q21",
+        "Q23"
+      ],
+      "pdf_sha": "17470691a8a3298a827d7c7fd4864be03a3c538c901bd86405d541fc9ac89b53",
+      "png_sha": "27139499814f8246ac4d0e64389c065a53fceac2a58c6f6d5edf95c0945c4ff6",
+      "scope": "All 768 H32 actual wave settings; independently sampled forward/reverse auxiliary conditional model; native full ledger inverse audited separately."
+    },
+    {
+      "figure": "feedback_absolute_irreversibility",
+      "ids": [
+        "L08",
+        "L18",
+        "L32",
+        "Q19",
+        "Q20",
+        "Q23"
+      ],
+      "pdf_sha": "dd23d001be7e38308d59bd90626925ba6b5b77cec79fd0c4932d9f9b5b9fdbb0",
+      "png_sha": "d68013e4d5a94c5bf667d514d7ab8feb0ae465b18c242b2e60ed2e8eebdbff6f",
+      "scope": "Actual branch-energy reference, alpha=1: exact support correction, Monte Carlo IFT and finite ESS. Other alpha retained in data."
+    },
+    {
+      "figure": "feedback_energy_and_stationary_identification",
+      "ids": [
+        "L08",
+        "L18",
+        "L32",
+        "Q20",
+        "Q21",
+        "Q23"
+      ],
+      "pdf_sha": "b283e8eba007fdfa890ac808b580a779972c23bbede5f0654a07ce02fcaab65d",
+      "png_sha": "cf7bf56f26f9c2037ecc4547bbbdc1d0d85c8ab2e2bdb450d0fdc2cd4ff4d339",
+      "scope": "Declared feedback energy ledger and stationary nonreversible flux construction, no physical MCTS heat inference."
+    }
+  ],
+  "sources": {
+    "CONVERGENCE85.json": "6c7547991223791ef980a96dd681f84c302bf6f597b11f8b9d034cf7fed51494",
+    "INDEPENDENT85.json": "9bb102f43a8a17cb539bc31b94a57036d2e0e10987173cb362a412618b94c530",
+    "NATIVE85.json": "eb073360318d0f24595f4a2520518d219c6e1497317a64c5ea76ae1bf8c7f7f5",
+    "STATIONARY85.json": "489d6ca0863f8bda937d5bfebc7e8f3dcf0bdf38fd468acce594f8ceaadcf872",
+    "SUMMARY85.json": "5420ca93d4b50c682ec62b3625a68c0cb31588492ea763d31d88911156e2114c",
+    "THERMAL85.json": "b9b5de48565b8fbe622183d2143255aed228a743c25fe41b7a17ab8d983c01cf",
+    "plot85.py": "253d31cd5d45490858ad1a9c242866ff3ec4e725db503b5435f8e6048cd306b9"
+  }
+}

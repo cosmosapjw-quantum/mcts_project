@@ -1,0 +1,198 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "original_attachment_receipt": {
+    "anchor_is_ancestor": true,
+    "git_anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "guide_obligations": 27,
+    "original_output_obligations": 121,
+    "original_source_function_obligations": 94,
+    "original_source_zip_members": 347,
+    "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "scope": "current source hash and history census, not all historical raw executions replayed",
+    "supplied_zip_check_location": "conversation sandbox, original linked library materialization",
+    "supplied_zip_manifest_members_verified": 34,
+    "supplied_zip_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6"
+  },
+  "scope": "Original work/heat/Jarzynski/information and actual measurement objective; proposals explicitly distinguish information from physical thermodynamics. Exact source members authenticated.",
+  "spans": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 1756,
+      "function": "_plot_information_thermodynamics",
+      "id": "L08",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "observable_fields": [
+        "feedback_efficiency",
+        "mutual_information",
+        "sagawa_ueda",
+        "statistical_mechanics"
+      ],
+      "panel": "N_score_balance;D_decision_records;D_repeated_root_information",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "366ffa5677cc59d7a16f1774c79b0bc236c62f0110f344d9fb9e83ce1decf8f1",
+      "start": 1737
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 2804,
+      "function": "_generate_non_equilibrium_plots",
+      "id": "L18",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "observable_fields": [
+        "actual_heat_dissipated",
+        "authentic_measurements",
+        "bins",
+        "bound_satisfied",
+        "counts",
+        "crooks_verification",
+        "delta_f",
+        "entropy_production",
+        "entropy_production_rate",
+        "exp_delta_f",
+        "heat",
+        "heat_contribution",
+        "histogram",
+        "information_erased_bits",
+        "internal_contribution",
+        "jarzynski_average",
+        "jarzynski_verification",
+        "landauer_bound",
+        "landauer_bound_heat",
+        "mean_log_deviation",
+        "reason",
+        "satisfied",
+        "temperature",
+        "temperatures",
+        "test_points",
+        "time",
+        "time_reversal_asymmetry",
+        "verified",
+        "work",
+        "work_measurements"
+      ],
+      "panel": "N_score_balance",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "d6742733f7933d00ee2ebd20ae3346548c98e329dcbd39659b76f25d9fb0cec9",
+      "start": 2514
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 305,
+      "function": "plot_information_work_conversion",
+      "id": "L32",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+      "member_sha": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+      "observable_fields": [],
+      "panel": "N_score_balance;D_decision_records;D_repeated_root_information",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "b384eb089f8ba0446514dee872e5f550e18f2d68489f95f25b6e7a5330389473",
+      "start": 297
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 246,
+      "function": "plot_jarzynski_verification",
+      "id": "Q19",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "observable_fields": [
+        "system_sizes",
+        "work_distributions"
+      ],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "20e2ff1ef63bf8632ddf093fc84859a848d882738ac338a53c4b83a5bf7fadc9",
+      "start": 54
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 438,
+      "function": "plot_work_fluctuation_analysis",
+      "id": "Q20",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "observable_fields": [
+        "work_distributions"
+      ],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "d94aa924796d0015d061e44d03b4c68de86bbedeeee2ddec1d3c2d9495eb4e46",
+      "start": 248
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 549,
+      "function": "plot_path_integral_formulation",
+      "id": "Q21",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "observable_fields": [],
+      "panel": "N_score_balance;A_action_curvature;A_C_paired_source_response",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "ccd8dd8280aab71bcbd13570365f63754103ca526523634d6859e4529c6c239e",
+      "start": 440
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 670,
+      "function": "generate_comprehensive_report",
+      "id": "Q23",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "observable_fields": [
+        "convergence_analysis",
+        "final_error",
+        "fluctuation_data",
+        "jarzynski_data",
+        "jarzynski_estimate",
+        "trajectories_needed",
+        "tree_expansion_data",
+        "true_delta_F",
+        "work_cumulants"
+      ],
+      "panel": "N_score_balance",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "2939a840d67513ee5f6d9c3da87093e3ec7947fd30cfa0f03e2f5f5dbfc64304",
+      "start": 612
+    }
+  ],
+  "verified_members": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+      "sha256": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "sha256": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_1.md",
+      "sha256": "995e790cbe97938b44e1c04be51046e850d3760448b7270c8361b4c823a127c7"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_4.md",
+      "sha256": "9ab2ef483470accd2b6831fc622b788e266c2d18ee19d95840268249dba75c32"
+    }
+  ]
+}

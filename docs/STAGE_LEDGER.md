@@ -1,24 +1,24 @@
-# RESTORE84 R1-R10 / C1-C10
+# R85 R1–R10 / C1–C10
 | Stage | Actual work | Evidence |
 |---|---|---|
-| R1 | R69/R83 authority and STAT-TRANSFER-04 | THEORY.md |
-| R2 | Original action/statistical response, R82 failures, distributional literature | ORIGINAL_SOURCE84.json |
-| R3 | Pre-search vs observed-prefix, child sign/cost | THEORY.md |
-| R4 | Three model routes and registered external criterion | THEORY.md |
-| R5 | Bounded joint residual law and finite CGF derivation | THEORY.md, population84.py |
-| R6 | Sufficient-statistic limits and calibration/support checks | SUMMARY84.json |
-| R7 | Wolfram and independent direct calculations | INDEPENDENT84.json |
-| R8 | Registered relative gate3/3, bounded new acceptance | CONVERGENCE84.json |
-| R9 | Pre-search predictions and remaining errors | MODEL84.json, TRANSFER84.json |
-| R10 | Thermal/reverse handoff | NEXT_DYNAMICS.md |
-| C1 | Register new48 geometry/16 seeds and development cohort | REGISTRATION.json |
-| C2 | Direct evaluator code and exact state identities | LANDSCAPE_PATCH84.json |
-| C3 | Isolated evaluator command, seven models | build84.py, population84.py |
-| C4 | Bounded CPU resource use, blocked fold freeze before acquisition | MODEL84.json |
-| C5 | All legal child evaluations and2304 new searches | LANDSCAPE84.json, RUN_SHARDS.json |
-| C6 | Native and RNG audit, terminal sign and direct marks | AUDIT84.json, TERMINAL_TEST84.json |
-| C7 | Independent geometry prediction and residual support/cost | TRANSFER84.json |
-| C8 | 288 selected forecast checks,54264 child and144 raw checks | INDEPENDENT84.json |
-| C9 | Three plots, convergence and item links | PLOT_MANIFEST84.json, CONVERGENCE84.json |
-| C10 | DAG, Git, verified backup and dedup | receipts |
-Theory contract fixed before fresh acquisition; final R6-R8 conclusions use actual later evidence. Logical stages, no native subagent; full legacy suite not rerun.
+| R1 | R69 charter, R84 parent, thermal identification scope | THEORY.md |
+| R2 | Original thermo proposals, R66/R74, absolute irreversibility literature | ORIGINAL_SOURCE85.json |
+| R3 | Ledger vs physical time reversal, explicit heat/work units | THEORY.md |
+| R4 | Conditional wave, actual branch feedback and stationary-flux routes | REGISTRATION.json |
+| R5 | Exact RN, support correction, LDB and first law | THEORY.md |
+| R6 | Support singularity, feedback information, physical ambiguity | SUMMARY85.json |
+| R7 | Wolfram, independent rank-one and explicit count enumeration | INDEPENDENT85.json |
+| R8 | Three scoped corrected subclaims, physical ID open | CONVERGENCE85.json |
+| R9 | Original item links and exact/sampled quantities | SUMMARY85.json, PLOT_MANIFEST85.json |
+| R10 | R86 memory/closure and scale contract | NEXT_DYNAMICS.md |
+| C1 | Register existing actual raw inputs and auxiliary protocol | REGISTRATION.json |
+| C2 | Read and authenticate R74/R73/R83 traces | NATIVE85.json, BRANCH_ENERGY85.json |
+| C3 | Inverse ledger and finite feedback generator implementation | native85.py, thermal85.py |
+| C4 | Bounded eight-worker native reduction, rank-one comparison | scripts and logs |
+| C5 | Actual 2304 reverse ledger checks and6553600 auxiliary paths | NATIVE85.json, THERMAL85.json |
+| C6 | Exact conditional law/support and path probability checks | NATIVE85.json, THERMAL85.json |
+| C7 | 832 feedback cases and768 stationary witnesses | THERMAL85.json, STATIONARY85.json |
+| C8 | Independent all sample reductions and144 raw cuts | INDEPENDENT85.json |
+| C9 | Three figures and corrected convergence ledger | PLOT_MANIFEST85.json, CONVERGENCE85.json |
+| C10 | DAG/item matrix, Git, backup, exact dedup | receipts |
+Theory contract before reduction; final judgments depend on actual later data. Logical 20-stage work, not 20 independent native agents; full legacy regression not run on unchanged backend.

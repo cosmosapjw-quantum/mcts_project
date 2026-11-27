@@ -1,7 +1,7 @@
 {
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
-  "convergence_ledger": "CONVERGENCE84.json",
+  "convergence_ledger": "CONVERGENCE85.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -57,7 +57,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-03",
+  "entry": "REPLAN-06",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -120,9 +120,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R85 explicit thermal and reverse path-law identification with support",
-    "R86 autonomous memory/scale or controlled critical limit",
-    "Actual operational coherent records only with independent readout; remaining item-specific acceptance"
+    "R86 explicit history-conditioned dynamics, memory kernel, autonomous closure and controlled scale law",
+    "R87 controlled critical scaling or structural completion if evidence warrants",
+    "Physical thermal or coherent identification only with independently defined calibration/readout; remaining original item acceptance"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -141,7 +141,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE85-THERMAL-REVERSE-PATH-IDENTIFICATION",
+  "next_stage_id": "MQFT-RESTORE86-HISTORY-CLOSURE-MEMORY-SCALE",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -230,6 +230,16 @@
         "artifact": "mqft_restore79_20261127/CALIBRATION79.json",
         "evidence": "768 independent native paths, 192 authenticated train paths, conditional score beta and heldout log score/KL, full-support occupancy fit and nonidentifiable first waves.",
         "remaining": "Physical temperature and energy not identified; occupancy not conditional law."
+      },
+      "restore85_followup": {
+        "accepted_subclaims": [
+          "THERMO-LEDGER-01",
+          "THERMO-FEEDBACK-02",
+          "THERMO-ID-03"
+        ],
+        "artifact": "mqft_restore85_20261127/{CONVERGENCE85.json,NATIVE85.json,THERMAL85.json,STATIONARY85.json,INDEPENDENT85.json}",
+        "evidence": "2304 authenticated native pulse histories reversed as ordered ledgers, 768 exact conditional wave support identities, 104 actual branch-derived energy settings from2448 records,832 feedback cycles and114360704 exact triples,6553600 auxiliary F/R paths,768 stationary Gibbs marginal ambiguity witnesses.",
+        "remaining": "THERMO-PHYSICAL-04 physical native energy/reservoir/time not established, no repeated auxiliary FT scan; record/control cost absent. Original final item acceptance separate."
       },
       "retained_evidence": "STATE06 c_PUCT sweep, RESTORE01 \uc608\uc0b0\ubcc4 \uc2e4\uce21\uacfc fit \uc9c4\ub2e8. \uacbd\ub85c dominance\u00b7overlap \ubc0f STATE16 \uc870\uac74\ubd80 \uc120\ud0dd \ud1b5\uacc4\ub294 \ud45c\ubcf8\uacfc clock\uc774 \ub9de\uc73c\uba74 \uacb0\ud569\ud55c\ub2e4.",
       "source": "ensemble_analyzer_complete.py::_plot_authentic_temperature, honest_plots.py::plot_temperature_extraction/plot_temperature_scaling, \uacbd\ub85c \ud328\ub110 L16. v6 validation\uc758 \u03b2\uc640 mean-field \uc608\uce21.",
@@ -612,6 +622,16 @@
         "artifact": "mqft_restore74_20261126/{THEORY.md,RESPONSE74.json,PETZ74.json}",
         "evidence": "2304 fresh matched native source pulse paths; causal score response and predictable correction; 64 actual fine two-time channel contexts, Petz 192 reference cases and exact measured IFT; switched Hamiltonian first-law ledger and declared capacity.",
         "remaining": "Physical Hamiltonian/bath/time calibration and microscopic reverse protocol, thermodynamic cycle, physical heat and FDT not identified."
+      },
+      "restore85_followup": {
+        "accepted_subclaims": [
+          "THERMO-LEDGER-01",
+          "THERMO-FEEDBACK-02",
+          "THERMO-ID-03"
+        ],
+        "artifact": "mqft_restore85_20261127/{CONVERGENCE85.json,NATIVE85.json,THERMAL85.json,STATIONARY85.json,INDEPENDENT85.json}",
+        "evidence": "2304 authenticated native pulse histories reversed as ordered ledgers, 768 exact conditional wave support identities, 104 actual branch-derived energy settings from2448 records,832 feedback cycles and114360704 exact triples,6553600 auxiliary F/R paths,768 stationary Gibbs marginal ambiguity witnesses.",
+        "remaining": "THERMO-PHYSICAL-04 physical native energy/reservoir/time not established, no repeated auxiliary FT scan; record/control cost absent. Original final item acceptance separate."
       },
       "retained_evidence": "A09/A10 reference \ubc0f RESTORE06 frozen-root identities\u00b7native switching/backup score\u00b7same-clock likelihood. RESTORE07/08\uc758 matched controls\u00b7cost\u00b7\ud640\ub4dc\uc544\uc6c3 rollout\uc740 feedback \ub300\uc870\uc5d0 \ud55c\uc815\ud55c\ub2e4.",
       "source": "plot_thermodynamics.py::plot_non_equilibrium_thermodynamics/plot_thermodynamic_cycles, plot_jarzynski_equality.py::plot_jarzynski_verification/plot_work_fluctuation_analysis, L08/L18/L32.",
@@ -1040,8 +1060,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "X-REP",
-  "quality_matrix": "QUALITY_MATRIX84.csv",
+  "previous_entry": "REPLAN-03",
+  "quality_matrix": "QUALITY_MATRIX85.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -3917,8 +3937,58 @@
     "status": "bounded_presearch_population_transfer_accepted",
     "test_roots": 48
   },
-  "revision": "RESTORE84_20261127",
-  "scope": "Convergence: bounded independent pre-search landscape transfer",
+  "restore85": {
+    "BRANCH_ENERGY85.json_sha256": "e9f1aeb1cc8ccde6f78735a3a023c18578739c9c3029b65a2db63f42024d598f",
+    "CONVERGENCE85.json_sha256": "6c7547991223791ef980a96dd681f84c302bf6f597b11f8b9d034cf7fed51494",
+    "DRIFT_WATCHDOG.md_sha256": "6a5ffad28b78ab6b545c2048384c711a95b3a49f1c200ceb4b566d31b5ff7891",
+    "INDEPENDENT85.json_sha256": "9bb102f43a8a17cb539bc31b94a57036d2e0e10987173cb362a412618b94c530",
+    "ITEM_CONVERGENCE85.json_sha256": "c963caf90eefcaa2e3c10b93ee268d746068713c797725fe4d000ec32b694093",
+    "NATIVE85.json_sha256": "eb073360318d0f24595f4a2520518d219c6e1497317a64c5ea76ae1bf8c7f7f5",
+    "NEXT_DYNAMICS.md_sha256": "eabb79135dfbcb78973c860f3427e2f9ccad2c48925e6a30632e167f0f468bc5",
+    "ORIGINAL_OUTPUT_EVIDENCE85.csv_sha256": "3c05228a3ceaf4a6e232e829c950fcafa161a1f56c495f5d811f2bb4e69f840e",
+    "ORIGINAL_OUTPUT_PROGRESS85.csv_sha256": "ebf95afc4cf49f7925a861e38e8f805e35defffc77460f734c6e341826452a68",
+    "ORIGINAL_SOURCE85.json_sha256": "88165e929495519799e26b2a74e07e5ac12b281b10cda313d67a701b23844d07",
+    "PLOT_INVENTORY85.csv_sha256": "313754db03c333ea78e893a9d7095fd18cf75865c7779070e65908cb3cf890c3",
+    "PLOT_MANIFEST85.json_sha256": "de61de6403eed1617a4f3a020cb2635fbe282caf686f9316cf30b07a0e6c84cc",
+    "PROGRESS85.json_sha256": "32471c8bfa190f82e520beff544bce8bde359e82dbc59e728942c31db96a8466",
+    "QUALITY_MATRIX85.csv_sha256": "c5609d5d5fe8b8d4b5a6dfb229878e2bef54f2400c489646fc1bad3ee0ff9ebf",
+    "REGISTRATION.json_sha256": "764d0dad45e9e09621ee1a61de1dab1a3d811a8fae83df5a72bab3f0dd26e8e1",
+    "STATIONARY85.json_sha256": "489d6ca0863f8bda937d5bfebc7e8f3dcf0bdf38fd468acce594f8ceaadcf872",
+    "SUMMARY85.json_sha256": "5420ca93d4b50c682ec62b3625a68c0cb31588492ea763d31d88911156e2114c",
+    "THEORY.md_sha256": "41391dd4f29092bc360ab1383e0447dc3ae9eddb517e1f3cbd1663865e04e2db",
+    "THEORY_REGISTERED85.md_sha256": "9326fb2d056fda619468e9acfcb5fac2a53ff384d17538ad9e5c3c06f0345617",
+    "THERMAL85.json_sha256": "b9b5de48565b8fbe622183d2143255aed228a743c25fe41b7a17ab8d983c01cf",
+    "accepted_corrected_subclaims": 13,
+    "animations": 0,
+    "authenticated_branch_source_paths": 2448,
+    "auxiliary_sequences": 6553600,
+    "branch_contexts": 104,
+    "conditional_wave_contexts": 768,
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 91384,
+    "enumerated_triples": 114360704,
+    "figures": 3,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 3,
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 7,
+    "original_evidence_union_R55_R85": 121,
+    "original_obligations": 121,
+    "parent_commit": "99c96a8586a11621b11d0de6c237f2ecb0f1eebb",
+    "parent_dag_sha256": "002e6af08e265fb39ddd32bba6b93c1e3ffccee2a95fc71226320417c4152c66",
+    "remaining": "Physical thermal identification, autonomous memory/scale, broad population transfer, native coherent readout and utility; original item acceptance.",
+    "retained_pairs": 662,
+    "reused_native_backups": 294912,
+    "reused_native_paths": 2304,
+    "status": "three_new_corrected_thermal_subclaims_accepted_physical_identification_open",
+    "thermal_cases": 832
+  },
+  "revision": "RESTORE85_20261127",
+  "scope": "Convergence: reverse ledger and support-aware finite feedback thermodynamics",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE84-PRESEARCH-CHILD-LANDSCAPE-POPULATION-TRANSFER"
+  "supersedes_next": "MQFT-RESTORE85-THERMAL-REVERSE-PATH-IDENTIFICATION"
 }

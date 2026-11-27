@@ -1,0 +1,142 @@
+{
+  "claims": [
+    {
+      "claim": "A retained ordered native event ledger has an explicit inverse bookkeeping map; for a fixed quiescent native pulse wave, a normalized multinomial endpoint-deletion reverse reference induces the exact ordered categorical law. On a forward positive-hit postselection the finite RN IFT has correction 1-lambda, lambda equal reverse mass outside forward support.",
+      "evidence": [
+        "THEORY.md",
+        "NATIVE85.json",
+        "WAVE_SAMPLES85.npz",
+        "INDEPENDENT85.json",
+        "SUMMARY85.json"
+      ],
+      "id": "THERMO-LEDGER-01",
+      "items": [
+        "L18",
+        "Q19",
+        "Q21",
+        "Q23"
+      ],
+      "limit": "R74 2304 authenticated native records, 768 H32 contexts; auxiliary reverse and postselection distinct from original unconditioned native process. No reversible native engine state or physical dissipation identified.",
+      "stage": 85,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For a declared branch-driven finite feedback cycle with explicit Gibbs energy, heat-bath LDB, detector and reverse protocol, the exact path log ratio is b W/E* + pointwise information. Generalized IFT equals one minus reverse singular mass, with nontrivial perfect-measurement correction, and first-law/Jensen identities hold. Actual R73/R83 branch scores parameterize the finite model.",
+      "evidence": [
+        "THEORY.md",
+        "BRANCH_ENERGY85.json",
+        "THERMAL85.json",
+        "THERMAL_SAMPLES85.npz",
+        "INDEPENDENT85.json",
+        "SUMMARY85.json"
+      ],
+      "id": "THERMO-FEEDBACK-02",
+      "items": [
+        "L08",
+        "L18",
+        "L32",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q23"
+      ],
+      "limit": "832 declared cases, exact finite triples and independent auxiliary sampling; no feedback device or physical native reservoir executed. Work on system sign, record preparation/reset/controller cost excluded. No general work extraction; imperfect detector rare-weight estimation failures retained.",
+      "stage": 85,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A Gibbs one-time marginal alone cannot identify local detailed balance or stationary entropy production: positive cycle-flux kernels and detailed-balanced iid kernel share every tested actual frozen Gibbs marginal. Energy-temperature common rescaling also leaves the native dimensionless selection law invariant.",
+      "evidence": [
+        "THEORY.md",
+        "STATIONARY85.json",
+        "INDEPENDENT85.json",
+        "SUMMARY85.json"
+      ],
+      "id": "THERMO-ID-03",
+      "items": [
+        "L18",
+        "Q19",
+        "Q20",
+        "Q23"
+      ],
+      "limit": "768 actual frozen marginals, declared alternative kernels; not a claim that the alternative reproduces the authenticated native conditional transition law. Physical calibration remains absent.",
+      "stage": 85,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Actual native MCTS admits independently calibrated physical energy, temperature, reservoir heat and microscopic time reversal.",
+      "evidence": [
+        "THEORY.md",
+        "SUMMARY85.json",
+        "ORIGINAL_SOURCE85.json"
+      ],
+      "id": "THERMO-PHYSICAL-04",
+      "items": [
+        "L08",
+        "L18",
+        "L32",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q23"
+      ],
+      "limit": "Not established; original proposals explicitly reject natural physical energy. No independent physical bath/calibration or hardware-level reverse. Retire repetitive auxiliary fluctuation checks absent a new question.",
+      "stage": 85,
+      "status": "OPEN_PHYSICAL_IDENTIFICATION"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "THERMO-FEEDBACK-02",
+      "id": "L08",
+      "open": "THERMO-PHYSICAL-04",
+      "remaining_final_acceptance": "Define record, mutual information and feedback protocol; actual Sagawa-Ueda identity and work/energy sign, physical controller cost separate.",
+      "scope": "Finite branch-driven feedback information/work reference, explicit controller/reset omissions; no native physical energy."
+    },
+    {
+      "accepted": "THERMO-LEDGER-01;THERMO-FEEDBACK-02;THERMO-ID-03",
+      "id": "L18",
+      "open": "THERMO-PHYSICAL-04",
+      "remaining_final_acceptance": "Define heat/work/entropy and physical reverse or explicit reference; validate signed full balance, Crooks and finite sample rare tails.",
+      "scope": "Actual reverse ledger, support-aware RN IFT, finite LDB and first-law reference; physical reversal and bath remain open."
+    },
+    {
+      "accepted": "THERMO-FEEDBACK-02",
+      "id": "L32",
+      "open": "THERMO-PHYSICAL-04",
+      "remaining_final_acceptance": "Explicit information-to-work feedback, actual record variable, work sign and erasure/reset cost with finite protocol verification.",
+      "scope": "Actual branch-derived auxiliary work and information law with explicit reverse; no net device extraction."
+    },
+    {
+      "accepted": "THERMO-LEDGER-01;THERMO-FEEDBACK-02;THERMO-ID-03",
+      "id": "Q19",
+      "open": "THERMO-PHYSICAL-04",
+      "remaining_final_acceptance": "Explicit forward/reverse protocol and Gibbs start, actual work and DeltaF; finite Jarzynski estimator ESS and exact reference.",
+      "scope": "Exact support-aware IFT and forward/reverse samples, including perfect-detector singularity; not native physical Jarzynski."
+    },
+    {
+      "accepted": "THERMO-FEEDBACK-02;THERMO-ID-03",
+      "id": "Q20",
+      "open": "THERMO-PHYSICAL-04",
+      "remaining_final_acceptance": "Actual protocol work fluctuations, cumulants and uncertainty, no synthetic random-walk surrogate or native energy assumption.",
+      "scope": "Finite work/heat distributions and weight-degeneracy diagnostics under declared branch-driven reference; physical heat uncalibrated."
+    },
+    {
+      "accepted": "THERMO-LEDGER-01;THERMO-FEEDBACK-02",
+      "id": "Q21",
+      "open": "THERMO-PHYSICAL-04",
+      "remaining_final_acceptance": "Derive normalized path measure and work generating function for identified Hamiltonian/protocol; complex action separately with operational phase.",
+      "scope": "Exact path likelihood ratio and reverse endpoint-deletion construction, not physical quantum action."
+    },
+    {
+      "accepted": "THERMO-LEDGER-01;THERMO-FEEDBACK-02;THERMO-ID-03",
+      "id": "Q23",
+      "open": "THERMO-PHYSICAL-04",
+      "remaining_final_acceptance": "Comprehensive work and fluctuation report, analytic exact DeltaF, finite estimates/uncertainty, identified thermodynamic system.",
+      "scope": "Corrected support-aware thermodynamic report; exact versus sampled failures and Gibbs marginal ambiguity retained."
+    }
+  ],
+  "parent_convergence_sha256": "2f2ccf99bbf8e75b33e02a7d41b83880d098ec709a0475351a3f4ee9ba843657",
+  "parent_quality_matrix_sha256": "58ce7e7f8f9e7ed1f4f6581e90cb5f027427a10a8cfef4a6ee8ec013e4d42313",
+  "scope": "R85 delta, original R79 item contracts and prior dispositions retained."
+}

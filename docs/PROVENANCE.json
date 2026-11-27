@@ -3599,6 +3599,80 @@
       }
     }
   },
+  "restore85": {
+    "BRANCH_ENERGY85.json_sha256": "e9f1aeb1cc8ccde6f78735a3a023c18578739c9c3029b65a2db63f42024d598f",
+    "CONVERGENCE85.json_sha256": "6c7547991223791ef980a96dd681f84c302bf6f597b11f8b9d034cf7fed51494",
+    "DRIFT_WATCHDOG.md_sha256": "6a5ffad28b78ab6b545c2048384c711a95b3a49f1c200ceb4b566d31b5ff7891",
+    "INDEPENDENT85.json_sha256": "9bb102f43a8a17cb539bc31b94a57036d2e0e10987173cb362a412618b94c530",
+    "ITEM_CONVERGENCE85.json_sha256": "c963caf90eefcaa2e3c10b93ee268d746068713c797725fe4d000ec32b694093",
+    "NATIVE85.json_sha256": "eb073360318d0f24595f4a2520518d219c6e1497317a64c5ea76ae1bf8c7f7f5",
+    "NEXT_DYNAMICS.md_sha256": "eabb79135dfbcb78973c860f3427e2f9ccad2c48925e6a30632e167f0f468bc5",
+    "ORIGINAL_OUTPUT_EVIDENCE85.csv_sha256": "3c05228a3ceaf4a6e232e829c950fcafa161a1f56c495f5d811f2bb4e69f840e",
+    "ORIGINAL_OUTPUT_PROGRESS85.csv_sha256": "ebf95afc4cf49f7925a861e38e8f805e35defffc77460f734c6e341826452a68",
+    "ORIGINAL_SOURCE85.json_sha256": "88165e929495519799e26b2a74e07e5ac12b281b10cda313d67a701b23844d07",
+    "PLOT_INVENTORY85.csv_sha256": "313754db03c333ea78e893a9d7095fd18cf75865c7779070e65908cb3cf890c3",
+    "PLOT_MANIFEST85.json_sha256": "de61de6403eed1617a4f3a020cb2635fbe282caf686f9316cf30b07a0e6c84cc",
+    "PROGRESS85.json_sha256": "32471c8bfa190f82e520beff544bce8bde359e82dbc59e728942c31db96a8466",
+    "QUALITY_MATRIX85.csv_sha256": "c5609d5d5fe8b8d4b5a6dfb229878e2bef54f2400c489646fc1bad3ee0ff9ebf",
+    "REGISTRATION.json_sha256": "764d0dad45e9e09621ee1a61de1dab1a3d811a8fae83df5a72bab3f0dd26e8e1",
+    "STATIONARY85.json_sha256": "489d6ca0863f8bda937d5bfebc7e8f3dcf0bdf38fd468acce594f8ceaadcf872",
+    "SUMMARY85.json_sha256": "5420ca93d4b50c682ec62b3625a68c0cb31588492ea763d31d88911156e2114c",
+    "THEORY.md_sha256": "41391dd4f29092bc360ab1383e0447dc3ae9eddb517e1f3cbd1663865e04e2db",
+    "THEORY_REGISTERED85.md_sha256": "9326fb2d056fda619468e9acfcb5fac2a53ff384d17538ad9e5c3c06f0345617",
+    "THERMAL85.json_sha256": "b9b5de48565b8fbe622183d2143255aed228a743c25fe41b7a17ab8d983c01cf",
+    "accepted_corrected_subclaims": 13,
+    "animations": 0,
+    "authenticated_branch_source_paths": 2448,
+    "auxiliary_sequences": 6553600,
+    "branch_contexts": 104,
+    "conditional_wave_contexts": 768,
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 91384,
+    "dag_sha256": "58f9fa69169c48db0d4dd5a78a59f3d229b9ce741e889781380743668151bfda",
+    "enumerated_triples": 114360704,
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 3,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 3,
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 7,
+    "original_evidence_union_R55_R85": 121,
+    "original_obligations": 121,
+    "parent_commit": "99c96a8586a11621b11d0de6c237f2ecb0f1eebb",
+    "parent_dag_sha256": "002e6af08e265fb39ddd32bba6b93c1e3ffccee2a95fc71226320417c4152c66",
+    "remaining": "Physical thermal identification, autonomous memory/scale, broad population transfer, native coherent readout and utility; original item acceptance.",
+    "retained_pairs": 662,
+    "reused_native_backups": 294912,
+    "reused_native_paths": 2304,
+    "status": "three_new_corrected_thermal_subclaims_accepted_physical_identification_open",
+    "thermal_cases": 832,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }
