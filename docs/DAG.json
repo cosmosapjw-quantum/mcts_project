@@ -1,7 +1,7 @@
 {
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
-  "convergence_ledger": "CONVERGENCE86.json",
+  "convergence_ledger": "CONVERGENCE87.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -57,7 +57,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "X-MEMORY",
+  "entry": "REPLAN-04.C",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -120,9 +120,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R87 controlled finite-size critical scaling, drift/innovation separation and exact beta0 reference",
-    "Remaining structural/original item completion and open autonomous memory only with new constructive mechanism",
-    "Physical thermal/coherent identification only with independent calibration or readout; matched-cost utility separate"
+    "R88 structural gauge/topology/barrier claims and direct original output reconstruction",
+    "Resolve remaining original item-specific acceptance conditions without repetitive scans",
+    "Open physical identification/utility only with explicit independent observables or intervention"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -141,7 +141,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE87-CONTROLLED-CRITICAL-SCALING",
+  "next_stage_id": "MQFT-RESTORE88-STRUCTURAL-ORIGINAL-OUTPUT-RECONSTRUCTION",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -439,6 +439,15 @@
         "evidence": "1152 actual new and6336 prior B128 paths,1920 B64 scale paths. Exact one-wave count sufficiency, actual coarse nonlumpability, exact nonstationary conditional projection kernel, compensated martingale scale law. Finite order4 external gain passes3/6.",
         "remaining": "MEM-CLOSURE-04 finite-memory transfer and autonomous marked closure remain open; no exact full NW collision or physical RG/CLT. Original final item acceptance separate."
       },
+      "restore87_followup": {
+        "accepted_subclaims": [
+          "SCALE-BOUND-01",
+          "SCALE-ENTROPY-02"
+        ],
+        "artifact": "mqft_restore87_20261128/{CRITICAL87.json,ERRATUM86.json,SUMMARY87.json,CONVERGENCE87.json}",
+        "evidence": "800 fresh scale paths,3520 reused, exact bounded innovation and categorical entropy crossover, independent critical-width comparison; explicit R86 startup correction.",
+        "remaining": "Critical limit not admitted; autonomous closure open. R86 bracket/exponential corrected in ERRATUM86.json, raw D unchanged."
+      },
       "retained_evidence": "STATE coarse memory, RESTORE04 stopped-tree coarse law\u00b7unresolved variance\u00b7closure loss \ubc0f graph/subtree rows. \uae30\uc874 reference flow\ub294 \ucd94\ucd9c\uae30 \ub300\uc870\uc5d0 \uc4f4\ub2e4.",
       "source": "rg_flow.py, rg_flow_tracker.py, subtree_extractor.py, rg_flow_visualizer.py, plot_rg_flow_phase_diagrams.py::plot_beta_functions/plot_rg_trajectories.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -500,6 +509,15 @@
         "artifact": "mqft_restore76_20261127/{THEORY.md,CRITICAL76.json,INDEPENDENT76.json,ORIGINAL_CLAIM_AUDIT76.json}",
         "evidence": "3200 fresh actual common MixNet size-family runs, five sizes, independent B16/64, four beta and c_puct/paired source controls; 640 root-group reductions; exact beta0 multinomial null and finite cohort control; Binder-type/mode ratio crossing bootstrap, held-size-out alternatives; original Ising mismatch.",
         "remaining": "No unique critical point, universality or physical correlation length admitted; broader size, budget-density and beta resolution, root ensemble and finite-size ansatz needed."
+      },
+      "restore87_followup": {
+        "accepted_subclaims": [
+          "SCALE-BOUND-01",
+          "SCALE-ENTROPY-02"
+        ],
+        "artifact": "mqft_restore87_20261128/{CRITICAL87.json,ERRATUM86.json,SUMMARY87.json,CONVERGENCE87.json}",
+        "evidence": "800 fresh scale paths,3520 reused, exact bounded innovation and categorical entropy crossover, independent critical-width comparison; explicit R86 startup correction.",
+        "remaining": "Critical limit not admitted; autonomous closure open. R86 bracket/exponential corrected in ERRATUM86.json, raw D unchanged."
       },
       "retained_evidence": "STATE06 \uc2e4\uc81c c_PUCT sweep, RESTORE04 \uc2e4\uc81c subtree volume, graph covariance, finite source\uc640 whole-seed uncertainty. \ub3c4\ud574\uc6a9 Ising/FSS\ub294 \ucd94\uc815\uae30 \ub300\uc870.",
       "source": "cpuct_phase_transition_validator.py, finite_size_scaling.py, plot_statistical_physics.py::plot_correlation_functions/plot_susceptibility_analysis, plot_critical_phenomena_scaling.py::plot_scaling_functions.",
@@ -983,6 +1001,15 @@
         "evidence": "1152 actual new and6336 prior B128 paths,1920 B64 scale paths. Exact one-wave count sufficiency, actual coarse nonlumpability, exact nonstationary conditional projection kernel, compensated martingale scale law. Finite order4 external gain passes3/6.",
         "remaining": "MEM-CLOSURE-04 finite-memory transfer and autonomous marked closure remain open; no exact full NW collision or physical RG/CLT. Original final item acceptance separate."
       },
+      "restore87_followup": {
+        "accepted_subclaims": [
+          "SCALE-BOUND-01",
+          "SCALE-ENTROPY-02"
+        ],
+        "artifact": "mqft_restore87_20261128/{CRITICAL87.json,ERRATUM86.json,SUMMARY87.json,CONVERGENCE87.json}",
+        "evidence": "800 fresh scale paths,3520 reused, exact bounded innovation and categorical entropy crossover, independent critical-width comparison; explicit R86 startup correction.",
+        "remaining": "Critical limit not admitted; autonomous closure open. R86 bracket/exponential corrected in ERRATUM86.json, raw D unchanged."
+      },
       "retained_evidence": "B02\u2013B06 conditional drift/noise\u00b7memory kernel, STATE16\uacfc RESTORE04\uc758 closure\u00b7\uc2e4\uc81c event history.",
       "source": "markovian_validation.py, markovian_visualizer.py::plot_autocorrelation_function/plot_markov_property_test/plot_transition_matrices/plot_timescale_separation.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -1080,8 +1107,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-06",
-  "quality_matrix": "QUALITY_MATRIX86.csv",
+  "previous_entry": "X-MEMORY",
+  "quality_matrix": "QUALITY_MATRIX87.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4062,8 +4089,72 @@
     "source_path_receipts": 9408,
     "status": "three_new_corrected_memory_subclaims_accepted_autonomous_closure_open"
   },
-  "revision": "RESTORE86_20261127",
-  "scope": "Convergence: exact nonstationary projected memory and compensated scale",
+  "restore87": {
+    "AUDIT_L13.json_sha256": "aba5fc866dd023135a359a11c7cc1ccbf22481026bd5db1e11d62218d6c7bc67",
+    "AUDIT_L15.json_sha256": "72cf7e20a575615eead7fe017e761e654d85151f818f044521c222845318f2aa",
+    "AUDIT_L17.json_sha256": "476651b4dafd705404084fe2bbe05fe5d5272776661b33394c3dd2abcc98a319",
+    "AUDIT_L19.json_sha256": "454d86438dd73f46a55790ba20a62dc79f36ede4c9a2c76cdfff586756061e11",
+    "AUDIT_L21.json_sha256": "1a16f3e7f268e00571c45a9c66c0248824036749c86f553158d84e7f4cacb49c",
+    "CONVERGENCE87.json_sha256": "7395ecad24eb7a55b294f4adf3a4e262ac941f48d0b3a2084547708b630a3cf7",
+    "CRITICAL87.json_sha256": "7196cb5780a8376870f2c0f82d21ec8e1653e850e3666a3d47d8735b630daf04",
+    "DRIFT_WATCHDOG.md_sha256": "2d9b79396540b37b62df25f8cea0ae2a839819fc26ed8f55e121c7fbe13bfc96",
+    "ERRATUM86.json_sha256": "8be777f904fb8fb8e4b1afdfd5caa0458f43c76c80b9e8cd4217199eff967ca8",
+    "GEN_L13.json_sha256": "d7845854fbe9ec5ce4d6fc437ae8d1945f36b6ea68325138fe81a9b883f534a0",
+    "GEN_L15.json_sha256": "f072fdf61e1bedb522a566faf6663435f7ae086da64c2bf6456557348c66b80b",
+    "GEN_L17.json_sha256": "d77e8b01b1dfab5acfbe1126c20a6b736d3c46f9cf1cf9c769305e53cb9c8e74",
+    "GEN_L19.json_sha256": "c42b78caaeae1e332ad1ffd932a8e7ac6c27230d0e6d2d22b75121742ed38b32",
+    "GEN_L21.json_sha256": "12c59ed40314360c66b20d438e459f9b8d7f62e9de526a7529a95134a29c252a",
+    "INDEPENDENT87.json_sha256": "efe68973c64b7ec7fb90b98dc387b4ab6e54d8edaa883a6e2650755ce16ba147",
+    "ITEM_CONVERGENCE87.json_sha256": "2e6a206e8ed93bb863971b8852d00e180cd5f1456d58732b10da42a49a631673",
+    "NEXT_DYNAMICS.md_sha256": "f63f3692d8a3db177cccdd7b3f14905aa67c2c77c40371b46f9d69b9f8b614ce",
+    "ORIGINAL_OUTPUT_EVIDENCE87.csv_sha256": "2c98d64c5a18ea29713c1725a4b3e94f949522dc9cc1887fe5389f0cc2605423",
+    "ORIGINAL_OUTPUT_PROGRESS87.csv_sha256": "af2bfcb6cfc29caa7408528b0500a4a27f723a9f5c8023de395afe1175b67fa8",
+    "ORIGINAL_SOURCE87.json_sha256": "faace1e0d48d11b6cb003a5c68a1a36437b821a4b731df4021d37da6fa45615b",
+    "PILOT_L13.json_sha256": "0b6acb41b3e72a546d41c84521c8b3a2c243c6ff9b813ade2cbcb5bfae4a19dd",
+    "PILOT_L15.json_sha256": "1153a12590af1e23d0cfd36f7e9bf58fab5aefb07a1398ca441c4025228abe94",
+    "PILOT_L17.json_sha256": "e90af901002742e9c99faa18c712207218e6dfefc468591dd57f3529c0b67ce0",
+    "PILOT_L19.json_sha256": "bf844ea90d53f5021eee08d0c258f1a42da90d8e1f522fa7b0cf65938b15444c",
+    "PILOT_L21.json_sha256": "da99855dd1a0ee43ffaea1abacc60464f736b4702aaa9412e605748480538348",
+    "PLOT_INVENTORY87.csv_sha256": "e31fbbb78088216090e95131f374a0d4b8a72c5fbc1da81e9418cc9d79f5d8ce",
+    "PLOT_MANIFEST87.json_sha256": "147ac265f172ba177f2a852a5637742648da1153ffecf37152205bc616049dec",
+    "PROGRESS87.json_sha256": "eeea828ba36a40a3e52826d8a26a238b25c2787a98b1bc653f686ae07c9424b6",
+    "QUALITY_MATRIX87.csv_sha256": "3bea0e01e3ed25cb0b87a22f40c4ae36c6159e924d89386bb4bb00f5506f709e",
+    "REGISTRATION_L13.json_sha256": "3d9c82ba4e112a693ea79f6a89284c0bfbf9b07c3c6d820c98a8933a79b116a9",
+    "REGISTRATION_L15.json_sha256": "946bc8b538e84955b74dea5b77842a501ac44e4cb73fd5398089da0e0f3d9584",
+    "REGISTRATION_L17.json_sha256": "1926a2de4154dc576360f52d1d1d05a1a7af386ae34580bf76bc8b9b0f7299ed",
+    "REGISTRATION_L19.json_sha256": "c9b03dd49ba5c0ad02d7668eb4fa0818b0513df512b6ab0d8673c987ac3fbebf",
+    "REGISTRATION_L21.json_sha256": "a6c846f70be4bb05fdbb518f3ceebb559c65d7ebbf20cd807003321365c726c2",
+    "SUMMARY87.json_sha256": "0e1d5efcfcc1dc0508ae8e6fcf93c9dd066fc37c0362b8790a63f7968baef694",
+    "THEORY.md_sha256": "99deeff8d0836436550899e14212c8908d0cb1ae6ff6ef059f1c58fe17341e28",
+    "THEORY_REGISTERED87.md_sha256": "d65c7e02e1d4cfbf5a6483c0a7db9ac93ac28b149d88b3dbd9d8d8824b755b5a",
+    "accepted_corrected_subclaims": 18,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 93336,
+    "figures": 3,
+    "final_scientific_certified": 0,
+    "fresh_backups": 51200,
+    "fresh_fixed_root_histories": 800,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 6,
+    "original_evidence_union_R55_R87": 121,
+    "original_obligations": 121,
+    "parent_commit": "7df13ae754f3f16f24f81c9ef1bf446ffe688292",
+    "parent_dag_sha256": "7e879c4bcc5057337f98bc3da5e0bad91d6e1f642ac56c9758e33cca03352b68",
+    "raw_bytes": 226546042,
+    "registered_cells": 8,
+    "registered_critical_wins": 0,
+    "remaining": "Controlled critical limit, structural and original final item acceptance; R86 startup correction supersedes bracket/exponential tables.",
+    "retained_pairs": 668,
+    "reused_paths": 3520,
+    "source_path_receipts": 4320,
+    "status": "two_scoped_scale_claims_accepted_critical_limit_open_R86_erratum"
+  },
+  "revision": "RESTORE87_20261128",
+  "scope": "Convergence: bounded innovation and controlled criticality, R86 startup erratum",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE86-HISTORY-CLOSURE-MEMORY-SCALE"
+  "supersedes_next": "MQFT-RESTORE87-CONTROLLED-CRITICAL-SCALING"
 }

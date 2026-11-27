@@ -1,0 +1,52 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "bounded_innovation_vs_raw_scaling",
+      "ids": [
+        "L17",
+        "L26",
+        "L38",
+        "Q32"
+      ],
+      "pdf_sha": "e8b983d6d41f2cefe8a2c9b9f4382f3ce0e6abbfb138dd9486b7463755090b78",
+      "png_sha": "a56d2b340e47f972cc729836f56760fdd6f174210fa84b67440449f63d510a80",
+      "scope": "Fresh R87 equal-stratum descriptive means, actual full-action per-selection bracket, raw root-centered variance vs compensated moment. Prefixes not separate budgets."
+    },
+    {
+      "figure": "controlled_criticality_model_comparison",
+      "ids": [
+        "L17",
+        "L26",
+        "L36",
+        "L37",
+        "L38",
+        "Q32"
+      ],
+      "pdf_sha": "956e281c27748f76fe7019dcdc95e25d98db1a1c793a0638f8f4ff23e189e152",
+      "png_sha": "2ef2ecc34b1483e1a250827524b4a44f9ea11f4522e3b00e3cfdbc31f811dd9d",
+      "scope": "Actual fresh size curves and R76-selected heldout L21 fits; not established RG invariant or exponent."
+    },
+    {
+      "figure": "entropy_competition_and_startup_correction",
+      "ids": [
+        "L17",
+        "L26",
+        "L36",
+        "L37",
+        "L38"
+      ],
+      "pdf_sha": "a1eccd739e43ce0dfd4b86b55bb7cff0b029a3416006d0d7a80bd9c47f1230fa",
+      "png_sha": "e3f88795c5313f949482a8a0bd4ef04c75315d83dc656ddc41a099c1ca71bea7",
+      "scope": "Exact independent categorical null, actual frozen score controls, R86 startup bracket correction; no causal identification or physical criticality."
+    }
+  ],
+  "sources": {
+    "CONVERGENCE87.json": "7395ecad24eb7a55b294f4adf3a4e262ac941f48d0b3a2084547708b630a3cf7",
+    "CRITICAL87.json": "7196cb5780a8376870f2c0f82d21ec8e1653e850e3666a3d47d8735b630daf04",
+    "ERRATUM86.json": "8be777f904fb8fb8e4b1afdfd5caa0458f43c76c80b9e8cd4217199eff967ca8",
+    "INDEPENDENT87.json": "efe68973c64b7ec7fb90b98dc387b4ab6e54d8edaa883a6e2650755ce16ba147",
+    "SUMMARY87.json": "0e1d5efcfcc1dc0508ae8e6fcf93c9dd066fc37c0362b8790a63f7968baef694",
+    "plot87.py": "5ac567f2ef003ce91b209652fdc70c178e82771a383e274e5d3c9514af37c796"
+  }
+}

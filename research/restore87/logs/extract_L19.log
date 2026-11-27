@@ -1,0 +1,4 @@
+AUDIT 19 76 512
+AUDIT 19 77 704
+AUDIT 19 87 864
+AUDIT COMPLETE 19 864 {'probability': 8.43769498715119e-15, 'startup_pair': 0.0, 'quiescent_wave': 0.0, 'backup': 0.0, 'uniform': 0.0, 'null': 0.0, 'score': 0.0, 'rng': 1.1102230246251565e-16, 'sample_log': 1.7763568394002505e-15}

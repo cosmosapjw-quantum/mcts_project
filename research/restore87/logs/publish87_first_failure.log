@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore87_20261128/publish87.py", line 22, in <module>
+    assert r['model']==ext and r['contract_sha']==sha(S/'THEORY_REGISTERED87.md') and a['paths']==864 and a['fresh_paths']==160 and a['fresh_backups']==10240
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

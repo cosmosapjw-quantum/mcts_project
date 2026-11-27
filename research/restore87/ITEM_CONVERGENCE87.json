@@ -1,0 +1,120 @@
+{
+  "claims": [
+    {
+      "claim": "For fixed legal support, normalized categorical martingale innovation covariance is PSD, has constant-vector null mode, trace<=1-1/n and operator norm<=1/2, for arbitrary adapted conditional selection law and finite B. Scalar bounded mode variance <=range(f)^2/4. Actual per-selection R49 trace verified, including startup correction.",
+      "evidence": [
+        "THEORY.md",
+        "CRITICAL87.json",
+        "ERRATUM86.json",
+        "INDEPENDENT87.json",
+        "SUMMARY87.json"
+      ],
+      "id": "SCALE-BOUND-01",
+      "items": [
+        "L17",
+        "L26",
+        "L36",
+        "L37",
+        "L38",
+        "Q32"
+      ],
+      "limit": "Normalized innovation only; no claim excluding critical behavior in drift, extensive observables, length or a singular joint limit. R49 per-selection conditional law, not all first four IID.",
+      "stage": 87,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A noninteracting categorical model with one score gap exhibits exact sigmoid collapse in beta*Delta-log(n-1), and a finite Gibbs concentration bound follows from score range. Actual finite-size score landscapes and declared log-size control tested separately from adaptive dynamics.",
+      "evidence": [
+        "THEORY.md",
+        "CRITICAL87.json",
+        "INDEPENDENT87.json",
+        "SUMMARY87.json"
+      ],
+      "id": "SCALE-ENTROPY-02",
+      "items": [
+        "L17",
+        "L26",
+        "L36",
+        "L37",
+        "L38"
+      ],
+      "limit": "Explicit counterexample to sufficiency of collapse as evidence of spatial criticality; not proof that all actual MCTS concentration is explained by this null. No physical temperature or scaling exponent.",
+      "stage": 87,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Native adaptive MCTS has a controlled spatial critical limit with consistent finite-size scaling and identified RG fixed point.",
+      "evidence": [
+        "CRITICAL87.json",
+        "SUMMARY87.json",
+        "THEORY.md"
+      ],
+      "id": "SCALE-CRITICAL-03",
+      "items": [
+        "L17",
+        "L26",
+        "L36",
+        "L37",
+        "L38",
+        "Q32"
+      ],
+      "limit": "Registered finite-size critical admission not established unless all predeclared comparisons pass; even a pass is descriptive and requires independent asymptotic mechanism. R76/R77 negative results and nonlumpability retained. No repeating same grid without new mechanism.",
+      "stage": 87,
+      "status": "OPEN_CONTROLLED_CRITICAL_LIMIT"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "SCALE-BOUND-01;SCALE-ENTROPY-02",
+      "id": "L17",
+      "open": "SCALE-CRITICAL-03",
+      "remaining_final_acceptance": "Replace assumed phase boundaries by independent control scan, phase observable, correlation length and entropy-production definition; test crossover.",
+      "scope": "Bounded full-action innovation and independent finite-size critical/crossover comparisons; no critical admission."
+    },
+    {
+      "accepted": "SCALE-BOUND-01;SCALE-ENTROPY-02",
+      "id": "L26",
+      "open": "SCALE-CRITICAL-03",
+      "remaining_final_acceptance": "Independent budget and prefix trajectories, compare actual selector slope versus occupancy projection; fit scaling only if justified.",
+      "scope": "Exact entropy-gap crossover and actual controlled log-size selection schedule; no physical temperature."
+    },
+    {
+      "accepted": "SCALE-BOUND-01;SCALE-ENTROPY-02",
+      "id": "L36",
+      "open": "SCALE-CRITICAL-03",
+      "remaining_final_acceptance": "Define 2D projected flow and full-state closure/residual; reference stationarity not native physical fixed point.",
+      "scope": "Noninteracting categorical scaling null and frozen versus adaptive controls; no autonomous physical RG flow."
+    },
+    {
+      "accepted": "SCALE-BOUND-01;SCALE-ENTROPY-02",
+      "id": "L37",
+      "open": "SCALE-CRITICAL-03",
+      "remaining_final_acceptance": "Original WF candidate fails beta_g; frozen-tau solution unstable; derive autonomous corrected coupling flow before physical fixed-point claim.",
+      "scope": "Controlled heldout critical-width models and crossing diagnostics; original fixed-point obligation remains open."
+    },
+    {
+      "accepted": "SCALE-BOUND-01;SCALE-ENTROPY-02",
+      "id": "L38",
+      "open": "SCALE-CRITICAL-03",
+      "remaining_final_acceptance": "Scale-dependent entropy/Q/participation and cumulants with fixed normalization, joint adjacent-block law and uncertainty; controlled limit.",
+      "scope": "Per-selection predictable covariance, finite-prefix and board-size observations, corrected R49 startup. R86 startup bracket/exponential erratum applies; compensated D and lag cross moments unchanged."
+    },
+    {
+      "accepted": "",
+      "id": "L39",
+      "open": "",
+      "remaining_final_acceptance": "Measure root/time-conditioned autocorrelation with lag and geometry blocks; estimate tau only if resolved model and independent prediction.",
+      "scope": " R86 startup bracket/exponential erratum applies; compensated D and lag cross moments unchanged."
+    },
+    {
+      "accepted": "SCALE-BOUND-01",
+      "id": "Q32",
+      "open": "SCALE-CRITICAL-03",
+      "remaining_final_acceptance": "Measure direct conjugate source response, compare path-score and fluctuation; thermal susceptibility/C only if calibrated T.",
+      "scope": "Bounded normalized innovation susceptibility, raw/drift/innovation covariance decomposition and exact null; physical susceptibility not identified."
+    }
+  ],
+  "parent_convergence_sha256": "4a45847457ca734c6a688e87d94bca99127ab5e0729ae9346a742cfb4f3941fb",
+  "parent_quality_matrix_sha256": "1792c812bec13f92fb1c7d8839099697f8bf774009c90234f7ac4d1864c0cf0a",
+  "scope": "R87 delta and R86 startup correction; R79 original item contracts unchanged."
+}

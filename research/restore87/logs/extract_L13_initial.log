@@ -1,0 +1,8 @@
+AUDIT 13 76 512
+AUDIT 13 77 704
+AUDIT 13 87 864
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore87_20261128/extract87.py", line 72, in <module>
+    assert len(REC)==864 and len(M)==2080 and draws==10240 and len(FROZEN)==32 and max(ERR.values())<1e-8,(len(REC),len(M),dict(ERR))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (864, 2080, {'score': 0.0, 'probability': 1.0436096431476471e-14, 'wave': 0.9937888195617223, 'backup': 0.0, 'uniform': 0.0, 'null': 0.0, 'rng': 1.1102230246251565e-16, 'sample_log': 1.7763568394002505e-15})

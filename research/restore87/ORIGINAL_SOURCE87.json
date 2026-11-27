@@ -1,0 +1,178 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "original_attachment_receipt": {
+    "anchor_is_ancestor": true,
+    "git_anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "guide_obligations": 27,
+    "original_output_obligations": 121,
+    "original_source_function_obligations": 94,
+    "original_source_zip_members": 347,
+    "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "scope": "current source hash and history census, not all historical raw executions replayed",
+    "supplied_zip_check_location": "conversation sandbox, original linked library materialization",
+    "supplied_zip_manifest_members_verified": 34,
+    "supplied_zip_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6"
+  },
+  "scope": "Original critical scaling, phase-transition, temperature and RG/susceptibility targets; R76/R77 negative evidence retained.",
+  "spans": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 2512,
+      "function": "_generate_phase_transition_plots",
+      "id": "L17",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "observable_fields": [
+        "correlation_length",
+        "entropy_production_analysis",
+        "exploitation",
+        "exploration",
+        "phases",
+        "range",
+        "statistical_mechanics",
+        "temperature",
+        "transition"
+      ],
+      "panel": "C_finite_budget_response;C_graph_correlation;A_C_paired_source_response",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "5fceba16493ac9693650849f843044003d96c157525da94b71780b06c2b9f351",
+      "start": 2392
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 115,
+      "function": "plot_temperature_scaling",
+      "id": "L26",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+      "member_sha": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+      "observable_fields": [
+        "authentic_measurements",
+        "n_visits",
+        "temperature",
+        "temperatures"
+      ],
+      "panel": "T_temperature_entropy",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "b3dd8d2109b4dab7c2a3b8536d2d3bd91004e30d56f0eddab7ea29ba2428572f",
+      "start": 70
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 146,
+      "function": "_plot_2d_flow_diagram",
+      "id": "L36",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/rg_flow_visualizer.py",
+      "member_sha": "e8155b8391697f7bd851689596869accb1758f385d300a48b10e58a65707a8b5",
+      "observable_fields": [
+        "flow_points",
+        "q_variance",
+        "visit_entropy"
+      ],
+      "panel": "R_budget_and_coarse_flow;R_coarse_graining",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "cca3fff17b7abf5f97d717ba3111dc9bc3f6c57dd93d4d856bcd3d156cfce4cf",
+      "start": 117
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 232,
+      "function": "plot_fixed_point_analysis",
+      "id": "L37",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/rg_flow_visualizer.py",
+      "member_sha": "e8155b8391697f7bd851689596869accb1758f385d300a48b10e58a65707a8b5",
+      "observable_fields": [
+        "count",
+        "ensemble_analysis",
+        "fixed_points",
+        "mean_coupling",
+        "mean_scale",
+        "mean_scaling_exponent",
+        "n_valid_trajectories",
+        "stability",
+        "std_scaling_exponent",
+        "universality_measure"
+      ],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "f9dc430ff334698896fdf521bfb22f03c3c90761dccce902e2ff88a3b8c90e0a",
+      "start": 148
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 310,
+      "function": "plot_scale_dependent_observables",
+      "id": "L38",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/rg_flow_visualizer.py",
+      "member_sha": "e8155b8391697f7bd851689596869accb1758f385d300a48b10e58a65707a8b5",
+      "observable_fields": [
+        "ensemble_analysis",
+        "ensemble_flow",
+        "entropy",
+        "entropy_std",
+        "participation_ratio",
+        "q_mean",
+        "q_mean_std",
+        "q_variance",
+        "q_variance_std",
+        "scale"
+      ],
+      "panel": "R_budget_and_coarse_flow;R_coarse_graining",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "60c8bb2763f85d0c010cb46831171b7294bd3c6141d1b1c44a726f7fd1d3f588",
+      "start": 234
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 641,
+      "function": "plot_susceptibility_analysis",
+      "id": "Q32",
+      "member": "quantum/research/visualization/plot_statistical_physics.py",
+      "member_sha": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+      "observable_fields": [
+        "field_susceptibility",
+        "fields",
+        "heat_capacity",
+        "response",
+        "susceptibility",
+        "temperature_susceptibility",
+        "temperatures"
+      ],
+      "panel": "C_finite_budget_response;C_graph_correlation;A_C_paired_source_response;N_score_balance",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "ba1bc75224d86026923f5a91adadde75936913e18b0f3d515b643e2024017cd7",
+      "start": 492
+    }
+  ],
+  "verified_members": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+      "sha256": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/rg_flow_visualizer.py",
+      "sha256": "e8155b8391697f7bd851689596869accb1758f385d300a48b10e58a65707a8b5"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_statistical_physics.py",
+      "sha256": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    }
+  ]
+}
