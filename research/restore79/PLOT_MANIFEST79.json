@@ -1,0 +1,57 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "L31_honest_physics_summary",
+      "ids": [
+        "L31",
+        "L34",
+        "L05"
+      ],
+      "pdf_sha": "c89f1e8c45c8032979c8360977d2daa90d2005a1608259a55832209b132a68aa",
+      "png_sha": "f846ec6924aa3712d544b3598fdcd71d5d4fd515b484ba0837717187e1112248",
+      "scope": "All nine original panels reconstructed from actual authenticated numerical artifacts; separate native and declared models. Report-level acceptance only."
+    },
+    {
+      "figure": "conditional_scale_calibration",
+      "ids": [
+        "L03",
+        "L25",
+        "G02"
+      ],
+      "pdf_sha": "9d98bf3a2505d212aa35ec8ae5fc7cc0cc929f782b1f20eb3e75152d7abb2aab",
+      "png_sha": "e7b0f55e7bd77a0cc4ee3d99b297a1c409ea1e4ff3ab95dc208975ebd14f7810",
+      "scope": "Actual conditional law versus alternatives, heldout native likelihood/KL. Not physical T."
+    },
+    {
+      "figure": "occupancy_projection_quality",
+      "ids": [
+        "L26",
+        "L04",
+        "G02"
+      ],
+      "pdf_sha": "229ca0b50cd23599f8e8e33eb8437d404e3226a2b5e26163a39c9e3f4ed4b366",
+      "png_sha": "d618d2b0a8070d05b0616d55142d28b3e76d71296c3c6a0311db4ef4d1771999",
+      "scope": "Endpoint occupancy projection, finite bounds and negative/invalid fits retained; no temperature scaling law."
+    },
+    {
+      "figure": "original_item_quality_matrix",
+      "ids": [
+        "L31",
+        "L34",
+        "L05"
+      ],
+      "pdf_sha": "dba99974614b9be719b02da0ce867cf4561e1cfd91af7fc9416fa96bcd8f8492",
+      "png_sha": "2dcf95b82247b456befb0819ec3f216633dd22b2ba5a75a1bbccd45d596e76a3",
+      "scope": "Authored item-specific dispositions and next work; all underlying original scientific certifications remain separate."
+    }
+  ],
+  "sources": {
+    "AUDIT79.json": "17741b3cac2b4ca03162e9be148e25536a389c2eca42fce1209ec05b7f4274bd",
+    "CALIBRATION79.json": "41192fea9276b28545cd7c8a9aebe0cf35fd64428c7a64ed84a8196af35f6685",
+    "HONEST_SUMMARY79.json": "9582fed5f8a6cb614b1f1c320372f9fcbbd7b888d9d23c2d6affd004970e5cbf",
+    "INDEPENDENT79.json": "3cd2f7767694f13c144fae15c826503bd06a1bcaa063e3cd6b0882ea9330332b",
+    "ITEM_ACCEPTANCE79.json": "3fd7b31bbeef7e1e9799251cb956406bc82a6864eea26b7506b010d20d11d777",
+    "plot79.py": "ed7d15a1529fa1973845e371c7622bf9ac0a38705e2eee15a53373dc9ef16cfe"
+  }
+}

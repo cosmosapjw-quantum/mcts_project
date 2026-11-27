@@ -1,0 +1,1259 @@
+{
+  "inputs": {
+    "mqft_restore66_20261126/ERASURE66.json": "cb6be8986d937a4ed68d8045fc709cbf3aac67e50a98bd4e35f7194c00167013",
+    "mqft_restore66_20261126/FEEDBACK66.json": "366509973095b4a6bad8ae2bc4605e9c9e31fc6087f7a52802eb64bf8b94140d",
+    "mqft_restore66_20261126/THERMAL66.json": "554dae157e8eda9c843d0d080cd9c25b8aee3cc8be6a516eb38dbcfb8597cb26",
+    "mqft_restore69_20261126/PHYSICS_RESULTS.json": "2516696e43b52a079b0f51c6374f2f57b1262de01140b72cf04201df85376f86",
+    "mqft_restore73_20261126/DECISION_RESULTS73.json": "d044bd43d0de24252681cd752ca1d6b63da68423ee0409c774d35490c50fd81c",
+    "mqft_restore74_20261126/PETZ74.json": "48f524622e9092beadc47f33bcf0944f8ddb7411e52203b09ac568dc84721ed8",
+    "mqft_restore76_20261127/ORIGINAL_CLAIM_AUDIT76.json": "e0f4ca30e11bd2c65e6b2770114c8e317e3b475f7839e85e7023a820ea266c08",
+    "mqft_restore76_20261127/SUMMARY76.json": "bb61f7a8ea50abfea2549baf8ee7fb70320e3d08aac52267b05d92717e8d0585",
+    "mqft_restore77_20261127/ORIGINAL_RG_AUDIT77.json": "f80c8bfc577c517a1859986a9e73046ae844f59d48ec0fec76c68dcf9802cdaf",
+    "mqft_restore77_20261127/SUMMARY77.json": "0b96995a40b26751a3c43dbb4c9f303553b2a1dd9c95a33a4a512753da985401",
+    "mqft_restore78_20261127/GAUGE78.json": "4cae3201a1eeeaec36c40e8a5479a0f5a0e3033bfbacd57b5bfe1acee957a917",
+    "mqft_restore79_20261127/AUDIT79.json": "17741b3cac2b4ca03162e9be148e25536a389c2eca42fce1209ec05b7f4274bd",
+    "mqft_restore79_20261127/CALIBRATION79.json": "41192fea9276b28545cd7c8a9aebe0cf35fd64428c7a64ed84a8196af35f6685",
+    "mqft_restore79_20261127/EVIDENCE_LINKS79.json": "040cd70c43197406d5e7e821f13e7d8d4b95f848f85d55c1d6b9093e719440c6",
+    "mqft_restore79_20261127/INDEPENDENT79.json": "3cd2f7767694f13c144fae15c826503bd06a1bcaa063e3cd6b0882ea9330332b",
+    "mqft_restore79_20261127/INVENTORY_AUDIT79.json": "6ea1ca2e901615248f0286ca86f7f73e4a423b3cfe624397d8aad32af3681cd8",
+    "mqft_restore79_20261127/ORIGINAL_SOURCE79.json": "d6794c49d72f4c256a6ea7279a9ca6ebea969eb3596f6b72c11fcd0a906731e5",
+    "mqft_restore79_20261127/acceptance79.tsv": "e407a934e9f90a0a0afda8c7fb54de95586c736cbf52f736b874a2c42ba0b9b2"
+  },
+  "panels": [
+    {
+      "data": [
+        {
+          "conditional_KL": {
+            "Q": [
+              0.10961273578155076,
+              0.09144778836034737,
+              0.12777768320275415
+            ],
+            "known_score": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "log_prior": [
+              0.979662948090438,
+              0.8980509266139867,
+              1.0612749695668893
+            ],
+            "score": [
+              2.3745191319216014e-05,
+              2.147891089132698e-05,
+              2.601147174710505e-05
+            ],
+            "uniform": [
+              1.1755524778978879,
+              1.0828009228581803,
+              1.2683040329375954
+            ]
+          },
+          "family": "g0",
+          "occupancy": [
+            {
+              "B": 4,
+              "interior_quantiles": [
+                -18.6276332269155,
+                -5.599449461740838,
+                19.820519911284734
+              ],
+              "mean_occupancy_KL": 0.5686243376031515,
+              "n": 256,
+              "positive_interior": 66,
+              "statuses": {
+                "interior": 251,
+                "lower_bound": 3,
+                "upper_bound": 2
+              }
+            },
+            {
+              "B": 8,
+              "interior_quantiles": [
+                -16.247357739454152,
+                -4.297699941067005,
+                10.029403024056514
+              ],
+              "mean_occupancy_KL": 0.6038440593267551,
+              "n": 256,
+              "positive_interior": 54,
+              "statuses": {
+                "interior": 231,
+                "lower_bound": 6,
+                "upper_bound": 19
+              }
+            },
+            {
+              "B": 16,
+              "interior_quantiles": [
+                -11.319655515396688,
+                -2.4750648994687072,
+                10.2870416374784
+              ],
+              "mean_occupancy_KL": 0.660949503719647,
+              "n": 256,
+              "positive_interior": 73,
+              "statuses": {
+                "interior": 233,
+                "lower_bound": 6,
+                "upper_bound": 17
+              }
+            },
+            {
+              "B": 32,
+              "interior_quantiles": [
+                -9.360346410404409,
+                -0.8307926186644088,
+                9.517248075138538
+              ],
+              "mean_occupancy_KL": 0.6560136132799154,
+              "n": 256,
+              "positive_interior": 90,
+              "statuses": {
+                "interior": 235,
+                "lower_bound": 3,
+                "upper_bound": 18
+              }
+            },
+            {
+              "B": 64,
+              "interior_quantiles": [
+                -4.660394612671148,
+                0.7225460524021526,
+                9.498895041410947
+              ],
+              "mean_occupancy_KL": 0.5811618121592319,
+              "n": 256,
+              "positive_interior": 175,
+              "statuses": {
+                "interior": 235,
+                "upper_bound": 21
+              }
+            },
+            {
+              "B": 128,
+              "interior_quantiles": [
+                1.3602131743568264,
+                1.838777475715604,
+                10.707511010506986
+              ],
+              "mean_occupancy_KL": 0.3390233916442228,
+              "n": 256,
+              "positive_interior": 237,
+              "statuses": {
+                "interior": 237,
+                "upper_bound": 19
+              }
+            }
+          ],
+          "scale": 3.350317985181987,
+          "slope_count": 7936,
+          "slope_error": 4.884981308350689e-15,
+          "unidentifiable": 256
+        },
+        {
+          "conditional_KL": {
+            "Q": [
+              0.09354482495354498,
+              0.06829437143208708,
+              0.11879527847500287
+            ],
+            "known_score": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "log_prior": [
+              0.40985258387426665,
+              0.3657801251728263,
+              0.453925042575707
+            ],
+            "score": [
+              6.538805640422828e-05,
+              5.7093146461702104e-05,
+              7.368296634675446e-05
+            ],
+            "uniform": [
+              0.6364779377373797,
+              0.554554771778242,
+              0.7184011036965174
+            ]
+          },
+          "family": "g3",
+          "occupancy": [
+            {
+              "B": 4,
+              "interior_quantiles": [
+                -12.34588913259521,
+                -4.915971033692566,
+                11.86605857583237
+              ],
+              "mean_occupancy_KL": 0.8743408821224491,
+              "n": 256,
+              "positive_interior": 114,
+              "statuses": {
+                "interior": 254,
+                "lower_bound": 1,
+                "upper_bound": 1
+              }
+            },
+            {
+              "B": 8,
+              "interior_quantiles": [
+                -7.997328969394075,
+                -2.9464455841157178,
+                6.3823791555418365
+              ],
+              "mean_occupancy_KL": 1.0866036708215465,
+              "n": 256,
+              "positive_interior": 114,
+              "statuses": {
+                "interior": 253,
+                "lower_bound": 1,
+                "upper_bound": 2
+              }
+            },
+            {
+              "B": 16,
+              "interior_quantiles": [
+                -6.143255145048096,
+                -2.6126596431529063,
+                5.869606657683109
+              ],
+              "mean_occupancy_KL": 1.0203741113530018,
+              "n": 256,
+              "positive_interior": 117,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 32,
+              "interior_quantiles": [
+                -4.8356507034951255,
+                -0.3769105585027914,
+                5.127566090619913
+              ],
+              "mean_occupancy_KL": 0.8339362896691984,
+              "n": 256,
+              "positive_interior": 125,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 64,
+              "interior_quantiles": [
+                -3.1900265225301574,
+                0.8558518627742151,
+                4.499524614324464
+              ],
+              "mean_occupancy_KL": 0.5875231151324729,
+              "n": 256,
+              "positive_interior": 153,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 128,
+              "interior_quantiles": [
+                0.282823970641771,
+                1.935105373917514,
+                4.425970509737283
+              ],
+              "mean_occupancy_KL": 0.3354449045229325,
+              "n": 256,
+              "positive_interior": 246,
+              "statuses": {
+                "interior": 256
+              }
+            }
+          ],
+          "scale": 3.299410786815057,
+          "slope_count": 7936,
+          "slope_error": 6.217248937900877e-15,
+          "unidentifiable": 256
+        },
+        {
+          "conditional_KL": {
+            "Q": [
+              0.15437712830436612,
+              0.13822977559086524,
+              0.170524481017867
+            ],
+            "known_score": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "log_prior": [
+              0.46549362411082074,
+              0.42984265583741,
+              0.5011445923842315
+            ],
+            "score": [
+              1.490368653500736e-06,
+              1.2120661884583447e-06,
+              1.7686711185431274e-06
+            ],
+            "uniform": [
+              0.9642661672546766,
+              0.8162992818236025,
+              1.112233052685751
+            ]
+          },
+          "family": "Rapfi",
+          "occupancy": [
+            {
+              "B": 4,
+              "interior_quantiles": [
+                -14.298383225217126,
+                -7.097666466650586,
+                8.531011459715861
+              ],
+              "mean_occupancy_KL": 1.3823891993793196,
+              "n": 256,
+              "positive_interior": 59,
+              "statuses": {
+                "interior": 253,
+                "lower_bound": 2,
+                "upper_bound": 1
+              }
+            },
+            {
+              "B": 8,
+              "interior_quantiles": [
+                -9.574635400648086,
+                -4.477479287468297,
+                6.433462853024671
+              ],
+              "mean_occupancy_KL": 1.7199081260506746,
+              "n": 256,
+              "positive_interior": 82,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 16,
+              "interior_quantiles": [
+                -6.426409517884206,
+                -2.397355171318013,
+                5.49078669529801
+              ],
+              "mean_occupancy_KL": 1.7361032949757238,
+              "n": 256,
+              "positive_interior": 95,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 32,
+              "interior_quantiles": [
+                -5.547905587287038,
+                -0.06638872038066038,
+                5.12108594776427
+              ],
+              "mean_occupancy_KL": 1.4948995951591193,
+              "n": 256,
+              "positive_interior": 127,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 64,
+              "interior_quantiles": [
+                -5.0387939530446335,
+                1.5904133929789197,
+                4.817746191328351
+              ],
+              "mean_occupancy_KL": 1.1807338084922403,
+              "n": 256,
+              "positive_interior": 156,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 128,
+              "interior_quantiles": [
+                -4.350256566247549,
+                2.1189733224111,
+                4.8415680604000855
+              ],
+              "mean_occupancy_KL": 0.874920421337536,
+              "n": 256,
+              "positive_interior": 176,
+              "statuses": {
+                "interior": 256
+              }
+            }
+          ],
+          "scale": 3.329564890969037,
+          "slope_count": 7936,
+          "slope_error": 8.881784197001252e-15,
+          "unidentifiable": 256
+        }
+      ],
+      "evidence": "NATIVE_CHECKED",
+      "id": "P01",
+      "sources": [
+        "CALIBRATION79.json"
+      ],
+      "title": "Temperature extraction: conditional selector scale"
+    },
+    {
+      "data": [
+        {
+          "conditional_KL": {
+            "Q": [
+              0.10961273578155076,
+              0.09144778836034737,
+              0.12777768320275415
+            ],
+            "known_score": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "log_prior": [
+              0.979662948090438,
+              0.8980509266139867,
+              1.0612749695668893
+            ],
+            "score": [
+              2.3745191319216014e-05,
+              2.147891089132698e-05,
+              2.601147174710505e-05
+            ],
+            "uniform": [
+              1.1755524778978879,
+              1.0828009228581803,
+              1.2683040329375954
+            ]
+          },
+          "family": "g0",
+          "occupancy": [
+            {
+              "B": 4,
+              "interior_quantiles": [
+                -18.6276332269155,
+                -5.599449461740838,
+                19.820519911284734
+              ],
+              "mean_occupancy_KL": 0.5686243376031515,
+              "n": 256,
+              "positive_interior": 66,
+              "statuses": {
+                "interior": 251,
+                "lower_bound": 3,
+                "upper_bound": 2
+              }
+            },
+            {
+              "B": 8,
+              "interior_quantiles": [
+                -16.247357739454152,
+                -4.297699941067005,
+                10.029403024056514
+              ],
+              "mean_occupancy_KL": 0.6038440593267551,
+              "n": 256,
+              "positive_interior": 54,
+              "statuses": {
+                "interior": 231,
+                "lower_bound": 6,
+                "upper_bound": 19
+              }
+            },
+            {
+              "B": 16,
+              "interior_quantiles": [
+                -11.319655515396688,
+                -2.4750648994687072,
+                10.2870416374784
+              ],
+              "mean_occupancy_KL": 0.660949503719647,
+              "n": 256,
+              "positive_interior": 73,
+              "statuses": {
+                "interior": 233,
+                "lower_bound": 6,
+                "upper_bound": 17
+              }
+            },
+            {
+              "B": 32,
+              "interior_quantiles": [
+                -9.360346410404409,
+                -0.8307926186644088,
+                9.517248075138538
+              ],
+              "mean_occupancy_KL": 0.6560136132799154,
+              "n": 256,
+              "positive_interior": 90,
+              "statuses": {
+                "interior": 235,
+                "lower_bound": 3,
+                "upper_bound": 18
+              }
+            },
+            {
+              "B": 64,
+              "interior_quantiles": [
+                -4.660394612671148,
+                0.7225460524021526,
+                9.498895041410947
+              ],
+              "mean_occupancy_KL": 0.5811618121592319,
+              "n": 256,
+              "positive_interior": 175,
+              "statuses": {
+                "interior": 235,
+                "upper_bound": 21
+              }
+            },
+            {
+              "B": 128,
+              "interior_quantiles": [
+                1.3602131743568264,
+                1.838777475715604,
+                10.707511010506986
+              ],
+              "mean_occupancy_KL": 0.3390233916442228,
+              "n": 256,
+              "positive_interior": 237,
+              "statuses": {
+                "interior": 237,
+                "upper_bound": 19
+              }
+            }
+          ],
+          "scale": 3.350317985181987,
+          "slope_count": 7936,
+          "slope_error": 4.884981308350689e-15,
+          "unidentifiable": 256
+        },
+        {
+          "conditional_KL": {
+            "Q": [
+              0.09354482495354498,
+              0.06829437143208708,
+              0.11879527847500287
+            ],
+            "known_score": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "log_prior": [
+              0.40985258387426665,
+              0.3657801251728263,
+              0.453925042575707
+            ],
+            "score": [
+              6.538805640422828e-05,
+              5.7093146461702104e-05,
+              7.368296634675446e-05
+            ],
+            "uniform": [
+              0.6364779377373797,
+              0.554554771778242,
+              0.7184011036965174
+            ]
+          },
+          "family": "g3",
+          "occupancy": [
+            {
+              "B": 4,
+              "interior_quantiles": [
+                -12.34588913259521,
+                -4.915971033692566,
+                11.86605857583237
+              ],
+              "mean_occupancy_KL": 0.8743408821224491,
+              "n": 256,
+              "positive_interior": 114,
+              "statuses": {
+                "interior": 254,
+                "lower_bound": 1,
+                "upper_bound": 1
+              }
+            },
+            {
+              "B": 8,
+              "interior_quantiles": [
+                -7.997328969394075,
+                -2.9464455841157178,
+                6.3823791555418365
+              ],
+              "mean_occupancy_KL": 1.0866036708215465,
+              "n": 256,
+              "positive_interior": 114,
+              "statuses": {
+                "interior": 253,
+                "lower_bound": 1,
+                "upper_bound": 2
+              }
+            },
+            {
+              "B": 16,
+              "interior_quantiles": [
+                -6.143255145048096,
+                -2.6126596431529063,
+                5.869606657683109
+              ],
+              "mean_occupancy_KL": 1.0203741113530018,
+              "n": 256,
+              "positive_interior": 117,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 32,
+              "interior_quantiles": [
+                -4.8356507034951255,
+                -0.3769105585027914,
+                5.127566090619913
+              ],
+              "mean_occupancy_KL": 0.8339362896691984,
+              "n": 256,
+              "positive_interior": 125,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 64,
+              "interior_quantiles": [
+                -3.1900265225301574,
+                0.8558518627742151,
+                4.499524614324464
+              ],
+              "mean_occupancy_KL": 0.5875231151324729,
+              "n": 256,
+              "positive_interior": 153,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 128,
+              "interior_quantiles": [
+                0.282823970641771,
+                1.935105373917514,
+                4.425970509737283
+              ],
+              "mean_occupancy_KL": 0.3354449045229325,
+              "n": 256,
+              "positive_interior": 246,
+              "statuses": {
+                "interior": 256
+              }
+            }
+          ],
+          "scale": 3.299410786815057,
+          "slope_count": 7936,
+          "slope_error": 6.217248937900877e-15,
+          "unidentifiable": 256
+        },
+        {
+          "conditional_KL": {
+            "Q": [
+              0.15437712830436612,
+              0.13822977559086524,
+              0.170524481017867
+            ],
+            "known_score": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "log_prior": [
+              0.46549362411082074,
+              0.42984265583741,
+              0.5011445923842315
+            ],
+            "score": [
+              1.490368653500736e-06,
+              1.2120661884583447e-06,
+              1.7686711185431274e-06
+            ],
+            "uniform": [
+              0.9642661672546766,
+              0.8162992818236025,
+              1.112233052685751
+            ]
+          },
+          "family": "Rapfi",
+          "occupancy": [
+            {
+              "B": 4,
+              "interior_quantiles": [
+                -14.298383225217126,
+                -7.097666466650586,
+                8.531011459715861
+              ],
+              "mean_occupancy_KL": 1.3823891993793196,
+              "n": 256,
+              "positive_interior": 59,
+              "statuses": {
+                "interior": 253,
+                "lower_bound": 2,
+                "upper_bound": 1
+              }
+            },
+            {
+              "B": 8,
+              "interior_quantiles": [
+                -9.574635400648086,
+                -4.477479287468297,
+                6.433462853024671
+              ],
+              "mean_occupancy_KL": 1.7199081260506746,
+              "n": 256,
+              "positive_interior": 82,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 16,
+              "interior_quantiles": [
+                -6.426409517884206,
+                -2.397355171318013,
+                5.49078669529801
+              ],
+              "mean_occupancy_KL": 1.7361032949757238,
+              "n": 256,
+              "positive_interior": 95,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 32,
+              "interior_quantiles": [
+                -5.547905587287038,
+                -0.06638872038066038,
+                5.12108594776427
+              ],
+              "mean_occupancy_KL": 1.4948995951591193,
+              "n": 256,
+              "positive_interior": 127,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 64,
+              "interior_quantiles": [
+                -5.0387939530446335,
+                1.5904133929789197,
+                4.817746191328351
+              ],
+              "mean_occupancy_KL": 1.1807338084922403,
+              "n": 256,
+              "positive_interior": 156,
+              "statuses": {
+                "interior": 256
+              }
+            },
+            {
+              "B": 128,
+              "interior_quantiles": [
+                -4.350256566247549,
+                2.1189733224111,
+                4.8415680604000855
+              ],
+              "mean_occupancy_KL": 0.874920421337536,
+              "n": 256,
+              "positive_interior": 176,
+              "statuses": {
+                "interior": 256
+              }
+            }
+          ],
+          "scale": 3.329564890969037,
+          "slope_count": 7936,
+          "slope_error": 8.881784197001252e-15,
+          "unidentifiable": 256
+        }
+      ],
+      "evidence": "NATIVE_CHECKED",
+      "id": "P02",
+      "sources": [
+        "CALIBRATION79.json"
+      ],
+      "title": "Temperature scaling: occupancy projection"
+    },
+    {
+      "data": [
+        {
+          "B": 16,
+          "beta": 0.0,
+          "binder_mean": -0.4865171279646409,
+          "bracket": 0.9960401303440765,
+          "cross": -1.7347234759768072e-19,
+          "drift": 0.0,
+          "martingale": 0.9938802083333332,
+          "ratio_mean": 0.4948399724809415,
+          "top_pair_abs": 0.008203125,
+          "trace": 0.9938802083333332
+        },
+        {
+          "B": 16,
+          "beta": 3.3333333333333335,
+          "binder_mean": -0.19386831727983628,
+          "bracket": 0.9701718497187585,
+          "cross": 0.12301710889357698,
+          "drift": 0.058236564475631136,
+          "martingale": 0.9523400766307917,
+          "ratio_mean": 0.4427028786535027,
+          "top_pair_abs": 0.090625,
+          "trace": 1.1335937499999997
+        },
+        {
+          "B": 16,
+          "beta": 8.0,
+          "binder_mean": -0.6793832373009598,
+          "bracket": 0.53990551282288,
+          "cross": 0.5213352176516589,
+          "drift": 1.341224581482133,
+          "martingale": 0.5141329091995414,
+          "ratio_mean": 0.440532762883434,
+          "top_pair_abs": 0.3453125,
+          "trace": 2.3766927083333327
+        },
+        {
+          "B": 16,
+          "beta": 16.0,
+          "binder_mean": -0.761958151904703,
+          "bracket": 0.22911036134237245,
+          "cross": 0.5846649676759329,
+          "drift": 2.7259306330008584,
+          "martingale": 0.25372731598987536,
+          "ratio_mean": 0.4989624984786191,
+          "top_pair_abs": 0.5330078125,
+          "trace": 3.5643229166666663
+        },
+        {
+          "B": 64,
+          "beta": 0.0,
+          "binder_mean": -0.8893305289959352,
+          "bracket": 0.9960401303440765,
+          "cross": -1.3118846287074603e-18,
+          "drift": 0.0,
+          "martingale": 0.9994140624999999,
+          "ratio_mean": 0.5021549752711056,
+          "top_pair_abs": 0.0072265625,
+          "trace": 0.9994140624999999
+        },
+        {
+          "B": 64,
+          "beta": 3.3333333333333335,
+          "binder_mean": -0.5602980270819797,
+          "bracket": 0.9583008408520387,
+          "cross": 0.0794100860530958,
+          "drift": 0.22248307902963135,
+          "martingale": 0.9644805328339394,
+          "ratio_mean": 0.43277165269137924,
+          "top_pair_abs": 0.058642578125,
+          "trace": 1.2663736979166667
+        },
+        {
+          "B": 64,
+          "beta": 8.0,
+          "binder_mean": -0.5089537709672356,
+          "bracket": 0.5954929085038865,
+          "cross": 0.10205411372191435,
+          "drift": 1.322799586355725,
+          "martingale": 0.5880043728390275,
+          "ratio_mean": 0.4796175630861025,
+          "top_pair_abs": 0.202392578125,
+          "trace": 2.012858072916667
+        },
+        {
+          "B": 64,
+          "beta": 16.0,
+          "binder_mean": -1.2636756764570638,
+          "bracket": 0.3144002081692451,
+          "cross": 0.05800546481215944,
+          "drift": 1.9073606064994675,
+          "martingale": 0.2975245536883728,
+          "ratio_mean": 0.5157723376164436,
+          "top_pair_abs": 0.3421875,
+          "trace": 2.2628906250000003
+        }
+      ],
+      "evidence": "NATIVE_CHECKED",
+      "id": "P03",
+      "sources": [
+        "mqft_restore76_20261127/SUMMARY76.json"
+      ],
+      "title": "Finite-budget fluctuation and crossover"
+    },
+    {
+      "data": {
+        "conditional_hyperscaling_from_original_nu_eta": {
+          "alpha": -0.5499999999999998,
+          "beta": 0.48874999999999996,
+          "gamma": 1.5725
+        },
+        "original": {
+          "alpha": -0.41,
+          "beta": 0.42,
+          "eta": 0.15,
+          "gamma": 1.57,
+          "nu": 0.85
+        },
+        "reference_3D_Ising": {
+          "alpha": 0.10993999999999993,
+          "beta": 0.32643541270000004,
+          "eta": 0.03627,
+          "gamma": 1.2371891746,
+          "nu": 0.63002
+        },
+        "scope": "Original claim of agreement with 3D Ising is contradicted by published nu and eta. Beta/gamma/alpha from standard three-dimensional hyperscaling are conditional on that class. Not a no-go on MQFT criticality.",
+        "section": "4.1 Theorem 4.1",
+        "source_member": {
+          "archive": "mcts_study.zip",
+          "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+          "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+        },
+        "source_url": "https://arxiv.org/abs/1004.4486"
+      },
+      "evidence": "REFUTED_LINKED_CLAIM",
+      "id": "P04",
+      "sources": [
+        "mqft_restore76_20261127/ORIGINAL_CLAIM_AUDIT76.json"
+      ],
+      "title": "Original critical exponent claim vs Ising reference"
+    },
+    {
+      "data": {
+        "block": {
+          "central_residual": [
+            {
+              "beta": 16.0,
+              "field": "central_residual",
+              "h": 1,
+              "mean_W_same_error": 0.0,
+              "mean_W_train_error": 0.6800993577768034,
+              "mean_abs_adjacent_cov": 0.10499028180491043,
+              "mean_abs_k4": 3.9107953352342983,
+              "mean_dependence_error": 0.458237767800895,
+              "mean_marginal_asymmetry": 0.14721436240015043,
+              "mean_var": 0.9541019008936725
+            },
+            {
+              "beta": 16.0,
+              "field": "central_residual",
+              "h": 2,
+              "mean_W_same_error": 0.5435576642621067,
+              "mean_W_train_error": 0.6189456844115412,
+              "mean_abs_adjacent_cov": 0.06437825615381446,
+              "mean_abs_k4": 2.0107019439952487,
+              "mean_dependence_error": 0.31537232255974373,
+              "mean_marginal_asymmetry": 0.04789349791930546,
+              "mean_var": 0.8811477933226266
+            },
+            {
+              "beta": 16.0,
+              "field": "central_residual",
+              "h": 4,
+              "mean_W_same_error": 0.4322547138669039,
+              "mean_W_train_error": 0.7209040935457987,
+              "mean_abs_adjacent_cov": 0.1123197095606229,
+              "mean_abs_k4": 1.763355276921061,
+              "mean_dependence_error": 0.21910834203739488,
+              "mean_marginal_asymmetry": 0.19100071716746786,
+              "mean_var": 0.8519717318439028
+            },
+            {
+              "beta": 16.0,
+              "field": "central_residual",
+              "h": 8,
+              "mean_W_same_error": 0.4314934463236882,
+              "mean_W_train_error": 0.7196321207856429,
+              "mean_abs_adjacent_cov": null,
+              "mean_abs_k4": 0.9638434883882558,
+              "mean_dependence_error": null,
+              "mean_marginal_asymmetry": null,
+              "mean_var": 0.7847079019375165
+            }
+          ],
+          "mark": [
+            {
+              "beta": 16.0,
+              "field": "mark",
+              "h": 1,
+              "mean_W_same_error": 0.0,
+              "mean_W_train_error": 3.324394667654855,
+              "mean_abs_adjacent_cov": 5.989933611421433,
+              "mean_abs_k4": 248.99673872344175,
+              "mean_dependence_error": 0.7930433723080267,
+              "mean_marginal_asymmetry": 0.03420522693163717,
+              "mean_var": 6.3113138890319185
+            },
+            {
+              "beta": 16.0,
+              "field": "mark",
+              "h": 2,
+              "mean_W_same_error": 0.7694236679309836,
+              "mean_W_train_error": 5.118886611994386,
+              "mean_abs_adjacent_cov": 12.004829081677869,
+              "mean_abs_k4": 994.0125082494806,
+              "mean_dependence_error": 0.8889102260271156,
+              "mean_marginal_asymmetry": 0.01866114177499716,
+              "mean_var": 12.299529625932994
+            },
+            {
+              "beta": 16.0,
+              "field": "mark",
+              "h": 4,
+              "mean_W_same_error": 2.230958912960233,
+              "mean_W_train_error": 7.9230678060909,
+              "mean_abs_adjacent_cov": 23.98324159156471,
+              "mean_abs_k4": 3981.5579663109793,
+              "mean_dependence_error": 0.9744180472424961,
+              "mean_marginal_asymmetry": 0.07384000846487881,
+              "mean_var": 24.295950262405142
+            },
+            {
+              "beta": 16.0,
+              "field": "mark",
+              "h": 8,
+              "mean_W_same_error": 4.7651463780657135,
+              "mean_W_train_error": 11.815402504419357,
+              "mean_abs_adjacent_cov": null,
+              "mean_abs_k4": 15871.045957373626,
+              "mean_dependence_error": null,
+              "mean_marginal_asymmetry": null,
+              "mean_var": 48.25192575012172
+            }
+          ]
+        },
+        "original_WF": "-epsilon**2 + epsilon - 1/2"
+      },
+      "evidence": "NATIVE_PLUS_REFERENCE",
+      "id": "P05",
+      "sources": [
+        "mqft_restore77_20261127/SUMMARY77.json",
+        "mqft_restore77_20261127/ORIGINAL_RG_AUDIT77.json"
+      ],
+      "title": "Defined block RG and native dependence"
+    },
+    {
+      "data": {
+        "chi": [
+          0.03319797392555764,
+          0.054564907160327705,
+          0.07123855173517978,
+          0.0849817038964371
+        ],
+        "chi_ratio": [
+          0.14833781944862293,
+          0.2437679072371357,
+          0.3165766320541997,
+          0.37495315570505955
+        ],
+        "classical": [
+          0.012401729623793066,
+          0.02351249522994865,
+          0.03351855114585613,
+          0.04259778334917032
+        ],
+        "classical_packing2": 0,
+        "classical_ratio": [
+          0.05047248900858317,
+          0.09716066726546267,
+          0.1403960762340762,
+          0.18041414113685345
+        ],
+        "decision_logloss_gain": [
+          {
+            "arm": 0,
+            "gain": [
+              0.7002828390129864,
+              0.28551828481393127,
+              1.1150473932120415
+            ],
+            "generation": 0
+          },
+          {
+            "arm": 1,
+            "gain": [
+              0.7153793364293936,
+              0.2805173799499703,
+              1.1502412929088168
+            ],
+            "generation": 0
+          },
+          {
+            "arm": 2,
+            "gain": [
+              0.5799404065845782,
+              0.20285447686450842,
+              0.9570263363046481
+            ],
+            "generation": 0
+          },
+          {
+            "arm": 0,
+            "gain": [
+              0.4968675441411299,
+              0.3897357836663017,
+              0.6039993046159581
+            ],
+            "generation": 1
+          },
+          {
+            "arm": 1,
+            "gain": [
+              0.4600572816515889,
+              0.3181192034114562,
+              0.6019953598917216
+            ],
+            "generation": 1
+          },
+          {
+            "arm": 2,
+            "gain": [
+              0.3820959345838326,
+              0.2595102705717984,
+              0.5046815985958668
+            ],
+            "generation": 1
+          },
+          {
+            "arm": 0,
+            "gain": [
+              -0.08447187577811938,
+              -0.41333939920515694,
+              0.2443956476489182
+            ],
+            "generation": 4
+          }
+        ],
+        "packing2": 3,
+        "waves": 8192
+      },
+      "evidence": "DECLARED_MODEL",
+      "id": "P06",
+      "sources": [
+        "mqft_restore69_20261126/PHYSICS_RESULTS.json",
+        "mqft_restore73_20261126/DECISION_RESULTS73.json"
+      ],
+      "title": "Explicit quantum record information and redundancy"
+    },
+    {
+      "data": {
+        "rows": [
+          {
+            "beta_erasure_work": 1.6092427974861165,
+            "beta_extracted_work": 2.0437210951351765e-17,
+            "beta_sample_extracted_work": 1.4885096741100342e-17,
+            "erasure_entropy_bound": 0.30513420531775975,
+            "information": 0.13226140162021818,
+            "n_protocols": 96,
+            "steps": 1
+          },
+          {
+            "beta_erasure_work": 0.6104452282056038,
+            "beta_extracted_work": 0.09754117685535574,
+            "beta_sample_extracted_work": 0.09564936107473551,
+            "erasure_entropy_bound": 0.30513420531775975,
+            "information": 0.13226140162021818,
+            "n_protocols": 96,
+            "steps": 4
+          },
+          {
+            "beta_erasure_work": 0.3803103252440424,
+            "beta_extracted_work": 0.12348135994591457,
+            "beta_sample_extracted_work": 0.12244910948997798,
+            "erasure_entropy_bound": 0.30513420531775975,
+            "information": 0.13226140162021818,
+            "n_protocols": 96,
+            "steps": 16
+          },
+          {
+            "beta_erasure_work": 0.32385717080202453,
+            "beta_extracted_work": 0.13006015433377605,
+            "beta_sample_extracted_work": 0.12916491147371476,
+            "erasure_entropy_bound": 0.30513420531775975,
+            "information": 0.13226140162021818,
+            "n_protocols": 96,
+            "steps": 64
+          }
+        ],
+        "scope": "beta times model work, beta E*=10/3; feedback and erasure are distinct protocols, not a net cycle; erasure bound is entropy decrease for degenerate endpoints"
+      },
+      "evidence": "DECLARED_MODEL",
+      "id": "P07",
+      "sources": [
+        "mqft_restore66_20261126/FEEDBACK66.json",
+        "mqft_restore66_20261126/ERASURE66.json"
+      ],
+      "title": "Information-to-work and finite erasure"
+    },
+    {
+      "data": {
+        "contexts": 64,
+        "max_balance_error": 2.0816681711721685e-16,
+        "max_free_energy_exchange": 1.6653345369377348e-16,
+        "mean_energy": [
+          -0.05289250015021793,
+          -0.0528925001502179,
+          -0.04220387853923531,
+          -0.04220387853923532,
+          -0.05095531356832601,
+          -0.050955313568326034
+        ],
+        "mean_switch_work": [
+          0.010688621610982598,
+          -0.008751435029090685
+        ]
+      },
+      "evidence": "DECLARED_MODEL",
+      "id": "P08",
+      "sources": [
+        "mqft_restore74_20261126/PETZ74.json"
+      ],
+      "title": "Declared switched-H energy ledger"
+    },
+    {
+      "data": {
+        "actual_conditional_slope_waves": 23808,
+        "critical_point": "NOT_ESTABLISHED",
+        "fresh_backups": 98304,
+        "guide_labels": 27,
+        "historical_manifest_files_verified": 781,
+        "historical_plot_pairs_verified": 640,
+        "native_phase": "NOT_IDENTIFIED",
+        "new_paths": 768,
+        "original_physical_temperature": "NOT_IDENTIFIED",
+        "quantum_reference_record_waves": 8192,
+        "reference_thermal_contexts": 64,
+        "source_functions": 94,
+        "training_reused": 192,
+        "unidentifiable_initial_waves": 768
+      },
+      "evidence": "AUDIT",
+      "id": "P09",
+      "sources": [
+        "INVENTORY_AUDIT79.json",
+        "AUDIT79.json",
+        "INDEPENDENT79.json"
+      ],
+      "title": "Typed quality and identification"
+    }
+  ],
+  "scope": "Original L31 nine-panel intent; no invented physical temperature, exponent, native gauge/phase or physical heat. Separate artifact-level acceptance and scientific certification.",
+  "status": "CORRECTED_NINE_PANEL_DATA_READY"
+}

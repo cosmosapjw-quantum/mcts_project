@@ -1,0 +1,122 @@
+id	route	disposition	final_acceptance
+G01	THERMAL	CORRECTED_SCOPED	Recompute E_score=-sum occupancy Q with sign frame and clock; identify physical energy independently or explicitly retain score units.
+G02	THERMAL	CORRECTED_SCOPED	Separate B^-1/2 proxy, conditional selector scale, and occupancy projection; calibrated energy/temperature needed for physical T.
+G03	STAT_ACTION	CORRECTED_SCOPED	Reproduce visit/prior/conditional Shannon entropy with legal support and clock; no thermodynamic equivalence without state map.
+G04	THERMAL	MODEL_SCOPED	Specify fixed Hamiltonian and equilibrium derivative, energy units and bath; validate C=dE/dT against controlled T scan.
+G05	THERMAL	MODEL_SCOPED	Reconstruct signed energy/entropy/work ledger with all panels, independently identified energy/bath or declared reference; show residual.
+G06	SCALE	NATIVE_SCOPED	Define order parameter and symmetry/field, independent L,B,density, finite-size uncertainty and spontaneous-order limit if claimed.
+G07	STAT_ACTION	CORRECTED_SCOPED	Measure direct causal field response with same score law and mark, distinguish connected fluctuation and FDT; independent geometry.
+G08	SCALE	NATIVE_SCOPED	Reproduce legal-pair connected covariance and fixed-total null; define correlation length only with valid nonzero-mode observable and limit.
+G09	SCALE	PARTIAL	Reconstruct order, response and correlation jointly; distinguish finite crossover from common critical point and report uncertainty.
+G10	THERMAL	CORRECTED_SCOPED	Specify stationary equilibrium ensemble and conjugate field for FDT; compare causal path-score response and fluctuation, not proxy equality.
+G11	THERMAL	CORRECTED_SCOPED	Use independent time-dependent perturbations, fixed causal clock and response kernel; verify equilibrium assumptions before physical FDT.
+G12	THERMAL	PARTIAL	Combine time-resolved response, covariance correction and matched direct/reweight; no FDT admission without calibrated equilibrium.
+G13	QUANTUM	MODEL_SCOPED	Specify complex state/instrument and observation, validate trace/PSD and offdiagonal phase response over actual multi-time histories.
+G14	QUANTUM	MODEL_SCOPED	Specify system/environment partition and reduced density, verify von Neumann entropy evolution and classical comparison.
+G15	THERMAL	CORRECTED_SCOPED	Use normalized conditional probability participation 1/sum p^2, distinguish occupancy, calibrate thermal claim if retained.
+G16	QUANTUM	MODEL_SCOPED	Define pointer basis by instrument and stability under perturbation, compare actual decision variable and independent records.
+G17	QUANTUM	PARTIAL	Assemble coherence, entropy, participation and pointer results for adaptive noncommuting histories, no assumed physical bath.
+G18	BARRIER	NATIVE_SCOPED	Reproduce actual signed Q/score landscape with explicit board/time and legal mask; separate 3D rendering and physical potential.
+G19	BARRIER	CORRECTED_SCOPED	All risk-set entries and first hit/recovery including censoring; same-side actual value, not postselected passage probability.
+G20	BARRIER	NATIVE_SCOPED	Define height/width using a specified graph and potential, verify minimax certificates, separate root draws from local motion.
+G21	BARRIER	MODEL_SCOPED	Specify kinetic term, energy, units and exact boundary scattering, validate lattice/continuum WKB error regime; native calibration separate.
+G22	BARRIER	PARTIAL	Reconstruct risk, landscape, exact transport and coherent/dephased controls; no native quantum tunneling without operational phase law.
+G23	QUANTUM	MODEL_SCOPED	Compute QMI matrix for actual defined record partition with reduced states and compare classical MI; original branch matrix needs branch instrument.
+G24	QUANTUM	MODEL_SCOPED	Use specified entanglement criterion on defined bipartitions; distinguish classical/quantum MI network and separability.
+G25	QUANTUM	MODEL_SCOPED	For declared two-qubit compression verify concurrence formula and time/fragment conditioning; native branch concurrence needs physical state.
+G26	QUANTUM	MODEL_SCOPED	For explicit state and local observables calculate CHSH and separable controls; physical Bell claim requires operational independent settings.
+G27	QUANTUM	PARTIAL	Combine entanglement, QMI, concurrence and Bell controls, include separable/null cases and native-identification limit.
+L01	SCALE	PARTIAL	Reproduce independent c_puct/selector-beta scans with order parameters and critical-point uncertainty, actual persistent features if defined.
+L02	REPORT	PARTIAL	All original comprehensive analyzer panel sources and sub-obligations must be satisfied or transparently marked corrected/blocked; no aggregate success flag.
+L03	THERMAL	CORRECTED_SCOPED	Authenticate conditional score slope and report unidentifiable cases, Q/occupancy mismatch; physical T requires calibrated conjugate energy.
+L04	SCALE	PARTIAL	Compare explicit scaling candidate fits and heldout budget/size predictions with residuals, not an asserted universal best model.
+L05	REPORT	CORRECTED_SCOPED	Report each validated observation type, unit of replication, failure and cross-validation; do not sum unrelated measurement counts.
+L06	THERMAL	MODEL_SCOPED	Compute energy and entropy in a specified driven model, exact work/heat and forward/reverse Jarzynski with uncertainty and support.
+L07	SCALE	PARTIAL	Resolve internal peaks and scaling limit, infer exponents with uncertainty and corrections against null/crossover.
+L08	THERMAL	MODEL_SCOPED	Define record, mutual information and feedback protocol; actual Sagawa-Ueda identity and work/energy sign, physical controller cost separate.
+L09	QUANTUM	MODEL_SCOPED	Estimate defined coherence trajectory and relaxation fit only under identified dynamical model; compare measured-record/dephased control.
+L10	BARRIER	CORRECTED_SCOPED	Use complete event-risk and recovery records, explicit barrier geometry and model transmission; retain informative censoring.
+L11	QUANTUM	MODEL_SCOPED	Specify joint density, subsystem, eigenvalues and entanglement criterion; no classical correlation as entanglement.
+L12	REPORT	PARTIAL	Compare authentic same-evaluator matched independent cohorts; preserve temperature, barrier, critical counts and actual failures in each domain.
+L13	SCALE	CORRECTED_SCOPED	Define scale transformation and normalized state/kernel, test semigroup/closure against heldout; fixed points only on defined map.
+L14	SCALE	NATIVE_SCOPED	Compute order, susceptibility and connected distance covariance for independent L,B; quantify valid scaling window and uncertainty.
+L15	QUANTUM	MODEL_SCOPED	Specify actual adaptive record instrument, disjoint fragments and pointer information plateau/packing; decision prediction is not redundancy.
+L16	STAT_ACTION	CORRECTED_SCOPED	Normalized full-support marked path measure with action, overlaps and complex readout where specified; controlled 1PI/loop expansion and independent prediction.
+L17	SCALE	PARTIAL	Replace assumed phase boundaries by independent control scan, phase observable, correlation length and entropy-production definition; test crossover.
+L18	THERMAL	MODEL_SCOPED	Define heat/work/entropy and physical reverse or explicit reference; validate signed full balance, Crooks and finite sample rare tails.
+L19	QUANTUM	MODEL_SCOPED	Specify Schmidt/pointer states, compensated swaps, robustness and selection convergence under actual instrument; original sequence behavior unresolved.
+L20	QUANTUM	MODEL_SCOPED	Specify GKSL or exact discrete CP instrument and time unit, check positivity, coherence/rates and noncommuting dynamics; native bath separate.
+L21	QUANTUM	PARTIAL	Join gauge, recovery, topology and other advanced panels only for explicit operator/state and actual graph; preserve model-specific limitations.
+L22	STRUCTURE	CORRECTED_SCOPED	True unitary oriented links on specified actual graph; normalized Wilson and joint holonomy, covariant field/effect stability, topology; native operational identification separate.
+L23	STRUCTURE	MODEL_SCOPED	Define code, fault channel, syndrome and correction success/utility with same evaluator; distinguish actual sign transport from hardware QEC.
+L24	STRUCTURE	NATIVE_SCOPED	Define actual tree/quotient/filtration, persistence and critical point definition; distinguish cycles from continuum Morse/topological phase.
+L25	THERMAL	CORRECTED_SCOPED	Temperature extraction from conditional likelihood and full-support occupancy projection with fit failure labels and uncertainty; no T without energy.
+L26	THERMAL	CORRECTED_SCOPED	Independent budget and prefix trajectories, compare actual selector slope versus occupancy projection; fit scaling only if justified.
+L27	SCALE	PARTIAL	Actual phase observable versus control, independent sizes and crossing/heldout model comparison; no physical T-axis substitution.
+L28	SCALE	REFUTED_LINKED_CLAIM	Original 3D Ising equality contradicted; use primary exponents and new controlled scaling to establish any replacement universality.
+L29	SCALE	CORRECTED_SCOPED	Specified map on probability laws or couplings; autonomous closure and multiscale predictive validation; time decimation distinct.
+L30	QUANTUM	MODEL_SCOPED	Defined fragment fraction and actual disjoint record redundancy plateau, packing and independent geometry controls; separate predictive decision gain.
+L31	REPORT	RECONSTRUCTED_REPORT	All nine original panels rendered from authenticated numerical data; explicit original-vs-corrected definitions, missing physical values and typed quality; does not certify underlying physics.
+L32	THERMAL	MODEL_SCOPED	Explicit information-to-work feedback, actual record variable, work sign and erasure/reset cost with finite protocol verification.
+L33	THERMAL	MODEL_SCOPED	Explicit evolving Hamiltonian/channel, signed energy/work/heat and entropy ledger, temporal control and reverse reference.
+L34	REPORT	CORRECTED_SCOPED	Typed measurement counts and quality with invalid/unidentified statuses; no artificial critical or physical temperature counts.
+L35	SCALE	CORRECTED_SCOPED	Derive normalized transformation and flow trajectories with coupling coordinates and actual coarse measure, verify composition and fixed points.
+L36	SCALE	MODEL_SCOPED	Define 2D projected flow and full-state closure/residual; reference stationarity not native physical fixed point.
+L37	SCALE	REFUTED_LINKED_CLAIM	Original WF candidate fails beta_g; frozen-tau solution unstable; derive autonomous corrected coupling flow before physical fixed-point claim.
+L38	SCALE	PARTIAL	Scale-dependent entropy/Q/participation and cumulants with fixed normalization, joint adjacent-block law and uncertainty; controlled limit.
+L39	MEMORY	NATIVE_SCOPED	Measure root/time-conditioned autocorrelation with lag and geometry blocks; estimate tau only if resolved model and independent prediction.
+L40	MEMORY	CORRECTED_SCOPED	Strong/weak Markov closure specified, exact collision tests and direct/composed CK on new roots; no blanket Markov claim.
+L41	MEMORY	CORRECTED_SCOPED	Derive analytical correlation/count kernel from actual conditional law and compare measured with independent uncertainty.
+L42	MEMORY	NATIVE_SCOPED	Use all conditional lag pairs and root-level distributions, separate clock mixture and intrinsic memory.
+L43	MEMORY	MODEL_SCOPED	Define transition state and stochastic kernel, check normalization, unseen support, direct vs composed and heldout error.
+L44	MEMORY	PARTIAL	Identify actual physical or algorithmic system/environment clocks and resolved relaxation scales, not exponential fit assumed.
+L45	THERMAL	PARTIAL	Reconstruct actual observable-temperature panels in score scale; physical free energy/susceptibility require defined equilibrium H,T.
+L46	TRAIN	NATIVE_SCOPED	Export actual metrics, lineage, timestamps, costs, heldout results; distinguish original ResNet/Elo/GPU fields not observed.
+L47	TRAIN	NATIVE_SCOPED	Reproduce actual training and validation curves plus matched arena and budget/cost, original architecture and broader board scope separate.
+L48	MEMORY	PARTIAL	Reconstruct all Markovian report sections, including actual lag/CK/analytic comparisons and failures; no utility claim as proxy.
+L49	MEMORY	PARTIAL	Assemble correlation, c1 prediction, tau and JS transition diagnostic with independent uncertainty and no unsupported Markov verdict.
+Q01	THERMAL	MODEL_SCOPED	Specified driven protocol, signed work distributions and entropy-production rate at defined sizes, actual reverse and model-vs-native boundary.
+Q02	SCALE	PARTIAL	Independent L and temperature/control axis with order, response and C; correlation length and critical peak/exponent only after controlled limit.
+Q03	THERMAL	MODEL_SCOPED	Closed state cycle under specified thermal reservoirs, work/output and efficiency; switched H alone not Otto/Carnot or enhancement.
+Q04	THERMAL	MODEL_SCOPED	Generate animation from verified driven state/work/heat path, preserve exact temporal stages and scope; no physical native cycle.
+Q05	THERMAL	CORRECTED_SCOPED	Derive entropy production for specified reverse/reference and state evolution; verify signed derivatives and positivity within hypotheses.
+Q06	THERMAL	MODEL_SCOPED	Actual native/ideal cycle comparison needs common calibrated state variables, reservoirs and closure; reference switched-H animation explicitly separate.
+Q07	THERMAL	PARTIAL	Comprehensive nonequilibrium report with independently calibrated thermal quantities or explicit reference, uncertainty and failed criteria.
+Q08	THERMAL	CORRECTED_SCOPED	Validate full signed entropy balance with identified heat flux and bath, not abs(dS_sys/dt); retain residual and support.
+Q09	SCALE	REFUTED_LINKED_CLAIM	Original beta-field equations and zeros checked; replace invalid WF with derived flow on specified measure, stability and domain.
+Q10	SCALE	PARTIAL	Actual phase map across couplings/control with quantified transitions and size scaling; no prescribed phase diagram.
+Q11	SCALE	MODEL_SCOPED	Define actual scale map and couplings, compare exact probability RG and native block deviations, derive autonomous trajectories if closure.
+Q12	SCALE	MODEL_SCOPED	Reproduce animation of defined scale transformation with exact pushforward and label nonautonomous/native limitations.
+Q13	SCALE	PARTIAL	Aggregate beta functions, flow, fixed points, critical boundaries and uncertainty; preserve refuted candidate, no forced universality.
+Q14	SCALE	PARTIAL	Infer independent finite-size exponents only with resolved transition, conjugate field and finite-size corrections.
+Q15	SCALE	PARTIAL	3D collapse of defined physical observable under verified critical ansatz, heldout sizes and noncritical competitors; finite rescaling diagnostic separate.
+Q16	SCALE	NATIVE_SCOPED	Compare entropy/effective-action scale functions with fixed normalization and independent budget-size design; exponent claim conditional.
+Q17	SCALE	MODEL_SCOPED	Generate finite-scale animation from actual independent data; critical animation requires confirmed scaling limit.
+Q18	SCALE	REFUTED_LINKED_CLAIM	Original universality equality corrected; report scaling model selection, heldout errors, hyperscaling and uncertainty, no admitted exponent.
+Q19	THERMAL	MODEL_SCOPED	Explicit forward/reverse protocol and Gibbs start, actual work and DeltaF; finite Jarzynski estimator ESS and exact reference.
+Q20	THERMAL	MODEL_SCOPED	Actual protocol work fluctuations, cumulants and uncertainty, no synthetic random-walk surrogate or native energy assumption.
+Q21	STAT_ACTION	PARTIAL	Derive normalized path measure and work generating function for identified Hamiltonian/protocol; complex action separately with operational phase.
+Q22	THERMAL	MODEL_SCOPED	Actual convergence animation with raw forward/reverse work and ESS, retain estimator failures; no forced Jarzynski agreement.
+Q23	THERMAL	PARTIAL	Comprehensive work and fluctuation report, analytic exact DeltaF, finite estimates/uncertainty, identified thermodynamic system.
+Q24	QUANTUM	MODEL_SCOPED	Adaptive complex joint channel with coupling/environment/time defined, positivity and dephased controls, higher-time operational phase verification.
+Q25	QUANTUM	MODEL_SCOPED	Compute information accessibility on disjoint fragments with conditional records, genuine redundancy plateau/packing and independent roots.
+Q26	QUANTUM	MODEL_SCOPED	Pointer stability and selection probability under defined perturbations, distinguish actual final decision, energy only with H.
+Q27	QUANTUM	MODEL_SCOPED	Actual conditional record/complex evolution animation, explicit clock and phase model, no physical time inferred.
+Q28	QUANTUM	PARTIAL	Comprehensive Darwinism criteria including objectivity, plateau and redundancy uncertainty; report failures explicitly.
+Q29	SCALE	NATIVE_SCOPED	Compute spatial/temporal correlations at controlled L,B, frame, legal mask and independent root uncertainty; physical xi separate.
+Q30	SCALE	PARTIAL	Validate actual critical scaling collapse against null and heldout sizes; finite covariance rescaling is not critical collapse.
+Q31	SCALE	PARTIAL	Independent size/budget sweep for susceptibility, entropy, correlation length and gap; no universal exponent without limit.
+Q32	STAT_ACTION	CORRECTED_SCOPED	Measure direct conjugate source response, compare path-score and fluctuation; thermal susceptibility/C only if calibrated T.
+Q33	SCALE	NATIVE_SCOPED	Actual temporal spatial covariance animation at fixed L with at-risk frame and independent size comparison for scaling claim.
+Q34	SCALE	PARTIAL	Comprehensive size/collapse/critical report with finite alternatives and no assumed critical temperature/exponent.
+Q35	QUANTUM	MODEL_SCOPED	Specify joint density/partition, spectrum, negativity and QMI, actual noncommuting controls and phase identification.
+Q36	QUANTUM	PARTIAL	Actual entanglement entropy scaling across declared subsystem area/volume, separate visit entropy and finite clock.
+Q37	QUANTUM	MODEL_SCOPED	Define joint classical/quantum information and discord with operational readout; independent adaptive decision comparison.
+Q38	THERMAL	MODEL_SCOPED	Calibrated thermal energy/free energy/entropy/C or explicitly declared reference; do not identify score beta with bath T.
+Q39	QUANTUM	NATIVE_SCOPED	Actual native entropy animation with changing risk set; true entanglement/thermal entropy requires defined state and separate panels.
+Q40	QUANTUM	PARTIAL	Comprehensive entropy/entanglement and thermodynamic relations report, actual partition scaling and Maxwell assumptions.
+Q41	QUANTUM	MODEL_SCOPED	Define hbar_eff only via independent phase/action calibration or explicitly dimensionless visibility convention; test branch singularities and units.
+Q42	QUANTUM	MODEL_SCOPED	Specify exact CP/GKSL generator, physical time and bath if claimed; convergence, positivity, trace and actual phase-sensitive controls.
+Q43	STAT_ACTION	MODEL_SCOPED	Define complex path amplitude, measure, action and independently calibrated hbar; compare actual finite conditional instrument and coherent readout.
+Q44	QUANTUM	MODEL_SCOPED	Animate actual visibility-defined proxy with singular cases and no physical hbar claim; physical crossover needs independent calibration.
+Q45	QUANTUM	PARTIAL	Comprehensive action/hbar/Lindblad/classical-limit report with explicit assumptions, singularity/negative utility retained and no forced regime.

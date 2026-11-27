@@ -1,24 +1,24 @@
-# RESTORE78 theory and coding ledger
-| Stage | Work | Evidence |
+# RESTORE79 R1–R10 / C1–C10
+| Stage | Actual work | Evidence |
 |---|---|---|
-| R1 | R69 authority, R77 execution parent, L22 target | THEORY.md |
-| R2 | Original gauge producer and relevant study; R29/R61/R62/R75; literature | ORIGINAL_SOURCE78.json |
-| R3 | D4 covariance, scalar offset gauge, U1/SU2 and physical phase distinct | THEORY.md |
-| R4 | Actual raw orientation, tree/quotient/grid, covariant connection routes | THEORY.md |
-| R5 | Group average, tree gauge fixing, Wilson conjugation, CP transported field update | THEORY.md, gauge78.py |
-| R6 | Original defects and noncommutative/softmax Hessian counterexamples | ORIGINAL_GAUGE_AUDIT78.json |
-| R7 | Wolfram commutator identity, toy cases and independent graph/field checks | GAUGE78.json, INDEPENDENT78.json |
-| R8 | Native direction residual and gauge/phase model verdict | NATIVE78.json, GAUGE78.json |
-| R9 | Computational policy/connection contract and original three-panel observables | THEORY.md, plot78.py |
-| R10 | L31 final-quality followup and remaining scientific obligations | NEXT_DYNAMICS.md |
-| C1 | New 16 geometries, three evaluator identities, 8 orientations/4 seeds | REGISTRATION.json |
-| C2 | Native schema, actual raw law, model source inspection | plan78.py, audit_native74.py, audit_rapfi74.py |
-| C3 | Coordinate pullback, independent seed cross-product, graph and link operations | native78.py, gauge78.py |
-| C4 | 12 native/audit workers and 8 Rapfi/graph workers; CPU | generate78.py |
-| C5 | Generate 1536 actual searches, preserve schema failure and correction | RUN_SHARDS.json, RAPFI_RECEIPTS78.json, logs/ |
-| C6 | All raw trace CDF/score/log and backup moments | AUDIT78.json |
-| C7 | 48 graph structures, 4005 loops and covariant dynamics/readout | GAUGE78.json |
-| C8 | Independent all raw reductions, NetworkX, expm_multiply, Bloch crosscheck | INDEPENDENT78.json |
-| C9 | Nine distinct two-format plots and original crosswalk | PLOT_MANIFEST78.json |
-| C10 | DAG, Git publication, verified snapshots and duplicate cleanup | publication/backup/cleanup receipts |
-Theory contract before fresh generation; R6-R8 final conclusions depend on subsequent numeric evidence. Logical stage coverage, not 20 isolated agents. Full legacy regression not rerun. Initial connector batch timeout later resolved by separate calls; no native subagent.
+| R1 | R69 authority, R78 parent, L31 nine-panel original | THEORY.md |
+| R2 | Source spans, guide labels, prior published results, proper scoring literature | ORIGINAL_SOURCE79.json |
+| R3 | Native likelihood vs endpoint projection vs physical T; source/certification types | THEORY.md |
+| R4 | Three constructive routes: source/claim audit, L31 report and independent calibration | THEORY.md |
+| R5 | Conditional softmax score likelihood, log-partition curvature, endpoint KL projection | THEORY.md, calibrate79.py |
+| R6 | Source-linked corrections, finite null/identifiability, work units, archived claims | ITEM_ACCEPTANCE79.json, HONEST_SUMMARY79.json |
+| R7 | Wolfram variance, independent scalar refits and endpoint gradient checks | INDEPENDENT79.json |
+| R8 | Native/model/negative/partial report dispositions | QUALITY_MATRIX79.csv |
+| R9 | Nine panel quantitative report and exact item-specific acceptance | HONEST_SUMMARY79.json |
+| R10 | Convergence research routes and stopping conditions | NEXT_DYNAMICS.md |
+| C1 | Fixed R78 training and 768 new registered paths | REGISTRATION.json |
+| C2 | Native raw law and source inventory schemas | inventory79.py, calibrate79.py |
+| C3 | Stable likelihood, exact slope, occupancy projection | calibrate79.py |
+| C4 | 12 native/audit workers and 8 Rapfi workers | generate79.py, RUN_SHARDS.json |
+| C5 | Actual new 768 paths and reused 192 authenticated paths | AUDIT79.json |
+| C6 | Full native path law/cut replay, historic 640 pairs and 781 manifest files | INVENTORY_AUDIT79.json, AUDIT79.json |
+| C7 | 9 heldout scalar fits, exact KL and 4608 occupancy fits; all nine panel data | CALIBRATION79.json, HONEST_SUMMARY79.json |
+| C8 | Independent 9 scalar refits, 144 raw reductions, gradient checks | INDEPENDENT79.json |
+| C9 | 4 unique plot pairs and original 121 per-item acceptance matrix | PLOT_MANIFEST79.json, QUALITY_MATRIX79.csv |
+| C10 | Publish DAG, source, results, verified snapshots and cleanup | Publication/backup/cleanup receipts |
+Theory contract before generation; R6–R8 conclusions depend on subsequent numerical results. Logical stage coverage rather than independent native subagents or 20 isolated serial executions. Full legacy regression not rerun.

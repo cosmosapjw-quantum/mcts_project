@@ -56,7 +56,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "X-STRUCT",
+  "entry": "REPLAN-01",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -119,8 +119,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R79 original honest summary quality report L31, all 121 typed acceptance requirements",
-    "Final scientific certification and corrected original outputs; physical gauge, thermal and RG identification remain"
+    "R80 controlled finite statistical action and 1PI",
+    "R81 operational complex phase intervention and matched dephased control",
+    "Item-specific final scientific acceptance, not evidence count; physical scale/thermal and memory/structure branches"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -139,7 +140,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE79-ORIGINAL-QUALITY-REPORT",
+  "next_stage_id": "MQFT-RESTORE80-CONTROLLED-STATISTICAL-1PI-ACTION",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -171,6 +172,11 @@
         "artifact": "mqft_restore73_20261126/plots/measurement_quality.png",
         "evidence": "Measurement quality explicit typed audit and original L05/L34 scope.",
         "remaining": "Complete original measurement-quality report including physical thermal/critical claims not certified."
+      },
+      "restore79_followup": {
+        "artifact": "mqft_restore79_20261127/{QUALITY_MATRIX79.csv,ITEM_ACCEPTANCE79.json,HONEST_SUMMARY79.json,L31_REPORT_ACCEPTANCE79.json}",
+        "evidence": "All 121 original source items authenticated and scoped evidence linked; 640 historical plot pairs, 781 run-manifest file identities checked. Corrected nine-panel L31 report accepted at artifact level. 121 item-specific convergence conditions.",
+        "remaining": "Original physics certifications remain 0/121; L02/L19 legacy grouped numerical evidence lacks unique item figure mapping; no claim of all historical raw paths rerun."
       },
       "retained_evidence": "STATE14\u201316\uc758 terminal\u00b7player frame \ubc0f native event \uae30\ub85d, RESTORE01\uc758 N,W,\uc81c2\ubaa8\uba58\ud2b8\u00b7\uc2e4\uc81c path\u00b7snapshot, \uc774\ud6c4 raw receipt\ub97c \uc7ac\uc0ac\uc6a9\ud55c\ub2e4. \uace0\uc815 \uad6d\uba74\uc5d0\uc11c \ud655\uc778\ub41c \uacc4\uce21 \uc0c1\ud0dc\ub97c \uc720\uc9c0\ud55c\ub2e4.",
       "selector_trace_followup": "RESTORE35 325 new searches, 6024 backups, 581 exact tree cuts, four new full games plus four color-swapped arena games.",
@@ -218,6 +224,11 @@
         "artifact": "mqft_restore76_20261127/CRITICAL76.json",
         "evidence": "Finite conditional score curvature, occupancy entropy and fluctuation susceptibility measured across five sizes and independent budgets; selector beta not physical temperature.",
         "remaining": "Physical thermodynamic identification remains open."
+      },
+      "restore79_followup": {
+        "artifact": "mqft_restore79_20261127/CALIBRATION79.json",
+        "evidence": "768 independent native paths, 192 authenticated train paths, conditional score beta and heldout log score/KL, full-support occupancy fit and nonidentifiable first waves.",
+        "remaining": "Physical temperature and energy not identified; occupancy not conditional law."
       },
       "retained_evidence": "STATE06 c_PUCT sweep, RESTORE01 \uc608\uc0b0\ubcc4 \uc2e4\uce21\uacfc fit \uc9c4\ub2e8. \uacbd\ub85c dominance\u00b7overlap \ubc0f STATE16 \uc870\uac74\ubd80 \uc120\ud0dd \ud1b5\uacc4\ub294 \ud45c\ubcf8\uacfc clock\uc774 \ub9de\uc73c\uba74 \uacb0\ud569\ud55c\ub2e4.",
       "source": "ensemble_analyzer_complete.py::_plot_authentic_temperature, honest_plots.py::plot_temperature_extraction/plot_temperature_scaling, \uacbd\ub85c \ud328\ub110 L16. v6 validation\uc758 \u03b2\uc640 mean-field \uc608\uce21.",
@@ -948,7 +959,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-04.R",
+  "previous_entry": "X-STRUCT",
+  "quality_matrix": "QUALITY_MATRIX79.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -962,6 +974,7 @@
     "path": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c"
   },
+  "research_phase": "CONVERGENCE",
   "restore41": {
     "common_backups": 10032,
     "common_root_jobs": 88,
@@ -3503,8 +3516,58 @@
     "retained_pairs": 640,
     "status": "scoped_native_symmetry_declared_gauge_policy"
   },
-  "revision": "RESTORE78_20261127",
-  "scope": "Native D4 orientation audit, actual graph topology and declared U1/SU2 covariant policy model",
+  "restore79": {
+    "AUDIT79.json_sha256": "17741b3cac2b4ca03162e9be148e25536a389c2eca42fce1209ec05b7f4274bd",
+    "CALIBRATION79.json_sha256": "41192fea9276b28545cd7c8a9aebe0cf35fd64428c7a64ed84a8196af35f6685",
+    "DRIFT_WATCHDOG.md_sha256": "1b172f9b30c80cd99e5c11b7c3e59167eebd88351c2298a2e72c5cdb45dd6c26",
+    "EVIDENCE_LINKS79.json_sha256": "040cd70c43197406d5e7e821f13e7d8d4b95f848f85d55c1d6b9093e719440c6",
+    "HONEST_SUMMARY79.json_sha256": "9582fed5f8a6cb614b1f1c320372f9fcbbd7b888d9d23c2d6affd004970e5cbf",
+    "INDEPENDENT79.json_sha256": "3cd2f7767694f13c144fae15c826503bd06a1bcaa063e3cd6b0882ea9330332b",
+    "INVENTORY_AUDIT79.json_sha256": "6ea1ca2e901615248f0286ca86f7f73e4a423b3cfe624397d8aad32af3681cd8",
+    "ITEM_ACCEPTANCE79.json_sha256": "3fd7b31bbeef7e1e9799251cb956406bc82a6864eea26b7506b010d20d11d777",
+    "L31_REPORT_ACCEPTANCE79.json_sha256": "a6eadf169339c87657fd6e837778c11589f5ba53ac040ab8ce2741c9e1f36535",
+    "NEXT_DYNAMICS.md_sha256": "582929c7e49a964690cfdfad5de135f25e3d838e5fb21292993de7b44f64c179",
+    "ORIGINAL_OUTPUT_EVIDENCE79.csv_sha256": "acede13584e2a90e33f68b7b156daae81d86277eb743e63f2121b0d0da13955b",
+    "ORIGINAL_OUTPUT_PROGRESS79.csv_sha256": "760de251ce138c11cac8b7c95abd61117519498a1a94861985493719d91cf07d",
+    "ORIGINAL_QUALITY_REPORT79.md_sha256": "40dad6d0661d02bb4902210b5f8d7a65d21d980b04b80ccea32be98a14d9ae16",
+    "ORIGINAL_SOURCE79.json_sha256": "d6794c49d72f4c256a6ea7279a9ca6ebea969eb3596f6b72c11fcd0a906731e5",
+    "ORIGINAL_SOURCE_SPANS79.md_sha256": "1e47ee1d15390331eed9948255679c80f0afd28c8ec24c5cb6bbfc2465524294",
+    "PLOT_INVENTORY79.csv_sha256": "f00e38893de337b675883510621d3f1d7be68d1a8a639c035eb102920ac7bfac",
+    "PLOT_MANIFEST79.json_sha256": "35f0fc6406af940bc62635ee41efae06f65997c4309437c01e30b71fd94e1c8b",
+    "PROGRESS79.json_sha256": "f197b6d6f1414e4d511276c13c68f3d901796bf153c3cde38fdf2d4c5ac664c1",
+    "QUALITY_MATRIX79.csv_sha256": "fffecf126618e45fef4050887f5831731fac4008c9750624b3c0fe00fe422019",
+    "RAPFI_RECEIPTS79.json_sha256": "953cbda50688cf4d6710eab790af567e8c2663483da4f69aeb2db5c1ac3656de",
+    "REGISTRATION.json_sha256": "2d6b75e69365427ce68c42534403ca7f950ef376fb790bcf631caf7303d0eea3",
+    "ROOT_PREPARATION.json_sha256": "afce7bf16d75798f40af1c89dc58d29dc87f28c1fe0e1fea8fda4fe2ea8b679a",
+    "RUN_SHARDS.json_sha256": "f94796ed0ac47c812fa8e009e9ac737fccd826a15a3a6e873f71ddde2ffbdced",
+    "THEORY.md_sha256": "c2df59b7f8e38b39b6c0fc13cb8b36dc7a5bef8e2d90ef32bf7004369d75bee4",
+    "animations": 0,
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 82936,
+    "figures": 4,
+    "final_scientific_certified": 0,
+    "fresh_backups": 98304,
+    "fresh_fixed_root_histories": 768,
+    "guide_labels": 27,
+    "historical_manifest_files_verified": 781,
+    "historical_plot_pairs_verified": 640,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 8,
+    "original_evidence_union_R55_R79": 121,
+    "original_obligations": 121,
+    "parent_commit": "2c64b451ad3f14b2c0a48ec55263fd88616d1293",
+    "parent_dag_sha256": "dec971528da99e3570b7a7d55f0eeee50a03969aed638e7017345dfb6f96453e",
+    "raw_bytes": 141262298,
+    "remaining": "Item-specific scientific acceptance, controlled statistical 1PI/action, operational phase, physical thermal/scale identification.",
+    "retained_pairs": 644,
+    "reused_training_paths": 192,
+    "source_functions": 94,
+    "status": "scoped_original_coverage_completed_corrected_report_accepted"
+  },
+  "revision": "RESTORE79_20261127",
+  "scope": "Original L31 corrected report, complete scoped item coverage, independent native calibration and convergence contracts",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE78-STRUCTURAL-GAUGE-SYMMETRY"
+  "supersedes_next": "MQFT-RESTORE79-ORIGINAL-QUALITY-REPORT"
 }

@@ -1,0 +1,20 @@
+{
+  "errors": {
+    "heldout_KL": 2.220446049250313e-16,
+    "heldout_excess": 1.1102230246251565e-16,
+    "heldout_nll": 1.7763568394002505e-15,
+    "independent_beta_fit": 5.7030927091972217e-08,
+    "occupancy_KL": 3.9968028886505635e-15,
+    "raw_Q": 0.0,
+    "raw_counts": 0.0,
+    "raw_occupancy": 0.0,
+    "raw_p": 0.0,
+    "raw_score": 0.0,
+    "two_point_curvature": 4.163336342344337e-17
+  },
+  "independent_fits": 9,
+  "occupancy_gradient_checks": 4608,
+  "raw_paths": 144,
+  "scope": "Independent direct normalizer and numerical optimum, all heldout aggregate losses, all endpoint gradient/constraint checks, raw subset full reductions, source catalog/acceptance identity; same-agent independent implementation.",
+  "status": "PASS_SCOPED"
+}

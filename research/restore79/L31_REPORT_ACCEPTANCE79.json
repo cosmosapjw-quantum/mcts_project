@@ -1,0 +1,29 @@
+{
+  "inputs": {
+    "mqft_restore66_20261126/ERASURE66.json": "cb6be8986d937a4ed68d8045fc709cbf3aac67e50a98bd4e35f7194c00167013",
+    "mqft_restore66_20261126/FEEDBACK66.json": "366509973095b4a6bad8ae2bc4605e9c9e31fc6087f7a52802eb64bf8b94140d",
+    "mqft_restore66_20261126/THERMAL66.json": "554dae157e8eda9c843d0d080cd9c25b8aee3cc8be6a516eb38dbcfb8597cb26",
+    "mqft_restore69_20261126/PHYSICS_RESULTS.json": "2516696e43b52a079b0f51c6374f2f57b1262de01140b72cf04201df85376f86",
+    "mqft_restore73_20261126/DECISION_RESULTS73.json": "d044bd43d0de24252681cd752ca1d6b63da68423ee0409c774d35490c50fd81c",
+    "mqft_restore74_20261126/PETZ74.json": "48f524622e9092beadc47f33bcf0944f8ddb7411e52203b09ac568dc84721ed8",
+    "mqft_restore76_20261127/ORIGINAL_CLAIM_AUDIT76.json": "e0f4ca30e11bd2c65e6b2770114c8e317e3b475f7839e85e7023a820ea266c08",
+    "mqft_restore76_20261127/SUMMARY76.json": "bb61f7a8ea50abfea2549baf8ee7fb70320e3d08aac52267b05d92717e8d0585",
+    "mqft_restore77_20261127/ORIGINAL_RG_AUDIT77.json": "f80c8bfc577c517a1859986a9e73046ae844f59d48ec0fec76c68dcf9802cdaf",
+    "mqft_restore77_20261127/SUMMARY77.json": "0b96995a40b26751a3c43dbb4c9f303553b2a1dd9c95a33a4a512753da985401",
+    "mqft_restore78_20261127/GAUGE78.json": "4cae3201a1eeeaec36c40e8a5479a0f5a0e3033bfbacd57b5bfe1acee957a917",
+    "mqft_restore79_20261127/AUDIT79.json": "17741b3cac2b4ca03162e9be148e25536a389c2eca42fce1209ec05b7f4274bd",
+    "mqft_restore79_20261127/CALIBRATION79.json": "41192fea9276b28545cd7c8a9aebe0cf35fd64428c7a64ed84a8196af35f6685",
+    "mqft_restore79_20261127/EVIDENCE_LINKS79.json": "040cd70c43197406d5e7e821f13e7d8d4b95f848f85d55c1d6b9093e719440c6",
+    "mqft_restore79_20261127/INDEPENDENT79.json": "3cd2f7767694f13c144fae15c826503bd06a1bcaa063e3cd6b0882ea9330332b",
+    "mqft_restore79_20261127/INVENTORY_AUDIT79.json": "6ea1ca2e901615248f0286ca86f7f73e4a423b3cfe624397d8aad32af3681cd8",
+    "mqft_restore79_20261127/ORIGINAL_SOURCE79.json": "d6794c49d72f4c256a6ea7279a9ca6ebea969eb3596f6b72c11fcd0a906731e5",
+    "mqft_restore79_20261127/acceptance79.tsv": "e407a934e9f90a0a0afda8c7fb54de95586c736cbf52f736b874a2c42ba0b9b2"
+  },
+  "limitations": "All nine panels present; physical observables are explicit unresolved or model quantities. Original physics final certification remains 0/121. File format/hash checked; direct visual inspection separate.",
+  "original_id": "L31",
+  "panels": 9,
+  "pdf_sha": "c89f1e8c45c8032979c8360977d2daa90d2005a1608259a55832209b132a68aa",
+  "plot": "plots/L31_honest_physics_summary",
+  "png_sha": "f846ec6924aa3712d544b3598fdcd71d5d4fd515b484ba0837717187e1112248",
+  "status": "PASS_CORRECTED_REPORT_ARTIFACT"
+}
