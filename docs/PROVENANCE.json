@@ -3436,6 +3436,87 @@
       }
     }
   },
+  "restore83": {
+    "AUDIT83.json_sha256": "4c6e6e6ef45854cacd6afc9dccc09e354ce250081815e9c67d8cd7e5987097a0",
+    "BRANCH_PATCH83.json_sha256": "7c610e74fd5908f3f1dfda9f72ae52e2f80f9cecb5d0bbd8530e0efafb0a3826",
+    "BUILD83.json_sha256": "354f530ed6bd6554bf147820db5e289640c3eb7d55ba617b5816a8e8c2bf18b6",
+    "CONTEXTS83.json_sha256": "397a05453f9cbee70bfef81d28e0e62bd91082eac32b0e65d194521b2bc79251",
+    "CONVERGENCE83.json_sha256": "756a898a6d6c8dde81673e0aac2ba7c654146f530ae611b844a6a38eb10f8719",
+    "DRIFT_WATCHDOG.md_sha256": "2a93e038f7b47483e4a5391118241a2352db4046e3b3df7d088cd2803b073886",
+    "FRAGMENTS83.json_sha256": "2fd2be0f8d319dfd8203fdb895d023c79779c0a102a246a6d3f030c839a99516",
+    "FRAGMENT_AUDIT83.json_sha256": "b0c796295c9165536358945a9e0ab95ce9a7fc62314989d4d7a977f791762c03",
+    "INDEPENDENT83.json_sha256": "51402d206d99bf9355ccecfcf0e003d69b0b18a814aad682af734ed38919ba34",
+    "ITEM_CONVERGENCE83.json_sha256": "60dea615db81ac64385caa0394d4fb48f1a415c0efcd2248a1513abeb0834ac0",
+    "NEXT_DYNAMICS.md_sha256": "256fa148faf2903823c656c620f1a44e0b13ae7eac652867d0e06c9330a1e10b",
+    "ORIGINAL_OUTPUT_EVIDENCE83.csv_sha256": "33d33ee31a4f08f3ec2f7d5888ad6fda0acd12009b9c3f693701f90340bb62a0",
+    "ORIGINAL_OUTPUT_PROGRESS83.csv_sha256": "4a6a2e007e1131f56ee5b52f3d7d17dbe0944778393097520fb9f56d77ca5e03",
+    "ORIGINAL_SOURCE83.json_sha256": "2caa09d2a4eae14e422610925836aba5588e967f78fed9d4def1c3945c179296",
+    "PLOT_INVENTORY83.csv_sha256": "6578d426549cacf5ebbe853bf023417df7fa9968093abfe3c443ce1c9b32b13e",
+    "PLOT_MANIFEST83.json_sha256": "d1d7609d54aaf68368203ef349381e1f3d4090ce48dea871d4b36c0f9d6b3555",
+    "PROGRESS83.json_sha256": "a32a45948e0bc53b914906449d1d7c510249fa1437e04f6b1bcf1059dcfad94d",
+    "QUALITY_MATRIX83.csv_sha256": "54046e2915616f48e0dc44ec3d173336d11dec9b2b584f7ed57dca52faf33b22",
+    "RAPFI_RECEIPTS83.json_sha256": "918b45104e77e9cf8985b3e11ebcf10c62abdaee2aeffc770b7f3fb1a6c53078",
+    "RECORD83.json_sha256": "06f5c1e001c685c174404bb637e3f669f64a2a4a49d3095f3d7982562e9e68a9",
+    "REGISTRATION.json_sha256": "9cbadc544e3cc90c628054bb886bd3365bc7e45582eef22f97898d28f08e70f0",
+    "ROOT_PREPARATION.json_sha256": "272c599045af2865adb9f6e90d8680d975b2fb1dff1774579721a9992c039f44",
+    "RUN_SHARDS.json_sha256": "37780160c86a5622ce598c289f18c11e712590a06eceb7a67ec0100910e6adf2",
+    "SUMMARY83.json_sha256": "0a189e3097b3018ea24e9972670c13201f48a8a132e79b771074877e0d92649a",
+    "THEORY.md_sha256": "d0d075624eb5a39c9f9ffaea57f83f97e6dbcae8ab0ced046f69075b2787fcb9",
+    "TREE83.json_sha256": "b539913e58ff1494028747f4cc583aaf52e7450228af0772d16577f41d8b22cb",
+    "accepted_corrected_subclaims": 9,
+    "actual_contexts": 72,
+    "actual_node_settings": 504,
+    "animations": 0,
+    "branch_binary_sha": "e8f9eaca0ac248fdcd7048da557ecf7976e969d958da98ae2f2726242e49cd43",
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 89080,
+    "dag_sha256": "e4c75d674d0e90a480fab32c10b425e235641942a2e99bed09a732a2906ab6cf",
+    "diagnostic_backups": 82944,
+    "diagnostic_paths": 648,
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 3,
+    "final_scientific_certified": 0,
+    "forced_diagnostics": 576,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 10,
+    "original_evidence_union_R55_R83": 121,
+    "original_obligations": 121,
+    "parent_commit": "fda7af649e105cd14cdc5099f0ea654c83267cb4",
+    "parent_dag_sha256": "619e0425a0383a7dbcf438f4c12a20f1bdecaa95e1e973d90ebf692d1d55c0e6",
+    "phase_binary_sha": "9a16756eb11b0890d6a54876314a5777ba0f3110e09e8f1c29aa11b110eebbe2",
+    "raw_bytes": 124473950,
+    "reference_replays": 72,
+    "remaining": "Root-only population transfer, physical native record identification/objectivity and utility; original item acceptance.",
+    "retained_pairs": 656,
+    "status": "two_new_corrected_scientific_subclaims_accepted_physical_record_open",
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

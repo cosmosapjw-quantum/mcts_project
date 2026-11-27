@@ -1,0 +1,124 @@
+{
+  "claims": [
+    {
+      "claim": "A branch-dependent coherent extension of the specified three-wave selective native history tree exists: product of actual K_i(H)^4 and bath Kraus, positive abort effect and complete stopped instrument, with all 576 native retained fine-history probabilities reproduced. A distinct source-restricted diagnostic protocol gives a normalized eight-outcome instrument using the same actual branch settings.",
+      "evidence": [
+        "THEORY.md",
+        "TREE83.json",
+        "RECORD83.json",
+        "INDEPENDENT83.json",
+        "SUMMARY83.json"
+      ],
+      "id": "Q-ADAPT-05",
+      "items": [
+        "L15",
+        "L16",
+        "L20",
+        "Q24",
+        "Q35",
+        "Q37",
+        "Q42",
+        "Q43"
+      ],
+      "limit": "Conditional on 72 actual H32 contexts; restricted all-four-identical source event. Actual replays are forced classical diagnostics. Coherent branch control and erased workspace are declared, not performed. Abort post-state not actual omitted-history reconstruction. Pair restriction/forced fillers not native event conditioning.",
+      "stage": 83,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Identical measured retained path probabilities and stopped classical law admit different explicit coherent record completions by retaining or tracing orthogonal history tags; the observed diagonal does not identify record coherence or entanglement. All 72 native-repeat and 72 diagnostic model contexts have nonzero readout contrast in a declared coherent completion; exact success-weighted bound retained.",
+      "evidence": [
+        "THEORY.md",
+        "RECORD83.json",
+        "FRAGMENTS83.json",
+        "FRAGMENT_AUDIT83.json",
+        "SUMMARY83.json"
+      ],
+      "id": "Q-DILATION-06",
+      "items": [
+        "L15",
+        "Q25",
+        "Q35",
+        "Q37",
+        "Q45"
+      ],
+      "limit": "Constructive nonidentifiability from the measured record alone in these declared models, not a physical impossibility of coherent controlled implementation. 31/72 native selective conditional states and 67/72 diagnostic states NPT in at least one split; native selective event very rare, no 90% disjoint fragment redundancy. Physical objectivity and actual operational record coherence remain open.",
+      "stage": 83,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "Q-ADAPT-05;Q-DILATION-06",
+      "id": "L15",
+      "open": "Q-RECORD-03",
+      "remaining_final_acceptance": "Specify actual adaptive record instrument, disjoint fragments and pointer information plateau/packing; decision prediction is not redundancy.",
+      "scope": "Actual adaptive three-wave declared record density on 576 selected native histories; exact abort mass, distinct diagnostic, no native physical coherence/objectivity."
+    },
+    {
+      "accepted": "Q-ADAPT-05",
+      "id": "L16",
+      "open": "STAT-TRANSFER-04;Q-UTILITY-04",
+      "remaining_final_acceptance": "Normalized full-support marked path measure with action, overlaps and complex readout where specified; controlled 1PI/loop expansion and independent prediction.",
+      "scope": "Branch-dependent coherent operator products with actual native scores, exact selected path probability and rare-event visibility; no full physical complex action."
+    },
+    {
+      "accepted": "Q-ADAPT-05",
+      "id": "L20",
+      "open": "",
+      "remaining_final_acceptance": "Specify GKSL or exact discrete CP instrument and time unit, check positivity, coherence/rates and noncommuting dynamics; native bath separate.",
+      "scope": "Adaptive CP selective instrument and complement abort effect, distinct controlled pair restriction; no continuous physical GKSL."
+    },
+    {
+      "accepted": "Q-ADAPT-05",
+      "id": "Q24",
+      "open": "",
+      "remaining_final_acceptance": "Adaptive complex joint channel with coupling/environment/time defined, positivity and dephased controls, higher-time operational phase verification.",
+      "scope": "Three-wave actual branch-dependent record construction with explicit bath labels and dephased control; physical bath not identified."
+    },
+    {
+      "accepted": "Q-DILATION-06",
+      "id": "Q25",
+      "open": "Q-RECORD-03",
+      "remaining_final_acceptance": "Compute information accessibility on disjoint fragments with conditional records, genuine redundancy plateau/packing and independent roots.",
+      "scope": "Secondary first-bit pointer/fragment Holevo and classical MI on declared adaptive models; no 90% disjoint packing."
+    },
+    {
+      "accepted": "Q-ADAPT-05;Q-DILATION-06",
+      "id": "Q35",
+      "open": "Q-RECORD-03",
+      "remaining_final_acceptance": "Specify joint density/partition, spectrum, negativity and QMI, actual noncommuting controls and phase identification.",
+      "scope": "Explicit adaptive record PSD density and NPT witnesses in 31/72 native success-conditional and 67/72 pair diagnostic contexts; no native physical entanglement."
+    },
+    {
+      "accepted": "Q-ADAPT-05;Q-DILATION-06",
+      "id": "Q37",
+      "open": "Q-RECORD-03",
+      "remaining_final_acceptance": "Define joint classical/quantum information and discord with operational readout; independent adaptive decision comparison.",
+      "scope": "Actual branch probability and declared coherent readout/fragment information, success mass and nonunique dilation."
+    },
+    {
+      "accepted": "Q-ADAPT-05",
+      "id": "Q42",
+      "open": "",
+      "remaining_final_acceptance": "Specify exact CP/GKSL generator, physical time and bath if claimed; convergence, positivity, trace and actual phase-sensitive controls.",
+      "scope": "Discrete adaptive CP construction with branch-dependent downstream and positive abort; no physical time or hbar."
+    },
+    {
+      "accepted": "Q-ADAPT-05",
+      "id": "Q43",
+      "open": "",
+      "remaining_final_acceptance": "Define complex path amplitude, measure, action and independently calibrated hbar; compare actual finite conditional instrument and coherent readout.",
+      "scope": "Actual selected path product probabilities and declared coherent amplitude product, full stopped normalization; no physical action."
+    },
+    {
+      "accepted": "Q-DILATION-06",
+      "id": "Q45",
+      "open": "Q-RECORD-03;Q-UTILITY-04",
+      "remaining_final_acceptance": "Comprehensive action/hbar/Lindblad/classical-limit report with explicit assumptions, singularity/negative utility retained and no forced regime.",
+      "scope": "Bounded adaptive quantum record and constructive ambiguity, negative redundancy and rare-event limitations; full original acceptance open."
+    }
+  ],
+  "parent_convergence_sha256": "688f2b2a684ce8bdc5d33ba8cc38c39cf71ccd7252462ce86d35f9bb72825135",
+  "parent_quality_matrix_sha256": "b4fe980994acb754c4178dd78323cc68509b1082d3503e1a08373c8847ed92d0",
+  "scope": "R83 delta; R79 item contracts and R80-R82 accepted claims retained."
+}

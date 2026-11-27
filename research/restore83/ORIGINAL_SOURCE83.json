@@ -1,0 +1,295 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "original_attachment_receipt": {
+    "anchor_is_ancestor": true,
+    "git_anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "guide_obligations": 27,
+    "original_output_obligations": 121,
+    "original_source_function_obligations": 94,
+    "original_source_zip_members": 347,
+    "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "scope": "current source hash and history census, not all historical raw executions replayed",
+    "supplied_zip_check_location": "conversation sandbox, original linked library materialization",
+    "supplied_zip_manifest_members_verified": 34,
+    "supplied_zip_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6"
+  },
+  "scope": "Original quantum record/entanglement/action and information objectives; actual branch-dependent model, not physical phase identification.",
+  "spans": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 2210,
+      "function": "_generate_quantum_darwinism_plots",
+      "id": "L15",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "observable_fields": [
+        "coherence",
+        "decoherence",
+        "depth",
+        "fragment_size",
+        "information_content",
+        "information_flow",
+        "mutual_information",
+        "quantum_phenomena",
+        "times",
+        "width"
+      ],
+      "panel": "D_decision_records;D_repeated_root_information",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "e7ba20d85fa9cd6195f6b026e8480f8d8f1c664dd33e9a663669ef39142620ca",
+      "start": 2096
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 2390,
+      "function": "_generate_path_integral_plots",
+      "id": "L16",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "observable_fields": [
+        "action",
+        "coherence_evolution",
+        "decoherence",
+        "dominant_paths",
+        "overlap",
+        "path_distance",
+        "path_integral",
+        "path_overlaps",
+        "path_visits",
+        "path_weights",
+        "position",
+        "q_value",
+        "q_value_landscape",
+        "quantum_phenomena",
+        "simulation_counts",
+        "weight",
+        "weights"
+      ],
+      "panel": "A_action_curvature;A_C_paired_source_response",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "bccf5ebd77c7c9f11f3b511ee9cc9afd91c8790c17d64d3e94ec9fbf9f89a02f",
+      "start": 2212
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 3417,
+      "function": "_create_lindblad_plots",
+      "id": "L20",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "observable_fields": [
+        "coherence",
+        "coherence_evolution",
+        "coherence_timeline",
+        "correlation_strength",
+        "decoherence_rate",
+        "decoherence_rates",
+        "quantum_correlations",
+        "time"
+      ],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "2d87b4c2833f6b896129cfaeee89f9dc595b6172256d5d383ac4f1ae8590f330",
+      "start": 3349
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 244,
+      "function": "plot_decoherence_dynamics",
+      "id": "Q24",
+      "member": "quantum/research/visualization/plot_decoherence_darwinism.py",
+      "member_sha": "7fcd2276bf013ebcc9234a8a0efa9266e0402057d3ccfe46e93e8174dace5fa3",
+      "observable_fields": [
+        "coherence_decay",
+        "coupling_strengths",
+        "decoherence_times",
+        "entanglement_growth",
+        "environment_sizes",
+        "purity_evolution",
+        "system_sizes",
+        "times"
+      ],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "b67d166b9db5bae9bc217723acd2be45e46493354fed61c9caf110b57f4a6f93",
+      "start": 55
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 460,
+      "function": "plot_information_proliferation",
+      "id": "Q25",
+      "member": "quantum/research/visualization/plot_decoherence_darwinism.py",
+      "member_sha": "7fcd2276bf013ebcc9234a8a0efa9266e0402057d3ccfe46e93e8174dace5fa3",
+      "observable_fields": [
+        "accessibility_measure",
+        "classical_objectivity",
+        "darwinism_threshold",
+        "fragment_redundancy",
+        "fragment_sizes",
+        "fragments",
+        "information_accessibility",
+        "mutual_information",
+        "objectivity_measure",
+        "proliferation_data",
+        "proliferation_rate",
+        "redundancy_measure",
+        "redundancy_measures",
+        "system_sizes"
+      ],
+      "panel": "D_decision_records;D_repeated_root_information",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "ec905c38fe0104124700c9fdb60a10c5c44c7b3345a9e76dec86f9f1d4b6ed44",
+      "start": 246
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 218,
+      "function": "plot_entanglement_analysis",
+      "id": "Q35",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "member_sha": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472",
+      "observable_fields": [
+        "entanglement_data",
+        "entanglement_entropy",
+        "entanglement_spectrum",
+        "mutual_information",
+        "negativity",
+        "quantum_correlations",
+        "system_sizes",
+        "von_neumann_entropy"
+      ],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "beffedce1630a7710af45dd9acb6ffbf443fb3f594f8f295584c2e040b6e8fa2",
+      "start": 55
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 657,
+      "function": "plot_information_flow",
+      "id": "Q37",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "member_sha": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472",
+      "observable_fields": [
+        "classical_mutual_info",
+        "correlation_strength",
+        "divergence",
+        "entropy",
+        "information_data",
+        "quantum_discord",
+        "quantum_mutual_info",
+        "relative_entropy",
+        "shannon_entropy",
+        "system_sizes",
+        "von_neumann_entropy"
+      ],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "f3b42f33256c22ff45bae0e92aa0c53d770d6f71734cfe271cb672260f1327fa",
+      "start": 417
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 472,
+      "function": "plot_lindblad_dynamics",
+      "id": "Q42",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+      "observable_fields": [],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "df0e61e9f69feb13d44fab0b54916c5637e3da17cf3a8fc60b595e9b11ae473c",
+      "start": 301
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 630,
+      "function": "plot_path_integral_hbar",
+      "id": "Q43",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+      "observable_fields": [],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "fc867168d0c83df5b6ba03cfa786314ea5d0e77a3da5614d24f12d60ce03d880",
+      "start": 474
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 782,
+      "function": "generate_comprehensive_report",
+      "id": "Q45",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+      "observable_fields": [
+        "alpha",
+        "classical_limit_verified",
+        "crossover_point",
+        "dynamic_hbar_implemented",
+        "effective_action_computed",
+        "hbar_analysis",
+        "information_time_scaling",
+        "kraus_operators_analyzed",
+        "lindblad_analysis",
+        "multi_level_extension",
+        "parameters",
+        "path_integral_analysis",
+        "quantum_corrections_analyzed",
+        "tree_expansion_data",
+        "two_level_mapping_verified"
+      ],
+      "panel": "A_action_curvature;A_C_paired_source_response",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "b4c23c8b999d12a8f60d356c018d6b114f3c3bed974a2c0caf9bcd8be59d309c",
+      "start": 721
+    }
+  ],
+  "verified_members": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_decoherence_darwinism.py",
+      "sha256": "7fcd2276bf013ebcc9234a8a0efa9266e0402057d3ccfe46e93e8174dace5fa3"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "sha256": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "sha256": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/effective-action-mcts.md",
+      "sha256": "d8638991645cc3803ab363e3c81f9f843d5dc5b0d2afe865c29f4bc80b38386b"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v5.0/new_quantum_mcts.md",
+      "sha256": "b0918d64a49ef0b554d3cd7a763027c3bfc4b98c2299c0b722a6d201d18cf455"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v3.0/qft-mcts-decoherence.md",
+      "sha256": "64a0c6eb98c1f8695b4230cda9121f7f5adc463f217e412670808bf9408358e5"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    }
+  ]
+}

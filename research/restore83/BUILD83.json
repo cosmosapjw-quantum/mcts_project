@@ -1,0 +1,32 @@
+{
+  "binary_sha": "e8f9eaca0ac248fdcd7048da557ecf7976e969d958da98ae2f2726242e49cd43",
+  "build": [
+    "cargo",
+    "build",
+    "--offline",
+    "--release",
+    "--features",
+    "mqft-train",
+    "--bin",
+    "mqft_train",
+    "--manifest-path",
+    "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore83_20261127/branch_src/Cargo.toml"
+  ],
+  "build_log_sha": "b0f8bc5c8a3b1bd8a3a3c4042f38b283b3c6ac69b4cf6ffc79547b89c3f5e1ff",
+  "patch_sha": "2f238d1e02386f59cb8a899fcf12c861a38d88c439ea7eef392350b44c357374",
+  "status": "PASS_BUILD_AND_LIB_SUITE",
+  "test": [
+    "cargo",
+    "test",
+    "--offline",
+    "--release",
+    "--features",
+    "mqft-train",
+    "--lib",
+    "--manifest-path",
+    "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore83_20261127/branch_src/Cargo.toml",
+    "--",
+    "--test-threads=4"
+  ],
+  "test_log_sha": "bf28cf79fc9942e4546788e332a90681427d780fdcd4961b2d4c1620062d11f7"
+}

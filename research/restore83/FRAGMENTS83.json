@@ -1,0 +1,5621 @@
+{
+  "contexts": [
+    {
+      "core": 0,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.051183924436637995,
+          "classical_fraction": 0.1380092626822229,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.053129999436538955,
+          "holevo_fraction": 0.1432565425423891
+        },
+        {
+          "classical_MI": 0.0021657978282207946,
+          "classical_fraction": 0.005839727310506023,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0021716500391318894,
+          "holevo_fraction": 0.005855506860858808
+        },
+        {
+          "classical_MI": 0.05949065207012172,
+          "classical_fraction": 0.16040702464786316,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.20474259604627232,
+          "holevo_fraction": 0.5520556508903416
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3708731098324391,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 0,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.013037649338641377,
+          "classical_fraction": 0.025297963881637606,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.016512693315085814,
+          "holevo_fraction": 0.03204086167860771
+        },
+        {
+          "classical_MI": 0.004675770186126416,
+          "classical_fraction": 0.009072760143723152,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00611453649943694,
+          "holevo_fraction": 0.011864510196423947
+        },
+        {
+          "classical_MI": 0.016446301609308378,
+          "classical_fraction": 0.03191203669404397,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04493751925960732,
+          "holevo_fraction": 0.08719575972875539
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5153635841857094,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 1,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 9.752491036962851e-10,
+          "classical_fraction": 0.002249312687260571,
+          "fragment": [
+            2
+          ],
+          "holevo": 1.3662959097437977e-09,
+          "holevo_fraction": 0.0031512223007343788
+        },
+        {
+          "classical_MI": 2.9774065435361763e-09,
+          "classical_fraction": 0.006867084817741295,
+          "fragment": [
+            3
+          ],
+          "holevo": 2.9898989950538635e-09,
+          "holevo_fraction": 0.006895897384281702
+        },
+        {
+          "classical_MI": 4.219097626823043e-09,
+          "classical_fraction": 0.009730918782530316,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 7.2446675325466e-09,
+          "holevo_fraction": 0.016709087487679047
+        }
+      ],
+      "nontrivial": false,
+      "pointer_entropy": 4.3357649170780124e-07,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 1,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.00026350923466156306,
+          "classical_fraction": 0.000837848001007854,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0008138714287386217,
+          "holevo_fraction": 0.002587767182132559
+        },
+        {
+          "classical_MI": 0.002949766651640817,
+          "classical_fraction": 0.009379011311277547,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.003594965215048318,
+          "holevo_fraction": 0.01143047006678721
+        },
+        {
+          "classical_MI": 0.0128699895343789,
+          "classical_fraction": 0.04092112755828305,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.07656228353176675,
+          "holevo_fraction": 0.24343570460471697
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.31450720696902745,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 2,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0022361142563243064,
+          "classical_fraction": 0.006461780194686369,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.003561480068543621,
+          "holevo_fraction": 0.01029173768987757
+        },
+        {
+          "classical_MI": 0.005810420100626934,
+          "classical_fraction": 0.01679058099238441,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.005827208370616566,
+          "holevo_fraction": 0.016839094663014267
+        },
+        {
+          "classical_MI": 0.007239853436603827,
+          "classical_fraction": 0.020921266172677068,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.1580100044882854,
+          "holevo_fraction": 0.45660722151248884
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.346052355380813,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 2,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.002030841351231105,
+          "classical_fraction": 0.0035293120993999446,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0026442884624068297,
+          "holevo_fraction": 0.004595395528566859
+        },
+        {
+          "classical_MI": 0.0007088283351190938,
+          "classical_fraction": 0.001231842368197205,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0009204631425540621,
+          "holevo_fraction": 0.0015996334248849278
+        },
+        {
+          "classical_MI": 0.0029442202200953282,
+          "classical_fraction": 0.005116634068821424,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.02271407038755935,
+          "holevo_fraction": 0.03947380892005118
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5754212985517461,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 3,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0021286524894391645,
+          "classical_fraction": 0.005308944542148058,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.020060818925291768,
+          "holevo_fraction": 0.05003248565598802
+        },
+        {
+          "classical_MI": 0.004144124983017861,
+          "classical_fraction": 0.010335613642773914,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.004162816862389285,
+          "holevo_fraction": 0.010382231938368775
+        },
+        {
+          "classical_MI": 0.007055845836031027,
+          "classical_fraction": 0.01759756203855725,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0951819177145945,
+          "holevo_fraction": 0.23738751396439414
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4009558722152121,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 3,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0018196887875950862,
+          "classical_fraction": 0.0030919920873847527,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.002627178168470634,
+          "holevo_fraction": 0.00446406779249152
+        },
+        {
+          "classical_MI": 0.00026823545525556103,
+          "classical_fraction": 0.00045578228038782316,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0005070711250966808,
+          "holevo_fraction": 0.0008616088186223954
+        },
+        {
+          "classical_MI": 0.002418349508924278,
+          "classical_fraction": 0.004109228785218274,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.02469269042926414,
+          "holevo_fraction": 0.04195750610983877
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.588516637872189,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 4,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0037617635407367622,
+          "classical_fraction": 0.026126517288212015,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.004401447515107848,
+          "holevo_fraction": 0.030569304357206006
+        },
+        {
+          "classical_MI": 0.01345610579891432,
+          "classical_fraction": 0.09345648044600105,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.013497097090102939,
+          "holevo_fraction": 0.09374117661743979
+        },
+        {
+          "classical_MI": 0.014652678984722556,
+          "classical_fraction": 0.10176702141623624,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.05657632939245849,
+          "holevo_fraction": 0.3929386927085114
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.14398258670450603,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 4,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.03997237664539899,
+          "classical_fraction": 0.07231736677048521,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.04543691672985156,
+          "holevo_fraction": 0.08220372286647337
+        },
+        {
+          "classical_MI": 0.02173097152289838,
+          "classical_fraction": 0.03931531647071333,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.025532998712910093,
+          "holevo_fraction": 0.046193881566068566
+        },
+        {
+          "classical_MI": 0.0526847864168718,
+          "classical_fraction": 0.0953164495654813,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.09696537937630345,
+          "holevo_fraction": 0.17542817047388465
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5527355105760413,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 5,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.012915973102650913,
+          "classical_fraction": 0.023088087996356917,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.058258829520159816,
+          "holevo_fraction": 0.10414120344135253
+        },
+        {
+          "classical_MI": 0.0008511467672335238,
+          "classical_fraction": 0.001521476647831437,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0008557865684587496,
+          "holevo_fraction": 0.001529770574903152
+        },
+        {
+          "classical_MI": 0.014278313159984624,
+          "classical_fraction": 0.025523353761831992,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.29235908344789985,
+          "holevo_fraction": 0.5226096548462132
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5594215122832575,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 5,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 4.810137976674067e-05,
+          "classical_fraction": 0.00011530331804474914,
+          "fragment": [
+            2
+          ],
+          "holevo": 8.554349153755414e-05,
+          "holevo_fraction": 0.00020505541544221808
+        },
+        {
+          "classical_MI": 2.873316699014694e-07,
+          "classical_fraction": 6.887597628100824e-07,
+          "fragment": [
+            3
+          ],
+          "holevo": 4.4265652133668176e-05,
+          "holevo_fraction": 0.00010610873515848032
+        },
+        {
+          "classical_MI": 5.0623163949214955e-05,
+          "classical_fraction": 0.0001213482607271023,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.02848406425199379,
+          "holevo_fraction": 0.06827885469359485
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.41717255480950305,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 6,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.06784769061838614,
+          "classical_fraction": 0.22842605856617673,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.07731317160612927,
+          "holevo_fraction": 0.26029394522166327
+        },
+        {
+          "classical_MI": 0.00015436158466630712,
+          "classical_fraction": 0.0005196965152090012,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00015521131915940956,
+          "holevo_fraction": 0.0005225573568871484
+        },
+        {
+          "classical_MI": 0.07026080442319471,
+          "classical_fraction": 0.2365504039975403,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.17506552720496849,
+          "holevo_fraction": 0.5894014668113688
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.2970225509482761,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 6,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 4.381500295758123e-05,
+          "classical_fraction": 8.818866265485821e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 7.733265757736696e-05,
+          "holevo_fraction": 0.00015565133381131158
+        },
+        {
+          "classical_MI": 0.00014726834916634068,
+          "classical_fraction": 0.00029641442172083897,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0002439801099003991,
+          "holevo_fraction": 0.0004910710522450987
+        },
+        {
+          "classical_MI": 0.0003868302069269802,
+          "classical_fraction": 0.000778592635413477,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.02327813872116813,
+          "holevo_fraction": 0.04685308192039925
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4968326045385099,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 7,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.00010079191132250642,
+          "classical_fraction": 0.026705864777489787,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.00014321157173957655,
+          "holevo_fraction": 0.03794539481656693
+        },
+        {
+          "classical_MI": 3.673490279243463e-05,
+          "classical_fraction": 0.009733294405440346,
+          "fragment": [
+            3
+          ],
+          "holevo": 3.6892217642026104e-05,
+          "holevo_fraction": 0.00977497661034703
+        },
+        {
+          "classical_MI": 0.00018785201646864813,
+          "classical_fraction": 0.04977334474726129,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0007730492566061509,
+          "holevo_fraction": 0.20482743746375345
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.0037741489430240553,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 7,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.03058962700009693,
+          "classical_fraction": 0.06347183472028263,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.03503088388385517,
+          "holevo_fraction": 0.07268720445575953
+        },
+        {
+          "classical_MI": 0.01769323776142473,
+          "classical_fraction": 0.03671251901359422,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.02071012024926433,
+          "holevo_fraction": 0.04297238830320875
+        },
+        {
+          "classical_MI": 0.044411907653193916,
+          "classical_fraction": 0.09215232543263921,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.08932660159184802,
+          "holevo_fraction": 0.18534790543030638
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4819401729114019,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 8,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.04215158710515554,
+          "classical_fraction": 0.07742383770303264,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.04489007942202472,
+          "holevo_fraction": 0.08245388756007227
+        },
+        {
+          "classical_MI": 0.06156774564587053,
+          "classical_fraction": 0.11308734674060347,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.061739113743553786,
+          "holevo_fraction": 0.11340211485952165
+        },
+        {
+          "classical_MI": 0.09889392941524888,
+          "classical_fraction": 0.1816479062048153,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.24247763545200018,
+          "holevo_fraction": 0.4453817847241769
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.544426475820437,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 8,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.00709579073361255,
+          "classical_fraction": 0.012506899462709012,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.008985904674970457,
+          "holevo_fraction": 0.01583837666166988
+        },
+        {
+          "classical_MI": 0.006579497273032753,
+          "classical_fraction": 0.011596890889015042,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.008567503893576522,
+          "holevo_fraction": 0.01510091177516685
+        },
+        {
+          "classical_MI": 0.01524220400109444,
+          "classical_fraction": 0.026865605284660903,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04442557380787715,
+          "holevo_fraction": 0.07830363183574363
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5673501058171608,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 9,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0017219127958966116,
+          "classical_fraction": 0.3887868617616938,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0018021653854246797,
+          "holevo_fraction": 0.40690691552122255
+        },
+        {
+          "classical_MI": 0.00026457079855329857,
+          "classical_fraction": 0.05973685237048342,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00026555968832686627,
+          "holevo_fraction": 0.059960131593804034
+        },
+        {
+          "classical_MI": 0.0019114935261279609,
+          "classical_fraction": 0.4315918733353241,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.002541610063739652,
+          "holevo_fraction": 0.5738644853897752
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.004428937716913013,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 9,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0026763651180309322,
+          "classical_fraction": 0.004708676755692987,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0033996851534737194,
+          "holevo_fraction": 0.005981253585689287
+        },
+        {
+          "classical_MI": 0.008898117176791676,
+          "classical_fraction": 0.015654948286957616,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.011078674156664192,
+          "holevo_fraction": 0.019491322440998264
+        },
+        {
+          "classical_MI": 0.012754308781838697,
+          "classical_fraction": 0.022439358849572596,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04128867486482868,
+          "holevo_fraction": 0.0726414427910419
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5683900715408199,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 10,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.000592621869634824,
+          "classical_fraction": 0.056063129385615355,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0008666644752660657,
+          "holevo_fraction": 0.08198806878439696
+        },
+        {
+          "classical_MI": 1.2200223605818294e-06,
+          "classical_fraction": 0.00011541638093239837,
+          "fragment": [
+            3
+          ],
+          "holevo": 1.2400362677800203e-06,
+          "holevo_fraction": 0.00011730973371982635
+        },
+        {
+          "classical_MI": 0.0005947800022043648,
+          "classical_fraction": 0.05626729273441656,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0013681124592016536,
+          "holevo_fraction": 0.129425979269982
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.010570617019229015,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 10,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0001073003429983288,
+          "classical_fraction": 0.0003314003126750086,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0007198580433749324,
+          "holevo_fraction": 0.002223303057472874
+        },
+        {
+          "classical_MI": 0.000453124102789193,
+          "classical_fraction": 0.0013994873189479005,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0007961508443862786,
+          "holevo_fraction": 0.0024589356510276413
+        },
+        {
+          "classical_MI": 0.0006291849592749976,
+          "classical_fraction": 0.0019432565302926789,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.05044184343318603,
+          "holevo_fraction": 0.15579113932489513
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.32377864140265333,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 11,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0020219369614299376,
+          "classical_fraction": 0.0031724286107284974,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.04265993235685239,
+          "holevo_fraction": 0.06693363468904094
+        },
+        {
+          "classical_MI": 0.007079296510642763,
+          "classical_fraction": 0.011107449550905169,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0071076090793709135,
+          "holevo_fraction": 0.011151872104520727
+        },
+        {
+          "classical_MI": 0.012283654650813602,
+          "classical_fraction": 0.019273111972289134,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.33033908516870647,
+          "holevo_fraction": 0.5183035796971338
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6373467174618729,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 11,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0012188096626000178,
+          "classical_fraction": 0.002733985609703328,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0019469735008830202,
+          "holevo_fraction": 0.00436737392000375
+        },
+        {
+          "classical_MI": 0.0004028077125485252,
+          "classical_fraction": 0.0009035623226319888,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0006630637754557744,
+          "holevo_fraction": 0.0014873584252232527
+        },
+        {
+          "classical_MI": 0.0019300829508117623,
+          "classical_fraction": 0.004329485706403373,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.029860557719149083,
+          "holevo_fraction": 0.0669820215633299
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.44579958953488197,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 12,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.24960514151665908,
+          "classical_fraction": 0.39559212721726916,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.2523221899021738,
+          "holevo_fraction": 0.39989830033552715
+        },
+        {
+          "classical_MI": 0.0634881519634467,
+          "classical_fraction": 0.10062057590523182,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.06367879069238203,
+          "holevo_fraction": 0.10092271383336615
+        },
+        {
+          "classical_MI": 0.26123914430668926,
+          "classical_fraction": 0.4140305291019215,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.4420025254106861,
+          "holevo_fraction": 0.7005172978415928
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.630965897305559,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 12,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.008881347442646126,
+          "classical_fraction": 0.016915493228583236,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.011580528983323513,
+          "holevo_fraction": 0.022056378366665588
+        },
+        {
+          "classical_MI": 0.0010962334777215865,
+          "classical_fraction": 0.002087896019055067,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0014730550889169303,
+          "holevo_fraction": 0.002805593806887534
+        },
+        {
+          "classical_MI": 0.010663011029385272,
+          "classical_fraction": 0.02030886552166403,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.036223378992867206,
+          "holevo_fraction": 0.06899136938704084
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5250421801262479,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 13,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.1470910364328729,
+          "classical_fraction": 0.4812466490509795,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.15005675041248462,
+          "holevo_fraction": 0.4909497550276862
+        },
+        {
+          "classical_MI": 0.033591022428901884,
+          "classical_fraction": 0.1099017817410153,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.03371446077375784,
+          "holevo_fraction": 0.11030564244705796
+        },
+        {
+          "classical_MI": 0.15240544371265163,
+          "classical_fraction": 0.49863411709192174,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.21908084269394457,
+          "holevo_fraction": 0.7167800565865273
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.30564584028364056,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 13,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.009828826020536141,
+          "classical_fraction": 0.019966494889510383,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.013174526425359101,
+          "holevo_fraction": 0.026763024800117812
+        },
+        {
+          "classical_MI": 0.0013985034576795563,
+          "classical_fraction": 0.002840950901194028,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.001894991912838817,
+          "holevo_fraction": 0.0038495285463701653
+        },
+        {
+          "classical_MI": 0.012309871616882573,
+          "classical_fraction": 0.02500654586981974,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04132245834236148,
+          "holevo_fraction": 0.08394335718130462
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4922659723164441,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 14,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.00018093933331715661,
+          "classical_fraction": 0.22890536364941005,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.00018527575705729743,
+          "holevo_fraction": 0.23439134967012204
+        },
+        {
+          "classical_MI": 1.6751394217029425e-05,
+          "classical_fraction": 0.021192097453805313,
+          "fragment": [
+            3
+          ],
+          "holevo": 1.6822781270686704e-05,
+          "holevo_fraction": 0.02128240882600782
+        },
+        {
+          "classical_MI": 0.00018572741079658783,
+          "classical_fraction": 0.23496273435216167,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0002842621109587773,
+          "holevo_fraction": 0.35961844607171456
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.0007904547557665887,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 14,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.010608318893152058,
+          "classical_fraction": 0.015846776844485523,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.01538954214260857,
+          "holevo_fraction": 0.02298899972078997
+        },
+        {
+          "classical_MI": 0.0007492000430706636,
+          "classical_fraction": 0.0011191599737903515,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0013340160405334034,
+          "holevo_fraction": 0.0019927619742788195
+        },
+        {
+          "classical_MI": 0.014111781843632043,
+          "classical_fraction": 0.021080272944891953,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.042887522556066426,
+          "holevo_fraction": 0.06406566452273055
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6694306985741153,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 15,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.005588405033370991,
+          "classical_fraction": 0.0484140943371967,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0064635583214043835,
+          "holevo_fraction": 0.05599581999833737
+        },
+        {
+          "classical_MI": 0.008084224355635716,
+          "classical_fraction": 0.0700361549063883,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.008118657332465695,
+          "holevo_fraction": 0.07033445851512861
+        },
+        {
+          "classical_MI": 0.012334654559109759,
+          "classical_fraction": 0.1068589563346758,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.03856810484407014,
+          "holevo_fraction": 0.3341275113699774
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.11542930028699105,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 15,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.047810672594576054,
+          "classical_fraction": 0.07335645606225469,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.05518746412421771,
+          "holevo_fraction": 0.0846747507935018
+        },
+        {
+          "classical_MI": 0.025758287207641617,
+          "classical_fraction": 0.039521231583775296,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.030203373242356002,
+          "holevo_fraction": 0.04634137739438788
+        },
+        {
+          "classical_MI": 0.06385520495571506,
+          "classical_fraction": 0.09797376364898878,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.11315804638767846,
+          "holevo_fraction": 0.17361967124616473
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6517582113563536,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 16,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 1.311593899488983e-06,
+          "classical_fraction": 5.637192251383339e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0005670230264059328,
+          "holevo_fraction": 0.02437048397416935
+        },
+        {
+          "classical_MI": 4.450652208232153e-05,
+          "classical_fraction": 0.0019128773129871652,
+          "fragment": [
+            3
+          ],
+          "holevo": 4.475767696665578e-05,
+          "holevo_fraction": 0.0019236718765210283
+        },
+        {
+          "classical_MI": 0.00014352062797318155,
+          "classical_fraction": 0.006168474649350758,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0037731270916426807,
+          "holevo_fraction": 0.16216789978041013
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.023266793839914267,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 16,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0006793823077853034,
+          "classical_fraction": 0.001233555979935093,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0011459521423046182,
+          "holevo_fraction": 0.0020807078748745008
+        },
+        {
+          "classical_MI": 0.00014625836569770456,
+          "classical_fraction": 0.00026556164261927224,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00018447740756388775,
+          "holevo_fraction": 0.0003349560426517186
+        },
+        {
+          "classical_MI": 0.0029821216744814194,
+          "classical_fraction": 0.005414645012529696,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.03076908769644815,
+          "holevo_fraction": 0.05586750153802279
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5507510958854506,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 17,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.001529378165324946,
+          "classical_fraction": 0.005109098769839127,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0017642975527184523,
+          "holevo_fraction": 0.0058938793952958216
+        },
+        {
+          "classical_MI": 0.003928319888070075,
+          "classical_fraction": 0.013123094577075448,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.003939011840696449,
+          "holevo_fraction": 0.013158812519994411
+        },
+        {
+          "classical_MI": 0.004898676974521621,
+          "classical_fraction": 0.016364706304702617,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.13176486323333847,
+          "holevo_fraction": 0.44017870525203684
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.29934402019264594,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 17,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0029185196634389232,
+          "classical_fraction": 0.004947109262659445,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0037867170088004554,
+          "holevo_fraction": 0.006418768742244192
+        },
+        {
+          "classical_MI": 0.0004885863126213863,
+          "classical_fraction": 0.0008281903675542827,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0006379271052575075,
+          "holevo_fraction": 0.0010813341883063815
+        },
+        {
+          "classical_MI": 0.0036825361926626776,
+          "classical_fraction": 0.006242174461601475,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.023278740062796288,
+          "holevo_fraction": 0.039459206676032414
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5899444521000934,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 18,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0027419628370145555,
+          "classical_fraction": 0.0364392889217876,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0036312143355242688,
+          "holevo_fraction": 0.04825698821402494
+        },
+        {
+          "classical_MI": 0.0002978713929198684,
+          "classical_fraction": 0.003958559029910288,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00029920822178103323,
+          "holevo_fraction": 0.003976324804286723
+        },
+        {
+          "classical_MI": 0.0032386797839241144,
+          "classical_fraction": 0.043040404041383054,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.008947056777558915,
+          "holevo_fraction": 0.11890182555212236
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.07524742985242763,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 18,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.03029811518361547,
+          "classical_fraction": 0.05380567771645484,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.036360294573292706,
+          "holevo_fraction": 0.06457135302409572
+        },
+        {
+          "classical_MI": 0.013654356409741109,
+          "classical_fraction": 0.024248435784066154,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.01698515884164692,
+          "holevo_fraction": 0.03016352591763407
+        },
+        {
+          "classical_MI": 0.03977409575957158,
+          "classical_fraction": 0.0706338386045949,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.07870812973192187,
+          "holevo_fraction": 0.13977583213859016
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5631025659277163,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 19,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.10301109452849766,
+          "classical_fraction": 0.5239745088925556,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.10386182615703571,
+          "holevo_fraction": 0.528301826151953
+        },
+        {
+          "classical_MI": 2.5622871291375304e-07,
+          "classical_fraction": 1.3033286815141408e-06,
+          "fragment": [
+            3
+          ],
+          "holevo": 2.604751507817582e-07,
+          "holevo_fraction": 1.3249285412827914e-06
+        },
+        {
+          "classical_MI": 0.10321619260633075,
+          "classical_fraction": 0.52501775734166,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.14477900089771611,
+          "holevo_fraction": 0.7364304421826051
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.19659562207752507,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 19,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.008130752558549115,
+          "classical_fraction": 0.014217332369651895,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.010475213513364112,
+          "holevo_fraction": 0.01831682751259893
+        },
+        {
+          "classical_MI": 0.00012072362666848413,
+          "classical_fraction": 0.00021109582573767145,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0001577836425911694,
+          "holevo_fraction": 0.00027589850669534026
+        },
+        {
+          "classical_MI": 0.00844601700854386,
+          "classical_fraction": 0.014768599849216003,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.030830949870968127,
+          "holevo_fraction": 0.053910613861535124
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.571890165267916,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 20,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0016176442192300522,
+          "classical_fraction": 0.005909679747796025,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.005745089893946065,
+          "holevo_fraction": 0.02098832425073085
+        },
+        {
+          "classical_MI": 0.0030917136461070527,
+          "classical_fraction": 0.011294843021217542,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0031008003304544562,
+          "holevo_fraction": 0.011328039068793459
+        },
+        {
+          "classical_MI": 0.0069348292042623605,
+          "classical_fraction": 0.025334754834014202,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.12039699750023192,
+          "holevo_fraction": 0.43984189438220506
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.2737278986790006,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 20,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0012908446980606225,
+          "classical_fraction": 0.0023312725041255006,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0017045075431398327,
+          "holevo_fraction": 0.0030783498389593145
+        },
+        {
+          "classical_MI": 0.0007209727273091993,
+          "classical_fraction": 0.0013020806437254106,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.000956794881810108,
+          "holevo_fraction": 0.0017279767298135182
+        },
+        {
+          "classical_MI": 0.0026868757571931745,
+          "classical_fraction": 0.004852512145075767,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.02401084643460938,
+          "holevo_fraction": 0.04336371848440271
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5537081983235761,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 21,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 1.62602020190028e-06,
+          "classical_fraction": 0.0014135625119482533,
+          "fragment": [
+            2
+          ],
+          "holevo": 3.15912152251685e-06,
+          "holevo_fraction": 0.002746347031666569
+        },
+        {
+          "classical_MI": 2.9059902249994884e-05,
+          "classical_fraction": 0.02526290163767146,
+          "fragment": [
+            3
+          ],
+          "holevo": 2.9149448973808667e-05,
+          "holevo_fraction": 0.025340748082446882
+        },
+        {
+          "classical_MI": 3.684494606637223e-05,
+          "classical_fraction": 0.032030742578297404,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 7.852631736271487e-05,
+          "holevo_fraction": 0.06826597744330636
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.0011502994654684251,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 21,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.0009214126779104603,
+          "classical_fraction": 0.0024895763733400827,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0011877192235839606,
+          "holevo_fraction": 0.0032091133409429804
+        },
+        {
+          "classical_MI": 0.0007839875566860721,
+          "classical_fraction": 0.002118265729254414,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0009600882816700462,
+          "holevo_fraction": 0.0025940744681165525
+        },
+        {
+          "classical_MI": 0.01089200686555114,
+          "classical_fraction": 0.029429248805462143,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.06050431718245264,
+          "holevo_fraction": 0.1634773670404676
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.37010821912415093,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 22,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.12247837269440531,
+          "classical_fraction": 0.20669191751750798,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.12351890950097244,
+          "holevo_fraction": 0.20844790547738662
+        },
+        {
+          "classical_MI": 0.002133562895570762,
+          "classical_fraction": 0.0036005557252955845,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.002139340276948176,
+          "holevo_fraction": 0.003610305512207819
+        },
+        {
+          "classical_MI": 0.1298839353622474,
+          "classical_fraction": 0.2191893888215358,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.3634010824112628,
+          "holevo_fraction": 0.6132679990689727
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5925648867427566,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 22,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 5.26504097737579e-05,
+          "classical_fraction": 9.720739432045619e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 6.934186912604945e-05,
+          "holevo_fraction": 0.00012802450055028798
+        },
+        {
+          "classical_MI": 0.0006651632666304641,
+          "classical_fraction": 0.0012280775823905856,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0008985475796218778,
+          "holevo_fraction": 0.001658970353000562
+        },
+        {
+          "classical_MI": 0.0008078760183654055,
+          "classical_fraction": 0.00149156527018006,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.020708386836362558,
+          "holevo_fraction": 0.038233478781891005
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5416296789129983,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 23,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.11527528788771813,
+          "classical_fraction": 0.359401005941129,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.12320551281915165,
+          "holevo_fraction": 0.38412556633843414
+        },
+        {
+          "classical_MI": 2.0210674514853366e-05,
+          "classical_fraction": 6.301208944680454e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 2.045564840968961e-05,
+          "holevo_fraction": 6.3775859946508e-05
+        },
+        {
+          "classical_MI": 0.11570976788551701,
+          "classical_fraction": 0.3607556115216617,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.17322269358816034,
+          "holevo_fraction": 0.5400672725975453
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3207428081228036,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 23,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 0,
+      "fragments": [
+        {
+          "classical_MI": 0.008621658220083983,
+          "classical_fraction": 0.015036145174781402,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.01162183875793188,
+          "holevo_fraction": 0.02026845072043029
+        },
+        {
+          "classical_MI": 0.000878114898788307,
+          "classical_fraction": 0.0015314296578774432,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0011581268094840724,
+          "holevo_fraction": 0.002019769560992791
+        },
+        {
+          "classical_MI": 0.010444972793103968,
+          "classical_fraction": 0.018216000130682915,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.03673824143966786,
+          "holevo_fraction": 0.06407137903775953
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.573395515929456,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 0,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.07476007787488588,
+          "classical_fraction": 0.6932443284853108,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0775280872995589,
+          "holevo_fraction": 0.7189118624070896
+        },
+        {
+          "classical_MI": 0.007184867784677695,
+          "classical_fraction": 0.06662471447635895,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.007217571948596402,
+          "holevo_fraction": 0.06692797761892068
+        },
+        {
+          "classical_MI": 0.07597917195287618,
+          "classical_fraction": 0.7045488920903831,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0898989274393131,
+          "holevo_fraction": 0.8336256910876235
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.10784087918646416,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 0,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.010032124740263604,
+          "classical_fraction": 0.023588618228747558,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.015236403192521508,
+          "holevo_fraction": 0.0358254813803498
+        },
+        {
+          "classical_MI": 0.0006533911065277342,
+          "classical_fraction": 0.0015363239358541577,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0010224274879951367,
+          "holevo_fraction": 0.002404042244819709
+        },
+        {
+          "classical_MI": 0.012097434815008912,
+          "classical_fraction": 0.02844479896199002,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.05097922517199682,
+          "holevo_fraction": 0.11986787558105991
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4252951420459808,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 1,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 2.6287953846344195e-10,
+          "classical_fraction": 0.2588891367272198,
+          "fragment": [
+            2
+          ],
+          "holevo": 2.6779159086347173e-10,
+          "holevo_fraction": 0.2637266262208322
+        },
+        {
+          "classical_MI": 9.272527190518076e-12,
+          "classical_fraction": 0.009131774095710905,
+          "fragment": [
+            3
+          ],
+          "holevo": 9.322764782382365e-12,
+          "holevo_fraction": 0.009181249101886817
+        },
+        {
+          "classical_MI": 2.657240538717076e-10,
+          "classical_fraction": 0.26169047357815006,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 3.03097436038513e-10,
+          "holevo_fraction": 0.29849654339360765
+        }
+      ],
+      "nontrivial": false,
+      "pointer_entropy": 1.0154135541825637e-09,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 1,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.011533284102157926,
+          "classical_fraction": 0.016852410874049928,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.022452241214113156,
+          "holevo_fraction": 0.03280716842072043
+        },
+        {
+          "classical_MI": 0.001686761023888872,
+          "classical_fraction": 0.0024646917191253263,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.003106543104517967,
+          "holevo_fraction": 0.0045392743585921025
+        },
+        {
+          "classical_MI": 0.014645164939170785,
+          "classical_fraction": 0.021399484716322734,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.05300357167259606,
+          "holevo_fraction": 0.07744870929275158
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.684369980553784,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 2,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.0004981923087830076,
+          "classical_fraction": 0.0013031121272580753,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.004320379690354481,
+          "holevo_fraction": 0.011300734815865224
+        },
+        {
+          "classical_MI": 0.002730643053894366,
+          "classical_fraction": 0.007142490993960007,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0027383470319986003,
+          "holevo_fraction": 0.00716264214266056
+        },
+        {
+          "classical_MI": 0.0029914765837235624,
+          "classical_fraction": 0.007824748286823998,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.17818769248149746,
+          "holevo_fraction": 0.4660821512238724
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3823096250598725,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 2,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.0017879245668517285,
+          "classical_fraction": 0.003258820055314294,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.002378834259261886,
+          "holevo_fraction": 0.0043358612192469755
+        },
+        {
+          "classical_MI": 0.00016103935477507214,
+          "classical_fraction": 0.00029352372508643985,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00023427762908900807,
+          "holevo_fraction": 0.0004270138966383233
+        },
+        {
+          "classical_MI": 0.0020089983879252316,
+          "classical_fraction": 0.0036617675930215943,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.022180410631225667,
+          "holevo_fraction": 0.040427861633683164
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5486416974561346,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 3,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.008046210327036458,
+          "classical_fraction": 0.6197790676063946,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.008089732956634725,
+          "holevo_fraction": 0.6231315048030154
+        },
+        {
+          "classical_MI": 2.2944249500334024e-08,
+          "classical_fraction": 1.7673370424413305e-06,
+          "fragment": [
+            3
+          ],
+          "holevo": 3.407477194850017e-08,
+          "holevo_fraction": 2.6246928092569946e-06
+        },
+        {
+          "classical_MI": 0.00900204337057492,
+          "classical_fraction": 0.6934044500452652,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.010466434185302131,
+          "holevo_fraction": 0.8062027410262173
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.012982384768351674,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 3,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 1.9873063583419892e-05,
+          "classical_fraction": 3.6393834041019797e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0002457415075710623,
+          "holevo_fraction": 0.00045003004222221663
+        },
+        {
+          "classical_MI": 0.00485479855240567,
+          "classical_fraction": 0.00889066409299084,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.005883036233066463,
+          "holevo_fraction": 0.010773690901998426
+        },
+        {
+          "classical_MI": 0.014383355663705188,
+          "classical_fraction": 0.02634045107240417,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.06019818362870222,
+          "holevo_fraction": 0.11024182030905616
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5460557840930086,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 4,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.007176998652768329,
+          "classical_fraction": 0.08010670642759422,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.007213868881350338,
+          "holevo_fraction": 0.08051823675103911
+        },
+        {
+          "classical_MI": 0.00022724244962446516,
+          "classical_fraction": 0.002536386737781098,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0002278564753637191,
+          "holevo_fraction": 0.002543240240479532
+        },
+        {
+          "classical_MI": 0.008439184312147407,
+          "classical_fraction": 0.09419470350893673,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.03589609394167648,
+          "holevo_fraction": 0.4006574333372725
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.08959298132242371,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 4,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 3.0412786852007656e-05,
+          "classical_fraction": 4.860075584968976e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 4.461335829075708e-05,
+          "holevo_fraction": 7.12937931165188e-05
+        },
+        {
+          "classical_MI": 0.0010926955997654364,
+          "classical_fraction": 0.001746167897097026,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.001436804547634729,
+          "holevo_fraction": 0.002296066695995987
+        },
+        {
+          "classical_MI": 0.0029835306172003584,
+          "classical_fraction": 0.004767792040967029,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.023578466672260268,
+          "holevo_fraction": 0.03767925996472504
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6257677750129435,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 5,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.026734171726256695,
+          "classical_fraction": 0.04762992656056448,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.08264901376772726,
+          "holevo_fraction": 0.1472484914202026
+        },
+        {
+          "classical_MI": 0.000999866779798908,
+          "classical_fraction": 0.001781374855365243,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0010035822846851117,
+          "holevo_fraction": 0.0017879944442074694
+        },
+        {
+          "classical_MI": 0.02751306480190041,
+          "classical_fraction": 0.04901761196826336,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.29801208225825304,
+          "holevo_fraction": 0.5309419621248528
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.561289375331337,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 5,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 9.477567639359918e-06,
+          "classical_fraction": 2.5238562152454416e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 2.1328085376970396e-05,
+          "holevo_fraction": 5.679624022349639e-05
+        },
+        {
+          "classical_MI": 0.0006713040551293847,
+          "classical_fraction": 0.0017876684992692827,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0009618728677150412,
+          "holevo_fraction": 0.002561447101022765
+        },
+        {
+          "classical_MI": 0.0007340290584119114,
+          "classical_fraction": 0.001954703856240459,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.034207786064330725,
+          "holevo_fraction": 0.09109461072026526
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3755193177055943,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 6,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.00016551182459157397,
+          "classical_fraction": 0.5190441331406953,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0001709028629710823,
+          "holevo_fraction": 0.5359503985952939
+        },
+        {
+          "classical_MI": 8.739190551221299e-07,
+          "classical_fraction": 0.0027406051472173417,
+          "fragment": [
+            3
+          ],
+          "holevo": 8.789716421375715e-07,
+          "holevo_fraction": 0.0027564500311343626
+        },
+        {
+          "classical_MI": 0.00016558839424535288,
+          "classical_fraction": 0.5192842551360187,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.00019701573204788936,
+          "holevo_fraction": 0.6178402063309872
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.0003188781339075637,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 6,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.009599421107515327,
+          "classical_fraction": 0.01414167560172675,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.016961952747533593,
+          "holevo_fraction": 0.024988010281124635
+        },
+        {
+          "classical_MI": 1.0728206583765498e-05,
+          "classical_fraction": 1.580457983837632e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0001461587690858579,
+          "holevo_fraction": 0.0002153181817538668
+        },
+        {
+          "classical_MI": 0.010682571305907329,
+          "classical_fraction": 0.015737350857770435,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04128033136533149,
+          "holevo_fraction": 0.06081336034349733
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6788036565018648,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 7,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 1.734123780960939e-07,
+          "classical_fraction": 0.0006492068823499535,
+          "fragment": [
+            2
+          ],
+          "holevo": 2.291479376803629e-07,
+          "holevo_fraction": 0.0008578650489179857
+        },
+        {
+          "classical_MI": 2.1690985923417117e-05,
+          "classical_fraction": 0.0812049145571088,
+          "fragment": [
+            3
+          ],
+          "holevo": 2.1776555688801658e-05,
+          "holevo_fraction": 0.08152526354960075
+        },
+        {
+          "classical_MI": 2.4440944162318345e-05,
+          "classical_fraction": 0.0914999801946975,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 3.325296032041791e-05,
+          "holevo_fraction": 0.12448967562489988
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.00026711420166771485,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 7,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.00821765570983779,
+          "classical_fraction": 0.023855212460214627,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.010230289188780661,
+          "holevo_fraction": 0.02969773019763281
+        },
+        {
+          "classical_MI": 2.352294803864563e-05,
+          "classical_fraction": 6.828528025099716e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0008416555944275594,
+          "holevo_fraction": 0.002443260430022808
+        },
+        {
+          "classical_MI": 0.02120996050835422,
+          "classical_fraction": 0.06157085816990734,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.08505802948472563,
+          "holevo_fraction": 0.24691681380326194
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3444805081297463,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 8,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.0093514474994435,
+          "classical_fraction": 0.04695180183813226,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.009722378305944579,
+          "holevo_fraction": 0.048814173382594625
+        },
+        {
+          "classical_MI": 0.011232492741813038,
+          "classical_fraction": 0.05639616469998353,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.011264364055072251,
+          "holevo_fraction": 0.056556184374430364
+        },
+        {
+          "classical_MI": 0.018323112133303843,
+          "classical_fraction": 0.0919967876622261,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.08653345647449406,
+          "holevo_fraction": 0.4344676801105786
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.19917121672311733,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 8,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.014603243156310786,
+          "classical_fraction": 0.023764880746873232,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.018451090664499348,
+          "holevo_fraction": 0.030026752591740598
+        },
+        {
+          "classical_MI": 0.010084633327033243,
+          "classical_fraction": 0.016411430380745218,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.01279792820933301,
+          "holevo_fraction": 0.020826965246443174
+        },
+        {
+          "classical_MI": 0.022906701742100966,
+          "classical_fraction": 0.03727768067533487,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.05136017157626449,
+          "holevo_fraction": 0.08358200569449573
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6144883835881292,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 9,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.0018849357449492038,
+          "classical_fraction": 0.3451004635761493,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0020907923101903814,
+          "holevo_fraction": 0.3827893854851764
+        },
+        {
+          "classical_MI": 1.5267990633893724e-05,
+          "classical_fraction": 0.00279531578715699,
+          "fragment": [
+            3
+          ],
+          "holevo": 1.536982641808793e-05,
+          "holevo_fraction": 0.00281396022977432
+        },
+        {
+          "classical_MI": 0.0018885375952270023,
+          "classical_fraction": 0.34575990260685946,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0027486939012560385,
+          "holevo_fraction": 0.5032402521381205
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.0054619913442488805,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 9,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.0008053368976206343,
+          "classical_fraction": 0.0023248593376888277,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0022074968909601145,
+          "holevo_fraction": 0.006372637060378721
+        },
+        {
+          "classical_MI": 2.9442011844516003e-05,
+          "classical_fraction": 8.4993667071879e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 9.751837067850655e-05,
+          "holevo_fraction": 0.00028151758020520306
+        },
+        {
+          "classical_MI": 0.0008582154642868822,
+          "classical_fraction": 0.0024775100231855924,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.042330926638862953,
+          "holevo_fraction": 0.12220159086233792
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3464024186604038,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 10,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.06358554281448293,
+          "classical_fraction": 0.8529219553882176,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.06391151194706417,
+          "holevo_fraction": 0.8572944309172629
+        },
+        {
+          "classical_MI": 0.0005124470852594376,
+          "classical_fraction": 0.006873848215272586,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0005142136768598871,
+          "holevo_fraction": 0.006897544871706328
+        },
+        {
+          "classical_MI": 0.06361019994411121,
+          "classical_fraction": 0.8532527004960823,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.06917230121476214,
+          "holevo_fraction": 0.9278614571700967
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.07455024743212434,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 10,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.010611384416492009,
+          "classical_fraction": 0.024457853336433723,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0147623817225368,
+          "holevo_fraction": 0.034025359264631704
+        },
+        {
+          "classical_MI": 4.128411662918108e-05,
+          "classical_fraction": 9.515448974513135e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 6.631849921112654e-05,
+          "holevo_fraction": 0.00015285546763127672
+        },
+        {
+          "classical_MI": 0.011015158366163513,
+          "classical_fraction": 0.02538849948537448,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04333513614423701,
+          "holevo_fraction": 0.09988182149756868
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.43386409553305827,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 11,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.24455011271780752,
+          "classical_fraction": 0.41017246699028836,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.26589135978256173,
+          "holevo_fraction": 0.44596714260877995
+        },
+        {
+          "classical_MI": 0.0009306573468789159,
+          "classical_fraction": 0.0015609480431213263,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0009354477717561371,
+          "holevo_fraction": 0.0015689827987302467
+        },
+        {
+          "classical_MI": 0.2515733097211824,
+          "classical_fraction": 0.42195214686456106,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.3977818114651742,
+          "holevo_fraction": 0.6671808289894746
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5962128918896883,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 11,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 4.008768164909249e-05,
+          "classical_fraction": 9.101601262751371e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 7.548715886285251e-05,
+          "holevo_fraction": 0.00017138781594849486
+        },
+        {
+          "classical_MI": 0.0015656775762810105,
+          "classical_fraction": 0.003554751090392215,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00254262663695648,
+          "holevo_fraction": 0.005772839150989481
+        },
+        {
+          "classical_MI": 0.001653941409579529,
+          "classical_fraction": 0.0037551473676419524,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.029462933081537024,
+          "holevo_fraction": 0.06689333428822697
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.44044647190986885,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 12,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.4840808831195822,
+          "classical_fraction": 0.7212078617894396,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.4884431403659452,
+          "holevo_fraction": 0.7277069703701182
+        },
+        {
+          "classical_MI": 7.772808067540993e-05,
+          "classical_fraction": 0.00011580317426222646,
+          "fragment": [
+            3
+          ],
+          "holevo": 7.799709681666211e-05,
+          "holevo_fraction": 0.00011620396793697153
+        },
+        {
+          "classical_MI": 0.48821416939632245,
+          "classical_fraction": 0.727365837990857,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.586995438477485,
+          "holevo_fraction": 0.8745351031759763
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6712085499435558,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 12,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.007500303425820087,
+          "classical_fraction": 0.012328023288280025,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.010293162010401535,
+          "holevo_fraction": 0.01691856099280339
+        },
+        {
+          "classical_MI": 0.0001866938231144255,
+          "classical_fraction": 0.0003068630251956793,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00024151804799071863,
+          "holevo_fraction": 0.0003969759556552817
+        },
+        {
+          "classical_MI": 0.010965072468406278,
+          "classical_fraction": 0.018022960015569016,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.03875579220037917,
+          "holevo_fraction": 0.06370173067361935
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6083946509859741,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 13,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.011286542010131684,
+          "classical_fraction": 0.43047047909723873,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.011455512946714472,
+          "holevo_fraction": 0.4369150570697486
+        },
+        {
+          "classical_MI": 0.0017939845825022394,
+          "classical_fraction": 0.06842285281262941,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0017995258430756333,
+          "holevo_fraction": 0.06863419735834504
+        },
+        {
+          "classical_MI": 0.011539346026568365,
+          "classical_fraction": 0.44011246385887026,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.016671227999775162,
+          "holevo_fraction": 0.6358432456779368
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.026219084834345107,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 13,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.021361266117622346,
+          "classical_fraction": 0.035077902700761526,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.02637693767764482,
+          "holevo_fraction": 0.04331427024530051
+        },
+        {
+          "classical_MI": 0.0017708287125340894,
+          "classical_fraction": 0.002907924883101434,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.002235291078013457,
+          "holevo_fraction": 0.003670630875093647
+        },
+        {
+          "classical_MI": 0.027604911244828445,
+          "classical_fraction": 0.04533075826953982,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.059516658983719495,
+          "holevo_fraction": 0.09773388718672515
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6089664567419706,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 14,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.07053208377966325,
+          "classical_fraction": 0.10176841485440419,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.11111905755343221,
+          "holevo_fraction": 0.16033001921018952
+        },
+        {
+          "classical_MI": 0.004357643594055438,
+          "classical_fraction": 0.006287500061005401,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.004374815513162655,
+          "holevo_fraction": 0.006312276856102066
+        },
+        {
+          "classical_MI": 0.07264993956714982,
+          "classical_fraction": 0.10482419904271821,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.40260317527695155,
+          "holevo_fraction": 0.5809028284387493
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6930645807991659,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 14,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.001088961833822677,
+          "classical_fraction": 0.002473034629806842,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0017605934139699464,
+          "holevo_fraction": 0.00399831137008106
+        },
+        {
+          "classical_MI": 1.5142448245297757e-06,
+          "classical_fraction": 3.4388532019733838e-06,
+          "fragment": [
+            3
+          ],
+          "holevo": 3.31513546839024e-05,
+          "holevo_fraction": 7.528679666439988e-05
+        },
+        {
+          "classical_MI": 0.0011203447622107898,
+          "classical_fraction": 0.0025443053266099675,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.02795699644525329,
+          "holevo_fraction": 0.06349039810862322
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.44033424388712705,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 15,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.052070916553707325,
+          "classical_fraction": 0.2741583978376071,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.052584936945033744,
+          "holevo_fraction": 0.27686476477463917
+        },
+        {
+          "classical_MI": 0.0005805950162176554,
+          "classical_fraction": 0.0030568887581334313,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0005825716128089464,
+          "holevo_fraction": 0.0030672957298271343
+        },
+        {
+          "classical_MI": 0.059854254637208726,
+          "classical_fraction": 0.31513842354159577,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.09766517991865975,
+          "holevo_fraction": 0.5142165919703794
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.18993004396148616,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 15,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.007360792013369033,
+          "classical_fraction": 0.019811321343504076,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.009473216616015967,
+          "holevo_fraction": 0.025496840312244456
+        },
+        {
+          "classical_MI": 0.0021508981885649536,
+          "classical_fraction": 0.005789069316647836,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0028772464339232307,
+          "holevo_fraction": 0.007744010913957948
+        },
+        {
+          "classical_MI": 0.015244484939722192,
+          "classical_fraction": 0.0410300127090282,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.060958495025941195,
+          "holevo_fraction": 0.16406771599875247
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.37154472868022803,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 16,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.0014056734990530728,
+          "classical_fraction": 0.0029201166754014535,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.004575015864640375,
+          "holevo_fraction": 0.009504042101926367
+        },
+        {
+          "classical_MI": 0.012796778796515751,
+          "classical_fraction": 0.026583760155044732,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.012831625568005878,
+          "holevo_fraction": 0.02665615010803223
+        },
+        {
+          "classical_MI": 0.013095030457719536,
+          "classical_fraction": 0.027203341907090325,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.22217397002434836,
+          "holevo_fraction": 0.4615395503616499
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4813757994309672,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 16,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.007392171203472908,
+          "classical_fraction": 0.011466525714540366,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.010042768424600224,
+          "holevo_fraction": 0.015578056732743331
+        },
+        {
+          "classical_MI": 0.005427133154492836,
+          "classical_fraction": 0.008418414584742072,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.007133746534691232,
+          "holevo_fraction": 0.011065664718725698
+        },
+        {
+          "classical_MI": 0.011837802460117786,
+          "classical_fraction": 0.018362462472300244,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.03435202090618594,
+          "holevo_fraction": 0.05328587775160733
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6446740178761481,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 17,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 3.6779344587567486e-05,
+          "classical_fraction": 9.099192359387234e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.003765691927623216,
+          "holevo_fraction": 0.009316303920004562
+        },
+        {
+          "classical_MI": 0.002185928869357534,
+          "classical_fraction": 0.005407977626916583,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.002192108612114163,
+          "holevo_fraction": 0.0054232662811067684
+        },
+        {
+          "classical_MI": 0.002319787070815371,
+          "classical_fraction": 0.005739142180718391,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.19101863176926837,
+          "holevo_fraction": 0.4725791865478389
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4042044956838819,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 17,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.001092712133181406,
+          "classical_fraction": 0.0020138283799196886,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0014592190426744311,
+          "holevo_fraction": 0.0026892871703559237
+        },
+        {
+          "classical_MI": 0.00011529914254981843,
+          "classical_fraction": 0.00021249209045680353,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00016845885192273702,
+          "holevo_fraction": 0.0003104634848914744
+        },
+        {
+          "classical_MI": 0.0012457784516937132,
+          "classical_fraction": 0.002295923990345876,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.021243532120520436,
+          "holevo_fraction": 0.03915105046878554
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5426043967187429,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 18,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.2279917866015413,
+          "classical_fraction": 0.5414233755774245,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.23524933944505264,
+          "holevo_fraction": 0.5586582453836462
+        },
+        {
+          "classical_MI": 0.05508159360645348,
+          "classical_fraction": 0.13080498550901884,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.05524451060267932,
+          "holevo_fraction": 0.1311918725603041
+        },
+        {
+          "classical_MI": 0.24026982713702782,
+          "classical_fraction": 0.5705806458953133,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.3271654388239863,
+          "holevo_fraction": 0.7769359541443873
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4210970506369245,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 18,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.019295862839490474,
+          "classical_fraction": 0.03619911020336238,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.02355119175185927,
+          "holevo_fraction": 0.044182123014540706
+        },
+        {
+          "classical_MI": 0.0013159148514076957,
+          "classical_fraction": 0.0024686611384311776,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.001699312782414919,
+          "holevo_fraction": 0.0031879170779928875
+        },
+        {
+          "classical_MI": 0.02387613365291097,
+          "classical_fraction": 0.0447917152252496,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.05753079576910347,
+          "holevo_fraction": 0.1079279860898878
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5330479873977169,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 19,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.039924155770289405,
+          "classical_fraction": 0.06726067649859661,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.040815485162326026,
+          "holevo_fraction": 0.06876230920027243
+        },
+        {
+          "classical_MI": 0.004414509255873056,
+          "classical_fraction": 0.007437173641635295,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.004426569413489179,
+          "holevo_fraction": 0.007457491525490056
+        },
+        {
+          "classical_MI": 0.04214373115878778,
+          "classical_fraction": 0.07100002024399733,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.3198877871399679,
+          "holevo_fraction": 0.5389185707637406
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5935735090491161,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 19,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.0019012559830717812,
+          "classical_fraction": 0.0034423105633069923,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0024997862872114807,
+          "holevo_fraction": 0.004525976943186386
+        },
+        {
+          "classical_MI": 3.220684291749265e-05,
+          "classical_fraction": 5.831195618726331e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 4.555495632457829e-05,
+          "holevo_fraction": 8.247932354365353e-05
+        },
+        {
+          "classical_MI": 0.00195427763772571,
+          "classical_fraction": 0.003538308684298753,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.021748596816395294,
+          "holevo_fraction": 0.039376825227513734
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5523197132002129,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 20,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.00014246293621777983,
+          "classical_fraction": 0.0007329693292949425,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.00015974193358991862,
+          "holevo_fraction": 0.0008218694702788751
+        },
+        {
+          "classical_MI": 0.0003552859916922113,
+          "classical_fraction": 0.0018279402485460506,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00035625409356188076,
+          "holevo_fraction": 0.0018329211158294265
+        },
+        {
+          "classical_MI": 0.0005168056813538158,
+          "classical_fraction": 0.002658956242897135,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.07421469480731235,
+          "holevo_fraction": 0.3818333141301327
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.19436411664703312,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 20,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.0003893125942570075,
+          "classical_fraction": 0.0006403450437974729,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0005123263787129018,
+          "holevo_fraction": 0.0008426792820345773
+        },
+        {
+          "classical_MI": 7.62678184440535e-06,
+          "classical_fraction": 1.254460304195928e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 1.0025152062331788e-05,
+          "holevo_fraction": 1.6489465101127087e-05
+        },
+        {
+          "classical_MI": 0.00044885208477163374,
+          "classical_fraction": 0.0007382761619366886,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.017863295027762738,
+          "holevo_fraction": 0.029381716917610396
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6079731513938891,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 21,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.019949688177842706,
+          "classical_fraction": 0.04215842769723148,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.022810926937521625,
+          "holevo_fraction": 0.048204904529306154
+        },
+        {
+          "classical_MI": 0.007485046617414448,
+          "classical_fraction": 0.01581768064831966,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.007505230436088417,
+          "holevo_fraction": 0.015860333849343905
+        },
+        {
+          "classical_MI": 0.03311495752898641,
+          "classical_fraction": 0.06997976761527666,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.22850562868611357,
+          "holevo_fraction": 0.48288664662304864
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.47320759495859455,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 21,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.017771099555543568,
+          "classical_fraction": 0.02732969737432675,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.023687190420338178,
+          "holevo_fraction": 0.03642789484199099
+        },
+        {
+          "classical_MI": 0.007582516662130612,
+          "classical_fraction": 0.011660949006792128,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.01007518931296314,
+          "holevo_fraction": 0.015494363421448483
+        },
+        {
+          "classical_MI": 0.023439799378778048,
+          "classical_fraction": 0.03604743879436007,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.05137222313558376,
+          "holevo_fraction": 0.07900396412465809
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6502486768198745,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 22,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.4261097841627497,
+          "classical_fraction": 0.9614918288718788,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.4263107721345308,
+          "holevo_fraction": 0.9619453464857697
+        },
+        {
+          "classical_MI": 2.208151683169568e-06,
+          "classical_fraction": 4.982565243013323e-06,
+          "fragment": [
+            3
+          ],
+          "holevo": 2.2193906301648525e-06,
+          "holevo_fraction": 5.007925270177033e-06
+        },
+        {
+          "classical_MI": 0.42667347658646715,
+          "classical_fraction": 0.962763767887469,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.4360257372533396,
+          "holevo_fraction": 0.9838665975968268
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.44317566865098124,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 22,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.020003649803918444,
+          "classical_fraction": 0.03463636295975093,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.025532265613161964,
+          "holevo_fraction": 0.04420917320743208
+        },
+        {
+          "classical_MI": 3.9773772537721186e-05,
+          "classical_fraction": 6.886837329181936e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 5.166897089314837e-05,
+          "holevo_fraction": 8.946493500707704e-05
+        },
+        {
+          "classical_MI": 0.027043004241447344,
+          "classical_fraction": 0.046825020414293234,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0652187015672514,
+          "holevo_fraction": 0.11292632301553793
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5775332077205572,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 23,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.42133323622800467,
+          "classical_fraction": 0.633134513804981,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.4406410975419262,
+          "holevo_fraction": 0.6621483022614616
+        },
+        {
+          "classical_MI": 0.18535070437934476,
+          "classical_fraction": 0.2785252100005758,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.18594505784384863,
+          "holevo_fraction": 0.2794183408039889
+        },
+        {
+          "classical_MI": 0.45717768445003704,
+          "classical_fraction": 0.6869977160076746,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.5597079715531956,
+          "holevo_fraction": 0.841069262929775
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.665471913220931,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 23,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 1,
+      "fragments": [
+        {
+          "classical_MI": 0.022672662146919098,
+          "classical_fraction": 0.038939615052579674,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.027356997158746288,
+          "holevo_fraction": 0.04698481949111794
+        },
+        {
+          "classical_MI": 0.004425431095867127,
+          "classical_fraction": 0.0076005447528885925,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.005391334730955766,
+          "holevo_fraction": 0.00925945518363172
+        },
+        {
+          "classical_MI": 0.03363070371958243,
+          "classical_fraction": 0.057759721743388275,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.07404676491193163,
+          "holevo_fraction": 0.1271730907855163
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5822518305921742,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 0,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 7.506728261164053e-06,
+          "classical_fraction": 0.00010305044297446513,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0033093338155903984,
+          "holevo_fraction": 0.04542968704638909
+        },
+        {
+          "classical_MI": 2.3705002542007136e-06,
+          "classical_fraction": 3.2541620366125467e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 2.554196919302143e-06,
+          "holevo_fraction": 3.5063361136944154e-05
+        },
+        {
+          "classical_MI": 4.582207782044545e-05,
+          "classical_fraction": 0.0006290337485421497,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.015776260403784104,
+          "holevo_fraction": 0.2165724622671188
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.07284518187878285,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 0,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 9.254923356405431e-05,
+          "classical_fraction": 0.00020059295551998703,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0001768742849755922,
+          "holevo_fraction": 0.000383360663426592
+        },
+        {
+          "classical_MI": 0.00025833668521180186,
+          "classical_fraction": 0.0005599238071486171,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00033528031707552586,
+          "holevo_fraction": 0.0007266928870168362
+        },
+        {
+          "classical_MI": 0.00047003115873978096,
+          "classical_fraction": 0.001018754404409424,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.027412391054719376,
+          "holevo_fraction": 0.059414133729482295
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.46137828381930757,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 1,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.6697844941998764,
+          "classical_fraction": 0.974511050046012,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.6702884624235501,
+          "holevo_fraction": 0.9752443047079146
+        },
+        {
+          "classical_MI": 0.15649983681140234,
+          "classical_fraction": 0.22770133023950997,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.15696556899199554,
+          "holevo_fraction": 0.2283789529081152
+        },
+        {
+          "classical_MI": 0.6701813270771092,
+          "classical_fraction": 0.9750884268399417,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.6798653600973343,
+          "holevo_fraction": 0.9891783277990457
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6873031292649295,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 1,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.03158672386554995,
+          "classical_fraction": 0.05682499966945331,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.03769626176880342,
+          "holevo_fraction": 0.06781615186398453
+        },
+        {
+          "classical_MI": 0.001662260501593682,
+          "classical_fraction": 0.0029904320832913863,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.002129365816394224,
+          "holevo_fraction": 0.003830761693672097
+        },
+        {
+          "classical_MI": 0.03574080610656205,
+          "classical_fraction": 0.0642982571993312,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.06934723314314872,
+          "holevo_fraction": 0.12475673378506986
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5558596401106469,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 2,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.0020877127864692424,
+          "classical_fraction": 0.004990745615051735,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.005540724077062853,
+          "holevo_fraction": 0.013245281904211969
+        },
+        {
+          "classical_MI": 0.0012051127069181433,
+          "classical_fraction": 0.002880861293121873,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.001208578801133342,
+          "holevo_fraction": 0.0028891471045696796
+        },
+        {
+          "classical_MI": 0.003808791760105734,
+          "classical_fraction": 0.009105041123755613,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.19222167647045207,
+          "holevo_fraction": 0.45951219687897205
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4183168102523296,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 2,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.0006689468813105837,
+          "classical_fraction": 0.0011013264979548004,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0008909672034422278,
+          "holevo_fraction": 0.001466851580258778
+        },
+        {
+          "classical_MI": 4.853724730902176e-05,
+          "classical_fraction": 7.990971793527554e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 7.462755789183761e-05,
+          "holevo_fraction": 0.00012286372697173421
+        },
+        {
+          "classical_MI": 0.0010114979452957584,
+          "classical_fraction": 0.0016652884121360339,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.019236192459507584,
+          "holevo_fraction": 0.03166967223751499
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.607401059134453,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 3,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 4.498460722240222e-07,
+          "classical_fraction": 0.04990243493490619,
+          "fragment": [
+            2
+          ],
+          "holevo": 4.520832860011037e-07,
+          "holevo_fraction": 0.050150614082929715
+        },
+        {
+          "classical_MI": 2.992391287537366e-07,
+          "classical_fraction": 0.033195268503255666,
+          "fragment": [
+            3
+          ],
+          "holevo": 3.004730843580994e-07,
+          "holevo_fraction": 0.03333215396933263
+        },
+        {
+          "classical_MI": 8.089761628360392e-07,
+          "classical_fraction": 0.08974154232408509,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 1.1898097152518439e-06,
+          "holevo_fraction": 0.13198826346694453
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 9.014511472452418e-06,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 3,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.003486483892706338,
+          "classical_fraction": 0.010509108058742441,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.005513687897657993,
+          "holevo_fraction": 0.016619592604424752
+        },
+        {
+          "classical_MI": 0.00024664518272177194,
+          "classical_fraction": 0.000743448401644372,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0005729625700706675,
+          "holevo_fraction": 0.0017270481516016576
+        },
+        {
+          "classical_MI": 0.011791781115381594,
+          "classical_fraction": 0.03554328824114873,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.06455653769042413,
+          "holevo_fraction": 0.19458906203645834
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3317583065297307,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 4,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.008617797153729567,
+          "classical_fraction": 0.06091493457673517,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.010645625555162352,
+          "holevo_fraction": 0.0752486479610964
+        },
+        {
+          "classical_MI": 0.001437863765316072,
+          "classical_fraction": 0.010163545930827692,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0014422994601474004,
+          "holevo_fraction": 0.010194899657961522
+        },
+        {
+          "classical_MI": 0.0123977859895259,
+          "classical_fraction": 0.08763380118798665,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.056808950168631855,
+          "holevo_fraction": 0.40155429759652606
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.1414726489260797,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 4,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.012524028972837442,
+          "classical_fraction": 0.028666455913019716,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.01648103407560131,
+          "holevo_fraction": 0.03772370997814465
+        },
+        {
+          "classical_MI": 0.006674506854559392,
+          "classical_fraction": 0.01527738852268289,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.008976257584207059,
+          "holevo_fraction": 0.02054590362731193
+        },
+        {
+          "classical_MI": 0.017163843894346886,
+          "classical_fraction": 0.03928660460322891,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.052179940737856145,
+          "holevo_fraction": 0.11943552461830845
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.436887943554588,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 5,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.00022870270931283493,
+          "classical_fraction": 0.3915405703665281,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.00023517772925683855,
+          "holevo_fraction": 0.40262584788522143
+        },
+        {
+          "classical_MI": 2.275547394459121e-06,
+          "classical_fraction": 0.0038957523826438968,
+          "fragment": [
+            3
+          ],
+          "holevo": 2.2886788000886504e-06,
+          "holevo_fraction": 0.003918233437045694
+        },
+        {
+          "classical_MI": 0.0002336848006677661,
+          "classical_fraction": 0.4000699441399696,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.00030347903658078934,
+          "holevo_fraction": 0.5195581435574109
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.0005841098640141997,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 5,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.001428622088414766,
+          "classical_fraction": 0.004213575222054158,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.002860082187686408,
+          "holevo_fraction": 0.008435520867835786
+        },
+        {
+          "classical_MI": 0.0003285915152265728,
+          "classical_fraction": 0.0009691471789241645,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00043962326494495496,
+          "holevo_fraction": 0.0012966240066090992
+        },
+        {
+          "classical_MI": 0.00405423519623449,
+          "classical_fraction": 0.011957553439614703,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04703830511573115,
+          "holevo_fraction": 0.13873468605192507
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3390522331100806,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 6,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.03199566058622183,
+          "classical_fraction": 0.12495055842911362,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.03960216400719019,
+          "holevo_fraction": 0.1546557382169078
+        },
+        {
+          "classical_MI": 0.0007874448468282447,
+          "classical_fraction": 0.0030751568037850436,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0007907400201082604,
+          "holevo_fraction": 0.0030880252282499522
+        },
+        {
+          "classical_MI": 0.034250789795673864,
+          "classical_fraction": 0.13375736688026274,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0707333041996745,
+          "holevo_fraction": 0.2762301417552742
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.25606656735650735,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 6,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.015418778439641012,
+          "classical_fraction": 0.0229846158781971,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.02446257805350599,
+          "holevo_fraction": 0.03646611579194211
+        },
+        {
+          "classical_MI": 0.005676728847609613,
+          "classical_fraction": 0.008462241838272712,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.009039212027757482,
+          "holevo_fraction": 0.013474661245889336
+        },
+        {
+          "classical_MI": 0.01983169017925257,
+          "classical_fraction": 0.029562898433875336,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.05202237191554737,
+          "holevo_fraction": 0.07754921962413283
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6708303728611389,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 7,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.001304854690504658,
+          "classical_fraction": 0.5739856253120208,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0013716845433885926,
+          "holevo_fraction": 0.60338305567437
+        },
+        {
+          "classical_MI": 3.439909226760074e-05,
+          "classical_fraction": 0.015131634678608088,
+          "fragment": [
+            3
+          ],
+          "holevo": 3.459039342235126e-05,
+          "holevo_fraction": 0.015215785131322424
+        },
+        {
+          "classical_MI": 0.0013208723652572418,
+          "classical_fraction": 0.581031555503183,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0015945136306343977,
+          "holevo_fraction": 0.7014021637874919
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.0022733229421822787,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 7,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.004492994580524101,
+          "classical_fraction": 0.011989605467216974,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.008716586960823891,
+          "holevo_fraction": 0.023260308199342532
+        },
+        {
+          "classical_MI": 0.00013760612527624616,
+          "classical_fraction": 0.00036720345915533536,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00045781219478363555,
+          "holevo_fraction": 0.001221676878340725
+        },
+        {
+          "classical_MI": 0.004921463435637374,
+          "classical_fraction": 0.013132979320830448,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04714004019075857,
+          "holevo_fraction": 0.12579371585398577
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.37474081968829076,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 8,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.0008553790338361456,
+          "classical_fraction": 0.0016429310101872966,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.015474585161306731,
+          "holevo_fraction": 0.02972211712657563
+        },
+        {
+          "classical_MI": 0.012246857490865182,
+          "classical_fraction": 0.023522603609829974,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.012284145856195416,
+          "holevo_fraction": 0.02359422356928291
+        },
+        {
+          "classical_MI": 0.013621710718336955,
+          "classical_fraction": 0.02616329143653459,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.22543820619008148,
+          "holevo_fraction": 0.43300034859357056
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5206420893708927,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 8,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.008958132571961874,
+          "classical_fraction": 0.013287029300676644,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.01473507614227254,
+          "holevo_fraction": 0.021855602925867246
+        },
+        {
+          "classical_MI": 0.0057416792781473935,
+          "classical_fraction": 0.008516268339521179,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.008729362917175298,
+          "holevo_fraction": 0.012947709796099452
+        },
+        {
+          "classical_MI": 0.013991338973809109,
+          "classical_fraction": 0.020752464803050687,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04127911023562292,
+          "holevo_fraction": 0.061226683441062746
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6742013108607866,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 9,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.09242231467735684,
+          "classical_fraction": 0.19284681412488788,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.1133903635072035,
+          "holevo_fraction": 0.23659838461267707
+        },
+        {
+          "classical_MI": 6.141677598270334e-05,
+          "classical_fraction": 0.00012815118971466332,
+          "fragment": [
+            3
+          ],
+          "holevo": 6.219880668023592e-05,
+          "holevo_fraction": 0.00012978296153398533
+        },
+        {
+          "classical_MI": 0.10062588767237846,
+          "classical_fraction": 0.20996424861085272,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.2938707069234928,
+          "holevo_fraction": 0.6131855687954186
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.47925248387823516,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 9,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 3.157308823942273e-06,
+          "classical_fraction": 8.18468510631765e-06,
+          "fragment": [
+            2
+          ],
+          "holevo": 5.882440819227064e-06,
+          "holevo_fraction": 1.5249039117373024e-05
+        },
+        {
+          "classical_MI": 0.0005693513356913593,
+          "classical_fraction": 0.0014759282849235562,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0007511695861029954,
+          "holevo_fraction": 0.001947255357814307
+        },
+        {
+          "classical_MI": 0.002133288672108158,
+          "classical_fraction": 0.005530119793691436,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.035336969840644494,
+          "holevo_fraction": 0.09160395352013465
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3857581303287024,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 10,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.35749087185190975,
+          "classical_fraction": 0.9980064328234441,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.35753564722225617,
+          "holevo_fraction": 0.9981314321203668
+        },
+        {
+          "classical_MI": 0.10586386274359577,
+          "classical_fraction": 0.29553989861149044,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.10625763347609596,
+          "holevo_fraction": 0.29663918744663464
+        },
+        {
+          "classical_MI": 0.35751284827041757,
+          "classical_fraction": 0.9980677843397153,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.35792431817327797,
+          "holevo_fraction": 0.9992164839074571
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.35820497753760766,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 10,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.04281785453324527,
+          "classical_fraction": 0.07357683783538987,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.04888418834044622,
+          "holevo_fraction": 0.08400103268712428
+        },
+        {
+          "classical_MI": 0.0032304616093976612,
+          "classical_fraction": 0.005551122366104443,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.004011973703980043,
+          "holevo_fraction": 0.006894047864738146
+        },
+        {
+          "classical_MI": 0.051074701438171166,
+          "classical_fraction": 0.08776514064452945,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.09169076491017458,
+          "holevo_fraction": 0.15755849082911658
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5819474686998606,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 11,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.30063133073191733,
+          "classical_fraction": 0.9982887454661511,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.3006551931452826,
+          "holevo_fraction": 0.9983679839761368
+        },
+        {
+          "classical_MI": 0.06472000665041344,
+          "classical_fraction": 0.2149119125019486,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.06493615314786239,
+          "holevo_fraction": 0.21562965743974294
+        },
+        {
+          "classical_MI": 0.3006445136880851,
+          "classical_fraction": 0.9983325213319006,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.3009459855103396,
+          "holevo_fraction": 0.9993336010480405
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.30114666933517065,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 11,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.0428591371179482,
+          "classical_fraction": 0.07359514404887697,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.04914454303844007,
+          "holevo_fraction": 0.08438806675404618
+        },
+        {
+          "classical_MI": 0.002229133430958319,
+          "classical_fraction": 0.003827734457277347,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0028920000326983497,
+          "holevo_fraction": 0.004965969296350154
+        },
+        {
+          "classical_MI": 0.048523064344906386,
+          "classical_fraction": 0.08332090075282575,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.08527220631109589,
+          "holevo_fraction": 0.14642432696580365
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5823636555352623,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 12,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 1.6146094594660099e-06,
+          "classical_fraction": 6.148631485900659e-06,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0021927046825638286,
+          "holevo_fraction": 0.008350089225262331
+        },
+        {
+          "classical_MI": 0.00614680518286681,
+          "classical_fraction": 0.023407790449568998,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0061703778100389295,
+          "holevo_fraction": 0.023497557914255986
+        },
+        {
+          "classical_MI": 0.007668314928212627,
+          "classical_fraction": 0.029201886768955097,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.07244940110844555,
+          "holevo_fraction": 0.2758962337167034
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.26259655716372793,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 12,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.020714754862823925,
+          "classical_fraction": 0.03629491712341642,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.025529440213148735,
+          "holevo_fraction": 0.04473086565008624
+        },
+        {
+          "classical_MI": 0.012552744444499275,
+          "classical_fraction": 0.021994024177528576,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.015544536407269438,
+          "holevo_fraction": 0.027236028828721604
+        },
+        {
+          "classical_MI": 0.029904914640450198,
+          "classical_fraction": 0.052397260100137934,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.06435088440768666,
+          "holevo_fraction": 0.11275103335097525
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5707343205216846,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 13,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 2.9815792708443034e-05,
+          "classical_fraction": 6.7615759139759e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.007925761740269821,
+          "holevo_fraction": 0.017973910741519442
+        },
+        {
+          "classical_MI": 0.007575867379192025,
+          "classical_fraction": 0.017180426125016298,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0075979058602860805,
+          "holevo_fraction": 0.017230404626142646
+        },
+        {
+          "classical_MI": 0.008960116211811808,
+          "classical_fraction": 0.02031960262020999,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.2158746604681101,
+          "holevo_fraction": 0.48955696698466916
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4409592244141638,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 13,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.004359513984541263,
+          "classical_fraction": 0.009825318735390116,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0061606798480058345,
+          "holevo_fraction": 0.013884722780565066
+        },
+        {
+          "classical_MI": 0.003436908093085833,
+          "classical_fraction": 0.007745982143549317,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.004710646093759874,
+          "holevo_fraction": 0.010616687888817823
+        },
+        {
+          "classical_MI": 0.0073399202912856065,
+          "classical_fraction": 0.016542453266571455,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0365995259299321,
+          "holevo_fraction": 0.08248671964372604
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4437020418318437,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 14,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.03535288776623158,
+          "classical_fraction": 0.0890678729631291,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0473119638035866,
+          "holevo_fraction": 0.11919750402169763
+        },
+        {
+          "classical_MI": 0.0015002848571307181,
+          "classical_fraction": 0.0037798095009105113,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0015046787814159135,
+          "holevo_fraction": 0.0037908795298323694
+        },
+        {
+          "classical_MI": 0.039723418627046314,
+          "classical_fraction": 0.10007896461896575,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.18866546198896128,
+          "holevo_fraction": 0.4753227377655345
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.39692075930528176,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 14,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.010761382781806161,
+          "classical_fraction": 0.0158595468809265,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.018371390792659037,
+          "holevo_fraction": 0.027074767197816943
+        },
+        {
+          "classical_MI": 0.0042791695018918885,
+          "classical_fraction": 0.006306409752603831,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.006906838587289299,
+          "holevo_fraction": 0.010178927057524668
+        },
+        {
+          "classical_MI": 0.01532518717846365,
+          "classical_fraction": 0.022585436225420193,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.04497127449979732,
+          "holevo_fraction": 0.06627624448322472
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6785428904496854,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 15,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.009128480742908507,
+          "classical_fraction": 0.025423236804610654,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.009599363462544974,
+          "holevo_fraction": 0.0267346667375507
+        },
+        {
+          "classical_MI": 7.210374820865173e-05,
+          "classical_fraction": 0.00020081223993736666,
+          "fragment": [
+            3
+          ],
+          "holevo": 7.230217635711966e-05,
+          "holevo_fraction": 0.00020136487141562438
+        },
+        {
+          "classical_MI": 0.009394929079679093,
+          "classical_fraction": 0.026165307621507063,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.16657445281950345,
+          "holevo_fraction": 0.4639174774968495
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3590605245533882,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 15,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 1.0324028364205873e-05,
+          "classical_fraction": 1.802815414181769e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 1.3549897331266436e-05,
+          "holevo_fraction": 2.366127146074201e-05
+        },
+        {
+          "classical_MI": 1.251971869498103e-05,
+          "classical_fraction": 2.1862340017183407e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 1.8603732968081044e-05,
+          "holevo_fraction": 3.2486443637117894e-05
+        },
+        {
+          "classical_MI": 8.279520580711797e-05,
+          "classical_fraction": 0.00014457968148066556,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.018321075361120376,
+          "holevo_fraction": 0.031992857729768814
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5726614207418216,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 16,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.0003969967452254197,
+          "classical_fraction": 0.0010487800651234668,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0006585043317619554,
+          "holevo_fraction": 0.0017396268968332283
+        },
+        {
+          "classical_MI": 0.017110150087458087,
+          "classical_fraction": 0.0452013386477698,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.017156529357005623,
+          "holevo_fraction": 0.04532386270853716
+        },
+        {
+          "classical_MI": 0.02122792593474232,
+          "classical_fraction": 0.05607961730677094,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.17673346102904686,
+          "holevo_fraction": 0.4668918145973535
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.37853193288783915,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 16,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.020570603455877134,
+          "classical_fraction": 0.039750245124425626,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.02512091568012753,
+          "holevo_fraction": 0.0485431824193666
+        },
+        {
+          "classical_MI": 0.011592259924304682,
+          "classical_fraction": 0.022400663866062476,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.014500095892039488,
+          "holevo_fraction": 0.028019711102426174
+        },
+        {
+          "classical_MI": 0.028053634701429075,
+          "classical_fraction": 0.05421031319789976,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.06196957647464829,
+          "holevo_fraction": 0.11974883772407413
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5174962667899867,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 17,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.00330300160770558,
+          "classical_fraction": 0.005377031337529517,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.003323352186135109,
+          "holevo_fraction": 0.0054101605063731385
+        },
+        {
+          "classical_MI": 0.0006119709381444682,
+          "classical_fraction": 0.0009962413897660618,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0006136312942970346,
+          "holevo_fraction": 0.000998944321258127
+        },
+        {
+          "classical_MI": 0.006106335178389655,
+          "classical_fraction": 0.00994064172874202,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.3205773036477081,
+          "holevo_fraction": 0.5218750738095591
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.614279776398541,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 17,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 2.890801389621167e-05,
+          "classical_fraction": 5.579826152787948e-05,
+          "fragment": [
+            2
+          ],
+          "holevo": 3.7885547530369656e-05,
+          "holevo_fraction": 7.31267010184848e-05
+        },
+        {
+          "classical_MI": 2.745910305734789e-05,
+          "classical_fraction": 5.30015731698427e-05,
+          "fragment": [
+            3
+          ],
+          "holevo": 3.8664536569033015e-05,
+          "holevo_fraction": 7.463030601406651e-05
+        },
+        {
+          "classical_MI": 0.0003517970920750013,
+          "classical_fraction": 0.0006790389066099364,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.021016523347394345,
+          "holevo_fraction": 0.04056610289295497
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5180809061903809,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 18,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.0021007467274241076,
+          "classical_fraction": 0.0156509270144068,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.014456445330042755,
+          "holevo_fraction": 0.10770302188007812
+        },
+        {
+          "classical_MI": 8.423393939022139e-05,
+          "classical_fraction": 0.0006275574396104577,
+          "fragment": [
+            3
+          ],
+          "holevo": 8.50911754247119e-05,
+          "holevo_fraction": 0.0006339439965593677
+        },
+        {
+          "classical_MI": 0.0024219729186389927,
+          "classical_fraction": 0.01804411778233181,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.045143934680564324,
+          "holevo_fraction": 0.33633013328313516
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.13422506701937553,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 18,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.000852219309034119,
+          "classical_fraction": 0.0012610022584852755,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.00274305429864824,
+          "holevo_fraction": 0.0040588116569002675
+        },
+        {
+          "classical_MI": 0.0001263536612237104,
+          "classical_fraction": 0.00018696156081181124,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0004131306184967931,
+          "holevo_fraction": 0.0006112964555617902
+        },
+        {
+          "classical_MI": 0.0013099036460568758,
+          "classical_fraction": 0.0019382234579358576,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.027328899664308737,
+          "holevo_fraction": 0.040437718124069294
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6758269489999253,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 19,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.40895361530101404,
+          "classical_fraction": 0.9980248412065656,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.4089997649871613,
+          "holevo_fraction": 0.99813746652999
+        },
+        {
+          "classical_MI": 0.11956340810401794,
+          "classical_fraction": 0.29178676241631074,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.11998610849594876,
+          "holevo_fraction": 0.29281833537654534
+        },
+        {
+          "classical_MI": 0.4089771869549266,
+          "classical_fraction": 0.9980823663029894,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.40944427088909796,
+          "holevo_fraction": 0.9992222544267034
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4097629622190647,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 19,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.04228226402174651,
+          "classical_fraction": 0.07312528580655425,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.048383427309748706,
+          "holevo_fraction": 0.08367697501974668
+        },
+        {
+          "classical_MI": 0.00298838770117249,
+          "classical_fraction": 0.005168282962251924,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.003750105790376157,
+          "holevo_fraction": 0.0064856403523006825
+        },
+        {
+          "classical_MI": 0.049918111214927396,
+          "classical_fraction": 0.08633114224057459,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.08938262971972932,
+          "holevo_fraction": 0.15458326311559312
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5782167352289067,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 20,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.13468551566561748,
+          "classical_fraction": 0.30671147313407626,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.1713844312798597,
+          "holevo_fraction": 0.39028377424485416
+        },
+        {
+          "classical_MI": 0.00029522589662556165,
+          "classical_fraction": 0.0006723007237553304,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.00029788378287798345,
+          "holevo_fraction": 0.0006783533731725624
+        },
+        {
+          "classical_MI": 0.13487586808159235,
+          "classical_fraction": 0.3071449515941003,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.2886357809381248,
+          "holevo_fraction": 0.6572934374808663
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.4391277388138033,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 20,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.00023562753542760717,
+          "classical_fraction": 0.0006515109490280624,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0005741392349324914,
+          "holevo_fraction": 0.0015874969669664798
+        },
+        {
+          "classical_MI": 0.0002198987390493734,
+          "classical_fraction": 0.0006080207727341266,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.0002765678712544628,
+          "holevo_fraction": 0.0007647111189474102
+        },
+        {
+          "classical_MI": 0.0005520592910974731,
+          "classical_fraction": 0.0015264458460254014,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.037046514700092126,
+          "holevo_fraction": 0.10243374105932773
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.3616632011773881,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 21,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.0013925779991853515,
+          "classical_fraction": 0.0020105301140825784,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.003829366672465251,
+          "holevo_fraction": 0.005528636110407804
+        },
+        {
+          "classical_MI": 0.021860604370033898,
+          "classical_fraction": 0.031561178924060004,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.02192202551295286,
+          "holevo_fraction": 0.031649855506306876
+        },
+        {
+          "classical_MI": 0.022640079913036626,
+          "classical_fraction": 0.03268654429197091,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.3159495091286757,
+          "holevo_fraction": 0.4561511118259902
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.6926421989062305,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 21,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.008405508697824193,
+          "classical_fraction": 0.015212267684095587,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.010709588261305525,
+          "holevo_fraction": 0.019382184859269656
+        },
+        {
+          "classical_MI": 0.005912025465213411,
+          "classical_fraction": 0.010699568243299342,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.007579049805760962,
+          "holevo_fraction": 0.013716544540150553
+        },
+        {
+          "classical_MI": 0.013084659507795138,
+          "classical_fraction": 0.023680582596904625,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.03842671083773441,
+          "holevo_fraction": 0.06954456089424646
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5525480403301176,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 22,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.422410999792398,
+          "classical_fraction": 0.9980306773759684,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.4224624846986268,
+          "holevo_fraction": 0.9981523207892873
+        },
+        {
+          "classical_MI": 0.12991191081431375,
+          "classical_fraction": 0.30694293570228504,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.1303806597923992,
+          "holevo_fraction": 0.30805044914380963
+        },
+        {
+          "classical_MI": 0.42243626733025275,
+          "classical_fraction": 0.9980903770001098,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.4229156644110541,
+          "holevo_fraction": 0.9992230487191688
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.42324450477114084,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 22,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.04234978888898877,
+          "classical_fraction": 0.07322233888140656,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.0483947068426297,
+          "holevo_fraction": 0.0836739383468027
+        },
+        {
+          "classical_MI": 0.0031623154604503156,
+          "classical_fraction": 0.00546761011966247,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.003931632419777953,
+          "holevo_fraction": 0.006797751038446318
+        },
+        {
+          "classical_MI": 0.05042584259198746,
+          "classical_fraction": 0.0871857506616991,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.09078217013243639,
+          "holevo_fraction": 0.15696141587036577
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5783725231391469,
+      "protocol": "pair_diagnostic"
+    },
+    {
+      "core": 23,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.5658422411407493,
+          "classical_fraction": 0.9992629230164418,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.5658685717397328,
+          "holevo_fraction": 0.9993094221806824
+        },
+        {
+          "classical_MI": 0.19353463725832115,
+          "classical_fraction": 0.34177721857914783,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.19419912673919687,
+          "holevo_fraction": 0.3429506900040364
+        },
+        {
+          "classical_MI": 0.5658534808917584,
+          "classical_fraction": 0.9992827721291991,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.5660952847419441,
+          "holevo_fraction": 0.9997097915430312
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5662596180719486,
+      "protocol": "native_repeat"
+    },
+    {
+      "core": 23,
+      "disjoint_90_Holevo": false,
+      "disjoint_90_classical": false,
+      "family": 2,
+      "fragments": [
+        {
+          "classical_MI": 0.042848552578835464,
+          "classical_fraction": 0.0751124346555239,
+          "fragment": [
+            2
+          ],
+          "holevo": 0.04869752937578109,
+          "holevo_fraction": 0.0853655438277403
+        },
+        {
+          "classical_MI": 0.0031733011212822237,
+          "classical_fraction": 0.0055627170293809204,
+          "fragment": [
+            3
+          ],
+          "holevo": 0.003932396093467405,
+          "holevo_fraction": 0.006893391417755927
+        },
+        {
+          "classical_MI": 0.05115360767106791,
+          "classical_fraction": 0.08967098728756687,
+          "fragment": [
+            2,
+            3
+          ],
+          "holevo": 0.0925176601124752,
+          "holevo_fraction": 0.16218113055031763
+        }
+      ],
+      "nontrivial": true,
+      "pointer_entropy": 0.5704588431375563,
+      "protocol": "pair_diagnostic"
+    }
+  ],
+  "scope": "Secondary exploratory finite pointer readout of first wave bit and two later single-bit fragments in chosen model. Native repeat conditioned on entire success, pair diagnostic different intervention. No physical environment redundancy/objectivity or accessible-information equality with Holevo."
+}

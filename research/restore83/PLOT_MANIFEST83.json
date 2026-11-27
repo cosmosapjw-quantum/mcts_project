@@ -1,0 +1,56 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "native_selective_mass_and_coherence",
+      "ids": [
+        "L15",
+        "L16",
+        "Q24",
+        "Q43"
+      ],
+      "pdf_sha": "cfa34dfddaf7a4c3f8e7979438e3aa929e8d036b0addd5bb215c99522ffa4332",
+      "png_sha": "7dd071c7cf75b9d726f31d27583c4a743bd4de5b0e4dfed48225e6f764137e16",
+      "scope": "Native repeat event conditional H32, exact omitted mass, conditional vs full stopped coherent readout. No physical readout performed."
+    },
+    {
+      "figure": "adaptive_record_vs_frozen_and_tagged",
+      "ids": [
+        "L15",
+        "L20",
+        "Q24",
+        "Q35",
+        "Q37",
+        "Q42",
+        "Q45"
+      ],
+      "pdf_sha": "bbdc623bb8310a3ff510e378f264da23a160e30826f04798ab757eb295e33334",
+      "png_sha": "7a071678829011844cf0f7cc286f9788fe06d8b9e915a1cf2a697dd4f044c02a",
+      "scope": "Actual branch settings versus frozen reference; declared coherent completion vs tagged dephasing; NPT witness within model only."
+    },
+    {
+      "figure": "adaptive_record_fragment_information",
+      "ids": [
+        "L15",
+        "Q25",
+        "Q35",
+        "Q37",
+        "Q45"
+      ],
+      "pdf_sha": "3911670cf299b375183674f7e4bea020d38974334ac7860175cfccb83f9660d0",
+      "png_sha": "e22a2c9fd2d68a83f8e9acb38abef4e52d6ccb7cf0e4067f719aac578f429c8d",
+      "scope": "Secondary first-bit pointer diagnostic, 72 contexts per protocol, no disjoint 90% packing; not native environment objectivity."
+    }
+  ],
+  "sources": {
+    "AUDIT83.json": "4c6e6e6ef45854cacd6afc9dccc09e354ce250081815e9c67d8cd7e5987097a0",
+    "CONVERGENCE83.json": "756a898a6d6c8dde81673e0aac2ba7c654146f530ae611b844a6a38eb10f8719",
+    "FRAGMENTS83.json": "2fd2be0f8d319dfd8203fdb895d023c79779c0a102a246a6d3f030c839a99516",
+    "FRAGMENT_AUDIT83.json": "b0c796295c9165536358945a9e0ab95ce9a7fc62314989d4d7a977f791762c03",
+    "INDEPENDENT83.json": "51402d206d99bf9355ccecfcf0e003d69b0b18a814aad682af734ed38919ba34",
+    "RECORD83.json": "06f5c1e001c685c174404bb637e3f669f64a2a4a49d3095f3d7982562e9e68a9",
+    "SUMMARY83.json": "0a189e3097b3018ea24e9972670c13201f48a8a132e79b771074877e0d92649a",
+    "TREE83.json": "b539913e58ff1494028747f4cc583aaf52e7450228af0772d16577f41d8b22cb",
+    "plot83.py": "b3ab230ccec8e8e57643e6078700473c5f7b9802cbab41b48c442f04ba475598"
+  }
+}

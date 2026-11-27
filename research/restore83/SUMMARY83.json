@@ -1,0 +1,767 @@
+{
+  "actual_leaf_count": 576,
+  "actual_setting_count": 504,
+  "contexts": 72,
+  "contexts_branch_dependent": 72,
+  "diagnostic_NPT_any": 67,
+  "diagnostic_backups": 82944,
+  "diagnostic_paths": 648,
+  "errors": {
+    "Hermiticity": 1.7500084394452263e-16,
+    "Kraus_complete": 2.220446049250313e-16,
+    "conditional_trace": 1.1102230246251565e-16,
+    "inactive_mass": 6.661338147750939e-16,
+    "inactive_output": 3.3306690738754696e-16,
+    "inactive_post": 6.661338147750939e-16,
+    "inactive_pre": 6.661338147750939e-16,
+    "inactive_prepared": 6.661338147750939e-16,
+    "independent_scalar_p": 2.220446049250313e-16,
+    "independent_scalar_state": 6.661338147750939e-16,
+    "log_path": 0.0,
+    "log_probability": 0.0,
+    "phase_record_axis81": 0.0,
+    "phase_record_e0": 1.1102230246251565e-16,
+    "phase_record_e1": 1.1102230246251565e-16,
+    "phase_record_erase81": 0.0,
+    "phase_record_eta81": 0.0,
+    "phase_record_lambda81": 0.0,
+    "phase_record_output_a": 3.885780586188048e-16,
+    "phase_record_pair_mass": 3.3306690738754696e-16,
+    "phase_record_population_a": 2.220446049250313e-16,
+    "phase_record_post": 1.6653345369377348e-15,
+    "phase_record_pre": 1.6653345369377348e-15,
+    "phase_record_prepared": 1.6653345369377348e-15,
+    "phase_record_rotation": 0.0,
+    "probability": 2.6645352591003757e-15,
+    "score": 0.0,
+    "trace": 2.2921217638558486e-16
+  },
+  "families": [
+    {
+      "contexts": 24,
+      "family": "g0",
+      "protocol_difference_TV_mean": 0.46803803111450365,
+      "protocols": {
+        "native_repeat": {
+          "NPT_any": 7,
+          "NPT_split_counts": [
+            7,
+            7,
+            0
+          ],
+          "conditional_Hadamard_TV": {
+            "max": 0.09243722445564029,
+            "mean": 0.05941167753061722,
+            "median": 0.05922047441802766,
+            "min": 0.04216974631789324
+          },
+          "conditional_entropy": {
+            "max": 1.551267511601807,
+            "mean": 1.0504759201075962,
+            "median": 1.0709927773889798,
+            "min": 0.5057013228809346
+          },
+          "conditional_trace_distance": {
+            "max": 0.3972405103549043,
+            "mean": 0.2946577415523262,
+            "median": 0.32042471145741513,
+            "min": 0.08250180004979099
+          },
+          "diagonal_entropy": {
+            "max": 1.9167852198590813,
+            "mean": 1.3028619183392602,
+            "median": 1.3879364123199704,
+            "min": 0.5372696605171005
+          },
+          "disjoint_90_Holevo": 0,
+          "disjoint_90_classical": 0,
+          "fragment_nontrivial": 23,
+          "frozen_probability_TV": {
+            "max": 0.9737396987860454,
+            "mean": 0.5310490910665144,
+            "median": 0.4533587893511082,
+            "min": 0.13774369429831143
+          },
+          "frozen_stopped_TV": {
+            "max": 2.8156788271411147e-05,
+            "mean": 1.440701425271508e-06,
+            "median": 5.3097122730957527e-14,
+            "min": 1.6129417302460028e-22
+          },
+          "frozen_trace_distance": {
+            "max": 0.9764314218852657,
+            "mean": 0.5469217354518245,
+            "median": 0.46342957014205743,
+            "min": 0.16967227531786605
+          },
+          "max_negativity": 0.005724563324272669,
+          "mean_QMI": [
+            0.1351301806941233,
+            0.2635796212166756,
+            0.2271765559898378
+          ],
+          "mean_fragment_Holevo_fraction": [
+            0.15343045368524352,
+            0.028850869440498566,
+            0.4112365784539515
+          ],
+          "offdiag_l1": {
+            "max": 1.0364115617970462,
+            "mean": 0.7607293748434895,
+            "median": 0.8231430540320637,
+            "min": 0.24206427454310808
+          },
+          "phase_erasure_TV": {
+            "max": 0.4232128883803769,
+            "mean": 0.1695758924315244,
+            "median": 0.12504858298155241,
+            "min": 1.9497255131916194e-08
+          },
+          "phase_reversal_TV": {
+            "max": 0.7136325616683831,
+            "mean": 0.33750063667688773,
+            "median": 0.22300478499502735,
+            "min": 2.267122700180433e-08
+          },
+          "phase_reversal_stopped_TV": {
+            "max": 0.02317744511711635,
+            "mean": 0.001596136045299756,
+            "median": 6.944600978705447e-09,
+            "min": 2.6316224305982452e-11
+          },
+          "success": {
+            "max": 1.5844320681862828e-06,
+            "mean": 9.364670110946084e-08,
+            "median": 5.225128605080683e-18,
+            "min": 6.882126666061958e-32
+          },
+          "unconditional_Hadamard_TV": {
+            "max": 9.386071159793645e-08,
+            "mean": 5.5672346751461176e-09,
+            "median": 3.291597554048344e-19,
+            "min": 4.074329638783667e-33
+          },
+          "unconditional_trace_distance": {
+            "max": 6.221711412821137e-07,
+            "mean": 3.679971200830298e-08,
+            "median": 1.4017979690461503e-18,
+            "min": 2.711370634740665e-32
+          }
+        },
+        "pair_diagnostic": {
+          "NPT_any": 22,
+          "NPT_split_counts": [
+            22,
+            22,
+            22
+          ],
+          "conditional_Hadamard_TV": {
+            "max": 0.5569767332802982,
+            "mean": 0.4905728927830288,
+            "median": 0.49872510175665413,
+            "min": 0.3357432435455752
+          },
+          "conditional_entropy": {
+            "max": 1.0469621268773193,
+            "mean": 0.9004730023335702,
+            "median": 0.8843683574990897,
+            "min": 0.8524750260567697
+          },
+          "conditional_trace_distance": {
+            "max": 0.6293012300955837,
+            "mean": 0.5673645792351542,
+            "median": 0.5849156152516257,
+            "min": 0.4096484750785884
+          },
+          "diagonal_entropy": {
+            "max": 2.0249690865904912,
+            "mean": 1.863001527505898,
+            "median": 1.8922149501925252,
+            "min": 1.5799027987107765
+          },
+          "disjoint_90_Holevo": 0,
+          "disjoint_90_classical": 0,
+          "fragment_nontrivial": 24,
+          "frozen_probability_TV": {
+            "max": 0.18340303426574012,
+            "mean": 0.07356520103269644,
+            "median": 0.06268242511930248,
+            "min": 0.003740112695202698
+          },
+          "frozen_stopped_TV": {
+            "max": 0.18340303426574003,
+            "mean": 0.07356520103269637,
+            "median": 0.06268242511930237,
+            "min": 0.0037401126952026935
+          },
+          "frozen_trace_distance": {
+            "max": 0.3315226305553984,
+            "mean": 0.13273879349220905,
+            "median": 0.10885013859959469,
+            "min": 0.017600434015525364
+          },
+          "max_negativity": 0.12530170075027894,
+          "mean_QMI": [
+            0.09394326745652508,
+            0.16267575125531267,
+            0.14765208961047852
+          ],
+          "mean_fragment_Holevo_fraction": [
+            0.02091269927974551,
+            0.010370998664372943,
+            0.09376950780385418
+          ],
+          "offdiag_l1": {
+            "max": 4.585823926024855,
+            "mean": 3.895674568040984,
+            "median": 4.030238774523036,
+            "min": 2.2541715556034236
+          },
+          "phase_erasure_TV": {
+            "max": 0.23400000000000015,
+            "mean": 0.234,
+            "median": 0.234,
+            "min": 0.23399999999999976
+          },
+          "phase_reversal_TV": {
+            "max": 0.4680000000000003,
+            "mean": 0.46800000000000014,
+            "median": 0.4680000000000001,
+            "min": 0.46799999999999975
+          },
+          "phase_reversal_stopped_TV": {
+            "max": 0.46799999999999997,
+            "mean": 0.4679999999999998,
+            "median": 0.46799999999999986,
+            "min": 0.4679999999999995
+          },
+          "success": {
+            "max": 1.0000000000000007,
+            "mean": 0.9999999999999994,
+            "median": 0.9999999999999996,
+            "min": 0.9999999999999989
+          },
+          "unconditional_Hadamard_TV": {
+            "max": 0.5569767332802981,
+            "mean": 0.49057289278302846,
+            "median": 0.49872510175665397,
+            "min": 0.33574324354557505
+          },
+          "unconditional_trace_distance": {
+            "max": 0.6293012300955836,
+            "mean": 0.5673645792351539,
+            "median": 0.5849156152516256,
+            "min": 0.40964847507858826
+          }
+        }
+      },
+      "settings_spread_mean": [
+        [
+          0.04219303325349644,
+          0.3561065374400907
+        ],
+        [
+          0.059802803657933466,
+          0.48899917949650895
+        ]
+      ]
+    },
+    {
+      "contexts": 24,
+      "family": "g3",
+      "protocol_difference_TV_mean": 0.5375833573499885,
+      "protocols": {
+        "native_repeat": {
+          "NPT_any": 13,
+          "NPT_split_counts": [
+            13,
+            13,
+            0
+          ],
+          "conditional_Hadamard_TV": {
+            "max": 0.08468875421673391,
+            "mean": 0.053337239366706056,
+            "median": 0.04641241664285779,
+            "min": 0.04330321198104806
+          },
+          "conditional_entropy": {
+            "max": 1.5783003812127157,
+            "mean": 1.0375969066690807,
+            "median": 1.094762196897419,
+            "min": 0.42640724826456866
+          },
+          "conditional_trace_distance": {
+            "max": 0.4041424070526564,
+            "mean": 0.23426371764916756,
+            "median": 0.20641120102419747,
+            "min": 0.043410640759670854
+          },
+          "diagonal_entropy": {
+            "max": 1.9314580203579181,
+            "mean": 1.2315928988029226,
+            "median": 1.388773417243549,
+            "min": 0.43109938469666115
+          },
+          "disjoint_90_Holevo": 0,
+          "disjoint_90_classical": 0,
+          "fragment_nontrivial": 23,
+          "frozen_probability_TV": {
+            "max": 0.9833106186220392,
+            "mean": 0.5754825776923311,
+            "median": 0.6773237992633634,
+            "min": 0.07170135277966108
+          },
+          "frozen_stopped_TV": {
+            "max": 3.087281198137271e-05,
+            "mean": 2.1897102850613996e-06,
+            "median": 1.9959836562935103e-10,
+            "min": 1.939006841602582e-23
+          },
+          "frozen_trace_distance": {
+            "max": 0.986335471388617,
+            "mean": 0.594496455088129,
+            "median": 0.7128368748302674,
+            "min": 0.0869777998893937
+          },
+          "max_negativity": 0.03897138586797842,
+          "mean_QMI": [
+            0.19495353440075489,
+            0.28079052525094333,
+            0.19467357844372335
+          ],
+          "mean_fragment_Holevo_fraction": [
+            0.33490370780139295,
+            0.03273747800741322,
+            0.589842228121585
+          ],
+          "offdiag_l1": {
+            "max": 1.1670483047243638,
+            "mean": 0.6310693097078337,
+            "median": 0.6119305870903623,
+            "min": 0.09136450047592026
+          },
+          "phase_erasure_TV": {
+            "max": 0.423487321688827,
+            "mean": 0.19260354047288367,
+            "median": 0.1591193313854003,
+            "min": 1.9272144122612784e-10
+          },
+          "phase_reversal_TV": {
+            "max": 0.716752773555467,
+            "mean": 0.3508485631716747,
+            "median": 0.3799725518322501,
+            "min": 1.3765805485446315e-09
+          },
+          "phase_reversal_stopped_TV": {
+            "max": 0.028648895685460574,
+            "mean": 0.002671555498672016,
+            "median": 1.4213757212312803e-05,
+            "min": 1.9152077307410055e-11
+          },
+          "success": {
+            "max": 2.466099879912833e-05,
+            "mean": 1.4359914478380844e-06,
+            "median": 7.917231544374308e-14,
+            "min": 1.3985561370439701e-33
+          },
+          "unconditional_Hadamard_TV": {
+            "max": 1.5446463272647895e-06,
+            "mean": 8.985387610410553e-08,
+            "median": 3.4291750479922172e-15,
+            "min": 9.175300917379386e-35
+          },
+          "unconditional_trace_distance": {
+            "max": 9.957073304884904e-06,
+            "mean": 5.782884430728515e-07,
+            "median": 6.540361770106723e-15,
+            "min": 5.458678375262995e-34
+          }
+        },
+        "pair_diagnostic": {
+          "NPT_any": 22,
+          "NPT_split_counts": [
+            22,
+            21,
+            21
+          ],
+          "conditional_Hadamard_TV": {
+            "max": 0.5734252633518753,
+            "mean": 0.5110835066133445,
+            "median": 0.521856458982094,
+            "min": 0.4452247746015736
+          },
+          "conditional_entropy": {
+            "max": 0.9555306471498537,
+            "mean": 0.8919798024157318,
+            "median": 0.8838365817536754,
+            "min": 0.8501078151668008
+          },
+          "conditional_trace_distance": {
+            "max": 0.628014057207382,
+            "mean": 0.576369302951828,
+            "median": 0.5960938819718801,
+            "min": 0.48586864090560106
+          },
+          "diagonal_entropy": {
+            "max": 2.0235419662222025,
+            "mean": 1.8841876036337284,
+            "median": 1.925248659006058,
+            "min": 1.6732411065026747
+          },
+          "disjoint_90_Holevo": 0,
+          "disjoint_90_classical": 0,
+          "fragment_nontrivial": 24,
+          "frozen_probability_TV": {
+            "max": 0.14249177693394363,
+            "mean": 0.06997470241421609,
+            "median": 0.07508550468816037,
+            "min": 0.00942667214904776
+          },
+          "frozen_stopped_TV": {
+            "max": 0.14249177693394344,
+            "mean": 0.06997470241421601,
+            "median": 0.07508550468816033,
+            "min": 0.00942667214904775
+          },
+          "frozen_trace_distance": {
+            "max": 0.22271207852000413,
+            "mean": 0.12226995483357361,
+            "median": 0.13341652061280812,
+            "min": 0.019039065426834513
+          },
+          "max_negativity": 0.08070750517807336,
+          "mean_QMI": [
+            0.08917808772410042,
+            0.15294108877713392,
+            0.13351397179503768
+          ],
+          "mean_fragment_Holevo_fraction": [
+            0.020166520912965325,
+            0.004336978891992772,
+            0.08892790126415696
+          ],
+          "offdiag_l1": {
+            "max": 4.670921347229167,
+            "mean": 4.0067641708258535,
+            "median": 4.27702298404035,
+            "min": 2.8994970322992053
+          },
+          "phase_erasure_TV": {
+            "max": 0.2340000000000002,
+            "mean": 0.23400000000000007,
+            "median": 0.23400000000000004,
+            "min": 0.2339999999999999
+          },
+          "phase_reversal_TV": {
+            "max": 0.46800000000000025,
+            "mean": 0.46800000000000014,
+            "median": 0.4680000000000001,
+            "min": 0.46799999999999986
+          },
+          "phase_reversal_stopped_TV": {
+            "max": 0.46799999999999997,
+            "mean": 0.4679999999999998,
+            "median": 0.4679999999999998,
+            "min": 0.4679999999999996
+          },
+          "success": {
+            "max": 1.0,
+            "mean": 0.9999999999999994,
+            "median": 0.9999999999999993,
+            "min": 0.999999999999999
+          },
+          "unconditional_Hadamard_TV": {
+            "max": 0.573425263351875,
+            "mean": 0.5110835066133442,
+            "median": 0.5218564589820937,
+            "min": 0.44522477460157317
+          },
+          "unconditional_trace_distance": {
+            "max": 0.6280140572073815,
+            "mean": 0.5763693029518276,
+            "median": 0.5960938819718797,
+            "min": 0.48586864090560056
+          }
+        }
+      },
+      "settings_spread_mean": [
+        [
+          0.059714916722405274,
+          0.3595050060409391
+        ],
+        [
+          0.08054111139853275,
+          0.42761372443731366
+        ]
+      ]
+    },
+    {
+      "contexts": 24,
+      "family": "Rapfi",
+      "protocol_difference_TV_mean": 0.5031461405015961,
+      "protocols": {
+        "native_repeat": {
+          "NPT_any": 11,
+          "NPT_split_counts": [
+            11,
+            11,
+            0
+          ],
+          "conditional_Hadamard_TV": {
+            "max": 0.10114409912691714,
+            "mean": 0.05872352298165654,
+            "median": 0.056326332368106816,
+            "min": 0.043358882183717154
+          },
+          "conditional_entropy": {
+            "max": 1.6060957829109788,
+            "mean": 1.068848800776159,
+            "median": 1.0711564200462051,
+            "min": 0.44303044301427796
+          },
+          "conditional_trace_distance": {
+            "max": 0.404111855793143,
+            "mean": 0.24660253474133684,
+            "median": 0.31297395237752346,
+            "min": 0.04739694334502128
+          },
+          "diagonal_entropy": {
+            "max": 1.9814617383238906,
+            "mean": 1.2792382224682999,
+            "median": 1.3103667746529821,
+            "min": 0.4537333074341249
+          },
+          "disjoint_90_Holevo": 0,
+          "disjoint_90_classical": 0,
+          "fragment_nontrivial": 24,
+          "frozen_probability_TV": {
+            "max": 0.9859164531627833,
+            "mean": 0.5753509257187077,
+            "median": 0.6367896294802425,
+            "min": 0.06857668222346829
+          },
+          "frozen_stopped_TV": {
+            "max": 1.354775388374689e-09,
+            "mean": 1.3956127605072023e-10,
+            "median": 1.2045026458528968e-15,
+            "min": 8.179443762808244e-24
+          },
+          "frozen_trace_distance": {
+            "max": 0.9868105405620913,
+            "mean": 0.596755437366456,
+            "median": 0.683268264793631,
+            "min": 0.07224392689111353
+          },
+          "max_negativity": 0.022251813379967515,
+          "mean_QMI": [
+            0.2279081900724277,
+            0.3147649219907748,
+            0.2170242405749919
+          ],
+          "mean_fragment_Holevo_fraction": [
+            0.34422182063247214,
+            0.07920290639945003,
+            0.5784217533792848
+          ],
+          "offdiag_l1": {
+            "max": 1.2648962782223558,
+            "mean": 0.6671259197418604,
+            "median": 0.813990253774165,
+            "min": 0.13640388014231775
+          },
+          "phase_erasure_TV": {
+            "max": 0.4230953493087549,
+            "mean": 0.2411157022678926,
+            "median": 0.32723355533422593,
+            "min": 4.90639113246e-07
+          },
+          "phase_reversal_TV": {
+            "max": 0.7170814075232831,
+            "mean": 0.46612324339976685,
+            "median": 0.5792095068048347,
+            "min": 5.705106944306558e-07
+          },
+          "phase_reversal_stopped_TV": {
+            "max": 0.0001427034185182732,
+            "mean": 1.5239578250399286e-05,
+            "median": 1.148293842235861e-08,
+            "min": 5.422955315970474e-11
+          },
+          "success": {
+            "max": 2.009611940220846e-12,
+            "mean": 1.1440356177251392e-13,
+            "median": 6.033122321478624e-21,
+            "min": 1.9825167074981905e-31
+          },
+          "unconditional_Hadamard_TV": {
+            "max": 1.3375570279590212e-13,
+            "mean": 7.539784041010922e-15,
+            "median": 2.616845848949472e-22,
+            "min": 1.2705384579138052e-32
+          },
+          "unconditional_trace_distance": {
+            "max": 8.094424561209811e-13,
+            "mean": 4.578741573589087e-14,
+            "median": 3.157899299891028e-22,
+            "min": 7.65348430646152e-32
+          }
+        },
+        "pair_diagnostic": {
+          "NPT_any": 23,
+          "NPT_split_counts": [
+            23,
+            22,
+            22
+          ],
+          "conditional_Hadamard_TV": {
+            "max": 0.5652289731267833,
+            "mean": 0.4917221580314029,
+            "median": 0.48210720622193326,
+            "min": 0.4297076853763536
+          },
+          "conditional_entropy": {
+            "max": 0.9698711133364466,
+            "mean": 0.9082233005043628,
+            "median": 0.9084738186399416,
+            "min": 0.8480543559244467
+          },
+          "conditional_trace_distance": {
+            "max": 0.6268071785838514,
+            "mean": 0.5688231837084836,
+            "median": 0.5843708514500284,
+            "min": 0.48778081746321156
+          },
+          "diagonal_entropy": {
+            "max": 2.031110244186128,
+            "mean": 1.8645346577931476,
+            "median": 1.89338261561378,
+            "min": 1.6816521766609545
+          },
+          "disjoint_90_Holevo": 0,
+          "disjoint_90_classical": 0,
+          "fragment_nontrivial": 24,
+          "frozen_probability_TV": {
+            "max": 0.1676803166468945,
+            "mean": 0.07996020158520432,
+            "median": 0.07108008966939877,
+            "min": 0.003980219678429445
+          },
+          "frozen_stopped_TV": {
+            "max": 0.16768031664689428,
+            "mean": 0.07996020158520423,
+            "median": 0.07108008966939867,
+            "min": 0.00398021967842939
+          },
+          "frozen_trace_distance": {
+            "max": 0.28638866520678696,
+            "mean": 0.14182227015187746,
+            "median": 0.13690113122584416,
+            "min": 0.013558694269947043
+          },
+          "max_negativity": 0.10282818234751967,
+          "mean_QMI": [
+            0.11437935695972419,
+            0.17684982431728646,
+            0.13942441252610302
+          ],
+          "mean_fragment_Holevo_fraction": [
+            0.03310445165221896,
+            0.007547042545113317,
+            0.10286332617215165
+          ],
+          "offdiag_l1": {
+            "max": 4.6047419021498746,
+            "mean": 3.8551274045736648,
+            "median": 3.8446896604577674,
+            "min": 2.9988350239701225
+          },
+          "phase_erasure_TV": {
+            "max": 0.23400000000000024,
+            "mean": 0.234,
+            "median": 0.23400000000000004,
+            "min": 0.2339999999999998
+          },
+          "phase_reversal_TV": {
+            "max": 0.46800000000000014,
+            "mean": 0.46799999999999997,
+            "median": 0.46799999999999997,
+            "min": 0.46799999999999986
+          },
+          "phase_reversal_stopped_TV": {
+            "max": 0.46799999999999997,
+            "mean": 0.4679999999999998,
+            "median": 0.46799999999999986,
+            "min": 0.4679999999999996
+          },
+          "success": {
+            "max": 1.0,
+            "mean": 0.9999999999999996,
+            "median": 0.9999999999999994,
+            "min": 0.9999999999999989
+          },
+          "unconditional_Hadamard_TV": {
+            "max": 0.5652289731267832,
+            "mean": 0.4917221580314027,
+            "median": 0.48210720622193315,
+            "min": 0.4297076853763536
+          },
+          "unconditional_trace_distance": {
+            "max": 0.626807178583851,
+            "mean": 0.5688231837084833,
+            "median": 0.5843708514500282,
+            "min": 0.4877808174632113
+          }
+        }
+      },
+      "settings_spread_mean": [
+        [
+          0.011388970841580193,
+          0.4597397602395568
+        ],
+        [
+          0.019349418528669476,
+          0.49354650180251847
+        ]
+      ]
+    }
+  ],
+  "forced_paths": 576,
+  "fragment_90_cases": 0,
+  "fragment_audit": {
+    "fragment_cases": 432,
+    "max_holevo_error": 0.0,
+    "scope": "Independent explicit partial trace loops; secondary exploratory pointer diagnostic.",
+    "status": "PASS_SCOPED"
+  },
+  "fresh_paths": 0,
+  "independent": {
+    "errors": {
+      "abort_prefix": 9.992007221626409e-16,
+      "leaf_relative": 7.216449660063518e-15,
+      "partial_transpose": 3.608224830031759e-16,
+      "raw_leaf_relative_mass": 2.19824158875781e-14,
+      "raw_log_mass": 2.842170943040401e-14,
+      "raw_node_settings": 0.0,
+      "raw_state": 1.6375789613221059e-15,
+      "record_matrix": 1.3322676295501878e-15,
+      "relative_diagonal": 1.1102230246251565e-15,
+      "stopped_mass": 2.220446049250313e-16,
+      "success_relative": 5.440092820663267e-15
+    },
+    "independent_leaf_branches": 1152,
+    "independent_record_matrices": 720,
+    "raw_forced_paths": 576,
+    "scope": "Separate spectral square roots, unnormalized fine CP branch products from all actual forced raw paths; explicit bath cross-trace, density recursion, partial transpose index map. No independent native subagent.",
+    "status": "PASS_SCOPED"
+  },
+  "max_causal_error": 9.992007221626409e-16,
+  "max_completeness_error": 1.2212453270876722e-15,
+  "max_leaf_relative_error": 2.0872192862952943e-14,
+  "max_native_success": 2.466099879912833e-05,
+  "max_unconditional_Hadamard_TV": 1.5446463272647895e-06,
+  "min_native_success": 1.3985561370439701e-33,
+  "native_NPT_any": 31,
+  "raw_bytes": 124473950,
+  "reference_replays": 72,
+  "scope": "Declared adaptive coherent extension of exact retained native histories conditional H32; not physical/native coherent record identification. Normalized pair restriction is a different controlled protocol. All actual replay cases diagnostic only."
+}

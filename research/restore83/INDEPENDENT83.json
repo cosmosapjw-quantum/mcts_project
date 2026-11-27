@@ -1,0 +1,20 @@
+{
+  "errors": {
+    "abort_prefix": 9.992007221626409e-16,
+    "leaf_relative": 7.216449660063518e-15,
+    "partial_transpose": 3.608224830031759e-16,
+    "raw_leaf_relative_mass": 2.19824158875781e-14,
+    "raw_log_mass": 2.842170943040401e-14,
+    "raw_node_settings": 0.0,
+    "raw_state": 1.6375789613221059e-15,
+    "record_matrix": 1.3322676295501878e-15,
+    "relative_diagonal": 1.1102230246251565e-15,
+    "stopped_mass": 2.220446049250313e-16,
+    "success_relative": 5.440092820663267e-15
+  },
+  "independent_leaf_branches": 1152,
+  "independent_record_matrices": 720,
+  "raw_forced_paths": 576,
+  "scope": "Separate spectral square roots, unnormalized fine CP branch products from all actual forced raw paths; explicit bath cross-trace, density recursion, partial transpose index map. No independent native subagent.",
+  "status": "PASS_SCOPED"
+}

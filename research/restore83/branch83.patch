@@ -1,0 +1,69 @@
+--- a/mqft_law.rs
++++ b/mqft_law.rs
+@@ -69,6 +69,8 @@
+     pub log_q_path: f64,
+     pub log_b_path: f64,
+ }
++thread_local! { static FORCE83: std::cell::RefCell<Vec<usize>> = const { std::cell::RefCell::new(Vec::new()) }; }
++pub fn force83(v:Vec<usize>) { FORCE83.with(|x| *x.borrow_mut()=v); }
+ pub struct Sampler {
+     pub spec: LawSpec,
+     source: Option<usize>,
+@@ -378,7 +380,7 @@
+                 }
+             }
+         }
+-        let i = picked.unwrap_or_else(|| b.iter().rposition(|&x| x > 0.).unwrap());
++        let i = FORCE83.with(|x| x.borrow().get(t).copied()).map(|a|actions.iter().position(|v|*v==a).expect("forced legal action")).unwrap_or_else(||picked.unwrap_or_else(|| b.iter().rposition(|&x| x > 0.).unwrap()));
+         if let (Some(ph),Some(rec))=(self.phase65.as_mut(),phase65.as_mut()){ph.finish(actions[i],rec);}
+         let (lp, lq, lb) = (p[i].ln(), q[i].ln(), b[i].ln());
+         self.lp += lp;
+--- a/mqft_train_persistent65.rs
++++ b/mqft_train_persistent65.rs
+@@ -3,7 +3,7 @@
+ use flate2::{write::GzEncoder,Compression};
+ #[derive(Clone,Serialize,Deserialize)]
+ #[serde(deny_unknown_fields)]
+-struct Job65{id:String,moves:Vec<usize>,sources:[usize;2],seed:u64,budget:u32,width:usize,beta:f64,generation:usize,core:usize,rep:usize,arm:String}
++struct Job65{id:String,moves:Vec<usize>,sources:[usize;2],seed:u64,budget:u32,width:usize,beta:f64,generation:usize,core:usize,rep:usize,arm:String,#[serde(default)] forced83:Vec<usize>}
+ fn one(j:&Job65,net:Arc<Net>)->Result<Value,String>{
+  if j.width!=4 || ![128,1024].contains(&j.budget) || !["baseline","fresh64","reset_plus","persist_plus","persist_minus","persist_dephased","reference","plus81","minus81","eraseplus81","eraseminus81","swap81","base81"].contains(&j.arm.as_str()) || (j.arm=="reference")!=(j.budget==1024){return Err("invalid persistent experiment".into())}
+  let s=state(&j.moves)?;let legal=s.legal_moves();
+@@ -11,7 +11,7 @@
+  let old=ControlJob{id:j.id.clone(),moves:j.moves.clone(),source:j.sources[0],seed:j.seed,budget:j.budget,width:j.width,beta:j.beta,h:0.,d4:false,generation:j.generation,core:j.core,orientation:0,rep:j.rep,cohort:"phase65".into()};
+  let raw=if j.arm=="baseline"||j.arm=="reference"{execute_field(&old,net,Some(vec![0.;N]))?}
+  else if j.arm=="fresh64"{execute_instrument(&old,net,None,Some(Phase64::new(j.sources,"plus".into(),j.width,j.budget as usize)))?}
+- else{execute_persistent(&old,net,None,None,Some(Phase65::new(j.sources,j.arm.clone(),j.width,j.budget as usize)))?};
++ else{if !j.forced83.is_empty() && (j.forced83.len()!=44 || j.arm!="plus81" || j.forced83.iter().any(|a|!legal.contains(a))){return Err("invalid forced83 prefix".into())} crate::mqft_law::force83(j.forced83.clone());let rr=execute_persistent(&old,net,None,None,Some(Phase65::new(j.sources,j.arm.clone(),j.width,j.budget as usize)));crate::mqft_law::force83(vec![]);rr?};
+  Ok(json!({"schema":"mqft.trained.phase65.v1","input":j,"trace":raw}))
+ }
+ pub(in crate::mqft_train)fn run(weights:&str,plan:&str,out:&str,workers:&str)->Result<(),String>{
+--- a/mqft_arena68.rs
++++ b/mqft_arena68.rs
+@@ -7,7 +7,7 @@
+ use std::{sync::{Arc,atomic::Ordering},io::{self,BufRead,Write},time::Instant};
+ #[derive(Deserialize,Debug)]
+ #[serde(deny_unknown_fields)]
+-struct Request {moves:Vec<usize>,seed:u64,budget:u32,arm:String,#[serde(default)] source74:Option<usize>,#[serde(default)] pulse74:Option<f64>,#[serde(default)] phase81:Option<String>,#[serde(default)] pair81:Option<[usize;2]>}
++struct Request {moves:Vec<usize>,seed:u64,budget:u32,arm:String,#[serde(default)] source74:Option<usize>,#[serde(default)] pulse74:Option<f64>,#[serde(default)] phase81:Option<String>,#[serde(default)] pair81:Option<[usize;2]>,#[serde(default)] forced83:Vec<usize>}
+ #[derive(Serialize)]
+ struct EvalRec {id:u64,state_hash:String,side:i8,wdl:[f64;3],scores:Vec<(u16,i32)>,clean:f32,delivered:f32,mask:[u8;3],syndrome:[u8;2],corrected:usize}
+ struct Eval {seed:u64,arm:String,records:Mutex<Vec<EvalRec>>}
+@@ -37,6 +37,8 @@
+  if s.is_terminal(){return Err("terminal root".into())}
+  if j.source74.is_some()!=j.pulse74.is_some() || j.source74.is_some_and(|a|j.arm!="clean"||j.budget!=128||!s.idx_to_move(a).is_some_and(|m|s.legal_moves().contains(&m))) || j.pulse74.is_some_and(|h| ![-0.35,0.,0.35].contains(&h)){return Err("bad pulse74".into())}
+  if j.phase81.is_some()!=j.pair81.is_some() || j.phase81.as_ref().is_some_and(|m| !["plus81","minus81","eraseplus81","eraseminus81","swap81","base81"].contains(&m.as_str()) || j.arm!="clean" || j.budget!=128 || j.source74.is_some()) || j.pair81.is_some_and(|p|p[0]==p[1] || p.iter().any(|a| !s.idx_to_move(*a).is_some_and(|m|s.legal_moves().contains(&m)))) {return Err("bad phase81".into())}
++ if !j.forced83.is_empty() && (j.forced83.len()!=44 || j.arm!="clean" || j.phase81.as_deref()!=Some("plus81") || j.forced83.iter().any(|a| !s.idx_to_move(*a).is_some_and(|m|s.legal_moves().contains(&m)))) {return Err("invalid forced83 prefix".into())}
++ crate::mqft_law::force83(j.forced83.clone());
+  let t0=Instant::now();let ev=Arc::new(Eval{seed:j.seed,arm:j.arm.clone(),records:Mutex::new(vec![])});
+  let mut cfg=MctsConfig::evaluation(1.4);cfg.tt_enabled=false;cfg.root_forced_win=false;cfg.exact_terminal_value=false;cfg.fpu_reduction=0.;cfg.vl_mode=VlMode::Fixed;cfg.seed=Some(j.seed);cfg.pw=None;
+  let mut eng=MctsEngine::new(s.clone(),ev.clone(),cfg);
+@@ -62,7 +64,7 @@
+    assert_eq!(n.iter().sum::<u32>(),k);cuts.push(json!({"k":k,"n":n,"w":w,"s2":s2,"prior":prior}));
+   }
+  }
+- let es=tr.events.lock();let rec=ev.records.lock();
++ crate::mqft_law::force83(vec![]);let es=tr.events.lock();let rec=ev.records.lock();
+  assert_eq!(es.len(),j.budget as usize);assert_eq!(rec.len() as u64,eng.evaluator_call_count());
+  let mut events=vec![];
+  for e in es.iter(){let mut z=serde_json::to_value(e).unwrap();let d=z["root_selection"]["law"].as_object_mut().unwrap();assert_eq!(d["p"],d["q"]);assert_eq!(d["p"],d["b"]);for key in ["q","b","log_q","log_b","log_q_path","log_b_path"]{d.remove(key);}events.push(z);}
