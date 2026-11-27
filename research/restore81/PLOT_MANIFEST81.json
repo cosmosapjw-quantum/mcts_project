@@ -1,0 +1,54 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "operational_phase_and_order",
+      "ids": [
+        "L09",
+        "L20",
+        "Q24",
+        "Q42"
+      ],
+      "pdf_sha": "ad2e82840b645f00aa449272c6d06fa604702a656b2ad7bca112e31cb021bfed",
+      "png_sha": "c9b075dfe31199ebd6dfc82440bcfe87a642a0158a7bef06920eda0098281bae",
+      "scope": "Actual paired phase and erasure contrasts, noncommuting axis order and same-history conditional laws. Pointwise root-block intervals; not physical hardware."
+    },
+    {
+      "figure": "causal_path_likelihood_and_final_mark",
+      "ids": [
+        "L16",
+        "Q43",
+        "Q42"
+      ],
+      "pdf_sha": "20092882ecf5b800d5289ae4bf1d704e87c93f93d11816ab4ab5b1869622bd4d",
+      "png_sha": "925db54645d334bd09d170e20c5ce737d1ed443914ced4b939a7e0ef8b5665f2",
+      "scope": "Exact likelihood on identical fine history under declared register. Finite IS and actual paired effects; no physical action or game utility."
+    },
+    {
+      "figure": "three_time_record_and_register",
+      "ids": [
+        "L09",
+        "L15",
+        "L20",
+        "Q24",
+        "Q25",
+        "Q35",
+        "Q37",
+        "Q42",
+        "Q45"
+      ],
+      "pdf_sha": "489682e53e8330f0206ed3599b87414beeba23d248fdf717d7171fb38ffeba2a",
+      "png_sha": "a6aa16d6ab14523835af38006dc0e49ecc45850999bb5050b6a3ac6b6df5eb9c",
+      "scope": "Actual conditional qubit trajectories and separately declared frozen three-qutrit record density; PPT not separability and not native adaptive coherent recombination."
+    }
+  ],
+  "sources": {
+    "AUDIT81.json": "4e0c448cb4d8a4520720f9b1e0f6fcce8b79a280d5e5551596220f0ce5095160",
+    "CONVERGENCE81.json": "14915919719539845525326a5d743ff20fa138de731155a4f7e3bfe5d4ef6ef0",
+    "EFFECTS81.json": "95f0ecd1676d1b6ff16e2e9adea2bf52209311383e98d73c92099d3fe4018c27",
+    "INDEPENDENT81.json": "d6c22ea758840ac5adbfd60f9bb8512fe9e79e5fc7479a95d16c1f01cae35068",
+    "RECORD81.json": "8485f6538c4625970cf40d083a3c6c14764152205f380692dca5ecc19e14da37",
+    "SUMMARY81.json": "547889bd3139e4feeb0984a837302fdc4091b13582c1cf1b2e2c576a6891859a",
+    "plot81.py": "48c34c271ca9b0a8dffd3635a5130d46af7c748a7b028e3ff02cbfcec94ccd6c"
+  }
+}

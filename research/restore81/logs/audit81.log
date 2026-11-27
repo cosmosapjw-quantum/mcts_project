@@ -1,0 +1,13 @@
+AUDIT 288
+AUDIT 576
+AUDIT 864
+AUDIT 1152
+AUDIT 1440
+AUDIT 1728
+AUDIT 2016
+AUDIT 2304
+AUDIT 2592
+AUDIT 2880
+AUDIT 3168
+AUDIT 3456
+AUDIT COMPLETE {'paths': 3456, 'backups': 442368, 'bytes': 663276576, 'errors': {'log_path': 0.0, 'phase_record_axis81': 0.0, 'phase_record_pair_mass': 6.106226635438361e-16, 'phase_record_output_a': 3.885780586188048e-16, 'phase_record_post': 3.9968028886505635e-15, 'inactive_post': 3.552713678800501e-15, 'phase_record_rotation': 0.0, 'score': 0.0, 'phase_record_lambda81': 0.0, 'trace': 4.440892098500626e-16, 'independent_scalar_state': 3.9968028886505635e-15, 'phase_record_population_a': 3.3306690738754696e-16, 'independent_scalar_p': 3.3306690738754696e-16, 'conditional_trace': 1.1102230246251565e-16, 'Hermiticity': 2.3263411494723067e-16, 'inactive_pre': 3.552713678800501e-15, 'phase_record_e1': 3.3306690738754696e-16, 'phase_record_pre': 3.9968028886505635e-15, 'Kraus_complete': 3.3306690738754696e-16, 'phase_record_e0': 3.3306690738754696e-16, 'log_probability': 0.0, 'phase_record_erase81': 0.0, 'probability': 2.886579864025407e-15, 'phase_record_eta81': 0.0, 'phase_record_prepared': 3.552713678800501e-15, 'inactive_mass': 9.992007221626409e-16, 'inactive_output': 6.661338147750939e-16, 'inactive_prepared': 3.552713678800501e-15}, 'min_eig': 2.8592533826946948e-05, 'array_sha': 'ea14f6c7d48812485290630f9cc0722a09f632713aab130e0f11ff9cdbb6ee71', 'rng_streams': 384, 'scope': 'Independent complex matrix and alternate scalar audit all fresh actual histories; recorded actual fine probabilities and full native backup replay; counterfactual likelihood on same observed history.'}

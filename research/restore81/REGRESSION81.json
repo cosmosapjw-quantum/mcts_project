@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "cargo",
+    "test",
+    "--offline",
+    "--release",
+    "--features",
+    "mqft-train",
+    "--lib",
+    "--manifest-path",
+    "phase_src/Cargo.toml",
+    "--",
+    "--test-threads=4"
+  ],
+  "failed": 0,
+  "ignored": 14,
+  "log_sha256": "e5051557de1d8e2c6c75a25b8287fe6e595d81d5ad962f95f8f04fd24afb9bd7",
+  "passed": 394,
+  "scope": "isolated phase81 Rust lib suite, not docs/integration/Python legacy suite",
+  "status": "PASS_LIB_SUITE"
+}

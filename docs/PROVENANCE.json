@@ -3278,6 +3278,82 @@
       }
     }
   },
+  "restore81": {
+    "AUDIT81.json_sha256": "4e0c448cb4d8a4520720f9b1e0f6fcce8b79a280d5e5551596220f0ce5095160",
+    "BUILD81.json_sha256": "7865d2af29252a735c43682aef87145c616c4f81cc1b631bff4161f93f3bf600",
+    "CONVERGENCE81.json_sha256": "14915919719539845525326a5d743ff20fa138de731155a4f7e3bfe5d4ef6ef0",
+    "DRIFT_WATCHDOG.md_sha256": "0e0b0376de411298421b6b1a93915ebd354457c83cf129bdbb3daf37f207c262",
+    "EFFECTS81.json_sha256": "95f0ecd1676d1b6ff16e2e9adea2bf52209311383e98d73c92099d3fe4018c27",
+    "INDEPENDENT81.json_sha256": "d6c22ea758840ac5adbfd60f9bb8512fe9e79e5fc7479a95d16c1f01cae35068",
+    "ITEM_CONVERGENCE81.json_sha256": "7b2eabd164ab55aa2098e4d8084fc20a3f0c20d68a29e7b7d32224f173940c5b",
+    "NEXT_DYNAMICS.md_sha256": "a8138c84b34c7a97e90729bf1df7d14483c0ea52faabc28edc9168d05ec68d5d",
+    "ORIGINAL_OUTPUT_EVIDENCE81.csv_sha256": "889878b51d76febc58a38fef7a4b13600ada9c3ef5478613061b5c1fa84e88ec",
+    "ORIGINAL_OUTPUT_PROGRESS81.csv_sha256": "99541a55560164fac63fa3c56a3fd81528611fb65269bd0f15ee8d928d24f0b5",
+    "ORIGINAL_SOURCE81.json_sha256": "cf67aa80ec0e5d1ccdd9d28b9b2e5812d527f87b94d59c28d5f342dcb0998d49",
+    "PHASE_PATCH81.json_sha256": "6ea606ba6f06d4eb46ba45a6e5c2bfe33aa1b18c805f3b5e69e7f2484bd65e38",
+    "PLOT_INVENTORY81.csv_sha256": "24761371e90b2fabb1c738f75cdac5f78ab74758ba063cca5b0e609515f2777a",
+    "PLOT_MANIFEST81.json_sha256": "5a2652c9579f3a637185aa739d07e87923766639a2f1880e5f56edccfd83e763",
+    "PROGRESS81.json_sha256": "20e78c0f8ecddb5f0b94816afc80b029aa4fa2b1fdf7c64da55d6df938ab3ead",
+    "QUALITY_MATRIX81.csv_sha256": "69773393db1c0522b6dfd3f7fb22638c12a05f2ffd6a1093c80da425265ebbf3",
+    "RAPFI_RECEIPTS81.json_sha256": "345cb4e1bb805a489a0fbfd6f38513bad9616fd8d233ff2864ae03c9f40d2b8f",
+    "RECORD81.json_sha256": "8485f6538c4625970cf40d083a3c6c14764152205f380692dca5ecc19e14da37",
+    "REGISTRATION.json_sha256": "1ff3b421f851ffc5fb17d5c66196e7c11e256285bd1ca73fd4b1e785dcfc332b",
+    "REGRESSION81.json_sha256": "022bdc5cd6b67a43c874e53e52261a28e8da78dbe3a608bb48dba7b86a9c8585",
+    "RNG_AUDIT81.json_sha256": "7e421220a3fbe2e22a50c607402a893a8598b85b1158d5d3b93eb268311126ae",
+    "ROOT_PREPARATION.json_sha256": "272c599045af2865adb9f6e90d8680d975b2fb1dff1774579721a9992c039f44",
+    "RUN_SHARDS.json_sha256": "b75879bf4d9dcef3233cad50ddf851bf4a329176b8c39103830874f00d3b15c5",
+    "SUMMARY81.json_sha256": "547889bd3139e4feeb0984a837302fdc4091b13582c1cf1b2e2c576a6891859a",
+    "THEORY.md_sha256": "51dad0389a89bbc26d1705936dcdca021e8c471562f0b7b7c3daa8472825a912",
+    "accepted_corrected_subclaims": 5,
+    "animations": 0,
+    "branch_checks": 2592,
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 87544,
+    "dag_sha256": "b8929bdf5c083cfa515a28cc3351cc8e4f35606723f592167321b74867cb228e",
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 3,
+    "final_scientific_certified": 0,
+    "fresh_backups": 442368,
+    "fresh_fixed_root_histories": 3456,
+    "frozen_contexts": 72,
+    "matched_blocks": 576,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 11,
+    "original_evidence_union_R55_R81": 121,
+    "original_obligations": 121,
+    "parent_commit": "9168e93ef9669ea6ea8c05d63a20c749b419f466",
+    "parent_dag_sha256": "806ae86bb19056d8c3f44d70b87757d11f3e8f89feb5b3e50b2c0d4fe419d35b",
+    "phase_binary_sha": "9a16756eb11b0890d6a54876314a5777ba0f3110e09e8f1c29aa11b110eebbe2",
+    "raw_bytes": 663276576,
+    "remaining": "Root-conditioned population transfer, actual adaptive coherent records, native physical phase and utility; final original acceptance.",
+    "retained_pairs": 650,
+    "status": "two_new_corrected_scientific_subclaims_accepted",
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

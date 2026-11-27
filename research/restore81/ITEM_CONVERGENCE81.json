@@ -1,0 +1,160 @@
+{
+  "claims": [
+    {
+      "claim": "In the specified opt-in software selector, fixed equal-population opposite-phase preparations change actual fine-action selection laws; complete Z erasure removes sign dependence. Three sequential noncommuting measurement axes and order swap alter actual conditional law. The effect is operational for this algorithmic register.",
+      "evidence": [
+        "THEORY.md",
+        "AUDIT81.json",
+        "EFFECTS81.json",
+        "INDEPENDENT81.json",
+        "SUMMARY81.json"
+      ],
+      "id": "Q-OP-01",
+      "items": [
+        "L09",
+        "L20",
+        "Q24",
+        "Q42"
+      ],
+      "limit": "576 matched geometry-seed blocks, 3456 paths, bounded 12 active selections; no physical native quantum phase or quantum advantage. First-draw Rapfi observed-minus-pred pointwise CI excludes zero; final utility not established.",
+      "stage": 81,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "At fixed complete classical history, declared Kraus instrument and state-independent channel define a normalized adaptive hybrid CQ path law; the path likelihood ratio under changed intervention is exactly the product of same-history conditional probabilities. Independent unnormalized CP branch products verify 2592 alternate branch evaluations.",
+      "evidence": [
+        "THEORY.md",
+        "AUDIT81.json",
+        "EFFECTS81.json",
+        "INDEPENDENT81.json"
+      ],
+      "id": "Q-CAUSAL-02",
+      "items": [
+        "L16",
+        "L20",
+        "Q24",
+        "Q42",
+        "Q43"
+      ],
+      "limit": "Conditional map uses actual clean deterministic downstream semantics and explicit register; ideal categorical law, finite PRNG distinction. Importance estimates finite and uncertain; no all-geometry equivalence or full adaptive coherent record tomography.",
+      "stage": 81,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Actual adaptive coherent multi-time record state and objectivity/entanglement are identified by measured native trajectories.",
+      "evidence": [
+        "RECORD81.json",
+        "INDEPENDENT81.json",
+        "THEORY.md"
+      ],
+      "id": "Q-RECORD-03",
+      "items": [
+        "L15",
+        "Q25",
+        "Q35",
+        "Q37",
+        "Q45"
+      ],
+      "limit": "Explicit 3-time frozen model (72 contexts) has valid 27x27 density and causal diagonal, no detectable first/rest negativity. Not unique, not actual adaptive coherent recombination, PPT does not establish separability. Native records measured and classically reproducible; adaptive coherent branch extension and redundancy remain open.",
+      "stage": 81,
+      "status": "OPEN_ADAPTIVE_COHERENT_RECORD_IDENTIFICATION"
+    },
+    {
+      "claim": "Phase-sensitive register yields robust actual search decision quality or matched-cost game benefit.",
+      "evidence": [
+        "EFFECTS81.json",
+        "SUMMARY81.json"
+      ],
+      "id": "Q-UTILITY-04",
+      "items": [
+        "L16",
+        "Q45"
+      ],
+      "limit": "Native final signed mean mark reversal intervals include zero; recommendation disagreements not ground-truth utility. No games, no optimizer updates, no equal-time claim.",
+      "stage": 81,
+      "status": "OPEN_NOT_ADMITTED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "Q-OP-01",
+      "id": "L09",
+      "open": "",
+      "remaining_final_acceptance": "Estimate defined coherence trajectory and relaxation fit only under identified dynamical model; compare measured-record/dephased control.",
+      "scope": "Actual conditional complex register entropy/coherence and phase erasure/revival across three noncommuting wave settings; not physical decay constant."
+    },
+    {
+      "accepted": "",
+      "id": "L15",
+      "open": "Q-RECORD-03",
+      "remaining_final_acceptance": "Specify actual adaptive record instrument, disjoint fragments and pointer information plateau/packing; decision prediction is not redundancy.",
+      "scope": "Declared frozen three-qutrit record state with causal joint law and PPT first/rest; no adaptive objectivity or redundancy established."
+    },
+    {
+      "accepted": "Q-CAUSAL-02",
+      "id": "L16",
+      "open": "Q-UTILITY-04",
+      "remaining_final_acceptance": "Normalized full-support marked path measure with action, overlaps and complex readout where specified; controlled 1PI/loop expansion and independent prediction.",
+      "scope": "Actual normalized adaptive CQ path likelihood and same-history intervention ratios; physical complex path amplitude remains open."
+    },
+    {
+      "accepted": "Q-OP-01;Q-CAUSAL-02",
+      "id": "L20",
+      "open": "",
+      "remaining_final_acceptance": "Specify GKSL or exact discrete CP instrument and time unit, check positivity, coherence/rates and noncommuting dynamics; native bath separate.",
+      "scope": "Actual opt-in selective discrete CP instrument, full state and law replay; not continuous physical GKSL identification."
+    },
+    {
+      "accepted": "Q-OP-01;Q-CAUSAL-02",
+      "id": "Q24",
+      "open": "",
+      "remaining_final_acceptance": "Adaptive complex joint channel with coupling/environment/time defined, positivity and dephased controls, higher-time operational phase verification.",
+      "scope": "Actual phase-sensitive three-wave software channel and independent matrix/Bloch checks; physical bath not identified."
+    },
+    {
+      "accepted": "",
+      "id": "Q25",
+      "open": "Q-RECORD-03",
+      "remaining_final_acceptance": "Compute information accessibility on disjoint fragments with conditional records, genuine redundancy plateau/packing and independent roots.",
+      "scope": "Frozen three-record QMI and joint probability, not independent native fragment redundancy."
+    },
+    {
+      "accepted": "",
+      "id": "Q35",
+      "open": "Q-RECORD-03",
+      "remaining_final_acceptance": "Specify joint density/partition, spectrum, negativity and QMI, actual noncommuting controls and phase identification.",
+      "scope": "Explicit frozen coherent density and partial transpose, no detected first/rest negativity, not separability."
+    },
+    {
+      "accepted": "",
+      "id": "Q37",
+      "open": "Q-RECORD-03",
+      "remaining_final_acceptance": "Define joint classical/quantum information and discord with operational readout; independent adaptive decision comparison.",
+      "scope": "Actual conditional register dynamics plus separate frozen record information and causal marginals; no physical native quantum information identification."
+    },
+    {
+      "accepted": "Q-OP-01;Q-CAUSAL-02",
+      "id": "Q42",
+      "open": "",
+      "remaining_final_acceptance": "Specify exact CP/GKSL generator, physical time and bath if claimed; convergence, positivity, trace and actual phase-sensitive controls.",
+      "scope": "Specified discrete CP dynamics and state-independent dephasing, no physical time or hbar."
+    },
+    {
+      "accepted": "Q-CAUSAL-02",
+      "id": "Q43",
+      "open": "",
+      "remaining_final_acceptance": "Define complex path amplitude, measure, action and independently calibrated hbar; compare actual finite conditional instrument and coherent readout.",
+      "scope": "Actual causal marked history probability ratio under phase intervention, not physical complex action."
+    },
+    {
+      "accepted": "",
+      "id": "Q45",
+      "open": "Q-RECORD-03;Q-UTILITY-04",
+      "remaining_final_acceptance": "Comprehensive action/hbar/Lindblad/classical-limit report with explicit assumptions, singularity/negative utility retained and no forced regime.",
+      "scope": "Scoped operational phase result, frozen model and open physical/utility/record requirements, not comprehensive original science completion."
+    }
+  ],
+  "parent_convergence_sha256": "7b8ea63c5557db97dc76fadf414ac671d3c35370648607af550339f15215307e",
+  "parent_quality_matrix_sha256": "49b755b925ac0bd5a085a575dff646ffaf8dc770c9314df049c8210053d3c966",
+  "scope": "R81 delta; R79 original item contracts and R80 dispositions retained."
+}

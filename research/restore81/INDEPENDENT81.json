@@ -1,0 +1,18 @@
+{
+  "active_steps_per_branch": 12,
+  "branch_checks": 2592,
+  "errors": {
+    "branch_final_and_intermediate_state": 1.1102230246251565e-15,
+    "branch_log_ratio": 1.4210854715202004e-14,
+    "conditional_increments": 7.105427357601002e-15,
+    "native_contrast": 1.8512752095189988e-17,
+    "native_means": 0.0,
+    "weight_means": 0.0
+  },
+  "frozen_contexts": 72,
+  "max_frozen_causal_error": 5.551115123125783e-16,
+  "max_frozen_isometry_error": 1.7763568394002505e-15,
+  "raw_paths": 432,
+  "scope": "Independent unnormalized branch products with spectral square roots, 432 raw histories x6 alternatives, aggregate effect rederivation; frozen Gram versus independent isometry. Same-agent separate implementation.",
+  "status": "PASS_SCOPED"
+}

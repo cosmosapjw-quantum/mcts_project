@@ -1,0 +1,157 @@
+{
+  "accepted_subclaims": 5,
+  "claims": [
+    {
+      "claim": "For fixed clean deterministic downstream transition maps and ideal conditional categorical root choices, the complete marked history measure is normalized and its action is minus summed log conditional probability. Final visit counts are not this action.",
+      "evidence": [
+        "mqft_restore80_20261127/THEORY.md",
+        "mqft_restore80_20261127/AUDIT80.json",
+        "mqft_restore80_20261127/FORCED_REPLAY80.json",
+        "mqft_restore80_20261127/RNG_AUDIT80.json",
+        "mqft_restore80_20261127/ORIGINAL_SOURCE80.json"
+      ],
+      "id": "STAT-ACTION-01",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Algorithmic ideal randomized law; 24 forced sequences checked. Not a universal theorem for stochastic evaluator or asynchronous scheduling; no physical quantum action.",
+      "stage": 80,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "On finite affinely spanning support, exact normalized log-MGF has positive definite tilted covariance; Legendre gradient and Hessian are dual and Gamma equals tilted relative entropy at image.",
+      "evidence": [
+        "mqft_restore80_20261127/THEORY.md",
+        "mqft_restore80_20261127/ACTION80.json",
+        "mqft_restore80_20261127/INDEPENDENT80.json"
+      ],
+      "id": "STAT-1PI-02",
+      "items": [
+        "L16",
+        "Q21",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Exact mathematical identity for fixed measure; 261 finite empirical source cases; true population law not known.",
+      "stage": 80,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed finite full-lattice law with compact tilts, local independent-replica bivariate saddle has determinant prefactor and explicit Wick correction with relative O(M^-2) remainder. All 180 registered finite cases evaluated; M256 maximum corrected relative error 3.07672e-5.",
+      "evidence": [
+        "mqft_restore80_20261127/THEORY.md",
+        "mqft_restore80_20261127/ACTION80.json",
+        "mqft_restore80_20261127/INDEPENDENT80.json",
+        "mqft_restore80_20261127/SUMMARY80.json"
+      ],
+      "id": "STAT-LOOP-03",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Replica M counts independent whole histories, not B or physical hbar. Uniform asymptotic constant not explicit; finite numerical comparison uses analytic alias control and separate numerical checks, not rigorous floating interval.",
+      "stage": 80,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A fixed reference-mixture generating function predicts arbitrary new geometry populations.",
+      "evidence": [
+        "mqft_restore80_20261127/ACTION80.json",
+        "mqft_restore80_20261127/SUMMARY80.json"
+      ],
+      "id": "STAT-TRANSFER-04",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Matched geometry predictions much better than novel geometry; Rapfi novel regular-grid RMSE 1.53661; cannot transfer without root-conditioned population model. No equivalence or autonomous closure claim.",
+      "stage": 80,
+      "status": "OPEN_GENERALIZATION"
+    },
+    {
+      "claim": "In the specified opt-in software selector, fixed equal-population opposite-phase preparations change actual fine-action selection laws; complete Z erasure removes sign dependence. Three sequential noncommuting measurement axes and order swap alter actual conditional law. The effect is operational for this algorithmic register.",
+      "evidence": [
+        "THEORY.md",
+        "AUDIT81.json",
+        "EFFECTS81.json",
+        "INDEPENDENT81.json",
+        "SUMMARY81.json"
+      ],
+      "id": "Q-OP-01",
+      "items": [
+        "L09",
+        "L20",
+        "Q24",
+        "Q42"
+      ],
+      "limit": "576 matched geometry-seed blocks, 3456 paths, bounded 12 active selections; no physical native quantum phase or quantum advantage. First-draw Rapfi observed-minus-pred pointwise CI excludes zero; final utility not established.",
+      "stage": 81,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "At fixed complete classical history, declared Kraus instrument and state-independent channel define a normalized adaptive hybrid CQ path law; the path likelihood ratio under changed intervention is exactly the product of same-history conditional probabilities. Independent unnormalized CP branch products verify 2592 alternate branch evaluations.",
+      "evidence": [
+        "THEORY.md",
+        "AUDIT81.json",
+        "EFFECTS81.json",
+        "INDEPENDENT81.json"
+      ],
+      "id": "Q-CAUSAL-02",
+      "items": [
+        "L16",
+        "L20",
+        "Q24",
+        "Q42",
+        "Q43"
+      ],
+      "limit": "Conditional map uses actual clean deterministic downstream semantics and explicit register; ideal categorical law, finite PRNG distinction. Importance estimates finite and uncertain; no all-geometry equivalence or full adaptive coherent record tomography.",
+      "stage": 81,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Actual adaptive coherent multi-time record state and objectivity/entanglement are identified by measured native trajectories.",
+      "evidence": [
+        "RECORD81.json",
+        "INDEPENDENT81.json",
+        "THEORY.md"
+      ],
+      "id": "Q-RECORD-03",
+      "items": [
+        "L15",
+        "Q25",
+        "Q35",
+        "Q37",
+        "Q45"
+      ],
+      "limit": "Explicit 3-time frozen model (72 contexts) has valid 27x27 density and causal diagonal, no detectable first/rest negativity. Not unique, not actual adaptive coherent recombination, PPT does not establish separability. Native records measured and classically reproducible; adaptive coherent branch extension and redundancy remain open.",
+      "stage": 81,
+      "status": "OPEN_ADAPTIVE_COHERENT_RECORD_IDENTIFICATION"
+    },
+    {
+      "claim": "Phase-sensitive register yields robust actual search decision quality or matched-cost game benefit.",
+      "evidence": [
+        "EFFECTS81.json",
+        "SUMMARY81.json"
+      ],
+      "id": "Q-UTILITY-04",
+      "items": [
+        "L16",
+        "Q45"
+      ],
+      "limit": "Native final signed mean mark reversal intervals include zero; recommendation disagreements not ground-truth utility. No games, no optimizer updates, no equal-time claim.",
+      "stage": 81,
+      "status": "OPEN_NOT_ADMITTED"
+    }
+  ],
+  "final_original_item_certifications": 0,
+  "new_accepted_subclaims": 2,
+  "prior_corrected_report_artifacts": [
+    "L31"
+  ],
+  "scope": "Corrected subclaims of R80 retained; two R81 accepted, two R81 open plus R80 geometry transfer. Item-level scientific acceptance not promoted.",
+  "status": "FIVE_BOUNDED_CORRECTED_SUBCLAIMS_ACCEPTED_THREE_OPEN"
+}

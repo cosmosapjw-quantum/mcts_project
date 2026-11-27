@@ -1,0 +1,137 @@
+   Compiling mcts_demo v0.3.0 (/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/phase_src)
+warning: unused import: `crate::mcts::quartz::HaltReason`
+  --> src/mcts/policy/cache.rs:35:9
+   |
+35 | pub use crate::mcts::quartz::HaltReason;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `smallvec::SmallVec`
+  --> src/mcts/policy/kl_lucb.rs:24:5
+   |
+24 | use smallvec::SmallVec;
+   |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `bernoulli_kl`
+  --> src/mcts/policy/kl_lucb.rs:26:25
+   |
+26 | use super::kl_helpers::{bernoulli_kl, kl_lower, kl_lucb_beta, kl_upper};
+   |                         ^^^^^^^^^^^^
+
+warning: unused imports: `EdgeRef`, `PolicyCachePublisher`, and `PolicyCache`
+  --> src/mcts/policy/mod.rs:30:17
+   |
+30 | pub use cache::{EdgeRef, PolicyCache, PolicyCachePublisher};
+   |                 ^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `SequentialHalvingBracket`, `gumbel_top_m`, `initial_bracket`, and `sample_gumbel`
+  --> src/mcts/policy/mod.rs:31:21
+   |
+31 | ...::{gumbel_top_m, initial_bracket, sample_gumbel, SequentialHalvingBracket};
+   |       ^^^^^^^^^^^^  ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `KgCostSource`, `KgStop`, `compute_kg_array`, `expected_improvement`, `kg_per_arm`, and `should_halt_by_kg`
+  --> src/mcts/policy/mod.rs:33:5
+   |
+33 |     compute_kg_array, expected_improvement, kg_per_arm, should_halt_by_kg, KgCostSource, KgStop,
+   |     ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^  ^^^^^^
+
+warning: unused imports: `bernoulli_kl`, `kl_lower`, `kl_lucb_beta`, and `kl_upper`
+  --> src/mcts/policy/mod.rs:35:22
+   |
+35 | pub use kl_helpers::{bernoulli_kl, kl_lower, kl_lucb_beta, kl_upper};
+   |                      ^^^^^^^^^^^^  ^^^^^^^^  ^^^^^^^^^^^^  ^^^^^^^^
+
+warning: unused import: `kl_lucb::KLLUCBStop`
+  --> src/mcts/policy/mod.rs:36:9
+   |
+36 | pub use kl_lucb::KLLUCBStop;
+   |         ^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `legacy_az::LegacyAlphaZero`
+  --> src/mcts/policy/mod.rs:37:9
+   |
+37 | pub use legacy_az::LegacyAlphaZero;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `legacy_quartz::LegacyQuartz`
+  --> src/mcts/policy/mod.rs:38:9
+   |
+38 | pub use legacy_quartz::LegacyQuartz;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `kl_visit_to_soft`, `soft_policy`, and `soft_value`
+  --> src/mcts/policy/mod.rs:39:17
+   |
+39 | pub use ments::{kl_visit_to_soft, soft_policy, soft_value};
+   |                 ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^
+
+warning: unused imports: `Reservoir`, `lambda_score`, and `quantile`
+  --> src/mcts/policy/mod.rs:40:21
+   |
+40 | pub use reservoir::{lambda_score, quantile, Reservoir};
+   |                     ^^^^^^^^^^^^  ^^^^^^^^  ^^^^^^^^^
+
+warning: unused imports: `TacticalResult` and `tactical_sentinel`
+  --> src/mcts/policy/mod.rs:41:20
+   |
+41 | pub use tactical::{tactical_sentinel, TacticalResult};
+   |                    ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^
+
+warning: unused imports: `BoxedPolicy` and `EffectivePrior`
+  --> src/mcts/policy/mod.rs:43:5
+   |
+43 |     BoxedPolicy, ControllerTelemetry, EdgeView, EffectivePrior, HaltDeci...
+   |     ^^^^^^^^^^^                                 ^^^^^^^^^^^^^^
+
+warning: unused import: `crate::mcts::quartz::HaltReason`
+  --> src/mcts/policy/mod.rs:47:5
+   |
+47 | use crate::mcts::quartz::HaltReason;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `self`
+  --> src/mqft_train.rs:15:19
+   |
+15 | use std::{fs,io::{self,Write},path::Path,sync::Arc,sync::atomic::Orderin...
+   |                   ^^^^
+
+warning: use of deprecated constant `std::f32::NEG_INFINITY`: replaced by the `NEG_INFINITY` associated constant on `f32`
+  --> src/mcts/policy/ments.rs:33:21
+   |
+33 |         return f32::NEG_INFINITY;
+   |                     ^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated constant `std::f32::NEG_INFINITY`: replaced by the `NEG_INFINITY` associated constant on `f32`
+  --> src/mcts/policy/ments.rs:36:51
+   |
+36 |         return q_values.iter().cloned().fold(f32::NEG_INFINITY, f32::max);
+   |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated constant `std::f32::NEG_INFINITY`: replaced by the `NEG_INFINITY` associated constant on `f32`
+  --> src/mcts/policy/ments.rs:38:52
+   |
+38 |     let max_q = q_values.iter().cloned().fold(f32::NEG_INFINITY, f32::max);
+   |                                                    ^^^^^^^^^^^^
+
+warning: use of deprecated constant `std::f32::NEG_INFINITY`: replaced by the `NEG_INFINITY` associated constant on `f32`
+  --> src/mcts/policy/ments.rs:82:52
+   |
+82 |     let max_q = q_values.iter().cloned().fold(f32::NEG_INFINITY, f32::max);
+   |                                                    ^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+   --> src/mqft_rapfi.rs:325:29
+    |
+325 |                         let mut idle = self.idle.lock();
+    |                             ----^^^^
+    |                             |
+    |                             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: `mcts_demo` (lib) generated 21 warnings (run `cargo fix --lib -p mcts_demo` to apply 17 suggestions)
+    Finished `release` profile [optimized] target(s) in 8.36s

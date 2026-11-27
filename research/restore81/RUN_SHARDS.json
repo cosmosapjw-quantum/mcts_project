@@ -1,0 +1,66 @@
+[
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/mqft_phase81",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g0.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/plans/schedule0_shard0.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/data/schedule0_shard0.tmpdir",
+      "8"
+    ],
+    "bytes": 18395719,
+    "n": 128,
+    "plan_sha256": "73c736e6fcd2eceafbd31c660b3b412405f18d9a30b0e3b234d01d4f1abfc783",
+    "seconds": 1.765241984045133,
+    "shard": "schedule0_shard0",
+    "tag": "schedule0"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/mqft_phase81",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g0.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/plans/schedule0_shard1.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/data/schedule0_shard1.tmpdir",
+      "12"
+    ],
+    "bytes": 143790182,
+    "n": 1024,
+    "plan_sha256": "45875c191ca428007282fb173e75aaf4f74733c456782a163e975fca2486c76d",
+    "seconds": 9.728683767025359,
+    "shard": "schedule0_shard1",
+    "tag": "schedule0"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/mqft_phase81",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g3.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/plans/schedule3_shard0.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/data/schedule3_shard0.tmpdir",
+      "8"
+    ],
+    "bytes": 18792160,
+    "n": 128,
+    "plan_sha256": "0ae001b20bd2eb5d41779e1c95b750cea4be38770f2d499e6b7a0d33f9e0ebd3",
+    "seconds": 1.6290635290788487,
+    "shard": "schedule3_shard0",
+    "tag": "schedule3"
+  },
+  {
+    "argv": [
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/mqft_phase81",
+      "phase65",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g3.bin",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/plans/schedule3_shard1.json",
+      "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore81_20261127/data/schedule3_shard1.tmpdir",
+      "12"
+    ],
+    "bytes": 145813211,
+    "n": 1024,
+    "plan_sha256": "7624440151970433b096aa26812f57888d932eb02483d838a6414bb1e6edb807",
+    "seconds": 7.832068467978388,
+    "shard": "schedule3_shard1",
+    "tag": "schedule3"
+  }
+]
