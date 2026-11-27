@@ -1,0 +1,47 @@
+--- a/mqft_train.rs
++++ b/mqft_train.rs
+@@ -130,10 +130,44 @@
+     let winner=if s.outcome()==0.{0}else{if s.outcome()>0.{s.current_player()}else{-s.current_player()}};
+     Ok(json!({"schema":"mqft.train9.v1","job":j,"moves":moves,"winner":winner,"terminal":true,"rows":rows,"elapsed_sec":t0.elapsed().as_secs_f64()}))
+ }
++
++fn landscape84(weights:&str,fixture:&str,workers:&str)->Result<(),String>{
++ let ms:Vec<Vec<usize>>=serde_json::from_str(&fs::read_to_string(fixture).map_err(|e|e.to_string())?).map_err(|e|e.to_string())?;
++ let workers:usize=workers.parse().map_err(|_|"worker parse")?;
++ if workers==0||workers>12||ms.is_empty(){return Err("bad landscape workers".into())}
++ let n=if weights=="rapfi"{None}else{Some(Net::load(weights)?)};
++ let pool=rayon::ThreadPoolBuilder::new().num_threads(workers).build().map_err(|e|e.to_string())?;
++ let out:Result<Vec<Value>,String>=pool.install(||ms.par_iter().map(|m|->Result<Value,String>{
++ let t=Instant::now();
++ if let Some(net)=&n{
++  let s=state(m)?;if s.is_terminal(){return Err("terminal root".into())}
++  let(p,v)=net.forward(&s);let mut children=vec![];let mut calls=1;
++  for a in s.legal_moves(){let mut z=s.clone();z.apply_move_in_place_no_undo(a);let term=z.is_terminal();
++   let child=if term{z.outcome()}else{calls+=1;net.forward(&z).1};
++   children.push(json!({"a":a,"side":z.current_player(),"hash":format!("{:016x}",z.tt_hash()),"terminal":term,"child_v":child,"root_v":-child}));
++  }
++  Ok(json!({"moves":m,"p":p,"v":v,"side":s.current_player(),"hash":format!("{:016x}",s.tt_hash()),"children":children,"calls":calls,"seconds":t.elapsed().as_secs_f64()}))
++ }else{
++  use crate::games::Gomoku15;
++  let mut s=Gomoku15::freestyle();for &a in m{if s.is_terminal(){return Err("terminal prefix".into())}let mv=s.idx_to_move(a).filter(|mv|s.legal_moves().contains(mv)).ok_or("illegal move")?;s.apply_move_in_place_no_undo(mv);}
++  if s.is_terminal(){return Err("terminal root".into())}
++  let(sc,wdl)=crate::mqft_rapfi::query(&s,true)?;let sc=sc.ok_or("no policy")?;let mut p=vec![0f32;225];for(a,w)in crate::mqft_rapfi::probabilities(&sc){p[a as usize]=w as f32;}
++  let v=crate::mqft_rapfi::value(wdl,s.current_player());let mut children=vec![];let mut calls=1;
++  for a in s.legal_moves(){let mut z=s.clone();z.apply_move_in_place_no_undo(a);let term=z.is_terminal();let mut w=None;
++   let child=if term{z.outcome()}else{calls+=1;let(_,wd)=crate::mqft_rapfi::query(&z,true)?;w=Some(wd);crate::mqft_rapfi::value(wd,z.current_player())};
++   children.push(json!({"a":a,"side":z.current_player(),"hash":format!("{:016x}",z.tt_hash()),"terminal":term,"child_v":child,"root_v":-child,"wdl":w}));
++  }
++  Ok(json!({"moves":m,"p":p,"v":v,"side":s.current_player(),"hash":format!("{:016x}",s.tt_hash()),"wdl":wdl,"scores":sc,"children":children,"calls":calls,"seconds":t.elapsed().as_secs_f64()}))
++ }
++ }).collect());
++ crate::mqft_rapfi::close();println!("{}",serde_json::to_string(&out?).unwrap());Ok(())
++}
++
+ pub fn main_cli()->Result<(),String>{
+     unsafe {openblas_set_num_threads(1);}
+     let a:Vec<String>=std::env::args().collect();
+     match a.get(1).map(String::as_str){
++      Some("landscape84") if a.len()==5=>landscape84(&a[2],&a[3],&a[4]),
+       Some("arena68") if a.len()==2=>crate::mqft_arena68::serve(),
+       Some("fault67") if a.len()==6=>controlled61::fault67::run(&a[2],&a[3],&a[4],&a[5]),
+       Some("schedule66") if a.len()==6=>controlled61::schedule66::run(&a[2],&a[3],&a[4],&a[5]),

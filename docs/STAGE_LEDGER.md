@@ -1,24 +1,24 @@
-# R83 R1–R10 / C1–C10
+# RESTORE84 R1-R10 / C1-C10
 | Stage | Actual work | Evidence |
 |---|---|---|
-| R1 | R69 charter/R82 parent, Q-RECORD-03 scope | THEORY.md |
-| R2 | Original v3/v6 records and instrument/dilation literature | ORIGINAL_SOURCE83.json |
-| R3 | Conditional native repeat vs normalized diagnostic vs physical identification | THEORY.md |
-| R4 | Branch-complete 3-wave selective tree, distinct tag controls | CONTEXTS83.json |
-| R5 | CP abort completion, Gram and coherence ambiguity derivation | THEORY.md |
-| R6 | Actual branch settings, omitted mass, postselection limits | TREE83.json, SUMMARY83.json |
-| R7 | Wolfram spectral algebra and independent branch products | INDEPENDENT83.json |
-| R8 | Two corrected subclaims accepted; physical/objectivity open | CONVERGENCE83.json |
-| R9 | Measured branch law, readout/negativity, fragment diagnostic | RECORD83.json, FRAGMENTS83.json |
-| R10 | R84 root-only transfer contract | NEXT_DYNAMICS.md |
-| C1 | 72 contexts, 576 forced +72 same-seed replays | REGISTRATION.json |
-| C2 | Source/phase identity and exact root prefix schema | BRANCH_PATCH83.json |
-| C3 | Isolated force-prefix backend and CP instruments | build83.py, adaptive83.py |
-| C4 | Bounded 648 diagnostics and 10/12 CPU workers | generate83.py, RUN_SHARDS.json |
-| C5 | Actual branch replay and native build | BUILD83.json, TREE83.json |
-| C6 | Full raw audit and Rust lib suite | AUDIT83.json, logs/test83.log |
-| C7 | 72x2 adaptive models with frozen/tagged/phase controls | RECORD83.json |
-| C8 | 576 raw,720 record matrices,432 fragment checks | INDEPENDENT83.json, FRAGMENT_AUDIT83.json |
-| C9 | Three figures and convergence ledger | PLOT_MANIFEST83.json, CONVERGENCE83.json |
-| C10 | DAG/item matrix, Git, verified snapshot and dedup | receipts |
-Theory contract before acquisition; final R6–R8 judgments after actual data; 20 logical stages, no native subagent available. No full legacy integration/Python/docs suite.
+| R1 | R69/R83 authority and STAT-TRANSFER-04 | THEORY.md |
+| R2 | Original action/statistical response, R82 failures, distributional literature | ORIGINAL_SOURCE84.json |
+| R3 | Pre-search vs observed-prefix, child sign/cost | THEORY.md |
+| R4 | Three model routes and registered external criterion | THEORY.md |
+| R5 | Bounded joint residual law and finite CGF derivation | THEORY.md, population84.py |
+| R6 | Sufficient-statistic limits and calibration/support checks | SUMMARY84.json |
+| R7 | Wolfram and independent direct calculations | INDEPENDENT84.json |
+| R8 | Registered relative gate3/3, bounded new acceptance | CONVERGENCE84.json |
+| R9 | Pre-search predictions and remaining errors | MODEL84.json, TRANSFER84.json |
+| R10 | Thermal/reverse handoff | NEXT_DYNAMICS.md |
+| C1 | Register new48 geometry/16 seeds and development cohort | REGISTRATION.json |
+| C2 | Direct evaluator code and exact state identities | LANDSCAPE_PATCH84.json |
+| C3 | Isolated evaluator command, seven models | build84.py, population84.py |
+| C4 | Bounded CPU resource use, blocked fold freeze before acquisition | MODEL84.json |
+| C5 | All legal child evaluations and2304 new searches | LANDSCAPE84.json, RUN_SHARDS.json |
+| C6 | Native and RNG audit, terminal sign and direct marks | AUDIT84.json, TERMINAL_TEST84.json |
+| C7 | Independent geometry prediction and residual support/cost | TRANSFER84.json |
+| C8 | 288 selected forecast checks,54264 child and144 raw checks | INDEPENDENT84.json |
+| C9 | Three plots, convergence and item links | PLOT_MANIFEST84.json, CONVERGENCE84.json |
+| C10 | DAG, Git, verified backup and dedup | receipts |
+Theory contract fixed before fresh acquisition; final R6-R8 conclusions use actual later evidence. Logical stages, no native subagent; full legacy suite not rerun.

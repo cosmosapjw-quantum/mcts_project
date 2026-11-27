@@ -1,0 +1,18 @@
+{
+  "binary_sha": "124b08644a4a095d23770bad89acfca3e737e2c407b71652a60e079759fbcdfc",
+  "build": [
+    "cargo",
+    "build",
+    "--offline",
+    "--release",
+    "--features",
+    "mqft-train",
+    "--bin",
+    "mqft_train",
+    "--manifest-path",
+    "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore84_20261127/landscape_src/Cargo.toml"
+  ],
+  "log_sha": "1b34ead30fece8c128cbef3406bc34ffe7e64899d124b91f16943e1a18ae7567",
+  "patch_sha": "fd2cd1902c737d7d3e74523f597b896183f57bb7711dccc70af747b903a3f93f",
+  "status": "PASS_BUILD"
+}

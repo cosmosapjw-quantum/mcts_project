@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore84_20261127/population84.py", line 121, in <module>
+    elif sys.argv[1]=='evaluate':evaluate()
+                                 ^^^^^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore84_20261127/population84.py", line 110, in evaluate
+    pred.append(dict(family=g,core=k,model=m,**rows[-1]))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'core'

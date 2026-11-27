@@ -1,0 +1,27 @@
+CV g0 0
+CV g0 1
+CV g0 2
+CV g0 3
+CV g0 4
+CV g0 5
+CV g0 6
+CV g0 7
+FROZEN g0 root_ridge combined_ridge {'pool': None, 'ply': None, 'root_kernel': 0.35, 'root_ridge': 0.01, 'child_kernel': 0.35, 'combined_kernel': 0.35, 'combined_ridge': 0.1} {'pool': 0.18150876182606374, 'ply': 0.18668285723023056, 'root_kernel': 0.14759269917850049, 'root_ridge': 0.13155784656853223, 'child_kernel': 0.06918159333880859, 'combined_kernel': 0.07150785738561471, 'combined_ridge': 0.05578977350195507}
+CV g3 0
+CV g3 1
+CV g3 2
+CV g3 3
+CV g3 4
+CV g3 5
+CV g3 6
+CV g3 7
+FROZEN g3 root_ridge combined_ridge {'pool': None, 'ply': None, 'root_kernel': 0.35, 'root_ridge': 0.01, 'child_kernel': 0.35, 'combined_kernel': 0.35, 'combined_ridge': 0.01} {'pool': 0.16439392477418713, 'ply': 0.17525070484472818, 'root_kernel': 0.11286396613616966, 'root_ridge': 0.08412800129670897, 'child_kernel': 0.09214378449852909, 'combined_kernel': 0.07433627778401841, 'combined_ridge': 0.05007674435215348}
+CV Rapfi 0
+CV Rapfi 1
+CV Rapfi 2
+CV Rapfi 3
+CV Rapfi 4
+CV Rapfi 5
+CV Rapfi 6
+CV Rapfi 7
+FROZEN Rapfi root_ridge combined_ridge {'pool': None, 'ply': None, 'root_kernel': 0.35, 'root_ridge': 0.01, 'child_kernel': 0.35, 'combined_kernel': 0.35, 'combined_ridge': 0.01} {'pool': 0.18029991175191507, 'ply': 0.19130385117613685, 'root_kernel': 0.11847791325485121, 'root_ridge': 0.0905397458405007, 'child_kernel': 0.05084705479459947, 'combined_kernel': 0.0632431099923178, 'combined_ridge': 0.03972515194939446}

@@ -1,0 +1,47 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "presearch_landscape_transfer",
+      "ids": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "pdf_sha": "848f89a28aea5e54a539b86b970737541ad31b61e6f5f964280fa2937eb86b3f",
+      "png_sha": "5c6aa546b33e5c8cff040c97420d19f57795b00711f1465d15355daff5da8492",
+      "scope": "Frozen model, independent 48-root cohort, proper joint energy score and regular CGF RMSE; not exact fine-history law."
+    },
+    {
+      "figure": "presearch_calibration_and_tail",
+      "ids": [
+        "L16",
+        "Q32"
+      ],
+      "pdf_sha": "c19cc319720bebd4e872b6bda10dee9834abf2ac9b9ba125205844ac5de262fe",
+      "png_sha": "da0cb7893fb1bba3e09faba6dfbcedc407b51cce270472838e1a33e8d48c0eb5",
+      "scope": "Absolute and stress errors, discrete marginal intervals, donor-root ESS; split-half not a formal lower bound."
+    },
+    {
+      "figure": "presearch_cost_and_support",
+      "ids": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "pdf_sha": "d6e76ee362c487756d6a3f2dfa658114c2d48cb0120bf77e5c683c9e685f7a3c",
+      "png_sha": "1113ff4fb0fe3d582d89b95bd97041238bac53a72f85d483ce02aa6c418fcd11",
+      "scope": "Extra evaluator calls outside B128, bounded joint residual transport and clipping; no equal-time utility."
+    }
+  ],
+  "sources": {
+    "AUDIT84.json": "77875ab1d6bca23536519127d8c94f39606c9c10bbfb155fbb15c4a3dad4a711",
+    "CONVERGENCE84.json": "2f2ccf99bbf8e75b33e02a7d41b83880d098ec709a0475351a3f4ee9ba843657",
+    "INDEPENDENT84.json": "f9c2b397d5abb22cf3bec3da88071f2fa61504d30831166e0a4207b00c4dcfdb",
+    "LANDSCAPE84.json": "c7790e44e8e526b1999bcd24546c72618c60616d3c3a936e89609b65e4ed50d1",
+    "MODEL84.json": "45548d7f87dcf48670a243cef6d77b37f6fed8ca3d9a6255e426820b2d170b0c",
+    "SUMMARY84.json": "ce43c4daa59daf1085033a88ff6456c6f604b3bb9d4ec1d3fd3f2e287c77610f",
+    "TRANSFER84.json": "2a8ebc2bdf6cdbba3b3b1789c042852e5759c489f4ff9969e610b149b2530a2a",
+    "plot84.py": "6a080cb0d9bcacb7e94fb0f3225ca0ecebbc729aad35a6486adc7b7223c21f83"
+  }
+}

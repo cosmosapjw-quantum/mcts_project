@@ -1,0 +1,51 @@
+{
+  "claims": [
+    {
+      "claim": "For the registered B128 clean search law and fixed evaluator families, adding deterministic full legal-child landscape to root-only predictive features improves proper joint energy score and regular root CGF RMSE over the strongest frozen development-selected static baseline on the new independent 48-root cohort. All three family cells meet the registered gate.",
+      "evidence": [
+        "THEORY.md",
+        "LANDSCAPE84.json",
+        "MODEL84.json",
+        "TRANSFER84.json",
+        "AUDIT84.json",
+        "INDEPENDENT84.json",
+        "SUMMARY84.json"
+      ],
+      "id": "STAT-PRESEARCH-07",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "104 development geometries and 48 new geometry blocks; additional direct child evaluations outside B128, residual transport has bounded/rounded support not exact native fine-history realizability, pointwise intervals, nonzero clipping and absolute W error, coverage and tail limits; no universal transfer or matched-cost utility.",
+      "stage": 84,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "STAT-PRESEARCH-07",
+      "id": "G07",
+      "open": "STAT-TRANSFER-04",
+      "remaining_final_acceptance": "Measure direct causal field response with same score law and mark, distinguish connected fluctuation and FDT; independent geometry.",
+      "scope": "Actual pre-search statistical source prediction, separate direct child evaluator cost, clipping and tail diagnostics; causal field/FDT separate."
+    },
+    {
+      "accepted": "STAT-PRESEARCH-07",
+      "id": "L16",
+      "open": "STAT-TRANSFER-04;Q-UTILITY-04",
+      "remaining_final_acceptance": "Normalized full-support marked path measure with action, overlaps and complex readout where specified; controlled 1PI/loop expansion and independent prediction.",
+      "scope": "Bounded pre-search joint law and effective action predictions from actual full child evaluator landscape; registered relative gate passes all three evaluators. Absolute/general physical action remains open."
+    },
+    {
+      "accepted": "STAT-PRESEARCH-07",
+      "id": "Q32",
+      "open": "STAT-TRANSFER-04",
+      "remaining_final_acceptance": "Measure direct conjugate source response, compare path-score and fluctuation; thermal susceptibility/C only if calibrated T.",
+      "scope": "Root-conditioned statistical generating function improvement on 48 independent geometries; root-wise vs population mixture, no physical susceptibility."
+    }
+  ],
+  "parent_convergence_sha256": "756a898a6d6c8dde81673e0aac2ba7c654146f530ae611b844a6a38eb10f8719",
+  "parent_quality_matrix_sha256": "54046e2915616f48e0dc44ec3d173336d11dec9b2b584f7ed57dca52faf33b22",
+  "scope": "R84 delta; R79 original item contracts and R80-R83 dispositions retained."
+}

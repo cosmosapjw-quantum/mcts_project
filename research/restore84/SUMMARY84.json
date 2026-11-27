@@ -1,0 +1,179 @@
+{
+  "development_roots": 104,
+  "direct_child_checks": 54264,
+  "direct_evaluator_calls": 54720,
+  "families": [
+    {
+      "W_baseline": 1.2127164919355626,
+      "W_candidate": 0.5290518564266778,
+      "W_reduction": 0.5637464651096797,
+      "W_stress": 1.573522709723681,
+      "baseline": "root_ridge",
+      "candidate": "combined_ridge",
+      "coverage90": [
+        0.9010416666666666,
+        0.8138020833333334
+      ],
+      "energy_baseline": 0.1338071970501776,
+      "energy_candidate": 0.06693468208208453,
+      "energy_reduction": 0.49976769891544714,
+      "family": "g0",
+      "fresh_landscape_calls": 3456,
+      "gain_ci": [
+        0.06687251496809307,
+        0.04570584738645002,
+        0.08803918254973613
+      ],
+      "mean_clipped_mass": 0.08143028846153845,
+      "mean_extra_child_calls": 71.0,
+      "mean_native_elapsed_s": 0.029186205579427082,
+      "mean_native_eval_calls": 128.33333333333334,
+      "min_root_ESS_regular": 67.94175077177877,
+      "min_root_ESS_stress": 17.91243237775798,
+      "population_W": 0.10662841970513015,
+      "registered_pass": true,
+      "split_half_W": 0.12780857664318793
+    },
+    {
+      "W_baseline": 0.8637409505181878,
+      "W_candidate": 0.4446985089097547,
+      "W_reduction": 0.4851482859033547,
+      "W_stress": 1.291665049159703,
+      "baseline": "root_ridge",
+      "candidate": "combined_ridge",
+      "coverage90": [
+        0.8919270833333334,
+        0.8619791666666666
+      ],
+      "energy_baseline": 0.09328502674160664,
+      "energy_candidate": 0.049871036946564334,
+      "energy_reduction": 0.4653907632496712,
+      "family": "g3",
+      "fresh_landscape_calls": 3456,
+      "gain_ci": [
+        0.04341398979504232,
+        0.029807081105565784,
+        0.05702089848451885
+      ],
+      "mean_clipped_mass": 0.09467648237179489,
+      "mean_extra_child_calls": 71.0,
+      "mean_native_elapsed_s": 0.032441961376302085,
+      "mean_native_eval_calls": 126.61067708333333,
+      "min_root_ESS_regular": 81.57112563951017,
+      "min_root_ESS_stress": 46.126816021400806,
+      "population_W": 0.07029362135807078,
+      "registered_pass": true,
+      "split_half_W": 0.049312925649603184
+    },
+    {
+      "W_baseline": 1.0182873178709317,
+      "W_candidate": 0.2832501621594582,
+      "W_reduction": 0.7218366985541106,
+      "W_stress": 0.8233178292985851,
+      "baseline": "root_ridge",
+      "candidate": "combined_ridge",
+      "coverage90": [
+        0.8072916666666666,
+        0.91015625
+      ],
+      "energy_baseline": 0.10008402894527729,
+      "energy_candidate": 0.036963514857352255,
+      "energy_reduction": 0.6306751911679864,
+      "family": "Rapfi",
+      "fresh_landscape_calls": 10368,
+      "gain_ci": [
+        0.06312051408792506,
+        0.043942485862068434,
+        0.08229854231378168
+      ],
+      "mean_clipped_mass": 0.17948717948717943,
+      "mean_extra_child_calls": 215.0,
+      "mean_native_elapsed_s": 0.8718337997265625,
+      "mean_native_eval_calls": 128.58723958333334,
+      "min_root_ESS_regular": 92.02869883924957,
+      "min_root_ESS_stress": 63.84690350992573,
+      "population_W": 0.08435425415089112,
+      "registered_pass": true,
+      "split_half_W": 0.06747395531364246
+    }
+  ],
+  "fresh_backups": 294912,
+  "fresh_paths": 2304,
+  "independent": {
+    "all_aggregate_models": 21,
+    "child_checks": 54264,
+    "errors": {
+      "aggregate_W": 0.0,
+      "aggregate_score": 0.0,
+      "gain_ci": 0.0,
+      "rapfi_child_sign": 0.0,
+      "raw_X": 0.0,
+      "root_features": 7.771561172376096e-16,
+      "selected_ESS": 3.552713678800501e-13,
+      "selected_W": 7.238654120556021e-14,
+      "selected_cov": 1.465624496765905e-14,
+      "selected_energy": 2.3037127760972e-15,
+      "selected_mean": 8.909539772616881e-15,
+      "truth_W": 0.0
+    },
+    "raw_paths": 144,
+    "scope": "Independent root feature calculation, augmented ridge least squares, explicit chunked energy distances, all selected prediction moments/CGFs and root ESS, aggregate scores, raw endpoints and original archive verification.",
+    "selected_predictions": 288,
+    "status": "PASS_SCOPED",
+    "terminal_controls": 3
+  },
+  "landscape_roots": 152,
+  "landscape_rows": 456,
+  "passed": 3,
+  "prior_paths": 4032,
+  "raw_bytes": 422747721,
+  "scope": "Registered finite pre-search prediction improves relative to strongest development-only static baseline for all three evaluator families on one independent 48-root cohort. Not universal transfer, exact native fine history, or same-cost utility.",
+  "test_roots": 48,
+  "timing": [
+    {
+      "calls": 10944,
+      "command": [
+        "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore84_20261127/mqft_landscape84",
+        "landscape84",
+        "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g0.bin",
+        "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore84_20261127/plans/landscape0.json",
+        "8"
+      ],
+      "family": 0,
+      "fixture_sha": "8cf013e31fba88bd961b3318400b6cfe846ec551c9d7b72d30dd01effb61a35a",
+      "roots": 152,
+      "seconds": 0.3193532369332388,
+      "terminal_children": 0
+    },
+    {
+      "calls": 10944,
+      "command": [
+        "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore84_20261127/mqft_landscape84",
+        "landscape84",
+        "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore60_20261126/checkpoints/g3.bin",
+        "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore84_20261127/plans/landscape1.json",
+        "8"
+      ],
+      "family": 1,
+      "fixture_sha": "8cf013e31fba88bd961b3318400b6cfe846ec551c9d7b72d30dd01effb61a35a",
+      "roots": 152,
+      "seconds": 0.3104073479771614,
+      "terminal_children": 0
+    },
+    {
+      "calls": 32832,
+      "command": [
+        "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore84_20261127/mqft_landscape84",
+        "landscape84",
+        "rapfi",
+        "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore84_20261127/plans/landscape2.json",
+        "8"
+      ],
+      "family": 2,
+      "fixture_sha": "95bf6fec53f351157d78d549b4eb08b9f2b293477a3020465b758f330714921e",
+      "roots": 152,
+      "seconds": 29.369937647948973,
+      "terminal_children": 0
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+AUDIT 384
+AUDIT 768
+AUDIT 1152
+AUDIT 1536
+AUDIT 1920
+AUDIT 2304
+AUDIT {'paths': 2304, 'backups': 294912, 'prior_paths': 4032, 'prior_backups': 516096, 'raw_bytes': 422747721, 'errors': {'max_score': 0.0, 'max_probability': 6.328271240363392e-15, 'max_log': 0.0}, 'max_root_prior_error': 0.0, 'max_root_value_error': 0.0, 'max_child_mark_error': 0.0, 'fresh_depth1_events': 151544, 'dev_representative_paths': 312, 'dev_depth1_events': 19835, 'dev_root_prior_error': 0.0, 'dev_child_mark_error': 0.0, 'rng': {'independent_uniforms': 196608, 'max_error': 1.1102230246251565e-16, 'streams': 1536, 'binary_sha': 'd81c04da4f981717367a1f806ca67ecca6af8b14b5586db06868db9d3631f16b', 'input_sha': '70434304d6bc48a0be3f512e609e5790841756f25d238e2f095941fcb7a547fd'}, 'array_sha': '0bec2fa6bb2e3389a04d9905a30facaea3501f02551e929f0ff6c066d2242395', 'scope': 'Full fresh path law replay, direct root and observed depth1 sign/identity checks. R82 authenticated development array; representative raw replay per development root; all source bytes rehashed at publication. No feature leakage.'}

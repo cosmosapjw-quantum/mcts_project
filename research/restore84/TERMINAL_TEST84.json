@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "calls": 73,
+      "family": 0,
+      "file": "data/terminal_check0.json",
+      "sha256": "9145f91f510be9564304fc0c49fac950705200ddb0d6d3118d35377500837a1d",
+      "terminals": 1,
+      "winning_action": 4,
+      "winning_child": {
+        "a": 4,
+        "child_v": -1.0,
+        "hash": "b875b9de94e87355",
+        "root_v": 1.0,
+        "side": -1,
+        "terminal": true
+      }
+    },
+    {
+      "calls": 73,
+      "family": 1,
+      "file": "data/terminal_check1.json",
+      "sha256": "aa58d59d6d09d5b3d28abec31a614c95eb426ba7053263df0416fce8914b8ac0",
+      "terminals": 1,
+      "winning_action": 4,
+      "winning_child": {
+        "a": 4,
+        "child_v": -1.0,
+        "hash": "b875b9de94e87355",
+        "root_v": 1.0,
+        "side": -1,
+        "terminal": true
+      }
+    },
+    {
+      "calls": 216,
+      "family": 2,
+      "file": "data/terminal_check2.json",
+      "sha256": "3780cbece7f6222fe81acd72015d2a029a423e456a281ac7b72e96efd28bd6ec",
+      "terminals": 2,
+      "winning_action": 52,
+      "winning_child": {
+        "a": 52,
+        "child_v": -1.0,
+        "hash": "e92ef3c56f794c7a",
+        "root_v": 1.0,
+        "side": -1,
+        "terminal": true,
+        "wdl": null
+      }
+    }
+  ],
+  "scope": "Constructed terminal child sign/terminal no-eval check, not training/test root.",
+  "status": "PASS_SCOPED"
+}
