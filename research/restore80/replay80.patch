@@ -1,0 +1,69 @@
+--- a/mqft_law.rs
++++ b/mqft_law.rs
+@@ -69,6 +69,8 @@
+     pub log_q_path: f64,
+     pub log_b_path: f64,
+ }
++thread_local! { static FORCE80: std::cell::RefCell<Vec<usize>> = const { std::cell::RefCell::new(Vec::new()) }; }
++pub fn force80(v:Vec<usize>) { FORCE80.with(|x| *x.borrow_mut()=v); }
+ pub struct Sampler {
+     pub spec: LawSpec,
+     source: Option<usize>,
+@@ -337,7 +339,7 @@
+                 }
+             }
+         }
+-        let i = picked.unwrap_or_else(|| b.iter().rposition(|&x| x > 0.).unwrap());
++        let i = FORCE80.with(|x| x.borrow().get(t).copied()).map(|a|actions.iter().position(|v|*v==a).expect("forced legal action")).unwrap_or_else(||picked.unwrap_or_else(|| b.iter().rposition(|&x| x > 0.).unwrap()));
+         if let (Some(ph),Some(rec))=(self.phase65.as_mut(),phase65.as_mut()){ph.finish(actions[i],rec);}
+         let (lp, lq, lb) = (p[i].ln(), q[i].ln(), b[i].ln());
+         self.lp += lp;
+--- a/mqft_train_schedule66.rs
++++ b/mqft_train_schedule66.rs
+@@ -3,14 +3,15 @@
+ use flate2::{write::GzEncoder,Compression};
+ #[derive(Clone,Serialize,Deserialize)]
+ #[serde(deny_unknown_fields)]
+-struct Job66{id:String,moves:Vec<usize>,sources:[usize;2],seed:u64,budget:u32,width:usize,beta:f64,generation:usize,core:usize,rep:usize,arm:String}
++struct Job66{id:String,moves:Vec<usize>,sources:[usize;2],seed:u64,budget:u32,width:usize,beta:f64,generation:usize,core:usize,rep:usize,arm:String,#[serde(default)] forced80:Vec<usize>}
+ fn one(j:&Job66,net:Arc<Net>)->Result<Value,String>{
+  if j.width!=4 || j.budget!=128 || !["forward","counter","zero74","plus74","minus74"].contains(&j.arm.as_str()){return Err("invalid schedule experiment".into())}
+  let s=state(&j.moves)?;let legal=s.legal_moves();
+  if s.is_terminal()||j.sources[0]==j.sources[1]||j.sources.iter().any(|a|!legal.contains(a)){return Err("invalid source pair".into())}
+  let old=ControlJob{id:j.id.clone(),moves:j.moves.clone(),source:j.sources[0],seed:j.seed,budget:j.budget,width:j.width,beta:j.beta,h:0.,d4:false,generation:j.generation,core:j.core,orientation:0,rep:j.rep,cohort:"schedule66".into()};
+  let hs=(0..128).map(|t|{if j.arm.ends_with("74"){if (32..36).contains(&t){match j.arm.as_str(){"plus74"=>0.35,"minus74"=>-0.35,_=>0.}}else{0.}}else{let h=-0.45+0.9*(t/4) as f64/31.;if j.arm=="forward"{h}else{-h}}}).collect();
+- let raw=execute_schedule(&old,net,None,None,None,Some(hs))?;
++ if !j.forced80.is_empty() && (j.forced80.len()!=128 || j.arm!="zero74" || j.forced80.iter().any(|a|!legal.contains(a))){return Err("invalid forced replay".into())}
++ crate::mqft_law::force80(j.forced80.clone());let rr=execute_schedule(&old,net,None,None,None,Some(hs));crate::mqft_law::force80(vec![]);let raw=rr?;
+  Ok(json!({"schema":"mqft.trained.schedule66.v1","input":j,"trace":raw}))
+ 
+ }
+--- a/mqft_arena68.rs
++++ b/mqft_arena68.rs
+@@ -7,7 +7,7 @@
+ use std::{sync::{Arc,atomic::Ordering},io::{self,BufRead,Write},time::Instant};
+ #[derive(Deserialize,Debug)]
+ #[serde(deny_unknown_fields)]
+-struct Request {moves:Vec<usize>,seed:u64,budget:u32,arm:String,#[serde(default)] source74:Option<usize>,#[serde(default)] pulse74:Option<f64>}
++struct Request {moves:Vec<usize>,seed:u64,budget:u32,arm:String,#[serde(default)] source74:Option<usize>,#[serde(default)] pulse74:Option<f64>,#[serde(default)] forced80:Vec<usize>}
+ #[derive(Serialize)]
+ struct EvalRec {id:u64,state_hash:String,side:i8,wdl:[f64;3],scores:Vec<(u16,i32)>,clean:f32,delivered:f32,mask:[u8;3],syndrome:[u8;2],corrected:usize}
+ struct Eval {seed:u64,arm:String,records:Mutex<Vec<EvalRec>>}
+@@ -36,6 +36,8 @@
+  for &a in &j.moves{if s.is_terminal(){return Err("terminal prefix".into())}let m=s.idx_to_move(a).filter(|m|s.legal_moves().contains(m)).ok_or("illegal move")?;s.apply_move_in_place_no_undo(m);}
+  if s.is_terminal(){return Err("terminal root".into())}
+  if j.source74.is_some()!=j.pulse74.is_some() || j.source74.is_some_and(|a|j.arm!="clean"||j.budget!=128||!s.idx_to_move(a).is_some_and(|m|s.legal_moves().contains(&m))) || j.pulse74.is_some_and(|h| ![-0.35,0.,0.35].contains(&h)){return Err("bad pulse74".into())}
++ if !j.forced80.is_empty() && (j.forced80.len()!=128 || j.arm!="clean" || j.pulse74!=Some(0.) || j.forced80.iter().any(|a| !s.idx_to_move(*a).is_some_and(|m|s.legal_moves().contains(&m)))) {return Err("invalid forced replay".into())}
++ crate::mqft_law::force80(j.forced80.clone());
+  let t0=Instant::now();let ev=Arc::new(Eval{seed:j.seed,arm:j.arm.clone(),records:Mutex::new(vec![])});
+  let mut cfg=MctsConfig::evaluation(1.4);cfg.tt_enabled=false;cfg.root_forced_win=false;cfg.exact_terminal_value=false;cfg.fpu_reduction=0.;cfg.vl_mode=VlMode::Fixed;cfg.seed=Some(j.seed);cfg.pw=None;
+  let mut eng=MctsEngine::new(s.clone(),ev.clone(),cfg);
+@@ -61,7 +63,7 @@
+    assert_eq!(n.iter().sum::<u32>(),k);cuts.push(json!({"k":k,"n":n,"w":w,"s2":s2,"prior":prior}));
+   }
+  }
+- let es=tr.events.lock();let rec=ev.records.lock();
++ crate::mqft_law::force80(vec![]);let es=tr.events.lock();let rec=ev.records.lock();
+  assert_eq!(es.len(),j.budget as usize);assert_eq!(rec.len() as u64,eng.evaluator_call_count());
+  let mut events=vec![];
+  for e in es.iter(){let mut z=serde_json::to_value(e).unwrap();let d=z["root_selection"]["law"].as_object_mut().unwrap();assert_eq!(d["p"],d["q"]);assert_eq!(d["p"],d["b"]);for key in ["q","b","log_q","log_b","log_q_path","log_b_path"]{d.remove(key);}events.push(z);}

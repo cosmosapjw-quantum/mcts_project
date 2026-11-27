@@ -1,0 +1,442 @@
+{
+  "backups": 147456,
+  "forced_backups": 3072,
+  "forced_replays": 24,
+  "independent": {
+    "binomial_controls": [
+      {
+        "M": 8,
+        "corrected_rel": -0.00499235391131958,
+        "exact": 0.09700882807374,
+        "leading_rel": 0.09374886287610695,
+        "p": 0.2,
+        "q": 0.7
+      },
+      {
+        "M": 32,
+        "corrected_rel": -0.0003085937075012479,
+        "exact": 0.02683967549974983,
+        "leading_rel": 0.024281218867635568,
+        "p": 0.2,
+        "q": 0.7
+      },
+      {
+        "M": 128,
+        "corrected_rel": -1.7325516196153856e-05,
+        "exact": 0.006725035144767098,
+        "leading_rel": 0.005855812981707453,
+        "p": 0.2,
+        "q": 0.7
+      },
+      {
+        "M": 8,
+        "corrected_rel": -0.0021959486157088204,
+        "exact": 0.07476806640624997,
+        "leading_rel": 0.06432432147657718,
+        "p": 0.5,
+        "q": 0.5
+      },
+      {
+        "M": 32,
+        "corrected_rel": -0.00012588920349021482,
+        "exact": 0.019585984052192463,
+        "leading_rel": 0.015745128428200417,
+        "p": 0.5,
+        "q": 0.5
+      },
+      {
+        "M": 128,
+        "corrected_rel": -7.689025095403146e-06,
+        "exact": 0.004954201970965864,
+        "leading_rel": 0.003913849449316054,
+        "p": 0.5,
+        "q": 0.5
+      },
+      {
+        "M": 8,
+        "corrected_rel": -0.011793885684197147,
+        "exact": 0.12231000958126971,
+        "leading_rel": 0.13581728988635056,
+        "p": 0.8,
+        "q": 0.1
+      },
+      {
+        "M": 32,
+        "corrected_rel": -0.0010433718770180844,
+        "exact": 0.0419009182582991,
+        "leading_rel": 0.04333708347238918,
+        "p": 0.8,
+        "q": 0.1
+      },
+      {
+        "M": 128,
+        "corrected_rel": -5.030198835320743e-05,
+        "exact": 0.010130792493132444,
+        "leading_rel": 0.009902216109549444,
+        "p": 0.8,
+        "q": 0.1
+      }
+    ],
+    "direct_convolutions": [
+      {
+        "M": 8,
+        "cohort": 0,
+        "direct": 4.12062527853404e-05,
+        "family": "g0",
+        "k": [
+          152,
+          603
+        ],
+        "relative_error": 6.661338147750939e-16,
+        "wrapped": 4.1206252785340374e-05
+      },
+      {
+        "M": 8,
+        "cohort": 1,
+        "direct": 4.240311223743594e-05,
+        "family": "g0",
+        "k": [
+          149,
+          601
+        ],
+        "relative_error": 1.3322676295501878e-15,
+        "wrapped": 4.240311223743588e-05
+      },
+      {
+        "M": 8,
+        "cohort": 0,
+        "direct": 5.6718487493623494e-05,
+        "family": "g3",
+        "k": [
+          137,
+          489
+        ],
+        "relative_error": 3.774758283725532e-15,
+        "wrapped": 5.671848749362328e-05
+      },
+      {
+        "M": 8,
+        "cohort": 1,
+        "direct": 5.42979434778331e-05,
+        "family": "g3",
+        "k": [
+          134,
+          491
+        ],
+        "relative_error": 1.9984014443252818e-15,
+        "wrapped": 5.4297943477832995e-05
+      },
+      {
+        "M": 8,
+        "cohort": 0,
+        "direct": 5.575329451283127e-05,
+        "family": "Rapfi",
+        "k": [
+          64,
+          508
+        ],
+        "relative_error": 2.220446049250313e-15,
+        "wrapped": 5.575329451283114e-05
+      },
+      {
+        "M": 8,
+        "cohort": 1,
+        "direct": 5.76172684251118e-05,
+        "family": "Rapfi",
+        "k": [
+          61,
+          506
+        ],
+        "relative_error": 3.3306690738754696e-15,
+        "wrapped": 5.761726842511161e-05
+      }
+    ],
+    "errors": {
+      "Gamma": 7.993605777301127e-15,
+      "KL": 2.4424906541753444e-15,
+      "W": 8.881784197001252e-16,
+      "binomial_Wick": 2.220446049250313e-15,
+      "binomial_direct_mass": 3.9968028886505635e-15,
+      "covariance": 3.3306690738754696e-16,
+      "direct_convolution_rel": 3.774758283725532e-15,
+      "direct_mass_normalization": 4.551914400963142e-15,
+      "gamma": 8.881784197001252e-16,
+      "inverse_H": 9.690529053584081e-15,
+      "mean": 1.6653345369377348e-15,
+      "raw_X": 0.0,
+      "raw_Y": 0.0,
+      "raw_action": 1.1368683772161603e-13,
+      "saddle_H": 2.7284841053187847e-12,
+      "saddle_K": 8.881784197001252e-16,
+      "saddle_mean": 1.7053025658242404e-13,
+      "wick_coefficient": 6.8833827526759706e-15,
+      "wick_e33": 7.958078640513122e-13,
+      "wick_e4": 1.438849039914203e-13
+    },
+    "forced_replays": 24,
+    "raw_paths": 48,
+    "saddles_checked": 180,
+    "scope": "Independent direct log sums and moment covariance, Cholesky/Gauss-Hermite cumulant coefficient, 6 nonnegative direct convolutions and factorized binomial controls. No native independent subagent, no rigorous floating roundoff bound.",
+    "source_cases": 261,
+    "status": "PASS_SCOPED"
+  },
+  "lattice_laws": [
+    {
+      "cohort": 0,
+      "distinct_support": 221,
+      "family": "g0",
+      "lattice_index": 1,
+      "range_max": [
+        59,
+        128
+      ],
+      "range_min": [
+        2,
+        0
+      ]
+    },
+    {
+      "cohort": 1,
+      "distinct_support": 221,
+      "family": "g0",
+      "lattice_index": 1,
+      "range_max": [
+        61,
+        128
+      ],
+      "range_min": [
+        2,
+        0
+      ]
+    },
+    {
+      "cohort": 0,
+      "distinct_support": 232,
+      "family": "g3",
+      "lattice_index": 1,
+      "range_max": [
+        55,
+        128
+      ],
+      "range_min": [
+        2,
+        0
+      ]
+    },
+    {
+      "cohort": 1,
+      "distinct_support": 229,
+      "family": "g3",
+      "lattice_index": 1,
+      "range_max": [
+        48,
+        128
+      ],
+      "range_min": [
+        2,
+        0
+      ]
+    },
+    {
+      "cohort": 0,
+      "distinct_support": 188,
+      "family": "Rapfi",
+      "lattice_index": 1,
+      "range_max": [
+        37,
+        128
+      ],
+      "range_min": [
+        0,
+        0
+      ]
+    },
+    {
+      "cohort": 1,
+      "distinct_support": 199,
+      "family": "Rapfi",
+      "lattice_index": 1,
+      "range_max": [
+        37,
+        128
+      ],
+      "range_min": [
+        0,
+        0
+      ]
+    }
+  ],
+  "max_alias_relative": 1.5184998246668193e-13,
+  "max_dual_error": 1.1609186328016655e-11,
+  "max_log_error": 0.0,
+  "max_probability_error": 2.7755575615628914e-15,
+  "max_score_error": 0.0,
+  "max_torus_cells": 33554432,
+  "min_source_eig": 0.00014420589709951472,
+  "min_tilt_ess": 79.7598415345278,
+  "paths": 1152,
+  "prior_backups": 98304,
+  "prior_paths": 768,
+  "raw_bytes": 211976559,
+  "rng_draws": 98304,
+  "rng_max_error": 1.1102230246251565e-16,
+  "rng_streams": 768,
+  "saddle_convergence": [
+    {
+      "M": 8,
+      "cases": 30,
+      "improved": 29,
+      "max_corrected": 0.12256938859301636,
+      "max_leading": 0.2815350460475401,
+      "max_scaled_remainder": 7.844440869953047,
+      "mean_corrected": 0.0076878097403888885,
+      "mean_leading": 0.05669428205502702
+    },
+    {
+      "M": 16,
+      "cases": 30,
+      "improved": 30,
+      "max_corrected": 0.012898907125697967,
+      "max_leading": 0.08896834888651872,
+      "max_scaled_remainder": 3.3021202241786796,
+      "mean_corrected": 0.0008078058517690686,
+      "mean_leading": 0.024993945791743712
+    },
+    {
+      "M": 32,
+      "cases": 30,
+      "improved": 30,
+      "max_corrected": 0.0036665324263009946,
+      "max_leading": 0.03968560455610115,
+      "max_scaled_remainder": 3.7545292045322185,
+      "mean_corrected": 0.00024367707928477274,
+      "mean_leading": 0.012207742408557199
+    },
+    {
+      "M": 64,
+      "cases": 30,
+      "improved": 30,
+      "max_corrected": 0.0005744814223487271,
+      "max_leading": 0.018212050476311248,
+      "max_scaled_remainder": 2.3530759059403863,
+      "mean_corrected": 4.380152168396156e-05,
+      "mean_leading": 0.005989760474310139
+    },
+    {
+      "M": 128,
+      "cases": 30,
+      "improved": 30,
+      "max_corrected": 0.00012928785504207063,
+      "max_leading": 0.008871234381870874,
+      "max_scaled_remainder": 2.1182522170092852,
+      "mean_corrected": 1.0157738714333676e-05,
+      "mean_leading": 0.002975452659749959
+    },
+    {
+      "M": 256,
+      "cases": 30,
+      "improved": 30,
+      "max_corrected": 3.076719073513701e-05,
+      "max_leading": 0.004386906134442148,
+      "max_scaled_remainder": 2.016358612017939,
+      "mean_corrected": 2.4506534948232074e-06,
+      "mean_leading": 0.001483107538017725
+    }
+  ],
+  "scope": "Exact finite empirical law; population generalization and native complex action separate; alias bound analytic conditional on exact arithmetic, floating reference numerically checked.",
+  "sources": [
+    {
+      "action_range": [
+        307.9235962317544,
+        485.2230038173642
+      ],
+      "family": "g0",
+      "mean_nongreedy": 95.4921875,
+      "mean_unseen_mass": 0.1139937231261416,
+      "paths": 384,
+      "source_metrics": [
+        {
+          "grid": "regular",
+          "matched_pointwise_zero_in_interval": 21,
+          "matched_rmse": 0.07173428064552917,
+          "min_ess": 22.99558496860539,
+          "n": 25,
+          "novel_pointwise_zero_in_interval": 25,
+          "novel_rmse": 0.30537463153995337
+        },
+        {
+          "grid": "stress",
+          "matched_pointwise_zero_in_interval": 3,
+          "matched_rmse": 0.17897972683302973,
+          "min_ess": 10.887909442204412,
+          "n": 4,
+          "novel_pointwise_zero_in_interval": 4,
+          "novel_rmse": 0.6928145964682022
+        }
+      ],
+      "unseen_positive_cases": 324
+    },
+    {
+      "action_range": [
+        319.1172785775216,
+        536.7104817894223
+      ],
+      "family": "g3",
+      "mean_nongreedy": 104.89322916666667,
+      "mean_unseen_mass": 0.14664167124906946,
+      "paths": 384,
+      "source_metrics": [
+        {
+          "grid": "regular",
+          "matched_pointwise_zero_in_interval": 24,
+          "matched_rmse": 0.01619726346007577,
+          "min_ess": 16.255836777473014,
+          "n": 25,
+          "novel_pointwise_zero_in_interval": 25,
+          "novel_rmse": 0.26649426654214986
+        },
+        {
+          "grid": "stress",
+          "matched_pointwise_zero_in_interval": 3,
+          "matched_rmse": 0.092842124359453,
+          "min_ess": 9.518125923123858,
+          "n": 4,
+          "novel_pointwise_zero_in_interval": 4,
+          "novel_rmse": 0.7781952043483477
+        }
+      ],
+      "unseen_positive_cases": 320
+    },
+    {
+      "action_range": [
+        442.3067864227673,
+        657.9169545136501
+      ],
+      "family": "Rapfi",
+      "mean_nongreedy": 106.11458333333333,
+      "mean_unseen_mass": 0.41607588795630956,
+      "paths": 384,
+      "source_metrics": [
+        {
+          "grid": "regular",
+          "matched_pointwise_zero_in_interval": 25,
+          "matched_rmse": 0.006521483688037062,
+          "min_ess": 28.518128028780676,
+          "n": 25,
+          "novel_pointwise_zero_in_interval": 9,
+          "novel_rmse": 1.5366129644637296
+        },
+        {
+          "grid": "stress",
+          "matched_pointwise_zero_in_interval": 4,
+          "matched_rmse": 0.027589523050141222,
+          "min_ess": 10.239024997893585,
+          "n": 4,
+          "novel_pointwise_zero_in_interval": 2,
+          "novel_rmse": 4.335805966764132
+        }
+      ],
+      "unseen_positive_cases": 384
+    }
+  ]
+}

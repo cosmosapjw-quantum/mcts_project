@@ -1,0 +1,78 @@
+{
+  "accepted_subclaims": 3,
+  "claims": [
+    {
+      "claim": "For fixed clean deterministic downstream transition maps and ideal conditional categorical root choices, the complete marked history measure is normalized and its action is minus summed log conditional probability. Final visit counts are not this action.",
+      "evidence": [
+        "THEORY.md",
+        "AUDIT80.json",
+        "FORCED_REPLAY80.json",
+        "RNG_AUDIT80.json",
+        "ORIGINAL_SOURCE80.json"
+      ],
+      "id": "STAT-ACTION-01",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Algorithmic ideal randomized law; 24 forced sequences checked. Not a universal theorem for stochastic evaluator or asynchronous scheduling; no physical quantum action.",
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "On finite affinely spanning support, exact normalized log-MGF has positive definite tilted covariance; Legendre gradient and Hessian are dual and Gamma equals tilted relative entropy at image.",
+      "evidence": [
+        "THEORY.md",
+        "ACTION80.json",
+        "INDEPENDENT80.json"
+      ],
+      "id": "STAT-1PI-02",
+      "items": [
+        "L16",
+        "Q21",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Exact mathematical identity for fixed measure; 261 finite empirical source cases; true population law not known.",
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed finite full-lattice law with compact tilts, local independent-replica bivariate saddle has determinant prefactor and explicit Wick correction with relative O(M^-2) remainder. All 180 registered finite cases evaluated; M256 maximum corrected relative error 3.07672e-5.",
+      "evidence": [
+        "THEORY.md",
+        "ACTION80.json",
+        "INDEPENDENT80.json",
+        "SUMMARY80.json"
+      ],
+      "id": "STAT-LOOP-03",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Replica M counts independent whole histories, not B or physical hbar. Uniform asymptotic constant not explicit; finite numerical comparison uses analytic alias control and separate numerical checks, not rigorous floating interval.",
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A fixed reference-mixture generating function predicts arbitrary new geometry populations.",
+      "evidence": [
+        "ACTION80.json",
+        "SUMMARY80.json"
+      ],
+      "id": "STAT-TRANSFER-04",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Matched geometry predictions much better than novel geometry; Rapfi novel regular-grid RMSE 1.53661; cannot transfer without root-conditioned population model. No equivalence or autonomous closure claim.",
+      "status": "OPEN_GENERALIZATION"
+    }
+  ],
+  "final_original_item_certifications": 0,
+  "prior_corrected_report_artifacts": [
+    "L31"
+  ],
+  "scope": "Authored scientific disposition tied to explicit derivations and verification; not independent expert certification; does not retire original quantum objective.",
+  "status": "THREE_BOUNDED_CORRECTED_SUBCLAIMS_ACCEPTED_ONE_OPEN"
+}

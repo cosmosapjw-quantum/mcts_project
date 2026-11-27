@@ -1,0 +1,175 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "original_attachment_receipt": {
+    "anchor_is_ancestor": true,
+    "git_anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "guide_obligations": 27,
+    "original_output_obligations": 121,
+    "original_source_function_obligations": 94,
+    "original_source_zip_members": 347,
+    "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "scope": "current source hash and history census, not all historical raw executions replayed",
+    "supplied_zip_check_location": "conversation sandbox, original linked library materialization",
+    "supplied_zip_manifest_members_verified": 34,
+    "supplied_zip_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6"
+  },
+  "scope": "Original archive and effective-action note, exact relevant source spans inherited from R79 and member bytes reauthenticated. Original visit action replaced only by scoped corrected derivation; original physical quantum loop not certified.",
+  "spans": [
+    {
+      "archive": "guide_only",
+      "end": "",
+      "function": "",
+      "guide_lines": [
+        274
+      ],
+      "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "guide_source_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+      "id": "G03",
+      "member": "entropy_evolution.png",
+      "member_sha": "",
+      "observable_fields": [],
+      "panel": "T_temperature_entropy",
+      "source_status": "GUIDE_LABEL_ONLY",
+      "span_sha": "",
+      "start": ""
+    },
+    {
+      "archive": "guide_only",
+      "end": "",
+      "function": "",
+      "guide_lines": [
+        280
+      ],
+      "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "guide_source_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+      "id": "G07",
+      "member": "susceptibility.png",
+      "member_sha": "",
+      "observable_fields": [],
+      "panel": "C_finite_budget_response;C_graph_correlation;A_C_paired_source_response",
+      "source_status": "GUIDE_LABEL_ONLY",
+      "span_sha": "",
+      "start": ""
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "end": 2390,
+      "function": "_generate_path_integral_plots",
+      "id": "L16",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "observable_fields": [
+        "action",
+        "coherence_evolution",
+        "decoherence",
+        "dominant_paths",
+        "overlap",
+        "path_distance",
+        "path_integral",
+        "path_overlaps",
+        "path_visits",
+        "path_weights",
+        "position",
+        "q_value",
+        "q_value_landscape",
+        "quantum_phenomena",
+        "simulation_counts",
+        "weight",
+        "weights"
+      ],
+      "panel": "A_action_curvature;A_C_paired_source_response",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "bccf5ebd77c7c9f11f3b511ee9cc9afd91c8790c17d64d3e94ec9fbf9f89a02f",
+      "start": 2212
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 549,
+      "function": "plot_path_integral_formulation",
+      "id": "Q21",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "observable_fields": [],
+      "panel": "N_score_balance;A_action_curvature;A_C_paired_source_response",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "ccd8dd8280aab71bcbd13570365f63754103ca526523634d6859e4529c6c239e",
+      "start": 440
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 641,
+      "function": "plot_susceptibility_analysis",
+      "id": "Q32",
+      "member": "quantum/research/visualization/plot_statistical_physics.py",
+      "member_sha": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+      "observable_fields": [
+        "field_susceptibility",
+        "fields",
+        "heat_capacity",
+        "response",
+        "susceptibility",
+        "temperature_susceptibility",
+        "temperatures"
+      ],
+      "panel": "C_finite_budget_response;C_graph_correlation;A_C_paired_source_response;N_score_balance",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "ba1bc75224d86026923f5a91adadde75936913e18b0f3d515b643e2024017cd7",
+      "start": 492
+    },
+    {
+      "archive": "quantum.zip",
+      "end": 630,
+      "function": "plot_path_integral_hbar",
+      "id": "Q43",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+      "observable_fields": [],
+      "panel": "",
+      "source_status": "EXACT_SOURCE_SPAN",
+      "span_sha": "fc867168d0c83df5b6ba03cfa786314ea5d0e77a3da5614d24f12d60ce03d880",
+      "start": 474
+    }
+  ],
+  "verified_members": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "sha256": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "sha256": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_statistical_physics.py",
+      "sha256": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837"
+    },
+    {
+      "archive": "quantum.zip",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "sha256": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "sha256": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/effective-action-mcts.md",
+      "sha256": "d8638991645cc3803ab363e3c81f9f843d5dc5b0d2afe865c29f4bc80b38386b"
+    }
+  ]
+}

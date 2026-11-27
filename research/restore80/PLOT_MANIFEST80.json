@@ -1,0 +1,45 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "controlled_bivariate_saddle",
+      "ids": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "pdf_sha": "18ed816eed66f053bb8dacc6ff87fb2377576c284ff7b90c96fefef36fee5c93",
+      "png_sha": "8280bc605d58815e853df6bac8ea336d036f842562aaebf0ca62f267c97e36cf",
+      "scope": "Six finite full-lattice laws, exact tilted torus reference with analytic alias upper bound; relative approximation errors not physical quantum loops."
+    },
+    {
+      "figure": "marked_source_transfer",
+      "ids": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "pdf_sha": "3c6c2364856b9fa43a21faf513dec693a9afffd4903cd459a88e84d7eb03ae3f",
+      "png_sha": "aaf8bad8873f3be1b5717a01032f0a572fbb96ac848455d8ba5bc510ee421712",
+      "scope": "All 29 source points, independent same-root vs novel-root data; empirical transfer not guaranteed."
+    },
+    {
+      "figure": "path_action_full_support",
+      "ids": [
+        "L16"
+      ],
+      "pdf_sha": "c057e8ba98af087f2e7ed54de5b1c25a5a35b1d3a3ee5cd3dff6117e1ff72acf",
+      "png_sha": "0f49d22ca86ae78f122796dc2d98bebccc2e64d5eabc7f5a35e357d2403f4924",
+      "scope": "Observed ordered path action and unvisited positive conditional mass; endpoint visits are not path probabilities."
+    }
+  ],
+  "sources": {
+    "ACTION80.json": "656df0c54cb11bfb1b5964d40dfd1511482736558cc2fb04e73cb44f84d10ff4",
+    "AUDIT80.json": "d4a964c3ab43fb37c2108bad7136183b55888debf427f08592fb5ba511ba0b73",
+    "CONVERGENCE80.json": "7b8ea63c5557db97dc76fadf414ac671d3c35370648607af550339f15215307e",
+    "INDEPENDENT80.json": "204168b0fc8cf0d35591a0e4fc0c7715b76ddfad765f4002e78f37577f792243",
+    "MARKED80.npz": "e518e3309640bbd59e2f627734e8d114890247659f76c6ee043184008e9f65e5",
+    "SUMMARY80.json": "2cbba518c41ed290a412bd4772aae8ccadbdaf50c65eb30e85b78007c9f069fd",
+    "plot80.py": "a9665823f887312c5e12da38f11e65f2bbd311dd53d2f41c32c458fb67968c1b"
+  }
+}

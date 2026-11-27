@@ -1,0 +1,271 @@
+{
+  "cases": [
+    {
+      "budget": 128,
+      "bytes": 143561,
+      "family": "schedule0",
+      "path": "mqft_restore80_20261127/data/forced_schedule0/force80_g0_c00_r00_zero74.json.gz",
+      "seed": 4716481156322693774,
+      "semantic_sha": "8aa82ef25faf3015ebe13770bd32be3f923f893a65b1a063388ef2eb9303891f",
+      "sha256": "86ce0752d944c6f9f7301bd5e69dbcd9b88ad409d298fdf6261bab7d4ad89125",
+      "source": "mqft_restore79_20261127/data/schedule0/g0_c00_r00_zero74.json.gz",
+      "source_sha": "a7394e17174bbe82ea852f9f78465f9f77a15a143074a221c9fb89d71a0780d3"
+    },
+    {
+      "budget": 128,
+      "bytes": 144799,
+      "family": "schedule0",
+      "path": "mqft_restore80_20261127/data/forced_schedule0/force80_g0_c00_r01_zero74.json.gz",
+      "seed": 1166892599145756109,
+      "semantic_sha": "8cecb5b390fd3559c3d68a9a4a285639453418484571228ef24afccc9667e0fd",
+      "sha256": "5a12edc3aef37b66bacf2d68d914c9c8665acacf74ba649b793e6773705ed48c",
+      "source": "mqft_restore79_20261127/data/schedule0/g0_c00_r01_zero74.json.gz",
+      "source_sha": "db18c640ef8192fad2c61d29f5d552db33d3808632ca216dd72fd16148659984"
+    },
+    {
+      "budget": 128,
+      "bytes": 138228,
+      "family": "schedule0",
+      "path": "mqft_restore80_20261127/data/forced_schedule0/force80_g0_c01_r00_zero74.json.gz",
+      "seed": 4556147170791933881,
+      "semantic_sha": "5e5f1dbfe4d5b9e9bec0b95eca9eeee4a6415ee6c8e34defad49913981146396",
+      "sha256": "b2f55eb0dab4275362bb710c7a6392abd66c928988560ee1a8b5ce5b8ebe0606",
+      "source": "mqft_restore79_20261127/data/schedule0/g0_c01_r00_zero74.json.gz",
+      "source_sha": "d97c2cf5b68cbdcebcea5c7e84b0e6453e350d85668416badb8db8f4fd4ba771"
+    },
+    {
+      "budget": 128,
+      "bytes": 134560,
+      "family": "schedule0",
+      "path": "mqft_restore80_20261127/data/forced_schedule0/force80_g0_c01_r01_zero74.json.gz",
+      "seed": 232028733946743479,
+      "semantic_sha": "1847af4e89b05d0d7ba0f09d64ef34f0620d030f0b9a4c150876a117b886f13f",
+      "sha256": "78836cff20514e853ca7774cd89d0bc741e3b5620a9a7f9e61abfc8b26be20f5",
+      "source": "mqft_restore79_20261127/data/schedule0/g0_c01_r01_zero74.json.gz",
+      "source_sha": "c166a33ab35a26b25a70754a7597da0666a341cf457373ce9c378ee780dd2713"
+    },
+    {
+      "budget": 128,
+      "bytes": 122865,
+      "family": "schedule0",
+      "path": "mqft_restore80_20261127/data/forced_schedule0/force80_g0_c02_r00_zero74.json.gz",
+      "seed": 993184081032352717,
+      "semantic_sha": "15d7b163184d0a617ad90e3dc232279944394d39a6769c79f61fe66bf8b4597f",
+      "sha256": "4292760a92c79eeff2db728903cb4ff759ba07cd2affd5c35ba4a93fa193f017",
+      "source": "mqft_restore79_20261127/data/schedule0/g0_c02_r00_zero74.json.gz",
+      "source_sha": "b928d7ee215c2ff366667e423d5894527e7e24ec3fc472744894a772b946fc54"
+    },
+    {
+      "budget": 128,
+      "bytes": 128166,
+      "family": "schedule0",
+      "path": "mqft_restore80_20261127/data/forced_schedule0/force80_g0_c02_r01_zero74.json.gz",
+      "seed": 8128690673479090418,
+      "semantic_sha": "0567970adaf098670a2007465a7e2003bd09e3d2b9fd882aaf899a4b0b87bc94",
+      "sha256": "6903142417d7146b44b1aa7df3e9be2f52043f8abd55bb35db034433b8a13086",
+      "source": "mqft_restore79_20261127/data/schedule0/g0_c02_r01_zero74.json.gz",
+      "source_sha": "cdf4aa43e7aa253105c7938a4d0cea47623887e12488eeeeaf11d6848277d4c5"
+    },
+    {
+      "budget": 128,
+      "bytes": 117095,
+      "family": "schedule0",
+      "path": "mqft_restore80_20261127/data/forced_schedule0/force80_g0_c03_r00_zero74.json.gz",
+      "seed": 6092957492015519471,
+      "semantic_sha": "1cbcd14952d0168da8a80becbd9150818eb1e2d16e631f32748a9e40033f6568",
+      "sha256": "cec2d0d30517d32ed48e70c1cbdd0ab559afd3dcc096871b2571868476a48e12",
+      "source": "mqft_restore79_20261127/data/schedule0/g0_c03_r00_zero74.json.gz",
+      "source_sha": "5223b23377c765351a9f2e851f2e1036c9638e4afc68a5bd0eb2055a367ad06b"
+    },
+    {
+      "budget": 128,
+      "bytes": 119087,
+      "family": "schedule0",
+      "path": "mqft_restore80_20261127/data/forced_schedule0/force80_g0_c03_r01_zero74.json.gz",
+      "seed": 439116879289270933,
+      "semantic_sha": "9dd64579fcd3053d52887cf99fddde991cb4873bbcfd90ad24b5ab24baf319c0",
+      "sha256": "959f99244d83e940821ff9116215c19b074eec85b28f6f6b1886e6cf68f9a319",
+      "source": "mqft_restore79_20261127/data/schedule0/g0_c03_r01_zero74.json.gz",
+      "source_sha": "d9fd8ae45b4a84c825ea71c0f40eeebae4251e66c9974f5244078f16f5df2253"
+    },
+    {
+      "budget": 128,
+      "bytes": 142036,
+      "family": "schedule3",
+      "path": "mqft_restore80_20261127/data/forced_schedule3/force80_g3_c00_r00_zero74.json.gz",
+      "seed": 1293857497815814955,
+      "semantic_sha": "c5b0ca63c7f20b559a62b9807ea42ae103fc879ca92d20250a0cb79cfd1ff9e7",
+      "sha256": "97a21d33267474a39c2a5bd9b07f492dc7b69f92b5e1b47ec737ab5bbe6a03ac",
+      "source": "mqft_restore79_20261127/data/schedule3/g3_c00_r00_zero74.json.gz",
+      "source_sha": "b3d338f5b65d83b9019e2d068acb3ce43b1c7bf535871b36614e60497336918c"
+    },
+    {
+      "budget": 128,
+      "bytes": 141629,
+      "family": "schedule3",
+      "path": "mqft_restore80_20261127/data/forced_schedule3/force80_g3_c00_r01_zero74.json.gz",
+      "seed": 5653634194353742037,
+      "semantic_sha": "0e3675ce6c4a5c61a3fde81a67943de600c2db9aa39cdf0b7fcb9f59601771a7",
+      "sha256": "c43281ae0501116acca58bfa1a39b99a1176f0dde907eec052f425b5d6958be1",
+      "source": "mqft_restore79_20261127/data/schedule3/g3_c00_r01_zero74.json.gz",
+      "source_sha": "301d73af31b247f418b84a1ee42e9c3b79e110810813ea129cb7dc567fb5bf9a"
+    },
+    {
+      "budget": 128,
+      "bytes": 132696,
+      "family": "schedule3",
+      "path": "mqft_restore80_20261127/data/forced_schedule3/force80_g3_c01_r00_zero74.json.gz",
+      "seed": 6700235661619104393,
+      "semantic_sha": "7a9f4ad252bd037c6fc03fdb0dab874f79b6e857c253d916cda060f805783731",
+      "sha256": "414d40be8a8fc3356da0d2e20696f7d7711fd38934b70af1e17c3310902084c5",
+      "source": "mqft_restore79_20261127/data/schedule3/g3_c01_r00_zero74.json.gz",
+      "source_sha": "b4cc90934be266b2fce29cd683c1c3e56ec2432980fdf7fb33b6fd726977b4b6"
+    },
+    {
+      "budget": 128,
+      "bytes": 139359,
+      "family": "schedule3",
+      "path": "mqft_restore80_20261127/data/forced_schedule3/force80_g3_c01_r01_zero74.json.gz",
+      "seed": 8507832040071707370,
+      "semantic_sha": "e7df0dd7a8c4109c7f5a43263d0e84dfac4a64567ba995b73fc83e4d8a9b6713",
+      "sha256": "4afda074269857d03183eb22018cc9470f638612972365d2d03fbb3c43210b3c",
+      "source": "mqft_restore79_20261127/data/schedule3/g3_c01_r01_zero74.json.gz",
+      "source_sha": "1bee9c16b5218cc3879a19d796e5ba10d190b7f3b84eafbdd9f61b3e64dcf77b"
+    },
+    {
+      "budget": 128,
+      "bytes": 128229,
+      "family": "schedule3",
+      "path": "mqft_restore80_20261127/data/forced_schedule3/force80_g3_c02_r00_zero74.json.gz",
+      "seed": 1608580866498849389,
+      "semantic_sha": "fffe5a9ebd00d294efed2710ce6832735288e07972d34124c22967b774ab65dc",
+      "sha256": "53deadaf201f0328e32592b3ce8e25c25e5c35a683265ea7c6eb512bdb5e3937",
+      "source": "mqft_restore79_20261127/data/schedule3/g3_c02_r00_zero74.json.gz",
+      "source_sha": "89dc43acd802e840bd181fdaa1ee05bca0a1a4669682c984e19dbfe5032c2a77"
+    },
+    {
+      "budget": 128,
+      "bytes": 128303,
+      "family": "schedule3",
+      "path": "mqft_restore80_20261127/data/forced_schedule3/force80_g3_c02_r01_zero74.json.gz",
+      "seed": 4947462955702198734,
+      "semantic_sha": "e23bb90b3f9aac08e699ff402ffd03ab987e5cbe2bba33d109a7c43a38961251",
+      "sha256": "f2e07c76e578b2d9d1f0e1d9ac21c4e72060b95c7e799a5a0dae935eb7962a0d",
+      "source": "mqft_restore79_20261127/data/schedule3/g3_c02_r01_zero74.json.gz",
+      "source_sha": "888fff61105e4a55f05f4f362da2e5f087cc72c5d9f9bc86333427a13c4894fd"
+    },
+    {
+      "budget": 128,
+      "bytes": 120975,
+      "family": "schedule3",
+      "path": "mqft_restore80_20261127/data/forced_schedule3/force80_g3_c03_r00_zero74.json.gz",
+      "seed": 3441608953028577230,
+      "semantic_sha": "a190cf88cf5c576c8be2eb993d4f323c478d1f0700d52e7cc6c3d996b585fa0b",
+      "sha256": "21c6500246edb693a8d014314bef569a3b43ed467d28c7b7fc4d3bec14489c6b",
+      "source": "mqft_restore79_20261127/data/schedule3/g3_c03_r00_zero74.json.gz",
+      "source_sha": "2e20390a64aece9dd19ec25bd53fa040a457c939de0597f116bbd6498827a5a4"
+    },
+    {
+      "budget": 128,
+      "bytes": 118407,
+      "family": "schedule3",
+      "path": "mqft_restore80_20261127/data/forced_schedule3/force80_g3_c03_r01_zero74.json.gz",
+      "seed": 434748506310648189,
+      "semantic_sha": "6d4f788aecadb9f343694d8a4fa43c26d34ab2a0826f27cb2668b59564fc5290",
+      "sha256": "cb372e9b968065b72483901e9860a5dbe25a5b3ae708545496ec3819cded34da",
+      "source": "mqft_restore79_20261127/data/schedule3/g3_c03_r01_zero74.json.gz",
+      "source_sha": "18a88690aa5106ad82ab5cd979fa7be7f3ba6917ebf7a1e0d9591e899a690e74"
+    },
+    {
+      "budget": 128,
+      "bytes": 303604,
+      "family": "rapfi",
+      "path": "mqft_restore80_20261127/data/forced_rapfi/force80_rapfi_c00_r00_zero74.json.gz",
+      "seed": 3520299118079386879,
+      "semantic_sha": "dd5e1e7e753d6899ea53f249152dfac0569786d680ca47780f4e7829156a7402",
+      "sha256": "776bad82bbb220e62b0a6a3a7da9224ffcee477eb8634b31ff48e27daed649c5",
+      "source": "mqft_restore79_20261127/data/rapfi/rapfi_c00_r00_zero74.json.gz",
+      "source_sha": "e386d902a235ba4d2b6cbbc2065ded47dc2c202df5b018ea0758f682a26d1820"
+    },
+    {
+      "budget": 128,
+      "bytes": 303175,
+      "family": "rapfi",
+      "path": "mqft_restore80_20261127/data/forced_rapfi/force80_rapfi_c00_r01_zero74.json.gz",
+      "seed": 4067741817593634138,
+      "semantic_sha": "b04a8282599cd2350deba617b35af15dd3355ffc1fd9c4ffb04297aa541f2640",
+      "sha256": "bc71c604c2dbf272bbeb793e446a376235ef708ecaac31f33261663625a0c0b2",
+      "source": "mqft_restore79_20261127/data/rapfi/rapfi_c00_r01_zero74.json.gz",
+      "source_sha": "e616dc76e67a82da1556b3da4cd4b6551e748aee6f92a6e1f41c231fcc41a219"
+    },
+    {
+      "budget": 128,
+      "bytes": 301194,
+      "family": "rapfi",
+      "path": "mqft_restore80_20261127/data/forced_rapfi/force80_rapfi_c01_r00_zero74.json.gz",
+      "seed": 5719578511834303072,
+      "semantic_sha": "7855cde55e79b8823f34d01b69e41a7f5268c409760031600288e77c5f891a05",
+      "sha256": "dca2f552e1faf16260d55581757d1b8037e5df74d6cbf007015ac1ddb30af2ea",
+      "source": "mqft_restore79_20261127/data/rapfi/rapfi_c01_r00_zero74.json.gz",
+      "source_sha": "1a61b4d5981f16ae7f85cbe2777aed724d8c39efa1f226379aab8e0ddcb10dc8"
+    },
+    {
+      "budget": 128,
+      "bytes": 298177,
+      "family": "rapfi",
+      "path": "mqft_restore80_20261127/data/forced_rapfi/force80_rapfi_c01_r01_zero74.json.gz",
+      "seed": 1514035394115038296,
+      "semantic_sha": "74a04088d43066d4b839e2791845de115b36e8c6b23e3ab1cde0f171f1fbae8b",
+      "sha256": "e267201dcb7dc75b952e56833a23b441a75a51f6aff418112e9092f9fd41ff40",
+      "source": "mqft_restore79_20261127/data/rapfi/rapfi_c01_r01_zero74.json.gz",
+      "source_sha": "38ec0d43b6c0b83df19b43301046783b4028ab82a4f7c34edfb6032c08faefce"
+    },
+    {
+      "budget": 128,
+      "bytes": 277009,
+      "family": "rapfi",
+      "path": "mqft_restore80_20261127/data/forced_rapfi/force80_rapfi_c02_r00_zero74.json.gz",
+      "seed": 3004555478470183348,
+      "semantic_sha": "35790bbff367b548b5808c38f3ac2dde908b8395814c770019a78cf949fb7cf4",
+      "sha256": "6f2458fce4aff3e6ae71480b7a29a91fc4688dd319512a839f40d7a4b0404e0e",
+      "source": "mqft_restore79_20261127/data/rapfi/rapfi_c02_r00_zero74.json.gz",
+      "source_sha": "993578ff26cef2dbdcdbed54ef71ed785a44945fa1e6f1c52cdeb4d29ba352bd"
+    },
+    {
+      "budget": 128,
+      "bytes": 273990,
+      "family": "rapfi",
+      "path": "mqft_restore80_20261127/data/forced_rapfi/force80_rapfi_c02_r01_zero74.json.gz",
+      "seed": 2425060941089384018,
+      "semantic_sha": "364e939107e8cd6ecd71db38a61ae318810bd47d98f4b213b0c9a2d1a9559c22",
+      "sha256": "1ca7fe0781e57c38881a4cc22b9f5bde7cd009e111b500dc8bc60775502684f4",
+      "source": "mqft_restore79_20261127/data/rapfi/rapfi_c02_r01_zero74.json.gz",
+      "source_sha": "117a20c2c01a86391b78163fd19eb26cf341dccb40b768969966a6e3811e972b"
+    },
+    {
+      "budget": 128,
+      "bytes": 262038,
+      "family": "rapfi",
+      "path": "mqft_restore80_20261127/data/forced_rapfi/force80_rapfi_c03_r00_zero74.json.gz",
+      "seed": 8965467675023722397,
+      "semantic_sha": "9be33d79c68638e63fd4ef9a90eb5c7b350a5600dc2680b382f81a4a8f72eee0",
+      "sha256": "b202abc38d069206a3cbafdda165c4279aec6f8883e878d861d3f4e6dcdb0a0b",
+      "source": "mqft_restore79_20261127/data/rapfi/rapfi_c03_r00_zero74.json.gz",
+      "source_sha": "4b1b3a87bca1df3a25524cac56a90fd5b431aa1652bdabef1802e67b6bb2e259"
+    },
+    {
+      "budget": 128,
+      "bytes": 265275,
+      "family": "rapfi",
+      "path": "mqft_restore80_20261127/data/forced_rapfi/force80_rapfi_c03_r01_zero74.json.gz",
+      "seed": 1233036214894651076,
+      "semantic_sha": "ae22174c445ae2e363eb522f487ef905e049a5a0a7be335cc51b0406543c03ae",
+      "sha256": "4c82f951df206cab80adbe162fbfda16e9d9cf61096210d4ec17b57919760a4c",
+      "source": "mqft_restore79_20261127/data/rapfi/rapfi_c03_r01_zero74.json.gz",
+      "source_sha": "28d1723af9fae7a0635bc3b05824f4004ec8bbe77ebff9299261509bed14aae3"
+    }
+  ],
+  "diagnostic_backups": 3072,
+  "scope": "All marked path, evaluation, cut, score and probability fields exactly equal under forced root action sequence and changed seed; excludes random uniforms/worker/time only. Not actual sampled histories or universal proof of PRNG law.",
+  "status": "PASS_SCOPED"
+}

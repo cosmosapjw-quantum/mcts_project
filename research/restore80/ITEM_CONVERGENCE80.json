@@ -1,0 +1,111 @@
+{
+  "claims": [
+    {
+      "claim": "For fixed clean deterministic downstream transition maps and ideal conditional categorical root choices, the complete marked history measure is normalized and its action is minus summed log conditional probability. Final visit counts are not this action.",
+      "evidence": [
+        "THEORY.md",
+        "AUDIT80.json",
+        "FORCED_REPLAY80.json",
+        "RNG_AUDIT80.json",
+        "ORIGINAL_SOURCE80.json"
+      ],
+      "id": "STAT-ACTION-01",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Algorithmic ideal randomized law; 24 forced sequences checked. Not a universal theorem for stochastic evaluator or asynchronous scheduling; no physical quantum action.",
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "On finite affinely spanning support, exact normalized log-MGF has positive definite tilted covariance; Legendre gradient and Hessian are dual and Gamma equals tilted relative entropy at image.",
+      "evidence": [
+        "THEORY.md",
+        "ACTION80.json",
+        "INDEPENDENT80.json"
+      ],
+      "id": "STAT-1PI-02",
+      "items": [
+        "L16",
+        "Q21",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Exact mathematical identity for fixed measure; 261 finite empirical source cases; true population law not known.",
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed finite full-lattice law with compact tilts, local independent-replica bivariate saddle has determinant prefactor and explicit Wick correction with relative O(M^-2) remainder. All 180 registered finite cases evaluated; M256 maximum corrected relative error 3.07672e-5.",
+      "evidence": [
+        "THEORY.md",
+        "ACTION80.json",
+        "INDEPENDENT80.json",
+        "SUMMARY80.json"
+      ],
+      "id": "STAT-LOOP-03",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Replica M counts independent whole histories, not B or physical hbar. Uniform asymptotic constant not explicit; finite numerical comparison uses analytic alias control and separate numerical checks, not rigorous floating interval.",
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A fixed reference-mixture generating function predicts arbitrary new geometry populations.",
+      "evidence": [
+        "ACTION80.json",
+        "SUMMARY80.json"
+      ],
+      "id": "STAT-TRANSFER-04",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Matched geometry predictions much better than novel geometry; Rapfi novel regular-grid RMSE 1.53661; cannot transfer without root-conditioned population model. No equivalence or autonomous closure claim.",
+      "status": "OPEN_GENERALIZATION"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "STAT-1PI-02",
+      "id": "G07",
+      "open": "STAT-TRANSFER-04",
+      "remaining_final_acceptance": "Measure direct causal field response with same score law and mark, distinguish connected fluctuation and FDT; independent geometry.",
+      "scope": "Exact finite tilted statistical source response and covariance with heldout geometry error; causal field/FDT scope remains separate."
+    },
+    {
+      "accepted": "STAT-ACTION-01;STAT-1PI-02;STAT-LOOP-03",
+      "id": "L16",
+      "open": "STAT-TRANSFER-04",
+      "remaining_final_acceptance": "Normalized full-support marked path measure with action, overlaps and complex readout where specified; controlled 1PI/loop expansion and independent prediction.",
+      "scope": "Accepted corrected finite normalized marked path action, exact finite 1PI duality and controlled bivariate independent-history replica saddle. Physical phase/action and geometry transfer remain open."
+    },
+    {
+      "accepted": "STAT-ACTION-01;STAT-1PI-02;STAT-LOOP-03",
+      "id": "Q21",
+      "open": "",
+      "remaining_final_acceptance": "Derive normalized path measure and work generating function for identified Hamiltonian/protocol; complex action separately with operational phase.",
+      "scope": "Exact finite marked path law and bivariate replica mass expansion; not physical work or Jarzynski identification."
+    },
+    {
+      "accepted": "STAT-1PI-02",
+      "id": "Q32",
+      "open": "STAT-TRANSFER-04",
+      "remaining_final_acceptance": "Measure direct conjugate source response, compare path-score and fluctuation; thermal susceptibility/C only if calibrated T.",
+      "scope": "Exact whole-path tilted covariance and Legendre response; independent matched/novel W transfer tested; not native causal thermal susceptibility."
+    },
+    {
+      "accepted": "STAT-ACTION-01;STAT-LOOP-03",
+      "id": "Q43",
+      "open": "",
+      "remaining_final_acceptance": "Define complex path amplitude, measure, action and independently calibrated hbar; compare actual finite conditional instrument and coherent readout.",
+      "scope": "Accepted finite statistical saddle correction with explicit independent-replica small parameter; no physical hbar or complex amplitude identified."
+    }
+  ],
+  "parent_acceptance_sha256": "3fd7b31bbeef7e1e9799251cb956406bc82a6864eea26b7506b010d20d11d777",
+  "parent_quality_matrix_sha256": "fffecf126618e45fef4050887f5831731fac4008c9750624b3c0fe00fe422019",
+  "scope": "R80 delta; R79 121 item contracts retained."
+}

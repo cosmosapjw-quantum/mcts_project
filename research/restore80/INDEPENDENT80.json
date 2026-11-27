@@ -1,0 +1,178 @@
+{
+  "binomial_controls": [
+    {
+      "M": 8,
+      "corrected_rel": -0.00499235391131958,
+      "exact": 0.09700882807374,
+      "leading_rel": 0.09374886287610695,
+      "p": 0.2,
+      "q": 0.7
+    },
+    {
+      "M": 32,
+      "corrected_rel": -0.0003085937075012479,
+      "exact": 0.02683967549974983,
+      "leading_rel": 0.024281218867635568,
+      "p": 0.2,
+      "q": 0.7
+    },
+    {
+      "M": 128,
+      "corrected_rel": -1.7325516196153856e-05,
+      "exact": 0.006725035144767098,
+      "leading_rel": 0.005855812981707453,
+      "p": 0.2,
+      "q": 0.7
+    },
+    {
+      "M": 8,
+      "corrected_rel": -0.0021959486157088204,
+      "exact": 0.07476806640624997,
+      "leading_rel": 0.06432432147657718,
+      "p": 0.5,
+      "q": 0.5
+    },
+    {
+      "M": 32,
+      "corrected_rel": -0.00012588920349021482,
+      "exact": 0.019585984052192463,
+      "leading_rel": 0.015745128428200417,
+      "p": 0.5,
+      "q": 0.5
+    },
+    {
+      "M": 128,
+      "corrected_rel": -7.689025095403146e-06,
+      "exact": 0.004954201970965864,
+      "leading_rel": 0.003913849449316054,
+      "p": 0.5,
+      "q": 0.5
+    },
+    {
+      "M": 8,
+      "corrected_rel": -0.011793885684197147,
+      "exact": 0.12231000958126971,
+      "leading_rel": 0.13581728988635056,
+      "p": 0.8,
+      "q": 0.1
+    },
+    {
+      "M": 32,
+      "corrected_rel": -0.0010433718770180844,
+      "exact": 0.0419009182582991,
+      "leading_rel": 0.04333708347238918,
+      "p": 0.8,
+      "q": 0.1
+    },
+    {
+      "M": 128,
+      "corrected_rel": -5.030198835320743e-05,
+      "exact": 0.010130792493132444,
+      "leading_rel": 0.009902216109549444,
+      "p": 0.8,
+      "q": 0.1
+    }
+  ],
+  "direct_convolutions": [
+    {
+      "M": 8,
+      "cohort": 0,
+      "direct": 4.12062527853404e-05,
+      "family": "g0",
+      "k": [
+        152,
+        603
+      ],
+      "relative_error": 6.661338147750939e-16,
+      "wrapped": 4.1206252785340374e-05
+    },
+    {
+      "M": 8,
+      "cohort": 1,
+      "direct": 4.240311223743594e-05,
+      "family": "g0",
+      "k": [
+        149,
+        601
+      ],
+      "relative_error": 1.3322676295501878e-15,
+      "wrapped": 4.240311223743588e-05
+    },
+    {
+      "M": 8,
+      "cohort": 0,
+      "direct": 5.6718487493623494e-05,
+      "family": "g3",
+      "k": [
+        137,
+        489
+      ],
+      "relative_error": 3.774758283725532e-15,
+      "wrapped": 5.671848749362328e-05
+    },
+    {
+      "M": 8,
+      "cohort": 1,
+      "direct": 5.42979434778331e-05,
+      "family": "g3",
+      "k": [
+        134,
+        491
+      ],
+      "relative_error": 1.9984014443252818e-15,
+      "wrapped": 5.4297943477832995e-05
+    },
+    {
+      "M": 8,
+      "cohort": 0,
+      "direct": 5.575329451283127e-05,
+      "family": "Rapfi",
+      "k": [
+        64,
+        508
+      ],
+      "relative_error": 2.220446049250313e-15,
+      "wrapped": 5.575329451283114e-05
+    },
+    {
+      "M": 8,
+      "cohort": 1,
+      "direct": 5.76172684251118e-05,
+      "family": "Rapfi",
+      "k": [
+        61,
+        506
+      ],
+      "relative_error": 3.3306690738754696e-15,
+      "wrapped": 5.761726842511161e-05
+    }
+  ],
+  "errors": {
+    "Gamma": 7.993605777301127e-15,
+    "KL": 2.4424906541753444e-15,
+    "W": 8.881784197001252e-16,
+    "binomial_Wick": 2.220446049250313e-15,
+    "binomial_direct_mass": 3.9968028886505635e-15,
+    "covariance": 3.3306690738754696e-16,
+    "direct_convolution_rel": 3.774758283725532e-15,
+    "direct_mass_normalization": 4.551914400963142e-15,
+    "gamma": 8.881784197001252e-16,
+    "inverse_H": 9.690529053584081e-15,
+    "mean": 1.6653345369377348e-15,
+    "raw_X": 0.0,
+    "raw_Y": 0.0,
+    "raw_action": 1.1368683772161603e-13,
+    "saddle_H": 2.7284841053187847e-12,
+    "saddle_K": 8.881784197001252e-16,
+    "saddle_mean": 1.7053025658242404e-13,
+    "wick_coefficient": 6.8833827526759706e-15,
+    "wick_e33": 7.958078640513122e-13,
+    "wick_e4": 1.438849039914203e-13
+  },
+  "forced_replays": 24,
+  "raw_paths": 48,
+  "saddles_checked": 180,
+  "scope": "Independent direct log sums and moment covariance, Cholesky/Gauss-Hermite cumulant coefficient, 6 nonnegative direct convolutions and factorized binomial controls. No native independent subagent, no rigorous floating roundoff bound.",
+  "source_cases": 261,
+  "status": "PASS_SCOPED"
+}

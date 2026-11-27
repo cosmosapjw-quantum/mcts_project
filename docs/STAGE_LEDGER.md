@@ -1,24 +1,24 @@
-# RESTORE79 R1–R10 / C1–C10
+# R80 R1-R10 / C1-C10
 | Stage | Actual work | Evidence |
 |---|---|---|
-| R1 | R69 authority, R78 parent, L31 nine-panel original | THEORY.md |
-| R2 | Source spans, guide labels, prior published results, proper scoring literature | ORIGINAL_SOURCE79.json |
-| R3 | Native likelihood vs endpoint projection vs physical T; source/certification types | THEORY.md |
-| R4 | Three constructive routes: source/claim audit, L31 report and independent calibration | THEORY.md |
-| R5 | Conditional softmax score likelihood, log-partition curvature, endpoint KL projection | THEORY.md, calibrate79.py |
-| R6 | Source-linked corrections, finite null/identifiability, work units, archived claims | ITEM_ACCEPTANCE79.json, HONEST_SUMMARY79.json |
-| R7 | Wolfram variance, independent scalar refits and endpoint gradient checks | INDEPENDENT79.json |
-| R8 | Native/model/negative/partial report dispositions | QUALITY_MATRIX79.csv |
-| R9 | Nine panel quantitative report and exact item-specific acceptance | HONEST_SUMMARY79.json |
-| R10 | Convergence research routes and stopping conditions | NEXT_DYNAMICS.md |
-| C1 | Fixed R78 training and 768 new registered paths | REGISTRATION.json |
-| C2 | Native raw law and source inventory schemas | inventory79.py, calibrate79.py |
-| C3 | Stable likelihood, exact slope, occupancy projection | calibrate79.py |
-| C4 | 12 native/audit workers and 8 Rapfi workers | generate79.py, RUN_SHARDS.json |
-| C5 | Actual new 768 paths and reused 192 authenticated paths | AUDIT79.json |
-| C6 | Full native path law/cut replay, historic 640 pairs and 781 manifest files | INVENTORY_AUDIT79.json, AUDIT79.json |
-| C7 | 9 heldout scalar fits, exact KL and 4608 occupancy fits; all nine panel data | CALIBRATION79.json, HONEST_SUMMARY79.json |
-| C8 | Independent 9 scalar refits, 144 raw reductions, gradient checks | INDEPENDENT79.json |
-| C9 | 4 unique plot pairs and original 121 per-item acceptance matrix | PLOT_MANIFEST79.json, QUALITY_MATRIX79.csv |
-| C10 | Publish DAG, source, results, verified snapshots and cleanup | Publication/backup/cleanup receipts |
-Theory contract before generation; R6–R8 conclusions depend on subsequent numerical results. Logical stage coverage rather than independent native subagents or 20 isolated serial executions. Full legacy regression not rerun.
+| R1 | R69 purpose/R79 convergence contract, original action | THEORY.md |
+| R2 | Actual original study, R70/R77/R79, multivariate lattice literature | ORIGINAL_SOURCE80.json |
+| R3 | Ideal conditional law, deterministic marks, finite empirical measure, replica vs B/hbar | THEORY.md |
+| R4 | Full-history replay, exact 1PI, bivariate lattice route | THEORY.md |
+| R5 | Normalize path measure, Legendre/KL, Fourier-Wick expansion | THEORY.md |
+| R6 | Source/mark constraints, lattice index, compact tilt and alias bound, original count counterexample | ACTION80.json |
+| R7 | Wolfram moments, analytic binomial and direct convolution checks | INDEPENDENT80.json |
+| R8 | Accept three corrected subclaims, keep geometry transfer open | CONVERGENCE80.json |
+| R9 | Exact computational action/CGF/saddle contract and measured errors | SUMMARY80.json |
+| R10 | Operational phase and root-conditioned population handoff | NEXT_DYNAMICS.md |
+| C1 | Register 1152 fresh paths and 768 previous reference paths | REGISTRATION.json |
+| C2 | Read actual clean Rust source and raw law, archive identity | REPLAY_PATCH80.json, ORIGINAL_SOURCE80.json |
+| C3 | Isolated replay, empirical CGF/tilt, adaptive torus sizing | build80.py, action80.py |
+| C4 | CPU parallel acquisition, bounded FFT memory, checkpoint | generate80.py, ACTION80_CHECKPOINT.json |
+| C5 | Fresh1152 paths, forced24 replay diagnostics, actual build | RUN_SHARDS.json, FORCED_REPLAY80.json |
+| C6 | Full law and cut audit; seed RNG replay | AUDIT80.json, RNG_AUDIT80.json |
+| C7 | 261 empirical source cases, 180 bivariate lattice cases | ACTION80.json |
+| C8 | Independent GH, direct convolution, raw subset, binomial | INDEPENDENT80.json |
+| C9 | Three result figures and typed acceptance | PLOT_MANIFEST80.json, CONVERGENCE80.json |
+| C10 | DAG and quality matrix, Git, verified snapshots and cleanup | publication/backup/cleanup receipts |
+Theory contract preceded acquisition; final R6-R8 conclusions used actual later numerical evidence. Logical stages, no native subagent; not 20 entirely isolated sequential agents. Full legacy regression not rerun; production pinned backend unchanged.

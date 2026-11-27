@@ -3201,6 +3201,83 @@
       }
     }
   },
+  "restore80": {
+    "ACTION80.json_sha256": "656df0c54cb11bfb1b5964d40dfd1511482736558cc2fb04e73cb44f84d10ff4",
+    "AUDIT80.json_sha256": "d4a964c3ab43fb37c2108bad7136183b55888debf427f08592fb5ba511ba0b73",
+    "CONVERGENCE80.json_sha256": "7b8ea63c5557db97dc76fadf414ac671d3c35370648607af550339f15215307e",
+    "DRIFT_WATCHDOG.md_sha256": "8ab987b09a20122ec595b0b76b18f2ad6483ffc8f9cc9910bd3f75f52742260a",
+    "FORCED_REPLAY80.json_sha256": "d038c90938cbaf8ea1c87d90f11262e01b3dd5a5398e4853cfba232584a71477",
+    "INDEPENDENT80.json_sha256": "204168b0fc8cf0d35591a0e4fc0c7715b76ddfad765f4002e78f37577f792243",
+    "ITEM_CONVERGENCE80.json_sha256": "be7d6e5598e4941474aa380539670c641d9aa7099c4dd45b26ff0a880f849b39",
+    "NEXT_DYNAMICS.md_sha256": "c9d404a8dc5ddd6a44589167aecf9362433eab04343c3773b8083eaa0799a39a",
+    "ORIGINAL_OUTPUT_EVIDENCE80.csv_sha256": "4ce57b06321907121a43c8eb2807a1036cd40553b648ff0fa30fb4cd6c770dc9",
+    "ORIGINAL_OUTPUT_PROGRESS80.csv_sha256": "c6f4ae5ea60c308f4c08e2fe12c430030381eaa1645c6762c797998d8fc89aaa",
+    "ORIGINAL_SOURCE80.json_sha256": "71cb6abeee1e4928cb75787b96dda3dfb943d34147e301717be84fc5d008242e",
+    "PLOT_INVENTORY80.csv_sha256": "2890a798f44ad620f6bf2db677296cf4d689271067852181cc02b4cbf312d9bc",
+    "PLOT_MANIFEST80.json_sha256": "26d52e257c97f0ca714ce0cee9b56c071243e6964186fc86510f0852295432b7",
+    "PROGRESS80.json_sha256": "f94816c6876a799d1855f9d802fd2220d653d176c558460f723cb22d7d733c3f",
+    "QUALITY_MATRIX80.csv_sha256": "49b755b925ac0bd5a085a575dff646ffaf8dc770c9314df049c8210053d3c966",
+    "RAPFI_RECEIPTS80.json_sha256": "7c976b9607cd578765e661bdc1b844b9919bead8487136554ec86fba0a4cf255",
+    "REGISTRATION.json_sha256": "f135b1f6d757a37c53bd901ac3d7b2ea850dcf806a2e0bfcc1ae821adbcd969e",
+    "REPLAY_PATCH80.json_sha256": "6a3b2cb468352f40dd2efa38c186eb0e11c2ead2b578357acc7f2d1173cc3945",
+    "REPLAY_REGISTRATION80.json_sha256": "68e552935268fed31f2e472523226251a67f1d8bf21d715ddcf62425594b6f5b",
+    "RNG_AUDIT80.json_sha256": "80be2e0b9591be3c623675e7a1d7fe4ff8c0f1a8577695e09fa16111d7981186",
+    "ROOT_PREPARATION.json_sha256": "c023c6b92601fdd8f20e7dc35d5f960dd6b330059487da00843fbbd11dd9c433",
+    "RUN_SHARDS.json_sha256": "e605b25ff32c50e3614e41d890d6434c427d36e465421a17ed36a445d3f2f34b",
+    "SUMMARY80.json_sha256": "2cbba518c41ed290a412bd4772aae8ccadbdaf50c65eb30e85b78007c9f069fd",
+    "THEORY.md_sha256": "245767dec4f918b40e93e44676f34f14580cd66976dc8aec1b4d1dcfedaa2034",
+    "accepted_corrected_subclaims": 3,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 1,
+    "cumulative_fixed_root_histories": 84088,
+    "dag_sha256": "806ae86bb19056d8c3f44d70b87757d11f3e8f89feb5b3e50b2c0d4fe419d35b",
+    "empirical_source_cases": 261,
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 3,
+    "final_scientific_certified": 0,
+    "forced_diagnostic_backups": 3072,
+    "forced_replays": 24,
+    "fresh_backups": 147456,
+    "fresh_fixed_root_histories": 1152,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 5,
+    "original_evidence_union_R55_R80": 121,
+    "original_obligations": 121,
+    "parent_commit": "149e0bd757e0244ded64b96149c7faab40cf77ed",
+    "parent_dag_sha256": "35303620d7fc7ef1130d6862ee798a1b70c226f7188bcd045e05c18a8b483ac4",
+    "pulse_binary_sha": "2a7468f6abc3c39e90146dac9418a3ee3a2e3923d04cab3f5b7b4872edde4f8a",
+    "raw_bytes": 211976559,
+    "remaining": "Operational phase, geometry transfer and individual original science acceptance.",
+    "replay_binary_sha": "b09300d45e14cbc282b391632b0063db8011e0d3667fb785f5f90b25e81bdfdd",
+    "retained_pairs": 647,
+    "reused_reference_paths": 768,
+    "saddle_cases": 180,
+    "status": "three_corrected_scientific_subclaims_accepted",
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }
