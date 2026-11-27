@@ -1,0 +1,52 @@
+{
+  "SU2_commuting_pair_commutator_trace": 1.0,
+  "SU2_equal_individual_traces": [
+    0.7071067811865476,
+    0.7071067811865476
+  ],
+  "SU2_noncommuting_pair_commutator_trace": 0.5000000000000002,
+  "Wolfram_symbolic": "Tr[Uz Ux Uz\u2020 Ux\u2020]/2=cos(b)^2+cos(2a) sin(b)^2, Uz\u2020Uz=I; successful exact tool output",
+  "categorical_hessian": [
+    [
+      0.16,
+      -0.16000000000000003
+    ],
+    [
+      -0.16000000000000003,
+      0.15999999999999992
+    ]
+  ],
+  "categorical_p": [
+    0.2,
+    0.8
+  ],
+  "native_tree_scope": "No independent cycles in actual prefix tree; quotient and legal grid distinct. No plaquettes does not imply diagonal softmax Hessian or absence of local basis redundancy.",
+  "scope": "Original producer not executed or modified; explicit algebraic counterexamples and corrected separate graph model. No physical native gauge or ghost identification.",
+  "source_defects": [
+    "I+perturbation not generally unitary",
+    "independently initialized opposite directions not inverse",
+    "absent virtual links I not covariantly transformed",
+    "open-link commutator not adjoint-covariant",
+    "Hermitian part of commutator of Hermitian matrices zero",
+    "Hermitian traceless projection Lie algebra not group",
+    "complex U1 Wilson legitimate",
+    "unconstrained link entries and unnormalized Wilson action"
+  ],
+  "source_member": {
+    "archive": "omoknuni_quantum-main.zip",
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/gauge_policy.py",
+    "sha256": "4321923d1dbd6e7b1195fee7bea8d86a8a59f8d6c04714e98b7f36fd09cd10bf"
+  },
+  "status": "DERIVED_AND_NUMERICALLY_CHECKED",
+  "toy": {
+    "U1_complex_W": [
+      0.7960837985490559,
+      0.6051864057360395
+    ],
+    "hermitian_commutator_projection": 0.0,
+    "missing_link_fake_wilson": 0.4535961214255772,
+    "nonunitary_defect": 0.028284624798642837,
+    "open_commutator_covariance_defect": 0.46032395598707476,
+    "valid_link_wilson": 1.0
+  }
+}

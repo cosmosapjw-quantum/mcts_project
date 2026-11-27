@@ -1,0 +1,18 @@
+{
+  "errors": {
+    "Bloch_readout": 5.551115123125783e-17,
+    "Bloch_stability": 1.1102230246251565e-16,
+    "SU2_loop_trace": 8.881784197001252e-16,
+    "U1_propagator": 1.657701753643437e-14,
+    "prior_mean_TV": 0.0,
+    "prior_projected": 0.0,
+    "unbiased_mark": 5.551115123125783e-17,
+    "unbiased_visit": 1.3877787807814457e-17,
+    "value_range": 0.0,
+    "visit_TV": 0.0
+  },
+  "graph_contexts": 48,
+  "raw_paths": 1536,
+  "scope": "Separate coordinate permutation and all raw cut reductions; networkx tree/quotient/cycle checks, magnetic incidence expm_multiply, SU2 expm and independent Bloch updates. Same-agent separate implementation.",
+  "status": "PASS_SCOPED"
+}

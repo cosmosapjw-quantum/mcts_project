@@ -56,7 +56,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-04.R",
+  "entry": "X-STRUCT",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -119,9 +119,8 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R78 structural gauge/symmetry (L22)",
-    "R79 original quality report (L31)",
-    "Final scientific certification of all 121 original outputs and remaining physical identification"
+    "R79 original honest summary quality report L31, all 121 typed acceptance requirements",
+    "Final scientific certification and corrected original outputs; physical gauge, thermal and RG identification remain"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -140,7 +139,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE78-STRUCTURAL-GAUGE-SYMMETRY",
+  "next_stage_id": "MQFT-RESTORE79-ORIGINAL-QUALITY-REPORT",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -723,6 +722,11 @@
         "evidence": "Complex Hermitian graph dynamics, lead matching, plaquette phase, same-H coherent/dephased detector comparison.",
         "remaining": "Actual operational coherent phase readout, not native stochastic path quantum identification."
       },
+      "restore78_followup": {
+        "artifact": "mqft_restore78_20261127/GAUGE78.json",
+        "evidence": "Unitary U1/SU2 connections, loop holonomy covariance, true noncommuting based loops, gauge-covariant density update and phase-sensitive fixed-probe controls.",
+        "remaining": "Native operational phase identification and physical gauge dynamics."
+      },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
       "structure_followup": "RESTORE22 complex Gram restricted spatial coherence filtration and triangle-phase gauge checks; actual projected density code and operational recovery; no physical phase identification.",
@@ -767,6 +771,11 @@
         "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
         "evidence": "Actual sign transport recovery on 15x15 complete-game traces, same evaluator and cost proxy.",
         "remaining": "No physical hardware fault tolerance or general utility claim."
+      },
+      "restore78_followup": {
+        "artifact": "mqft_restore78_20261127/{THEORY.md,NATIVE78.json,GAUGE78.json,ORIGINAL_GAUGE_AUDIT78.json,INDEPENDENT78.json,plots/L22_gauge_policy_analysis.pdf}",
+        "evidence": "1536 actual raw orientation paths; separate D4 residual and exact group average; 48 actual prefix-tree/quotient/legal graphs, 4005 fundamental loops, explicit U1 and SU2 unitary links, covariant density-field update, independent numerical checks; original gauge producer defects and L22 triptych reconstructed.",
+        "remaining": "Physical native local gauge/phase and operational phase-sensitive intervention not identified; assigned connection and model policy not production native gauge; no final certification."
       },
       "retained_evidence": "\uace0\uc804 \ud2b8\ub9ac topology \ubc0f \ub3c5\ub9bd complex/QEC reference.",
       "source": "ensemble_analyzer_complete.py::_plot_topological_analysis/_plot_quantum_error_correction."
@@ -939,7 +948,7 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-04.C",
+  "previous_entry": "REPLAN-04.R",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -3452,8 +3461,50 @@
     ],
     "status": "scoped_rg_fixed_point_and_independent_closure"
   },
-  "revision": "RESTORE77_20261127",
-  "scope": "Original RG fixed-point algebra, auxiliary normalized probability/Markov scale maps and independent native closure tests",
+  "restore78": {
+    "AUDIT78.json_sha256": "c4def5e919b43ddc6145b39ffc3befcdacfda51e3137e15091d8c30b69f2039b",
+    "DRIFT_WATCHDOG.md_sha256": "9f6f7581be52647fb1b38ee0f64471f87834c896edf67b4f4d46f0aec86b5751",
+    "GAUGE78.json_sha256": "4cae3201a1eeeaec36c40e8a5479a0f5a0e3033bfbacd57b5bfe1acee957a917",
+    "INDEPENDENT78.json_sha256": "26792187b44bfcb1c2f7b5396d87cd8767c997a86568d801b0f21ed5b1dde227",
+    "NATIVE78.json_sha256": "f1db4ecdcd80b79a48557c8efe419729548effae9531c3e7d56032aa846fe1da",
+    "NEXT_DYNAMICS.md_sha256": "7337a8dc7585cde18ba0c46aac3e5c3aca896b69172897cb2d1370b160523a09",
+    "ORIGINAL_GAUGE_AUDIT78.json_sha256": "0788218bf55fa30b7c64a32197dfc7490c039a5c9318d62a16e223f28d1d9890",
+    "ORIGINAL_OUTPUT_EVIDENCE78.csv_sha256": "d7cdf273558616f7595402d9bb07932349fc81914a41a7a7ed09e4632d4f2a2c",
+    "ORIGINAL_OUTPUT_PROGRESS78.csv_sha256": "b33e2f3f2717dbe95b63b023f7b6f143287312d1c0ff610a0ac5ac2f58eb1bdd",
+    "ORIGINAL_SOURCE78.json_sha256": "6f48e3425fa17893b89595c5fa725b54162ed027c9d0ccfe8e0943f28989cc1c",
+    "PLOT_INVENTORY78.csv_sha256": "e824456397eee2df2b5eb60ba7ef882d0846bc8051c925da0dfdcb8babae332a",
+    "PLOT_MANIFEST78.json_sha256": "a06bcab10448807a7162f5857ab9eff8c9c16577ab2876b840af24173cc48e3f",
+    "PROGRESS78.json_sha256": "5792deb76671f8dec608df305197882544e5d563db706ce41ecb60fac9d1d5b9",
+    "RAPFI_RECEIPTS78.json_sha256": "90f9248d6dd175e88248ee948f968201aedd6a6895588b698fa4f9fbfa1e96f8",
+    "REGISTRATION.json_sha256": "68e7fb1d8cde65ac61d6df506a0a9c4ae8d5e465bab248da86baacda87f7929c",
+    "REGISTRATION_before_serialization_fix.json_sha256": "50975aac8a903100f31291e9af26902a7145d161029a7c19160f659122dee07e",
+    "ROOT_PREPARATION.json_sha256": "c781e5238c978fb520ca9360ea3bca9d018c8a69b4f6f0cef7502d1c9e86cbdf",
+    "RUN_SHARDS.json_sha256": "d767e0b5e35231f8a4cd8fe204d66476880d305343f96265ebf5ee515389f898",
+    "THEORY.md_sha256": "5efc63ef0c409b75e97be172eeea1acc45b92be378271dd088196930f91d0a11",
+    "animations": 0,
+    "cumulative_fixed_root_histories": 82168,
+    "figures": 9,
+    "fresh_backups": 196608,
+    "fresh_fixed_root_histories": 1536,
+    "fundamental_cycles": 4005,
+    "graph_contexts": 48,
+    "native_orientation_comparisons": 1344,
+    "native_subagent": "NOT_RUN",
+    "new_games": 0,
+    "optimizer_updates": 0,
+    "original_evidence_items": 4,
+    "original_evidence_union_R55_R78": 120,
+    "original_obligations": 121,
+    "parent_commit": "888da8f4bbeb0b4aa07b3c4b6124bfec8caaa2ff",
+    "parent_dag_sha256": "ba7eca0d20b07e47eb22bed3fcc48c1ed5e6119dc09dc3922254ba6e79686020",
+    "quotient_cycles": 19,
+    "raw_bytes": 281912325,
+    "remaining": "Native physical gauge/phase, structural and physical identification, L31 honest quality report and final individual scientific certification.",
+    "retained_pairs": 640,
+    "status": "scoped_native_symmetry_declared_gauge_policy"
+  },
+  "revision": "RESTORE78_20261127",
+  "scope": "Native D4 orientation audit, actual graph topology and declared U1/SU2 covariant policy model",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE77-AUTONOMOUS-RG-FIXED-POINT"
+  "supersedes_next": "MQFT-RESTORE78-STRUCTURAL-GAUGE-SYMMETRY"
 }

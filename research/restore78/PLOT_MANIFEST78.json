@@ -1,0 +1,104 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "native_orientation_prior_value",
+      "ids": [
+        "L16",
+        "L22"
+      ],
+      "pdf_sha": "0b8bdd630566f506d61d81d6a67aebefe01f0fd08e36474e7f1699c4ed97b6d1",
+      "png_sha": "fe288b3695a772f27ddab60c3d364b9d1674e27cdde4a5f4929c5e37a4aef506",
+      "scope": "Actual initial evaluator D4 residual; native g0/g3 L9 and Rapfi L15 not pooled."
+    },
+    {
+      "figure": "seed_order_and_projection",
+      "ids": [
+        "L16",
+        "L22"
+      ],
+      "pdf_sha": "21812ed349c223dbaf31a4b4d5eaaacfd8df1be67f2c7f42d849b7feefef19d1",
+      "png_sha": "12230912440bd9a55cc9e8c4aa8885d9cd26346376e8732fa4206bd910dbc4f8",
+      "scope": "Uniform first selection laws; actual ordered inverse-CDF coupling differs; readout projection only."
+    },
+    {
+      "figure": "orientation_occupancy_noise",
+      "ids": [
+        "L16",
+        "L22"
+      ],
+      "pdf_sha": "9b54f1893989ff5df4418d18e449d62cb46b5f4cea4c1a223642aaec87ea8441",
+      "png_sha": "06aa7efa925983310ef6616202f5caec90bdf8ac88d65012bf67c54a15a77fa8",
+      "scope": "Pointwise geometry-block intervals; split noise is descriptive, not bias correction."
+    },
+    {
+      "figure": "orientation_unbiased_residual",
+      "ids": [
+        "L16",
+        "L22"
+      ],
+      "pdf_sha": "75a59c09419d106a824f9124d3c4257acb7fa17d1d2fa23b92943d8dc7ded296",
+      "png_sha": "2fd48d1e1db21141d6cdf60e9142211bf1de7da3e4a1377d17168ceb02d6ae35",
+      "scope": "Cross-products of independent seed-pair differences; signed finite estimates and pointwise root-block uncertainty retained."
+    },
+    {
+      "figure": "tree_quotient_legal_topology",
+      "ids": [
+        "L22",
+        "L24"
+      ],
+      "pdf_sha": "1463763150e50ecc5a60d728e2c067c1ffdab353b513b67ee7cbff00ff10ec30",
+      "png_sha": "6c254a27766ded35382fe242e306f5750c8b6b32b610c1180127dd64ed66163b",
+      "scope": "Actual prefix tree, transposition quotient and legal-action graph are different objects; all components retained."
+    },
+    {
+      "figure": "U1_cycle_flux_transport",
+      "ids": [
+        "L22",
+        "L21"
+      ],
+      "pdf_sha": "9f9dc8c3c91372823e7d0f7f56e38ed38d1c690118b54423c63489af570b48e0",
+      "png_sha": "8b519150855fa99a7b39b49ee017775731e11cd520a8a060bf4413677514395b",
+      "scope": "All fundamental cycles; assigned flux and flat connection with same actual score landscape."
+    },
+    {
+      "figure": "SU2_holonomy_commutator",
+      "ids": [
+        "L22",
+        "L21"
+      ],
+      "pdf_sha": "9d1e638475dd4e797cb0bec74ce1be54c400f957178a543c13e9f75fa233fa92",
+      "png_sha": "aed298e2ba8decb01009732af090e0830617eb384c64aded9f2b9c8c77019c4a",
+      "scope": "Declared non-Abelian connection on actual legal graph; loop traces alone do not encode joint holonomy."
+    },
+    {
+      "figure": "covariant_policy_update",
+      "ids": [
+        "L22",
+        "L21"
+      ],
+      "pdf_sha": "6542f09439d9d2c75b3f197448be02cdf6bb7c01cb20cd4db744e896692d53b3",
+      "png_sha": "4ae0e639cf3114c87f35c3d4fc7974b382ccc19ae12e83fbab388c9c34b3d627",
+      "scope": "Defined density-field update and scalar readout; fixed effect is different probe, not gauge transformation."
+    },
+    {
+      "figure": "L22_gauge_policy_analysis",
+      "ids": [
+        "L22",
+        "L21",
+        "L24"
+      ],
+      "pdf_sha": "f1b16e7551c979f9e7c7e4080954e5a14315f9aa2519f924be17f6629aa7332d",
+      "png_sha": "4ebd63771d4a79fd4d6a64c9043bab2e9db12101ddadae7a8f06b3e9a2ca4c6c",
+      "scope": "Reconstructed original three-panel intent with explicit unitary connection, covariant field/effect transport and actual legal graph; no statistical correlation inferred from roundoff."
+    }
+  ],
+  "sources": {
+    "AUDIT78.json": "c4def5e919b43ddc6145b39ffc3befcdacfda51e3137e15091d8c30b69f2039b",
+    "GAUGE78.json": "4cae3201a1eeeaec36c40e8a5479a0f5a0e3033bfbacd57b5bfe1acee957a917",
+    "INDEPENDENT78.json": "26792187b44bfcb1c2f7b5396d87cd8767c997a86568d801b0f21ed5b1dde227",
+    "NATIVE78.json": "f1db4ecdcd80b79a48557c8efe419729548effae9531c3e7d56032aa846fe1da",
+    "ORIGINAL_GAUGE_AUDIT78.json": "0788218bf55fa30b7c64a32197dfc7490c039a5c9318d62a16e223f28d1d9890",
+    "plot78.py": "5efd7654ade5eec397798fc025c0234004e236e4e923c8bd7b1ef061a25b4419"
+  }
+}
