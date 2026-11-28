@@ -1,21 +1,21 @@
-# R98 R1-R10 C1-C10
-R1: R69 authority, R97 parent, Q09-Q13 exact source scope.
-R2: original archive helpers and study, R72/R77 prior and Exa/SciSpace/Parallel primary RG literature.
-R3: fixed legal support, clipped dyadic block map, reference, finite scale clock and actual score.
-R4: exact log-density field vs weighted two-mode projection; independent size/budget cohorts.
-R5: chain KL, logsumexp transform, score mean/variance and Fisher loss identities.
-R6: analytical checkerboard closure counterexample, finite conditional averaging projector; prior WF negative and original helper defects.
-R7: Wolfram symbolic derivatives and actual finite computation.
-R8: compare actual exact/predicted scale residuals; Q10 partial; no physical critical certification.
-R9: exact computational mapping and independent direct prefix replay.
-R10: item decisions, report, DAG, R99 handoff.
-C1: preregister geometry/controls, tolerances and representative.
-C2: pin R92/R87 source manifest and 4320 raw receipts.
-C3: stable weighted block aggregation, frozen derivative and log projection.
-C4: all paths and prefix scales, independent root-block means.
-C5: rg98.py verify98.py report98.py plot98.py; initial FD failure preserved and fixed.
-C6: real execution and complete prefix/scale counts, format/hash checks.
-C7: independent direct bincount and weighted LS, nested lift, exact Fisher and KL identities.
-C8: closure residuals and negative critical evidence, separate cohorts and budgets.
-C9: figures and six-frame GIF, same-agent independent audit.
-C10: Git, Dropbox backup and verified duplicate cleanup, current pointer.
+# R99 R1-R10 and C1-C10
+R1: authority, exact original scope and preregistered finite design.
+R2: original archive helpers/study, R87/R92/R98 references, Exa/SciSpace/Parallel finite-size literature.
+R3: define A and X, n, M and tail, fixed cosine observable, actual frozen Fisher.
+R4: entropy competition null vs fixed crossover vs critical-width vs smooth, explicit partial scope.
+R5: derive KL/collision tail decompositions, exact null Fisher/Bernoulli moment, scalar Legendre dual.
+R6: counterexample exact noncritical collapse/peak/U4; finite size limitations, original fallback defects.
+R7: Wolfram logZ/central fourth; independent finite null and actual numerical checks.
+R8: holdout model comparison, keep critical wins and pointwise uncertainty; physical scaling unresolved.
+R9: map to executable array/moment, direct shell regrouping and fit, action extension.
+R10: scope judgment, original output crosswalk, next work.
+C1: register data identity, model grid, heldout split and tolerances.
+C2: all4320 raw hashes, pin R87/R92/R98 files; no new native runs.
+C3: exact tail, moment and dyadic design, separate undefined U4.
+C4: full 10400 prefix calculations and 400 strata, explicit model grid.
+C5: source99.py scaling99.py fit99.py action99.py plot99.py; post-initial-run action extension.
+C6: actual runs, independent checks, selected-fit QR, no synthetic critical plots.
+C7: cross-check R92/R98, moments, analytic null, one-draw Legendre dual.
+C8: heldout L21 comparisons and root-block intervals, no universal inference.
+C9: 11 PNG/PDF pairs, 4/3-frame GIFs, hash/format validation.
+C10: DAG, git push, Dropbox byte-verified snapshot and duplicate cleanup.

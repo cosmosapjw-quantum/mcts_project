@@ -1,0 +1,122 @@
+{
+  "artifact_reconstruction_sha": "a8b2b18319d9a4de0bacf80afa79a6edc8aca817dce6cc23da0c1de03b7a2a66",
+  "claims": [
+    {
+      "claim": "Exact peak-tail KL and concentration decompositions for positive finite categorical distributions; all 10400 actual prefix mixtures, 62400 dyadic rows, 41600 one-draw moments checked. Tail KL >1e-9 in 7680 prefixes, mean tail fraction .406062 among KL>1e-12, max matched-peak TV .755110. X Binder undefined86 retained.",
+      "evidence": [
+        "mqft_restore99_20261129/THEORY.md",
+        "mqft_restore99_20261129/SCALE99.json",
+        "mqft_restore99_20261129/SCALE99.npz",
+        "mqft_restore99_20261129/SUMMARY99.json",
+        "mqft_restore99_20261129/INDEPENDENT99.json"
+      ],
+      "id": "SCALE-TAIL-17",
+      "items": [
+        "Q16",
+        "Q31",
+        "Q34"
+      ],
+      "limit": "Peak-matched diagnostic, not independent prediction of M; no physical order parameter or interaction identification.",
+      "stage": 99,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Noninteracting one-spike categorical law has exact shifted sigmoid collapse, finite score Fisher peak and centered Bernoulli U4=2/3 at half mass. 96 development-only fits, 4536 grid candidates, 48 L21 external comparisons; critical-width beats all three alternatives 12/48, h64 3/16, one paired pointwise improvement against development-selected noncritical model. No universal exponent or impossibility claim.",
+      "evidence": [
+        "mqft_restore99_20261129/THEORY.md",
+        "mqft_restore99_20261129/FITS99.json",
+        "mqft_restore99_20261129/SUMMARY99.json",
+        "mqft_restore99_20261129/INDEPENDENT99.json"
+      ],
+      "id": "SCALE-CROSSOVER-18",
+      "items": [
+        "Q14",
+        "Q15",
+        "Q16",
+        "Q17",
+        "Q18",
+        "Q30",
+        "Q34"
+      ],
+      "limit": "Existing independent cohorts previously studied; finite score-control design, no calibrated transition or multiplicity-adjusted inference.",
+      "stage": 99,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For named one-draw categorical law W(J)=log E exp(Jf), Gamma(m(J))=Jm-W=D(p_J||p), W=Var(f)>0 and derivative of dual fixed by J. 104000 actual A/peak-matched source evaluations with direct KL residual2.484e-15.",
+      "evidence": [
+        "mqft_restore99_20261129/THEORY.md",
+        "mqft_restore99_20261129/EFFECTIVE_ACTION_EXTENSION99.md",
+        "mqft_restore99_20261129/ACTION99.json",
+        "mqft_restore99_20261129/ACTION99.npz",
+        "mqft_restore99_20261129/INDEPENDENT99.json"
+      ],
+      "id": "SCALE-ACTION-19",
+      "items": [
+        "Q16",
+        "Q34"
+      ],
+      "limit": "Categorical one-draw Legendre dual, not path-space or physical QFT 1PI effective action. Post-initial-run extension documented.",
+      "stage": 99,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "SCALE-CROSSOVER-18",
+      "id": "Q14",
+      "remaining_final_acceptance": "Infer independent finite-size exponents only with resolved transition, conjugate field and finite-size corrections.",
+      "scope": "Partial: actual finite effective size slopes, sampled score controls and analytic noncritical peak/fourth-moment null; physical critical point and independent exponents not identified."
+    },
+    {
+      "accepted": "SCALE-CROSSOVER-18",
+      "id": "Q15",
+      "remaining_final_acceptance": "3D collapse of defined physical observable under verified critical ansatz, heldout sizes and noncritical competitors; finite rescaling diagnostic separate.",
+      "scope": "Partial: registered transformed-coordinate diagnostic and heldout model comparison, not critical 3D data collapse or universality."
+    },
+    {
+      "accepted": "SCALE-TAIL-17;SCALE-CROSSOVER-18;SCALE-ACTION-19",
+      "id": "Q16",
+      "remaining_final_acceptance": "Compare entropy/effective-action scale functions with fixed normalization and independent budget-size design; exponent claim conditional.",
+      "scope": "Scoped finite scaling functions of actual categorical A/X, matched-peak tail residual, frozen Fisher, one-draw centered moments and explicit scalar source Legendre dual Gamma; separate independent sizes/budgets. Physical 1PI, thermal and equilibrium scaling not identified."
+    },
+    {
+      "accepted": "SCALE-CROSSOVER-18",
+      "id": "Q17",
+      "remaining_final_acceptance": "Generate finite-scale animation from actual independent data; critical animation requires confirmed scaling limit.",
+      "scope": "Four actual finite score-control frames across five sizes and two density arms, fixed B64 and root uncertainty, not physical critical animation."
+    },
+    {
+      "accepted": "SCALE-CROSSOVER-18",
+      "id": "Q18",
+      "remaining_final_acceptance": "Original universality equality corrected; report scaling model selection, heldout errors, hyperscaling and uncertainty, no admitted exponent.",
+      "scope": "Comprehensive scoped critical report: 96 fits, 48 L21 comparisons, negative/positive critical-type results and analytic noncritical null; no physical exponent or universality admission."
+    },
+    {
+      "accepted": "SCALE-CROSSOVER-18",
+      "id": "Q30",
+      "remaining_final_acceptance": "Validate actual critical scaling collapse against null and heldout sizes; finite covariance rescaling is not critical collapse.",
+      "scope": "Partial: actual heldout model/collapse diagnostic against noncritical alternatives, no physical critical collapse."
+    },
+    {
+      "accepted": "SCALE-TAIL-17",
+      "id": "Q31",
+      "remaining_final_acceptance": "Independent size/budget sweep for susceptibility, entropy, correlation length and gap; no universal exponent without limit.",
+      "scope": "Partial: independent B16 vs B64 and five sizes, actual categorical entropy, path action comparator, score gap, geometric spread and conditional Fisher; no quantum gap, physical correlation length or universal exponent."
+    },
+    {
+      "accepted": "",
+      "id": "Q33",
+      "remaining_final_acceptance": "Actual temporal spatial covariance animation at fixed L with at-risk frame and independent size comparison for scaling claim.",
+      "scope": "Actual R92 signed radial covariance across five sizes, fresh dense beta16, h16/32/64 frames from same B64 paths; independent bin reconstruction and fixed per-panel axes, not equilibrium time or correlation length."
+    },
+    {
+      "accepted": "SCALE-TAIL-17;SCALE-CROSSOVER-18;SCALE-ACTION-19",
+      "id": "Q34",
+      "remaining_final_acceptance": "Comprehensive size/collapse/critical report with finite alternatives and no assumed critical temperature/exponent.",
+      "scope": "Comprehensive scoped finite statistical report: exact peak-tail identities, actual size/budget and radial covariance, frozen Fisher, one-draw source dual, heldout fits with earlier response evidence retained. No assumed phase transition."
+    }
+  ],
+  "parent_convergence_sha256": "57b83ed8fabc88256c681eece2db7418898d1e22b61fb41c19409e12fcb895ca",
+  "parent_quality_matrix_sha256": "cdb6cf8295f0399ca9a22ffcb864c85c8cf5371f6a478142f2f388358730fa5f"
+}

@@ -1,0 +1,152 @@
+{
+  "animations": [
+    {
+      "clock": [
+        0.0,
+        3.3333333333333335,
+        8.0,
+        16.0
+      ],
+      "frame_rgb_sha256": [
+        "254cf5249ab713e3881511b4c069d98c9b09ad6b8bd6f8508d334af1a3c40d9e",
+        "1c4be660c1ff118f176014c9ce1b232b63dc2a6de401d82686044a28f725bb9d",
+        "aeab21b3e8f79fbba7e58e63d8c3e16d3a8b8bfc5f9a9665ae80fb462b358aae",
+        "6c701836136a83b6a4e57d94acaf35dc4e7d00fc7353b45f871b81b503a06bf1"
+      ],
+      "frames": 4,
+      "id": "Q17",
+      "path": "plots/Q17_finite_score_control.gif",
+      "sha256": "b4e80140225222d205c7e7e3ae7b8ffbaaf667c17ee799f1c87c73b7e4d52cf9"
+    },
+    {
+      "clock": [
+        16,
+        32,
+        64
+      ],
+      "frame_rgb_sha256": [
+        "5cd1334f1282a3dbeead4e28e57d7de274f7162657b72c258d1e93615e16cabb",
+        "b344f318fbae61897cecb1630550d91496cb4f49c6a2fe3467deffcec704fb9f",
+        "5a8d07e0b765329b76478a6e769fb830b1e36df176f8973dd6225dba721fcd88"
+      ],
+      "frames": 3,
+      "id": "Q33",
+      "path": "plots/Q33_actual_spatial_prefix.gif",
+      "sha256": "0013adf919dbbee88de6bb38e3d65752c75ae805fb285a9bfbee79e348a3ae6e"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "Q14_finite_effective_size_slopes_partial",
+      "ids": [
+        "Q14",
+        "Q31"
+      ],
+      "pdf_sha": "eb3dbda8c19a911c8d084aa8709d3f897dc5d26df5e9869713901c23c2c5579a",
+      "png_sha": "d528fa86d557787f2c300499b2ae67cf3ce4535e870210c297e736ed983e4f22"
+    },
+    {
+      "figure": "Q15_Q30_heldout_collapse_diagnostic_partial",
+      "ids": [
+        "Q15",
+        "Q30"
+      ],
+      "pdf_sha": "7a2b684c7f945285d550c885bfa199b907fb8c4becd096e4b4c80a02a258b731",
+      "png_sha": "2fbd1ff36c71aefb1017f630d2ce9704e8b32e5d934487c831b364a0b7dbd741"
+    },
+    {
+      "figure": "Q16_actual_finite_scaling_functions",
+      "ids": [
+        "Q16",
+        "Q31"
+      ],
+      "pdf_sha": "fc5513bf9066e9601f7736148c4e3caed62a7a9ca42fc9554e9e951f719da892",
+      "png_sha": "01cb726efffd33859c302c595ede9d80b27aa9746dca3272fb5eb7db010b6231"
+    },
+    {
+      "figure": "Q16_peak_tail_and_categorical_moments",
+      "ids": [
+        "Q16",
+        "Q34"
+      ],
+      "pdf_sha": "76106b55c76e73218fe583ea3f9f6ba71ff0d2b56caafc1a65dfe00a1fbc8b5d",
+      "png_sha": "5c526d001736e3cc2109bc73a31a488a94b10c2fa533a2187287b14cb8232af0"
+    },
+    {
+      "figure": "Q16_analytic_entropy_competition_null",
+      "ids": [
+        "Q14",
+        "Q15",
+        "Q16",
+        "Q30"
+      ],
+      "pdf_sha": "820ec98ffdad5a24b3b569e11b52af3534f36300d9ac5c9078e5a4c95500ee25",
+      "png_sha": "bbfee6eb4a13589cc84005ad81243c071e510e751565ab839a34df3e3d2a376f"
+    },
+    {
+      "figure": "Q31_independent_budget_size_partial",
+      "ids": [
+        "Q31"
+      ],
+      "pdf_sha": "cb0927857401b02f34fb6bcbcfcfa6dbde4ffa320ee50d3f0761cb8243995c13",
+      "png_sha": "514dc2542b03b722db8f49df1d2839252e0a45e35bff645ee2839055f0a7efe2"
+    },
+    {
+      "figure": "Q18_Q34_heldout_model_errors",
+      "ids": [
+        "Q18",
+        "Q34",
+        "Q15",
+        "Q30"
+      ],
+      "pdf_sha": "b405a0543b1854ae13c9a0b4f54c7939438398cccf1e2db5f569c0117bfee5d7",
+      "png_sha": "52a8dce4182493a08821646cb61d5871d7d3767b81b95b235bc4e714a905aa27"
+    },
+    {
+      "figure": "Q34_tail_structure_across_scales",
+      "ids": [
+        "Q34",
+        "Q16"
+      ],
+      "pdf_sha": "b5850cf3a6001b2bc5cdcab64452531ae2db5e2f205ee0e7df4d7766c468733c",
+      "png_sha": "83a18841a5128422a291dc3fd91a39c348aabe989741bb34a8bb7f1bc9457493"
+    },
+    {
+      "figure": "Q17_finite_control_snapshot",
+      "ids": [
+        "Q17"
+      ],
+      "pdf_sha": "3b77229706aa2ec44faf7b22f1e850e7dcab3b229c990b99b18194604f1eb649",
+      "png_sha": "29429de61de2abd5ea1681fbdb5b299fcb87ca8ff6ba2f082acd545e9d6c438d"
+    },
+    {
+      "figure": "Q33_actual_multisize_covariance_snapshot",
+      "ids": [
+        "Q33",
+        "Q34"
+      ],
+      "pdf_sha": "d84cc7e2839128546c77e9e8c19cbded0524f7362ced375c86007f69f0e2aebc",
+      "png_sha": "37a905b1a99dd4d30eb713594de27b6ce8c63d98a5a6ec6f28e8c3af2a2994cc"
+    },
+    {
+      "figure": "Q16_finite_categorical_legendre_dual",
+      "ids": [
+        "Q16",
+        "Q34"
+      ],
+      "pdf_sha": "8818cf6e5a342813f7129cda275db917bc8fc422575c16203e215e3a7661e13e",
+      "png_sha": "e2c99246eb6f01f206c60301be38732fdcb61213ea5d868c165b649d90a07dcc"
+    }
+  ],
+  "scope": "Actual finite scaling with analytic null, independent test, separate clocks; no thermodynamic critical point",
+  "sources": {
+    "ACTION99.json": "6fdc354183c3a0d4d78ed697d3be23aa5d8600d1acf6707b7bba9cde5ece5371",
+    "ACTION99.npz": "df06619a54bb5b0968995a97c4a68d36e70de75994bf535d1f1ed25f76955517",
+    "FITS99.json": "38ed89ea14f35c1d72002dafd6b099b2b2f3795ce5e7dd245c24e92f3febb398",
+    "INDEPENDENT99.json": "e471e14e41b944b6db78c2d021fb47482a9fc96a5f6b7722ba9597322deb69a3",
+    "ORIGINAL_SOURCE99.json": "d969ee8640811342f6f2e0d0e2288921ecad3b2717c92b510e7bf68dc65465ec",
+    "SCALE99.json": "8096b3b0145712f02cc726309d62961636311ce639593e5c7e77a741d0050619",
+    "SCALE99.npz": "d36890dc9f2864784381b2181adff6d53ceca2fac49cc007f92fad0eff152ab0",
+    "SUMMARY99.json": "d861a7ecb26f54f1efa809681df1a090722a4dcba1d844677b0168bca689aa81"
+  }
+}

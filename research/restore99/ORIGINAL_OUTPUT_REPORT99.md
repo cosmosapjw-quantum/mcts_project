@@ -1,0 +1,13 @@
+# RESTORE99 original output crosswalk
+
+- Q14: Partial: actual finite effective size slopes, sampled score controls and analytic noncritical peak/fourth-moment null; physical critical point and independent exponents not identified. (Q14_finite_effective_size_slopes_partial; Q16_analytic_entropy_competition_null)
+- Q15: Partial: registered transformed-coordinate diagnostic and heldout model comparison, not critical 3D data collapse or universality. (Q15_Q30_heldout_collapse_diagnostic_partial; Q16_analytic_entropy_competition_null; Q18_Q34_heldout_model_errors)
+- Q16: Scoped finite scaling functions of actual categorical A/X, matched-peak tail residual, frozen Fisher, one-draw centered moments and explicit scalar source Legendre dual Gamma; separate independent sizes/budgets. Physical 1PI, thermal and equilibrium scaling not identified. (Q16_actual_finite_scaling_functions; Q16_peak_tail_and_categorical_moments; Q16_analytic_entropy_competition_null; Q34_tail_structure_across_scales; Q16_finite_categorical_legendre_dual)
+- Q17: Four actual finite score-control frames across five sizes and two density arms, fixed B64 and root uncertainty, not physical critical animation. (Q17_finite_control_snapshot)
+- Q18: Comprehensive scoped critical report: 96 fits, 48 L21 comparisons, negative/positive critical-type results and analytic noncritical null; no physical exponent or universality admission. (Q18_Q34_heldout_model_errors)
+- Q30: Partial: actual heldout model/collapse diagnostic against noncritical alternatives, no physical critical collapse. (Q15_Q30_heldout_collapse_diagnostic_partial; Q16_analytic_entropy_competition_null; Q18_Q34_heldout_model_errors)
+- Q31: Partial: independent B16 vs B64 and five sizes, actual categorical entropy, path action comparator, score gap, geometric spread and conditional Fisher; no quantum gap, physical correlation length or universal exponent. (Q14_finite_effective_size_slopes_partial; Q16_actual_finite_scaling_functions; Q31_independent_budget_size_partial)
+- Q33: Actual R92 signed radial covariance across five sizes, fresh dense beta16, h16/32/64 frames from same B64 paths; independent bin reconstruction and fixed per-panel axes, not equilibrium time or correlation length. (Q33_actual_multisize_covariance_snapshot)
+- Q34: Comprehensive scoped finite statistical report: exact peak-tail identities, actual size/budget and radial covariance, frozen Fisher, one-draw source dual, heldout fits with earlier response evidence retained. No assumed phase transition. (Q16_peak_tail_and_categorical_moments; Q18_Q34_heldout_model_errors; Q34_tail_structure_across_scales; Q33_actual_multisize_covariance_snapshot; Q16_finite_categorical_legendre_dual)
+
+Full scientific certification remains 0/121.

@@ -1,0 +1,2320 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "R69 exact originals; archived mcts_study; not edited",
+  "helpers": [
+    {
+      "excerpt": [
+        "    def extract_critical_phenomena(self) -> Dict[str, Any]:",
+        "        \"\"\"Extract critical phenomena from tree scaling\"\"\"",
+        "        ",
+        "        temperatures = self.extract_temperatures()",
+        "        system_sizes = self.extract_system_sizes()",
+        "        ",
+        "        # Order parameter from tree size evolution",
+        "        if len(self.tree_sizes) > 1:",
+        "            size_gradient = np.gradient(self.tree_sizes.astype(float))",
+        "            order_param_base = np.mean(abs(size_gradient))",
+        "        else:",
+        "            order_param_base = 1.0",
+        "            ",
+        "        # Susceptibility from visit count variance",
+        "        visit_variance = np.var(self.all_visit_counts)",
+        "        susceptibilities = visit_variance / (temperatures + 0.1)",
+        "        ",
+        "        # Order parameters for each system size and temperature",
+        "        order_parameters = np.zeros((len(system_sizes), len(temperatures)))",
+        "        for i, size in enumerate(system_sizes):",
+        "            for j, temp in enumerate(temperatures):",
+        "                order_parameters[i, j] = order_param_base * size / (size + temp * 10)",
+        "        ",
+        "        return {",
+        "            'temperatures': temperatures,",
+        "            'system_sizes': system_sizes,",
+        "            'order_parameters': order_parameters,",
+        "            'susceptibilities': susceptibilities,",
+        "            'visit_variance': visit_variance,"
+      ],
+      "member": "quantum/research/authentic_mcts_physics_extractor.py",
+      "sha256": "33b1264016c2ed8d5ec2ff9448fe2236ecbb9ad30542d1c0f2f3ee28624ba6ee",
+      "span": [
+        982,
+        1010
+      ]
+    },
+    {
+      "excerpt": [
+        "def _extract_critical_phenomena_data(extractor: AuthenticMCTSPhysicsExtractor, method_name: str, base_data: Dict) -> Dict:",
+        "    \"\"\"Extract critical phenomena data\"\"\"",
+        "    ",
+        "    critical_data = extractor.extract_critical_phenomena()",
+        "    ",
+        "    distances = np.linspace(1, 50, 25)",
+        "    correlations, temps = extractor.extract_correlation_functions(distances)",
+        "    ",
+        "    # Ensure minimum system sizes for 2D arrays",
+        "    system_sizes = critical_data['system_sizes']",
+        "    n_systems = len(system_sizes)",
+        "    n_temps = len(temps)",
+        "    n_distances = len(distances)",
+        "    ",
+        "    result = {",
+        "        **critical_data,",
+        "        'distances': distances,",
+        "        'correlation_functions': correlations,",
+        "        'spatial_correlations': correlations,  # Add missing key",
+        "        'field_susceptibility': critical_data['susceptibilities']  # Add missing key",
+        "    }",
+        "    ",
+        "    if method_name == 'plot_correlation_functions':",
+        "        # Convert numpy arrays to dict structure expected by plotting code",
+        "        system_sizes = critical_data['system_sizes']",
+        "        spatial_dict = {}",
+        "        temporal_dict = {}",
+        "        ",
+        "        for i, size in enumerate(system_sizes):",
+        "            # Create correlation data structure for each system size",
+        "            corr_data_list = []",
+        "            for j in range(len(distances)):",
+        "                corr_data = {}",
+        "                for k, d in enumerate(distances[:10]):  # Limit distances",
+        "                    corr_data[int(d)] = {",
+        "                        'mean': correlations[k, 0] if k < len(correlations) else 0.1,",
+        "                        'std': 0.01",
+        "                    }",
+        "                corr_data_list.append(corr_data)",
+        "            spatial_dict[int(size)] = corr_data_list",
+        "            ",
+        "            # Similar for temporal",
+        "            temporal_data_list = []",
+        "            temp_corr = {int(t): abs(np.cos(t/10.0)) for t in range(1, 11)}",
+        "            temporal_data_list.append(temp_corr)",
+        "            temporal_dict[int(size)] = temporal_data_list",
+        "            ",
+        "        result.update({",
+        "            'spatial_correlations': spatial_dict,",
+        "            'temporal_correlations': temporal_dict,",
+        "            'correlation_matrix': correlations",
+        "        })",
+        "        ",
+        "    elif method_name == 'plot_data_collapse':",
+        "        # Create proper scaling data structure from MCTS data",
+        "        scaling_data_dict = {}",
+        "        for i, size in enumerate(system_sizes):",
+        "            # Extract authentic scaling parameters from MCTS tree data",
+        "            kappa_base = np.linspace(0.1, 2.0, 20)",
+        "            ",
+        "            # Use actual visit count distributions for observable",
+        "            if len(base_data['visit_counts']) > i:",
+        "                visit_std = np.std(base_data['visit_counts']) if len(base_data['visit_counts']) > 1 else 1.0",
+        "                observable = np.exp(-kappa_base / size) * (1 + visit_std * 0.1)",
+        "            else:",
+        "                observable = np.exp(-kappa_base / size)",
+        "            ",
+        "            # Use tree size for scaling variable",
+        "            tree_scaling = size ** 0.5 if size > 0 else 1.0",
+        "            scaling_variable = kappa_base * tree_scaling",
+        "            ",
+        "            # Collapsed observable from entropy scaling",
+        "            if len(base_data['von_neumann_entropy']) > 0:",
+        "                entropy_factor = np.mean(base_data['von_neumann_entropy'])",
+        "                collapsed_observable = np.exp(-kappa_base) * (1 + entropy_factor * 0.05)",
+        "            else:",
+        "                collapsed_observable = np.exp(-kappa_base)",
+        "                ",
+        "            scaling_data_dict[int(size)] = {",
+        "                'kappa_values': kappa_base,",
+        "                'observable': observable,",
+        "                'scaling_variable': scaling_variable,",
+        "                'collapsed_observable': collapsed_observable",
+        "            }",
+        "            ",
+        "        result.update({",
+        "            'scaling_functions': critical_data['order_parameters'],",
+        "            'collapsed_data': correlations,",
+        "            'scaling_data': scaling_data_dict",
+        "        })",
+        "        ",
+        "    elif method_name == 'plot_finite_size_scaling':",
+        "        # Create proper scaling data arrays",
+        "        n_systems = len(system_sizes)",
+        "        result.update({",
+        "            'system_sizes': system_sizes,",
+        "            'effective_action_scaling': np.log(system_sizes + 1),  # Array of values",
+        "            'entropy_scaling': np.log(system_sizes + 1) * 0.5,",
+        "            'gap_scaling': 1.0 / (system_sizes + 1),",
+        "            'correlation_length_scaling': np.sqrt(system_sizes),",
+        "            'susceptibility_scaling': system_sizes * 0.1,",
+        "            'scaling_exponents': {",
+        "                'effective_action_scaling': {'exponent': 1.0, 'prefactor': 1.0},",
+        "                'entropy_scaling': {'exponent': 0.5, 'prefactor': 0.5},",
+        "                'gap_scaling': {'exponent': -1.0, 'prefactor': 1.0},",
+        "                'correlation_length_scaling': {'exponent': 0.5, 'prefactor': 1.0},",
+        "                'susceptibility_scaling': {'exponent': 1.0, 'prefactor': 0.1}",
+        "            }",
+        "        })",
+        "        ",
+        "    elif method_name == 'plot_susceptibility_analysis':",
+        "        # Create proper susceptibility data structure",
+        "        field_susceptibility_dict = {}",
+        "        temperature_susceptibility_dict = {}",
+        "        ",
+        "        for i, size in enumerate(system_sizes):",
+        "            # Field susceptibility data",
+        "            fields = np.linspace(0, 2.0, 20)",
+        "            susceptibility = 1.0 / (fields + 0.1) * size * 0.1",
+        "            response = fields * susceptibility  # Add missing response field",
+        "            field_susceptibility_dict[int(size)] = {",
+        "                'fields': fields,",
+        "                'susceptibility': susceptibility,",
+        "                'response': response",
+        "            }",
+        "            ",
+        "            # Temperature susceptibility data",
+        "            temp_response = temps * critical_data['susceptibilities']  # Add missing response field",
+        "            temperature_susceptibility_dict[int(size)] = {",
+        "                'temperatures': temps,",
+        "                'susceptibility': critical_data['susceptibilities'],",
+        "                'heat_capacity': np.ones_like(temps) * size * 0.01,",
+        "                'response': temp_response",
+        "            }",
+        "        "
+      ],
+      "member": "quantum/research/authentic_mcts_physics_extractor.py",
+      "sha256": "33b1264016c2ed8d5ec2ff9448fe2236ecbb9ad30542d1c0f2f3ee28624ba6ee",
+      "span": [
+        1771,
+        1905
+      ]
+    }
+  ],
+  "items": [
+    {
+      "acceptance": "Infer independent finite-size exponents only with resolved transition, conjugate field and finite-size corrections.",
+      "archive": "quantum.zip",
+      "id": "Q14",
+      "member": "quantum/research/visualization/plot_critical_phenomena_scaling.py",
+      "member_sha": "2f70a3c24a6d1453936d93903c24477aaf60d7874d2b336198114b615da9e208",
+      "source_excerpt": [
+        "    def plot_critical_exponents(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot critical exponent analysis with temporal evolution\"\"\"",
+        "        ",
+        "        # Extract authentic critical phenomena data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_critical_phenomena_scaling')",
+        "        ",
+        "        if show_temporal:",
+        "            fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "            fig.suptitle('Critical Exponents Analysis with Temporal Evolution', fontsize=16, fontweight='bold')",
+        "        else:",
+        "            fig, axes = plt.subplots(2, 2, figsize=(15, 10))",
+        "            fig.suptitle('Critical Exponents Analysis', fontsize=16, fontweight='bold')",
+        "        ",
+        "        axes_flat = axes.flatten()",
+        "        ",
+        "        system_sizes = data['system_sizes']",
+        "        temperatures = data['temperatures']",
+        "        order_parameters = data['order_parameters']",
+        "        susceptibilities = data['susceptibilities']",
+        "        critical_temperature = data['critical_temperature']",
+        "        ",
+        "        # 1. Order parameter scaling M ~ |T - T_c|^\u03b2",
+        "        ax1 = axes_flat[0]",
+        "        ",
+        "        reduced_temps = np.abs(temperatures - critical_temperature)",
+        "        # Ensure we have enough valid temperature points",
+        "        if np.all(reduced_temps <= 1e-6):",
+        "            # Create reasonable temperature range if all points are at critical temperature",
+        "            reduced_temps = np.logspace(-3, 0, len(temperatures))",
+        "            logger.warning(\"All temperatures at critical point, using synthetic range for visualization\")",
+        "        ",
+        "        nonzero_mask = reduced_temps > 1e-6",
+        "        reduced_temps_nz = reduced_temps[nonzero_mask]",
+        "        ",
+        "        if len(reduced_temps_nz) == 0:",
+        "            reduced_temps_nz = np.logspace(-3, 0, 10)",
+        "            logger.warning(\"No valid temperature points, using default range\")",
+        "        ",
+        "        for i, size in enumerate(system_sizes):",
+        "            # Ensure order_parameters has correct dimensions",
+        "            if order_parameters.ndim == 1:",
+        "                order_params = order_parameters",
+        "            else:",
+        "                order_params = order_parameters[i, :] if i < order_parameters.shape[0] else order_parameters[0, :]",
+        "            ",
+        "            # Handle array length mismatch",
+        "            if len(order_params) != len(reduced_temps):",
+        "                order_params = np.interp(reduced_temps_nz, ",
+        "                                       np.linspace(reduced_temps_nz[0], reduced_temps_nz[-1], len(order_params)), ",
+        "                                       order_params)",
+        "            else:",
+        "                order_params = order_params[nonzero_mask]",
+        "            ",
+        "            # Ensure positive values for log plotting",
+        "            order_params = np.maximum(order_params, 1e-8)",
+        "            ",
+        "            if len(order_params) > 0 and len(reduced_temps_nz) > 0:",
+        "                ax1.loglog(reduced_temps_nz, order_params, ",
+        "                          'o-', label=f'L={size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        # MCTS-derived theoretical scaling line",
+        "        if len(reduced_temps_nz) > 0 and 'order_parameters' in locals() and order_parameters.size > 0:",
+        "            # Extract beta exponent from actual MCTS order parameter behavior",
+        "            if len(reduced_temps_nz) > 2 and order_parameters.size > 2:",
+        "                try:",
+        "                    # Fit power law to actual data",
+        "                    log_temps = np.log(reduced_temps_nz + 1e-8)",
+        "                    log_order = np.log(np.maximum(order_parameters.flatten()[:len(reduced_temps_nz)], 1e-8))",
+        "                    if len(log_temps) == len(log_order) and len(log_temps) > 2:",
+        "                        beta_fit, _ = np.polyfit(log_temps, log_order, 1)",
+        "                        beta_exponent = abs(beta_fit)  # Extract magnitude",
+        "                        beta_exponent = min(beta_exponent, 1.0)  # Physical constraint",
+        "                    else:",
+        "                        beta_exponent = 0.2  # Conservative estimate from MCTS data range",
+        "                except:",
+        "                    beta_exponent = 0.2  # Fallback based on typical MCTS exploration patterns",
+        "            else:",
+        "                beta_exponent = 0.2",
+        "                ",
+        "            theoretical_line = reduced_temps_nz**beta_exponent",
+        "            max_order = np.max(order_parameters[np.isfinite(order_parameters)]) if np.any(np.isfinite(order_parameters)) else 1.0",
+        "            max_theory = np.max(theoretical_line[np.isfinite(theoretical_line)]) if np.any(np.isfinite(theoretical_line)) else 1.0",
+        "            if max_theory > 0:",
+        "                theoretical_line = theoretical_line * max_order / max_theory",
+        "                ax1.loglog(reduced_temps_nz, theoretical_line, 'k--', linewidth=2,",
+        "                          label=f'MCTS-derived: \u03b2 = {beta_exponent:.3f}')",
+        "        ",
+        "        ax1.set_xlabel('|T - T_c|')",
+        "        ax1.set_ylabel('Order Parameter M')",
+        "        ax1.set_title('Order Parameter Critical Scaling')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Susceptibility scaling \u03c7 ~ |T - T_c|^(-\u03b3)",
+        "        ax2 = axes_flat[1]",
+        "        ",
+        "        max_susc = 0  # Track maximum susceptibility for normalization",
+        "        for i, size in enumerate(system_sizes):",
+        "            # Use authentic susceptibility data instead of artificial scaling",
+        "            if susceptibilities.ndim == 1:",
+        "                base_susc = susceptibilities",
+        "            else:",
+        "                base_susc = susceptibilities[i, :] if i < susceptibilities.shape[0] else susceptibilities[0, :]",
+        "            ",
+        "            # Handle array length mismatch",
+        "            if len(base_susc) != len(reduced_temps_nz):",
+        "                base_susc = np.interp(reduced_temps_nz, ",
+        "                                    np.linspace(reduced_temps_nz[0] if len(reduced_temps_nz) > 0 else 0.001, ",
+        "                                               reduced_temps_nz[-1] if len(reduced_temps_nz) > 0 else 1.0, ",
+        "                                               len(base_susc)), ",
+        "                                    base_susc)",
+        "            ",
+        "            # Apply physical scaling with size dependence",
+        "            susc_values = base_susc * (1 + 0.1 * i) / (reduced_temps_nz + 0.01)**0.5",
+        "            susc_values = np.maximum(susc_values, 1e-8)  # Ensure positive for log plot",
+        "            ",
+        "            if len(susc_values) > 0 and np.any(np.isfinite(susc_values)):",
+        "                max_susc = max(max_susc, np.max(susc_values[np.isfinite(susc_values)]))",
+        "                ax2.loglog(reduced_temps_nz, susc_values, ",
+        "                          's-', label=f'L={size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        # MCTS-derived susceptibility scaling",
+        "        if len(reduced_temps_nz) > 0 and max_susc > 0:",
+        "            # Extract gamma exponent from MCTS susceptibility behavior",
+        "            if len(reduced_temps_nz) > 2 and len(susc_values) > 2:",
+        "                try:",
+        "                    # Fit susceptibility divergence to extract gamma",
+        "                    log_temps = np.log(reduced_temps_nz + 1e-8)",
+        "                    log_susc = np.log(np.maximum(susc_values, 1e-8))",
+        "                    if len(log_temps) == len(log_susc) and len(log_temps) > 2:",
+        "                        gamma_fit, _ = np.polyfit(log_temps, log_susc, 1)",
+        "                        gamma_exponent = abs(gamma_fit)  # Should be negative slope -> positive gamma",
+        "                        gamma_exponent = min(gamma_exponent, 3.0)  # Physical constraint",
+        "                    else:",
+        "                        gamma_exponent = 1.2  # Conservative estimate from MCTS variation",
+        "                except:",
+        "                    gamma_exponent = 1.2  # Fallback",
+        "            else:",
+        "                gamma_exponent = 1.2",
+        "                ",
+        "            theoretical_susc = reduced_temps_nz**(-gamma_exponent)",
+        "            finite_mask = np.isfinite(theoretical_susc)",
+        "            if np.any(finite_mask) and len(theoretical_susc[finite_mask]) > 0:",
+        "                max_theoretical = np.max(theoretical_susc[finite_mask])",
+        "                if max_theoretical > 0:",
+        "                    theoretical_susc = theoretical_susc * max_susc / max_theoretical",
+        "                    ax2.loglog(reduced_temps_nz, theoretical_susc, 'k--', linewidth=2,",
+        "                              label=f'MCTS-derived: \u03b3 = {gamma_exponent:.3f}')",
+        "        ",
+        "        ax2.set_xlabel('|T - T_c|')",
+        "        ax2.set_ylabel('Susceptibility \u03c7')",
+        "        ax2.set_title('Susceptibility Critical Scaling')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Correlation length scaling \u03be ~ |T - T_c|^(-\u03bd)",
+        "        ax3 = axes_flat[2]",
+        "        ",
+        "        max_xi = 0  # Track maximum xi for normalization",
+        "        nu_exponent = 1.0  # 2D Ising",
+        "        ",
+        "        # Extract correlation lengths from MCTS data if available",
+        "        base_correlation_length = np.sqrt(system_sizes) if len(system_sizes) > 0 else np.array([1.0])",
+        "        ",
+        "        for i, size in enumerate(system_sizes):",
+        "            # Use size-dependent correlation length with temperature scaling",
+        "            xi_base = base_correlation_length[i] if i < len(base_correlation_length) else base_correlation_length[0]",
+        "            xi_values = xi_base / (reduced_temps_nz + 0.01)**0.5  # Moderate temperature dependence",
+        "            xi_values = xi_values * (1 + 0.05 * i)  # Size dependence",
+        "            xi_values = np.maximum(xi_values, 1e-8)  # Ensure positive for log plot",
+        "            ",
+        "            if len(xi_values) > 0 and np.any(np.isfinite(xi_values)):",
+        "                max_xi = max(max_xi, np.max(xi_values[np.isfinite(xi_values)]))",
+        "                ax3.loglog(reduced_temps_nz, xi_values, ",
+        "                          '^-', label=f'L={size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        # Theoretical scaling",
+        "        if len(reduced_temps_nz) > 0 and max_xi > 0:",
+        "            theoretical_xi = reduced_temps_nz**(-nu_exponent)",
+        "            finite_mask = np.isfinite(theoretical_xi)",
+        "            if np.any(finite_mask) and len(theoretical_xi[finite_mask]) > 0:",
+        "                max_theoretical = np.max(theoretical_xi[finite_mask])",
+        "                if max_theoretical > 0:",
+        "                    theoretical_xi = theoretical_xi * max_xi / max_theoretical",
+        "                    ax3.loglog(reduced_temps_nz, theoretical_xi, 'k--', linewidth=2,",
+        "                              label=f'Theory: \u03bd = {nu_exponent}')",
+        "        ",
+        "        ax3.set_xlabel('|T - T_c|')",
+        "        ax3.set_ylabel('Correlation Length \u03be')",
+        "        ax3.set_title('Correlation Length Critical Scaling')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Critical exponent summary",
+        "        ax4 = axes_flat[3]",
+        "        ",
+        "        # Extract exponents by fitting with improved error handling",
+        "        extracted_exponents = {}",
+        "        ",
+        "        # Fit order parameter scaling with better data validation",
+        "        try:",
+        "            valid_data = order_parameters[0, nonzero_mask]",
+        "            valid_data = valid_data[valid_data > 1e-6]",
+        "            if len(valid_data) > 3 and len(reduced_temps_nz) >= len(valid_data):",
+        "                log_temp = np.log(reduced_temps_nz[:len(valid_data)])",
+        "                log_order = np.log(valid_data)",
+        "                # Ensure arrays have same length",
+        "                min_len = min(len(log_temp), len(log_order))",
+        "                beta_fit, _ = np.polyfit(log_temp[:min_len], log_order[:min_len], 1)",
+        "                extracted_exponents['\u03b2'] = abs(beta_fit)",
+        "            else:",
+        "                extracted_exponents['\u03b2'] = 0.736  # Use extracted value from data",
+        "        except Exception as e:",
+        "            logger.warning(f\"Beta fitting failed: {e}\")",
+        "            extracted_exponents['\u03b2'] = 0.736",
+        "        ",
+        "        # Fit susceptibility scaling with better data handling",
+        "        try:",
+        "            susc_fit = susc_values[nonzero_mask][:len(reduced_temps_nz)]",
+        "            if len(susc_fit) > 3 and len(reduced_temps_nz) > 3:",
+        "                min_len = min(len(susc_fit), len(reduced_temps_nz))",
+        "                log_temp = np.log(reduced_temps_nz[:min_len])",
+        "                log_susc = np.log(np.maximum(susc_fit[:min_len], 1e-10))  # Avoid log(0)",
+        "                gamma_fit, _ = np.polyfit(log_temp, log_susc, 1)",
+        "                extracted_exponents['\u03b3'] = abs(gamma_fit)",
+        "            else:",
+        "                extracted_exponents['\u03b3'] = 2.544  # Use extracted value",
+        "        except Exception as e:",
+        "            logger.warning(f\"Gamma fitting failed: {e}\")",
+        "            extracted_exponents['\u03b3'] = 2.544",
+        "        ",
+        "        # Fit correlation length scaling with improved validation",
+        "        try:",
+        "            xi_fit = xi_values[nonzero_mask][:len(reduced_temps_nz)]",
+        "            if len(xi_fit) > 3 and len(reduced_temps_nz) > 3:",
+        "                min_len = min(len(xi_fit), len(reduced_temps_nz))",
+        "                log_temp = np.log(reduced_temps_nz[:min_len])",
+        "                log_xi = np.log(np.maximum(xi_fit[:min_len], 1e-10))  # Avoid log(0)",
+        "                nu_fit, _ = np.polyfit(log_temp, log_xi, 1)",
+        "                extracted_exponents['\u03bd'] = abs(nu_fit)",
+        "            else:",
+        "                extracted_exponents['\u03bd'] = 0.982  # Use extracted value",
+        "        except Exception as e:",
+        "            logger.warning(f\"Nu fitting failed: {e}\")",
+        "            extracted_exponents['\u03bd'] = 0.982",
+        "        ",
+        "        # Add hyperscaling relation",
+        "        d = 2  # Spatial dimension",
+        "        extracted_exponents['\u03b1'] = 2 - d * extracted_exponents['\u03bd']  # \u03b1 = 2 - d\u03bd",
+        "        extracted_exponents['\u03b4'] = (extracted_exponents['\u03b3'] + extracted_exponents['\u03b2']) / extracted_exponents['\u03b2']  # \u03b4 = (\u03b3 + \u03b2)/\u03b2",
+        "        ",
+        "        # Plot exponents",
+        "        exponent_names = list(extracted_exponents.keys())",
+        "        exponent_values = list(extracted_exponents.values())",
+        "        # Theoretical values matching extracted keys only",
+        "        theoretical_map = {'\u03b2': 0.125, '\u03b3': 1.75, '\u03bd': 1.0, '\u03b1': 0.0, '\u03b4': 15.0}",
+        "        theoretical_values = [theoretical_map.get(name, 1.0) for name in exponent_names]",
+        "        ",
+        "        x_pos = np.arange(len(exponent_names))",
+        "        width = 0.35",
+        "        ",
+        "        # Improved bar plot with better spacing",
+        "        bars1 = ax4.bar(x_pos - width/2, exponent_values, width, ",
+        "                       label='Extracted', alpha=0.8, color='steelblue', edgecolor='black', linewidth=0.5)",
+        "        bars2 = ax4.bar(x_pos + width/2, theoretical_values, width,",
+        "                       label='2D Ising Theory', alpha=0.8, color='lightcoral', edgecolor='black', linewidth=0.5)",
+        "        ",
+        "        ax4.set_xlabel('Critical Exponents', fontsize=11)",
+        "        ax4.set_ylabel('Value', fontsize=11)",
+        "        ax4.set_title('Critical Exponent Comparison', fontsize=12, fontweight='bold')",
+        "        ax4.set_xticks(x_pos)",
+        "        ax4.set_xticklabels(exponent_names, fontsize=10)",
+        "        ax4.legend(loc='upper left', fontsize=10, framealpha=0.9)",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ax4.set_ylim(0, max(max(exponent_values), max(theoretical_values)) * 1.2)",
+        "        ",
+        "        # Add value labels with better positioning",
+        "        for bars, values in [(bars1, exponent_values), (bars2, theoretical_values)]:",
+        "            for bar, value in zip(bars, values):",
+        "                height = bar.get_height()",
+        "                ax4.text(bar.get_x() + bar.get_width()/2., height + 0.02*max(max(exponent_values), max(theoretical_values)),",
+        "                        f'{value:.3f}', ha='center', va='bottom', fontsize=8, fontweight='bold')",
+        "        ",
+        "        if show_temporal:",
+        "            # 5. Finite-size scaling collapse",
+        "            ax5 = axes_flat[4]",
+        "            ",
+        "            # Scale variables for data collapse",
+        "            nu = extracted_exponents['\u03bd']",
+        "            beta_exp = extracted_exponents['\u03b2']",
+        "            ",
+        "            for i, size in enumerate(system_sizes):",
+        "                # Scaling variable: (T - T_c) * L^(1/\u03bd)",
+        "                scaling_var = (temperatures - critical_temperature) * (size**(1/nu))",
+        "                ",
+        "                # Scaled order parameter: M * L^(\u03b2/\u03bd)",
+        "                scaled_order = order_parameters[i, :] * (size**(beta_exp/nu))",
+        "                ",
+        "                ax5.plot(scaling_var, scaled_order, 'o', alpha=0.7, ",
+        "                        label=f'L={size}', markersize=4)",
+        "            ",
+        "            ax5.set_xlabel('(T - T_c) L^{1/\u03bd}')",
+        "            ax5.set_ylabel('M L^{\u03b2/\u03bd}')",
+        "            ax5.set_title('Finite-Size Scaling Collapse')",
+        "            ax5.legend()",
+        "            ax5.grid(True, alpha=0.3)",
+        "            ",
+        "            # 6. Dynamic scaling",
+        "            ax6 = axes_flat[5]",
+        "            ",
+        "            # Model relaxation time near criticality",
+        "            relaxation_times = []",
+        "            z_exponent = 2.125  # Dynamic critical exponent for 2D Ising",
+        "            ",
+        "            for temp in temperatures:",
+        "                reduced_temp = abs(temp - critical_temperature)",
+        "                if reduced_temp > 1e-6:",
+        "                    tau = (reduced_temp + 0.01)**(-z_exponent)",
+        "                else:",
+        "                    tau = 1000  # Very long at criticality",
+        "                relaxation_times.append(tau)",
+        "            ",
+        "            ax6.loglog(reduced_temps_nz, np.array(relaxation_times)[nonzero_mask], ",
+        "                      'o-', linewidth=2, markersize=6, label='Relaxation Time')",
+        "            ",
+        "            # Theoretical scaling",
+        "            if len(reduced_temps_nz) > 0 and len(relaxation_times) > 0:",
+        "                theoretical_tau = reduced_temps_nz**(-z_exponent)",
+        "                relaxation_array = np.array(relaxation_times)",
+        "                if np.any(np.isfinite(relaxation_array)) and np.any(np.isfinite(theoretical_tau)):",
+        "                    max_relax = np.max(relaxation_array[np.isfinite(relaxation_array)])",
+        "                    max_theory = np.max(theoretical_tau[np.isfinite(theoretical_tau)])",
+        "                    if max_theory > 0:",
+        "                        theoretical_tau = theoretical_tau * max_relax / max_theory",
+        "                        ax6.loglog(reduced_temps_nz, theoretical_tau, 'k--', linewidth=2,",
+        "                                  label=f'Theory: z = {z_exponent}')",
+        "            ",
+        "            ax6.set_xlabel('|T - T_c|')",
+        "            ax6.set_ylabel('Relaxation Time \u03c4')",
+        "            ax6.set_title('Critical Slowing Down')",
+        "            ax6.legend()",
+        "            ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'critical_exponents.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved critical exponents plot\")",
+        "        ",
+        "        return {",
+        "            'critical_data': data,",
+        "            'extracted_exponents': extracted_exponents,",
+        "            'theoretical_exponents': {",
+        "                '\u03b2': 0.125, '\u03b3': 1.75, '\u03bd': 1.0, '\u03b1': 0.0, '\u03b4': 15.0, 'z': 2.125",
+        "            },",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_critical_exponents",
+      "span": [
+        55,
+        411
+      ]
+    },
+    {
+      "acceptance": "3D collapse of defined physical observable under verified critical ansatz, heldout sizes and noncritical competitors; finite rescaling diagnostic separate.",
+      "archive": "quantum.zip",
+      "id": "Q15",
+      "member": "quantum/research/visualization/plot_critical_phenomena_scaling.py",
+      "member_sha": "2f70a3c24a6d1453936d93903c24477aaf60d7874d2b336198114b615da9e208",
+      "source_excerpt": [
+        "    def plot_data_collapse_3d(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot 3D data collapse visualization\"\"\"",
+        "        ",
+        "        # Extract scaling data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_data_collapse')",
+        "        ",
+        "        fig = plt.figure(figsize=(16, 12))",
+        "        ",
+        "        # 3D plot of scaling collapse",
+        "        ax1 = fig.add_subplot(221, projection='3d')",
+        "        ",
+        "        system_sizes = list(data['scaling_data'].keys())",
+        "        ",
+        "        for i, size in enumerate(system_sizes):",
+        "            size_data = data['scaling_data'][size]",
+        "            kappa_values = size_data['kappa_values']",
+        "            scaling_var = size_data['scaling_variable']",
+        "            collapsed_obs = size_data['collapsed_observable']",
+        "            ",
+        "            # 3D scatter plot",
+        "            size_array = np.full_like(kappa_values, float(size))",
+        "            ax1.scatter(scaling_var, size_array, collapsed_obs, ",
+        "                       label=f'L={size}', alpha=0.7, s=30)",
+        "        ",
+        "        ax1.set_xlabel('Scaling Variable')",
+        "        ax1.set_ylabel('System Size L')",
+        "        ax1.set_zlabel('Scaled Observable')",
+        "        ax1.set_title('3D Data Collapse Visualization')",
+        "        ax1.legend()",
+        "        ",
+        "        # 2D projection: Quality of collapse",
+        "        ax2 = fig.add_subplot(222)",
+        "        ",
+        "        # Compute collapse quality as function of scaling exponents",
+        "        exponent_range = np.linspace(0.1, 2.0, 20)",
+        "        collapse_quality = []",
+        "        ",
+        "        for exp in exponent_range:",
+        "            # Rescale data with this exponent",
+        "            total_variance = 0",
+        "            ",
+        "            for size in system_sizes:",
+        "                size_data = data['scaling_data'][size]",
+        "                scaled_obs = size_data['observable'] * (float(size)**exp)",
+        "                total_variance += np.var(scaled_obs)",
+        "            ",
+        "            collapse_quality.append(total_variance)",
+        "        ",
+        "        ax2.plot(exponent_range, collapse_quality, 'o-', linewidth=2, markersize=6)",
+        "        ",
+        "        # Find optimal exponent",
+        "        min_idx = np.argmin(collapse_quality)",
+        "        optimal_exp = exponent_range[min_idx]",
+        "        ax2.axvline(optimal_exp, color='red', linestyle='--', linewidth=2,",
+        "                   label=f'Optimal: {optimal_exp:.2f}')",
+        "        ",
+        "        ax2.set_xlabel('Scaling Exponent')",
+        "        ax2.set_ylabel('Collapse Quality (Variance)')",
+        "        ax2.set_title('Exponent Optimization')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Hyperscaling violation analysis",
+        "        ax3 = fig.add_subplot(223)",
+        "        ",
+        "        # Check hyperscaling relations",
+        "        dimensions = [1, 2, 3, 4]  # Different effective dimensions",
+        "        hyperscaling_check = []",
+        "        ",
+        "        for d in dimensions:",
+        "            # Check \u03b1 + 2\u03b2 + \u03b3 = 2 (hyperscaling)",
+        "            alpha = 2 - d * 1.0  # Assuming \u03bd = 1",
+        "            beta = 0.125",
+        "            gamma = 1.75",
+        "            ",
+        "            hyperscaling_sum = alpha + 2*beta + gamma",
+        "            hyperscaling_check.append(abs(hyperscaling_sum - 2))",
+        "        ",
+        "        bars = ax3.bar(dimensions, hyperscaling_check, alpha=0.7, color='lightgreen')",
+        "        ax3.set_xlabel('Effective Dimension d')",
+        "        ax3.set_ylabel('|\u03b1 + 2\u03b2 + \u03b3 - 2|')",
+        "        ax3.set_title('Hyperscaling Relation Check')",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # Add value labels",
+        "        for bar, value in zip(bars, hyperscaling_check):",
+        "            height = bar.get_height()",
+        "            ax3.text(bar.get_x() + bar.get_width()/2., height + 0.01,",
+        "                    f'{value:.2f}', ha='center', va='bottom', fontweight='bold')",
+        "        ",
+        "        # 4. Universality class identification",
+        "        ax4 = fig.add_subplot(224)",
+        "        ",
+        "        # Compare with known universality classes",
+        "        universality_classes = {",
+        "            '2D Ising': {'\u03b2': 0.125, '\u03b3': 1.75, '\u03bd': 1.0, '\u03b1': 0.0},",
+        "            '3D Ising': {'\u03b2': 0.326, '\u03b3': 1.24, '\u03bd': 0.63, '\u03b1': 0.11},",
+        "            '2D XY': {'\u03b2': 0.23, '\u03b3': 1.32, '\u03bd': 1.0, '\u03b1': 0.0},",
+        "            'Mean Field': {'\u03b2': 0.5, '\u03b3': 1.0, '\u03bd': 0.5, '\u03b1': 0.0}",
+        "        }",
+        "        ",
+        "        # Extract critical exponents from authentic MCTS data",
+        "        try:",
+        "            system_sizes = data['system_sizes'] ",
+        "            temperatures = data['temperatures']",
+        "            order_parameters = data['order_parameters']",
+        "            susceptibilities = data['susceptibilities']",
+        "            ",
+        "            # Derive beta from order parameter temperature dependence",
+        "            if len(temperatures) > 2 and order_parameters.size > 2:",
+        "                temp_range = np.max(temperatures) - np.min(temperatures)",
+        "                order_range = np.max(order_parameters) - np.min(order_parameters) if order_parameters.size > 0 else 0.1",
+        "                extracted_beta = min(order_range / temp_range, 0.5) if temp_range > 0 else 0.2",
+        "            else:",
+        "                extracted_beta = 0.2",
+        "                ",
+        "            # Derive gamma from susceptibility scaling",
+        "            if susceptibilities.size > 2:",
+        "                susc_variation = np.std(susceptibilities) / np.mean(susceptibilities) if np.mean(susceptibilities) > 0 else 1.0",
+        "                extracted_gamma = min(susc_variation * 1.5, 2.0)",
+        "            else:",
+        "                extracted_gamma = 1.2",
+        "                ",
+        "            # Derive nu from system size effects",
+        "            if len(system_sizes) > 1:",
+        "                size_scaling = np.log(np.max(system_sizes) / np.min(system_sizes)) if np.min(system_sizes) > 0 else 1.0",
+        "                extracted_nu = min(size_scaling / 2.0, 1.2)",
+        "            else:",
+        "                extracted_nu = 1.0",
+        "                ",
+        "            # Compute alpha from hyperscaling relation",
+        "            extracted_alpha = max(0.0, 2.0 - 2.0 * extracted_nu)",
+        "            ",
+        "            extracted = {",
+        "                '\u03b2': extracted_beta, ",
+        "                '\u03b3': extracted_gamma, ",
+        "                '\u03bd': extracted_nu, ",
+        "                '\u03b1': extracted_alpha",
+        "            }",
+        "            ",
+        "        except Exception as e:",
+        "            logger.warning(f\"Failed to extract authentic exponents: {e}, using conservative estimates\")",
+        "            extracted = {'\u03b2': 0.2, '\u03b3': 1.2, '\u03bd': 1.0, '\u03b1': 0.0}",
+        "        ",
+        "        # Compute distances",
+        "        distances = {}",
+        "        for name, exponents in universality_classes.items():",
+        "            distance = 0",
+        "            for exp_name in ['\u03b2', '\u03b3', '\u03bd']:",
+        "                distance += (extracted[exp_name] - exponents[exp_name])**2",
+        "            distances[name] = np.sqrt(distance)",
+        "        ",
+        "        class_names = list(distances.keys())",
+        "        class_distances = list(distances.values())",
+        "        ",
+        "        bars = ax4.barh(range(len(class_names)), class_distances, alpha=0.7, ",
+        "                       color=['red' if d == min(class_distances) else 'lightblue' ",
+        "                             for d in class_distances])",
+        "        ",
+        "        ax4.set_yticks(range(len(class_names)))",
+        "        ax4.set_yticklabels(class_names)",
+        "        ax4.set_xlabel('Distance in Exponent Space')",
+        "        ax4.set_title('Universality Class Classification')",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # Highlight best match",
+        "        best_match = class_names[np.argmin(class_distances)]",
+        "        ax4.text(0.6*max(class_distances), len(class_names)-0.5,",
+        "                f'Best Match: {best_match}', fontsize=12, fontweight='bold',",
+        "                bbox=dict(boxstyle=\"round,pad=0.3\", facecolor=\"yellow\", alpha=0.8))",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'data_collapse_3d.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved 3D data collapse plot\")",
+        "        ",
+        "        return {",
+        "            'scaling_data': data,",
+        "            'optimal_exponent': optimal_exp if 'optimal_exp' in locals() else 1.0,",
+        "            'universality_class': best_match if 'best_match' in locals() else '2D Ising',",
+        "            'hyperscaling_check': hyperscaling_check,",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_data_collapse_3d",
+      "span": [
+        413,
+        596
+      ]
+    },
+    {
+      "acceptance": "Compare entropy/effective-action scale functions with fixed normalization and independent budget-size design; exponent claim conditional.",
+      "archive": "quantum.zip",
+      "id": "Q16",
+      "member": "quantum/research/visualization/plot_critical_phenomena_scaling.py",
+      "member_sha": "2f70a3c24a6d1453936d93903c24477aaf60d7874d2b336198114b615da9e208",
+      "source_excerpt": [
+        "    def plot_scaling_functions(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot universal scaling functions\"\"\"",
+        "        ",
+        "        # Extract critical phenomena data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_finite_size_scaling')",
+        "        ",
+        "        fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "        fig.suptitle('Universal Scaling Functions', fontsize=16, fontweight='bold')",
+        "        ",
+        "        system_sizes = data['system_sizes']",
+        "        scaling_exponents = data['scaling_exponents']",
+        "        ",
+        "        # 1. Magnetic scaling function",
+        "        ax1 = axes[0, 0]",
+        "        ",
+        "        # Reduced temperature range",
+        "        t_range = np.linspace(-2, 2, 100)",
+        "        ",
+        "        for i, size in enumerate(system_sizes):",
+        "            # Universal scaling function for magnetization",
+        "            # M(t, L) = L^(-\u03b2/\u03bd) * f_M(t * L^(1/\u03bd))",
+        "            ",
+        "            nu = scaling_exponents['effective_action_scaling']['exponent']",
+        "            beta_nu = scaling_exponents['entropy_scaling']['exponent'] / nu",
+        "            ",
+        "            scaling_var = t_range * (size**(1/nu))",
+        "            ",
+        "            # Model universal function",
+        "            f_M = np.tanh(scaling_var / 2) * np.exp(-abs(scaling_var)/10)",
+        "            magnetization = (size**(-beta_nu)) * f_M",
+        "            ",
+        "            ax1.plot(scaling_var, f_M, label=f'L={size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax1.set_xlabel('t L^{1/\u03bd}')",
+        "        ax1.set_ylabel('f_M(x)')",
+        "        ax1.set_title('Magnetization Scaling Function')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Susceptibility scaling function",
+        "        ax2 = axes[0, 1]",
+        "        ",
+        "        for i, size in enumerate(system_sizes):",
+        "            # \u03c7(t, L) = L^(\u03b3/\u03bd) * f_\u03c7(t * L^(1/\u03bd))",
+        "            gamma_nu = 1.75  # For 2D Ising",
+        "            ",
+        "            scaling_var = t_range * (size**(1/nu))",
+        "            ",
+        "            # Model susceptibility function",
+        "            f_chi = 1.0 / (1 + scaling_var**2) + np.exp(-abs(scaling_var))",
+        "            ",
+        "            ax2.plot(scaling_var, f_chi, label=f'L={size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax2.set_xlabel('t L^{1/\u03bd}')",
+        "        ax2.set_ylabel('f_\u03c7(x)')",
+        "        ax2.set_title('Susceptibility Scaling Function')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Heat capacity scaling function",
+        "        ax3 = axes[0, 2]",
+        "        ",
+        "        for i, size in enumerate(system_sizes):",
+        "            # C(t, L) = L^(\u03b1/\u03bd) * f_C(t * L^(1/\u03bd))",
+        "            alpha_nu = 0.0  # For 2D Ising (logarithmic)",
+        "            ",
+        "            scaling_var = t_range * (size**(1/nu))",
+        "            ",
+        "            # Model heat capacity function (logarithmic singularity)",
+        "            f_C = np.log(1 + 1/np.maximum(abs(scaling_var), 0.1))",
+        "            ",
+        "            ax3.plot(scaling_var, f_C, label=f'L={size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax3.set_xlabel('t L^{1/\u03bd}')",
+        "        ax3.set_ylabel('f_C(x)')",
+        "        ax3.set_title('Heat Capacity Scaling Function')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Correlation function scaling",
+        "        ax4 = axes[1, 0]",
+        "        ",
+        "        # Two-point correlation function",
+        "        r_range = np.logspace(0, 2, 50)",
+        "        ",
+        "        for temp_factor in [0.5, 1.0, 2.0]:  # Different reduced temperatures",
+        "            xi = 10.0 / temp_factor  # Correlation length",
+        "            ",
+        "            # G(r) ~ r^(-\u03b7) * exp(-r/\u03be) for r >> a",
+        "            eta = 0.25  # 2D Ising",
+        "            correlation = (r_range**(-eta)) * np.exp(-r_range/xi)",
+        "            ",
+        "            ax4.loglog(r_range, correlation, label=f't={temp_factor}', ",
+        "                      linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax4.set_xlabel('Distance r')",
+        "        ax4.set_ylabel('G(r)')",
+        "        ax4.set_title('Correlation Function Scaling')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # 5. Binder cumulant",
+        "        ax5 = axes[1, 1]",
+        "        ",
+        "        # Binder cumulant: U_L = 1 - <M^4>/(3<M^2>^2)",
+        "        for i, size in enumerate(system_sizes):",
+        "            # Temperature range around critical point",
+        "            temp_range = np.linspace(0.8, 1.2, 50)  # Around T_c = 1",
+        "            ",
+        "            binder_values = []",
+        "            for temp in temp_range:",
+        "                # Model Binder cumulant crossing",
+        "                reduced_temp = (temp - 1.0) * (size**(1/nu))",
+        "                U = 0.61 + 0.1 * np.tanh(reduced_temp)  # Universal crossing point \u2248 0.61",
+        "                binder_values.append(U)",
+        "            ",
+        "            ax5.plot(temp_range, binder_values, label=f'L={size}', ",
+        "                    linewidth=2, alpha=0.8)",
+        "        ",
+        "        # Mark universal crossing",
+        "        ax5.axhline(y=0.61, color='red', linestyle='--', linewidth=2,",
+        "                   label='Universal Value')",
+        "        ax5.axvline(x=1.0, color='black', linestyle=':', alpha=0.5, label='T_c')",
+        "        ",
+        "        ax5.set_xlabel('Temperature T')",
+        "        ax5.set_ylabel('Binder Cumulant U_L')",
+        "        ax5.set_title('Binder Cumulant Universal Crossing')",
+        "        ax5.legend()",
+        "        ax5.grid(True, alpha=0.3)",
+        "        ",
+        "        # 6. Scaling function collapse quality",
+        "        ax6 = axes[1, 2]",
+        "        ",
+        "        # Analyze quality of different scaling ans\u00e4tze",
+        "        scaling_forms = ['Power Law', 'Exponential', 'Gaussian', 'Lorentzian']",
+        "        collapse_qualities = []",
+        "        ",
+        "        for form in scaling_forms:",
+        "            # Generate mock collapse quality based on form",
+        "            if form == 'Power Law':",
+        "                quality = 0.05  # Best collapse",
+        "            elif form == 'Exponential':",
+        "                quality = 0.12",
+        "            elif form == 'Gaussian':",
+        "                quality = 0.08",
+        "            else:  # Lorentzian",
+        "                quality = 0.15",
+        "            ",
+        "            collapse_qualities.append(quality)",
+        "        ",
+        "        bars = ax6.bar(scaling_forms, collapse_qualities, alpha=0.7,",
+        "                      color=['green' if q == min(collapse_qualities) else 'lightblue' ",
+        "                            for q in collapse_qualities])",
+        "        ",
+        "        ax6.set_xlabel('Scaling Form')",
+        "        ax6.set_ylabel('Collapse Quality (RMS Error)')",
+        "        ax6.set_title('Scaling Function Form Comparison')",
+        "        ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        # Add value labels",
+        "        for bar, quality in zip(bars, collapse_qualities):",
+        "            height = bar.get_height()",
+        "            ax6.text(bar.get_x() + bar.get_width()/2., height + 0.005,",
+        "                    f'{quality:.3f}', ha='center', va='bottom', fontweight='bold')",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'scaling_functions.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved scaling functions plot\")",
+        "        ",
+        "        return {",
+        "            'scaling_functions': {",
+        "                'magnetization': 'f_M(x) = tanh(x/2) * exp(-|x|/10)',",
+        "                'susceptibility': 'f_\u03c7(x) = 1/(1+x\u00b2) + exp(-|x|)',",
+        "                'heat_capacity': 'f_C(x) = log(1 + 1/|x|)',",
+        "                'correlation': 'G(r) ~ r^(-\u03b7) * exp(-r/\u03be)'",
+        "            },",
+        "            'universal_constants': {",
+        "                'binder_crossing': 0.61,",
+        "                'critical_exponents': scaling_exponents",
+        "            },",
+        "            'best_scaling_form': scaling_forms[np.argmin(collapse_qualities)],",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_scaling_functions",
+      "span": [
+        598,
+        782
+      ]
+    },
+    {
+      "acceptance": "Generate finite-scale animation from actual independent data; critical animation requires confirmed scaling limit.",
+      "archive": "quantum.zip",
+      "id": "Q17",
+      "member": "quantum/research/visualization/plot_critical_phenomena_scaling.py",
+      "member_sha": "2f70a3c24a6d1453936d93903c24477aaf60d7874d2b336198114b615da9e208",
+      "source_excerpt": [
+        "    def create_critical_animation(self, quantity: str = 'order_parameter', ",
+        "                                 save_animation: bool = True) -> Any:",
+        "        \"\"\"Create animation showing critical behavior evolution\"\"\"",
+        "        ",
+        "        # Generate temperature sweep data",
+        "        temp_steps = np.linspace(0.5, 1.5, 100)  # Around T_c = 1",
+        "        system_sizes = [10, 20, 50]",
+        "        ",
+        "        fig, ax = plt.subplots(figsize=(10, 8))",
+        "        ax.set_xlim(0.5, 1.5)",
+        "        ax.set_ylim(0, 1.2)",
+        "        ax.set_xlabel('Temperature T')",
+        "        ax.set_ylabel(f'{quantity.replace(\"_\", \" \").title()}')",
+        "        ax.set_title(f'Critical Behavior: {quantity.replace(\"_\", \" \").title()}')",
+        "        ax.grid(True, alpha=0.3)",
+        "        ",
+        "        lines = []",
+        "        for i, size in enumerate(system_sizes):",
+        "            line, = ax.plot([], [], 'o-', linewidth=2, alpha=0.8, label=f'L={size}')",
+        "            lines.append(line)",
+        "        ",
+        "        ax.legend()",
+        "        ",
+        "        # Add critical temperature line",
+        "        ax.axvline(x=1.0, color='red', linestyle='--', alpha=0.7, label='T_c')",
+        "        ",
+        "        def animate(frame):",
+        "            current_temp = temp_steps[frame]",
+        "            ",
+        "            for i, (line, size) in enumerate(zip(lines, system_sizes)):",
+        "                temps_up_to_current = temp_steps[:frame+1]",
+        "                ",
+        "                if quantity == 'order_parameter':",
+        "                    # Order parameter: sharp transition at T_c",
+        "                    values = np.array([np.exp(-(t-0.8)**2 * size/10) if t < 1.0 ",
+        "                                     else np.exp(-(t-1.2)**2 * size/20) ",
+        "                                     for t in temps_up_to_current])",
+        "                elif quantity == 'susceptibility':",
+        "                    # Susceptibility: divergence at T_c",
+        "                    values = np.array([size * 0.1 / abs(t - 1.0 + 0.01) ",
+        "                                     for t in temps_up_to_current])",
+        "                    values = np.clip(values, 0, 50)  # Clip for visibility",
+        "                else:",
+        "                    # Heat capacity: peak at T_c",
+        "                    values = np.array([size * 0.05 * np.exp(-10*(t-1.0)**2) ",
+        "                                     for t in temps_up_to_current])",
+        "                ",
+        "                line.set_data(temps_up_to_current, values)",
+        "            ",
+        "            ax.set_title(f'Critical Behavior: {quantity.replace(\"_\", \" \").title()} (T = {current_temp:.2f})')",
+        "            return lines",
+        "        ",
+        "        anim = FuncAnimation(fig, animate, frames=len(temp_steps), interval=50, blit=False)",
+        "        ",
+        "        if save_animation:",
+        "            anim.save(self.output_dir / f'critical_{quantity}_evolution.gif', ",
+        "                     writer='pillow', fps=20)",
+        "            logger.info(f\"Saved critical {quantity} evolution animation\")",
+        "        ",
+        "        return anim"
+      ],
+      "source_function": "create_critical_animation",
+      "span": [
+        784,
+        843
+      ]
+    },
+    {
+      "acceptance": "Original universality equality corrected; report scaling model selection, heldout errors, hyperscaling and uncertainty, no admitted exponent.",
+      "archive": "quantum.zip",
+      "id": "Q18",
+      "member": "quantum/research/visualization/plot_critical_phenomena_scaling.py",
+      "member_sha": "2f70a3c24a6d1453936d93903c24477aaf60d7874d2b336198114b615da9e208",
+      "source_excerpt": [
+        "    def generate_comprehensive_report(self, save_report: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Generate comprehensive critical phenomena analysis report\"\"\"",
+        "        ",
+        "        logger.info(\"Generating comprehensive critical phenomena report...\")",
+        "        ",
+        "        # Run all analyses",
+        "        exponent_results = self.plot_critical_exponents(save_plots=save_report)",
+        "        collapse_results = self.plot_data_collapse_3d(save_plots=save_report)",
+        "        scaling_results = self.plot_scaling_functions(save_plots=save_report)",
+        "        ",
+        "        # Compile report",
+        "        report = {",
+        "            'timestamp': pd.Timestamp.now().isoformat(),",
+        "            'mcts_data_summary': {",
+        "                'datasets_analyzed': len(self.mcts_data.get('tree_expansion_data', [])),",
+        "                'data_source': 'authentic_mcts_tree_dynamics'",
+        "            },",
+        "            'critical_exponents': {",
+        "                'extracted': exponent_results['extracted_exponents'],",
+        "                'theoretical': exponent_results['theoretical_exponents'],",
+        "                'universality_class': collapse_results['universality_class']",
+        "            },",
+        "            'scaling_analysis': {",
+        "                'data_collapse_quality': 'good',",
+        "                'optimal_scaling_exponent': collapse_results['optimal_exponent'],",
+        "                'hyperscaling_validation': collapse_results['hyperscaling_check'],",
+        "                'best_scaling_form': scaling_results['best_scaling_form']",
+        "            },",
+        "            'universal_properties': {",
+        "                'scaling_functions': scaling_results['scaling_functions'],",
+        "                'universal_constants': scaling_results['universal_constants'],",
+        "                'critical_phenomena_confirmed': True",
+        "            },",
+        "            'output_files': [",
+        "                'critical_exponents.png',",
+        "                'data_collapse_3d.png',",
+        "                'scaling_functions.png'",
+        "            ]",
+        "        }",
+        "        ",
+        "        if save_report:",
+        "            report_file = self.output_dir / 'critical_phenomena_report.json'",
+        "            import json",
+        "            with open(report_file, 'w') as f:",
+        "                json.dump(report, f, indent=2)",
+        "            logger.info(f\"Saved comprehensive report to {report_file}\")",
+        "        ",
+        "        logger.info(\"Critical phenomena analysis complete!\")",
+        "        return report"
+      ],
+      "source_function": "generate_comprehensive_report",
+      "span": [
+        845,
+        893
+      ]
+    },
+    {
+      "acceptance": "Validate actual critical scaling collapse against null and heldout sizes; finite covariance rescaling is not critical collapse.",
+      "archive": "quantum.zip",
+      "id": "Q30",
+      "member": "quantum/research/visualization/plot_statistical_physics.py",
+      "member_sha": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+      "source_excerpt": [
+        "    def plot_data_collapse(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot finite-size scaling and data collapse analysis\"\"\"",
+        "        ",
+        "        # Extract authentic scaling data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_data_collapse')",
+        "        ",
+        "        fig, axes = plt.subplots(2, 2, figsize=(15, 12))",
+        "        fig.suptitle('Finite-Size Scaling and Data Collapse', fontsize=16, fontweight='bold')",
+        "        ",
+        "        # 1. Raw data before scaling",
+        "        ax1 = axes[0, 0]",
+        "        system_sizes = list(data['scaling_data'].keys())",
+        "        ",
+        "        for size in system_sizes:",
+        "            size_data = data['scaling_data'][size]",
+        "            kappa_values = size_data['kappa_values']",
+        "            observable = size_data['observable']",
+        "            ",
+        "            ax1.plot(kappa_values, observable, 'o-', label=f'L={size}', alpha=0.8, linewidth=2)",
+        "        ",
+        "        ax1.set_xlabel('Control Parameter \u03ba')",
+        "        ax1.set_ylabel('Observable M')",
+        "        ax1.set_title('Raw Data (Before Collapse)')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Scaling variable",
+        "        ax2 = axes[0, 1]",
+        "        ",
+        "        for size in system_sizes:",
+        "            size_data = data['scaling_data'][size]",
+        "            scaling_var = size_data['scaling_variable']",
+        "            observable = size_data['observable']",
+        "            ",
+        "            ax2.plot(scaling_var, observable, 's-', label=f'L={size}', alpha=0.8, linewidth=2)",
+        "        ",
+        "        ax2.set_xlabel('Scaling Variable (\u03ba - \u03ba_c)L^{1/\u03bd}')",
+        "        ax2.set_ylabel('Observable M')",
+        "        ax2.set_title('Scaling Variable Transformation')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Data collapse",
+        "        ax3 = axes[1, 0]",
+        "        ",
+        "        for size in system_sizes:",
+        "            size_data = data['scaling_data'][size]",
+        "            scaling_var = size_data['scaling_variable']",
+        "            collapsed_obs = size_data['collapsed_observable']",
+        "            ",
+        "            ax3.plot(scaling_var, collapsed_obs, 'o', label=f'L={size}', alpha=0.8, markersize=6)",
+        "        ",
+        "        ax3.set_xlabel('Scaling Variable (\u03ba - \u03ba_c)L^{1/\u03bd}')",
+        "        ax3.set_ylabel('Scaled Observable M\u00b7L^{-\u03b2/\u03bd}')",
+        "        ax3.set_title('Data Collapse')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Quality of collapse",
+        "        ax4 = axes[1, 1]",
+        "        ",
+        "        # Compute collapse quality metric",
+        "        size_list = list(system_sizes)",
+        "        collapse_quality = []",
+        "        ",
+        "        for i in range(len(size_list) - 1):",
+        "            size1, size2 = size_list[i], size_list[i+1]",
+        "            data1 = data['scaling_data'][size1]['collapsed_observable']",
+        "            data2 = data['scaling_data'][size2]['collapsed_observable']",
+        "            ",
+        "            # Interpolate to common grid and compute RMS difference",
+        "            min_len = min(len(data1), len(data2))",
+        "            rms_diff = np.sqrt(np.mean((data1[:min_len] - data2[:min_len])**2))",
+        "            collapse_quality.append(rms_diff)",
+        "        ",
+        "        if collapse_quality:",
+        "            size_pairs = [f'L{size_list[i]}/L{size_list[i+1]}' for i in range(len(collapse_quality))]",
+        "            bars = ax4.bar(range(len(collapse_quality)), collapse_quality, alpha=0.7, color='coral')",
+        "            ax4.set_xticks(range(len(collapse_quality)))",
+        "            ax4.set_xticklabels(size_pairs, rotation=45)",
+        "            ax4.set_xlabel('Size Pairs')",
+        "            ax4.set_ylabel('RMS Difference')",
+        "            ax4.set_title('Collapse Quality')",
+        "            ax4.grid(True, alpha=0.3)",
+        "            ",
+        "            # Add value labels on bars",
+        "            for bar, quality in zip(bars, collapse_quality):",
+        "                height = bar.get_height()",
+        "                ax4.text(bar.get_x() + bar.get_width()/2., height + height*0.05,",
+        "                        f'{quality:.3f}', ha='center', va='bottom', fontsize=9)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'data_collapse.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved data collapse plot\")",
+        "        ",
+        "        return {",
+        "            'scaling_data': data,",
+        "            'collapse_quality': collapse_quality if 'collapse_quality' in locals() else [],",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_data_collapse",
+      "span": [
+        249,
+        350
+      ]
+    },
+    {
+      "acceptance": "Independent size/budget sweep for susceptibility, entropy, correlation length and gap; no universal exponent without limit.",
+      "archive": "quantum.zip",
+      "id": "Q31",
+      "member": "quantum/research/visualization/plot_statistical_physics.py",
+      "member_sha": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+      "source_excerpt": [
+        "    def plot_finite_size_scaling(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot finite-size scaling analysis with temporal evolution\"\"\"",
+        "        ",
+        "        # Extract authentic finite-size scaling data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_finite_size_scaling')",
+        "        ",
+        "        fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "        fig.suptitle('Finite-Size Scaling Analysis with Time Evolution', fontsize=16, fontweight='bold')",
+        "        ",
+        "        system_sizes = data['system_sizes']",
+        "        ",
+        "        # 1. Effective action scaling",
+        "        ax1 = axes[0, 0]",
+        "        effective_action = data['effective_action_scaling']",
+        "        ",
+        "        # Plot scaling law",
+        "        ax1.loglog(system_sizes, effective_action, 'o-', color='blue', linewidth=3, ",
+        "                  markersize=8, label='Data')",
+        "        ",
+        "        # Fit power law",
+        "        if len(system_sizes) > 2:",
+        "            log_sizes = np.log(system_sizes)",
+        "            log_action = np.log(effective_action)",
+        "            slope, intercept = np.polyfit(log_sizes, log_action, 1)",
+        "            fit_line = np.exp(intercept) * system_sizes**slope",
+        "            ax1.loglog(system_sizes, fit_line, '--', color='red', linewidth=2, ",
+        "                      label=f'Fit: S ~ L^{{{slope:.2f}}}')",
+        "        ",
+        "        ax1.set_xlabel('System Size L')",
+        "        ax1.set_ylabel('Effective Action S_eff')",
+        "        ax1.set_title('Effective Action Scaling')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Entropy scaling",
+        "        ax2 = axes[0, 1]",
+        "        entropy_scaling = data['entropy_scaling']",
+        "        ",
+        "        ax2.loglog(system_sizes, entropy_scaling, 's-', color='green', linewidth=3,",
+        "                  markersize=8, label='Entropy')",
+        "        ",
+        "        # Theoretical area law: S ~ L^{d-1}",
+        "        if len(system_sizes) > 1:",
+        "            area_law = entropy_scaling[0] * (system_sizes / system_sizes[0])**(1.0)  # d=2, so d-1=1",
+        "            ax2.loglog(system_sizes, area_law, '--', color='orange', linewidth=2, ",
+        "                      label='Area Law ~ L')",
+        "        ",
+        "        ax2.set_xlabel('System Size L')",
+        "        ax2.set_ylabel('Entanglement Entropy S')",
+        "        ax2.set_title('Entropy Scaling')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Gap scaling",
+        "        ax3 = axes[0, 2]",
+        "        gap_scaling = data['gap_scaling']",
+        "        ",
+        "        ax3.loglog(system_sizes, gap_scaling, '^-', color='purple', linewidth=3,",
+        "                  markersize=8, label='Energy Gap')",
+        "        ",
+        "        # Theoretical gap scaling: \u0394 ~ 1/L",
+        "        if len(system_sizes) > 1:",
+        "            gap_theory = gap_scaling[0] * (system_sizes[0] / system_sizes)",
+        "            ax3.loglog(system_sizes, gap_theory, '--', color='red', linewidth=2,",
+        "                      label='Theory ~ 1/L')",
+        "        ",
+        "        ax3.set_xlabel('System Size L')",
+        "        ax3.set_ylabel('Energy Gap \u0394')",
+        "        ax3.set_title('Gap Scaling')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Correlation length scaling",
+        "        ax4 = axes[1, 0]",
+        "        corr_length_scaling = data['correlation_length_scaling']",
+        "        ",
+        "        ax4.plot(system_sizes, corr_length_scaling, 'd-', color='brown', linewidth=3,",
+        "                markersize=8, label='Correlation Length')",
+        "        ",
+        "        # Linear fit",
+        "        if len(system_sizes) > 2:",
+        "            slope, intercept = np.polyfit(system_sizes, corr_length_scaling, 1)",
+        "            fit_line = slope * system_sizes + intercept",
+        "            ax4.plot(system_sizes, fit_line, '--', color='black', linewidth=2,",
+        "                    label=f'Fit: \u03be ~ {slope:.3f}L + {intercept:.2f}')",
+        "        ",
+        "        ax4.set_xlabel('System Size L')",
+        "        ax4.set_ylabel('Correlation Length \u03be')",
+        "        ax4.set_title('Correlation Length Scaling')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # 5. Susceptibility scaling",
+        "        ax5 = axes[1, 1]",
+        "        susceptibility_scaling = data['susceptibility_scaling']",
+        "        ",
+        "        ax5.plot(system_sizes, susceptibility_scaling, 'h-', color='teal', linewidth=3,",
+        "                markersize=8, label='Susceptibility')",
+        "        ",
+        "        ax5.set_xlabel('System Size L')",
+        "        ax5.set_ylabel('Susceptibility \u03c7')",
+        "        ax5.set_title('Susceptibility Scaling')",
+        "        ax5.legend()",
+        "        ax5.grid(True, alpha=0.3)",
+        "        ",
+        "        # 6. Scaling exponents summary",
+        "        ax6 = axes[1, 2]",
+        "        ",
+        "        # Extract scaling exponents",
+        "        scaling_exponents = data['scaling_exponents']",
+        "        exponent_names = list(scaling_exponents.keys())",
+        "        exponent_values = [scaling_exponents[name]['exponent'] for name in exponent_names]",
+        "        ",
+        "        bars = ax6.bar(range(len(exponent_names)), exponent_values, alpha=0.7, ",
+        "                       color=['red', 'blue', 'green', 'orange', 'purple'][:len(exponent_names)])",
+        "        ",
+        "        ax6.set_xticks(range(len(exponent_names)))",
+        "        ax6.set_xticklabels([name.replace('_', '\\n') for name in exponent_names], fontsize=10)",
+        "        ax6.set_ylabel('Scaling Exponent')",
+        "        ax6.set_title('Extracted Scaling Exponents')",
+        "        ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        # Add value labels",
+        "        for bar, value in zip(bars, exponent_values):",
+        "            height = bar.get_height()",
+        "            ax6.text(bar.get_x() + bar.get_width()/2., height + 0.02,",
+        "                    f'{value:.2f}', ha='center', va='bottom', fontweight='bold')",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'finite_size_scaling.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved finite-size scaling plot\")",
+        "        ",
+        "        return {",
+        "            'scaling_data': data,",
+        "            'scaling_exponents': scaling_exponents,",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_finite_size_scaling",
+      "span": [
+        352,
+        490
+      ]
+    },
+    {
+      "acceptance": "Actual temporal spatial covariance animation at fixed L with at-risk frame and independent size comparison for scaling claim.",
+      "archive": "quantum.zip",
+      "id": "Q33",
+      "member": "quantum/research/visualization/plot_statistical_physics.py",
+      "member_sha": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+      "source_excerpt": [
+        "    def create_temporal_evolution_animation(self, quantity: str = 'correlations', ",
+        "                                          save_animation: bool = True) -> Any:",
+        "        \"\"\"Create animation showing temporal evolution of statistical physics quantities\"\"\"",
+        "        ",
+        "        # Generate time-dependent data",
+        "        time_steps = np.linspace(0, 10, 50)",
+        "        system_sizes = [10, 20, 50]",
+        "        ",
+        "        fig, ax = plt.subplots(figsize=(10, 8))",
+        "        ax.set_xlim(0, max(system_sizes) * 1.1)",
+        "        ax.set_ylim(0, 1.2)",
+        "        ax.set_xlabel('Distance/System Size')",
+        "        ax.set_ylabel(f'{quantity.capitalize()} Value')",
+        "        ax.set_title(f'Temporal Evolution of {quantity.capitalize()}')",
+        "        ax.grid(True, alpha=0.3)",
+        "        ",
+        "        lines = []",
+        "        for i, size in enumerate(system_sizes):",
+        "            line, = ax.plot([], [], 'o-', linewidth=2, alpha=0.8, label=f'L={size}')",
+        "            lines.append(line)",
+        "        ",
+        "        ax.legend()",
+        "        ",
+        "        def animate(frame):",
+        "            t = time_steps[frame]",
+        "            ",
+        "            for i, (line, size) in enumerate(zip(lines, system_sizes)):",
+        "                # Generate time-dependent correlation data",
+        "                distances = np.linspace(1, size, 20)",
+        "                ",
+        "                if quantity == 'correlations':",
+        "                    # Oscillating correlation function",
+        "                    values = np.exp(-distances/(size/3)) * (1 + 0.3*np.sin(2*np.pi*t/5))",
+        "                elif quantity == 'susceptibility':",
+        "                    # Temperature sweep with time",
+        "                    temp = 1.0 + 0.5 * np.sin(2*np.pi*t/10)",
+        "                    values = size * 0.1 / (distances/size + temp)",
+        "                else:",
+        "                    # Default: decaying oscillation",
+        "                    values = np.exp(-distances/(size/2)) * np.cos(t + distances/size)",
+        "                ",
+        "                line.set_data(distances, np.abs(values))",
+        "            ",
+        "            ax.set_title(f'Temporal Evolution of {quantity.capitalize()} (t = {t:.1f})')",
+        "            return lines",
+        "        ",
+        "        anim = FuncAnimation(fig, animate, frames=len(time_steps), interval=100, blit=False)",
+        "        ",
+        "        if save_animation:",
+        "            anim.save(self.output_dir / f'{quantity}_evolution.gif', writer='pillow', fps=10)",
+        "            logger.info(f\"Saved {quantity} evolution animation\")",
+        "        ",
+        "        return anim"
+      ],
+      "source_function": "create_temporal_evolution_animation",
+      "span": [
+        643,
+        695
+      ]
+    },
+    {
+      "acceptance": "Comprehensive size/collapse/critical report with finite alternatives and no assumed critical temperature/exponent.",
+      "archive": "quantum.zip",
+      "id": "Q34",
+      "member": "quantum/research/visualization/plot_statistical_physics.py",
+      "member_sha": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+      "source_excerpt": [
+        "    def generate_comprehensive_report(self, save_report: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Generate comprehensive statistical physics analysis report\"\"\"",
+        "        ",
+        "        logger.info(\"Generating comprehensive statistical physics report...\")",
+        "        ",
+        "        # Run all analyses",
+        "        correlation_results = self.plot_correlation_functions(save_plots=save_report)",
+        "        collapse_results = self.plot_data_collapse(save_plots=save_report)",
+        "        scaling_results = self.plot_finite_size_scaling(save_plots=save_report)",
+        "        susceptibility_results = self.plot_susceptibility_analysis(save_plots=save_report)",
+        "        ",
+        "        # Compile report",
+        "        report = {",
+        "            'timestamp': pd.Timestamp.now().isoformat(),",
+        "            'mcts_data_summary': {",
+        "                'datasets_analyzed': len(self.mcts_data.get('tree_expansion_data', [])),",
+        "                'data_source': 'authentic_mcts_tree_dynamics'",
+        "            },",
+        "            'correlation_analysis': {",
+        "                'system_sizes_analyzed': correlation_results['system_sizes'],",
+        "                'spatial_correlation_extracted': True,",
+        "                'temporal_correlation_extracted': True,",
+        "                'correlation_lengths': 'computed_from_exponential_fits'",
+        "            },",
+        "            'finite_size_scaling': {",
+        "                'scaling_laws_analyzed': list(scaling_results['scaling_exponents'].keys()),",
+        "                'scaling_exponents': scaling_results['scaling_exponents'],",
+        "                'data_collapse_quality': 'good' if collapse_results['collapse_quality'] else 'not_assessed'",
+        "            },",
+        "            'critical_phenomena': {",
+        "                'critical_temperatures': susceptibility_results['critical_temperatures'],",
+        "                'critical_exponents': susceptibility_results['critical_exponents'],",
+        "                'phase_transitions_detected': len(susceptibility_results['critical_temperatures']) > 0",
+        "            },",
+        "            'output_files': [",
+        "                'correlation_functions.png',",
+        "                'data_collapse.png', ",
+        "                'finite_size_scaling.png',",
+        "                'susceptibility_analysis.png'",
+        "            ]",
+        "        }",
+        "        ",
+        "        if save_report:",
+        "            report_file = self.output_dir / 'statistical_physics_report.json'",
+        "            import json",
+        "            with open(report_file, 'w') as f:",
+        "                json.dump(report, f, indent=2)",
+        "            logger.info(f\"Saved comprehensive report to {report_file}\")",
+        "        ",
+        "        logger.info(\"Statistical physics analysis complete!\")",
+        "        return report"
+      ],
+      "source_function": "generate_comprehensive_report",
+      "span": [
+        697,
+        747
+      ]
+    }
+  ],
+  "study_selected": [
+    {
+      "excerpts": [
+        [
+          5,
+          "We develop the complete statistical physics description of MCTS, revealing three distinct phases separated by critical points at N_c1 and N_c2. Starting from the quantum field theory framework with \u210f_eff(N) = c_puct/(\u221a(N+1)log(N+2)), we derive the renormalization group flow equations that yield optimal parameters from first principles: c_puct = \u221a(2 log b)[1 + 1/(4 log N_c)]. The connection to Document 1's path integral formalism appears through the RG transformation of the effective action. We provide numerical methods to extract all thermodynamic quantities directly from MCTS runs. The Landauer principle connects information erasure in node expansion to thermodynamic costs, while critical exponents match 3D Ising universality. Practical algorithms compute phase boundaries, order parameters, and validate theoretical predictions."
+        ],
+        [
+          13,
+          "- Critical phenomena with universal scaling laws"
+        ],
+        [
+          33,
+          "- 0 < m < 1: Critical regime with optimal performance"
+        ],
+        [
+          73,
+          "2. **Critical Phase** (N_c1 < N < N_c2):"
+        ],
+        [
+          83,
+          "### 2.3 Critical Points"
+        ],
+        [
+          85,
+          "**Theorem 2.2** (Critical Point Formulas)"
+        ],
+        [
+          92,
+          "1. Critical condition: \u210f_eff(N_c) = T(N_c)"
+        ],
+        [
+          99,
+          "5. Prior coupling \u03bb shifts critical points through effective temperature \u25a1"
+        ],
+        [
+          103,
+          "def find_critical_points(mcts_runs, c_puct, lambda_puct, b):"
+        ],
+        [
+          104,
+          "    \"\"\"Extract critical points from MCTS data\"\"\""
+        ],
+        [
+          121,
+          "        # First critical point: m crosses 0.1"
+        ],
+        [
+          125,
+          "        # Second critical point: m crosses 0.9"
+        ],
+        [
+          212,
+          "            # Measure where performance peaks (critical regime)"
+        ],
+        [
+          227,
+          "            'N_critical': N_c,"
+        ],
+        [
+          265,
+          "## 4. Critical Phenomena"
+        ],
+        [
+          267,
+          "### 4.1 Critical Exponents"
+        ],
+        [
+          272,
+          "\u03bd = 0.85 \u00b1 0.05    (correlation length)"
+        ],
+        [
+          275,
+          "\u03b3 = 1.57 \u00b1 0.08    (susceptibility)"
+        ],
+        [
+          279,
+          "These match 3D Ising universality class."
+        ],
+        [
+          284,
+          "def measure_critical_exponents(game, c_puct, N_c, num_runs=100):"
+        ],
+        [
+          285,
+          "    \"\"\"Extract critical exponents from MCTS near criticality\"\"\""
+        ],
+        [
+          292,
+          "    susceptibilities = []"
+        ],
+        [
+          311,
+          "        susceptibilities.append(m_var * N)  # \u03c7 = N * Var(m)"
+        ],
+        [
+          313,
+          "        # Correlation length from tree structure"
+        ],
+        [
+          317,
+          "    # Fit critical behavior"
+        ],
+        [
+          327,
+          "    # Susceptibility exponent \u03b3  "
+        ],
+        [
+          328,
+          "    log_chi = np.log([susceptibilities[i] + 1e-10 for i in positive_idx])"
+        ],
+        [
+          332,
+          "    # Correlation length exponent \u03bd"
+        ],
+        [
+          337,
+          "    # Check scaling relations"
+        ],
+        [
+          339,
+          "    # \u03b1 = 2 - 2\u03b2 - \u03b3 (hyperscaling)"
+        ],
+        [
+          357,
+          "        'scaling_relations_satisfied': check_scaling_relations(beta, gamma, nu)"
+        ],
+        [
+          361,
+          "    \"\"\"Extract correlation length from tree structure\"\"\""
+        ],
+        [
+          363,
+          "    # Correlation length ~ typical depth of correlated decisions"
+        ],
+        [
+          377,
+          "    # Correlation length as average penetration depth"
+        ],
+        [
+          380,
+          "def check_scaling_relations(beta, gamma, nu):"
+        ],
+        [
+          381,
+          "    \"\"\"Verify critical exponent scaling relations\"\"\""
+        ],
+        [
+          396,
+          "**Theorem 4.2** (Universal Scaling Function)"
+        ],
+        [
+          405,
+          "    \"\"\"Test universal scaling across different games\"\"\""
+        ],
+        [
+          410,
+          "        # Find critical point"
+        ],
+        [
+          411,
+          "        N_c = find_critical_point(game, c_puct)"
+        ],
+        [
+          413,
+          "        # Collect data near criticality"
+        ],
+        [
+          838,
+          "        # Compute critical points"
+        ],
+        [
+          839,
+          "        self.N_c1 = self.compute_critical_point_1()"
+        ],
+        [
+          840,
+          "        self.N_c2 = self.compute_critical_point_2()"
+        ],
+        [
+          846,
+          "    def compute_critical_point_1(self):"
+        ],
+        [
+          847,
+          "        \"\"\"First critical point (quantum \u2192 critical)\"\"\""
+        ],
+        [
+          852,
+          "    def compute_critical_point_2(self):"
+        ],
+        [
+          853,
+          "        \"\"\"Second critical point (critical \u2192 classical)\"\"\"  "
+        ],
+        [
+          866,
+          "            return \"critical\""
+        ],
+        [
+          934,
+          "        # Correlation length"
+        ]
+      ],
+      "lines": 1308,
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "relevant_line_count": 78,
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    },
+    {
+      "excerpts": [
+        [
+          140,
+          "3. **Critical point**: Quantum = Thermal when \u210f_eff(N_c) ~ T(N_c)"
+        ],
+        [
+          430,
+          "### 8.1 Information Scaling Test"
+        ],
+        [
+          433,
+          "def validate_information_scaling(game, num_trials=100):"
+        ],
+        [
+          434,
+          "    \"\"\"Test \u03c4(N) = log(N+2) scaling law\"\"\""
+        ],
+        [
+          462,
+          "        # Fit 1/N scaling for information gain"
+        ]
+      ],
+      "lines": 602,
+      "member": "mcts_study/v3.0/qft-mcts-foundations.md",
+      "relevant_line_count": 5,
+      "sha256": "a0fc2fbda4a07e9b663a59e997e4a418c2f19aed04b071594b970d1f44c13ea3"
+    },
+    {
+      "excerpts": [
+        [
+          14,
+          "4. [Critical Phenomena Analysis](#4-critical-phenomena-analysis)"
+        ],
+        [
+          121,
+          "    # Step 3: Apply theoretical scaling"
+        ],
+        [
+          124,
+          "    scaling_factor = (1 + total_visits)**(-0.25)"
+        ],
+        [
+          126,
+          "    return hbar_eff * scaling_factor"
+        ],
+        [
+          159,
+          "    # Step 3: Apply information time scaling"
+        ],
+        [
+          283,
+          "### 3.2 Susceptibility"
+        ],
+        [
+          285,
+          "**Visit Count Susceptibility to External Fields**:"
+        ],
+        [
+          287,
+          "def compute_susceptibility(visit_counts, temperatures):"
+        ],
+        [
+          292,
+          "    - High susceptibility \u2192 sensitive to changes"
+        ],
+        [
+          293,
+          "    - Low susceptibility \u2192 robust behavior"
+        ],
+        [
+          298,
+          "    # Step 2: Susceptibility = variance / temperature"
+        ],
+        [
+          299,
+          "    susceptibilities = []"
+        ],
+        [
+          302,
+          "        susceptibilities.append(chi)"
+        ],
+        [
+          304,
+          "    # Step 3: Critical scaling near phase transitions"
+        ],
+        [
+          306,
+          "    T_critical = np.mean(temperatures)"
+        ],
+        [
+          308,
+          "        if abs(temp - T_critical) > 1e-6:"
+        ],
+        [
+          309,
+          "            critical_factor = abs(temp - T_critical)**(-1.85)"
+        ],
+        [
+          310,
+          "            susceptibilities[i] *= critical_factor"
+        ],
+        [
+          312,
+          "    return susceptibilities"
+        ],
+        [
+          317,
+          "## 4. Critical Phenomena Analysis"
+        ],
+        [
+          336,
+          "        prior_weight = c_puct / (2 * np.pi)  # Typical scaling"
+        ],
+        [
+          359,
+          "### 4.2 Critical Exponents"
+        ],
+        [
+          361,
+          "**Correlation Length Exponent (\u03bd)**:"
+        ],
+        [
+          363,
+          "def compute_correlation_length(correlations, temperatures, T_critical):"
+        ],
+        [
+          365,
+          "    Extract correlation length and critical exponent \u03bd"
+        ],
+        [
+          391,
+          "    # Extract critical exponent"
+        ],
+        [
+          396,
+          "        if abs(temp - T_critical) > 1e-6 and xi > 0:"
+        ],
+        [
+          397,
+          "            valid_temps.append(abs(temp - T_critical))"
+        ],
+        [
+          413,
+          "**Universal Scaling Function**:"
+        ],
+        [
+          416,
+          "                         T_critical, beta_over_nu, nu):"
+        ],
+        [
+          418,
+          "    Collapse data onto universal scaling function"
+        ],
+        [
+          420,
+          "    Scaling form: O(L,t) = L^(-\u03b2/\u03bd) F(tL^(1/\u03bd))"
+        ],
+        [
+          427,
+          "        t = (T - T_critical) / T_critical"
+        ],
+        [
+          429,
+          "        # Scaling transformations"
+        ],
+        [
+          502,
+          "### 5.2 Heat Capacity"
+        ],
+        [
+          508,
+          "    Compute heat capacity from energy fluctuations"
+        ],
+        [
+          515,
+          "    # Step 2: Heat capacity formula"
+        ],
+        [
+          524,
+          "    # Step 3: Identify critical point (maximum C)"
+        ],
+        [
+          526,
+          "    T_critical = temperatures[max_idx]"
+        ],
+        [
+          528,
+          "    return heat_capacities, T_critical"
+        ],
+        [
+          586,
+          "        sigma = temp * abs(avg_growth) / 100.0  # Scaling factor"
+        ],
+        [
+          598,
+          "**Area Law vs Volume Law Scaling**:"
+        ],
+        [
+          619,
+          "    # Step 3: System size scaling"
+        ],
+        [
+          623,
+          "        area_scaling = entanglement_base * (L**(0.5))  # d-1 for d=1.5"
+        ],
+        [
+          624,
+          "        volume_scaling = entanglement_base * np.log(L + 1)  # Log volume"
+        ],
+        [
+          627,
+          "        S_ent = area_scaling if L < 100 else volume_scaling"
+        ],
+        [
+          742,
+          "        # Base power-law scaling"
+        ]
+      ],
+      "lines": 1278,
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "relevant_line_count": 47,
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    },
+    {
+      "excerpts": [
+        [
+          6,
+          "This document presents the complete theoretical development of a quantum and statistical field theory interpretation of Monte Carlo Tree Search (MCTS), as evolved through rigorous mathematical analysis and critical refinement. The framework emerged from recognizing that MCTS, despite being designed as a heuristic algorithm, naturally implements fundamental principles from physics."
+        ],
+        [
+          9,
+          "The theoretical framework underwent several critical refinements:"
+        ],
+        [
+          30,
+          "Through critical analysis and refinement, several key insights emerged:"
+        ],
+        [
+          48,
+          "**First Critical Insight**: The search tree is not a continuum but a discrete lattice. We must use lattice field theory from the start."
+        ],
+        [
+          58,
+          "**Critical Refinement**: Initially we considered nodes as sites. The correct identification is **edges as sites**, since MCTS statistics live on state-action pairs."
+        ],
+        [
+          74,
+          "**Scaling Law and Error Bounds**:"
+        ],
+        [
+          156,
+          "A critical refinement came from recognizing MCTS as an **open quantum system**:"
+        ],
+        [
+          303,
+          "**Critical Check**: Does the correction vanish for linear potential?"
+        ],
+        [
+          308,
+          "**Scaling Analysis**:"
+        ],
+        [
+          362,
+          "### 6.4 Anomalous Dimensions and Scaling"
+        ],
+        [
+          364,
+          "**Definition 6.4 (Scaling Dimension)**:"
+        ],
+        [
+          367,
+          "where $\\Delta_O$ is the scaling dimension."
+        ],
+        [
+          390,
+          "**Critical Observation**: The flow is irreversible\u2014information flows from leaves to root but not vice versa, making this a non-equilibrium RG."
+        ],
+        [
+          546,
+          "- $\\chi_{ab}$: Susceptibility matrix"
+        ],
+        [
+          551,
+          "## 9. Critical Phenomena and Universal Behavior"
+        ],
+        [
+          553,
+          "### 9.1 Critical Points in Games"
+        ],
+        [
+          555,
+          "**Definition 9.1 (Critical Position)**:"
+        ],
+        [
+          567,
+          "**Definition 9.3 (Susceptibility)**:"
+        ],
+        [
+          571,
+          "**Definition 9.4 (Correlation Length)**:"
+        ],
+        [
+          575,
+          "### 9.3 Finite-Size Scaling Theory"
+        ],
+        [
+          577,
+          "**Fundamental Hypothesis**: Near criticality, observables follow universal scaling:"
+        ],
+        [
+          579,
+          "**Theorem 9.1 (Scaling Relations)**:"
+        ],
+        [
+          586,
+          "- \u03c4 = (Q_1 - Q_2)/Q_c (reduced distance from criticality)"
+        ],
+        [
+          587,
+          "- \u03b2, \u03b3, \u03bd: Critical exponents"
+        ],
+        [
+          588,
+          "- f: Universal scaling functions"
+        ],
+        [
+          590,
+          "### 9.4 Measurement of Critical Exponents"
+        ],
+        [
+          593,
+          "1. Identify critical positions"
+        ],
+        [
+          603,
+          "### 9.5 Universality Classes"
+        ],
+        [
+          605,
+          "**Theorem 9.2 (Universality Hypothesis)**:"
+        ],
+        [
+          606,
+          "Games with same symmetries belong to same universality class."
+        ],
+        [
+          612,
+          "4. If equal \u2192 same universality class"
+        ],
+        [
+          617,
+          "- Universal behavior emerges at criticality"
+        ],
+        [
+          619,
+          "### 9.6 Data Collapse and Scaling Functions"
+        ],
+        [
+          621,
+          "**Validation of Scaling**:"
+        ],
+        [
+          631,
+          "## 10. Critical Analysis and Theoretical Refinements"
+        ],
+        [
+          635,
+          "Throughout development, several critical challenges were raised and resolved:"
+        ],
+        [
+          677,
+          "   - Temperature from visit count scaling"
+        ],
+        [
+          679,
+          "   - Critical behavior at decision points"
+        ],
+        [
+          686,
+          "   - Universal critical exponents"
+        ],
+        [
+          706,
+          "- Self-organized criticality at decision points"
+        ],
+        [
+          741,
+          "3. **Critical Point Detection**:"
+        ],
+        [
+          748,
+          "1. **Computational Universality**:"
+        ]
+      ],
+      "lines": 776,
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "relevant_line_count": 42,
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "excerpts": [
+        [
+          13,
+          "The experimental design evolved through critical refinement:"
+        ],
+        [
+          70,
+          "3. **Finite-Size Effects**: Scaling analysis to extrapolate infinite-size behavior"
+        ],
+        [
+          399,
+          "    2. Mean-field scaling validation"
+        ],
+        [
+          458,
+          "    # Test 2: Mean-field scaling"
+        ],
+        [
+          467,
+          "        tests['scaling_exponent'] = slope"
+        ],
+        [
+          468,
+          "        tests['scaling_r2'] = r_value**2"
+        ],
+        [
+          469,
+          "        tests['scaling_pvalue'] = p_value"
+        ],
+        [
+          490,
+          "   - Critical positions (nearly equal moves)"
+        ],
+        [
+          511,
+          "2. **Scaling Validation**:"
+        ],
+        [
+          514,
+          "   - Deviations in critical positions"
+        ],
+        [
+          522,
+          "   - Sudden \u03b2 jumps at critical positions"
+        ],
+        [
+          1097,
+          "- Temperature dependence ensures proper scaling"
+        ],
+        [
+          1173,
+          "def analyze_rg_universality(game_positions: List[GamePosition], "
+        ],
+        [
+          1176,
+          "    Test universality of RG flow across different positions"
+        ],
+        [
+          1179,
+          "        Dictionary with flow characteristics and scaling exponents"
+        ],
+        [
+          1207,
+          "        'universality_test': test_scaling_collapse(all_flows)"
+        ],
+        [
+          1622,
+          "- Phase transitions correlate with critical game positions"
+        ],
+        [
+          1850,
+          "## 7. Critical Phenomena and Finite-Size Scaling"
+        ],
+        [
+          1855,
+          "**MCTS Context**: Critical positions where best moves have nearly equal value"
+        ],
+        [
+          1857,
+          "**Scaling Relations**: \u03c7 ~ L^(\u03b3/\u03bd), \u03be ~ L^(1/\u03bd)"
+        ],
+        [
+          1859,
+          "### 7.2 Critical Point Detection and Analysis"
+        ],
+        [
+          1862,
+          "def find_critical_positions(game_database: List[GamePosition],"
+        ],
+        [
+          1863,
+          "                           criticality_threshold: float = 0.01) -> List[GamePosition]:"
+        ],
+        [
+          1865,
+          "    Identify positions near criticality"
+        ],
+        [
+          1867,
+          "    Critical = top two moves have Q-values within threshold"
+        ],
+        [
+          1869,
+          "    critical_positions = []"
+        ],
+        [
+          1887,
+          "            # Check criticality"
+        ],
+        [
+          1888,
+          "            if abs(q1 - q2) < criticality_threshold:"
+        ],
+        [
+          1889,
+          "                critical_positions.append({"
+        ],
+        [
+          1895,
+          "    return critical_positions"
+        ],
+        [
+          1897,
+          "def measure_critical_scaling(critical_position: GamePosition,"
+        ],
+        [
+          1901,
+          "    Measure scaling behavior at critical point"
+        ],
+        [
+          1906,
+          "        - chi: Susceptibility  "
+        ],
+        [
+          1907,
+          "        - xi: Correlation length"
+        ],
+        [
+          1920,
+          "            root = MCTSNode(critical_position)"
+        ],
+        [
+          1937,
+          "            # Measure susceptibility (response to perturbation)"
+        ],
+        [
+          1938,
+          "            chi = measure_susceptibility(root, perturbation=0.01)"
+        ],
+        [
+          1940,
+          "            # Measure correlation length (depth distribution)"
+        ],
+        [
+          1970,
+          "def measure_susceptibility(root: MCTSNode, perturbation: float = 0.01) -> float:"
+        ],
+        [
+          2002,
+          "    # Susceptibility"
+        ],
+        [
+          2035,
+          "def extract_critical_exponents(scaling_df: pd.DataFrame) -> Dict[str, float]:"
+        ],
+        [
+          2037,
+          "    Extract critical exponents from finite-size scaling"
+        ],
+        [
+          2045,
+          "    log_L = np.log(scaling_df['L'])"
+        ],
+        [
+          2049,
+          "    # Susceptibility exponent"
+        ],
+        [
+          2050,
+          "    if 'chi_mean' in scaling_df and scaling_df['chi_mean'].notna().sum() > 3:"
+        ],
+        [
+          2051,
+          "        log_chi = np.log(scaling_df['chi_mean'] + 1e-10)"
+        ],
+        [
+          2059,
+          "    # Correlation length exponent  "
+        ],
+        [
+          2060,
+          "    if 'xi_mean' in scaling_df and scaling_df['xi_mean'].notna().sum() > 3:"
+        ],
+        [
+          2061,
+          "        log_xi = np.log(scaling_df['xi_mean'] + 1e-10)"
+        ],
+        [
+          2070,
+          "    if 'm_mean' in scaling_df and scaling_df['m_mean'].notna().sum() > 3:"
+        ]
+      ],
+      "lines": 2497,
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "relevant_line_count": 109,
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    }
+  ]
+}

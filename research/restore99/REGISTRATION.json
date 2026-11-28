@@ -1,0 +1,19 @@
+{
+  "authority": "RESTORE69",
+  "backup_policy": "Dropbox only",
+  "contract_sha": "254051a725536584badd135308234e04d2ed2216ebca36be393f3dfb1648526e",
+  "fresh_native": 0,
+  "parent": "aac6e5afef6662781143856a7a0e7b64cf3e41c8",
+  "parent_dag_sha": "d0d417877e392bff4c6117a8aaeb75432deb8274295165c4ba980102e6c60cf3",
+  "targets": [
+    "Q14",
+    "Q15",
+    "Q16",
+    "Q17",
+    "Q18",
+    "Q30",
+    "Q31",
+    "Q33",
+    "Q34"
+  ]
+}

@@ -1,0 +1,9 @@
+COUNTS {'valid_Binder': [10400, 10314, 10400, 10400], 'undefined_Binder': [0, 86, 0, 0], 'tail_nonzero': 7680, 'tail_collision_nonzero': 7665, 'max_tail_KL': 3.375040227274833, 'max_spike_TV': 0.7551101112468208, 'max_tail_concentration': 0.2336636937439712, 'max_coarse_spike_TV': 0.7551101112468208, 'min_tail_KL': -1.439032439587886e-15, 'mean_tail_fraction': 0.40606200692557903}
+FITS 96 grid 4536 critical_wins 12 h64 3 dev_choice {'crossover': 42, 'entropy_shift': 6} checks {'fit_QR_prediction': 5.995204332975845e-15, 'fit_normal_equation': 7.948657797740566e-14}
+paired intervals critical worse/better 0 1
+FRESH DENSE 13 0 {'pmax': 0.0062893, 'KL': -0.0, 'binary_KL': -0.0, 'tail_KL': -0.0, 'concentration': -0.0, 'spike_concentration': 0.0, 'tail_concentration': 0.0, 'spike_TV': 0.0, 'Fisher': 0.1438482}
+FRESH DENSE 13 1 {'pmax': 0.1363544, 'KL': 0.7519384, 'binary_KL': 0.3289479, 'tail_KL': 0.4229905, 'concentration': 0.0375016, 'spike_concentration': 0.0255432, 'tail_concentration': 0.0119584, 'spike_TV': 0.2623865, 'Fisher': 0.206078}
+FRESH DENSE 13 3 {'pmax': 0.5478754, 'KL': 3.4637297, 'binary_KL': 2.2604176, 'tail_KL': 1.2033121, 'concentration': 0.4297275, 'spike_concentration': 0.3687291, 'tail_concentration': 0.0609984, 'spike_TV': 0.3239432, 'Fisher': 0.0039695}
+FRESH DENSE 21 0 {'pmax': 0.0024096, 'KL': 0.0, 'binary_KL': 0.0, 'tail_KL': 0.0, 'concentration': -0.0, 'spike_concentration': 0.0, 'tail_concentration': 0.0, 'spike_TV': 0.0, 'Fisher': 0.0670308}
+FRESH DENSE 21 1 {'pmax': 0.0879252, 'KL': 0.4390429, 'binary_KL': 0.2585444, 'tail_KL': 0.1804985, 'concentration': 0.0145345, 'spike_concentration': 0.0120832, 'tail_concentration': 0.0024513, 'spike_TV': 0.1132434, 'Fisher': 0.1685271}
+FRESH DENSE 21 3 {'pmax': 0.4176396, 'KL': 3.0903239, 'binary_KL': 2.029449, 'tail_KL': 1.0608749, 'concentration': 0.284858, 'spike_concentration': 0.2548411, 'tail_concentration': 0.0300168, 'spike_TV': 0.2863652, 'Fisher': 0.0098807}

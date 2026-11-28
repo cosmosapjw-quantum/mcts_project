@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE98.json",
+  "convergence_ledger": "CONVERGENCE99.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -58,7 +58,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-04.R",
+  "entry": "REPLAN-04.C",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -121,7 +121,7 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R99 Q14-Q18 Q30-Q34 finite scaling, report and animation; check accepted items, preserve Q02/Q31 partial",
+    "R100 Q01/Q03/Q04/Q06/Q07/Q19/Q20/Q22/Q23/Q38 nonequilibrium and thermal outputs",
     "Direct original reconstruction; no optimizer drift",
     "Six open science claims, Q10 Q36 Q19/Q20 partial"
   ],
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE99-CRITICAL-SCALING-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE100-NONEQUILIBRIUM-THERMAL-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -685,6 +685,29 @@
           "Q31"
         ],
         "remaining": "Controlled physical critical limit, equilibrium FDT and quantum gap not identified."
+      },
+      "restore99_followup": {
+        "accepted_subclaims": [
+          "SCALE-TAIL-17",
+          "SCALE-CROSSOVER-18",
+          "SCALE-ACTION-19"
+        ],
+        "artifact": "mqft_restore99_20261129/{ORIGINAL_OUTPUT_REPORT99.md,ITEM_RECONSTRUCTION99.json,CONVERGENCE99.json}",
+        "corrected_artifacts": [
+          "Q16",
+          "Q17",
+          "Q18",
+          "Q33",
+          "Q34"
+        ],
+        "evidence": "4320 raw receipts rehashed, 10400 prefixes, 62400 scales, 41600 moments, 104000 source duals, 96 fits and 48 L21 comparisons",
+        "partial": [
+          "Q14",
+          "Q15",
+          "Q30",
+          "Q31"
+        ],
+        "remaining": "Physical critical point, critical exponents, physical correlation length and thermal calibration not established."
       },
       "retained_evidence": "STATE06 \uc2e4\uc81c c_PUCT sweep, RESTORE04 \uc2e4\uc81c subtree volume, graph covariance, finite source\uc640 whole-seed uncertainty. \ub3c4\ud574\uc6a9 Ising/FSS\ub294 \ucd94\uc815\uae30 \ub300\uc870.",
       "source": "cpuct_phase_transition_validator.py, finite_size_scaling.py, plot_statistical_physics.py::plot_correlation_functions/plot_susceptibility_analysis, plot_critical_phenomena_scaling.py::plot_scaling_functions.",
@@ -1505,8 +1528,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-05",
-  "quality_matrix": "QUALITY_MATRIX98.csv",
+  "previous_entry": "REPLAN-04.R",
+  "quality_matrix": "QUALITY_MATRIX99.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -5058,8 +5081,60 @@
     "reused_fixed_root_paths": 4320,
     "status": "four_corrected_artifacts_one_partial_two_new_scoped_claims"
   },
-  "revision": "RESTORE98_20261128",
-  "scope": "Convergence: exact finite native spatial pushforward, Fisher contraction and projected closure",
+  "restore99": {
+    "ACTION99.json_sha256": "6fdc354183c3a0d4d78ed697d3be23aa5d8600d1acf6707b7bba9cde5ece5371",
+    "ACTION99.npz_sha256": "df06619a54bb5b0968995a97c4a68d36e70de75994bf535d1f1ed25f76955517",
+    "CONVERGENCE99.json_sha256": "09138dc9f9a9d5ccccac82362dbec7cf7cac2c5dfb9de5cf476e028a60b5b605",
+    "DRIFT_WATCHDOG.md_sha256": "a32c82dd448a56bea6a35c5168b052f89fdc0752ed298d6601049564607625ca",
+    "EFFECTIVE_ACTION_EXTENSION99.md_sha256": "5be545d8c34f0200196b47fdff3d5cf57492c0d59f08b291e9f077e607d6142a",
+    "FITS99.json_sha256": "38ed89ea14f35c1d72002dafd6b099b2b2f3795ce5e7dd245c24e92f3febb398",
+    "INDEPENDENT99.json_sha256": "e471e14e41b944b6db78c2d021fb47482a9fc96a5f6b7722ba9597322deb69a3",
+    "ITEM_CONVERGENCE99.json_sha256": "e5069ef67a35ebca7f30492c2bd40f1ed3de8ea3a21abe4e0217d64dbd5545f2",
+    "ITEM_RECONSTRUCTION99.json_sha256": "a8b2b18319d9a4de0bacf80afa79a6edc8aca817dce6cc23da0c1de03b7a2a66",
+    "NEXT_DYNAMICS.md_sha256": "257f7eb3105fee2ea79c07c645bb69a5d7a2de6ee14dc1c14aaafde365d85d1d",
+    "ORIGINAL_OUTPUT_EVIDENCE99.csv_sha256": "1b674bd6ea19981f1414b8d655f04c2f1e75857c268cc1a3e277f32a1ca18ba5",
+    "ORIGINAL_OUTPUT_PROGRESS99.csv_sha256": "d03c764644fe7b081929b3e4cc361f25039e0b0d8f1bdccd66a38a9db53d882c",
+    "ORIGINAL_OUTPUT_REPORT99.md_sha256": "1d1ffbc958baa50a18260a4d47e4dc3ec1123a42172accbd031c4dc8ddbe42d5",
+    "ORIGINAL_SOURCE99.json_sha256": "d969ee8640811342f6f2e0d0e2288921ecad3b2717c92b510e7bf68dc65465ec",
+    "PLOT_INVENTORY99.csv_sha256": "d011b7213e40e95b691a559694b54e0040791e3221a42700a318c8ea857bfd81",
+    "PLOT_MANIFEST99.json_sha256": "b442746046898b2648025d1b681b0e9e459379575d6811fcc3786388621450c0",
+    "PROGRESS99.json_sha256": "11493e876250e8f90e04ae3ee788e8f2f7063d88db8db7c7fb8989220ea3b790",
+    "QUALITY_MATRIX99.csv_sha256": "fcb320f4a32662d80c68e129ad1ddefebca3a205b78c3bb396e7b8e8f37d9471",
+    "REGISTRATION.json_sha256": "df3783d84934d32f8462ddfcd4decec4f48eac485166f38546e36778dea013ab",
+    "SCALE99.json_sha256": "8096b3b0145712f02cc726309d62961636311ce639593e5c7e77a741d0050619",
+    "SCALE99.npz_sha256": "d36890dc9f2864784381b2181adff6d53ceca2fac49cc007f92fad0eff152ab0",
+    "SUMMARY99.json_sha256": "d861a7ecb26f54f1efa809681df1a090722a4dcba1d844677b0168bca689aa81",
+    "THEORY.md_sha256": "8fbf4519df16c22ade458464a36164fb1457db394a240f3c9b9111b69c178af4",
+    "THEORY_REGISTERED99.md_sha256": "254051a725536584badd135308234e04d2ed2216ebca36be393f3dfb1648526e",
+    "accepted_corrected_subclaims": 43,
+    "action_evaluations": 104000,
+    "animations": 2,
+    "corrected_report_artifact_accepted": 57,
+    "cumulative_fixed_root_histories": 93336,
+    "figures": 11,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "heldout_comparisons": 48,
+    "model_fits": 96,
+    "moment_cases": 41600,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 3,
+    "new_corrected_artifacts": 5,
+    "original_evidence_items": 9,
+    "original_evidence_union_R55_R99": 121,
+    "original_obligations": 121,
+    "parent_commit": "aac6e5afef6662781143856a7a0e7b64cf3e41c8",
+    "parent_dag_sha256": "d0d417877e392bff4c6117a8aaeb75432deb8274295165c4ba980102e6c60cf3",
+    "prefix_rows": 10400,
+    "prefix_scale_rows": 62400,
+    "remaining": "64 corrected artifact obligations; Q14/Q15/Q30/Q31 partial; six open science claims; nonequilibrium/thermal outputs next.",
+    "retained_pairs": 752,
+    "reused_fixed_root_paths": 4320,
+    "status": "five_corrected_artifacts_four_partial_three_new_scoped_claims"
+  },
+  "revision": "RESTORE99_20261129",
+  "scope": "Convergence: finite categorical scaling, exact tail decomposition, noncritical null and heldout model competition",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE98-RG-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE99-CRITICAL-SCALING-OUTPUTS"
 }

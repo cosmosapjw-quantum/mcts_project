@@ -1,0 +1,7 @@
+RAW HASHES 4320
+L 13 2080
+L 15 2080
+L 17 2080
+L 19 2080
+L 21 2080
+RESULT {'analytic_controls': 150, 'array_sha': 'd36890dc9f2864784381b2181adff6d53ceca2fac49cc007f92fad0eff152ab0', 'elapsed_s': 19.690191613975912, 'moment_cases': 41600, 'paths': 4320, 'prefix_rows': 10400, 'radial_strata': 400, 'root_strata': 400, 'scale_rows': 62400, 'status': 'PASS_SCOPED'} {'KL_tail_identity': 1.4210854715202004e-14, 'collision_tail_identity': 9.992007221626409e-16, 'KL_spike': 7.105427357601002e-15, 'concentration_spike': 1.6653345369377348e-15, 'R98_A_KL': 1.1213252548714111e-14, 'R98_X_KL': 7.993605777301159e-15, 'moment_raw_identity': 3.7192471324942744e-15, 'binder_independent': 1.1381184217285067e-08, 'R92_metric': 2.0539125955565396e-15, 'R92_radial_bins': 0.0, 'Bernoulli_fourth': 2.842170943040401e-14, 'one_spike_control': 2.220446049250313e-16, 'one_spike_Fisher': 1.942890293094024e-16}
