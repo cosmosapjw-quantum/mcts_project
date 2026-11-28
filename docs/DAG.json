@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE93.json",
+  "convergence_ledger": "CONVERGENCE94.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -58,7 +58,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-06",
+  "entry": "REPLAN-02",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -121,7 +121,7 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R94 G13-G17 corrected complex state, coherence, entropy, participation and pointer outputs",
+    "R95 G23-G27 explicit entanglement, QMI, concurrence and Bell controls",
     "Direct original reconstruction; no optimizer drift",
     "Six open science claims, Q02/Q31 and Q19/Q20 partial"
   ],
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE94-COMPLEX-STATE-POINTER-ENTROPY-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE95-ENTANGLEMENT-NETWORK-CONCURRENCE-BELL-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -261,6 +261,19 @@
           "Q20"
         ],
         "remaining": "Native physical temperature/heat/reverse not identified."
+      },
+      "restore94_followup": {
+        "accepted_subclaims": [
+          "Q-INSTRUMENT-07",
+          "Q-PREFIX-08"
+        ],
+        "artifact": "mqft_restore94_20261128/{ORIGINAL_OUTPUT_REPORT94.md,ITEM_RECONSTRUCTION94.json,CONVERGENCE94.json}",
+        "corrected_artifacts": [
+          "G15"
+        ],
+        "evidence": "4104 raw paths, 3456 stochastic phase histories and 648 diagnostics; 2304 declared joint prefix states, entropy and pointer verification",
+        "partial": [],
+        "remaining": "Native physical coherent branch identification and objectivity not established."
       },
       "retained_evidence": "STATE06 c_PUCT sweep, RESTORE01 \uc608\uc0b0\ubcc4 \uc2e4\uce21\uacfc fit \uc9c4\ub2e8. \uacbd\ub85c dominance\u00b7overlap \ubc0f STATE16 \uc870\uac74\ubd80 \uc120\ud0dd \ud1b5\uacc4\ub294 \ud45c\ubcf8\uacfc clock\uc774 \ub9de\uc73c\uba74 \uacb0\ud569\ud55c\ub2e4.",
       "source": "ensemble_analyzer_complete.py::_plot_authentic_temperature, honest_plots.py::plot_temperature_extraction/plot_temperature_scaling, \uacbd\ub85c \ud328\ub110 L16. v6 validation\uc758 \u03b2\uc640 mean-field \uc608\uce21.",
@@ -737,6 +750,22 @@
         "artifact": "mqft_restore83_20261127/{CONVERGENCE83.json,TREE83.json,RECORD83.json,FRAGMENTS83.json,INDEPENDENT83.json}",
         "evidence": "72 actual observed H32 contexts, 576 forced leaf replays, 72 exact unforced replays, branch-dependent 504 settings, complete stopped CP instrument, explicit shared-bath vs history-tag completion, distinct normalized pair diagnostic and fragment checks.",
         "remaining": "Q-RECORD-03 physical/operational native coherence and objectivity not identified. Rare native repeat success, no disjoint 90% packing, no native physical entanglement."
+      },
+      "restore94_followup": {
+        "accepted_subclaims": [
+          "Q-INSTRUMENT-07",
+          "Q-PREFIX-08"
+        ],
+        "artifact": "mqft_restore94_20261128/{ORIGINAL_OUTPUT_REPORT94.md,ITEM_RECONSTRUCTION94.json,CONVERGENCE94.json}",
+        "corrected_artifacts": [
+          "G13",
+          "G14",
+          "G16",
+          "G17"
+        ],
+        "evidence": "4104 raw paths, 3456 stochastic phase histories and 648 diagnostics; 2304 declared joint prefix states, entropy and pointer verification",
+        "partial": [],
+        "remaining": "Native physical coherent branch identification and objectivity not established."
       },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
@@ -1382,8 +1411,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-04.C",
-  "quality_matrix": "QUALITY_MATRIX93.csv",
+  "previous_entry": "REPLAN-06",
+  "quality_matrix": "QUALITY_MATRIX94.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4701,8 +4730,52 @@
     "schedule_paths": 3072,
     "status": "three_corrected_original_artifacts_two_new_scoped_claims"
   },
-  "revision": "RESTORE93_20261128",
-  "scope": "Convergence: corrected causal source response and FDT validation/summary",
+  "restore94": {
+    "CONVERGENCE94.json_sha256": "b4e858684747c3211428444f3c763e1bd74b78b1a96a865b04a3c8e77984f518",
+    "DRIFT_WATCHDOG.md_sha256": "a815b3efe739b28523b4afa3faa2ffaa2a3da185c3a8481fc89e1dfb892cf3b4",
+    "INDEPENDENT94.json_sha256": "523ec74c64eb912cc4126493d894ce0327392f054fa8ea05845357ae267fd910",
+    "ITEM_CONVERGENCE94.json_sha256": "1e764bcbbc824d3bd54739de7414fc3a33a1704daeee01c3b5a09a7fab86e99d",
+    "ITEM_RECONSTRUCTION94.json_sha256": "dc1a675979db507cc3daba9bb3b57500b5261c58a42d520e364e64d8c4aca7f0",
+    "NATIVE94.json_sha256": "e5572826479c1af7dda79763936144620401a046f866a46a33f10cb3984fa56f",
+    "NATIVE94.npz_sha256": "85147389171bf0331994f73153a11a7207cd48b1f8620313d939db923ada5175",
+    "NEXT_DYNAMICS.md_sha256": "43a82eae576d6906bbe4bd1a58dc53cc922ff0ec692810c998b23abf42ee6626",
+    "ORIGINAL_OUTPUT_EVIDENCE94.csv_sha256": "2ee1c06375124c868af2eb11783a613bd390d48476c0f19e224a8cf2881bb280",
+    "ORIGINAL_OUTPUT_PROGRESS94.csv_sha256": "75a4bb82980464011e71a82bf5091f19565472c908836fbc3c23d3e1076454b4",
+    "ORIGINAL_OUTPUT_REPORT94.md_sha256": "9a0e3d5e92bd6bd2faf87b135bad85291f40bb8a2c15f487365e771a6bf56c3a",
+    "ORIGINAL_SOURCE94.json_sha256": "f2c0e565b3ea161e7b5309b22a60dcc1cd2721522135699c18db206272fb5650",
+    "PLOT_INVENTORY94.csv_sha256": "51c927c444cabf193a10b36e4c52d205f12a4fb295ace62d1a3bd3a52af26781",
+    "PLOT_MANIFEST94.json_sha256": "27043bda711e565eb5e6d1ea72d142e9c7b0ae99d29e7611a182dce85ebeddb6",
+    "PROGRESS94.json_sha256": "9f3ce82f866329c15e4a679dfec1a232148b5f7798cb6f8305952758ed39d41a",
+    "QUALITY_MATRIX94.csv_sha256": "d7bb2d873b377a91f74213a77fbaa01e7632591d526f5abc8f0569ce6ef0628a",
+    "RECORD94.json_sha256": "43f1c4ae1dcbc4a95029fe4568647d89e390caadf4abbc630124de19e419caea",
+    "REGISTRATION.json_sha256": "a9459b095b21bc17a04e303bdcdffc52ce314c344e611d6d88a9df9c51bc076c",
+    "THEORY.md_sha256": "f11cd88dd205c1347e232f913d571910c198a0c4a6c093d8d141385f164b2b98",
+    "THEORY_REGISTERED94.md_sha256": "cd00fbf2e25e094e673ff8da70e4d2aad1c3fdbc8351dddb1e60f5c87f2fce43",
+    "accepted_corrected_subclaims": 32,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 34,
+    "cumulative_fixed_root_histories": 93336,
+    "declared_prefix_states": 2304,
+    "diagnostic_paths": 648,
+    "figures": 7,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_corrected_artifacts": 5,
+    "original_evidence_items": 5,
+    "original_evidence_union_R55_R94": 121,
+    "original_obligations": 121,
+    "parent_commit": "0e7ecce731118823884165f66554d7ee27eac036",
+    "parent_dag_sha256": "3ba37b838f781b3826793e39ea5a64a148d789ce3df1a08773e1bbcdb05b8456",
+    "remaining": "87 corrected artifact obligations; six open science claims, Q02/Q31 and Q19/Q20 partial; G23-G27 next.",
+    "retained_pairs": 712,
+    "reused_fixed_root_paths": 3456,
+    "status": "five_corrected_original_artifacts_two_new_scoped_claims"
+  },
+  "revision": "RESTORE94_20261128",
+  "scope": "Convergence: actual conditional complex qubit and declared adaptive record prefix, coherence entropy pointer",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE93-CAUSAL-RESPONSE-FDT-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE94-COMPLEX-STATE-POINTER-ENTROPY-OUTPUTS"
 }

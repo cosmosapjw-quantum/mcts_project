@@ -1,0 +1,70 @@
+{
+  "figures": [
+    {
+      "figure": "G13_coherence_evolution",
+      "ids": [
+        "G13"
+      ],
+      "pdf_sha": "46f46b5c7eb3534cfdb3ee95fc4e5d20418fdf9d0dd34a9b99d73eaff79750cd",
+      "png_sha": "d23c93d32fb5c0acc9eb171b61f9a2a2fdee14d5f1c941ee525263876d270a8a"
+    },
+    {
+      "figure": "G14_entropy_growth",
+      "ids": [
+        "G14"
+      ],
+      "pdf_sha": "96a40cc41dbf050732f9229efddf648960bc002a5e6602acba1d4dcd77097a8e",
+      "png_sha": "1ec9d8ee507483837c5065144d3720dbea3315cfaa56b48022cc8696be94f01b"
+    },
+    {
+      "figure": "G14_record_prefix_entropy",
+      "ids": [
+        "G14",
+        "G17"
+      ],
+      "pdf_sha": "7cbe39a9bf482a304c563389a1f20607efd95228806044bf18c8b5943c8d481a",
+      "png_sha": "4ffe4cfe593934ef585cb07837a715d476539f4d43a64039465cfef9015f2274"
+    },
+    {
+      "figure": "G15_participation_ratio",
+      "ids": [
+        "G15"
+      ],
+      "pdf_sha": "d39ce389ffb4d66d55f092b7d8e7bfaa509d33f5074e5c7548d2a9987b92ab4a",
+      "png_sha": "0043bb4eebc172aea75410db4108e27456d9adde5598295ec5caac03a69e88ac"
+    },
+    {
+      "figure": "G16_pointer_states",
+      "ids": [
+        "G16"
+      ],
+      "pdf_sha": "26b558aca011851109581b1342306673927cd44228f4f383392fe7f218921890",
+      "png_sha": "78a9a5a697f47924a806aff41425809d1e1219a7c4df2f815abeb429120d98a3"
+    },
+    {
+      "figure": "G16_pointer_fragments",
+      "ids": [
+        "G16",
+        "G17"
+      ],
+      "pdf_sha": "dca03a0031acafabb8f2ac74f32f3dc518dafe2be7e67ee5d416ee70969d52e7",
+      "png_sha": "b09bdcb8b73df6af5f4fb977c4876a4db8099ff36570c2abc1d337e8b4eadcb5"
+    },
+    {
+      "figure": "G17_decoherence_summary",
+      "ids": [
+        "G17"
+      ],
+      "pdf_sha": "32719759b7a520dd011081e7e346c94e6dc9c59fa8ce0d8d1ab0b6b1a645d4d1",
+      "png_sha": "fec196d2b7cf879560ede5f565eaf12c885d7e3916e9dbfb95a5c243ee93e606"
+    }
+  ],
+  "scope": "Root-block pointwise intervals; coherent record model explicit, not physical quantum identification.",
+  "sources": {
+    "INDEPENDENT94.json": "523ec74c64eb912cc4126493d894ce0327392f054fa8ea05845357ae267fd910",
+    "NATIVE94.json": "e5572826479c1af7dda79763936144620401a046f866a46a33f10cb3984fa56f",
+    "NATIVE94.npz": "85147389171bf0331994f73153a11a7207cd48b1f8620313d939db923ada5175",
+    "ORIGINAL_SOURCE94.json": "f2c0e565b3ea161e7b5309b22a60dcc1cd2721522135699c18db206272fb5650",
+    "RECORD94.json": "43f1c4ae1dcbc4a95029fe4568647d89e390caadf4abbc630124de19e419caea"
+  }
+}

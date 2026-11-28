@@ -1,0 +1,80 @@
+{
+  "R89_control": {
+    "results": {
+      "estimate_minus": {
+        "1": 0.9998881842181562,
+        "10": 0.9988595383599055,
+        "100": 0.9864176075314778
+      },
+      "estimate_plus": {
+        "1": 0.9998796719867169,
+        "10": 0.9987674134261336,
+        "100": 0.9848181481904434
+      },
+      "known_angle": {
+        "1": 1.0000000000000002,
+        "10": 1.0000000000000022,
+        "100": 1.0000000000000222
+      },
+      "ordinary": {
+        "1": 0.9954494494718307,
+        "10": 0.9381562382485933,
+        "100": 0.2932684721545498
+      },
+      "pauli": {
+        "1": 0.995449449471831,
+        "10": 0.956313652531481,
+        "100": 0.7004031704782852
+      }
+    },
+    "scope": "separate declared coherent repetition channel; not R81 decoherence or physical calibration",
+    "theta": 0.2
+  },
+  "R92_comparator": {
+    "raw_paths": 4320,
+    "scope": "native categorical covariance separate population"
+  },
+  "checks": {
+    "coherence": 0.0,
+    "entropy": 5.252417424606026e-16,
+    "entropy_split": 2.7755575615628914e-17,
+    "frozen_optimal": 0.0,
+    "purity": 1.1102230246251565e-16,
+    "relative_coherence": 5.18031798013574e-16
+  },
+  "independence": "Same-agent scalar/eigenvalue, matrix and purification checks; no independent subagent.",
+  "noncommuting_example": {
+    "scope": "finite map; local pointer differs by axis",
+    "singular_values": [
+      0.7,
+      0.6,
+      0.42
+    ]
+  },
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.12.3"
+  },
+  "source_hashes": {
+    "mqft_restore81_20261127/AUDIT81.json": "4e0c448cb4d8a4520720f9b1e0f6fcce8b79a280d5e5551596220f0ce5095160",
+    "mqft_restore81_20261127/EFFECTS81.json": "95f0ecd1676d1b6ff16e2e9adea2bf52209311383e98d73c92099d3fe4018c27",
+    "mqft_restore81_20261127/PATHS81.npz": "ea14f6c7d48812485290630f9cc0722a09f632713aab130e0f11ff9cdbb6ee71",
+    "mqft_restore83_20261127/AUDIT83.json": "4c6e6e6ef45854cacd6afc9dccc09e354ce250081815e9c67d8cd7e5987097a0",
+    "mqft_restore83_20261127/FRAGMENTS83.json": "2fd2be0f8d319dfd8203fdb895d023c79779c0a102a246a6d3f030c839a99516",
+    "mqft_restore83_20261127/RECORD83.json": "06f5c1e001c685c174404bb637e3f669f64a2a4a49d3095f3d7982562e9e68a9",
+    "mqft_restore83_20261127/RECORD_MATRICES83.npz": "f9db91fa3e274165316b22a427307dd743222416b0d1787b61cc6d1bf431d87c",
+    "mqft_restore83_20261127/TREE83.json": "b539913e58ff1494028747f4cc583aaf52e7450228af0772d16577f41d8b22cb",
+    "mqft_restore83_20261127/instrument81.py": "a042eb1df30c42fdf3b6d783b599fa04d1397ccd1502189fa603c23049e1e7b2",
+    "mqft_restore89_20261128/QEC89.json": "d4ebaca0b4e58191e6272febdc41af6e524e2ce06f481146d98bd88b507b7a16",
+    "mqft_restore90_20261128/PHASE90.json": "a2891b5138ee4f6be0890c529cbba075dadb7f07e66c19ea9a12927bae615195",
+    "mqft_restore92_20261128/SUMMARY92.json": "1548480f9221414bc249cb2e9f63f3bc92b75e7135de1497e7885dd8aef7f971",
+    "mqft_restore93_20261128/CONVERGENCE93.json": "c32c5952f0dd4abe6b46d2dcb491d272b1d7afbc735723a854660c7a73ee08dc",
+    "mqft_restore93_20261128/DAG.json": "3ba37b838f781b3826793e39ea5a64a148d789ce3df1a08773e1bbcdb05b8456",
+    "mqft_restore93_20261128/ORIGINAL_OUTPUT_PROGRESS93.csv": "516d7178cd490d4a7356166c8724e569b8cab86a12393c5a70b36decd99ea343",
+    "mqft_restore93_20261128/ORIGINAL_SOURCE93.json": "b47c50da915beec8b9c5413e95e7c7d5917f4c82e224bf294ea2f62338675778",
+    "mqft_restore93_20261128/PLOT_INVENTORY93.csv": "e5bbd8832d19338918ae6f99b3e6742ae90e71bdd90bfc09cc6329ef5a94bd32",
+    "mqft_restore93_20261128/PROGRESS93.json": "e4a85de1ed048b1b54cd38941b0c0565945482d60213ed9bd82d22a2079eb89b",
+    "mqft_restore93_20261128/QUALITY_MATRIX93.csv": "9d705bd78d8aab157586f1c7a6dd071e98ce8d97a85a34098ee5609a929b64e5"
+  },
+  "status": "PASS_SCOPED"
+}

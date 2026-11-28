@@ -1,0 +1,15 @@
+{
+  "authority": "RESTORE69",
+  "backup_policy": "Dropbox only",
+  "contract_sha": "cd00fbf2e25e094e673ff8da70e4d2aad1c3fdbc8351dddb1e60f5c87f2fce43",
+  "fresh_native": 0,
+  "parent": "0e7ecce731118823884165f66554d7ee27eac036",
+  "parent_dag_sha": "3ba37b838f781b3826793e39ea5a64a148d789ce3df1a08773e1bbcdb05b8456",
+  "targets": [
+    "G13",
+    "G14",
+    "G15",
+    "G16",
+    "G17"
+  ]
+}

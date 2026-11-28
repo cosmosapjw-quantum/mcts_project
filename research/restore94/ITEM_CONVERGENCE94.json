@@ -1,0 +1,76 @@
+{
+  "artifact_reconstruction_sha": "dc1a675979db507cc3daba9bb3b57500b5261c58a42d520e364e64d8c4aca7f0",
+  "claims": [
+    {
+      "claim": "For the specified efficient grouped square-root qubit instrument, its nonselective map fixes the measured longitudinal Bloch component and contracts transverse components by gamma. Pointer readout TV=m lambda. Purification concavity gives mean selective entropy no larger than prepared entropy, while unital measurement increases unselective entropy; their difference is the Holevo balance. A frozen noncommuting sequence minimizes final pure-input entropy along its largest right singular direction.",
+      "evidence": [
+        "mqft_restore94_20261128/THEORY.md",
+        "mqft_restore94_20261128/NATIVE94.json",
+        "mqft_restore94_20261128/NATIVE94.npz",
+        "mqft_restore94_20261128/INDEPENDENT94.json"
+      ],
+      "id": "Q-INSTRUMENT-07",
+      "items": [
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G17"
+      ],
+      "limit": "Explicit instrument, fixed-history local channel and frozen sequence only. Actual selected entropy may increase or decrease; no global adaptive unselective law, native physical pointer or novelty claim.",
+      "stage": 94,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the specified branch-dependent coherent extension, each continuing prefix joint S-record matrix is a positive Gram product of Kraus path amplitudes with a mixed-input purifier. Its normalized system marginal equals the direct CP continuing density recurrence; accumulated complement failures restore trace one for the stopped system. Prefix survival normalization is not final postselection. Entropy of the joint SR equals the Schmidt entropy across SR versus bath-plus-purifier, not S-record entanglement alone.",
+      "evidence": [
+        "mqft_restore94_20261128/THEORY.md",
+        "mqft_restore94_20261128/RECORD94.json",
+        "mqft_restore94_20261128/INDEPENDENT94.json"
+      ],
+      "id": "Q-PREFIX-08",
+      "items": [
+        "G14",
+        "G16",
+        "G17"
+      ],
+      "limit": "Declared common bath convention, native-repeat and pair-diagnostic distinct; no identification of actual coherent branch state or physical Darwinism from measured diagonal outcomes.",
+      "stage": 94,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "Q-INSTRUMENT-07",
+      "id": "G13",
+      "remaining_final_acceptance": "Specify complex state/instrument and observation, validate trace/PSD and offdiagonal phase response over actual multi-time histories.",
+      "scope": "Actual recorded complex qubit conditional pre/prepared/post coherence and noncommuting phase intervention, fixed basis C_l1 and C_rel; no physical bath."
+    },
+    {
+      "accepted": "Q-INSTRUMENT-07;Q-PREFIX-08",
+      "id": "G14",
+      "remaining_final_acceptance": "Specify system/environment partition and reduced density, verify von Neumann entropy evolution and classical comparison.",
+      "scope": "Actual conditional entropy and local unselective counterfactual; explicit S-record-bath/purifier prefix partition, entropy spectra and classical diagonal comparator; not native physical entanglement."
+    },
+    {
+      "accepted": "Q-INSTRUMENT-07",
+      "id": "G15",
+      "remaining_final_acceptance": "Use normalized conditional probability participation 1/sum p^2, distinguish occupancy, calibrate thermal claim if retained.",
+      "scope": "Full legal-action conditional inverse participation on actual histories vs base score law and realized prefix occupancy; normalized probability and finite-count bounds."
+    },
+    {
+      "accepted": "Q-INSTRUMENT-07;Q-PREFIX-08",
+      "id": "G16",
+      "remaining_final_acceptance": "Define pointer basis by instrument and stability under perturbation, compare actual decision variable and independent records.",
+      "scope": "Local pointer-axis fixed states and finite frozen singular-vector stability, explicit record fragment Holevo and actual paired recommendation disagreement; no emergent global pointer or objectivity."
+    },
+    {
+      "accepted": "Q-INSTRUMENT-07;Q-PREFIX-08",
+      "id": "G17",
+      "remaining_final_acceptance": "Assemble coherence, entropy, participation and pointer results for adaptive noncommuting histories, no assumed physical bath.",
+      "scope": "Joint adaptive noncommuting conditional trajectories and declared coherent prefix record, entropy, participation and pointer metrics; rare-event weights and distinct diagnostic intervention retained."
+    }
+  ],
+  "parent_convergence_sha256": "c32c5952f0dd4abe6b46d2dcb491d272b1d7afbc735723a854660c7a73ee08dc",
+  "parent_quality_matrix_sha256": "9d705bd78d8aab157586f1c7a6dd071e98ce8d97a85a34098ee5609a929b64e5"
+}

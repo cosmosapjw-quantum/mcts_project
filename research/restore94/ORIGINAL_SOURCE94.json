@@ -1,0 +1,1450 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "R69 locked original archives; no separate live mcts_study folder at archived Dropbox path",
+  "guide_features": [
+    {
+      "line": 40,
+      "text": "### 1. Decoherence Analysis"
+    },
+    {
+      "line": 41,
+      "text": ""
+    },
+    {
+      "line": 42,
+      "text": "#### DecoherenceAnalyzer (`decoherence.py`)"
+    },
+    {
+      "line": 43,
+      "text": "```python"
+    },
+    {
+      "line": 44,
+      "text": "class DecoherenceAnalyzer:"
+    },
+    {
+      "line": 45,
+      "text": "    \"\"\"Analyzes quantum decoherence in MCTS dynamics\"\"\""
+    },
+    {
+      "line": 46,
+      "text": "    "
+    },
+    {
+      "line": 47,
+      "text": "    def measure_coherence(self, tree_state: TreeState) -> float:"
+    },
+    {
+      "line": 48,
+      "text": "        \"\"\"Compute quantum coherence from off-diagonal elements\"\"\""
+    },
+    {
+      "line": 49,
+      "text": "        "
+    },
+    {
+      "line": 50,
+      "text": "    def track_pointer_states(self, trajectory: List[TreeState]) -> Dict:"
+    },
+    {
+      "line": 51,
+      "text": "        \"\"\"Identify emergent classical pointer states\"\"\""
+    },
+    {
+      "line": 52,
+      "text": "        "
+    },
+    {
+      "line": 53,
+      "text": "    def analyze_environment_coupling(self, tree: MCTSTree) -> float:"
+    },
+    {
+      "line": 54,
+      "text": "        \"\"\"Quantify coupling to environment (other subtrees)\"\"\""
+    },
+    {
+      "line": 55,
+      "text": "```"
+    },
+    {
+      "line": 56,
+      "text": ""
+    },
+    {
+      "line": 57,
+      "text": "#### DecoherencePlotter (`decoherence_plotter.py`)"
+    },
+    {
+      "line": 58,
+      "text": "**Visualization Features:**"
+    },
+    {
+      "line": 59,
+      "text": "1. **Coherence Evolution**"
+    },
+    {
+      "line": 60,
+      "text": "   - Exponential decay fitting"
+    },
+    {
+      "line": 61,
+      "text": "   - Decoherence time extraction"
+    },
+    {
+      "line": 62,
+      "text": "   - Multiple coherence measures"
+    },
+    {
+      "line": 63,
+      "text": ""
+    },
+    {
+      "line": 64,
+      "text": "2. **Entropy Growth**"
+    },
+    {
+      "line": 65,
+      "text": "   - Von Neumann entropy"
+    },
+    {
+      "line": 66,
+      "text": "   - Linear entropy"
+    },
+    {
+      "line": 67,
+      "text": "   - Participation ratio"
+    },
+    {
+      "line": 68,
+      "text": ""
+    },
+    {
+      "line": 69,
+      "text": "3. **Quantum Darwinism**"
+    },
+    {
+      "line": 70,
+      "text": "   - Pointer state emergence"
+    },
+    {
+      "line": 71,
+      "text": "   - Redundancy analysis"
+    },
+    {
+      "line": 72,
+      "text": "   - Environment correlation"
+    },
+    {
+      "line": 73,
+      "text": ""
+    },
+    {
+      "line": 74,
+      "text": "### 2. Quantum Tunneling"
+    },
+    {
+      "line": 75,
+      "text": ""
+    }
+  ],
+  "guide_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+  "items": [
+    {
+      "acceptance": "Specify complex state/instrument and observation, validate trace/PSD and offdiagonal phase response over actual multi-time histories.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G13",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 coherence_evolution.png",
+      "span": [
+        329,
+        329
+      ]
+    },
+    {
+      "acceptance": "Specify system/environment partition and reduced density, verify von Neumann entropy evolution and classical comparison.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G14",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 entropy_growth.png",
+      "span": [
+        330,
+        330
+      ]
+    },
+    {
+      "acceptance": "Use normalized conditional probability participation 1/sum p^2, distinguish occupancy, calibrate thermal claim if retained.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G15",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 participation_ratio.png",
+      "span": [
+        331,
+        331
+      ]
+    },
+    {
+      "acceptance": "Define pointer basis by instrument and stability under perturbation, compare actual decision variable and independent records.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G16",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 pointer_states.png",
+      "span": [
+        332,
+        332
+      ]
+    },
+    {
+      "acceptance": "Assemble coherence, entropy, participation and pointer results for adaptive noncommuting histories, no assumed physical bath.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G17",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502   \u2502       \u2514\u2500\u2500 decoherence_summary.png",
+      "span": [
+        333,
+        333
+      ]
+    }
+  ],
+  "legacy_code": {
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/decoherence.py",
+    "selected": [
+      {
+        "line": 181,
+        "text": "    def compute_coherence(self, visits: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "line": 182,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 183,
+        "text": "        Compute coherence measure (Shannon entropy)."
+      },
+      {
+        "line": 184,
+        "text": "        "
+      },
+      {
+        "line": 185,
+        "text": "        Args:"
+      },
+      {
+        "line": 186,
+        "text": "            visits: Visit count distribution"
+      },
+      {
+        "line": 187,
+        "text": "            "
+      },
+      {
+        "line": 188,
+        "text": "        Returns:"
+      },
+      {
+        "line": 189,
+        "text": "            Coherence value"
+      },
+      {
+        "line": 190,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 191,
+        "text": "        # Convert to probabilities"
+      },
+      {
+        "line": 192,
+        "text": "        total_visits = visits.sum()"
+      },
+      {
+        "line": 193,
+        "text": "        if total_visits == 0:"
+      },
+      {
+        "line": 194,
+        "text": "            return torch.tensor(0.0, device=self.device)"
+      },
+      {
+        "line": 195,
+        "text": "        "
+      },
+      {
+        "line": 196,
+        "text": "        probs = visits / total_visits"
+      },
+      {
+        "line": 197,
+        "text": "        "
+      },
+      {
+        "line": 198,
+        "text": "        # Remove zeros for log computation"
+      },
+      {
+        "line": 199,
+        "text": "        probs_nonzero = probs[probs > 0]"
+      },
+      {
+        "line": 200,
+        "text": "        "
+      },
+      {
+        "line": 201,
+        "text": "        # Shannon entropy"
+      },
+      {
+        "line": 202,
+        "text": "        coherence = -torch.sum(probs_nonzero * torch.log(probs_nonzero))"
+      },
+      {
+        "line": 203,
+        "text": "        "
+      },
+      {
+        "line": 204,
+        "text": "        return coherence"
+      },
+      {
+        "line": 205,
+        "text": "    "
+      },
+      {
+        "line": 206,
+        "text": "    def compute_purity(self, visits: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "line": 207,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 208,
+        "text": "        Compute purity (inverse participation ratio)."
+      },
+      {
+        "line": 209,
+        "text": "        "
+      },
+      {
+        "line": 210,
+        "text": "        Args:"
+      },
+      {
+        "line": 211,
+        "text": "            visits: Visit count distribution"
+      },
+      {
+        "line": 212,
+        "text": "            "
+      },
+      {
+        "line": 213,
+        "text": "        Returns:"
+      },
+      {
+        "line": 214,
+        "text": "            Purity value"
+      },
+      {
+        "line": 215,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 216,
+        "text": "        # Convert to probabilities"
+      },
+      {
+        "line": 217,
+        "text": "        total_visits = visits.sum()"
+      },
+      {
+        "line": 218,
+        "text": "        if total_visits == 0:"
+      },
+      {
+        "line": 219,
+        "text": "            return torch.tensor(1.0, device=self.device)"
+      },
+      {
+        "line": 220,
+        "text": "        "
+      },
+      {
+        "line": 221,
+        "text": "        probs = visits / total_visits"
+      },
+      {
+        "line": 222,
+        "text": "        "
+      },
+      {
+        "line": 223,
+        "text": "        # Purity is sum of squared probabilities"
+      },
+      {
+        "line": 224,
+        "text": "        purity = torch.sum(probs ** 2)"
+      },
+      {
+        "line": 225,
+        "text": "        "
+      },
+      {
+        "line": 226,
+        "text": "        return purity"
+      },
+      {
+        "line": 227,
+        "text": "    "
+      },
+      {
+        "line": 357,
+        "text": "    def identify_pointer_states(self, snapshot) -> List[Dict[str, Any]]:"
+      },
+      {
+        "line": 358,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 359,
+        "text": "        Identify pointer states (robust classical outcomes)."
+      },
+      {
+        "line": 360,
+        "text": "        "
+      },
+      {
+        "line": 361,
+        "text": "        Args:"
+      },
+      {
+        "line": 362,
+        "text": "            snapshot: TreeSnapshot object"
+      },
+      {
+        "line": 363,
+        "text": "            "
+      },
+      {
+        "line": 364,
+        "text": "        Returns:"
+      },
+      {
+        "line": 365,
+        "text": "            List of pointer state information"
+      },
+      {
+        "line": 366,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 367,
+        "text": "        visits = snapshot.observables.get('visit_distribution')"
+      },
+      {
+        "line": 368,
+        "text": "        if visits is None:"
+      },
+      {
+        "line": 369,
+        "text": "            return []"
+      },
+      {
+        "line": 370,
+        "text": "        "
+      },
+      {
+        "line": 371,
+        "text": "        # Ensure tensor"
+      },
+      {
+        "line": 372,
+        "text": "        if not isinstance(visits, torch.Tensor):"
+      },
+      {
+        "line": 373,
+        "text": "            visits = torch.tensor(visits, device=self.device)"
+      },
+      {
+        "line": 374,
+        "text": "        else:"
+      },
+      {
+        "line": 375,
+        "text": "            visits = visits.to(self.device)"
+      },
+      {
+        "line": 376,
+        "text": "        "
+      },
+      {
+        "line": 377,
+        "text": "        # Convert to probabilities"
+      },
+      {
+        "line": 378,
+        "text": "        total_visits = visits.sum()"
+      },
+      {
+        "line": 379,
+        "text": "        if total_visits == 0:"
+      },
+      {
+        "line": 380,
+        "text": "            return []"
+      },
+      {
+        "line": 381,
+        "text": "        "
+      },
+      {
+        "line": 382,
+        "text": "        probs = visits / total_visits"
+      },
+      {
+        "line": 383,
+        "text": "        "
+      },
+      {
+        "line": 384,
+        "text": "        # Pointer states are high-probability outcomes"
+      },
+      {
+        "line": 385,
+        "text": "        # Use threshold of mean + std"
+      },
+      {
+        "line": 386,
+        "text": "        threshold = probs.mean() + probs.std()"
+      },
+      {
+        "line": 387,
+        "text": "        "
+      },
+      {
+        "line": 388,
+        "text": "        pointer_states = []"
+      },
+      {
+        "line": 389,
+        "text": "        for idx, prob in enumerate(probs):"
+      },
+      {
+        "line": 390,
+        "text": "            if prob > threshold:"
+      },
+      {
+        "line": 391,
+        "text": "                pointer_states.append({"
+      },
+      {
+        "line": 392,
+        "text": "                    'node_index': int(idx),"
+      },
+      {
+        "line": 393,
+        "text": "                    'visit_fraction': float(prob),"
+      },
+      {
+        "line": 394,
+        "text": "                    'visits': int(visits[idx])"
+      },
+      {
+        "line": 395,
+        "text": "                })"
+      },
+      {
+        "line": 396,
+        "text": "        "
+      },
+      {
+        "line": 397,
+        "text": "        # Sort by visit fraction"
+      },
+      {
+        "line": 398,
+        "text": "        pointer_states.sort(key=lambda x: x['visit_fraction'], reverse=True)"
+      },
+      {
+        "line": 399,
+        "text": "        "
+      },
+      {
+        "line": 400,
+        "text": "        return pointer_states"
+      },
+      {
+        "line": 401,
+        "text": "    "
+      },
+      {
+        "line": 402,
+        "text": "    def compute_density_matrix(self, visits: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "line": 403,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 404,
+        "text": "        Compute density matrix from visit distribution."
+      },
+      {
+        "line": 405,
+        "text": "        "
+      },
+      {
+        "line": 406,
+        "text": "        In path integral formulation:"
+      },
+      {
+        "line": 407,
+        "text": "        \u03c1 = |\u03c8\u27e9\u27e8\u03c8| where |\u03c8\u27e9 = \u03a3_i \u221a(p_i) |i\u27e9"
+      },
+      {
+        "line": 408,
+        "text": "        "
+      },
+      {
+        "line": 409,
+        "text": "        Args:"
+      },
+      {
+        "line": 410,
+        "text": "            visits: Visit counts for each action"
+      },
+      {
+        "line": 411,
+        "text": "            "
+      },
+      {
+        "line": 412,
+        "text": "        Returns:"
+      },
+      {
+        "line": 413,
+        "text": "            Density matrix"
+      },
+      {
+        "line": 414,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 415,
+        "text": "        # Normalize to get probabilities"
+      },
+      {
+        "line": 416,
+        "text": "        total_visits = visits.sum()"
+      },
+      {
+        "line": 417,
+        "text": "        if total_visits == 0:"
+      },
+      {
+        "line": 418,
+        "text": "            n_actions = len(visits)"
+      },
+      {
+        "line": 419,
+        "text": "            return torch.eye(n_actions, device=self.device) / n_actions"
+      },
+      {
+        "line": 420,
+        "text": "        "
+      },
+      {
+        "line": 421,
+        "text": "        # Wavefunction amplitudes"
+      },
+      {
+        "line": 422,
+        "text": "        psi = torch.sqrt(visits / total_visits)"
+      },
+      {
+        "line": 423,
+        "text": "        "
+      },
+      {
+        "line": 424,
+        "text": "        # Density matrix \u03c1 = |\u03c8\u27e9\u27e8\u03c8|"
+      },
+      {
+        "line": 425,
+        "text": "        rho = torch.outer(psi, psi)"
+      },
+      {
+        "line": 426,
+        "text": "        "
+      },
+      {
+        "line": 427,
+        "text": "        return rho"
+      },
+      {
+        "line": 428,
+        "text": "    "
+      },
+      {
+        "line": 429,
+        "text": "    def compute_coherence_from_density_matrix(self, rho: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "line": 430,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 431,
+        "text": "        Compute coherence from density matrix."
+      },
+      {
+        "line": 432,
+        "text": "        "
+      },
+      {
+        "line": 433,
+        "text": "        Coherence = sum of absolute values of off-diagonal elements"
+      },
+      {
+        "line": 434,
+        "text": "        "
+      },
+      {
+        "line": 435,
+        "text": "        Args:"
+      },
+      {
+        "line": 436,
+        "text": "            rho: Density matrix"
+      },
+      {
+        "line": 437,
+        "text": "            "
+      },
+      {
+        "line": 438,
+        "text": "        Returns:"
+      },
+      {
+        "line": 439,
+        "text": "            Coherence measure"
+      },
+      {
+        "line": 440,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 441,
+        "text": "        n = rho.shape[0]"
+      },
+      {
+        "line": 442,
+        "text": "        # Get off-diagonal elements"
+      },
+      {
+        "line": 443,
+        "text": "        mask = ~torch.eye(n, dtype=torch.bool, device=self.device)"
+      },
+      {
+        "line": 444,
+        "text": "        coherence = torch.abs(rho[mask]).sum()"
+      },
+      {
+        "line": 445,
+        "text": "        return coherence"
+      },
+      {
+        "line": 446,
+        "text": "    "
+      },
+      {
+        "line": 447,
+        "text": "    def compute_purity_from_density_matrix(self, rho: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "line": 448,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 449,
+        "text": "        Compute purity from density matrix."
+      },
+      {
+        "line": 450,
+        "text": "        "
+      },
+      {
+        "line": 451,
+        "text": "        Purity = Tr(\u03c1\u00b2)"
+      },
+      {
+        "line": 452,
+        "text": "        - Pure state: P = 1"
+      },
+      {
+        "line": 453,
+        "text": "        - Maximally mixed: P = 1/d"
+      },
+      {
+        "line": 454,
+        "text": "        "
+      },
+      {
+        "line": 455,
+        "text": "        Args:"
+      },
+      {
+        "line": 456,
+        "text": "            rho: Density matrix"
+      },
+      {
+        "line": 457,
+        "text": "            "
+      },
+      {
+        "line": 458,
+        "text": "        Returns:"
+      },
+      {
+        "line": 459,
+        "text": "            Purity"
+      },
+      {
+        "line": 460,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 461,
+        "text": "        rho_squared = torch.matmul(rho, rho)"
+      },
+      {
+        "line": 462,
+        "text": "        purity = torch.trace(rho_squared)"
+      },
+      {
+        "line": 463,
+        "text": "        return purity"
+      },
+      {
+        "line": 464,
+        "text": "    "
+      },
+      {
+        "line": 465,
+        "text": "    def compute_von_neumann_entropy(self, rho: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "line": 466,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 467,
+        "text": "        Compute von Neumann entropy."
+      },
+      {
+        "line": 468,
+        "text": "        "
+      },
+      {
+        "line": 469,
+        "text": "        S = -Tr(\u03c1 log \u03c1)"
+      },
+      {
+        "line": 470,
+        "text": "        "
+      },
+      {
+        "line": 471,
+        "text": "        Args:"
+      },
+      {
+        "line": 472,
+        "text": "            rho: Density matrix"
+      },
+      {
+        "line": 473,
+        "text": "            "
+      },
+      {
+        "line": 474,
+        "text": "        Returns:"
+      },
+      {
+        "line": 475,
+        "text": "            von Neumann entropy"
+      },
+      {
+        "line": 476,
+        "text": "        \"\"\""
+      },
+      {
+        "line": 477,
+        "text": "        # Eigendecomposition"
+      },
+      {
+        "line": 478,
+        "text": "        eigenvalues, _ = torch.linalg.eigh(rho)"
+      },
+      {
+        "line": 479,
+        "text": "        "
+      },
+      {
+        "line": 480,
+        "text": "        # Filter out zero eigenvalues to avoid log(0)"
+      },
+      {
+        "line": 481,
+        "text": "        eigenvalues = eigenvalues[eigenvalues > 1e-10]"
+      },
+      {
+        "line": 482,
+        "text": "        "
+      },
+      {
+        "line": 483,
+        "text": "        # von Neumann entropy"
+      },
+      {
+        "line": 484,
+        "text": "        entropy = -torch.sum(eigenvalues * torch.log(eigenvalues))"
+      },
+      {
+        "line": 485,
+        "text": "        "
+      },
+      {
+        "line": 486,
+        "text": "        return entropy"
+      },
+      {
+        "line": 487,
+        "text": "    "
+      }
+    ],
+    "sha256": "c233b94557f0c60f320ac16f7a71a12d81d4297a6a076dae7ddba3f7781ddc03"
+  },
+  "study_members": 60,
+  "study_selected": [
+    {
+      "excerpts": [
+        [
+          1,
+          "# Open Quantum Systems in MCTS: Decoherence and Darwinism"
+        ],
+        [
+          5,
+          "We develop the open quantum system formulation of MCTS, showing how environmental interactions lead to decoherence and the emergence of classical objectivity. Starting from the continuous Lindblad master equation, we derive its discrete-time version appropriate for MCTS evolution. The formalism reconciles position basis states |s,a\u27e9 with path states |\u03c8\u27e9 through partial trace operations. We detail the MinHash projection operator P_h and show how Dirichlet noise and evaluation uncertainty act as thermal baths. Quantum Darwinism explains convergence through redundant information encoding I(S:F) = H(S) - H(S|F) across tree fragments, with scaling R_\u03b4 ~ N^(-1/2). The Schwinger-Keldysh formalism on the closed-time contour justifies the decay of \u210f_eff(N) and provides numerical methods to validate the fluctuation-dissipation theorem."
+        ],
+        [
+          15,
+          "- Parallel search interference (decoherence channel)"
+        ],
+        [
+          17,
+          "These environments cause decoherence, selecting pointer states that become effectively classical through einselection (environment-induced superselection)."
+        ],
+        [
+          21,
+          "This document provides a complete open quantum systems treatment of MCTS. We develop the density matrix formulation, derive the discrete Lindblad equation from first principles, explain quantum Darwinism in the tree context, and extend to non-equilibrium dynamics via the Schwinger-Keldysh formalism."
+        ],
+        [
+          55,
+          "### 2.3 Von Neumann Entropy"
+        ],
+        [
+          57,
+          "**Definition 2.3** (Entropy)"
+        ],
+        [
+          75,
+          "- Dissipative part: Lindblad terms (environmental decoherence)"
+        ],
+        [
+          157,
+          "## 4. Pointer States and Einselection"
+        ],
+        [
+          161,
+          "**Definition 4.1** (Pointer States)"
+        ],
+        [
+          168,
+          "**Theorem 4.1** (MCTS Pointer States)"
+        ],
+        [
+          169,
+          "The pointer states are visit count eigenstates:"
+        ],
+        [
+          182,
+          "### 4.2 Decoherence Dynamics"
+        ],
+        [
+          184,
+          "**Theorem 4.2** (Power-Law Decoherence)"
+        ],
+        [
+          196,
+          "2. Effective decoherence rate:"
+        ],
+        [
+          211,
+          "## 5. Quantum Darwinism in MCTS"
+        ],
+        [
+          220,
+          "where H(\u00b7) is von Neumann entropy."
+        ],
+        [
+          240,
+          "**Theorem 5.1** (Darwinism Scaling)"
+        ],
+        [
+          258,
+          "7. Branching factor b enters through entropy H(S) ~ log b \u25a1"
+        ],
+        [
+          502,
+          "        # Decoherence parameters"
+        ],
+        [
+          594,
+          "    def measure_decoherence(self):"
+        ],
+        [
+          595,
+          "        \"\"\"Compute decoherence measures\"\"\""
+        ],
+        [
+          596,
+          "        # Von Neumann entropy"
+        ],
+        [
+          599,
+          "        entropy = -np.sum(eigenvals * np.log(eigenvals))"
+        ],
+        [
+          604,
+          "        # Total coherence (off-diagonal norm)"
+        ],
+        [
+          606,
+          "        coherence = np.linalg.norm(self.rho - diag_rho, 'fro')"
+        ],
+        [
+          609,
+          "            'entropy': entropy,"
+        ],
+        [
+          611,
+          "            'coherence': coherence,"
+        ],
+        [
+          612,
+          "            'max_entropy': np.log(self.dim),"
+        ],
+        [
+          613,
+          "            'decoherence_measure': 1 - purity"
+        ]
+      ],
+      "lines": 965,
+      "member": "mcts_study/v3.0/qft-mcts-decoherence.md",
+      "relevant_line_count": 75,
+      "sha256": "64a0c6eb98c1f8695b4230cda9121f7f5adc463f217e412670808bf9408358e5"
+    },
+    {
+      "excerpts": [
+        [
+          17,
+          "7. [Decoherence and Quantum Variables](#7-decoherence-and-quantum-variables)"
+        ],
+        [
+          40,
+          "            'policy_entropy': 2.45,                 # Policy distribution entropy"
+        ],
+        [
+          174,
+          "### 2.3 Von Neumann Entropy"
+        ],
+        [
+          180,
+          "def compute_von_neumann_entropy(visit_counts):"
+        ],
+        [
+          182,
+          "    Compute quantum information entropy from visit distribution"
+        ],
+        [
+          185,
+          "    - Uniform visits \u2192 high entropy (exploration)"
+        ],
+        [
+          186,
+          "    - Concentrated visits \u2192 low entropy (exploitation)"
+        ],
+        [
+          195,
+          "    # Step 3: Compute Shannon entropy (quantum analog)"
+        ],
+        [
+          196,
+          "    entropy = -np.sum(probs * np.log(probs + 1e-10))  # Regularization"
+        ],
+        [
+          198,
+          "    # Step 4: Normalize by maximum possible entropy"
+        ],
+        [
+          199,
+          "    max_entropy = np.log(len(probs))"
+        ],
+        [
+          200,
+          "    normalized_entropy = entropy / max_entropy if max_entropy > 0 else 0"
+        ],
+        [
+          202,
+          "    return entropy, normalized_entropy"
+        ],
+        [
+          207,
+          "entropy = -sum(p * log(p)) = 1.58 bits"
+        ],
+        [
+          208,
+          "max_entropy = log(6) = 1.79 bits"
+        ],
+        [
+          209,
+          "normalized = 1.58/1.79 = 0.88 (88% of maximum entropy)"
+        ],
+        [
+          212,
+          "**Physical Meaning**: High entropy indicates diverse exploration, low entropy indicates focused exploitation."
+        ],
+        [
+          531,
+          "### 5.3 Work and Entropy Production"
+        ],
+        [
+          566,
+          "**Entropy Production Rate**:"
+        ],
+        [
+          568,
+          "def compute_entropy_production(tree_sizes, temperatures):"
+        ],
+        [
+          570,
+          "    Measure irreversible entropy production during search"
+        ],
+        [
+          573,
+          "    - Entropy production = departure from equilibrium"
+        ],
+        [
+          583,
+          "    # Step 2: Entropy production \u221d growth \u00d7 temperature"
+        ],
+        [
+          584,
+          "    entropy_production = []"
+        ],
+        [
+          587,
+          "        entropy_production.append(sigma)"
+        ],
+        [
+          589,
+          "    return entropy_production"
+        ],
+        [
+          596,
+          "### 6.1 Entanglement Entropy"
+        ],
+        [
+          600,
+          "def compute_entanglement_entropy(visit_counts, system_sizes):"
+        ],
+        [
+          602,
+          "    Extract entanglement entropy from visit correlations"
+        ],
+        [
+          615,
+          "    # Step 2: Von Neumann entropy contribution"
+        ]
+      ],
+      "lines": 1278,
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "relevant_line_count": 84,
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    },
+    {
+      "excerpts": [
+        [
+          19,
+          "**Final Framework**: MCTS as a non-equilibrium open quantum system undergoing decoherence"
+        ],
+        [
+          26,
+          "4. A Quantum Darwinism process where classical decisions emerge through information redundancy"
+        ],
+        [
+          167,
+          "- Off-diagonal elements: $\\rho_{ab}$ represents \"coherence\" between actions"
+        ],
+        [
+          392,
+          "## 7. Quantum Darwinism and Classical Emergence"
+        ],
+        [
+          398,
+          "**Answer**: Through Quantum Darwinism\u2014the environment (simulations) redundantly encodes information about pointer states (best moves)."
+        ],
+        [
+          412,
+          "where I is mutual information and H is entropy."
+        ],
+        [
+          424,
+          "### 7.3 Decoherence Dynamics"
+        ],
+        [
+          426,
+          "**Definition 7.4 (Policy Coherence)**:"
+        ],
+        [
+          427,
+          "The von Neumann entropy quantifies superposition:"
+        ],
+        [
+          430,
+          "**Theorem 7.2 (Decoherence Law)**:"
+        ],
+        [
+          431,
+          "The entropy follows:"
+        ],
+        [
+          435,
+          "- $S_0$: Initial entropy"
+        ],
+        [
+          436,
+          "- $k_{dec}$: Decoherence time"
+        ],
+        [
+          437,
+          "- $S_{\\infty}$: Residual entropy"
+        ],
+        [
+          442,
+          "3. Pointer states (good moves) create redundant records"
+        ],
+        [
+          446,
+          "### 7.4 Einselection and Pointer States"
+        ],
+        [
+          448,
+          "**Definition 7.5 (MCTS Pointer States)**:"
+        ],
+        [
+          455,
+          "An action a is a pointer state iff:"
+        ],
+        [
+          458,
+          "**Interpretation**: Pointer states are attractors under the search dynamics."
+        ],
+        [
+          463,
+          "A sudden drop in policy entropy:"
+        ],
+        [
+          472,
+          "4. Entropy drops discontinuously"
+        ],
+        [
+          476,
+          "def detect_phase_transitions(entropy_trajectory):"
+        ],
+        [
+          477,
+          "    d2S = np.gradient(np.gradient(entropy_trajectory))"
+        ],
+        [
+          528,
+          "### 8.4 Entropy Production"
+        ],
+        [
+          530,
+          "**Definition 8.3 (Entropy Production)**:"
+        ],
+        [
+          534,
+          "- $\\Delta S_{system} = -\\Delta S_{vN}$ (policy entropy decrease)"
+        ],
+        [
+          649,
+          "- Resolution: Maps to quantum control theory, not natural decoherence"
+        ],
+        [
+          673,
+          "   - Information theory (Quantum Darwinism)"
+        ],
+        [
+          678,
+          "   - Decoherence from information redundancy"
+        ],
+        [
+          732,
+          "   - Optimal \u03b2(k) from maximum entropy"
+        ]
+      ],
+      "lines": 776,
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "relevant_line_count": 32,
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "excerpts": [
+        [
+          427,
+          "                temp_data['entropy'] = compute_policy_entropy(root)"
+        ],
+        [
+          523,
+          "   - Correlated with entropy drops"
+        ],
+        [
+          937,
+          "            'entropy': [],"
+        ],
+        [
+          968,
+          "        # Policy entropy"
+        ],
+        [
+          974,
+          "            entropy = -np.sum(probs * np.log(probs))"
+        ],
+        [
+          976,
+          "            entropy = np.log(len(root.children))"
+        ],
+        [
+          997,
+          "            'entropy': entropy,"
+        ],
+        [
+          1327,
+          "## 5. Quantum Darwinism and Information Redundancy"
+        ],
+        [
+          1339,
+          "def measure_quantum_darwinism(simulation_records: List[SimulationRecord],"
+        ],
+        [
+          1365,
+          "    # Compute decision entropy"
+        ],
+        [
+          1366,
+          "    # For a deterministic decision, H = 0, so we use action space entropy"
+        ],
+        [
+          1369,
+          "    h_decision = np.log(n_actions)  # Maximum entropy baseline"
+        ],
+        [
+          1435,
+          "def analyze_decoherence_dynamics(snapshots: Dict[int, MCTSNode]) -> pd.DataFrame:"
+        ],
+        [
+          1437,
+          "    Track decoherence through policy entropy evolution"
+        ],
+        [
+          1441,
+          "        - entropy: Policy entropy H(\u03c0)"
+        ],
+        [
+          1444,
+          "        - coherence: Off-diagonal density matrix measure"
+        ],
+        [
+          1456,
+          "            # Shannon entropy"
+        ],
+        [
+          1458,
+          "            entropy = -np.sum(policy_nonzero * np.log(policy_nonzero))"
+        ],
+        [
+          1464,
+          "            n_effective = np.exp(entropy)"
+        ],
+        [
+          1466,
+          "            # Coherence measure (simplified - uses Gini coefficient)"
+        ],
+        [
+          1470,
+          "            coherence = (2 * np.sum(index * sorted_policy)) / (n * np.sum(sorted_policy)) - (n + 1) / n"
+        ],
+        [
+          1474,
+          "            entropy = np.log(n_actions)"
+        ],
+        [
+          1477,
+          "            coherence = 0"
+        ],
+        [
+          1481,
+          "            'entropy': entropy,"
+        ],
+        [
+          1484,
+          "            'coherence': coherence"
+        ],
+        [
+          1489,
+          "def detect_phase_transitions(decoherence_df: pd.DataFrame,"
+        ],
+        [
+          1492,
+          "    Detect sudden drops in entropy indicating phase transitions"
+        ],
+        [
+          1497,
+          "    entropy = decoherence_df['entropy'].values"
+        ],
+        [
+          1498,
+          "    k_values = decoherence_df['k'].values"
+        ],
+        [
+          1501,
+          "    if len(entropy) < 3:"
+        ]
+      ],
+      "lines": 2497,
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "relevant_line_count": 54,
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    }
+  ]
+}

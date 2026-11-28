@@ -1,0 +1,253 @@
+{
+  "corrected_artifacts_total": 34,
+  "items": [
+    {
+      "acceptance_contract": "Specify complex state/instrument and observation, validate trace/PSD and offdiagonal phase response over actual multi-time histories.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G13_coherence_evolution",
+          "ids": [
+            "G13"
+          ],
+          "pdf_sha": "46f46b5c7eb3534cfdb3ee95fc4e5d20418fdf9d0dd34a9b99d73eaff79750cd",
+          "png_sha": "d23c93d32fb5c0acc9eb171b61f9a2a2fdee14d5f1c941ee525263876d270a8a"
+        }
+      ],
+      "figures": [
+        "G13_coherence_evolution"
+      ],
+      "id": "G13",
+      "method": "Actual recorded complex qubit conditional pre/prepared/post coherence and noncommuting phase intervention, fixed basis C_l1 and C_rel; no physical bath.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Specify complex state/instrument and observation, validate trace/PSD and offdiagonal phase response over actual multi-time histories.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G13",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 coherence_evolution.png",
+        "span": [
+          329,
+          329
+        ]
+      },
+      "pdf_sha": "46f46b5c7eb3534cfdb3ee95fc4e5d20418fdf9d0dd34a9b99d73eaff79750cd",
+      "png_sha": "d23c93d32fb5c0acc9eb171b61f9a2a2fdee14d5f1c941ee525263876d270a8a",
+      "remaining_limit": "Native physical coherence, unique pointer/objectivity and coherent branch record identification open."
+    },
+    {
+      "acceptance_contract": "Specify system/environment partition and reduced density, verify von Neumann entropy evolution and classical comparison.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G14_entropy_growth",
+          "ids": [
+            "G14"
+          ],
+          "pdf_sha": "96a40cc41dbf050732f9229efddf648960bc002a5e6602acba1d4dcd77097a8e",
+          "png_sha": "1ec9d8ee507483837c5065144d3720dbea3315cfaa56b48022cc8696be94f01b"
+        },
+        {
+          "figure": "G14_record_prefix_entropy",
+          "ids": [
+            "G14",
+            "G17"
+          ],
+          "pdf_sha": "7cbe39a9bf482a304c563389a1f20607efd95228806044bf18c8b5943c8d481a",
+          "png_sha": "4ffe4cfe593934ef585cb07837a715d476539f4d43a64039465cfef9015f2274"
+        }
+      ],
+      "figures": [
+        "G14_entropy_growth",
+        "G14_record_prefix_entropy"
+      ],
+      "id": "G14",
+      "method": "Actual conditional entropy and local unselective counterfactual; explicit S-record-bath/purifier prefix partition, entropy spectra and classical diagonal comparator; not native physical entanglement.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Specify system/environment partition and reduced density, verify von Neumann entropy evolution and classical comparison.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G14",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 entropy_growth.png",
+        "span": [
+          330,
+          330
+        ]
+      },
+      "pdf_sha": "96a40cc41dbf050732f9229efddf648960bc002a5e6602acba1d4dcd77097a8e",
+      "png_sha": "1ec9d8ee507483837c5065144d3720dbea3315cfaa56b48022cc8696be94f01b",
+      "remaining_limit": "Native physical coherence, unique pointer/objectivity and coherent branch record identification open."
+    },
+    {
+      "acceptance_contract": "Use normalized conditional probability participation 1/sum p^2, distinguish occupancy, calibrate thermal claim if retained.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G15_participation_ratio",
+          "ids": [
+            "G15"
+          ],
+          "pdf_sha": "d39ce389ffb4d66d55f092b7d8e7bfaa509d33f5074e5c7548d2a9987b92ab4a",
+          "png_sha": "0043bb4eebc172aea75410db4108e27456d9adde5598295ec5caac03a69e88ac"
+        }
+      ],
+      "figures": [
+        "G15_participation_ratio"
+      ],
+      "id": "G15",
+      "method": "Full legal-action conditional inverse participation on actual histories vs base score law and realized prefix occupancy; normalized probability and finite-count bounds.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Use normalized conditional probability participation 1/sum p^2, distinguish occupancy, calibrate thermal claim if retained.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G15",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 participation_ratio.png",
+        "span": [
+          331,
+          331
+        ]
+      },
+      "pdf_sha": "d39ce389ffb4d66d55f092b7d8e7bfaa509d33f5074e5c7548d2a9987b92ab4a",
+      "png_sha": "0043bb4eebc172aea75410db4108e27456d9adde5598295ec5caac03a69e88ac",
+      "remaining_limit": "Native physical coherence, unique pointer/objectivity and coherent branch record identification open."
+    },
+    {
+      "acceptance_contract": "Define pointer basis by instrument and stability under perturbation, compare actual decision variable and independent records.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G16_pointer_states",
+          "ids": [
+            "G16"
+          ],
+          "pdf_sha": "26b558aca011851109581b1342306673927cd44228f4f383392fe7f218921890",
+          "png_sha": "78a9a5a697f47924a806aff41425809d1e1219a7c4df2f815abeb429120d98a3"
+        },
+        {
+          "figure": "G16_pointer_fragments",
+          "ids": [
+            "G16",
+            "G17"
+          ],
+          "pdf_sha": "dca03a0031acafabb8f2ac74f32f3dc518dafe2be7e67ee5d416ee70969d52e7",
+          "png_sha": "b09bdcb8b73df6af5f4fb977c4876a4db8099ff36570c2abc1d337e8b4eadcb5"
+        }
+      ],
+      "figures": [
+        "G16_pointer_states",
+        "G16_pointer_fragments"
+      ],
+      "id": "G16",
+      "method": "Local pointer-axis fixed states and finite frozen singular-vector stability, explicit record fragment Holevo and actual paired recommendation disagreement; no emergent global pointer or objectivity.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Define pointer basis by instrument and stability under perturbation, compare actual decision variable and independent records.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G16",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 pointer_states.png",
+        "span": [
+          332,
+          332
+        ]
+      },
+      "pdf_sha": "26b558aca011851109581b1342306673927cd44228f4f383392fe7f218921890",
+      "png_sha": "78a9a5a697f47924a806aff41425809d1e1219a7c4df2f815abeb429120d98a3",
+      "remaining_limit": "Native physical coherence, unique pointer/objectivity and coherent branch record identification open."
+    },
+    {
+      "acceptance_contract": "Assemble coherence, entropy, participation and pointer results for adaptive noncommuting histories, no assumed physical bath.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G14_record_prefix_entropy",
+          "ids": [
+            "G14",
+            "G17"
+          ],
+          "pdf_sha": "7cbe39a9bf482a304c563389a1f20607efd95228806044bf18c8b5943c8d481a",
+          "png_sha": "4ffe4cfe593934ef585cb07837a715d476539f4d43a64039465cfef9015f2274"
+        },
+        {
+          "figure": "G16_pointer_fragments",
+          "ids": [
+            "G16",
+            "G17"
+          ],
+          "pdf_sha": "dca03a0031acafabb8f2ac74f32f3dc518dafe2be7e67ee5d416ee70969d52e7",
+          "png_sha": "b09bdcb8b73df6af5f4fb977c4876a4db8099ff36570c2abc1d337e8b4eadcb5"
+        },
+        {
+          "figure": "G17_decoherence_summary",
+          "ids": [
+            "G17"
+          ],
+          "pdf_sha": "32719759b7a520dd011081e7e346c94e6dc9c59fa8ce0d8d1ab0b6b1a645d4d1",
+          "png_sha": "fec196d2b7cf879560ede5f565eaf12c885d7e3916e9dbfb95a5c243ee93e606"
+        }
+      ],
+      "figures": [
+        "G14_record_prefix_entropy",
+        "G16_pointer_fragments",
+        "G17_decoherence_summary"
+      ],
+      "id": "G17",
+      "method": "Joint adaptive noncommuting conditional trajectories and declared coherent prefix record, entropy, participation and pointer metrics; rare-event weights and distinct diagnostic intervention retained.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Assemble coherence, entropy, participation and pointer results for adaptive noncommuting histories, no assumed physical bath.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G17",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502   \u2502       \u2514\u2500\u2500 decoherence_summary.png",
+        "span": [
+          333,
+          333
+        ]
+      },
+      "pdf_sha": "7cbe39a9bf482a304c563389a1f20607efd95228806044bf18c8b5943c8d481a",
+      "png_sha": "4ffe4cfe593934ef585cb07837a715d476539f4d43a64039465cfef9015f2274",
+      "remaining_limit": "Native physical coherence, unique pointer/objectivity and coherent branch record identification open."
+    }
+  ],
+  "original_scientific_certifications": 0,
+  "prior_report_artifacts": [
+    "L31",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "L10",
+    "L22",
+    "L24",
+    "L21",
+    "L23",
+    "G03",
+    "G07",
+    "L16",
+    "Q21",
+    "Q32",
+    "G01",
+    "G02",
+    "G04",
+    "G05",
+    "Q05",
+    "Q08",
+    "G06",
+    "G08",
+    "G09",
+    "Q29",
+    "G10",
+    "G11",
+    "G12"
+  ],
+  "status": "SCOPED_CONVERGENCE"
+}
