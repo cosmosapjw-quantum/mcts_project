@@ -1,0 +1,230 @@
+{
+  "all_receipts": 3136,
+  "barrier_feature_error": 0.0,
+  "censored": 288,
+  "cubical_H1": 531,
+  "cumulative_fixed_root": 93336,
+  "eligible": 3071,
+  "events": 2783,
+  "families": [
+    {
+      "censored": 119,
+      "coherent_hit_mean": 0.04400580959230605,
+      "contexts": 16,
+      "cubical_H1": 39,
+      "dephased_hit_mean": 0.08322899802876056,
+      "eligible": 1024,
+      "events": 905,
+      "family": "g0",
+      "finite_H0": 227,
+      "finite_H1": 24,
+      "fixed_effect_TV_mean": 0.030261851038273883,
+      "graph_H1": 656,
+      "mean_full_T_E015": 0.0066046126690445265,
+      "mean_path_T_E015": 0.02033051661678702,
+      "nonneighbor_fraction": 0.974585635359116,
+      "policy_stability_mean": 0.9667998328502977,
+      "positive_barriers": 1024,
+      "quotient_cycle_contexts": 3,
+      "quotient_cycles": 3,
+      "reflected_trace_gap_mean": 0.7319577066034717,
+      "root_ci": [
+        [
+          0.8837890625,
+          0.8602524622852029,
+          1.0268105335292148,
+          6.94921875,
+          31.8935546875,
+          -0.003970404565497865
+        ],
+        [
+          0.8419998328689909,
+          0.8202976081889445,
+          0.9826971901099985,
+          6.678848989910676,
+          26.805200594877938,
+          -0.05169492191604094
+        ],
+        [
+          0.9255782921310091,
+          0.9002073163814613,
+          1.0709238769484313,
+          7.219588510089324,
+          36.98190878012206,
+          0.04375411278504521
+        ]
+      ],
+      "root_ci_fields": [
+        "hit",
+        "frozen_hit",
+        "height",
+        "width",
+        "RMST",
+        "compensator_residual"
+      ],
+      "tree_cycles": 0
+    },
+    {
+      "censored": 44,
+      "coherent_hit_mean": 0.06842174407447939,
+      "contexts": 16,
+      "cubical_H1": 39,
+      "dephased_hit_mean": 0.09728985289547003,
+      "eligible": 1023,
+      "events": 979,
+      "family": "g3",
+      "finite_H0": 246,
+      "finite_H1": 23,
+      "fixed_effect_TV_mean": 0.0305007547489017,
+      "graph_H1": 656,
+      "mean_full_T_E015": 0.018943555481368654,
+      "mean_path_T_E015": 0.04294363780016763,
+      "nonneighbor_fraction": 0.9560776302349336,
+      "policy_stability_mean": 0.9678267148120845,
+      "positive_barriers": 1023,
+      "quotient_cycle_contexts": 7,
+      "quotient_cycles": 16,
+      "reflected_trace_gap_mean": 0.8972176582789992,
+      "root_ci": [
+        [
+          0.95703125,
+          0.913674980306397,
+          0.7942400057588364,
+          6.758978074596774,
+          23.178112399193548,
+          -0.012108494785534118
+        ],
+        [
+          0.9278818372989758,
+          0.880949773431141,
+          0.7013251173561573,
+          6.328464605241056,
+          18.253700282070724,
+          -0.07674436181388442
+        ],
+        [
+          0.9861806627010242,
+          0.9464001871816531,
+          0.8871548941615154,
+          7.189491543952492,
+          28.10252451631637,
+          0.05252737224281617
+        ]
+      ],
+      "root_ci_fields": [
+        "hit",
+        "frozen_hit",
+        "height",
+        "width",
+        "RMST",
+        "compensator_residual"
+      ],
+      "tree_cycles": 0
+    },
+    {
+      "censored": 125,
+      "coherent_hit_mean": 0.034948118404588294,
+      "contexts": 16,
+      "cubical_H1": 97,
+      "dephased_hit_mean": 0.052162307312260354,
+      "eligible": 1024,
+      "events": 899,
+      "family": "Rapfi",
+      "finite_H0": 540,
+      "finite_H1": 143,
+      "fixed_effect_TV_mean": 0.039293742768270766,
+      "graph_H1": 2693,
+      "mean_full_T_E015": 0.003151611617011631,
+      "mean_path_T_E015": 0.055886556955859895,
+      "nonneighbor_fraction": 0.9666295884315906,
+      "policy_stability_mean": 0.9666679302815336,
+      "positive_barriers": 1024,
+      "quotient_cycle_contexts": 0,
+      "quotient_cycles": 0,
+      "reflected_trace_gap_mean": 1.5176175088477577,
+      "root_ci": [
+        [
+          0.8779296875,
+          0.8440483288394487,
+          0.82105118114063,
+          8.56640625,
+          30.9716796875,
+          -0.035390352715745824
+        ],
+        [
+          0.8351598254749438,
+          0.7820419811952684,
+          0.7240124617697753,
+          7.522690126411888,
+          24.536805878916457,
+          -0.08993198013302514
+        ],
+        [
+          0.9206995495250562,
+          0.906054676483629,
+          0.9180899005114848,
+          9.610122373588112,
+          37.406553496083546,
+          0.0191512747015335
+        ]
+      ],
+      "root_ci_fields": [
+        "hit",
+        "frozen_hit",
+        "height",
+        "width",
+        "RMST",
+        "compensator_residual"
+      ],
+      "tree_cycles": 0
+    }
+  ],
+  "finite_H0": 2985,
+  "finite_H1": 565,
+  "fresh_paths": 0,
+  "gauge_contexts": 48,
+  "gauge_error": 3.1086244689504383e-15,
+  "graph_H1": 12064,
+  "joint_loops": 4005,
+  "joint_rank3": 48,
+  "nonentry": 1,
+  "prior_fixed_root_paths": 3120,
+  "prior_games": 16,
+  "proper_rotation_error": 5.551115123125783e-15,
+  "recovery": [
+    {
+      "censored": 10,
+      "eligible": 14,
+      "entry_zero_followup": 0,
+      "events": 4,
+      "no_entry": 2,
+      "threshold": 0.1
+    },
+    {
+      "censored": 10,
+      "eligible": 13,
+      "entry_zero_followup": 0,
+      "events": 3,
+      "no_entry": 3,
+      "threshold": 0.2
+    },
+    {
+      "censored": 10,
+      "eligible": 12,
+      "entry_zero_followup": 0,
+      "events": 2,
+      "no_entry": 4,
+      "threshold": 0.3
+    }
+  ],
+  "reflected_trace_gap": [
+    0.3280434579168289,
+    1.7958984782049496
+  ],
+  "scope": "Reconstruction of eight original outputs, corrected/model-scoped; physical native gauge/tunneling unestablished.",
+  "threshold_checks": 25648,
+  "topology_contexts": 144,
+  "transport_contexts": 96,
+  "transport_dense_error": 1.2601031329495527e-14,
+  "transport_prior_error": 0.0
+}

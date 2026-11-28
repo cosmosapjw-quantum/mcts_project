@@ -1,0 +1,225 @@
+{
+  "acceptance_contract_sha": "3fd7b31bbeef7e1e9799251cb956406bc82a6864eea26b7506b010d20d11d777",
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "items": [
+    {
+      "acceptance": "Reproduce actual signed Q/score landscape with explicit board/time and legal mask; separate 3D rendering and physical potential.",
+      "id": "G18",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          336
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G18",
+        "member": "value_landscape_3d.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 value_landscape_3d.png"
+    },
+    {
+      "acceptance": "All risk-set entries and first hit/recovery including censoring; same-side actual value, not postselected passage probability.",
+      "id": "G19",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          337
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G19",
+        "member": "tunneling_events.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 tunneling_events.png"
+    },
+    {
+      "acceptance": "Define height/width using a specified graph and potential, verify minimax certificates, separate root draws from local motion.",
+      "id": "G20",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          338
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G20",
+        "member": "barrier_statistics.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 barrier_statistics.png"
+    },
+    {
+      "acceptance": "Specify kinetic term, energy, units and exact boundary scattering, validate lattice/continuum WKB error regime; native calibration separate.",
+      "id": "G21",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          339
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G21",
+        "member": "wkb_analysis.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 wkb_analysis.png"
+    },
+    {
+      "acceptance": "Reconstruct risk, landscape, exact transport and coherent/dephased controls; no native quantum tunneling without operational phase law.",
+      "id": "G22",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          340
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G22",
+        "member": "tunneling_summary.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "source_excerpt": "\u2502   \u2502       \u2514\u2500\u2500 tunneling_summary.png"
+    },
+    {
+      "acceptance": "Use complete event-risk and recovery records, explicit barrier geometry and model transmission; retain informative censoring.",
+      "id": "L10",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 1795,
+        "function": "_plot_tunneling",
+        "id": "L10",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "barrier_height",
+          "quantum_phenomena",
+          "tunneling_events",
+          "tunneling_probability"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "2157097c1efd19fce284ff2ff5968314eeab7fbf86302759dfcd783260132027",
+        "start": 1779
+      },
+      "source_excerpt": "    def _plot_tunneling(self, ax):\n        \"\"\"Plot tunneling events\"\"\"\n        if 'tunneling_events' not in self.results['quantum_phenomena']:\n            ax.text(0.5, 0.5, 'No tunneling events', ha='center', va='center')\n            ax.set_title('Tunneling')\n            return\n            \n        events = self.results['quantum_phenomena']['tunneling_events']\n        if events:\n            barriers = [e['barrier_height'] for e in events]\n            probs = [e['tunneling_probability'] for e in events]\n            \n            ax.scatter(barriers, probs, alpha=0.6)\n            ax.set_xlabel('Barrier Height')\n            ax.set_ylabel('Tunneling Probability')\n            ax.set_title(f'Quantum Tunneling ({len(events)} events)')\n            ax.grid(True, alpha=0.3)"
+    },
+    {
+      "acceptance": "True unitary oriented links on specified actual graph; normalized Wilson and joint holonomy, covariant field/effect stability, topology; native operational identification separate.",
+      "id": "L22",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 3793,
+        "function": "_plot_gauge_policy_analysis",
+        "id": "L22",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "advanced_quantum",
+          "avg_wilson_loop",
+          "gauge_policy",
+          "gauge_variance",
+          "measurements",
+          "n_links",
+          "n_nodes",
+          "policy_stability"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "ff16279f68059f37f41add130456bc2e7e1a19e61a61a7d8f1f69564624490c9",
+        "start": 3743
+      },
+      "source_excerpt": "    def _plot_gauge_policy_analysis(self, ax1, ax2, ax3):\n        \"\"\"Plot gauge policy analysis results\"\"\"\n        if 'gauge_policy' in self.results.get('advanced_quantum', {}):\n            gauge_data = self.results['advanced_quantum']['gauge_policy']\n            measurements = gauge_data.get('measurements', [])\n            \n            if measurements:\n                # Plot 1: Wilson loop values\n                wilson_loops = [m['avg_wilson_loop'] for m in measurements if 'avg_wilson_loop' in m]\n                if wilson_loops:\n                    ax1.hist(wilson_loops, bins=20, alpha=0.7, edgecolor='black')\n                    ax1.set_xlabel('Average Wilson Loop Value')\n                    ax1.set_ylabel('Count')\n                    ax1.set_title('Wilson Loop Distribution')\n                    ax1.axvline(np.mean(wilson_loops), color='red', linestyle='--', \n                               label=f'Mean: {np.mean(wilson_loops):.3f}')\n                    ax1.legend()\n                \n                # Plot 2: Gauge invariance vs policy stability\n                gauge_var = [m['gauge_variance'] for m in measurements if 'gauge_variance' in m]\n                policy_stab = [m['policy_stability'] for m in measurements if 'policy_stability' in m]\n                if gauge_var and policy_stab and len(gauge_var) == len(policy_stab):\n                    ax2.scatter(gauge_var, policy_stab, alpha=0.6)\n                    ax2.set_xlabel('Gauge Variance')\n                    ax2.set_ylabel('Policy Stability')\n                    ax2.set_title('Gauge Invariance vs Policy Stability')\n                    \n                    # Add correlation if significant\n                    if len(gauge_var) > 2:\n                        from scipy.stats import pearsonr\n                        corr, p_val = pearsonr(gauge_var, policy_stab)\n                        if p_val < 0.05:\n                            ax2.text(0.05, 0.95, f'\u03c1 = {corr:.3f} (p < 0.05)', \n                                    transform=ax2.transAxes, va='top')\n                \n                # Plot 3: Network topology\n                n_nodes = [m['n_nodes'] for m in measurements if 'n_nodes' in m]\n                n_links = [m['n_links'] for m in measurements if 'n_links' in m]\n                if n_nodes and n_links:\n                    ax3.scatter(n_nodes, n_links, alpha=0.6)\n                    ax3.set_xlabel('Number of Nodes')\n                    ax3.set_ylabel('Number of Links')\n                    ax3.set_title('Gauge Field Network Topology')\n            else:\n                ax1.text(0.5, 0.5, 'No gauge policy data', ha='center', va='center')\n                ax2.text(0.5, 0.5, 'No gauge policy data', ha='center', va='center')\n                ax3.text(0.5, 0.5, 'No gauge policy data', ha='center', va='center')\n        else:\n            ax1.text(0.5, 0.5, 'No gauge policy data', ha='center', va='center')\n            ax2.text(0.5, 0.5, 'No gauge policy data', ha='center', va='center')\n            ax3.text(0.5, 0.5, 'No gauge policy data', ha='center', va='center')"
+    },
+    {
+      "acceptance": "Define actual tree/quotient/filtration, persistence and critical point definition; distinguish cycles from continuum Morse/topological phase.",
+      "id": "L24",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 3896,
+        "function": "_plot_topological_analysis",
+        "id": "L24",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "advanced_quantum",
+          "avg_persistence",
+          "measurements",
+          "n_critical_points",
+          "n_stable_points",
+          "n_unstable_points",
+          "topological_analysis",
+          "topological_complexity"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "69baad25d8d6c329d778256a1b7aa602c6969e0e34a6ab1631b20a751533f18b",
+        "start": 3846
+      },
+      "source_excerpt": "    def _plot_topological_analysis(self, ax1, ax2, ax3):\n        \"\"\"Plot topological analysis results\"\"\"\n        if 'topological_analysis' in self.results.get('advanced_quantum', {}):\n            topo_data = self.results['advanced_quantum']['topological_analysis']\n            measurements = topo_data.get('measurements', [])\n            \n            if measurements:\n                # Plot 1: Critical points distribution\n                critical_points = [m['n_critical_points'] for m in measurements if 'n_critical_points' in m]\n                if critical_points:\n                    ax1.hist(critical_points, bins=20, alpha=0.7, edgecolor='black')\n                    ax1.set_xlabel('Number of Critical Points')\n                    ax1.set_ylabel('Count')\n                    ax1.set_title('Critical Points in Value Landscape')\n                    ax1.axvline(np.mean(critical_points), color='red', linestyle='--',\n                               label=f'Mean: {np.mean(critical_points):.1f}')\n                    ax1.legend()\n                \n                # Plot 2: Stability analysis\n                stable = [m['n_stable_points'] for m in measurements if 'n_stable_points' in m]\n                unstable = [m['n_unstable_points'] for m in measurements if 'n_unstable_points' in m]\n                if stable and unstable:\n                    labels = ['Stable', 'Unstable']\n                    values = [sum(stable), sum(unstable)]\n                    ax2.pie(values, labels=labels, autopct='%1.1f%%', startangle=90)\n                    ax2.set_title('Critical Point Stability')\n                \n                # Plot 3: Topological complexity vs persistence\n                complexity = [m['topological_complexity'] for m in measurements if 'topological_complexity' in m]\n                persistence = [m['avg_persistence'] for m in measurements if 'avg_persistence' in m]\n                if complexity and persistence and len(complexity) == len(persistence):\n                    ax3.scatter(complexity, persistence, alpha=0.6)\n                    ax3.set_xlabel('Topological Complexity')\n                    ax3.set_ylabel('Average Persistence')\n                    ax3.set_title('Complexity vs Feature Persistence')\n                    \n                    # Add trend line if enough data\n                    if len(complexity) > 5:\n                        z = np.polyfit(complexity, persistence, 1)\n                        p = np.poly1d(z)\n                        x_trend = np.linspace(min(complexity), max(complexity), 100)\n                        ax3.plot(x_trend, p(x_trend), \"r--\", alpha=0.8, label=f'Trend: {z[0]:.3f}x + {z[1]:.3f}')\n                        ax3.legend()\n            else:\n                ax1.text(0.5, 0.5, 'No topological data', ha='center', va='center')\n                ax2.text(0.5, 0.5, 'No topological data', ha='center', va='center')\n                ax3.text(0.5, 0.5, 'No topological data', ha='center', va='center')\n        else:\n            ax1.text(0.5, 0.5, 'No topological data', ha='center', va='center')\n            ax2.text(0.5, 0.5, 'No topological data', ha='center', va='center')\n            ax3.text(0.5, 0.5, 'No topological data', ha='center', va='center')"
+    }
+  ],
+  "original_attachment_receipt": {
+    "anchor_is_ancestor": true,
+    "git_anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "guide_obligations": 27,
+    "original_output_obligations": 121,
+    "original_source_function_obligations": 94,
+    "original_source_zip_members": 347,
+    "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "scope": "current source hash and history census, not all historical raw executions replayed",
+    "supplied_zip_check_location": "conversation sandbox, original linked library materialization",
+    "supplied_zip_manifest_members_verified": 34,
+    "supplied_zip_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6"
+  },
+  "scope": "Original source spans and guide-only filenames authenticated against local archived original; original uploaded chat ZIP receipt inherited."
+}

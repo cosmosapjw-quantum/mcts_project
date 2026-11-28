@@ -1,7 +1,7 @@
 {
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
-  "convergence_ledger": "CONVERGENCE87.json",
+  "convergence_ledger": "CONVERGENCE88.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -57,7 +57,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-04.C",
+  "entry": "X-STRUCT",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -120,9 +120,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R88 structural gauge/topology/barrier claims and direct original output reconstruction",
-    "Resolve remaining original item-specific acceptance conditions without repetitive scans",
-    "Open physical identification/utility only with explicit independent observables or intervention"
+    "R89 L23 QEC and L21 integrated advanced report",
+    "Direct original item reconstruction and acceptance, no repetitive diagnostic grids",
+    "Existing six open scientific claims separate from corrected artifact completion"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -141,7 +141,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE88-STRUCTURAL-ORIGINAL-OUTPUT-RECONSTRUCTION",
+  "next_stage_id": "MQFT-RESTORE89-QEC-AND-ADVANCED-REPORT-RECONSTRUCTION",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -447,6 +447,26 @@
         "artifact": "mqft_restore87_20261128/{CRITICAL87.json,ERRATUM86.json,SUMMARY87.json,CONVERGENCE87.json}",
         "evidence": "800 fresh scale paths,3520 reused, exact bounded innovation and categorical entropy crossover, independent critical-width comparison; explicit R86 startup correction.",
         "remaining": "Critical limit not admitted; autonomous closure open. R86 bracket/exponential corrected in ERRATUM86.json, raw D unchanged."
+      },
+      "restore88_followup": {
+        "accepted_subclaims": [
+          "STRUCT-HOLONOMY-01",
+          "STRUCT-PERSISTENCE-02",
+          "STRUCT-BARRIER-03"
+        ],
+        "artifact": "mqft_restore88_20261128/{ORIGINAL_OUTPUT_REPORT88.md,ITEM_RECONSTRUCTION88.json,CONVERGENCE88.json}",
+        "corrected_artifacts": [
+          "G18",
+          "G19",
+          "G20",
+          "G21",
+          "G22",
+          "L10",
+          "L22",
+          "L24"
+        ],
+        "evidence": "3120 actual fixed-root histories and16 games reauthenticated; 48 gauge,144 topology,96 transport contexts; exact joint invariants, persistence rank and minimax, eight corrected original plates/report.",
+        "remaining": "L23 QEC, L21 combined advanced report, native operational gauge/physical tunneling unestablished; original final scientific certification separate."
       },
       "retained_evidence": "STATE coarse memory, RESTORE04 stopped-tree coarse law\u00b7unresolved variance\u00b7closure loss \ubc0f graph/subtree rows. \uae30\uc874 reference flow\ub294 \ucd94\ucd9c\uae30 \ub300\uc870\uc5d0 \uc4f4\ub2e4.",
       "source": "rg_flow.py, rg_flow_tracker.py, subtree_extractor.py, rg_flow_visualizer.py, plot_rg_flow_phase_diagrams.py::plot_beta_functions/plot_rg_trajectories.",
@@ -754,6 +774,26 @@
         "evidence": "3072 fresh actual native full-support paths, 3071 risk-eligible geometries, exact minimax and predictable hazard, 95%+ nonneighbor hits; 96 declared score graph models, 288 energies, full/path exact scattering, WKB/continuum and gauge/phase/detector controls; 16 historical same-side game episodes.",
         "remaining": "Native physical coordinate, kinetic action, energy and phase not identified; finite graph model not physical tunneling observation; historical game censoring potentially informative."
       },
+      "restore88_followup": {
+        "accepted_subclaims": [
+          "STRUCT-HOLONOMY-01",
+          "STRUCT-PERSISTENCE-02",
+          "STRUCT-BARRIER-03"
+        ],
+        "artifact": "mqft_restore88_20261128/{ORIGINAL_OUTPUT_REPORT88.md,ITEM_RECONSTRUCTION88.json,CONVERGENCE88.json}",
+        "corrected_artifacts": [
+          "G18",
+          "G19",
+          "G20",
+          "G21",
+          "G22",
+          "L10",
+          "L22",
+          "L24"
+        ],
+        "evidence": "3120 actual fixed-root histories and16 games reauthenticated; 48 gauge,144 topology,96 transport contexts; exact joint invariants, persistence rank and minimax, eight corrected original plates/report.",
+        "remaining": "L23 QEC, L21 combined advanced report, native operational gauge/physical tunneling unestablished; original final scientific certification separate."
+      },
       "retained_evidence": "\uc5ed\uc0ac\uc801 \uc2e4\uc81c path\uc640 \ubcc0\ud654 \uc9c0\uc810, reference barrier \ubaa8\ud615.",
       "source": "ensemble_analyzer_complete.py::_plot_tunneling\uc640 tunneling producer."
     },
@@ -899,6 +939,26 @@
         "artifact": "mqft_restore78_20261127/{THEORY.md,NATIVE78.json,GAUGE78.json,ORIGINAL_GAUGE_AUDIT78.json,INDEPENDENT78.json,plots/L22_gauge_policy_analysis.pdf}",
         "evidence": "1536 actual raw orientation paths; separate D4 residual and exact group average; 48 actual prefix-tree/quotient/legal graphs, 4005 fundamental loops, explicit U1 and SU2 unitary links, covariant density-field update, independent numerical checks; original gauge producer defects and L22 triptych reconstructed.",
         "remaining": "Physical native local gauge/phase and operational phase-sensitive intervention not identified; assigned connection and model policy not production native gauge; no final certification."
+      },
+      "restore88_followup": {
+        "accepted_subclaims": [
+          "STRUCT-HOLONOMY-01",
+          "STRUCT-PERSISTENCE-02",
+          "STRUCT-BARRIER-03"
+        ],
+        "artifact": "mqft_restore88_20261128/{ORIGINAL_OUTPUT_REPORT88.md,ITEM_RECONSTRUCTION88.json,CONVERGENCE88.json}",
+        "corrected_artifacts": [
+          "G18",
+          "G19",
+          "G20",
+          "G21",
+          "G22",
+          "L10",
+          "L22",
+          "L24"
+        ],
+        "evidence": "3120 actual fixed-root histories and16 games reauthenticated; 48 gauge,144 topology,96 transport contexts; exact joint invariants, persistence rank and minimax, eight corrected original plates/report.",
+        "remaining": "L23 QEC, L21 combined advanced report, native operational gauge/physical tunneling unestablished; original final scientific certification separate."
       },
       "retained_evidence": "\uace0\uc804 \ud2b8\ub9ac topology \ubc0f \ub3c5\ub9bd complex/QEC reference.",
       "source": "ensemble_analyzer_complete.py::_plot_topological_analysis/_plot_quantum_error_correction."
@@ -1107,8 +1167,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "X-MEMORY",
-  "quality_matrix": "QUALITY_MATRIX87.csv",
+  "previous_entry": "REPLAN-04.C",
+  "quality_matrix": "QUALITY_MATRIX88.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4153,8 +4213,61 @@
     "source_path_receipts": 4320,
     "status": "two_scoped_scale_claims_accepted_critical_limit_open_R86_erratum"
   },
-  "revision": "RESTORE87_20261128",
-  "scope": "Convergence: bounded innovation and controlled criticality, R86 startup erratum",
+  "restore88": {
+    "BARRIER88.json_sha256": "f187e60d506e1a2a194b9a29be31f2d83400df510f4258e5ebcea486e0c9fbd1",
+    "CONVERGENCE88.json_sha256": "119f709cc2f5e150fc3cb4edbcc78228313eb2eb5e2b43c8a52b2974d154cf03",
+    "DRIFT_WATCHDOG.md_sha256": "7723ba845169f83689848e19def7ac207a3e6a10903ae35319e94698e643410b",
+    "GAUGE88.json_sha256": "fe6986eb2600264cae5d1ac8283dd999eaadce43ad9c9c562f3d344fbeaf6e43",
+    "INDEPENDENT88.json_sha256": "9f83ccb93e6f33645fcfbd7f116b099545233e06be0d37fb4e86985e74be7667",
+    "ITEM_CONVERGENCE88.json_sha256": "95a392f5c868a115d7637705a0def3bc227409fddbd2e7f164df5e7b3219b2e9",
+    "ITEM_RECONSTRUCTION88.json_sha256": "7fca8b5ba6040c4eae909d8ea12d1e164d2969f6fa786852c8505906b24db375",
+    "LANDSCAPE88.json_sha256": "117ecdb166353e6f49d3e1eea731cfc92bf7d6be4e3ac62829eafd9f63092f4f",
+    "NEXT_DYNAMICS.md_sha256": "806d53716b617dcfb8e2a4f64be9b78debaaea0d2b7d6405dc0128e8419f53a6",
+    "ORIGINAL_OUTPUT_EVIDENCE88.csv_sha256": "8e929d67321e176207285f02c6c979d3235e041d5212aabb116f3643ea93e3f3",
+    "ORIGINAL_OUTPUT_PROGRESS88.csv_sha256": "544629a28c899ed2f9be703b2c2c4e64487d4f227828e3ae897d97550fed426a",
+    "ORIGINAL_OUTPUT_REPORT88.md_sha256": "986d4dd2b479059e57b382a2e65db5e080ac75e074b6a1de6bc93d0cbf6cb81e",
+    "ORIGINAL_SOURCE88.json_sha256": "c1f3a3508a23676aa0de22381cd1f095162c5518833043282d639bebe62cbcab",
+    "PERSISTENCE_RANK88.json_sha256": "971b79d027dc8f3d71edf26e9cc52300c1641fc205cac10317c979bf270e827f",
+    "PLOT_INVENTORY88.csv_sha256": "d20c22c7a986dcf7dd4660534fcea7bed111db181a24c9c763febeb20783e591",
+    "PLOT_MANIFEST88.json_sha256": "55e1fe9e5de15f78a39012b706797a28e1af42752d353b0b56c231c153cd9ffa",
+    "PROGRESS88.json_sha256": "b41bc8df75b04a7fc2595f4fcd6c8805a17d17da4dbc51975d31cd370615eef8",
+    "QUALITY_MATRIX88.csv_sha256": "e87ead62dd8b6b2099a49ff692d9f96c17f09bf8a7b572f4f5af7068404b9eb6",
+    "RECOVERY88.json_sha256": "8d7ed9f42795fbc95f72bf9ad9e4a07284fd2cf849b33290983d2fb12d76f95f",
+    "REGISTRATION.json_sha256": "e3400a4cdef02fa58e53be04e69d3091181b37b9f8f54a45f107d7853d263059",
+    "SOURCE_CORRECTIONS88.json_sha256": "a77d5658a9fbed542746861d1df00c64f14d98d0188df87099899fecd47cc3c3",
+    "SUMMARY88.json_sha256": "91ad10f1bffa037caa01a54055a5a1dbc22bc471094ad1b0281a84fda2e602bd",
+    "THEORY.md_sha256": "6a24e4112d5f20465a8e767c1f0d8ded9dd136e0cf56b1017b7a096b467f830d",
+    "THEORY_REGISTERED88.md_sha256": "5450fb9d128f28796c20300399974467f7f03cabbd8620582217dfb6bef13667",
+    "TOPOLOGY88.json_sha256": "8f75c9ab9eb6e5397a8dd0327406f99b0817540213e8b5dba0d746e755fc491b",
+    "TRANSPORT88.json_sha256": "4a36e104b181d984a6d7c64abec3742456e75eaf955ecb15a550b4b5ee1e27dc",
+    "accepted_corrected_subclaims": 21,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 9,
+    "cumulative_fixed_root_histories": 93336,
+    "figures": 8,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "gauge_contexts": 48,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 3,
+    "new_corrected_artifacts": 8,
+    "original_evidence_items": 8,
+    "original_evidence_union_R55_R88": 121,
+    "original_obligations": 121,
+    "parent_commit": "874d38653b98fea197ccb849a479afa9c804d1ed",
+    "parent_dag_sha256": "024eae29eae80d144c8528941da43b1ee02f024c8a1dcf38f057051029261023",
+    "remaining": "L23/L21 and other original output completion; native physical/operational identification, six registered open claims.",
+    "retained_pairs": 676,
+    "reused_fixed_root_paths": 3120,
+    "reused_games": 16,
+    "source_path_receipts": 3136,
+    "status": "eight_corrected_original_artifacts_three_new_structural_claims",
+    "topology_contexts": 144,
+    "transport_contexts": 96
+  },
+  "revision": "RESTORE88_20261128",
+  "scope": "Convergence: direct corrected original structural outputs",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE87-CONTROLLED-CRITICAL-SCALING"
+  "supersedes_next": "MQFT-RESTORE88-STRUCTURAL-ORIGINAL-OUTPUT-RECONSTRUCTION"
 }

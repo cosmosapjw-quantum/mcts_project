@@ -1,0 +1,88 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "L22_gauge_policy_joint_holonomy",
+      "ids": [
+        "L22"
+      ],
+      "pdf_sha": "38f438302923f6cb9b7068378f35ec54c07f97dbc2d39000996ba23e6ddb59b6",
+      "png_sha": "1d30481cf3bdd8c679e9ab5cfd0deb946319896e1b550f118106bb25dfdb9c77",
+      "scope": "48 actual legal graphs, declared SU2 connection and covariant effect, original 3 panel intents and triple trace test."
+    },
+    {
+      "figure": "L24_topological_analysis_persistence",
+      "ids": [
+        "L24"
+      ],
+      "pdf_sha": "20c5b8a1e2d8ea293ee4fe78460e44c4237f9c498b63d65748ade21b0573afde",
+      "png_sha": "ae98aa43481d19dad774cc8e059eb68de2666666df1c842eb1055acfb761ec99",
+      "scope": "48 actual score landscapes and chronological prefix/quotient, GF2 bars and discrete extrema; no continuum Morse stability."
+    },
+    {
+      "figure": "G18_value_landscape_3d",
+      "ids": [
+        "G18"
+      ],
+      "pdf_sha": "88bac2410f77e460ba2d1ae7496800896dab5d464cc858939f08eaf5381cae02",
+      "png_sha": "1c94316280653bbae8a9640ce74c607f774be068acbcdef324bfd7a0c2e977fc",
+      "scope": "Actual H32 U samples in explicit oblique projection of (x,y,U); Q with legal mask. No interpolated surface or physical energy."
+    },
+    {
+      "figure": "L10_tunneling_risk_corrected",
+      "ids": [
+        "L10"
+      ],
+      "pdf_sha": "b7f1f9b43ba7c0c3c98b027e0aeba2dc1c7ba94703f7aa07749128bea56b14a6",
+      "png_sha": "c81864f41f7d42b50354b46f3632e61659fbe5ae94cf2eb92e5c62399cd9ff24",
+      "scope": "All 3071 eligible records, height-sorted descriptive bins; actual target hit and frozen reference, not tunneling probability."
+    },
+    {
+      "figure": "G19_tunneling_events_risk_recovery",
+      "ids": [
+        "G19"
+      ],
+      "pdf_sha": "f2bbcc2e32209123b3646472dcbfdeb7d82919242d70424a932767bcc46ab38b",
+      "png_sha": "e671c9ea2b706a412edea344c8f531a4bec8db84deeea44cb652b973fb2648a0",
+      "scope": "Actual first-hit right censor and historical same-side recovery risk sets; distinct clocks."
+    },
+    {
+      "figure": "G20_barrier_statistics",
+      "ids": [
+        "G20"
+      ],
+      "pdf_sha": "2d24e71dc2a1683f0a59bc0bc61562725aced303923fcf6e610aee9f24c800c7",
+      "png_sha": "99f959702ccf760b152e809298c0efbe14478c02055da8669232d7a92bb942d5",
+      "scope": "3071 actual minimax certificates and width, 96 independent sublevel connectivity checks."
+    },
+    {
+      "figure": "G21_wkb_analysis",
+      "ids": [
+        "G21"
+      ],
+      "pdf_sha": "a1e112b4222d844ad68c861dd637c717c19b76f7f92a8082feb6d379f2839238",
+      "png_sha": "8a064e43b43244cf3a3be490cf344bb6f4f308f765b71bebf8c0a9c64d527107",
+      "scope": "Exact lead scattering and independent transfer, rectangle and continuum controls; WKB exponent not exact general T."
+    },
+    {
+      "figure": "G22_tunneling_summary",
+      "ids": [
+        "G22"
+      ],
+      "pdf_sha": "2d19be68dac75360c8f32dbb3bd5a780dee8c3294f13ffe5d1c2d726e33b5cc2",
+      "png_sha": "2d7ed87232081939fe948d2fc480d420e6cc53b25fffb65ab643385aa74c5f65",
+      "scope": "Actual native risk and nonlocality versus separately declared stationary and monitored coherent model."
+    }
+  ],
+  "sources": {
+    "BARRIER88.json": "f187e60d506e1a2a194b9a29be31f2d83400df510f4258e5ebcea486e0c9fbd1",
+    "GAUGE88.json": "fe6986eb2600264cae5d1ac8283dd999eaadce43ad9c9c562f3d344fbeaf6e43",
+    "INDEPENDENT88.json": "9f83ccb93e6f33645fcfbd7f116b099545233e06be0d37fb4e86985e74be7667",
+    "LANDSCAPE88.json": "117ecdb166353e6f49d3e1eea731cfc92bf7d6be4e3ac62829eafd9f63092f4f",
+    "RECOVERY88.json": "8d7ed9f42795fbc95f72bf9ad9e4a07284fd2cf849b33290983d2fb12d76f95f",
+    "SUMMARY88.json": "91ad10f1bffa037caa01a54055a5a1dbc22bc471094ad1b0281a84fda2e602bd",
+    "TOPOLOGY88.json": "8f75c9ab9eb6e5397a8dd0327406f99b0817540213e8b5dba0d746e755fc491b",
+    "TRANSPORT88.json": "4a36e104b181d984a6d7c64abec3742456e75eaf955ecb15a550b4b5ee1e27dc",
+    "plot88.py": "4565c6d6f83884b3b27604df031628a7696adcdd4586be7425a1a57ecf438d1e"
+  }
+}

@@ -3838,6 +3838,83 @@
     "source_path_receipts": 4320,
     "status": "two_scoped_scale_claims_accepted_critical_limit_open_R86_erratum"
   },
+  "restore88": {
+    "BARRIER88.json_sha256": "f187e60d506e1a2a194b9a29be31f2d83400df510f4258e5ebcea486e0c9fbd1",
+    "CONVERGENCE88.json_sha256": "119f709cc2f5e150fc3cb4edbcc78228313eb2eb5e2b43c8a52b2974d154cf03",
+    "DRIFT_WATCHDOG.md_sha256": "7723ba845169f83689848e19def7ac207a3e6a10903ae35319e94698e643410b",
+    "GAUGE88.json_sha256": "fe6986eb2600264cae5d1ac8283dd999eaadce43ad9c9c562f3d344fbeaf6e43",
+    "INDEPENDENT88.json_sha256": "9f83ccb93e6f33645fcfbd7f116b099545233e06be0d37fb4e86985e74be7667",
+    "ITEM_CONVERGENCE88.json_sha256": "95a392f5c868a115d7637705a0def3bc227409fddbd2e7f164df5e7b3219b2e9",
+    "ITEM_RECONSTRUCTION88.json_sha256": "7fca8b5ba6040c4eae909d8ea12d1e164d2969f6fa786852c8505906b24db375",
+    "LANDSCAPE88.json_sha256": "117ecdb166353e6f49d3e1eea731cfc92bf7d6be4e3ac62829eafd9f63092f4f",
+    "NEXT_DYNAMICS.md_sha256": "806d53716b617dcfb8e2a4f64be9b78debaaea0d2b7d6405dc0128e8419f53a6",
+    "ORIGINAL_OUTPUT_EVIDENCE88.csv_sha256": "8e929d67321e176207285f02c6c979d3235e041d5212aabb116f3643ea93e3f3",
+    "ORIGINAL_OUTPUT_PROGRESS88.csv_sha256": "544629a28c899ed2f9be703b2c2c4e64487d4f227828e3ae897d97550fed426a",
+    "ORIGINAL_OUTPUT_REPORT88.md_sha256": "986d4dd2b479059e57b382a2e65db5e080ac75e074b6a1de6bc93d0cbf6cb81e",
+    "ORIGINAL_SOURCE88.json_sha256": "c1f3a3508a23676aa0de22381cd1f095162c5518833043282d639bebe62cbcab",
+    "PERSISTENCE_RANK88.json_sha256": "971b79d027dc8f3d71edf26e9cc52300c1641fc205cac10317c979bf270e827f",
+    "PLOT_INVENTORY88.csv_sha256": "d20c22c7a986dcf7dd4660534fcea7bed111db181a24c9c763febeb20783e591",
+    "PLOT_MANIFEST88.json_sha256": "55e1fe9e5de15f78a39012b706797a28e1af42752d353b0b56c231c153cd9ffa",
+    "PROGRESS88.json_sha256": "b41bc8df75b04a7fc2595f4fcd6c8805a17d17da4dbc51975d31cd370615eef8",
+    "QUALITY_MATRIX88.csv_sha256": "e87ead62dd8b6b2099a49ff692d9f96c17f09bf8a7b572f4f5af7068404b9eb6",
+    "RECOVERY88.json_sha256": "8d7ed9f42795fbc95f72bf9ad9e4a07284fd2cf849b33290983d2fb12d76f95f",
+    "REGISTRATION.json_sha256": "e3400a4cdef02fa58e53be04e69d3091181b37b9f8f54a45f107d7853d263059",
+    "SOURCE_CORRECTIONS88.json_sha256": "a77d5658a9fbed542746861d1df00c64f14d98d0188df87099899fecd47cc3c3",
+    "SUMMARY88.json_sha256": "91ad10f1bffa037caa01a54055a5a1dbc22bc471094ad1b0281a84fda2e602bd",
+    "THEORY.md_sha256": "6a24e4112d5f20465a8e767c1f0d8ded9dd136e0cf56b1017b7a096b467f830d",
+    "THEORY_REGISTERED88.md_sha256": "5450fb9d128f28796c20300399974467f7f03cabbd8620582217dfb6bef13667",
+    "TOPOLOGY88.json_sha256": "8f75c9ab9eb6e5397a8dd0327406f99b0817540213e8b5dba0d746e755fc491b",
+    "TRANSPORT88.json_sha256": "4a36e104b181d984a6d7c64abec3742456e75eaf955ecb15a550b4b5ee1e27dc",
+    "accepted_corrected_subclaims": 21,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 9,
+    "cumulative_fixed_root_histories": 93336,
+    "dag_sha256": "48b4d23f202b5704e6ab8ff2739eb5c9928f03942731dc3ff197a0b2ffc94ff0",
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 8,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "gauge_contexts": 48,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 3,
+    "new_corrected_artifacts": 8,
+    "original_evidence_items": 8,
+    "original_evidence_union_R55_R88": 121,
+    "original_obligations": 121,
+    "parent_commit": "874d38653b98fea197ccb849a479afa9c804d1ed",
+    "parent_dag_sha256": "024eae29eae80d144c8528941da43b1ee02f024c8a1dcf38f057051029261023",
+    "remaining": "L23/L21 and other original output completion; native physical/operational identification, six registered open claims.",
+    "retained_pairs": 676,
+    "reused_fixed_root_paths": 3120,
+    "reused_games": 16,
+    "source_path_receipts": 3136,
+    "status": "eight_corrected_original_artifacts_three_new_structural_claims",
+    "topology_contexts": 144,
+    "transport_contexts": 96,
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

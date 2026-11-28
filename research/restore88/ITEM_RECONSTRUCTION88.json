@@ -1,0 +1,293 @@
+{
+  "corrected_artifacts_total": 9,
+  "items": [
+    {
+      "acceptance_contract": "Reproduce actual signed Q/score landscape with explicit board/time and legal mask; separate 3D rendering and physical potential.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "LANDSCAPE88.json": "117ecdb166353e6f49d3e1eea731cfc92bf7d6be4e3ac62829eafd9f63092f4f"
+      },
+      "figure": "G18_value_landscape_3d",
+      "id": "G18",
+      "method": "Signed Q and actual U at H32 with all legal actions, fixed oblique projection of sampled (x,y,U), Q heatmap and minimax path.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          336
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G18",
+        "member": "value_landscape_3d.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "pdf_sha": "88bac2410f77e460ba2d1ae7496800896dab5d464cc858939f08eaf5381cae02",
+      "png_sha": "1c94316280653bbae8a9640ce74c607f774be068acbcdef324bfd7a0c2e977fc",
+      "remaining_limit": "Matplotlib Axes3D unavailable; static oblique 3D projection, no smooth interpolation or interactive surface. Q=0 for unvisited is initialization.",
+      "result": "96 native representative contexts, source/target fixed at H32, score identity exact. Three predetermined core0 examples."
+    },
+    {
+      "acceptance_contract": "All risk-set entries and first hit/recovery including censoring; same-side actual value, not postselected passage probability.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "BARRIER88.json": "f187e60d506e1a2a194b9a29be31f2d83400df510f4258e5ebcea486e0c9fbd1",
+        "RECOVERY88.json": "8d7ed9f42795fbc95f72bf9ad9e4a07284fd2cf849b33290983d2fb12d76f95f"
+      },
+      "figure": "G19_tunneling_events_risk_recovery",
+      "id": "G19",
+      "method": "Full actual risk-set survival and same-side recovery, threshold sensitivity, all censored/non-entry rows.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          337
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G19",
+        "member": "tunneling_events.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "pdf_sha": "f2bbcc2e32209123b3646472dcbfdeb7d82919242d70424a932767bcc46ab38b",
+      "png_sha": "e671c9ea2b706a412edea344c8f531a4bec8db84deeea44cb652b973fb2648a0",
+      "remaining_limit": "Native first-selection clock and same-side game decision clock differ; game-end censoring may be informative.",
+      "result": "3071 eligible native roots; 16 real historical games, threshold .2:13 entrants,3 recoveries,10 censored,3 nonentry."
+    },
+    {
+      "acceptance_contract": "Define height/width using a specified graph and potential, verify minimax certificates, separate root draws from local motion.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "BARRIER88.json": "f187e60d506e1a2a194b9a29be31f2d83400df510f4258e5ebcea486e0c9fbd1",
+        "TOPOLOGY88.json": "8f75c9ab9eb6e5397a8dd0327406f99b0817540213e8b5dba0d746e755fc491b"
+      },
+      "figure": "G20_barrier_statistics",
+      "id": "G20",
+      "method": "Explicit nearest-neighbor legal graph, V=-U, minimax excess height and shortest width at sublevel threshold; certificate via Kruskal and below-threshold BFS.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          338
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G20",
+        "member": "barrier_statistics.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "pdf_sha": "2d24e71dc2a1683f0a59bc0bc61562725aced303923fcf6e610aee9f24c800c7",
+      "png_sha": "99f959702ccf760b152e809298c0efbe14478c02055da8669232d7a92bb942d5",
+      "remaining_limit": "Score units only, local geometric path not native jump sequence.",
+      "result": "3071 native certificates; all96 rep0 threshold mergers exact, prior scalar and risk features exact."
+    },
+    {
+      "acceptance_contract": "Specify kinetic term, energy, units and exact boundary scattering, validate lattice/continuum WKB error regime; native calibration separate.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "TRANSPORT88.json": "4a36e104b181d984a6d7c64abec3742456e75eaf955ecb15a550b4b5ee1e27dc"
+      },
+      "figure": "G21_wkb_analysis",
+      "id": "G21",
+      "method": "Explicit declared hopping/energy/units and lead boundary exact scattering; lattice transfer, rectangular and continuum WKB controls, actual path action error.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          339
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G21",
+        "member": "wkb_analysis.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "pdf_sha": "a1e112b4222d844ad68c861dd637c717c19b76f7f92a8082feb6d379f2839238",
+      "png_sha": "8a064e43b43244cf3a3be490cf344bb6f4f308f765b71bebf8c0a9c64d527107",
+      "remaining_limit": "Local WKB exponent lacks general prefactor/interference; no native physical calibration.",
+      "result": "96 graph references x3 energies; dense solve/expm subset12, max1.26e-14; all prior controls identical."
+    },
+    {
+      "acceptance_contract": "Reconstruct risk, landscape, exact transport and coherent/dephased controls; no native quantum tunneling without operational phase law.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "BARRIER88.json": "f187e60d506e1a2a194b9a29be31f2d83400df510f4258e5ebcea486e0c9fbd1",
+        "LANDSCAPE88.json": "117ecdb166353e6f49d3e1eea731cfc92bf7d6be4e3ac62829eafd9f63092f4f",
+        "RECOVERY88.json": "8d7ed9f42795fbc95f72bf9ad9e4a07284fd2cf849b33290983d2fb12d76f95f",
+        "TRANSPORT88.json": "4a36e104b181d984a6d7c64abec3742456e75eaf955ecb15a550b4b5ee1e27dc"
+      },
+      "figure": "G22_tunneling_summary",
+      "id": "G22",
+      "method": "Integrated actual landscape, risk, barrier geometry, exact lead T, coherent/dephased monitored detector and nonneighbor native hits.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          340
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "id": "G22",
+        "member": "tunneling_summary.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "pdf_sha": "2d19be68dac75360c8f32dbb3bd5a780dee8c3294f13ffe5d1c2d726e33b5cc2",
+      "png_sha": "2d7ed87232081939fe948d2fc480d420e6cc53b25fffb65ab643385aa74c5f65",
+      "remaining_limit": "Native and model clocks/units/protocols distinct; no physical quantum tunneling inference.",
+      "result": "96 model contexts, 3072 native risk records, all controls preserved; four-panel final summary."
+    },
+    {
+      "acceptance_contract": "Use complete event-risk and recovery records, explicit barrier geometry and model transmission; retain informative censoring.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "BARRIER88.json": "f187e60d506e1a2a194b9a29be31f2d83400df510f4258e5ebcea486e0c9fbd1",
+        "RECOVERY88.json": "8d7ed9f42795fbc95f72bf9ad9e4a07284fd2cf849b33290983d2fb12d76f95f",
+        "TRANSPORT88.json": "4a36e104b181d984a6d7c64abec3742456e75eaf955ecb15a550b4b5ee1e27dc"
+      },
+      "figure": "L10_tunneling_risk_corrected",
+      "id": "L10",
+      "method": "Actual barrier-height vs all-risk hit rate, include censoring and frozen comparison; original postselected tunneling probability replaced by explicitly labelled empirical risk.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 1795,
+        "function": "_plot_tunneling",
+        "id": "L10",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "barrier_height",
+          "quantum_phenomena",
+          "tunneling_events",
+          "tunneling_probability"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "2157097c1efd19fce284ff2ff5968314eeab7fbf86302759dfcd783260132027",
+        "start": 1779
+      },
+      "pdf_sha": "b7f1f9b43ba7c0c3c98b027e0aeba2dc1c7ba94703f7aa07749128bea56b14a6",
+      "png_sha": "c81864f41f7d42b50354b46f3632e61659fbe5ae94cf2eb92e5c62399cd9ff24",
+      "remaining_limit": "No native tunneling probability or physical propagation; descriptive bins not causal.",
+      "result": "3072 paths;3071 entrants,2783 hits,288 censored,1 nonentry; 16 historical games in RECOVERY88 and coherent reference in TRANSPORT88."
+    },
+    {
+      "acceptance_contract": "True unitary oriented links on specified actual graph; normalized Wilson and joint holonomy, covariant field/effect stability, topology; native operational identification separate.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "GAUGE88.json": "fe6986eb2600264cae5d1ac8283dd999eaadce43ad9c9c562f3d344fbeaf6e43",
+        "INDEPENDENT88.json": "9f83ccb93e6f33645fcfbd7f116b099545233e06be0d37fb4e86985e74be7667"
+      },
+      "figure": "L22_gauge_policy_joint_holonomy",
+      "id": "L22",
+      "method": "All three original panels recreated (mean normalized Wilson trace, gauge readout error vs stability, graph V/E) plus joint orientation. True unitary links, all fundamental loops and transported effects.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 3793,
+        "function": "_plot_gauge_policy_analysis",
+        "id": "L22",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "advanced_quantum",
+          "avg_wilson_loop",
+          "gauge_policy",
+          "gauge_variance",
+          "measurements",
+          "n_links",
+          "n_nodes",
+          "policy_stability"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "ff16279f68059f37f41add130456bc2e7e1a19e61a61a7d8f1f69564624490c9",
+        "start": 3743
+      },
+      "pdf_sha": "38f438302923f6cb9b7068378f35ec54c07f97dbc2d39000996ba23e6ddb59b6",
+      "png_sha": "1d30481cf3bdd8c679e9ab5cfd0deb946319896e1b550f118106bb25dfdb9c77",
+      "remaining_limit": "Declared local SU2 model, no native physical gauge identification.",
+      "result": "48 actual legal graph contexts, 4005 holonomies; all rank3. Gauge error 3.11e-15; fixed-effect change is a changed probe."
+    },
+    {
+      "acceptance_contract": "Define actual tree/quotient/filtration, persistence and critical point definition; distinguish cycles from continuum Morse/topological phase.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "INDEPENDENT88.json": "9f83ccb93e6f33645fcfbd7f116b099545233e06be0d37fb4e86985e74be7667",
+        "PERSISTENCE_RANK88.json": "971b79d027dc8f3d71edf26e9cc52300c1641fc205cac10317c979bf270e827f",
+        "TOPOLOGY88.json": "8f75c9ab9eb6e5397a8dd0327406f99b0817540213e8b5dba0d746e755fc491b"
+      },
+      "figure": "L24_topological_analysis_persistence",
+      "id": "L24",
+      "method": "Actual prefix tree and quotient, graph/cubical lower-star filtration, GF2 birth-death pairs and explicit discrete critical thresholds and plateau extrema; original stability panel corrected.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 3896,
+        "function": "_plot_topological_analysis",
+        "id": "L24",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "advanced_quantum",
+          "avg_persistence",
+          "measurements",
+          "n_critical_points",
+          "n_stable_points",
+          "n_unstable_points",
+          "topological_analysis",
+          "topological_complexity"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "69baad25d8d6c329d778256a1b7aa602c6969e0e34a6ab1631b20a751533f18b",
+        "start": 3846
+      },
+      "pdf_sha": "20c5b8a1e2d8ea293ee4fe78460e44c4237f9c498b63d65748ade21b0573afde",
+      "png_sha": "ae98aa43481d19dad774cc8e059eb68de2666666df1c842eb1055acfb761ec99",
+      "remaining_limit": "Local minimum/maximum plateau is not Lyapunov stability; no continuum Morse index or topological phase.",
+      "result": "144 contexts, 25648 threshold checks, 6048 inclusion ranks and144 dual-hole checks. Chronological quotient H1 births19; final legal graph H1 sum12064 vs filled531."
+    }
+  ],
+  "original_scientific_certifications": 0,
+  "prior_report_artifacts": [
+    "L31"
+  ],
+  "scope": "R79 item contracts evaluated against corrected finite definitions. Corrected output completeness is distinct from the original physical hypothesis; no blanket final science promotion.",
+  "status": "EIGHT_CORRECTED_SCOPED_ARTIFACTS_ACCEPTED"
+}

@@ -1,0 +1,24 @@
+{
+  "parent": "874d38653b98fea197ccb849a479afa9c804d1ed",
+  "contract_sha": "5450fb9d128f28796c20300399974467f7f03cabbd8620582217dfb6bef13667",
+  "gauge_contexts": 48,
+  "barrier_paths": 3072,
+  "transport_contexts": 96,
+  "independent_transport_cores": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "items": [
+    "L22",
+    "L24",
+    "L10",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22"
+  ],
+  "scope": "Original structural outputs; existing actual R75/R78 inputs only"
+}

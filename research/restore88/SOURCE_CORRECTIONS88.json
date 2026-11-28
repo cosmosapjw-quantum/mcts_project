@@ -1,0 +1,90 @@
+{
+  "prior_gauge_defects": [
+    "I+perturbation not generally unitary",
+    "independently initialized opposite directions not inverse",
+    "absent virtual links I not covariantly transformed",
+    "open-link commutator not adjoint-covariant",
+    "Hermitian part of commutator of Hermitian matrices zero",
+    "Hermitian traceless projection Lie algebra not group",
+    "complex U1 Wilson legitimate",
+    "unconstrained link entries and unnormalized Wilson action"
+  ],
+  "sources": [
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/gauge_policy.py",
+      "segments": [],
+      "sha256": "4321923d1dbd6e7b1195fee7bea8d86a8a59f8d6c04714e98b7f36fd09cd10bf"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/topological_analysis.py",
+      "segments": [
+        {
+          "end": 358,
+          "start": 268,
+          "text": "        \"\"\"\n        Compute persistent homology of value landscape.\n        \n        Args:\n            tree_data: Dictionary containing tree structure and values\n            \n        Returns:\n            List of persistent features\n        \"\"\"\n        # Extract values and positions\n        values = tree_data.get('values', [])\n        positions = tree_data.get('positions', [])\n        \n        if not values or not positions:\n            logger.warning(\"No values or positions found in tree data\")\n            return []\n        \n        # Convert to numpy arrays\n        values = np.array(values)\n        positions = np.array(positions)\n        \n        # Create filtration\n        filtration_values = np.linspace(np.min(values), np.max(values), self.filtration_steps)\n        \n        # Compute persistent homology for each filtration level\n        persistent_features = []\n        \n        # Track births and deaths of connected components (H_0)\n        component_births = {}\n        component_deaths = {}\n        \n        for i, threshold in enumerate(filtration_values):\n            # Create sublevel set\n            sublevel_indices = np.where(values <= threshold)[0]\n            \n            if len(sublevel_indices) == 0:\n                continue\n            \n            # Build simplicial complex for sublevel set\n            simplicial_complex = self._build_vietoris_rips_complex(\n                positions[sublevel_indices], threshold\n            )\n            \n            # Compute Betti numbers\n            betti_numbers = simplicial_complex.betti_numbers\n            \n            # Track changes in topology\n            if i == 0:\n                # Initial components\n                for j in range(betti_numbers[0]):\n                    component_births[j] = threshold\n            else:\n                # Track births and deaths\n                prev_betti_0 = len([f for f in persistent_features if f.dimension == 0 and f.death_time == float('inf')])\n                current_betti_0 = betti_numbers[0]\n                \n                # Handle component mergers (deaths)\n                if current_betti_0 < prev_betti_0:\n                    # Some components died\n                    deaths_needed = prev_betti_0 - current_betti_0\n                    for _ in range(deaths_needed):\n                        # Find youngest component to kill\n                        youngest_birth = max(component_births.values())\n                        for comp_id, birth_time in component_births.items():\n                            if birth_time == youngest_birth and comp_id not in component_deaths:\n                                component_deaths[comp_id] = threshold\n                                break\n                \n                # Handle component births\n                if current_betti_0 > prev_betti_0:\n                    # New components born\n                    births_needed = current_betti_0 - prev_betti_0\n                    for _ in range(births_needed):\n                        new_id = len(component_births)\n                        component_births[new_id] = threshold\n        \n        # Create persistent features from birth/death tracking\n        for comp_id, birth_time in component_births.items():\n            death_time = component_deaths.get(comp_id, float('inf'))\n            \n            feature = PersistentFeature(\n                dimension=0,\n                birth_time=birth_time,\n                death_time=death_time,\n                persistence=death_time - birth_time if death_time != float('inf') else float('inf'),\n                representative_cycle=None\n            )\n            persistent_features.append(feature)\n        \n        self.persistent_features = persistent_features\n        return persistent_features"
+        },
+        {
+          "end": 452,
+          "start": 398,
+          "text": "        \"\"\"\n        Compute critical points using Morse theory.\n        \n        Args:\n            tree_data: Dictionary containing tree structure and values\n            \n        Returns:\n            List of critical points\n        \"\"\"\n        values = tree_data.get('values', [])\n        positions = tree_data.get('positions', [])\n        \n        if not values or not positions:\n            logger.warning(\"No values or positions found in tree data\")\n            return []\n        \n        values = np.array(values)\n        positions = np.array(positions)\n        \n        critical_points = []\n        \n        # Find local extrema as critical points\n        for i in range(len(values)):\n            # Build local neighborhood\n            distances = np.linalg.norm(positions - positions[i], axis=1)\n            neighbor_indices = np.where(distances < 0.1)[0]  # Adjust threshold as needed\n            \n            if len(neighbor_indices) > 1:\n                neighbor_values = values[neighbor_indices]\n                current_value = values[i]\n                \n                # Check if it's a local extremum\n                is_maximum = np.all(neighbor_values <= current_value)\n                is_minimum = np.all(neighbor_values >= current_value)\n                \n                if is_maximum or is_minimum:\n                    # Estimate Morse index (simplified)\n                    morse_index = 0 if is_minimum else len(positions[0]) if is_maximum else 1\n                    \n                    stability = 'stable' if is_minimum else 'unstable' if is_maximum else 'saddle'\n                    \n                    # Estimate basin size\n                    basin_size = len(neighbor_indices) / len(values)\n                    \n                    critical_point = MorseCriticalPoint(\n                        position=positions[i].tolist(),\n                        value=current_value,\n                        morse_index=morse_index,\n                        stability=stability,\n                        basin_size=basin_size\n                    )\n                    critical_points.append(critical_point)\n        \n        self.critical_points = critical_points\n        return critical_points"
+        }
+      ],
+      "sha256": "0154fbc0fe33aad0b1693a5ae6bdc4d657ae862f45845b02452dcadde7780d38"
+    },
+    {
+      "archive": "omoknuni_quantum-main.zip",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/tunneling.py",
+      "segments": [
+        {
+          "end": 271,
+          "start": 250,
+          "text": "    def compute_wkb_probability(self, barrier: ValueBarrier, temperature: float = 1.0) -> float:\n        \"\"\"\n        Compute WKB approximation for tunneling probability.\n        \n        In the path integral formulation, the tunneling amplitude is:\n        P ~ exp(-S_instanton) where S is the action under the barrier.\n        \n        Args:\n            barrier: Value barrier to tunnel through\n            temperature: Effective temperature\n            \n        Returns:\n            WKB tunneling probability\n        \"\"\"\n        # Simplified WKB for discrete MCTS\n        # Action ~ barrier_height * barrier_width / temperature\n        action = barrier.height * np.sqrt(barrier.duration) / temperature\n        \n        # Tunneling probability\n        prob = np.exp(-action)\n        \n        return float(prob)"
+        }
+      ],
+      "sha256": "de04fb06d7bf0bcbce0f2db6a66f7733e68bc63256d6c9a432f4e52b8d257749"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v5.0/new_quantum_mcts.md",
+      "segments": [
+        {
+          "end": 55,
+          "start": 44,
+          "text": "### World\u2011line picture\n\nA game tree is a directed, acyclic graph. Each root\u2192leaf path is mapped onto a **1\u2011D Euclidean world\u2011line**. Absence of plaquettes (closed loops) implies:\n\n1. the action Hessian is diagonal;\n2. there are no gauge constraints; and\n3. one\u2011loop path integrals factorise child\u2011wise.\n\n---\n\n## 2. Classical Log\u2011Kernel\u00a0& Divergence\n"
+        },
+        {
+          "end": 125,
+          "start": 116,
+          "text": "$$\nh_k \\;:=\\; \\frac{\\partial^2 S_{\\text{cl}}}{\\partial N_k^2} \\;=\\; 2\\kappa p_k\\,\\frac{N_{\\text{tot}}}{N_k^{3}}.\n$$\n\nThe tree\u2011topology makes the Hessian diagonal.\n\n### 5.2\u00a0Gaussian Integration\u00a0(Thm\u00a05.1)\n\n**Theorem\u00a05.1.** The one\u2011loop correction is\n"
+        },
+        {
+          "end": 204,
+          "start": 191,
+          "text": "## 9. Topological Suppression of Pruned Branches\n\nFor a parent \\$P\\$ with \\$B\\_{\\text{trim}}\\$ pruned children, the path weight factorises as\n\n$$\nW_{\\text{path}}(P)\n= e^{-\\Gamma_{\\text{main}}/\\hbar_{\\text{eff}}}\\,e^{-\\Delta\\Gamma_{\\text{RG}}/\\hbar_{\\text{eff}}}\n= \\frac{1}{1+B_{\\text{trim}}}\\,e^{-\\Gamma_{\\text{main}}/\\hbar_{\\text{eff}}}.\n$$\n\nThe \\$1/(1+B\\_{\\text{trim}})\\$ penalty is *topological*: it survives the classical limit provided the pruning rule is value\u2011blind.\n\n---\n"
+        }
+      ],
+      "sha256": "b0918d64a49ef0b554d3cd7a763027c3bfc4b98c2299c0b722a6d201d18cf455"
+    },
+    {
+      "archive": "mcts_study.zip",
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "segments": [
+        {
+          "end": 62,
+          "start": 43,
+          "text": "**Initial Attempt (Later Refined)**:\n- Field: \u03c6(x,t) as abstract \"wave function\" on tree\n- Action: S = \u222bdt (T - V) with T = \u00bd(\u2202\u03c6/\u2202t)\u00b2 and V = -PUCT score\n- Problem: This gives wrong sign structure and ignores discreteness\n\n**First Critical Insight**: The search tree is not a continuum but a discrete lattice. We must use lattice field theory from the start.\n\n### 2.2 The Discrete MCTS Lattice Structure\n\n**Definition 2.1 (Refined MCTS Lattice)**: The MCTS search space is a directed acyclic graph (DAG) $\\mathcal{G} = (V, E)$ with additional structure:\n- Vertices $V = \\{s\\}$ represent game states\n- Edges $E = \\{(s,a)\\}$ represent state-action pairs with orientation\n- Edge weights: Each edge carries statistics $(N_{(s,a)}, W_{(s,a)}, W\u00b2_{(s,a)})$\n- The topology is dynamically constructed during search\n\n**Critical Refinement**: Initially we considered nodes as sites. The correct identification is **edges as sites**, since MCTS statistics live on state-action pairs.\n\n### 2.3 Evolution of the Field Variable\n\nThe identification of the correct field variable underwent several iterations:"
+        }
+      ],
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    }
+  ],
+  "study_scope": "v5 tree topology alone does not imply diagonal Hessian (categorical Hessian from R78); v6 search topology dynamically constructed. Pruning suppression law not examined here.",
+  "topology_defects": [
+    "Original prev_betti_0 derives from persistent_features not populated until after the loop, so no correct component tracking. Net Betti counts do not identify persistence pairings.",
+    "Original routine emits H0 only; distance threshold tied to score threshold has no declared common units.",
+    "Local extrema assigned Morse index and stable/unstable without Hessian or flow."
+  ],
+  "tunneling_defect": "Original WKB proxy uses value barrier duration and temperature rather than a defined spatial kinetic term/incident energy. R75 declared graph reference retained."
+}

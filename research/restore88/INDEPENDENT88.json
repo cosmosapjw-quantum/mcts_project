@@ -1,0 +1,26 @@
+{
+  "errors": {
+    "basis_rotation": 3.9968028886505635e-15,
+    "basis_rotation_action": 1.9984014443252818e-15,
+    "basis_rotation_det": 3.1086244689504383e-15,
+    "drawdown": 0.0,
+    "oriented_volume": 2.4424906541753444e-15,
+    "quat_gram": 3.885780586188048e-15,
+    "quat_norm": 1.5543122344752192e-15,
+    "reflected_gap": 2.220446049250313e-16,
+    "triple_trace": 2.220446049250313e-16
+  },
+  "game_paths": 16,
+  "game_threshold_cases": 48,
+  "independent_dense_contexts": 12,
+  "independent_dense_error": 1.2601031329495527e-14,
+  "independent_dual_hole_checks": 144,
+  "joint_components": 48,
+  "joint_loops": 4005,
+  "prefix_checks": 336,
+  "risk_paths": 3072,
+  "scope": "Same-agent independent basis rotation and quaternion product; raw prefix sets; dual complement hole counts; actual game episode recomputation; dense solve/expm plus exact prior comparison.",
+  "status": "PASS_SCOPED",
+  "threshold_checks": 25648,
+  "transport_contexts": 96
+}

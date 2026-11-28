@@ -1,0 +1,115 @@
+{
+  "artifact_reconstruction_sha": "7fca8b5ba6040c4eae909d8ea12d1e164d2969f6fa786852c8505906b24db375",
+  "claims": [
+    {
+      "claim": "On a finite graph, tree fixing reduces declared SU2 link gauge equivalence to simultaneous conjugacy of fundamental holonomies per connected component. Scalar and Gram invariants plus a nonzero oriented spanning triple if rank3 classify the tuple. Individual and pair commutator traces insufficient, explicit reflection counterexample.",
+      "evidence": [
+        "THEORY.md",
+        "GAUGE88.json",
+        "INDEPENDENT88.json",
+        "SUMMARY88.json"
+      ],
+      "id": "STRUCT-HOLONOMY-01",
+      "items": [
+        "L22"
+      ],
+      "limit": "48 actual legal graphs, declared links, 4005 loops, all rank3; no operational native SU2 field.",
+      "stage": 88,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Actual chronological prefix tree has H1=0, colored-set quotient can have undirected cycles while directed graph remains acyclic; lower-star legal graph and square-filled cubical complex yield different persistent H1. Minimax graph level equals earliest source-target sublevel connectivity, verified via Kruskal, threshold BFS and prior Dijkstra.",
+      "evidence": [
+        "THEORY.md",
+        "TOPOLOGY88.json",
+        "BARRIER88.json",
+        "INDEPENDENT88.json",
+        "PERSISTENCE_RANK88.json"
+      ],
+      "id": "STRUCT-PERSISTENCE-02",
+      "items": [
+        "L24",
+        "G20"
+      ],
+      "limit": "Fixed observed graph and score filtration, no continuum Morse stability or dynamical/physical topological phase.",
+      "stage": 88,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Native all-risk-set target first selection and same-side recovery are identifiable separately from declared coherent graph transport. All 3072 first-hit records and 16 historical games independently reduced; 96 graph references and controls reconstructed with explicit score, energy, width, exact scattering and dephasing.",
+      "evidence": [
+        "THEORY.md",
+        "BARRIER88.json",
+        "LANDSCAPE88.json",
+        "RECOVERY88.json",
+        "TRANSPORT88.json",
+        "INDEPENDENT88.json"
+      ],
+      "id": "STRUCT-BARRIER-03",
+      "items": [
+        "L10",
+        "G18",
+        "G19",
+        "G20",
+        "G21",
+        "G22"
+      ],
+      "limit": "Native categorical jumps are not spatial graph propagation, recovery censoring informative; assigned complex links and arbitrary energy/length scales not physically calibrated.",
+      "stage": 88,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "STRUCT-BARRIER-03",
+      "id": "G18",
+      "remaining_final_acceptance": "Reproduce actual signed Q/score landscape with explicit board/time and legal mask; separate 3D rendering and physical potential.",
+      "scope": "Signed Q and actual U at H32 with all legal actions, fixed oblique projection of sampled (x,y,U), Q heatmap and minimax path. Matplotlib Axes3D unavailable; static oblique 3D projection, no smooth interpolation or interactive surface. Q=0 for unvisited is initialization."
+    },
+    {
+      "accepted": "STRUCT-BARRIER-03",
+      "id": "G19",
+      "remaining_final_acceptance": "All risk-set entries and first hit/recovery including censoring; same-side actual value, not postselected passage probability.",
+      "scope": "Full actual risk-set survival and same-side recovery, threshold sensitivity, all censored/non-entry rows. Native first-selection clock and same-side game decision clock differ; game-end censoring may be informative."
+    },
+    {
+      "accepted": "STRUCT-PERSISTENCE-02;STRUCT-BARRIER-03",
+      "id": "G20",
+      "remaining_final_acceptance": "Define height/width using a specified graph and potential, verify minimax certificates, separate root draws from local motion.",
+      "scope": "Explicit nearest-neighbor legal graph, V=-U, minimax excess height and shortest width at sublevel threshold; certificate via Kruskal and below-threshold BFS. Score units only, local geometric path not native jump sequence."
+    },
+    {
+      "accepted": "STRUCT-BARRIER-03",
+      "id": "G21",
+      "remaining_final_acceptance": "Specify kinetic term, energy, units and exact boundary scattering, validate lattice/continuum WKB error regime; native calibration separate.",
+      "scope": "Explicit declared hopping/energy/units and lead boundary exact scattering; lattice transfer, rectangular and continuum WKB controls, actual path action error. Local WKB exponent lacks general prefactor/interference; no native physical calibration."
+    },
+    {
+      "accepted": "STRUCT-BARRIER-03",
+      "id": "G22",
+      "remaining_final_acceptance": "Reconstruct risk, landscape, exact transport and coherent/dephased controls; no native quantum tunneling without operational phase law.",
+      "scope": "Integrated actual landscape, risk, barrier geometry, exact lead T, coherent/dephased monitored detector and nonneighbor native hits. Native and model clocks/units/protocols distinct; no physical quantum tunneling inference."
+    },
+    {
+      "accepted": "STRUCT-BARRIER-03",
+      "id": "L10",
+      "remaining_final_acceptance": "Use complete event-risk and recovery records, explicit barrier geometry and model transmission; retain informative censoring.",
+      "scope": "Actual barrier-height vs all-risk hit rate, include censoring and frozen comparison; original postselected tunneling probability replaced by explicitly labelled empirical risk. No native tunneling probability or physical propagation; descriptive bins not causal."
+    },
+    {
+      "accepted": "STRUCT-HOLONOMY-01",
+      "id": "L22",
+      "remaining_final_acceptance": "True unitary oriented links on specified actual graph; normalized Wilson and joint holonomy, covariant field/effect stability, topology; native operational identification separate.",
+      "scope": "All three original panels recreated (mean normalized Wilson trace, gauge readout error vs stability, graph V/E) plus joint orientation. True unitary links, all fundamental loops and transported effects. Declared local SU2 model, no native physical gauge identification."
+    },
+    {
+      "accepted": "STRUCT-PERSISTENCE-02",
+      "id": "L24",
+      "remaining_final_acceptance": "Define actual tree/quotient/filtration, persistence and critical point definition; distinguish cycles from continuum Morse/topological phase.",
+      "scope": "Actual prefix tree and quotient, graph/cubical lower-star filtration, GF2 birth-death pairs and explicit discrete critical thresholds and plateau extrema; original stability panel corrected. Local minimum/maximum plateau is not Lyapunov stability; no continuum Morse index or topological phase."
+    }
+  ],
+  "parent_convergence_sha256": "7395ecad24eb7a55b294f4adf3a4e262ac941f48d0b3a2084547708b630a3cf7",
+  "parent_quality_matrix_sha256": "3bea0e01e3ed25cb0b87a22f40c4ae36c6159e924d89386bb4bb00f5506f709e",
+  "scope": "Eight corrected artifact acceptances; original full science not certified."
+}
