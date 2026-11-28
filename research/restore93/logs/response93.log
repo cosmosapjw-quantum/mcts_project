@@ -1,0 +1,8 @@
+RAW 74 768
+RAW 74 1536
+RAW 74 2304
+RAW 66 768
+RAW 66 1536
+RAW 66 2304
+RAW 66 3072
+COMPLETE 5376 2.55351295663786e-15 0.0 {'raw_naive_drift': 1.1102230246251565e-16, 'hit_kernel_sample_decomposition': 1.6653345369377348e-16, 'triangular_decomposition': 1.6653345369377348e-16, 'pair_covariance': 1.942890293094024e-16, 'binomial_normalization': 4.440892098500626e-16, 'binomial_Lplus': 4.440892098500626e-16, 'binomial_Lminus': 4.440892098500626e-16, 'binomial_score_zero': 1.3704315460216776e-16, 'binomial_curvature_zero': 1.5612511283791264e-16, 'binomial_contact': 5.551115123125783e-17, 'binomial_second': 6.938893903907228e-17, 'binomial_finite_contact': 1.6653345369377348e-16, 'binomial_even_contact': 1.3877787807814457e-15, 'R74_direct': 0.0, 'R74_raw_score': 2.7755575615628914e-17, 'R74_reweighted': 6.938893903907228e-17} mixture 9.992007221626409e-16 tiny {'response': [0.126, 0.15999999999999998], 'hessian': [[0.050399999999999986, -6.938893903907228e-18], [-6.938893903907228e-18, 0.03840000000000001]], 'fd_error': 5.466349595195652e-11, 'hessian_fd_error': 2.62211872353868e-09, 'naive_second_bit_variance': 0.2356, 'contact_response': 0.15999999999999998}

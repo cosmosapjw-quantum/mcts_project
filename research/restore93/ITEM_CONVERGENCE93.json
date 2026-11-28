@@ -1,0 +1,60 @@
+{
+  "artifact_reconstruction_sha": "2adab951bfaf1ed408df07538d70f3534007506c063e47142613abd63a57ec5a",
+  "claims": [
+    {
+      "claim": "For finite common-kernel full-support quiescent categorical histories, source-path score S_s and bracket V_s yield first response E[Y S_s] and Hessian E[Y(S_s S_u-delta_su V_s)]. Hit response is causal, with exact contact E[q_s(1-q_s)] and future history-mediated E[q_t S_s]. Measurable prehistory anchors preserve finite odd/even contrast expectations.",
+      "evidence": [
+        "mqft_restore93_20261128/THEORY.md",
+        "mqft_restore93_20261128/RESPONSE93.json",
+        "mqft_restore93_20261128/INDEPENDENT93.json"
+      ],
+      "id": "RESP-KERNEL-01",
+      "items": [
+        "G10",
+        "G11",
+        "G12"
+      ],
+      "limit": "Finite specified ideal randomized law, four quiescent draws per wave, source-independent downstream at fixed history; independent exact rational examples, direct pulse only wave8; not physical equilibrium FDT or universal variance reduction.",
+      "stage": 93,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For equal mixture of two finite common-support prefix path laws, exact RN contrast uses bounded weights w_F=2 sigmoid(log(P_F/P_C)), w_C=2-w_F. Equal per-arm independent samples yield stratified unbiased finite contrast for source-independent observables. Actual R66 comparisons retain overlap and sampling discrepancies.",
+      "evidence": [
+        "mqft_restore93_20261128/THEORY.md",
+        "mqft_restore93_20261128/RESPONSE93.json",
+        "mqft_restore93_20261128/INDEPENDENT93.json"
+      ],
+      "id": "RESP-MIXTURE-02",
+      "items": [
+        "G11",
+        "G12"
+      ],
+      "limit": "Standard importance-weight identity applied and verified here, no novelty or independent estimator superiority claim. R66 schedules separate from R74, no reverse dynamics or equilibrium assumption.",
+      "stage": 93,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "RESP-KERNEL-01",
+      "id": "G10",
+      "remaining_final_acceptance": "Specify stationary equilibrium ensemble and conjugate field for FDT; compare causal path-score response and fluctuation, not proxy equality.",
+      "scope": "Actual R74 direct versus exact conditional finite source response and contact derivative, 768 declared frozen stationary reversible references, root uncertainty and deviation; no native physical equilibrium FDT."
+    },
+    {
+      "accepted": "RESP-KERNEL-01;RESP-MIXTURE-02",
+      "id": "G11",
+      "remaining_final_acceptance": "Use independent time-dependent perturbations, fixed causal clock and response kernel; verify equilibrium assumptions before physical FDT.",
+      "scope": "Actual R74 time-resolved pulse and finite response kernel estimate, separate R66 independent F/counter ramps; finite/differential contrasts, causal zero and mediated response; direct impulse only wave8, ramps do not identify every column; no aging or physical FDT."
+    },
+    {
+      "accepted": "RESP-KERNEL-01;RESP-MIXTURE-02",
+      "id": "G12",
+      "remaining_final_acceptance": "Combine time-resolved response, covariance correction and matched direct/reweight; no FDT admission without calibrated equilibrium.",
+      "scope": "Joint finite causal score/count/drift identity, direct/reweighted finite contrasts and independent schedule estimates/overlap, explicit frozen equilibrium reference and finite sample discrepancies; not a native equilibrium FDT."
+    }
+  ],
+  "parent_convergence_sha256": "ce22817f560943da8ef3fda759a3eabd305ea4df6663fc963ed70b61a5f0580c",
+  "parent_quality_matrix_sha256": "d80e1e2ae4b9ccbdf7b4be244bbfb479631a4dc65d2e407e4abdaaba7373ca59"
+}

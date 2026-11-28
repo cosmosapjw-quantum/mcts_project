@@ -1,0 +1,51 @@
+{
+  "figures": [
+    {
+      "figure": "G10_fdt_validation",
+      "ids": [
+        "G10"
+      ],
+      "pdf_sha": "8344f85412215b8946bc0b55e8b1769e76be2fc419df60013ee46236860fbd0b",
+      "png_sha": "c544d34c9b92eef3b90d9261f80a46e719a7add012c871f57724b8ee48a67d60"
+    },
+    {
+      "figure": "G11_causal_kernel",
+      "ids": [
+        "G11"
+      ],
+      "pdf_sha": "ed6ae6bb67e0cfe5e134c03783cefae29f851e0071de9d6f68b44516c484d5c7",
+      "png_sha": "4ca1b1c68db23af50d1d91851b93ea8973d20dd737c97cd4f5500ebd0e830a29"
+    },
+    {
+      "figure": "G11_time_resolved_fdt",
+      "ids": [
+        "G11",
+        "G12"
+      ],
+      "pdf_sha": "08073bc5f4e5eb12863f53ebd5c0b34c2950592e8f23918c968493b00bbb819c",
+      "png_sha": "c6cca9c26fcefa3196e895303e750c9ce2ec1956373cb8e1c95cd0343b1d9efe"
+    },
+    {
+      "figure": "G11_schedule_contrast",
+      "ids": [
+        "G11"
+      ],
+      "pdf_sha": "ae799529506fae234e60f2407b785b74c7e83ae7ac50f598731d55f594ed0ba6",
+      "png_sha": "177d21bca6229e39d3597fe5a12167edbfcec741fef5aa888e3791762ff2c718"
+    },
+    {
+      "figure": "G12_fdt_summary",
+      "ids": [
+        "G12"
+      ],
+      "pdf_sha": "b6773562672aa2f4a6066a252c3290d4dd01da996dedbadc8895890b98bce669",
+      "png_sha": "6ebf51a32e02ff597edf847e50e7517898ce386f52d79bbf81bc711ba73f5ad7"
+    }
+  ],
+  "scope": "Descriptive pointwise root-block intervals; exact frozen stationary reference is declared, no physical equilibrium FDT.",
+  "sources": {
+    "INDEPENDENT93.json": "fa0aa640fdb3aa17279d860e7fcd785500b3efd810b2a087c10a2cbd558465ac",
+    "ORIGINAL_SOURCE93.json": "b47c50da915beec8b9c5413e95e7c7d5917f4c82e224bf294ea2f62338675778",
+    "RESPONSE93.json": "7021ebd73bced3e34892402f507f68987519202831c4c334c143e3792161d4e2"
+  }
+}

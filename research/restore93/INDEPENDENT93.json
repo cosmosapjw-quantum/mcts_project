@@ -1,0 +1,56 @@
+{
+  "R92_independent_scope": {
+    "max_offlag": 0.049875566957518845,
+    "note": "R92 different size/root law; no pooling or physical FDT",
+    "raw_paths": 4320,
+    "time_paths": 3040
+  },
+  "exact_hessian": [
+    [
+      "21/500",
+      "21/2000"
+    ],
+    [
+      "21/2000",
+      "21/500"
+    ]
+  ],
+  "exact_mixture_contrast": "2",
+  "exact_nonzero_cross": "21/2000",
+  "exact_response": [
+    "21/200",
+    "7/40"
+  ],
+  "independence": "Same agent; pairwise covariance, exact rational two-wave and finite stationary reference; no native subagent",
+  "reference_cases": 768,
+  "reference_errors": {
+    "detailed_balance": 0.0,
+    "lag1_cov": 0.0,
+    "static_fd": 6.6631145045903395e-12,
+    "stationarity": 1.1102230246251565e-16,
+    "variance": 2.7755575615628914e-17
+  },
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.12.3"
+  },
+  "source_hashes": {
+    "mqft_restore66_20261126/AUDIT66.json": "d2b45be73fd6a6b0fc9814d0a576858b7fa99121363acad6332a019e2e338c47",
+    "mqft_restore66_20261126/NATIVE66.npz": "c47d9975f7520bf1f380ff56cfcd64f297c68ccb0f4b8c0195b5bb194aa21e45",
+    "mqft_restore66_20261126/PHYSICS_RESULTS.json": "1757ae1f6aaf77da1d3e7c4f730317a6e38159bc32d8f50a3e175cd703b67fdf",
+    "mqft_restore74_20261126/AUDIT74.json": "86d2b619de7b3a2b8359fe0d80aaf5af65cbce505485c8ceede53d01406fdf69",
+    "mqft_restore74_20261126/PULSE74.npz": "85255665c81b1c4d26ade33c6c8aa38e1553c71fbb49722e7aa295779cb4cd7b",
+    "mqft_restore74_20261126/RESPONSE74.json": "af14acf2c416dec724f043bb59a0e74457e67b12f89e45e5df8f9f004d2dcefe",
+    "mqft_restore87_20261128/ERRATUM86.json": "8be777f904fb8fb8e4b1afdfd5caa0458f43c76c80b9e8cd4217199eff967ca8",
+    "mqft_restore90_20261128/RESPONSE90.json": "27442a51190d71f146262b44e48e7396cc4bcd34d8dc5cc36b70b4b5a0252a4b",
+    "mqft_restore92_20261128/CONVERGENCE92.json": "ce22817f560943da8ef3fda759a3eabd305ea4df6663fc963ed70b61a5f0580c",
+    "mqft_restore92_20261128/DAG.json": "c70d21a4696f555b80fb146c26826547df8f6553b07e472d74ab12273c6a4681",
+    "mqft_restore92_20261128/ORIGINAL_OUTPUT_PROGRESS92.csv": "d5a2d6b48579e3911e66ff10ff8dcab59664cb311244ee674cbd0d8caedfe941",
+    "mqft_restore92_20261128/ORIGINAL_SOURCE92.json": "fcc82ddd7fc3ff38250ab8b72ac406f6c8ddc899a3c82ce840f75d8e1a92abd3",
+    "mqft_restore92_20261128/PLOT_INVENTORY92.csv": "8bd39a3834a09face4a3f4782cb7e208b37a879490ad3544136ba09177403a18",
+    "mqft_restore92_20261128/PROGRESS92.json": "9c920ef99e0f8272dbf731a1ff84247ae963775933e4b5204dc5b72bcc17f0f3",
+    "mqft_restore92_20261128/QUALITY_MATRIX92.csv": "d80e1e2ae4b9ccbdf7b4be244bbfb479631a4dc65d2e407e4abdaaba7373ca59",
+    "mqft_restore92_20261128/SUMMARY92.json": "1548480f9221414bc249cb2e9f63f3bc92b75e7135de1497e7885dd8aef7f971"
+  },
+  "status": "PASS_SCOPED"
+}

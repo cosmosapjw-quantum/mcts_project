@@ -1,0 +1,169 @@
+{
+  "corrected_artifacts_total": 29,
+  "items": [
+    {
+      "acceptance_contract": "Specify stationary equilibrium ensemble and conjugate field for FDT; compare causal path-score response and fluctuation, not proxy equality.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G10_fdt_validation",
+          "ids": [
+            "G10"
+          ],
+          "pdf_sha": "8344f85412215b8946bc0b55e8b1769e76be2fc419df60013ee46236860fbd0b",
+          "png_sha": "c544d34c9b92eef3b90d9261f80a46e719a7add012c871f57724b8ee48a67d60"
+        }
+      ],
+      "figures": [
+        "G10_fdt_validation"
+      ],
+      "id": "G10",
+      "method": "Actual R74 direct versus exact conditional finite source response and contact derivative, 768 declared frozen stationary reversible references, root uncertainty and deviation; no native physical equilibrium FDT.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Specify stationary equilibrium ensemble and conjugate field for FDT; compare causal path-score response and fluctuation, not proxy equality.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G10",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+        "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+        "source_excerpt": "\u2502           \u251c\u2500\u2500 fdt_validation.png",
+        "span": [
+          285,
+          285
+        ]
+      },
+      "pdf_sha": "8344f85412215b8946bc0b55e8b1769e76be2fc419df60013ee46236860fbd0b",
+      "png_sha": "c544d34c9b92eef3b90d9261f80a46e719a7add012c871f57724b8ee48a67d60",
+      "remaining_limit": "Physical equilibrium FDT and full direct impulse-column identification open."
+    },
+    {
+      "acceptance_contract": "Use independent time-dependent perturbations, fixed causal clock and response kernel; verify equilibrium assumptions before physical FDT.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G11_causal_kernel",
+          "ids": [
+            "G11"
+          ],
+          "pdf_sha": "ed6ae6bb67e0cfe5e134c03783cefae29f851e0071de9d6f68b44516c484d5c7",
+          "png_sha": "4ca1b1c68db23af50d1d91851b93ea8973d20dd737c97cd4f5500ebd0e830a29"
+        },
+        {
+          "figure": "G11_time_resolved_fdt",
+          "ids": [
+            "G11",
+            "G12"
+          ],
+          "pdf_sha": "08073bc5f4e5eb12863f53ebd5c0b34c2950592e8f23918c968493b00bbb819c",
+          "png_sha": "c6cca9c26fcefa3196e895303e750c9ce2ec1956373cb8e1c95cd0343b1d9efe"
+        },
+        {
+          "figure": "G11_schedule_contrast",
+          "ids": [
+            "G11"
+          ],
+          "pdf_sha": "ae799529506fae234e60f2407b785b74c7e83ae7ac50f598731d55f594ed0ba6",
+          "png_sha": "177d21bca6229e39d3597fe5a12167edbfcec741fef5aa888e3791762ff2c718"
+        }
+      ],
+      "figures": [
+        "G11_causal_kernel",
+        "G11_time_resolved_fdt",
+        "G11_schedule_contrast"
+      ],
+      "id": "G11",
+      "method": "Actual R74 time-resolved pulse and finite response kernel estimate, separate R66 independent F/counter ramps; finite/differential contrasts, causal zero and mediated response; direct impulse only wave8, ramps do not identify every column; no aging or physical FDT.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Use independent time-dependent perturbations, fixed causal clock and response kernel; verify equilibrium assumptions before physical FDT.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G11",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+        "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+        "source_excerpt": "\u2502           \u251c\u2500\u2500 time_resolved_fdt.png",
+        "span": [
+          286,
+          286
+        ]
+      },
+      "pdf_sha": "ed6ae6bb67e0cfe5e134c03783cefae29f851e0071de9d6f68b44516c484d5c7",
+      "png_sha": "4ca1b1c68db23af50d1d91851b93ea8973d20dd737c97cd4f5500ebd0e830a29",
+      "remaining_limit": "Physical equilibrium FDT and full direct impulse-column identification open."
+    },
+    {
+      "acceptance_contract": "Combine time-resolved response, covariance correction and matched direct/reweight; no FDT admission without calibrated equilibrium.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G11_time_resolved_fdt",
+          "ids": [
+            "G11",
+            "G12"
+          ],
+          "pdf_sha": "08073bc5f4e5eb12863f53ebd5c0b34c2950592e8f23918c968493b00bbb819c",
+          "png_sha": "c6cca9c26fcefa3196e895303e750c9ce2ec1956373cb8e1c95cd0343b1d9efe"
+        },
+        {
+          "figure": "G12_fdt_summary",
+          "ids": [
+            "G12"
+          ],
+          "pdf_sha": "b6773562672aa2f4a6066a252c3290d4dd01da996dedbadc8895890b98bce669",
+          "png_sha": "6ebf51a32e02ff597edf847e50e7517898ce386f52d79bbf81bc711ba73f5ad7"
+        }
+      ],
+      "figures": [
+        "G11_time_resolved_fdt",
+        "G12_fdt_summary"
+      ],
+      "id": "G12",
+      "method": "Joint finite causal score/count/drift identity, direct/reweighted finite contrasts and independent schedule estimates/overlap, explicit frozen equilibrium reference and finite sample discrepancies; not a native equilibrium FDT.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Combine time-resolved response, covariance correction and matched direct/reweight; no FDT admission without calibrated equilibrium.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G12",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+        "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+        "source_excerpt": "\u2502           \u2514\u2500\u2500 fdt_summary.png",
+        "span": [
+          287,
+          287
+        ]
+      },
+      "pdf_sha": "08073bc5f4e5eb12863f53ebd5c0b34c2950592e8f23918c968493b00bbb819c",
+      "png_sha": "c6cca9c26fcefa3196e895303e750c9ce2ec1956373cb8e1c95cd0343b1d9efe",
+      "remaining_limit": "Physical equilibrium FDT and full direct impulse-column identification open."
+    }
+  ],
+  "original_scientific_certifications": 0,
+  "prior_report_artifacts": [
+    "L31",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "L10",
+    "L22",
+    "L24",
+    "L21",
+    "L23",
+    "G03",
+    "G07",
+    "L16",
+    "Q21",
+    "Q32",
+    "G01",
+    "G02",
+    "G04",
+    "G05",
+    "Q05",
+    "Q08",
+    "G06",
+    "G08",
+    "G09",
+    "Q29"
+  ],
+  "status": "SCOPED_CONVERGENCE"
+}

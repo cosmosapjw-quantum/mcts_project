@@ -1,0 +1,520 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "R69 original archive byte identities; guide label and feature span; archived mcts_study, no separate live directory",
+  "guide_feature_contract": [
+    {
+      "line": 139,
+      "text": "### FDTPlotter (`fdt_plotter.py`)"
+    },
+    {
+      "line": 140,
+      "text": ""
+    },
+    {
+      "line": 141,
+      "text": "#### Features"
+    },
+    {
+      "line": 142,
+      "text": "1. **FDT Validation**"
+    },
+    {
+      "line": 143,
+      "text": "   - Scatter plot of fluctuation vs response"
+    },
+    {
+      "line": 144,
+      "text": "   - Linear fit with theoretical slope"
+    },
+    {
+      "line": 145,
+      "text": "   - Deviation analysis"
+    },
+    {
+      "line": 146,
+      "text": ""
+    },
+    {
+      "line": 147,
+      "text": "2. **Time-Resolved FDT**"
+    },
+    {
+      "line": 148,
+      "text": "   - FDT ratio evolution"
+    },
+    {
+      "line": 149,
+      "text": "   - Non-equilibrium detection"
+    },
+    {
+      "line": 150,
+      "text": "   - Aging effects"
+    },
+    {
+      "line": 151,
+      "text": ""
+    },
+    {
+      "line": 152,
+      "text": "3. **Comprehensive Summary**"
+    },
+    {
+      "line": 153,
+      "text": "   - Multiple FDT aspects"
+    },
+    {
+      "line": 154,
+      "text": "   - Statistical validation"
+    },
+    {
+      "line": 155,
+      "text": "   - Theoretical comparison"
+    }
+  ],
+  "guide_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+  "items": [
+    {
+      "acceptance": "Specify stationary equilibrium ensemble and conjugate field for FDT; compare causal path-score response and fluctuation, not proxy equality.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G10",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+      "source_excerpt": "\u2502           \u251c\u2500\u2500 fdt_validation.png",
+      "span": [
+        285,
+        285
+      ]
+    },
+    {
+      "acceptance": "Use independent time-dependent perturbations, fixed causal clock and response kernel; verify equilibrium assumptions before physical FDT.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G11",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+      "source_excerpt": "\u2502           \u251c\u2500\u2500 time_resolved_fdt.png",
+      "span": [
+        286,
+        286
+      ]
+    },
+    {
+      "acceptance": "Combine time-resolved response, covariance correction and matched direct/reweight; no FDT admission without calibrated equilibrium.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G12",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+      "source_excerpt": "\u2502           \u2514\u2500\u2500 fdt_summary.png",
+      "span": [
+        287,
+        287
+      ]
+    }
+  ],
+  "study_members": 60,
+  "study_selected": [
+    {
+      "excerpts": [
+        [
+          69,
+          "   - \u210f_eff(N) > T(N): Quantum fluctuations dominate"
+        ],
+        [
+          79,
+          "   - \u210f_eff(N) < T(N): Thermal fluctuations dominate"
+        ],
+        [
+          272,
+          "\u03bd = 0.85 \u00b1 0.05    (correlation length)"
+        ],
+        [
+          275,
+          "\u03b3 = 1.57 \u00b1 0.08    (susceptibility)"
+        ],
+        [
+          293,
+          "    correlations = []"
+        ],
+        [
+          306,
+          "        # Average and fluctuations"
+        ],
+        [
+          313,
+          "        # Correlation length from tree structure"
+        ],
+        [
+          314,
+          "        xi = measure_correlation_length(mcts.root)"
+        ],
+        [
+          315,
+          "        correlations.append(xi)"
+        ],
+        [
+          327,
+          "    # Susceptibility exponent \u03b3  "
+        ],
+        [
+          332,
+          "    # Correlation length exponent \u03bd"
+        ],
+        [
+          333,
+          "    log_xi = np.log([correlations[i] + 1 for i in positive_idx])"
+        ],
+        [
+          360,
+          "def measure_correlation_length(root):"
+        ],
+        [
+          361,
+          "    \"\"\"Extract correlation length from tree structure\"\"\""
+        ],
+        [
+          363,
+          "    # Correlation length ~ typical depth of correlated decisions"
+        ],
+        [
+          377,
+          "    # Correlation length as average penetration depth"
+        ],
+        [
+          771,
+          "    # Build visit correlation matrix"
+        ],
+        [
+          781,
+          "                # Kernel measures correlations between visit fluctuations"
+        ],
+        [
+          934,
+          "        # Correlation length"
+        ],
+        [
+          935,
+          "        xi = measure_tree_correlation_length(self.root)"
+        ],
+        [
+          946,
+          "            'correlation_length': xi,"
+        ],
+        [
+          1007,
+          "                    'xi': point['correlation_length']"
+        ]
+      ],
+      "lines": 1308,
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "relevant_line_count": 22,
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    },
+    {
+      "excerpts": [
+        [
+          144,
+          "    Extract temperature schedule from Q-value fluctuations"
+        ],
+        [
+          218,
+          "### 3.1 Correlation Functions"
+        ],
+        [
+          220,
+          "**Spatial Correlations from Visit Patterns**:"
+        ],
+        [
+          222,
+          "def compute_spatial_correlations(visit_counts, tree_structure):"
+        ],
+        [
+          224,
+          "    Compute spatial correlations between tree nodes"
+        ],
+        [
+          227,
+          "    - High correlations \u2192 coordinated search"
+        ],
+        [
+          228,
+          "    - Low correlations \u2192 independent exploration"
+        ],
+        [
+          230,
+          "    # Step 1: Compute visit count correlation matrix"
+        ],
+        [
+          233,
+          "        base_correlation = abs(corr_matrix[0, 1])"
+        ],
+        [
+          235,
+          "        base_correlation = 0.0"
+        ],
+        [
+          239,
+          "    correlations = {}"
+        ],
+        [
+          243,
+          "        corr_d = base_correlation * np.exp(-d / 3.0)"
+        ],
+        [
+          244,
+          "        correlations[d] = corr_d"
+        ],
+        [
+          249,
+          "        correlations[d] *= temp_factor"
+        ],
+        [
+          251,
+          "    return correlations"
+        ],
+        [
+          255,
+          "corr_matrix = [[1.0, 0.85], [0.85, 1.0]]  # Strong correlation"
+        ],
+        [
+          257,
+          "correlations = {1: 0.59, 2: 0.41, 3: 0.29, ...}  # Exponential decay"
+        ],
+        [
+          260,
+          "**Temporal Correlations from Q-Value Evolution**:"
+        ],
+        [
+          262,
+          "def compute_temporal_correlations(q_value_timeseries):"
+        ],
+        [
+          266,
+          "    correlations = []"
+        ],
+        [
+          270,
+          "        # Correlation between Q(t) and Q(t+lag)"
+        ],
+        [
+          276,
+          "            correlations.append(corr if np.isfinite(corr) else 0.0)"
+        ],
+        [
+          278,
+          "            correlations.append(0.0)"
+        ],
+        [
+          280,
+          "    return correlations"
+        ],
+        [
+          283,
+          "### 3.2 Susceptibility"
+        ]
+      ],
+      "lines": 1278,
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "relevant_line_count": 68,
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    },
+    {
+      "excerpts": [
+        [
+          27,
+          "5. A non-equilibrium thermodynamic process obeying fluctuation theorems"
+        ],
+        [
+          251,
+          "**Step 2: Fluctuation Operator**"
+        ],
+        [
+          346,
+          "- High fluctuations: $\\sigma_Q/Q \\sim 1$"
+        ],
+        [
+          352,
+          "- Low fluctuations: $\\sigma_Q/\\sqrt{N} \\to 0$"
+        ],
+        [
+          360,
+          "This quantifies when thermal fluctuations become negligible."
+        ],
+        [
+          514,
+          "### 8.3 Crooks Fluctuation Theorem"
+        ],
+        [
+          539,
+          "### 8.5 Fluctuation-Dissipation Relation"
+        ],
+        [
+          542,
+          "The response to perturbation relates to equilibrium fluctuations:"
+        ],
+        [
+          546,
+          "- $\\chi_{ab}$: Susceptibility matrix"
+        ],
+        [
+          549,
+          "**Validation**: Perturb prior P \u2192 P + \u03b4P, measure response, compare to equilibrium fluctuations."
+        ],
+        [
+          567,
+          "**Definition 9.3 (Susceptibility)**:"
+        ],
+        [
+          568,
+          "Response to infinitesimal bias h:"
+        ],
+        [
+          571,
+          "**Definition 9.4 (Correlation Length)**:"
+        ],
+        [
+          572,
+          "Average depth of value correlation:"
+        ],
+        [
+          657,
+          "**Critique 5: Mean-field Neglects Correlations**"
+        ],
+        [
+          659,
+          "- Resolution: One-loop correction includes leading fluctuations"
+        ],
+        [
+          674,
+          "   - Non-equilibrium thermodynamics (fluctuation theorems)"
+        ],
+        [
+          698,
+          "- Uncertainty quantification via fluctuations"
+        ],
+        [
+          737,
+          "   - Two-loop fluctuation terms"
+        ],
+        [
+          770,
+          "4. **Non-equilibrium Optimization**: Exploiting fluctuation theorems for irreversible search"
+        ]
+      ],
+      "lines": 776,
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "relevant_line_count": 20,
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "excerpts": [
+        [
+          307,
+          "    Uses multinomial resampling to account for correlation"
+        ],
+        [
+          535,
+          "4. **Final Form**: Temperature-dependent fluctuation awareness"
+        ],
+        [
+          537,
+          "**Key Insight**: The correction arises from integrating out Gaussian fluctuations around the mean-field solution. High curvature = sharp peak = fragile choice."
+        ],
+        [
+          561,
+          "    - Temperature-dependent fluctuation bonus"
+        ],
+        [
+          568,
+          "                 use_fluctuation_bonus: bool = True,"
+        ],
+        [
+          571,
+          "        self.use_fluctuation_bonus = use_fluctuation_bonus"
+        ],
+        [
+          585,
+          "        where \u0394S(a) is the fluctuation bonus"
+        ],
+        [
+          600,
+          "            # Fluctuation bonus"
+        ],
+        [
+          601,
+          "            if self.use_fluctuation_bonus and beta > 0:"
+        ],
+        [
+          602,
+          "                bonus, bonus_info = self._compute_fluctuation_bonus("
+        ],
+        [
+          689,
+          "    def _compute_fluctuation_bonus("
+        ],
+        [
+          696,
+          "        Compute one-loop fluctuation correction"
+        ],
+        [
+          699,
+          "            bonus: The fluctuation-aware bonus to add"
+        ],
+        [
+          850,
+          "                white = QuantumCorrectedPUCT(use_fluctuation_bonus=True)"
+        ],
+        [
+          855,
+          "                black = QuantumCorrectedPUCT(use_fluctuation_bonus=True)"
+        ],
+        [
+          1094,
+          "The fluctuation bonus acts as an \"uncertainty principle\" for tree search:"
+        ],
+        [
+          1775,
+          "    Test Crooks fluctuation theorem"
+        ],
+        [
+          1827,
+          "    # Compute correlation"
+        ],
+        [
+          1829,
+          "        correlation = np.corrcoef("
+        ],
+        [
+          1834,
+          "        correlation = 0"
+        ],
+        [
+          1837,
+          "        'correlation': correlation,"
+        ],
+        [
+          1847,
+          "- Positive correlation for Crooks theorem"
+        ],
+        [
+          1848,
+          "- Work fluctuations follow predicted distribution"
+        ],
+        [
+          1906,
+          "        - chi: Susceptibility  "
+        ],
+        [
+          1907,
+          "        - xi: Correlation length"
+        ]
+      ],
+      "lines": 2497,
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "relevant_line_count": 42,
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    }
+  ]
+}

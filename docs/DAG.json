@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE92.json",
+  "convergence_ledger": "CONVERGENCE93.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -58,7 +58,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-04.C",
+  "entry": "REPLAN-06",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -121,8 +121,8 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R93 G10-G12 corrected causal response and FDT outputs",
-    "Direct original reconstruction; no repetitive diagnostic sweep",
+    "R94 G13-G17 corrected complex state, coherence, entropy, participation and pointer outputs",
+    "Direct original reconstruction; no optimizer drift",
     "Six open science claims, Q02/Q31 and Q19/Q20 partial"
   ],
   "migration": {
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE93-CAUSAL-RESPONSE-FDT-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE94-COMPLEX-STATE-POINTER-ENTROPY-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -836,6 +836,21 @@
         ],
         "remaining": "Native physical temperature/heat/reverse not identified."
       },
+      "restore93_followup": {
+        "accepted_subclaims": [
+          "RESP-KERNEL-01",
+          "RESP-MIXTURE-02"
+        ],
+        "artifact": "mqft_restore93_20261128/{ORIGINAL_OUTPUT_REPORT93.md,ITEM_RECONSTRUCTION93.json,CONVERGENCE93.json}",
+        "corrected_artifacts": [
+          "G10",
+          "G11",
+          "G12"
+        ],
+        "evidence": "5376 raw paths, 2304 paired pulse and 3072 independent time-dependent schedules, causal score/Hessian, exact binomial and stationary reference checks",
+        "partial": [],
+        "remaining": "Physical equilibrium FDT, native bath and full direct impulse-column identification not established."
+      },
       "retained_evidence": "A09/A10 reference \ubc0f RESTORE06 frozen-root identities\u00b7native switching/backup score\u00b7same-clock likelihood. RESTORE07/08\uc758 matched controls\u00b7cost\u00b7\ud640\ub4dc\uc544\uc6c3 rollout\uc740 feedback \ub300\uc870\uc5d0 \ud55c\uc815\ud55c\ub2e4.",
       "source": "plot_thermodynamics.py::plot_non_equilibrium_thermodynamics/plot_thermodynamic_cycles, plot_jarzynski_equality.py::plot_jarzynski_verification/plot_work_fluctuation_analysis, L08/L18/L32.",
       "thermal_path_followup": "RESTORE30 explicit interacting finite canonical H, exact thermal trace/Matsubara/KMS, thermofield and CP coherent-state measures, nonGaussian influence positivity; Gibbs projection of prior R nonthermal. Preserve earlier native thermodynamics and no native FT claim."
@@ -1367,8 +1382,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-06",
-  "quality_matrix": "QUALITY_MATRIX92.csv",
+  "previous_entry": "REPLAN-04.C",
+  "quality_matrix": "QUALITY_MATRIX93.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4644,8 +4659,50 @@
     "reused_fixed_root_paths": 4320,
     "status": "four_corrected_original_artifacts_two_new_scoped_claims_two_partial"
   },
-  "revision": "RESTORE92_20261128",
-  "scope": "Convergence: corrected finite size, concentration and signed spatiotemporal covariance",
+  "restore93": {
+    "CONVERGENCE93.json_sha256": "c32c5952f0dd4abe6b46d2dcb491d272b1d7afbc735723a854660c7a73ee08dc",
+    "DRIFT_WATCHDOG.md_sha256": "01abdc86f830fd70bebafac8ee3d083bd5f2dc78d5e34e859ca5bf8fcfcbe7c2",
+    "INDEPENDENT93.json_sha256": "fa0aa640fdb3aa17279d860e7fcd785500b3efd810b2a087c10a2cbd558465ac",
+    "ITEM_CONVERGENCE93.json_sha256": "16b982b213657b2b0e91a66e95787938347d376e0a3a0f2616e603544d67728b",
+    "ITEM_RECONSTRUCTION93.json_sha256": "2adab951bfaf1ed408df07538d70f3534007506c063e47142613abd63a57ec5a",
+    "NEXT_DYNAMICS.md_sha256": "e0bc59713d5fe16a3eaf03d144f1700bc4653106b1c1ac82a1468516d45473ee",
+    "ORIGINAL_OUTPUT_EVIDENCE93.csv_sha256": "99f0edf8e8aad5d278fb37222689378e381441fecc20ecb0e134156e9a396698",
+    "ORIGINAL_OUTPUT_PROGRESS93.csv_sha256": "516d7178cd490d4a7356166c8724e569b8cab86a12393c5a70b36decd99ea343",
+    "ORIGINAL_OUTPUT_REPORT93.md_sha256": "673619c48a876622f4f1b2a08a30ff273e1093f33a3e3d4c8c9fddf4e6ec37db",
+    "ORIGINAL_SOURCE93.json_sha256": "b47c50da915beec8b9c5413e95e7c7d5917f4c82e224bf294ea2f62338675778",
+    "PLOT_INVENTORY93.csv_sha256": "e5bbd8832d19338918ae6f99b3e6742ae90e71bdd90bfc09cc6329ef5a94bd32",
+    "PLOT_MANIFEST93.json_sha256": "888da74b98c39e95317aa83f62da2d70eba34edaba59e237917d955f0c4525d7",
+    "PROGRESS93.json_sha256": "e4a85de1ed048b1b54cd38941b0c0565945482d60213ed9bd82d22a2079eb89b",
+    "QUALITY_MATRIX93.csv_sha256": "9d705bd78d8aab157586f1c7a6dd071e98ce8d97a85a34098ee5609a929b64e5",
+    "REGISTRATION.json_sha256": "6f5f37d26bc549e3a9480c8f4803905bd5ef3e8a14dc1f5472847fe724a8cd27",
+    "RESPONSE93.json_sha256": "7021ebd73bced3e34892402f507f68987519202831c4c334c143e3792161d4e2",
+    "THEORY.md_sha256": "402c6ca357b0021fa7276f9e76e723a8ae24a52b6546fbf137eb560c5f17c529",
+    "THEORY_REGISTERED93.md_sha256": "65ce60a8a97ef8b6c78bb3865e800d7c0c206ec3276af2f2557bf05f71cb4f3a",
+    "accepted_corrected_subclaims": 30,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 29,
+    "cumulative_fixed_root_histories": 93336,
+    "figures": 5,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_corrected_artifacts": 3,
+    "original_evidence_items": 3,
+    "original_evidence_union_R55_R93": 121,
+    "original_obligations": 121,
+    "parent_commit": "c51e57021376661a2c8c042058f14778d86727d4",
+    "parent_dag_sha256": "c70d21a4696f555b80fb146c26826547df8f6553b07e472d74ab12273c6a4681",
+    "pulse_paths": 2304,
+    "remaining": "92 corrected artifact obligations; six open science claims, Q02/Q31 and Q19/Q20 partial; G13-G17 next.",
+    "retained_pairs": 705,
+    "reused_fixed_root_paths": 5376,
+    "schedule_paths": 3072,
+    "status": "three_corrected_original_artifacts_two_new_scoped_claims"
+  },
+  "revision": "RESTORE93_20261128",
+  "scope": "Convergence: corrected causal source response and FDT validation/summary",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE92-FINITE-SIZE-ORDER-PARAMETER-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE93-CAUSAL-RESPONSE-FDT-OUTPUTS"
 }
