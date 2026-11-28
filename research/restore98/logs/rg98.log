@@ -1,0 +1,6 @@
+L 13 rows 2080 draws 43008
+L 15 rows 2080 draws 86016
+L 17 rows 2080 draws 129024
+L 19 rows 2080 draws 172032
+L 21 rows 2080 draws 215040
+RESULT {'array_sha': '62afaf0091367bf6194d2ad38ad411495a71caede781fd7ce65a1452ee5d30a4', 'draws': 215040, 'elapsed_s': 244.40228908101562, 'fd_cases': 2400, 'paths': 4320, 'prefix_rows': 10400, 'scale_rows': 62400, 'scope': 'Finite exact spatial pushforward and two-coordinate truncation, not full native dynamics', 'selection_scale_evaluations': 1290240, 'status': 'PASS_SCOPED', 'strata': 400} {'R87_X': 0.0, 'R87_A': 0.0, 'raw_probability': 1.687538997430238e-14, 'normalization': 1.6653345369377348e-14, 'fisher_total_variance': 4.695733819143344e-15, 'push_composition': 7.771561172376096e-16, 'reference_push': 1.1102230246251565e-16, 'KL_chain_selection': 5.10702591327572e-15, 'Fisher_chain': 1.0269562977782698e-15, 'logsumexp_push': 3.552713678800501e-15, 'average_push': 2.1094237467877974e-15, 'independent_bincount': 7.771561172376096e-15, 'empirical_push': 0.0, 'prefix_composition': 1.887379141862766e-15, 'prefix_X_composition': 0.0, 'KL_chain_prefix': 8.215650382226158e-15, 'beta0_uniform': 9.992007221626409e-16, 'beta0_projected': 5.551115123125783e-16, 'beta0_beta_field': 2.9168381164642168e-15, 'frozen_derivative_fd': 3.3556707759729854e-14, 'frozen_hessian_fd': 2.841873224766078e-11}

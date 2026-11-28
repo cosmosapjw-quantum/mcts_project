@@ -1,0 +1,77 @@
+{
+  "artifact_reconstruction_sha": "dd6fcbc55310d76fe8a1cb3b34d7727c4f6cd6ff038a64a29c1a603237226b5d",
+  "claims": [
+    {
+      "claim": "For specified nested dyadic map and fixed legal reference, exact induced block log-density is conditional logsumexp, KL loss equals conditional KL and frozen score Fisher loss equals conditional variance of retained score means. All 215040 actual recorded selection laws, 10400 prefix rows, six scales and 2400 derivative stencil cases checked.",
+      "evidence": [
+        "mqft_restore98_20261128/THEORY.md",
+        "mqft_restore98_20261128/RG98.json",
+        "mqft_restore98_20261128/RG98.npz",
+        "mqft_restore98_20261128/INDEPENDENT98.json"
+      ],
+      "id": "RG-PUSH-15",
+      "items": [
+        "Q09",
+        "Q11",
+        "Q12",
+        "Q13"
+      ],
+      "limit": "Fixed recorded histories and finite legal action probability; not actual altered-beta path response, continuum QFT or physical RG fixed point.",
+      "stage": 98,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Exact two-cosine log-coordinate closure fails for explicit checkerboard vs uniform with equal slopes. Actual native finite one-step projected push TV max 0.978761774; rank-two next coupling mismatches 27648/37440 and iterated projection TV max 0.98196938; beta0 uniform control retained.",
+      "evidence": [
+        "mqft_restore98_20261128/THEORY.md",
+        "mqft_restore98_20261128/SUMMARY98.json",
+        "mqft_restore98_20261128/RG98.npz",
+        "mqft_restore98_20261128/INDEPENDENT98.json"
+      ],
+      "id": "RG-PROJECTION-16",
+      "items": [
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q13"
+      ],
+      "limit": "Only designated two-coordinate truncation and registered finite dataset; no impossibility of richer closure or population critical inference.",
+      "stage": 98,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "RG-PUSH-15;RG-PROJECTION-16",
+      "id": "Q09",
+      "remaining_final_acceptance": "Original beta-field equations and zeros checked; replace invalid WF with derived flow on specified measure, stability and domain.",
+      "scope": "Exact finite dyadic log-density field and conditional score/Fisher identities on actual legal probability; R77 original fixed-point refutation retained, no continuum beta ODE."
+    },
+    {
+      "accepted": "RG-PROJECTION-16",
+      "id": "Q10",
+      "remaining_final_acceptance": "Actual phase map across couplings/control with quantified transitions and size scaling; no prescribed phase diagram.",
+      "scope": "Partial: actual size, density and score control map with finite KL, Fisher and max probability, prior critical gate retained; no independent physical coupling axes or identified phase boundary."
+    },
+    {
+      "accepted": "RG-PUSH-15;RG-PROJECTION-16",
+      "id": "Q11",
+      "remaining_final_acceptance": "Define actual scale map and couplings, compare exact probability RG and native block deviations, derive autonomous trajectories if closure.",
+      "scope": "Actual native exact probability pushforward across six spatial scales, weighted two-cosine coupling trajectories, nonclosure counterexample and measured TV/coordinate residuals, separate cohorts and budget; no autonomous physical RG."
+    },
+    {
+      "accepted": "RG-PUSH-15",
+      "id": "Q12",
+      "remaining_final_acceptance": "Reproduce animation of defined scale transformation with exact pushforward and label nonautonomous/native limitations.",
+      "scope": "Six verified distinct scale frames of actual fixed-prefix L21 dense beta16 distribution, exact and projected lifts; spatial scale is not physical or search time."
+    },
+    {
+      "accepted": "RG-PUSH-15;RG-PROJECTION-16",
+      "id": "Q13",
+      "remaining_final_acceptance": "Aggregate beta functions, flow, fixed points, critical boundaries and uncertainty; preserve refuted candidate, no forced universality.",
+      "scope": "Comprehensive scoped report of exact map and information loss, projected beta field and closure defects, finite fixed-point projector control and prior negative critical/WF evidence; no physical fixed point or universal critical exponents."
+    }
+  ],
+  "parent_convergence_sha256": "9847a53a4afde8f7fe73c87905d925cd2576125153cd993ea81899c0259a0a0f",
+  "parent_quality_matrix_sha256": "ab7d9b67af9ad3b62df5108248d48a331886e39f53afda2c4642a62d2c287770"
+}

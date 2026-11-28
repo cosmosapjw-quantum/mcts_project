@@ -1,0 +1,1714 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "R69 original archives; precise source spans; not edited",
+  "helpers": [
+    {
+      "excerpt": [
+        "    def extract_beta_functions(self, lambda_grid: np.ndarray, beta_grid: np.ndarray) -> Dict[str, np.ndarray]:",
+        "        \"\"\"Extract RG beta functions from policy evolution\"\"\"",
+        "        ",
+        "        # Use policy entropy gradient as flow indicator  ",
+        "        if len(self.policy_entropies) > 1:",
+        "            entropy_gradient = np.gradient(self.policy_entropies)",
+        "            flow_strength = np.mean(abs(entropy_gradient))",
+        "        else:",
+        "            flow_strength = 0.1",
+        "            ",
+        "        # Q-value stability indicates fixed points",
+        "        q_stability = 1.0 / (1.0 + np.std(self.all_q_values))",
+        "        ",
+        "        # Build beta functions from authentic MCTS dynamics",
+        "        beta_lambda = np.outer(lambda_grid, 1.0 - beta_grid * flow_strength)",
+        "        beta_beta = -q_stability * np.outer(lambda_grid, beta_grid)",
+        "        ",
+        "        return {",
+        "            'beta_lambda': beta_lambda,",
+        "            'beta_beta': beta_beta,",
+        "            'flow_magnitude': np.sqrt(beta_lambda**2 + beta_beta**2),",
+        "            'flow_strength': flow_strength,",
+        "            'stability_measure': q_stability",
+        "        }",
+        "    ",
+        "    def extract_critical_phenomena(self) -> Dict[str, Any]:",
+        "        \"\"\"Extract critical phenomena from tree scaling\"\"\"",
+        "        ",
+        "        temperatures = self.extract_temperatures()",
+        "        system_sizes = self.extract_system_sizes()",
+        "        ",
+        "        # Order parameter from tree size evolution",
+        "        if len(self.tree_sizes) > 1:",
+        "            size_gradient = np.gradient(self.tree_sizes.astype(float))",
+        "            order_param_base = np.mean(abs(size_gradient))",
+        "        else:",
+        "            order_param_base = 1.0",
+        "            ",
+        "        # Susceptibility from visit count variance",
+        "        visit_variance = np.var(self.all_visit_counts)",
+        "        susceptibilities = visit_variance / (temperatures + 0.1)",
+        "        ",
+        "        # Order parameters for each system size and temperature",
+        "        order_parameters = np.zeros((len(system_sizes), len(temperatures)))",
+        "        for i, size in enumerate(system_sizes):",
+        "            for j, temp in enumerate(temperatures):",
+        "                order_parameters[i, j] = order_param_base * size / (size + temp * 10)",
+        "        ",
+        "        return {",
+        "            'temperatures': temperatures,",
+        "            'system_sizes': system_sizes,",
+        "            'order_parameters': order_parameters,",
+        "            'susceptibilities': susceptibilities,",
+        "            'visit_variance': visit_variance,"
+      ],
+      "member": "quantum/research/authentic_mcts_physics_extractor.py",
+      "sha256": "33b1264016c2ed8d5ec2ff9448fe2236ecbb9ad30542d1c0f2f3ee28624ba6ee",
+      "span": [
+        957,
+        1010
+      ]
+    },
+    {
+      "excerpt": [
+        "    def _evolve_lambda(self, N_parent: int, b: int) -> float:",
+        "        \"\"\"Apply RG evolution to \u03bb: \u03bb' = \u03bb - (\u210f_eff * b) / N_p\"\"\"",
+        "        if N_parent == 0:",
+        "            return self.lambda_current",
+        "        ",
+        "        delta_lambda = -(self.hbar_eff_current * b) / N_parent",
+        "        return self.lambda_current + delta_lambda",
+        "    ",
+        "    def _evolve_beta(self, N_parent: int, b: int) -> float:",
+        "        \"\"\"Apply RG evolution to \u03b2: \u03b2' = \u03b2 * (1 + b / (2 * N_p))\"\"\"",
+        "        if N_parent == 0:",
+        "            return self.beta_current",
+        "        ",
+        "        factor = 1 + b / (2 * N_parent)",
+        "        return self.beta_current * factor",
+        "    ",
+        "    def _evolve_hbar_eff(self, N_parent: int, b: int) -> float:",
+        "        \"\"\"Apply RG evolution to \u210f_eff: \u210f_eff' = \u210f_eff + (\u03b3\u2080 * b) / (2 * N_p)\"\"\"",
+        "        if N_parent == 0:",
+        "            return self.hbar_eff_current",
+        "        ",
+        "        delta_hbar = (self.config.gamma_0 * b) / (2 * N_parent)",
+        "        return self.hbar_eff_current + delta_hbar",
+        "    ",
+        "    def _compute_adaptive_blocking_factor(self, N_parent: int, default_b: int) -> int:",
+        "        \"\"\"Compute adaptive blocking factor based on parent visits\"\"\"",
+        "        if N_parent < self.config.min_parent_visits:",
+        "            return max(1, default_b // 2)  # Smaller blocking for low visits",
+        "        elif N_parent > 1000:",
+        "            return min(default_b * 2, 20)  # Larger blocking for high visits",
+        "        else:",
+        "            return default_b",
+        "    ",
+        "    def compute_beta_functions(self) -> Dict[str, float]:",
+        "        \"\"\"Compute beta functions in continuum limit",
+        "        ",
+        "        Returns:",
+        "            Dictionary containing \u03b2_\u03bb, \u03b2_\u03b2, \u03b2_\u210f",
+        "        \"\"\"",
+        "        # Theoretical beta functions",
+        "        beta_lambda = -self.hbar_eff_current",
+        "        beta_beta = self.beta_current / 2",
+        "        beta_hbar = self.config.gamma_0 / 2",
+        "        ",
+        "        return {",
+        "            'beta_lambda': beta_lambda,",
+        "            'beta_beta': beta_beta,",
+        "            'beta_hbar': beta_hbar",
+        "        }",
+        "    ",
+        "    def evolve_to_fixed_point(self, ",
+        "                             target_N: int,",
+        "                             start_N: int = 10) -> Dict[str, Any]:",
+        "        \"\"\"Evolve parameters using RG flow to target visit count",
+        "        ",
+        "        Args:",
+        "            target_N: Target total visit count",
+        "            start_N: Starting visit count",
+        "            ",
+        "        Returns:",
+        "            Final parameters and evolution data",
+        "        \"\"\"",
+        "        if target_N <= start_N:",
+        "            return {",
+        "                'final_params': self.get_current_parameters(),",
+        "                'evolution_data': self.flow_history,",
+        "                'converged': True",
+        "            }",
+        "        ",
+        "        # Reset to initial conditions",
+        "        self.reset_to_initial_conditions()",
+        "        ",
+        "        # Evolve in steps",
+        "        current_N = start_N",
+        "        step = 0",
+        "        ",
+        "        while current_N < target_N and step < self.config.max_rg_steps:",
+        "            # Determine step size",
+        "            remaining = target_N - current_N",
+        "            b = min(self.config.blocking_factor, max(1, remaining // 10))",
+        "            ",
+        "            # Take RG step",
+        "            self.perform_rg_step(current_N, b)",
+        "            ",
+        "            # Update current N (this is approximate - in reality it's more complex)",
+        "            current_N += b * 10  # Heuristic scaling",
+        "            step += 1",
+        "        ",
+        "        converged = current_N >= target_N",
+        "        ",
+        "        return {",
+        "            'final_params': self.get_current_parameters(),",
+        "            'evolution_data': self.flow_history,",
+        "            'converged': converged,",
+        "            'final_N': current_N,",
+        "            'steps_taken': step",
+        "        }"
+      ],
+      "member": "quantum/research/rg_flow.py",
+      "sha256": "74c4e8e4e62706a38ba96cd59eec6d151fb4b8dd6c96cc610993ee20787ba9cd",
+      "span": [
+        163,
+        259
+      ]
+    }
+  ],
+  "items": [
+    {
+      "acceptance": "Original beta-field equations and zeros checked; replace invalid WF with derived flow on specified measure, stability and domain.",
+      "archive": "quantum.zip",
+      "id": "Q09",
+      "member": "quantum/research/visualization/plot_rg_flow_phase_diagrams.py",
+      "member_sha": "02bedc51f0a517b1a9e0e3f818dc05dd5a2b13c16dd997a170428f597e8604d2",
+      "source_excerpt": [
+        "    def plot_beta_functions(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot \u03b2-functions with temporal evolution and fixed point analysis\"\"\"",
+        "        ",
+        "        # Extract authentic RG flow data",
+        "        beta_data, fixed_points = create_authentic_physics_data(self.mcts_data, 'plot_beta_functions')",
+        "        ",
+        "        if show_temporal:",
+        "            fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "            fig.suptitle('RG \u03b2-Functions with Temporal Evolution', fontsize=16, fontweight='bold')",
+        "        else:",
+        "            fig, axes = plt.subplots(2, 2, figsize=(15, 10))",
+        "            fig.suptitle('RG \u03b2-Functions Analysis', fontsize=16, fontweight='bold')",
+        "        ",
+        "        axes_flat = axes.flatten()",
+        "        ",
+        "        lambda_grid = beta_data['lambda_grid']",
+        "        beta_grid = beta_data['beta_grid']",
+        "        beta_lambda = beta_data['beta_lambda']",
+        "        beta_beta = beta_data['beta_beta']",
+        "        flow_magnitude = beta_data['flow_magnitude']",
+        "        ",
+        "        # 1. \u03b2_\u03bb(\u03bb, \u03b2) contour plot",
+        "        ax1 = axes_flat[0]",
+        "        Lambda, Beta = np.meshgrid(lambda_grid, beta_grid)",
+        "        ",
+        "        contour1 = ax1.contourf(Lambda, Beta, beta_lambda, levels=20, cmap='RdBu_r', alpha=0.8)",
+        "        ax1.contour(Lambda, Beta, beta_lambda, levels=[0], colors='black', linewidths=2)",
+        "        ",
+        "        # Mark fixed points",
+        "        for fp in fixed_points:",
+        "            ax1.plot(fp['lambda'], fp['beta'], 'ko', markersize=10, ",
+        "                    markerfacecolor='yellow', markeredgewidth=2)",
+        "            ax1.annotate(f\"FP({fp['lambda']:.1f},{fp['beta']:.1f})\", ",
+        "                        (fp['lambda'], fp['beta']), xytext=(5, 5), ",
+        "                        textcoords='offset points', fontweight='bold')",
+        "        ",
+        "        ax1.set_xlabel('\u03bb (coupling)')",
+        "        ax1.set_ylabel('\u03b2 (inverse temperature)')",
+        "        ax1.set_title('\u03b2-Function for \u03bb: \u2202\u03bb/\u2202t')",
+        "        plt.colorbar(contour1, ax=ax1, label='\u03b2_\u03bb')",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. \u03b2_\u03b2(\u03bb, \u03b2) contour plot",
+        "        ax2 = axes_flat[1]",
+        "        contour2 = ax2.contourf(Lambda, Beta, beta_beta, levels=20, cmap='RdYlBu_r', alpha=0.8)",
+        "        ax2.contour(Lambda, Beta, beta_beta, levels=[0], colors='black', linewidths=2)",
+        "        ",
+        "        # Mark fixed points",
+        "        for fp in fixed_points:",
+        "            ax2.plot(fp['lambda'], fp['beta'], 'ko', markersize=10,",
+        "                    markerfacecolor='yellow', markeredgewidth=2)",
+        "        ",
+        "        ax2.set_xlabel('\u03bb (coupling)')",
+        "        ax2.set_ylabel('\u03b2 (inverse temperature)')",
+        "        ax2.set_title('\u03b2-Function for \u03b2: \u2202\u03b2/\u2202t')",
+        "        plt.colorbar(contour2, ax=ax2, label='\u03b2_\u03b2')",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Flow magnitude and stream plot",
+        "        ax3 = axes_flat[2]",
+        "        ",
+        "        # Create flow field",
+        "        skip = max(1, len(lambda_grid) // 15)  # Downsample for readability",
+        "        L_stream = Lambda[::skip, ::skip]",
+        "        B_stream = Beta[::skip, ::skip]",
+        "        U_stream = beta_lambda[::skip, ::skip]",
+        "        V_stream = beta_beta[::skip, ::skip]",
+        "        ",
+        "        # Stream plot",
+        "        ax3.streamplot(L_stream, B_stream, U_stream, V_stream, ",
+        "                      density=1.5, color=flow_magnitude[::skip, ::skip], ",
+        "                      cmap='viridis', linewidth=1.5)",
+        "        ",
+        "        # Flow magnitude contour",
+        "        contour3 = ax3.contourf(Lambda, Beta, flow_magnitude, levels=15, alpha=0.3, cmap='plasma')",
+        "        ",
+        "        # Mark fixed points",
+        "        for fp in fixed_points:",
+        "            ax3.plot(fp['lambda'], fp['beta'], 'wo', markersize=12,",
+        "                    markeredgecolor='black', markeredgewidth=3)",
+        "        ",
+        "        ax3.set_xlabel('\u03bb (coupling)')",
+        "        ax3.set_ylabel('\u03b2 (inverse temperature)')",
+        "        ax3.set_title('RG Flow Streamlines and Magnitude')",
+        "        plt.colorbar(contour3, ax=ax3, label='|\u03b2|')",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Fixed point stability analysis",
+        "        ax4 = axes_flat[3]",
+        "        ",
+        "        if fixed_points:",
+        "            fp_names = [f\"FP{i+1}\" for i in range(len(fixed_points))]",
+        "            eigenvalues_real = []",
+        "            eigenvalues_imag = []",
+        "            ",
+        "            for fp in fixed_points:",
+        "                eigenvals = fp['eigenvalues']",
+        "                if len(eigenvals) >= 2:",
+        "                    eigenvalues_real.extend([eigenvals[0], eigenvals[1]])",
+        "                    eigenvalues_imag.extend([0, 0])  # Assuming real eigenvalues",
+        "                else:",
+        "                    eigenvalues_real.extend([eigenvals[0], 0])",
+        "                    eigenvalues_imag.extend([0, 0])",
+        "            ",
+        "            # Plot eigenvalues in complex plane",
+        "            ax4.scatter(eigenvalues_real, eigenvalues_imag, s=100, alpha=0.8, ",
+        "                       c=['red' if x > 0 else 'blue' for x in eigenvalues_real])",
+        "            ax4.axvline(x=0, color='black', linestyle='--', alpha=0.5)",
+        "            ax4.axhline(y=0, color='black', linestyle='--', alpha=0.5)",
+        "            ",
+        "            # Stability regions",
+        "            ax4.add_patch(Rectangle((-2, -1), 0, 2, alpha=0.2, color='blue', label='Stable'))",
+        "            ax4.add_patch(Rectangle((0, -1), 2, 2, alpha=0.2, color='red', label='Unstable'))",
+        "            ",
+        "            ax4.set_xlabel('Re(\u03bb)')",
+        "            ax4.set_ylabel('Im(\u03bb)')",
+        "            ax4.set_title('Fixed Point Stability Analysis')",
+        "            ax4.legend()",
+        "            ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        if show_temporal:",
+        "            # 5. Temporal evolution of \u03b2-functions",
+        "            ax5 = axes_flat[4]",
+        "            ",
+        "            # Sample temporal evolution at specific points",
+        "            test_points = [(0.5, 0.5), (1.0, 1.0), (1.5, 0.8)]",
+        "            time_steps = np.linspace(0, 5, 50)",
+        "            ",
+        "            for i, (lam0, bet0) in enumerate(test_points):",
+        "                # Find closest grid point",
+        "                lam_idx = np.argmin(np.abs(lambda_grid - lam0))",
+        "                bet_idx = np.argmin(np.abs(beta_grid - bet0))",
+        "                ",
+        "                # Extract \u03b2-function evolution",
+        "                beta_lam_evolution = beta_lambda[bet_idx, lam_idx] * np.exp(-time_steps * 0.1)",
+        "                beta_bet_evolution = beta_beta[bet_idx, lam_idx] * np.exp(-time_steps * 0.2)",
+        "                ",
+        "                ax5.plot(time_steps, beta_lam_evolution, 'o-', label=f'\u03b2_\u03bb at ({lam0},{bet0})', alpha=0.8)",
+        "                ax5.plot(time_steps, beta_bet_evolution, 's--', label=f'\u03b2_\u03b2 at ({lam0},{bet0})', alpha=0.8)",
+        "            ",
+        "            ax5.set_xlabel('RG Time t')",
+        "            ax5.set_ylabel('\u03b2-Function Value')",
+        "            ax5.set_title('Temporal Evolution of \u03b2-Functions')",
+        "            ax5.legend()",
+        "            ax5.grid(True, alpha=0.3)",
+        "            ",
+        "            # 6. Running coupling analysis",
+        "            ax6 = axes_flat[5]",
+        "            ",
+        "            # Show how couplings evolve along specific trajectories",
+        "            for i, (lam0, bet0) in enumerate(test_points):",
+        "                # Integrate RG flow approximately",
+        "                lambda_traj = [lam0]",
+        "                beta_traj = [bet0]",
+        "                dt = 0.1",
+        "                ",
+        "                for t in time_steps[1:]:",
+        "                    # Find current \u03b2-functions",
+        "                    lam_current = lambda_traj[-1]",
+        "                    bet_current = beta_traj[-1]",
+        "                    ",
+        "                    # Simple Euler integration",
+        "                    lam_idx = np.argmin(np.abs(lambda_grid - lam_current))",
+        "                    bet_idx = np.argmin(np.abs(beta_grid - bet_current))",
+        "                    ",
+        "                    if 0 <= lam_idx < len(lambda_grid) and 0 <= bet_idx < len(beta_grid):",
+        "                        dlam_dt = beta_lambda[bet_idx, lam_idx] ",
+        "                        dbet_dt = beta_beta[bet_idx, lam_idx]",
+        "                        ",
+        "                        new_lam = lam_current + dlam_dt * dt",
+        "                        new_bet = bet_current + dbet_dt * dt",
+        "                        ",
+        "                        # Keep in bounds",
+        "                        new_lam = np.clip(new_lam, lambda_grid[0], lambda_grid[-1])",
+        "                        new_bet = np.clip(new_bet, beta_grid[0], beta_grid[-1])",
+        "                        ",
+        "                        lambda_traj.append(new_lam)",
+        "                        beta_traj.append(new_bet)",
+        "                    else:",
+        "                        break",
+        "                ",
+        "                if len(lambda_traj) > 1:",
+        "                    ax6.plot(time_steps[:len(lambda_traj)], lambda_traj, 'o-', ",
+        "                            label=f'\u03bb from ({lam0},{bet0})', alpha=0.8)",
+        "                    ax6.plot(time_steps[:len(beta_traj)], beta_traj, 's--',",
+        "                            label=f'\u03b2 from ({lam0},{bet0})', alpha=0.8)",
+        "            ",
+        "            ax6.set_xlabel('RG Time t')",
+        "            ax6.set_ylabel('Coupling Value')",
+        "            ax6.set_title('Running Coupling Evolution')",
+        "            ax6.legend()",
+        "            ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'beta_functions.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved \u03b2-functions plot\")",
+        "        ",
+        "        return {",
+        "            'beta_data': beta_data,",
+        "            'fixed_points': fixed_points,",
+        "            'flow_magnitude': flow_magnitude,",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_beta_functions",
+      "span": [
+        55,
+        259
+      ]
+    },
+    {
+      "acceptance": "Actual phase map across couplings/control with quantified transitions and size scaling; no prescribed phase diagram.",
+      "archive": "quantum.zip",
+      "id": "Q10",
+      "member": "quantum/research/visualization/plot_rg_flow_phase_diagrams.py",
+      "member_sha": "02bedc51f0a517b1a9e0e3f818dc05dd5a2b13c16dd997a170428f597e8604d2",
+      "source_excerpt": [
+        "    def plot_phase_diagrams(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot phase diagrams with temporal evolution and quantum corrections\"\"\"",
+        "        ",
+        "        # Extract authentic phase diagram data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_phase_diagrams')",
+        "        ",
+        "        if show_temporal:",
+        "            fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "            fig.suptitle('Quantum MCTS Phase Diagrams with Temporal Evolution', fontsize=16, fontweight='bold')",
+        "        else:",
+        "            fig, axes = plt.subplots(2, 2, figsize=(15, 10))",
+        "            fig.suptitle('Quantum MCTS Phase Diagrams', fontsize=16, fontweight='bold')",
+        "        ",
+        "        axes_flat = axes.flatten()",
+        "        ",
+        "        lambda_grid = data['lambda_grid']",
+        "        beta_grid = data['beta_grid']",
+        "        temperature_range = data['temperature_range']",
+        "        coupling_range = data['coupling_range']",
+        "        phases = data['phases']",
+        "        order_parameter_field = data['order_parameter_field']",
+        "        ",
+        "        # 1. Phase classification",
+        "        ax1 = axes_flat[0]",
+        "        Lambda, Beta = np.meshgrid(lambda_grid, beta_grid)",
+        "        ",
+        "        # Create discrete phase regions",
+        "        phase_plot = ax1.contourf(Lambda, Beta, phases, levels=[0, 0.5, 1], ",
+        "                                 colors=['lightblue', 'lightcoral'], alpha=0.8)",
+        "        ",
+        "        # Phase boundaries",
+        "        ax1.contour(Lambda, Beta, phases, levels=[0.5], colors='black', linewidths=3)",
+        "        ",
+        "        # Mark phase regions",
+        "        ax1.text(0.3, 0.3, 'Classical\\nPhase', fontsize=12, ha='center', ",
+        "                bbox=dict(boxstyle=\"round,pad=0.3\", facecolor=\"lightblue\", alpha=0.7))",
+        "        ax1.text(1.5, 1.5, 'Quantum\\nPhase', fontsize=12, ha='center',",
+        "                bbox=dict(boxstyle=\"round,pad=0.3\", facecolor=\"lightcoral\", alpha=0.7))",
+        "        ",
+        "        ax1.set_xlabel('\u03bb (coupling strength)')",
+        "        ax1.set_ylabel('\u03b2 (inverse temperature)')",
+        "        ax1.set_title('Phase Classification')",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Order parameter field",
+        "        ax2 = axes_flat[1]",
+        "        contour_order = ax2.contourf(Lambda, Beta, order_parameter_field, levels=20, ",
+        "                                    cmap='viridis', alpha=0.8)",
+        "        ax2.contour(Lambda, Beta, order_parameter_field, levels=10, colors='white', ",
+        "                   alpha=0.6, linewidths=0.8)",
+        "        ",
+        "        ax2.set_xlabel('\u03bb (coupling strength)')",
+        "        ax2.set_ylabel('\u03b2 (inverse temperature)')",
+        "        ax2.set_title('Order Parameter Field')",
+        "        plt.colorbar(contour_order, ax=ax2, label='Order Parameter')",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Temperature-coupling phase diagram",
+        "        ax3 = axes_flat[2]",
+        "        ",
+        "        # Convert \u03b2 to temperature for physical interpretation",
+        "        temperatures = 1.0 / (beta_grid + 0.1)",
+        "        Temp, Coupling = np.meshgrid(temperatures, coupling_range)",
+        "        ",
+        "        # Interpolate phase data to temperature grid",
+        "        phase_temp = np.zeros_like(Temp)",
+        "        for i, coup in enumerate(coupling_range):",
+        "            for j, temp in enumerate(temperatures):",
+        "                # Find closest point in original grid",
+        "                lam_idx = np.argmin(np.abs(lambda_grid - coup))",
+        "                bet_idx = np.argmin(np.abs(beta_grid - 1.0/temp))",
+        "                if 0 <= lam_idx < len(lambda_grid) and 0 <= bet_idx < len(beta_grid):",
+        "                    phase_temp[i, j] = phases[bet_idx, lam_idx]",
+        "        ",
+        "        phase_temp_plot = ax3.contourf(Temp, Coupling, phase_temp, levels=[0, 0.5, 1],",
+        "                                      colors=['lightgreen', 'orange'], alpha=0.8)",
+        "        ax3.contour(Temp, Coupling, phase_temp, levels=[0.5], colors='red', linewidths=3)",
+        "        ",
+        "        ax3.set_xlabel('Temperature T')",
+        "        ax3.set_ylabel('Coupling Strength g')",
+        "        ax3.set_title('T-g Phase Diagram')",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # Add phase labels",
+        "        ax3.text(temperatures[len(temperatures)//4], coupling_range[len(coupling_range)//4], ",
+        "                'High T\\nClassical', fontsize=10, ha='center',",
+        "                bbox=dict(boxstyle=\"round,pad=0.2\", facecolor=\"lightgreen\", alpha=0.7))",
+        "        ax3.text(temperatures[3*len(temperatures)//4], coupling_range[3*len(coupling_range)//4],",
+        "                'Low T\\nQuantum', fontsize=10, ha='center',",
+        "                bbox=dict(boxstyle=\"round,pad=0.2\", facecolor=\"orange\", alpha=0.7))",
+        "        ",
+        "        # 4. Quantum strength analysis",
+        "        ax4 = axes_flat[3]",
+        "        quantum_strength = data['quantum_strength']",
+        "        ",
+        "        contour_quantum = ax4.contourf(Lambda, Beta, quantum_strength, levels=15, ",
+        "                                      cmap='plasma', alpha=0.8)",
+        "        ax4.contour(Lambda, Beta, quantum_strength, levels=8, colors='white', ",
+        "                   alpha=0.6, linewidths=0.8)",
+        "        ",
+        "        ax4.set_xlabel('\u03bb (coupling strength)')",
+        "        ax4.set_ylabel('\u03b2 (inverse temperature)')",
+        "        ax4.set_title('Quantum Strength Field')",
+        "        plt.colorbar(contour_quantum, ax=ax4, label='Quantum Strength')",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        if show_temporal:",
+        "            # 5. C_PUCT values evolution",
+        "            ax5 = axes_flat[4]",
+        "            c_puct_values = data['c_puct_values']",
+        "            ",
+        "            contour_cpuct = ax5.contourf(Lambda, Beta, c_puct_values, levels=20, ",
+        "                                        cmap='coolwarm', alpha=0.8)",
+        "            ",
+        "            # Optimal PUCT regions",
+        "            ax5.contour(Lambda, Beta, c_puct_values, levels=[1.0, 1.4, 2.0], ",
+        "                       colors=['blue', 'green', 'red'], linewidths=2,",
+        "                       linestyles=['--', '-', '--'])",
+        "            ",
+        "            ax5.set_xlabel('\u03bb (coupling strength)')",
+        "            ax5.set_ylabel('\u03b2 (inverse temperature)')",
+        "            ax5.set_title('C_PUCT Parameter Field')",
+        "            plt.colorbar(contour_cpuct, ax=ax5, label='C_PUCT')",
+        "            ax5.grid(True, alpha=0.3)",
+        "            ",
+        "            # Add optimal region annotation",
+        "            ax5.text(1.0, 1.0, 'Optimal\\nC_PUCT \u2248 1.4', fontsize=10, ha='center',",
+        "                    bbox=dict(boxstyle=\"round,pad=0.3\", facecolor=\"lightgreen\", alpha=0.8))",
+        "            ",
+        "            # 6. Phase boundary evolution",
+        "            ax6 = axes_flat[5]",
+        "            ",
+        "            # Show how phase boundary moves with different quantum parameters",
+        "            hbar_values = [0.5, 1.0, 1.5, 2.0]",
+        "            ",
+        "            for i, hbar in enumerate(hbar_values):",
+        "                # Modify phase boundary based on quantum parameter",
+        "                modified_phases = phases * (1 + 0.1 * (hbar - 1.0))",
+        "                ",
+        "                # Extract boundary curve",
+        "                boundary_contour = ax6.contour(Lambda, Beta, modified_phases, levels=[0.5], ",
+        "                                              alpha=0.8, linewidths=2)",
+        "                ",
+        "                # Label each curve - compatible with different matplotlib versions",
+        "                try:",
+        "                    # Try new matplotlib API first",
+        "                    collections = getattr(boundary_contour, 'collections', None)",
+        "                    if collections is None:",
+        "                        # Fallback for newer versions",
+        "                        collections = []",
+        "                        for line_collection in boundary_contour.allsegs:",
+        "                            if line_collection:",
+        "                                collections.append(line_collection)",
+        "                    ",
+        "                    if collections and len(collections) > 0:",
+        "                        # Get the first collection/segment",
+        "                        if hasattr(collections[0], 'get_paths'):",
+        "                            paths = collections[0].get_paths()",
+        "                        else:",
+        "                            # Handle raw coordinate arrays",
+        "                            paths = collections[0] if isinstance(collections[0], list) else [collections[0]]",
+        "                        ",
+        "                        for path in paths:",
+        "                            if hasattr(path, 'vertices'):",
+        "                                vertices = path.vertices",
+        "                            else:",
+        "                                # Handle coordinate arrays directly",
+        "                                vertices = path if len(path) > 0 else []",
+        "                            ",
+        "                            if len(vertices) > 0:",
+        "                                mid_idx = len(vertices) // 2",
+        "                                x_pos = vertices[mid_idx][0] if len(vertices[mid_idx]) > 0 else Lambda.mean()",
+        "                                y_pos = vertices[mid_idx][1] if len(vertices[mid_idx]) > 1 else Beta.mean()",
+        "                                ax6.text(x_pos, y_pos, f'\u210f={hbar}', fontsize=8, ha='center',",
+        "                                        bbox=dict(boxstyle=\"round,pad=0.1\", ",
+        "                                                facecolor=\"white\", alpha=0.8))",
+        "                                break",
+        "                            break",
+        "                except (AttributeError, IndexError):",
+        "                    # If all else fails, just place label at center",
+        "                    ax6.text(Lambda.mean(), Beta.mean(), f'\u210f={hbar}', fontsize=8, ha='center',",
+        "                            bbox=dict(boxstyle=\"round,pad=0.1\", facecolor=\"white\", alpha=0.8))",
+        "            ",
+        "            ax6.set_xlabel('\u03bb (coupling strength)')",
+        "            ax6.set_ylabel('\u03b2 (inverse temperature)')",
+        "            ax6.set_title('Phase Boundary Evolution with \u210f_eff')",
+        "            ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'phase_diagrams.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved phase diagrams plot\")",
+        "        ",
+        "        return {",
+        "            'phase_data': data,",
+        "            'phase_boundaries': data.get('phase_boundaries', []),",
+        "            'critical_points': [],  # Could be extracted from phase boundaries",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_phase_diagrams",
+      "span": [
+        261,
+        460
+      ]
+    },
+    {
+      "acceptance": "Define actual scale map and couplings, compare exact probability RG and native block deviations, derive autonomous trajectories if closure.",
+      "archive": "quantum.zip",
+      "id": "Q11",
+      "member": "quantum/research/visualization/plot_rg_flow_phase_diagrams.py",
+      "member_sha": "02bedc51f0a517b1a9e0e3f818dc05dd5a2b13c16dd997a170428f597e8604d2",
+      "source_excerpt": [
+        "    def plot_rg_trajectories(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot RG trajectories with flow analysis and temporal evolution\"\"\"",
+        "        ",
+        "        # Extract authentic RG trajectory data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_rg_trajectories')",
+        "        ",
+        "        if show_temporal:",
+        "            fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "            fig.suptitle('RG Trajectories with Temporal Evolution Analysis', fontsize=16, fontweight='bold')",
+        "        else:",
+        "            fig, axes = plt.subplots(2, 2, figsize=(15, 10))",
+        "            fig.suptitle('RG Trajectories Analysis', fontsize=16, fontweight='bold')",
+        "        ",
+        "        axes_flat = axes.flatten()",
+        "        ",
+        "        lambda_grid = data['lambda_grid']",
+        "        beta_grid = data['beta_grid']",
+        "        trajectories = data['trajectories']",
+        "        flow_field = data['flow_field']",
+        "        flow_magnitude = data['flow_magnitude']",
+        "        ",
+        "        # 1. Main trajectory plot with flow field",
+        "        ax1 = axes_flat[0]",
+        "        Lambda, Beta = np.meshgrid(lambda_grid, beta_grid)",
+        "        ",
+        "        # Background flow field",
+        "        skip = max(1, len(lambda_grid) // 12)",
+        "        L_stream = Lambda[::skip, ::skip]",
+        "        B_stream = Beta[::skip, ::skip]",
+        "        U_stream = flow_field[0][::skip, ::skip]",
+        "        V_stream = flow_field[1][::skip, ::skip]",
+        "        ",
+        "        # Stream plot for flow field",
+        "        ax1.streamplot(L_stream, B_stream, U_stream, V_stream,",
+        "                      density=1.2, color='gray', linewidth=1)",
+        "        ",
+        "        # Plot trajectories",
+        "        colors = ['red', 'blue', 'green', 'orange', 'purple']",
+        "        for i, traj in enumerate(trajectories):",
+        "            color = colors[i % len(colors)]",
+        "            ",
+        "            # Main trajectory",
+        "            ax1.plot(traj['lambda'], traj['beta'], 'o-', color=color, linewidth=3,",
+        "                    markersize=6, alpha=0.9, label=f'Trajectory {i+1}')",
+        "            ",
+        "            # Mark start and end points",
+        "            ax1.plot(traj['lambda'][0], traj['beta'][0], 's', color=color, ",
+        "                    markersize=10, markeredgecolor='black', markeredgewidth=2)",
+        "            ax1.plot(traj['lambda'][-1], traj['beta'][-1], '^', color=color,",
+        "                    markersize=10, markeredgecolor='black', markeredgewidth=2)",
+        "            ",
+        "            # Add arrows to show direction",
+        "            if len(traj['lambda']) > 3:",
+        "                mid_idx = len(traj['lambda']) // 2",
+        "                dx = traj['lambda'][mid_idx+1] - traj['lambda'][mid_idx-1]",
+        "                dy = traj['beta'][mid_idx+1] - traj['beta'][mid_idx-1]",
+        "                ax1.arrow(traj['lambda'][mid_idx], traj['beta'][mid_idx], ",
+        "                         dx*0.1, dy*0.1, head_width=0.05, head_length=0.05,",
+        "                         fc=color, ec=color, alpha=0.8)",
+        "        ",
+        "        ax1.set_xlabel('\u03bb (coupling)')",
+        "        ax1.set_ylabel('\u03b2 (inverse temperature)')",
+        "        ax1.set_title('RG Flow Trajectories')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Flow length analysis",
+        "        ax2 = axes_flat[1]",
+        "        ",
+        "        flow_lengths = data['flow_lengths']",
+        "        trajectory_labels = [f'Traj {i+1}' for i in range(len(flow_lengths))]",
+        "        ",
+        "        bars = ax2.bar(range(len(flow_lengths)), flow_lengths, alpha=0.7, ",
+        "                      color=colors[:len(flow_lengths)])",
+        "        ",
+        "        ax2.set_xticks(range(len(flow_lengths)))",
+        "        ax2.set_xticklabels(trajectory_labels)",
+        "        ax2.set_xlabel('Trajectory')",
+        "        ax2.set_ylabel('Flow Length')",
+        "        ax2.set_title('RG Flow Path Lengths')",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # Add value labels on bars",
+        "        for bar, length in zip(bars, flow_lengths):",
+        "            height = bar.get_height()",
+        "            ax2.text(bar.get_x() + bar.get_width()/2., height + height*0.02,",
+        "                    f'{length:.2f}', ha='center', va='bottom', fontweight='bold')",
+        "        ",
+        "        # 3. Convergence analysis",
+        "        ax3 = axes_flat[2]",
+        "        ",
+        "        convergence_times = data['convergence_times']",
+        "        lyapunov_exponents = data['lyapunov_exponents']",
+        "        ",
+        "        # Scatter plot of convergence vs Lyapunov",
+        "        scatter = ax3.scatter(convergence_times, lyapunov_exponents, ",
+        "                             s=100, c=flow_lengths, cmap='viridis', alpha=0.8, ",
+        "                             edgecolors='black', linewidth=1)",
+        "        ",
+        "        for i, (ct, le) in enumerate(zip(convergence_times, lyapunov_exponents)):",
+        "            ax3.annotate(f'T{i+1}', (ct, le), xytext=(5, 5), ",
+        "                        textcoords='offset points', fontweight='bold')",
+        "        ",
+        "        ax3.set_xlabel('Convergence Time')",
+        "        ax3.set_ylabel('Lyapunov Exponent')",
+        "        ax3.set_title('Stability Analysis')",
+        "        plt.colorbar(scatter, ax=ax3, label='Flow Length')",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Parameter evolution",
+        "        ax4 = axes_flat[3]",
+        "        ",
+        "        # Plot parameter evolution for selected trajectory",
+        "        if trajectories:",
+        "            main_traj = trajectories[0]  # Use first trajectory",
+        "            scales = main_traj['scales']",
+        "            ",
+        "            ax4.semilogx(scales, main_traj['lambda'], 'o-', label='\u03bb(\u03bc)', ",
+        "                        linewidth=2, markersize=6)",
+        "            ax4.semilogx(scales, main_traj['beta'], 's-', label='\u03b2(\u03bc)', ",
+        "                        linewidth=2, markersize=6)",
+        "            ax4.semilogx(scales, main_traj['c_puct'], '^-', label='C_PUCT(\u03bc)', ",
+        "                        linewidth=2, markersize=6)",
+        "            ax4.semilogx(scales, main_traj['hbar_eff'], 'd-', label='\u210f_eff(\u03bc)',",
+        "                        linewidth=2, markersize=6)",
+        "        ",
+        "        ax4.set_xlabel('Energy Scale \u03bc')",
+        "        ax4.set_ylabel('Parameter Value')",
+        "        ax4.set_title('Running Parameter Evolution')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        if show_temporal:",
+        "            # 5. Blocking transformation",
+        "            ax5 = axes_flat[4]",
+        "            ",
+        "            blocking_factors = data['blocking_factors']",
+        "            ",
+        "            # Show how trajectories change under blocking",
+        "            for i, traj in enumerate(trajectories[:2]):  # Limit to first 2 for clarity",
+        "                color = colors[i]",
+        "                ",
+        "                # Original trajectory",
+        "                ax5.plot(traj['lambda'], traj['beta'], 'o-', color=color, ",
+        "                        linewidth=2, alpha=0.7, label=f'Original T{i+1}')",
+        "                ",
+        "                # Blocked trajectories",
+        "                for j, block_factor in enumerate(blocking_factors):",
+        "                    # Simple blocking: average over block_factor points",
+        "                    if len(traj['lambda']) > block_factor:",
+        "                        blocked_lambda = []",
+        "                        blocked_beta = []",
+        "                        ",
+        "                        for k in range(0, len(traj['lambda']) - block_factor + 1, block_factor):",
+        "                            block_lam = np.mean(traj['lambda'][k:k+block_factor])",
+        "                            block_bet = np.mean(traj['beta'][k:k+block_factor])",
+        "                            blocked_lambda.append(block_lam)",
+        "                            blocked_beta.append(block_bet)",
+        "                        ",
+        "                        ax5.plot(blocked_lambda, blocked_beta, 's--', color=color,",
+        "                                alpha=0.5, linewidth=1.5, ",
+        "                                label=f'Blocked {block_factor}x T{i+1}')",
+        "            ",
+        "            ax5.set_xlabel('\u03bb (coupling)')",
+        "            ax5.set_ylabel('\u03b2 (inverse temperature)')",
+        "            ax5.set_title('Blocking Transformation Effects')",
+        "            ax5.legend()",
+        "            ax5.grid(True, alpha=0.3)",
+        "            ",
+        "            # 6. Critical exponent extraction",
+        "            ax6 = axes_flat[5]",
+        "            ",
+        "            # Plot correlation length vs reduced temperature for trajectories near criticality",
+        "            reduced_temps = np.linspace(0.01, 2.0, 50)",
+        "            ",
+        "            for i, traj in enumerate(trajectories[:3]):",
+        "                # Extract correlation length from trajectory",
+        "                correlation_lengths = []",
+        "                ",
+        "                for temp in reduced_temps:",
+        "                    # Find closest point in trajectory",
+        "                    temp_diffs = np.abs(np.array(traj['beta']) - 1.0/temp)",
+        "                    closest_idx = np.argmin(temp_diffs)",
+        "                    ",
+        "                    # Model correlation length",
+        "                    xi = 1.0 / (temp + 0.01) + np.log(1 + traj['lambda'][closest_idx])",
+        "                    correlation_lengths.append(xi)",
+        "                ",
+        "                ax6.loglog(reduced_temps, correlation_lengths, 'o-', ",
+        "                          color=colors[i], linewidth=2, alpha=0.8,",
+        "                          label=f'Trajectory {i+1}')",
+        "            ",
+        "            # Theoretical power law",
+        "            theoretical_xi = 10.0 / reduced_temps**0.63  # \u03bd \u2248 0.63 for 2D Ising",
+        "            ax6.loglog(reduced_temps, theoretical_xi, 'k--', linewidth=2,",
+        "                      label='Theory: \u03bd = 0.63')",
+        "            ",
+        "            ax6.set_xlabel('Reduced Temperature |T - T_c|')",
+        "            ax6.set_ylabel('Correlation Length \u03be')",
+        "            ax6.set_title('Critical Exponent Extraction')",
+        "            ax6.legend()",
+        "            ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'rg_trajectories.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved RG trajectories plot\")",
+        "        ",
+        "        return {",
+        "            'trajectory_data': data,",
+        "            'flow_analysis': {",
+        "                'flow_lengths': flow_lengths,",
+        "                'convergence_times': convergence_times,",
+        "                'lyapunov_exponents': lyapunov_exponents",
+        "            },",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_rg_trajectories",
+      "span": [
+        462,
+        679
+      ]
+    },
+    {
+      "acceptance": "Reproduce animation of defined scale transformation with exact pushforward and label nonautonomous/native limitations.",
+      "archive": "quantum.zip",
+      "id": "Q12",
+      "member": "quantum/research/visualization/plot_rg_flow_phase_diagrams.py",
+      "member_sha": "02bedc51f0a517b1a9e0e3f818dc05dd5a2b13c16dd997a170428f597e8604d2",
+      "source_excerpt": [
+        "    def create_flow_animation(self, trajectory_type: str = 'rg_flow', ",
+        "                             save_animation: bool = True) -> Any:",
+        "        \"\"\"Create animation showing RG flow evolution\"\"\"",
+        "        ",
+        "        # Generate time-dependent flow data",
+        "        time_steps = np.linspace(0, 5, 50)",
+        "        lambda_range = np.linspace(0, 2, 20)",
+        "        beta_range = np.linspace(0, 2, 20)",
+        "        Lambda, Beta = np.meshgrid(lambda_range, beta_range)",
+        "        ",
+        "        fig, ax = plt.subplots(figsize=(10, 8))",
+        "        ax.set_xlim(0, 2)",
+        "        ax.set_ylim(0, 2)",
+        "        ax.set_xlabel('\u03bb (coupling)')",
+        "        ax.set_ylabel('\u03b2 (inverse temperature)')",
+        "        ax.set_title(f'RG Flow Evolution: {trajectory_type}')",
+        "        ax.grid(True, alpha=0.3)",
+        "        ",
+        "        # Initial empty plots",
+        "        flow_plot = ax.streamplot(Lambda, Beta, Lambda*0, Beta*0, density=1, color='blue')",
+        "        trajectory_line, = ax.plot([], [], 'ro-', linewidth=3, markersize=8)",
+        "        ",
+        "        def animate(frame):",
+        "            ax.clear()",
+        "            ax.set_xlim(0, 2)",
+        "            ax.set_ylim(0, 2)",
+        "            ax.set_xlabel('\u03bb (coupling)')",
+        "            ax.set_ylabel('\u03b2 (inverse temperature)')",
+        "            ax.grid(True, alpha=0.3)",
+        "            ",
+        "            t = time_steps[frame]",
+        "            ",
+        "            # Time-dependent flow field",
+        "            U = -Lambda * (1 + 0.3 * np.sin(2*np.pi*t/5))",
+        "            V = -Beta * (1 + 0.2 * np.cos(2*np.pi*t/3))",
+        "            ",
+        "            # Stream plot",
+        "            ax.streamplot(Lambda, Beta, U, V, density=1.5, color='lightblue', alpha=0.7)",
+        "            ",
+        "            # Sample trajectory",
+        "            if frame > 0:",
+        "                traj_lambda = [1.5 - 0.1 * i for i in range(frame)]",
+        "                traj_beta = [1.2 - 0.05 * i for i in range(frame)]",
+        "                ax.plot(traj_lambda, traj_beta, 'ro-', linewidth=3, markersize=6)",
+        "            ",
+        "            ax.set_title(f'RG Flow Evolution: {trajectory_type} (t = {t:.1f})')",
+        "            ",
+        "        anim = FuncAnimation(fig, animate, frames=len(time_steps), interval=100, blit=False)",
+        "        ",
+        "        if save_animation:",
+        "            anim.save(self.output_dir / f'{trajectory_type}_evolution.gif', writer='pillow', fps=10)",
+        "            logger.info(f\"Saved {trajectory_type} evolution animation\")",
+        "        ",
+        "        return anim"
+      ],
+      "source_function": "create_flow_animation",
+      "span": [
+        681,
+        734
+      ]
+    },
+    {
+      "acceptance": "Aggregate beta functions, flow, fixed points, critical boundaries and uncertainty; preserve refuted candidate, no forced universality.",
+      "archive": "quantum.zip",
+      "id": "Q13",
+      "member": "quantum/research/visualization/plot_rg_flow_phase_diagrams.py",
+      "member_sha": "02bedc51f0a517b1a9e0e3f818dc05dd5a2b13c16dd997a170428f597e8604d2",
+      "source_excerpt": [
+        "    def generate_comprehensive_report(self, save_report: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Generate comprehensive RG flow and phase diagram analysis report\"\"\"",
+        "        ",
+        "        logger.info(\"Generating comprehensive RG flow analysis report...\")",
+        "        ",
+        "        # Run all analyses",
+        "        beta_results = self.plot_beta_functions(save_plots=save_report)",
+        "        phase_results = self.plot_phase_diagrams(save_plots=save_report)",
+        "        trajectory_results = self.plot_rg_trajectories(save_plots=save_report)",
+        "        ",
+        "        # Compile report",
+        "        report = {",
+        "            'timestamp': pd.Timestamp.now().isoformat(),",
+        "            'mcts_data_summary': {",
+        "                'datasets_analyzed': len(self.mcts_data.get('tree_expansion_data', [])),",
+        "                'data_source': 'authentic_mcts_tree_dynamics'",
+        "            },",
+        "            'beta_function_analysis': {",
+        "                'fixed_points_found': len(beta_results['fixed_points']),",
+        "                'flow_magnitude_max': float(np.max(beta_results['flow_magnitude'])),",
+        "                'stability_analyzed': True",
+        "            },",
+        "            'phase_diagram_analysis': {",
+        "                'phase_boundaries_detected': len(phase_results['phase_boundaries']),",
+        "                'quantum_classical_transition': True,",
+        "                'critical_points': len(phase_results['critical_points'])",
+        "            },",
+        "            'rg_trajectory_analysis': {",
+        "                'trajectories_analyzed': len(trajectory_results['trajectory_data']['trajectories']),",
+        "                'convergence_properties': trajectory_results['flow_analysis'],",
+        "                'blocking_transformation': True",
+        "            },",
+        "            'output_files': [",
+        "                'beta_functions.png',",
+        "                'phase_diagrams.png',",
+        "                'rg_trajectories.png'",
+        "            ]",
+        "        }",
+        "        ",
+        "        if save_report:",
+        "            report_file = self.output_dir / 'rg_flow_analysis_report.json'",
+        "            import json",
+        "            ",
+        "            # Convert numpy arrays to JSON-serializable format",
+        "            def convert_numpy_to_json(obj):",
+        "                if isinstance(obj, np.ndarray):",
+        "                    return obj.tolist()",
+        "                elif isinstance(obj, np.floating):",
+        "                    return float(obj)",
+        "                elif isinstance(obj, np.integer):",
+        "                    return int(obj)",
+        "                elif isinstance(obj, dict):",
+        "                    return {key: convert_numpy_to_json(value) for key, value in obj.items()}",
+        "                elif isinstance(obj, list):",
+        "                    return [convert_numpy_to_json(item) for item in obj]",
+        "                else:",
+        "                    return obj",
+        "            ",
+        "            json_safe_report = convert_numpy_to_json(report)",
+        "            ",
+        "            with open(report_file, 'w') as f:",
+        "                json.dump(json_safe_report, f, indent=2)",
+        "            logger.info(f\"Saved comprehensive report to {report_file}\")",
+        "        ",
+        "        logger.info(\"RG flow and phase diagram analysis complete!\")",
+        "        return report"
+      ],
+      "source_function": "generate_comprehensive_report",
+      "span": [
+        736,
+        801
+      ]
+    }
+  ],
+  "study_selected": [
+    {
+      "excerpts": [
+        [
+          5,
+          "We develop the complete statistical physics description of MCTS, revealing three distinct phases separated by critical points at N_c1 and N_c2. Starting from the quantum field theory framework with \u210f_eff(N) = c_puct/(\u221a(N+1)log(N+2)), we derive the renormalization group flow equations that yield optimal parameters from first principles: c_puct = \u221a(2 log b)[1 + 1/(4 log N_c)]. The connection to Document 1's path integral formalism appears through the RG transformation of the effective action. We provide numerical methods to extract all thermodynamic quantities directly from MCTS runs. The Landauer principle connects information erasure in node expansion to thermodynamic costs, while critical exponents match 3D Ising universality. Practical algorithms compute phase boundaries, order parameters, and validate theoretical predictions."
+        ],
+        [
+          13,
+          "- Critical phenomena with universal scaling laws"
+        ],
+        [
+          19,
+          "This document provides a self-contained statistical physics treatment of MCTS. We identify phase structure, derive optimal parameters via renormalization group analysis, establish thermodynamic principles, and provide numerical validation methods for all theoretical predictions."
+        ],
+        [
+          33,
+          "- 0 < m < 1: Critical regime with optimal performance"
+        ],
+        [
+          73,
+          "2. **Critical Phase** (N_c1 < N < N_c2):"
+        ],
+        [
+          83,
+          "### 2.3 Critical Points"
+        ],
+        [
+          85,
+          "**Theorem 2.2** (Critical Point Formulas)"
+        ],
+        [
+          92,
+          "1. Critical condition: \u210f_eff(N_c) = T(N_c)"
+        ],
+        [
+          99,
+          "5. Prior coupling \u03bb shifts critical points through effective temperature \u25a1"
+        ],
+        [
+          103,
+          "def find_critical_points(mcts_runs, c_puct, lambda_puct, b):"
+        ],
+        [
+          104,
+          "    \"\"\"Extract critical points from MCTS data\"\"\""
+        ],
+        [
+          121,
+          "        # First critical point: m crosses 0.1"
+        ],
+        [
+          125,
+          "        # Second critical point: m crosses 0.9"
+        ],
+        [
+          142,
+          "## 3. Renormalization Group Analysis"
+        ],
+        [
+          164,
+          "**Theorem 3.1** (Beta Functions)"
+        ],
+        [
+          174,
+          "*Connection to Effective Action*: These beta functions arise from integrating out high-momentum modes in the path integral, corresponding to coarse-graining the tree structure."
+        ],
+        [
+          176,
+          "### 3.3 Fixed Points"
+        ],
+        [
+          178,
+          "**Theorem 3.2** (Fixed Point Structure)"
+        ],
+        [
+          180,
+          "1. **Gaussian Fixed Point**: (g*,T*,c*,\u03bb*) = (0,0,c_0,0)"
+        ],
+        [
+          183,
+          "2. **Wilson-Fisher Point**: "
+        ],
+        [
+          212,
+          "            # Measure where performance peaks (critical regime)"
+        ],
+        [
+          227,
+          "            'N_critical': N_c,"
+        ],
+        [
+          265,
+          "## 4. Critical Phenomena"
+        ],
+        [
+          267,
+          "### 4.1 Critical Exponents"
+        ],
+        [
+          284,
+          "def measure_critical_exponents(game, c_puct, N_c, num_runs=100):"
+        ],
+        [
+          285,
+          "    \"\"\"Extract critical exponents from MCTS near criticality\"\"\""
+        ],
+        [
+          317,
+          "    # Fit critical behavior"
+        ],
+        [
+          337,
+          "    # Check scaling relations"
+        ],
+        [
+          339,
+          "    # \u03b1 = 2 - 2\u03b2 - \u03b3 (hyperscaling)"
+        ],
+        [
+          357,
+          "        'scaling_relations_satisfied': check_scaling_relations(beta, gamma, nu)"
+        ],
+        [
+          380,
+          "def check_scaling_relations(beta, gamma, nu):"
+        ],
+        [
+          381,
+          "    \"\"\"Verify critical exponent scaling relations\"\"\""
+        ],
+        [
+          396,
+          "**Theorem 4.2** (Universal Scaling Function)"
+        ],
+        [
+          405,
+          "    \"\"\"Test universal scaling across different games\"\"\""
+        ],
+        [
+          410,
+          "        # Find critical point"
+        ],
+        [
+          411,
+          "        N_c = find_critical_point(game, c_puct)"
+        ],
+        [
+          413,
+          "        # Collect data near criticality"
+        ],
+        [
+          838,
+          "        # Compute critical points"
+        ],
+        [
+          839,
+          "        self.N_c1 = self.compute_critical_point_1()"
+        ],
+        [
+          840,
+          "        self.N_c2 = self.compute_critical_point_2()"
+        ]
+      ],
+      "lines": 1308,
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "relevant_line_count": 67,
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    },
+    {
+      "excerpts": [
+        [
+          5,
+          "We present a rigorous quantum field theory formulation of Monte Carlo Tree Search (MCTS) based on discrete information time \u03c4(N) = log(N+2). Starting from the classical UCB formula, we derive the PUCT action S[\u03b3] = -\u03a3[log N(s,a) + \u03bb log P(a|s)] through variational principles. The framework maps tree search onto a path integral formalism with an effective Planck constant \u210f_eff(N) = c_puct/(\u221a(N+1)log(N+2)). Tree-level analysis recovers classical MCTS, while one-loop quantum corrections yield enhanced UCB formulas with measurable performance improvements. The discrete tree structure provides natural UV regularization, connecting to renormalization group flow. All results are implementable on classical hardware with controlled overhead."
+        ],
+        [
+          140,
+          "3. **Critical point**: Quantum = Thermal when \u210f_eff(N_c) ~ T(N_c)"
+        ],
+        [
+          230,
+          "### 5.3 Connection to Renormalization"
+        ],
+        [
+          241,
+          "2. Integrating out high-momentum modes \u2192 coarse-graining"
+        ],
+        [
+          430,
+          "### 8.1 Information Scaling Test"
+        ],
+        [
+          433,
+          "def validate_information_scaling(game, num_trials=100):"
+        ],
+        [
+          434,
+          "    \"\"\"Test \u03c4(N) = log(N+2) scaling law\"\"\""
+        ],
+        [
+          462,
+          "        # Fit 1/N scaling for information gain"
+        ],
+        [
+          599,
+          "6. **Connection to RG flow** through coarse-graining of tree layers"
+        ]
+      ],
+      "lines": 602,
+      "member": "mcts_study/v3.0/qft-mcts-foundations.md",
+      "relevant_line_count": 9,
+      "sha256": "a0fc2fbda4a07e9b663a59e997e4a418c2f19aed04b071594b970d1f44c13ea3"
+    },
+    {
+      "excerpts": [
+        [
+          14,
+          "4. [Critical Phenomena Analysis](#4-critical-phenomena-analysis)"
+        ],
+        [
+          19,
+          "9. [Renormalization Group Variables](#9-renormalization-group-variables)"
+        ],
+        [
+          121,
+          "    # Step 3: Apply theoretical scaling"
+        ],
+        [
+          124,
+          "    scaling_factor = (1 + total_visits)**(-0.25)"
+        ],
+        [
+          126,
+          "    return hbar_eff * scaling_factor"
+        ],
+        [
+          159,
+          "    # Step 3: Apply information time scaling"
+        ],
+        [
+          304,
+          "    # Step 3: Critical scaling near phase transitions"
+        ],
+        [
+          306,
+          "    T_critical = np.mean(temperatures)"
+        ],
+        [
+          308,
+          "        if abs(temp - T_critical) > 1e-6:"
+        ],
+        [
+          309,
+          "            critical_factor = abs(temp - T_critical)**(-1.85)"
+        ],
+        [
+          310,
+          "            susceptibilities[i] *= critical_factor"
+        ],
+        [
+          317,
+          "## 4. Critical Phenomena Analysis"
+        ],
+        [
+          336,
+          "        prior_weight = c_puct / (2 * np.pi)  # Typical scaling"
+        ],
+        [
+          359,
+          "### 4.2 Critical Exponents"
+        ],
+        [
+          363,
+          "def compute_correlation_length(correlations, temperatures, T_critical):"
+        ],
+        [
+          365,
+          "    Extract correlation length and critical exponent \u03bd"
+        ],
+        [
+          391,
+          "    # Extract critical exponent"
+        ],
+        [
+          396,
+          "        if abs(temp - T_critical) > 1e-6 and xi > 0:"
+        ],
+        [
+          397,
+          "            valid_temps.append(abs(temp - T_critical))"
+        ],
+        [
+          413,
+          "**Universal Scaling Function**:"
+        ],
+        [
+          416,
+          "                         T_critical, beta_over_nu, nu):"
+        ],
+        [
+          418,
+          "    Collapse data onto universal scaling function"
+        ],
+        [
+          420,
+          "    Scaling form: O(L,t) = L^(-\u03b2/\u03bd) F(tL^(1/\u03bd))"
+        ],
+        [
+          427,
+          "        t = (T - T_critical) / T_critical"
+        ],
+        [
+          429,
+          "        # Scaling transformations"
+        ],
+        [
+          524,
+          "    # Step 3: Identify critical point (maximum C)"
+        ],
+        [
+          526,
+          "    T_critical = temperatures[max_idx]"
+        ],
+        [
+          528,
+          "    return heat_capacities, T_critical"
+        ],
+        [
+          586,
+          "        sigma = temp * abs(avg_growth) / 100.0  # Scaling factor"
+        ],
+        [
+          598,
+          "**Area Law vs Volume Law Scaling**:"
+        ],
+        [
+          619,
+          "    # Step 3: System size scaling"
+        ],
+        [
+          623,
+          "        area_scaling = entanglement_base * (L**(0.5))  # d-1 for d=1.5"
+        ],
+        [
+          624,
+          "        volume_scaling = entanglement_base * np.log(L + 1)  # Log volume"
+        ],
+        [
+          627,
+          "        S_ent = area_scaling if L < 100 else volume_scaling"
+        ],
+        [
+          742,
+          "        # Base power-law scaling"
+        ],
+        [
+          892,
+          "## 9. Renormalization Group Variables"
+        ],
+        [
+          976,
+          "### 9.3 Fixed Point Analysis"
+        ],
+        [
+          978,
+          "**Finding Fixed Points**:"
+        ],
+        [
+          982,
+          "    Find fixed points where all \u03b2-functions vanish"
+        ],
+        [
+          986,
+          "    # Gaussian fixed point (trivial)"
+        ]
+      ],
+      "lines": 1278,
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "relevant_line_count": 44,
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    },
+    {
+      "excerpts": [
+        [
+          6,
+          "This document presents the complete theoretical development of a quantum and statistical field theory interpretation of Monte Carlo Tree Search (MCTS), as evolved through rigorous mathematical analysis and critical refinement. The framework emerged from recognizing that MCTS, despite being designed as a heuristic algorithm, naturally implements fundamental principles from physics."
+        ],
+        [
+          9,
+          "The theoretical framework underwent several critical refinements:"
+        ],
+        [
+          17,
+          "**Third Refinement**: Discovery that backpropagation implements Renormalization Group flow"
+        ],
+        [
+          25,
+          "3. A Renormalization Group flow from microscopic (leaf) to macroscopic (root) scales"
+        ],
+        [
+          30,
+          "Through critical analysis and refinement, several key insights emerged:"
+        ],
+        [
+          48,
+          "**First Critical Insight**: The search tree is not a continuum but a discrete lattice. We must use lattice field theory from the start."
+        ],
+        [
+          58,
+          "**Critical Refinement**: Initially we considered nodes as sites. The correct identification is **edges as sites**, since MCTS statistics live on state-action pairs."
+        ],
+        [
+          74,
+          "**Scaling Law and Error Bounds**:"
+        ],
+        [
+          156,
+          "A critical refinement came from recognizing MCTS as an **open quantum system**:"
+        ],
+        [
+          303,
+          "**Critical Check**: Does the correction vanish for linear potential?"
+        ],
+        [
+          308,
+          "**Scaling Analysis**:"
+        ],
+        [
+          313,
+          "## 6. Renormalization Group Flow in MCTS"
+        ],
+        [
+          317,
+          "**Key Insight**: Backpropagation is not just value averaging\u2014it implements a systematic coarse-graining procedure identical to RG transformation in physics."
+        ],
+        [
+          331,
+          "**Definition 6.3 (Beta Functions)**:"
+        ],
+        [
+          357,
+          "**Theorem 6.2 (Fixed Point Condition)**:"
+        ],
+        [
+          358,
+          "The search reaches an IR fixed point when:"
+        ],
+        [
+          362,
+          "### 6.4 Anomalous Dimensions and Scaling"
+        ],
+        [
+          364,
+          "**Definition 6.4 (Scaling Dimension)**:"
+        ],
+        [
+          367,
+          "where $\\Delta_O$ is the scaling dimension."
+        ],
+        [
+          390,
+          "**Critical Observation**: The flow is irreversible\u2014information flows from leaves to root but not vice versa, making this a non-equilibrium RG."
+        ],
+        [
+          551,
+          "## 9. Critical Phenomena and Universal Behavior"
+        ],
+        [
+          553,
+          "### 9.1 Critical Points in Games"
+        ],
+        [
+          555,
+          "**Definition 9.1 (Critical Position)**:"
+        ],
+        [
+          575,
+          "### 9.3 Finite-Size Scaling Theory"
+        ],
+        [
+          577,
+          "**Fundamental Hypothesis**: Near criticality, observables follow universal scaling:"
+        ],
+        [
+          579,
+          "**Theorem 9.1 (Scaling Relations)**:"
+        ],
+        [
+          586,
+          "- \u03c4 = (Q_1 - Q_2)/Q_c (reduced distance from criticality)"
+        ],
+        [
+          587,
+          "- \u03b2, \u03b3, \u03bd: Critical exponents"
+        ],
+        [
+          588,
+          "- f: Universal scaling functions"
+        ],
+        [
+          590,
+          "### 9.4 Measurement of Critical Exponents"
+        ],
+        [
+          593,
+          "1. Identify critical positions"
+        ],
+        [
+          617,
+          "- Universal behavior emerges at criticality"
+        ],
+        [
+          619,
+          "### 9.6 Data Collapse and Scaling Functions"
+        ],
+        [
+          621,
+          "**Validation of Scaling**:"
+        ],
+        [
+          631,
+          "## 10. Critical Analysis and Theoretical Refinements"
+        ],
+        [
+          635,
+          "Throughout development, several critical challenges were raised and resolved:"
+        ],
+        [
+          672,
+          "   - Renormalization group (scale separation)"
+        ],
+        [
+          677,
+          "   - Temperature from visit count scaling"
+        ],
+        [
+          679,
+          "   - Critical behavior at decision points"
+        ],
+        [
+          686,
+          "   - Universal critical exponents"
+        ]
+      ],
+      "lines": 776,
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "relevant_line_count": 43,
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "excerpts": [
+        [
+          13,
+          "The experimental design evolved through critical refinement:"
+        ],
+        [
+          70,
+          "3. **Finite-Size Effects**: Scaling analysis to extrapolate infinite-size behavior"
+        ],
+        [
+          399,
+          "    2. Mean-field scaling validation"
+        ],
+        [
+          458,
+          "    # Test 2: Mean-field scaling"
+        ],
+        [
+          467,
+          "        tests['scaling_exponent'] = slope"
+        ],
+        [
+          468,
+          "        tests['scaling_r2'] = r_value**2"
+        ],
+        [
+          469,
+          "        tests['scaling_pvalue'] = p_value"
+        ],
+        [
+          490,
+          "   - Critical positions (nearly equal moves)"
+        ],
+        [
+          511,
+          "2. **Scaling Validation**:"
+        ],
+        [
+          514,
+          "   - Deviations in critical positions"
+        ],
+        [
+          522,
+          "   - Sudden \u03b2 jumps at critical positions"
+        ],
+        [
+          1048,
+          "            'confidence_interval': self.compute_wilson_ci(augmented_wins, total_games),"
+        ],
+        [
+          1057,
+          "    def compute_wilson_ci(self, wins: int, total: int, alpha: float = 0.05) -> Tuple[float, float]:"
+        ],
+        [
+          1059,
+          "        Wilson score confidence interval for win rate"
+        ],
+        [
+          1097,
+          "- Temperature dependence ensures proper scaling"
+        ],
+        [
+          1099,
+          "## 4. Renormalization Group Flow Analysis"
+        ],
+        [
+          1104,
+          "**MCTS Relation**: Backpropagation acts as RG transformation, coarse-graining information"
+        ],
+        [
+          1119,
+          "        - beta_func: Discrete beta function"
+        ],
+        [
+          1153,
+          "        # Compute discrete beta function"
+        ],
+        [
+          1179,
+          "        Dictionary with flow characteristics and scaling exponents"
+        ],
+        [
+          1207,
+          "        'universality_test': test_scaling_collapse(all_flows)"
+        ],
+        [
+          1243,
+          "            # Check for fixed point"
+        ],
+        [
+          1267,
+          "        - Beta function evolution"
+        ],
+        [
+          1291,
+          "    # Panel 2: Beta function"
+        ],
+        [
+          1296,
+          "    ax2.set_ylabel('Beta Function')"
+        ],
+        [
+          1324,
+          "- Beta function approaches zero in IR regime"
+        ],
+        [
+          1622,
+          "- Phase transitions correlate with critical game positions"
+        ],
+        [
+          1850,
+          "## 7. Critical Phenomena and Finite-Size Scaling"
+        ],
+        [
+          1855,
+          "**MCTS Context**: Critical positions where best moves have nearly equal value"
+        ],
+        [
+          1857,
+          "**Scaling Relations**: \u03c7 ~ L^(\u03b3/\u03bd), \u03be ~ L^(1/\u03bd)"
+        ],
+        [
+          1859,
+          "### 7.2 Critical Point Detection and Analysis"
+        ],
+        [
+          1862,
+          "def find_critical_positions(game_database: List[GamePosition],"
+        ],
+        [
+          1863,
+          "                           criticality_threshold: float = 0.01) -> List[GamePosition]:"
+        ],
+        [
+          1865,
+          "    Identify positions near criticality"
+        ],
+        [
+          1867,
+          "    Critical = top two moves have Q-values within threshold"
+        ],
+        [
+          1869,
+          "    critical_positions = []"
+        ],
+        [
+          1887,
+          "            # Check criticality"
+        ],
+        [
+          1888,
+          "            if abs(q1 - q2) < criticality_threshold:"
+        ],
+        [
+          1889,
+          "                critical_positions.append({"
+        ],
+        [
+          1895,
+          "    return critical_positions"
+        ]
+      ],
+      "lines": 2497,
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "relevant_line_count": 105,
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    }
+  ]
+}

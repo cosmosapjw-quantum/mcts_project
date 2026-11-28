@@ -1,0 +1,96 @@
+{
+  "animations": [
+    {
+      "frame_rgb_sha256": [
+        "6f94b2c090dbfe14b4a9bf509ed342c167c27528d2db82f76d3a951ed5c4d6e8",
+        "9a58a0a07ac98d1aa89811161da3fc4ea622bd0a52cfd7294d76efb24b3130e7",
+        "a459a77287dfa932193852e0a5b1c2c3d786178cab6fb624023656e952c44072",
+        "a95c0ed0032bdd5e829dee0d91f1639b9a5a9453ae1942ec485c5829c64c866f",
+        "bf794deee8afe6717e371de3ca78a82b04ac57ecfd8fc1cb0c81a723e91c2465",
+        "b1088b77ea1ce2470e8eb60c86db38c69bbb7490f0b9308449f06f7ed536bd35"
+      ],
+      "frames": 6,
+      "id": "Q12",
+      "path": "plots/Q12_exact_spatial_flow.gif",
+      "scales": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "sha256": "b4a5e898c91501a029df269b1d1e31d97d34cad7fc13073f4c36bb05fb91afb9"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "Q09_exact_beta_field",
+      "ids": [
+        "Q09"
+      ],
+      "pdf_sha": "0a2af4fb93211e57d6c77c15fb581f39dc732ea906e32a45784b2bb17bf69881",
+      "png_sha": "af9f3ed7e9000eaa113af007b71c7a56441e680f3ca1b9dedb1872b303e884cc"
+    },
+    {
+      "figure": "Q09_frozen_score_fisher",
+      "ids": [
+        "Q09"
+      ],
+      "pdf_sha": "9438b70b95457712ef7501bc0e30b31f44493f27b046a797f29063cec1f22fa0",
+      "png_sha": "a5582f74b3027c8aba081dfa86582e6d3b4fb3b5949a90d3d7bead28572bb695"
+    },
+    {
+      "figure": "Q10_finite_control_map_partial",
+      "ids": [
+        "Q10",
+        "Q13"
+      ],
+      "pdf_sha": "3ee180880d9d51b4ac66bf0279e333083fd922ba38e634ee252b29b3d09c0137",
+      "png_sha": "465904c65e5757cd1ba2da52ce4e64fc29a625527afb3fc0557c7c16ce49c8ef"
+    },
+    {
+      "figure": "Q11_induced_coupling_trajectories",
+      "ids": [
+        "Q09",
+        "Q11"
+      ],
+      "pdf_sha": "680cdcec43e678ac17a3843c2874c4d1eaad578d0dbc0745bceb14ad2004c299",
+      "png_sha": "047b526d24b8a9eea739f507755641be273af32f288d46e7197319f953f140f7"
+    },
+    {
+      "figure": "Q11_projection_closure_residual",
+      "ids": [
+        "Q11",
+        "Q13"
+      ],
+      "pdf_sha": "c74bd5ca74e7a21986ea28a9d18d5b3a82be2402a97907f813b71a6da63b3f40",
+      "png_sha": "6194ce35cefd452f676e4e075927311fa633f8c02602609dfa95351aec1be34d"
+    },
+    {
+      "figure": "Q12_exact_scale_snapshots",
+      "ids": [
+        "Q11",
+        "Q12"
+      ],
+      "pdf_sha": "baf7a4355f76e49396a71555b5552f36abe36951b011e671298dd71f007a820e",
+      "png_sha": "293c07f1cffac1fc812846c9e2f496da4caa71809116f51fbd9904c03b60299e"
+    },
+    {
+      "figure": "Q13_cohort_budget_closure",
+      "ids": [
+        "Q13"
+      ],
+      "pdf_sha": "0be6b342766524c4b4c829727087cb919970f5fec4a355d9e3cc2b376281978f",
+      "png_sha": "cca9019e4941e2c7f5a1742f92b4ff1c4fc85ede6f527a3a8608815eb6dd78ac"
+    }
+  ],
+  "scope": "Exact native categorical scale transform; two-coordinate finite projection and separate control strata; not physical critical dynamics",
+  "sources": {
+    "INDEPENDENT98.json": "0b3496a816effa5530345f309b46598150c6e4245d1c34773d5de9ba27b2b884",
+    "ORIGINAL_SOURCE98.json": "97c2db1fe10b098a4779b21bba0fee3b3fba753fc5f91db7d6f157156f0dca06",
+    "RG98.json": "be0ca72366b4493f007870cce59f188d447afa73ccda1054d8812fcdcdc78c8a",
+    "RG98.npz": "62afaf0091367bf6194d2ad38ad411495a71caede781fd7ce65a1452ee5d30a4",
+    "SUMMARY98.json": "d5744a63b909a555c81e9e0d19c739a1f05540343fd5b0b9759dc9279c87b28a"
+  }
+}

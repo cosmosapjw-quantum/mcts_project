@@ -1,0 +1,41 @@
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 263, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 212, in _process_chunk
+    return [fn(*args) for args in chunk]
+            ^^^^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore98_20261128/rg98.py", line 68, in one
+    ck(er,'frozen_derivative_fd',(hi-lo)/(2*delta),v['d'][t],1e-5);ck(er,'frozen_hessian_fd',(hi+lo-2*mid)/delta**2,v['d2'][t],1e-5);fd+=1
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore98_20261128/rg98.py", line 14, in ck
+    e=float(np.max(abs(np.asarray(a)-np.asarray(b))));err[k]=max(err.get(k,0.),e);assert e<tol,(k,e)
+                                                                                         ^^^^^
+AssertionError: ('frozen_hessian_fd', 2.0796178457516135e-05)
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore98_20261128/rg98.py", line 139, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore98_20261128/rg98.py", line 117, in main
+    with cf.ProcessPoolExecutor(max_workers=10) as pool:rows=list(pool.map(one,[(L,r) for r in rec],chunksize=3))
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 642, in _chain_from_iterable_of_lists
+    for element in iterable:
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+AssertionError: ('frozen_hessian_fd', 2.0796178457516135e-05)

@@ -1,0 +1,6 @@
+VERIFY 13 2080
+VERIFY 15 4160
+VERIFY 17 6240
+VERIFY 19 8320
+VERIFY 21 10400
+INDEPENDENT {'prefix_KL': 7.993605777301127e-15, 'prefix_X_KL': 0.0, 'projection_theta': 9.325873406851315e-15, 'projection_rank': 0.0, 'projection_TV': 3.885780586188048e-15, 'prefix_entropy': 7.771561172376127e-15, 'iterated_TV': 3.885780586188048e-15, 'nested_lift_push': 1.4210854715202004e-14, 'push_projection_TV': 5.773159728050814e-15, 'theta_next_error': 1.4210854715202004e-14, 'beta_theta': 1.4210854715202004e-14, 'beta_field_rms': 8.778516319301332e-15, 'beta_field_mean': 1.0466327702464238e-14, 'KL_step': 7.993605777301127e-15}

@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE97.json",
+  "convergence_ledger": "CONVERGENCE98.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -58,7 +58,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-05",
+  "entry": "REPLAN-04.R",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -121,9 +121,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R98 Q09-Q13 exact pushforward, induced beta field and RG closure",
+    "R99 Q14-Q18 Q30-Q34 finite scaling, report and animation; check accepted items, preserve Q02/Q31 partial",
     "Direct original reconstruction; no optimizer drift",
-    "Six open science claims, Q02/Q31 and Q19/Q20 partial"
+    "Six open science claims, Q10 Q36 Q19/Q20 partial"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE98-RG-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE99-CRITICAL-SCALING-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -558,6 +558,24 @@
           "Q43"
         ],
         "remaining": "Physical hbar, thermometry, native coherence and broad transfer not admitted."
+      },
+      "restore98_followup": {
+        "accepted_subclaims": [
+          "RG-PUSH-15",
+          "RG-PROJECTION-16"
+        ],
+        "artifact": "mqft_restore98_20261128/{ORIGINAL_OUTPUT_REPORT98.md,ITEM_RECONSTRUCTION98.json,CONVERGENCE98.json}",
+        "corrected_artifacts": [
+          "Q09",
+          "Q11",
+          "Q12",
+          "Q13"
+        ],
+        "evidence": "4320 raw receipts, 215040 selections, 10400 prefix rows, 62400 prefix-scale rows, 2400 derivative cases; independent weighted LS and exact dyadic map",
+        "partial": [
+          "Q10"
+        ],
+        "remaining": "Physical critical point, continuous beta function and richer closure not established."
       },
       "retained_evidence": "STATE coarse memory, RESTORE04 stopped-tree coarse law\u00b7unresolved variance\u00b7closure loss \ubc0f graph/subtree rows. \uae30\uc874 reference flow\ub294 \ucd94\ucd9c\uae30 \ub300\uc870\uc5d0 \uc4f4\ub2e4.",
       "source": "rg_flow.py, rg_flow_tracker.py, subtree_extractor.py, rg_flow_visualizer.py, plot_rg_flow_phase_diagrams.py::plot_beta_functions/plot_rg_trajectories.",
@@ -1488,7 +1506,7 @@
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
   "previous_entry": "REPLAN-05",
-  "quality_matrix": "QUALITY_MATRIX97.csv",
+  "quality_matrix": "QUALITY_MATRIX98.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4994,8 +5012,54 @@
     "status": "four_corrected_artifacts_one_partial_two_new_scoped_claims",
     "subsets": 43776
   },
-  "revision": "RESTORE97_20261128",
-  "scope": "Convergence: mixed partition entropy, purification and discord bounds, native entropy clock and reference thermodynamics",
+  "restore98": {
+    "CONVERGENCE98.json_sha256": "57b83ed8fabc88256c681eece2db7418898d1e22b61fb41c19409e12fcb895ca",
+    "DRIFT_WATCHDOG.md_sha256": "a98ed2c630c13a8f3e7ffc16cd4ba8ea158faace4910ce08ab1ed4595144741f",
+    "INDEPENDENT98.json_sha256": "0b3496a816effa5530345f309b46598150c6e4245d1c34773d5de9ba27b2b884",
+    "ITEM_CONVERGENCE98.json_sha256": "a2e03d14f624d439e7df3e1f68032c8aea5dc504a8c25c6331b02188b5a4552b",
+    "ITEM_RECONSTRUCTION98.json_sha256": "dd6fcbc55310d76fe8a1cb3b34d7727c4f6cd6ff038a64a29c1a603237226b5d",
+    "NEXT_DYNAMICS.md_sha256": "662011bb4aa16baec32d39d6779d0415572863f9ecf02ccaee7db4dc671d98d5",
+    "ORIGINAL_OUTPUT_EVIDENCE98.csv_sha256": "9dd637c9ef6c71add497a79f34ac11670ac82a4dcecb3cef2583fa34abb9631f",
+    "ORIGINAL_OUTPUT_PROGRESS98.csv_sha256": "bd5dd3548526fd36d882866f5a6e6d2d872046b30d98427df1170cf60d320715",
+    "ORIGINAL_OUTPUT_REPORT98.md_sha256": "0bddae29d40490ab299f971b142e26e31865f8031cc63ad6f448cb5480be5ea8",
+    "ORIGINAL_SOURCE98.json_sha256": "97c2db1fe10b098a4779b21bba0fee3b3fba753fc5f91db7d6f157156f0dca06",
+    "PLOT_INVENTORY98.csv_sha256": "5e902133e33783bbae4a738c9bbfe346b6b8b03149dc8ad47718f035522e38ee",
+    "PLOT_MANIFEST98.json_sha256": "19d26571f2968dcc53e6e4ec05e802bcf91f0d14740e876b168fddb76af83f5c",
+    "PROGRESS98.json_sha256": "b172a968d87006b18742c0ba250c26667d784a961ddbaf8d253e1b3465d14448",
+    "QUALITY_MATRIX98.csv_sha256": "cdb6cf8295f0399ca9a22ffcb864c85c8cf5371f6a478142f2f388358730fa5f",
+    "REGISTRATION.json_sha256": "dde9fcd7b85ba40fd4e5b846232e6c5685b3d363206fbef4a1d9ab229938ebc6",
+    "RG98.json_sha256": "be0ca72366b4493f007870cce59f188d447afa73ccda1054d8812fcdcdc78c8a",
+    "RG98.npz_sha256": "62afaf0091367bf6194d2ad38ad411495a71caede781fd7ce65a1452ee5d30a4",
+    "SUMMARY98.json_sha256": "d5744a63b909a555c81e9e0d19c739a1f05540343fd5b0b9759dc9279c87b28a",
+    "THEORY.md_sha256": "a3264369d690278ed6f91d5d342bb41e2c93ed29d14602c05b15eb1d47f0e04f",
+    "THEORY_REGISTERED98.md_sha256": "65e87c8a8ce935d33284642c2e8b0b4e8f3b0bea270058fc64ee210cafd08177",
+    "accepted_corrected_subclaims": 40,
+    "animations": 1,
+    "corrected_report_artifact_accepted": 52,
+    "cumulative_fixed_root_histories": 93336,
+    "derivative_cases": 2400,
+    "figures": 7,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_corrected_artifacts": 4,
+    "original_evidence_items": 5,
+    "original_evidence_union_R55_R98": 121,
+    "original_obligations": 121,
+    "parent_commit": "42ecf3f9b4611e46ce9b099ebedd4590c281966e",
+    "parent_dag_sha256": "0052c31147897e2f531eba7791a1af0d6218fb321a3de5a1088af11dc7fca1fd",
+    "prefix_rows": 10400,
+    "prefix_scale_rows": 62400,
+    "remaining": "69 corrected artifact obligations; Q10/Q36 partial; six open science claims; finite critical scaling outputs next.",
+    "retained_pairs": 741,
+    "reused_draws": 215040,
+    "reused_fixed_root_paths": 4320,
+    "status": "four_corrected_artifacts_one_partial_two_new_scoped_claims"
+  },
+  "revision": "RESTORE98_20261128",
+  "scope": "Convergence: exact finite native spatial pushforward, Fisher contraction and projected closure",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE97-ENTROPY-PARTITION-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE98-RG-OUTPUTS"
 }

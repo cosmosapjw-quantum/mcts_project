@@ -1,0 +1,13 @@
+{
+  "array_sha": "62afaf0091367bf6194d2ad38ad411495a71caede781fd7ce65a1452ee5d30a4",
+  "draws": 215040,
+  "elapsed_s": 244.40228908101562,
+  "fd_cases": 2400,
+  "paths": 4320,
+  "prefix_rows": 10400,
+  "scale_rows": 62400,
+  "scope": "Finite exact spatial pushforward and two-coordinate truncation, not full native dynamics",
+  "selection_scale_evaluations": 1290240,
+  "status": "PASS_SCOPED",
+  "strata": 400
+}
