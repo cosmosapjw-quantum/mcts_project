@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE102.json",
+  "convergence_ledger": "CONVERGENCE103.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -58,7 +58,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "X-MEMORY",
+  "entry": "REPLAN-01",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -121,7 +121,7 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R103 L03/L04/L05/L25/L26/L34 authentic temperature and typed measurement quality; inspect acceptance list",
+    "R104 L06/L08/L18/L32/L33 thermal and feedback legacy; inspect acceptance list",
     "Direct original reconstruction; no optimizer drift",
     "Six open science claims, Q10 Q36 Q19/Q20 partial"
   ],
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE103-LEGACY-MEASUREMENT-QUALITY",
+  "next_stage_id": "MQFT-RESTORE104-LEGACY-THERMAL-FEEDBACK",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -164,6 +164,21 @@
       "priority": "\uba3c\uc800",
       "record_repeat_followup": "RESTORE36: 256 new independent-seed native searches, 8192 backups, eight previous roots, 1024 verified tree cuts. No new games.",
       "remaining_scope": "Independent game distribution, fixed matched roots and trained evaluator remain separate design options.",
+      "restore103_followup": {
+        "accepted_subclaims": [
+          "MEASURE-LAW-29",
+          "MEASURE-PROJECTION-30",
+          "MEASURE-ENDOGENEITY-31"
+        ],
+        "artifact": "mqft_restore103_20261129/{ORIGINAL_OUTPUT_REPORT103.md,ITEM_RECONSTRUCTION103.json,CONVERGENCE103.json}",
+        "corrected_artifacts": [
+          "L05",
+          "L34"
+        ],
+        "evidence": "5280 raw receipts, 215040 selections and 30720 prior waves; 62400 projections and 5760 prior cuts; 50 heldout conditions and 3200 cross-history blocks",
+        "partial": [],
+        "remaining": "Independent physical energy and bath temperature calibration not identified."
+      },
       "restore37_followup": "Priority returns to original complete-game outputs; fixed-root and declared model measurements do not substitute for these.",
       "restore68_followup": {
         "artifact": "mqft_restore68_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,AUDIT68.json,DIAGNOSTICS68.json,TACTICAL68.json}",
@@ -206,6 +221,23 @@
       "prior_matched_temperature_evidence": "plots/matched_temperature.pdf; evidence/matched.json; 54 cases, 270 cuts",
       "priority": "\ud575\uc2ec",
       "remaining_scope": "actual new wave/VL and independent game calibration, nonstationary thermometer and physical Gibbs/KMS identification open",
+      "restore103_followup": {
+        "accepted_subclaims": [
+          "MEASURE-LAW-29",
+          "MEASURE-PROJECTION-30",
+          "MEASURE-ENDOGENEITY-31"
+        ],
+        "artifact": "mqft_restore103_20261129/{ORIGINAL_OUTPUT_REPORT103.md,ITEM_RECONSTRUCTION103.json,CONVERGENCE103.json}",
+        "corrected_artifacts": [
+          "L03",
+          "L04",
+          "L25",
+          "L26"
+        ],
+        "evidence": "5280 raw receipts, 215040 selections and 30720 prior waves; 62400 projections and 5760 prior cuts; 50 heldout conditions and 3200 cross-history blocks",
+        "partial": [],
+        "remaining": "Independent physical energy and bath temperature calibration not identified."
+      },
       "restore38_followup": "mqft_restore38_20261125/ORIGINAL_CROSSWALK.json; partial new longitudinal observables and matched-opening controls; no promotion of existing unresolved physical claims or selector admission.",
       "restore61_followup": {
         "artifact": "mqft_restore61_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,DIAGNOSTICS61.json,CONTROL_AUDIT61.json}",
@@ -1607,8 +1639,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-05",
-  "quality_matrix": "QUALITY_MATRIX102.csv",
+  "previous_entry": "X-MEMORY",
+  "quality_matrix": "QUALITY_MATRIX103.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -1773,6 +1805,59 @@
     "selection_events": 215040,
     "status": "seven_corrected_artifacts_one_partial_three_new_scoped_claims",
     "triple_cases": 306
+  },
+  "restore103": {
+    "CONVERGENCE103.json_sha256": "9e3cd8db94522437900c127353b8d35be09cd592057cc11e696005fa63fb7185",
+    "CROSS103.json_sha256": "811e9f02ef62677fec3133f6462eb518ab3717dc5053aceaa420f2ef2ae62ba9",
+    "CROSS_HISTORY_EXTENSION103.md_sha256": "57c8f92ecc6ad8f5587172fd7a5ba86d34fdd6baf6a2caddb03dd82993dee0c5",
+    "DRIFT_WATCHDOG.md_sha256": "afbc8060c6b521eb723822d54bdd31c56b6c05e0b2549ecfefd4b61e4780a236",
+    "FIT103.json_sha256": "c01d924a74bcf6acf53ed730ad3b22fe3cb5bccd9679b8ffda205685bf340631",
+    "INDEPENDENT103.json_sha256": "77a034fc54170c9e59da634df7ea06501baaec6f010df8e9e173f2b0e285cc9f",
+    "ITEM_CONVERGENCE103.json_sha256": "3027a0d8f4bf7f1844fa634da6255858de50a988899f32771054bdffd168586b",
+    "ITEM_RECONSTRUCTION103.json_sha256": "b426da84c982f8f23ed5202d74514b77fedce35b08cf51ab082d52df8b8f1c05",
+    "MEASURE103.json_sha256": "c3779f20ed4960e754646eb7544f869c6ab7491712eab8c8c05f664728d4048d",
+    "MEASURE103.npz_sha256": "c563551dccb48a6b19e3ab2f4d311597519894e70f622d52042d25fdb2269195",
+    "NEXT_DYNAMICS.md_sha256": "7451e5fce756c1396110744994aad83db81af11bfb2f21c8daa7e39c0c30c664",
+    "ORIGINAL_OUTPUT_EVIDENCE103.csv_sha256": "9f89fccbba050db699bcf46ac3d2b9a83c54e13b0aad310a735155167593aa40",
+    "ORIGINAL_OUTPUT_PROGRESS103.csv_sha256": "c0ebe7d478a6e25aa0d143bc02a381919c3308ed00af17ef3dafc6500a623807",
+    "ORIGINAL_OUTPUT_REPORT103.md_sha256": "0c84053565b346102e3c38f36dd8af28078c042039cf9f5fd5ccd111c9fe0433",
+    "ORIGINAL_SOURCE103.json_sha256": "0332539658f38af867155b1c6b90412c27abf7477bb4baa9d236a898a7a1cb04",
+    "PLOT_INVENTORY103.csv_sha256": "d9cb66731b0b2f010f827577640d6a8329c6d8021ffea02842e82c8d5206ce69",
+    "PLOT_MANIFEST103.json_sha256": "3c82933501f12c4a967f69cee1c85d6cc048bb9da628553ca2bbfb31c086ce70",
+    "PRIOR103.json_sha256": "9043f0b8391f2de8242601ee3bbd881c9ead9f7bde295c17d4304861f5e4f99a",
+    "PROGRESS103.json_sha256": "1e174ecddfa3f745afcec6f25f49fedc2d2c428bc0a29f7031ad5898e1b49aa3",
+    "QUALITY_MATRIX103.csv_sha256": "ffd6f1d52bc848cb03411d13ffb20b5a6ddf09226020e616cbdc0b8fdc9b8731",
+    "REGISTRATION.json_sha256": "aa863cf229218f283315a73798ec54b1dd3cc943ff9cea5ac7b8f9b9e887f143",
+    "SUMMARY103.json_sha256": "3351458c82ee6669c3c01ae326ac2bac44ea53c7b920ec7bc795fed62fafaa55",
+    "THEORY.md_sha256": "5d9194a1d45e224dd662e3e06f2ac7545237404536e856a2c305ac839222a18a",
+    "THEORY_REGISTERED103.md_sha256": "9a152fbe53309ea29fb5b4aae5afe8c59d2bdd2dd86e56abf8a493c165004097",
+    "accepted_corrected_subclaims": 55,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 84,
+    "cross_history_blocks": 3200,
+    "cumulative_fixed_root_histories": 93336,
+    "figures": 8,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "heldout_conditions": 50,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 3,
+    "new_corrected_artifacts": 6,
+    "original_evidence_items": 6,
+    "original_evidence_union_R55_R103": 121,
+    "original_obligations": 121,
+    "parent_commit": "d616961b37a8fee5751ab90e33231dc619e596df",
+    "parent_dag_sha256": "0765c470a4c8187764f5b7f1ae01cb2d6cf256f69b5d0a64e11591dccb495eda",
+    "prior_projection_cases": 5760,
+    "projection_cases": 62400,
+    "raw_receipts": 5280,
+    "remaining": "37 corrected artifact obligations; six open science claims; thermal/feedback legacy next.",
+    "retained_pairs": 788,
+    "reused_R79_paths": 960,
+    "reused_size_paths": 4320,
+    "selection_events": 215040,
+    "status": "six_corrected_artifacts_three_new_scoped_claims"
   },
   "restore41": {
     "common_backups": 10032,
@@ -5363,8 +5448,8 @@
     "reused_fixed_root_paths": 4320,
     "status": "five_corrected_artifacts_four_partial_three_new_scoped_claims"
   },
-  "revision": "RESTORE102_20261129",
-  "scope": "Convergence: nonstationary triple Markovization, heldout lag prediction and actual quiescent count law",
+  "revision": "RESTORE103_20261129",
+  "scope": "Convergence: conditional score identification, full-support projections and endogeneity",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE102-LEGACY-MARKOV-CLOSURE"
+  "supersedes_next": "MQFT-RESTORE103-LEGACY-MEASUREMENT-QUALITY"
 }

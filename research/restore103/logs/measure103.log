@@ -1,0 +1,6 @@
+MEASURE 13 2080 43008 864
+MEASURE 15 2080 86016 1728
+MEASURE 17 2080 129024 2592
+MEASURE 19 2080 172032 3456
+MEASURE 21 2080 215040 4320
+MEASURE DONE [[[0, 10393, 0, 7, 0, 0], [0, 10260, 5, 64, 0, 71]], [[0, 10399, 0, 1, 0, 0], [0, 10321, 1, 7, 0, 71]], [[0, 10400, 0, 0, 0, 0], [0, 10305, 0, 25, 0, 70]]] {'actual_probability': 1.687538997430238e-14, 'flat_law': 0.0, 'log_slope_residual': 2.842170943040401e-14, 'affine_gauge': 1.687538997430238e-14, 'score_slope': 1.9539925233402755e-14, 'frozen_scores': 0.0, 'endpoint_counts': 0.0, 'mixture_gap': 1.1234069230425803e-14, 'projection_generalized_Pythagoras': 9.237055564881302e-14, 'moment_matching': 6.84452494681409e-13, 'mixture_projection': 3.552713678800501e-14, 'R87_A': 0.0, 'R87_X': 0.0, 'R98_Fisher': 2.220446049250313e-16}

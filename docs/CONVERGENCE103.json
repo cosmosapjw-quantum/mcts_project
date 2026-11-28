@@ -1,0 +1,1271 @@
+{
+  "accepted_subclaims": 55,
+  "artifact_reconstruction_sha": "b426da84c982f8f23ed5202d74514b77fedce35b08cf51ab082d52df8b8f1c05",
+  "claims": [
+    {
+      "claim": "For fixed clean deterministic downstream transition maps and ideal conditional categorical root choices, the complete marked history measure is normalized and its action is minus summed log conditional probability. Final visit counts are not this action.",
+      "evidence": [
+        "mqft_restore80_20261127/THEORY.md",
+        "mqft_restore80_20261127/AUDIT80.json",
+        "mqft_restore80_20261127/FORCED_REPLAY80.json",
+        "mqft_restore80_20261127/RNG_AUDIT80.json",
+        "mqft_restore80_20261127/ORIGINAL_SOURCE80.json"
+      ],
+      "id": "STAT-ACTION-01",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Algorithmic ideal randomized law; 24 forced sequences checked. Not a universal theorem for stochastic evaluator or asynchronous scheduling; no physical quantum action.",
+      "stage": 80,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "On finite affinely spanning support, exact normalized log-MGF has positive definite tilted covariance; Legendre gradient and Hessian are dual and Gamma equals tilted relative entropy at image.",
+      "evidence": [
+        "mqft_restore80_20261127/THEORY.md",
+        "mqft_restore80_20261127/ACTION80.json",
+        "mqft_restore80_20261127/INDEPENDENT80.json"
+      ],
+      "id": "STAT-1PI-02",
+      "items": [
+        "L16",
+        "Q21",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Exact mathematical identity for fixed measure; 261 finite empirical source cases; true population law not known.",
+      "stage": 80,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed finite full-lattice law with compact tilts, local independent-replica bivariate saddle has determinant prefactor and explicit Wick correction with relative O(M^-2) remainder. All 180 registered finite cases evaluated; M256 maximum corrected relative error 3.07672e-5.",
+      "evidence": [
+        "mqft_restore80_20261127/THEORY.md",
+        "mqft_restore80_20261127/ACTION80.json",
+        "mqft_restore80_20261127/INDEPENDENT80.json",
+        "mqft_restore80_20261127/SUMMARY80.json"
+      ],
+      "id": "STAT-LOOP-03",
+      "items": [
+        "L16",
+        "Q21",
+        "Q43"
+      ],
+      "limit": "Replica M counts independent whole histories, not B or physical hbar. Uniform asymptotic constant not explicit; finite numerical comparison uses analytic alias control and separate numerical checks, not rigorous floating interval.",
+      "stage": 80,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A fixed reference-mixture generating function predicts arbitrary new geometry populations.",
+      "evidence": [
+        "mqft_restore80_20261127/ACTION80.json",
+        "mqft_restore80_20261127/SUMMARY80.json",
+        "mqft_restore82_20261127/SUMMARY82.json",
+        "mqft_restore82_20261127/TRANSFER82.json",
+        "mqft_restore84_20261127/SUMMARY84.json",
+        "mqft_restore84_20261127/TRANSFER84.json"
+      ],
+      "id": "STAT-TRANSFER-04",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Matched geometry predictions much better than novel geometry; Rapfi novel regular-grid RMSE 1.53661; cannot transfer without root-conditioned population model. No equivalence or autonomous closure claim.",
+      "restore82_update": "Root-only model meets registered criterion 5/6 family-cohort cells; Rapfi R81 lower gain CI negative, g0 fresh vs pool includes zero. H32 observed-prefix conditional forecasts improve in 6/6, distinct claim; absolute source errors remain well above split-half noise. No universal root-only transfer.",
+      "restore84_update": "New registered bounded pre-search transfer criterion passed all three evaluators on 48 independent roots, selected combined ridge vs strongest root-only ridge. Corrected claim STAT-PRESEARCH-07 accepted. Broad arbitrary-population prediction still not admitted; absolute W error, tail/coverage and finite landscape sufficiency limits remain. Retire repeated same feature grid and move to thermal/reverse.",
+      "stage": 80,
+      "status": "OPEN_GENERALIZATION"
+    },
+    {
+      "claim": "In the specified opt-in software selector, fixed equal-population opposite-phase preparations change actual fine-action selection laws; complete Z erasure removes sign dependence. Three sequential noncommuting measurement axes and order swap alter actual conditional law. The effect is operational for this algorithmic register.",
+      "evidence": [
+        "mqft_restore81_20261127/THEORY.md",
+        "mqft_restore81_20261127/AUDIT81.json",
+        "mqft_restore81_20261127/EFFECTS81.json",
+        "mqft_restore81_20261127/INDEPENDENT81.json",
+        "mqft_restore81_20261127/SUMMARY81.json"
+      ],
+      "id": "Q-OP-01",
+      "items": [
+        "L09",
+        "L20",
+        "Q24",
+        "Q42"
+      ],
+      "limit": "576 matched geometry-seed blocks, 3456 paths, bounded 12 active selections; no physical native quantum phase or quantum advantage. First-draw Rapfi observed-minus-pred pointwise CI excludes zero; final utility not established.",
+      "stage": 81,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "At fixed complete classical history, declared Kraus instrument and state-independent channel define a normalized adaptive hybrid CQ path law; the path likelihood ratio under changed intervention is exactly the product of same-history conditional probabilities. Independent unnormalized CP branch products verify 2592 alternate branch evaluations.",
+      "evidence": [
+        "mqft_restore81_20261127/THEORY.md",
+        "mqft_restore81_20261127/AUDIT81.json",
+        "mqft_restore81_20261127/EFFECTS81.json",
+        "mqft_restore81_20261127/INDEPENDENT81.json"
+      ],
+      "id": "Q-CAUSAL-02",
+      "items": [
+        "L16",
+        "L20",
+        "Q24",
+        "Q42",
+        "Q43"
+      ],
+      "limit": "Conditional map uses actual clean deterministic downstream semantics and explicit register; ideal categorical law, finite PRNG distinction. Importance estimates finite and uncertain; no all-geometry equivalence or full adaptive coherent record tomography.",
+      "stage": 81,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Actual adaptive coherent multi-time record state and objectivity/entanglement are identified by measured native trajectories.",
+      "evidence": [
+        "mqft_restore81_20261127/RECORD81.json",
+        "mqft_restore81_20261127/INDEPENDENT81.json",
+        "mqft_restore81_20261127/THEORY.md",
+        "mqft_restore83_20261127/SUMMARY83.json",
+        "mqft_restore83_20261127/RECORD83.json",
+        "mqft_restore83_20261127/FRAGMENTS83.json"
+      ],
+      "id": "Q-RECORD-03",
+      "items": [
+        "L15",
+        "Q25",
+        "Q35",
+        "Q37",
+        "Q45"
+      ],
+      "limit": "Explicit 3-time frozen model (72 contexts) has valid 27x27 density and causal diagonal, no detectable first/rest negativity. Not unique, not actual adaptive coherent recombination, PPT does not establish separability. Native records measured and classically reproducible; adaptive coherent branch extension and redundancy remain open.",
+      "restore83_update": "Actual branch-dependent coherent extension constructed for explicit 8-leaf selective tree and separate normalized pair-restricted protocol; observed diagonal law cannot identify unique dilation (history-tag counterexample). Native coherent recombination/objectivity not demonstrated; success mass tiny, fragment 90% packing absent. Original physical identification remains open.",
+      "stage": 81,
+      "status": "OPEN_ADAPTIVE_COHERENT_RECORD_IDENTIFICATION"
+    },
+    {
+      "claim": "Phase-sensitive register yields robust actual search decision quality or matched-cost game benefit.",
+      "evidence": [
+        "mqft_restore81_20261127/EFFECTS81.json",
+        "mqft_restore81_20261127/SUMMARY81.json"
+      ],
+      "id": "Q-UTILITY-04",
+      "items": [
+        "L16",
+        "Q45"
+      ],
+      "limit": "Native final signed mean mark reversal intervals include zero; recommendation disagreements not ground-truth utility. No games, no optimizer updates, no equal-time claim.",
+      "stage": 81,
+      "status": "OPEN_NOT_ADMITTED"
+    },
+    {
+      "claim": "For finite root-conditioned laws the population CGF is logsumexp of conditional CGFs and its Hessian exactly decomposes into within-root covariance plus between-root tilted mean covariance. Geometry mixture and intrinsic fluctuation must be distinguished.",
+      "evidence": [
+        "mqft_restore82_20261127/THEORY.md",
+        "mqft_restore82_20261127/TRANSFER82.json",
+        "mqft_restore82_20261127/INDEPENDENT82.json",
+        "mqft_restore82_20261127/SUMMARY82.json"
+      ],
+      "id": "STAT-MIX-05",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Exact mathematical identity and 261 authenticated empirical source cases; between-root fractions depend on coordinates, sampled population and tilt, no physical criticality or universal scale.",
+      "stage": 82,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the registered finite B128 clean evaluator laws, the H32 root+history conditioned weighted suffix forecast has lower proper joint energy score than both transported unconditional suffix and root-only kernel in all six external family-cohort cells; regular root CGF errors also smaller. Exact prefix count/mark bounds and joint donor dependence retained.",
+      "evidence": [
+        "mqft_restore82_20261127/THEORY.md",
+        "mqft_restore82_20261127/MODEL82.json",
+        "mqft_restore82_20261127/TRANSFER82.json",
+        "mqft_restore82_20261127/INDEPENDENT82.json",
+        "mqft_restore82_20261127/SUMMARY82.json"
+      ],
+      "id": "STAT-HISTORY-06",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "Two specific external cohorts, 24/32 geometry blocks; not a universal population guarantee, not pre-search prediction or autonomous closure. Root-only gate fails 1/6; history-only can be better than root+history; limited tail ESS and high absolute W error.",
+      "stage": 82,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "A branch-dependent coherent extension of the specified three-wave selective native history tree exists: product of actual K_i(H)^4 and bath Kraus, positive abort effect and complete stopped instrument, with all 576 native retained fine-history probabilities reproduced. A distinct source-restricted diagnostic protocol gives a normalized eight-outcome instrument using the same actual branch settings.",
+      "evidence": [
+        "mqft_restore83_20261127/THEORY.md",
+        "mqft_restore83_20261127/TREE83.json",
+        "mqft_restore83_20261127/RECORD83.json",
+        "mqft_restore83_20261127/INDEPENDENT83.json",
+        "mqft_restore83_20261127/SUMMARY83.json"
+      ],
+      "id": "Q-ADAPT-05",
+      "items": [
+        "L15",
+        "L16",
+        "L20",
+        "Q24",
+        "Q35",
+        "Q37",
+        "Q42",
+        "Q43"
+      ],
+      "limit": "Conditional on 72 actual H32 contexts; restricted all-four-identical source event. Actual replays are forced classical diagnostics. Coherent branch control and erased workspace are declared, not performed. Abort post-state not actual omitted-history reconstruction. Pair restriction/forced fillers not native event conditioning.",
+      "stage": 83,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Identical measured retained path probabilities and stopped classical law admit different explicit coherent record completions by retaining or tracing orthogonal history tags; the observed diagonal does not identify record coherence or entanglement. All 72 native-repeat and 72 diagnostic model contexts have nonzero readout contrast in a declared coherent completion; exact success-weighted bound retained.",
+      "evidence": [
+        "mqft_restore83_20261127/THEORY.md",
+        "mqft_restore83_20261127/RECORD83.json",
+        "mqft_restore83_20261127/FRAGMENTS83.json",
+        "mqft_restore83_20261127/FRAGMENT_AUDIT83.json",
+        "mqft_restore83_20261127/SUMMARY83.json"
+      ],
+      "id": "Q-DILATION-06",
+      "items": [
+        "L15",
+        "Q25",
+        "Q35",
+        "Q37",
+        "Q45"
+      ],
+      "limit": "Constructive nonidentifiability from the measured record alone in these declared models, not a physical impossibility of coherent controlled implementation. 31/72 native selective conditional states and 67/72 diagnostic states NPT in at least one split; native selective event very rare, no 90% disjoint fragment redundancy. Physical objectivity and actual operational record coherence remain open.",
+      "stage": 83,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the registered B128 clean search law and fixed evaluator families, adding deterministic full legal-child landscape to root-only predictive features improves proper joint energy score and regular root CGF RMSE over the strongest frozen development-selected static baseline on the new independent 48-root cohort. All three family cells meet the registered gate.",
+      "evidence": [
+        "mqft_restore84_20261127/THEORY.md",
+        "mqft_restore84_20261127/LANDSCAPE84.json",
+        "mqft_restore84_20261127/MODEL84.json",
+        "mqft_restore84_20261127/TRANSFER84.json",
+        "mqft_restore84_20261127/AUDIT84.json",
+        "mqft_restore84_20261127/INDEPENDENT84.json",
+        "mqft_restore84_20261127/SUMMARY84.json"
+      ],
+      "id": "STAT-PRESEARCH-07",
+      "items": [
+        "L16",
+        "Q32",
+        "G07"
+      ],
+      "limit": "104 development geometries and 48 new geometry blocks; additional direct child evaluations outside B128, residual transport has bounded/rounded support not exact native fine-history realizability, pointwise intervals, nonzero clipping and absolute W error, coverage and tail limits; no universal transfer or matched-cost utility.",
+      "stage": 84,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "A retained ordered native event ledger has an explicit inverse bookkeeping map; for a fixed quiescent native pulse wave, a normalized multinomial endpoint-deletion reverse reference induces the exact ordered categorical law. On a forward positive-hit postselection the finite RN IFT has correction 1-lambda, lambda equal reverse mass outside forward support.",
+      "evidence": [
+        "mqft_restore85_20261127/THEORY.md",
+        "mqft_restore85_20261127/NATIVE85.json",
+        "mqft_restore85_20261127/WAVE_SAMPLES85.npz",
+        "mqft_restore85_20261127/INDEPENDENT85.json",
+        "mqft_restore85_20261127/SUMMARY85.json"
+      ],
+      "id": "THERMO-LEDGER-01",
+      "items": [
+        "L18",
+        "Q19",
+        "Q21",
+        "Q23"
+      ],
+      "limit": "R74 2304 authenticated native records, 768 H32 contexts; auxiliary reverse and postselection distinct from original unconditioned native process. No reversible native engine state or physical dissipation identified.",
+      "stage": 85,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For a declared branch-driven finite feedback cycle with explicit Gibbs energy, heat-bath LDB, detector and reverse protocol, the exact path log ratio is b W/E* + pointwise information. Generalized IFT equals one minus reverse singular mass, with nontrivial perfect-measurement correction, and first-law/Jensen identities hold. Actual R73/R83 branch scores parameterize the finite model.",
+      "evidence": [
+        "mqft_restore85_20261127/THEORY.md",
+        "mqft_restore85_20261127/BRANCH_ENERGY85.json",
+        "mqft_restore85_20261127/THERMAL85.json",
+        "mqft_restore85_20261127/THERMAL_SAMPLES85.npz",
+        "mqft_restore85_20261127/INDEPENDENT85.json",
+        "mqft_restore85_20261127/SUMMARY85.json"
+      ],
+      "id": "THERMO-FEEDBACK-02",
+      "items": [
+        "L08",
+        "L18",
+        "L32",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q23"
+      ],
+      "limit": "832 declared cases, exact finite triples and independent auxiliary sampling; no feedback device or physical native reservoir executed. Work on system sign, record preparation/reset/controller cost excluded. No general work extraction; imperfect detector rare-weight estimation failures retained.",
+      "stage": 85,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A Gibbs one-time marginal alone cannot identify local detailed balance or stationary entropy production: positive cycle-flux kernels and detailed-balanced iid kernel share every tested actual frozen Gibbs marginal. Energy-temperature common rescaling also leaves the native dimensionless selection law invariant.",
+      "evidence": [
+        "mqft_restore85_20261127/THEORY.md",
+        "mqft_restore85_20261127/STATIONARY85.json",
+        "mqft_restore85_20261127/INDEPENDENT85.json",
+        "mqft_restore85_20261127/SUMMARY85.json"
+      ],
+      "id": "THERMO-ID-03",
+      "items": [
+        "L18",
+        "Q19",
+        "Q20",
+        "Q23"
+      ],
+      "limit": "768 actual frozen marginals, declared alternative kernels; not a claim that the alternative reproduces the authenticated native conditional transition law. Physical calibration remains absent.",
+      "stage": 85,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Actual native MCTS admits independently calibrated physical energy, temperature, reservoir heat and microscopic time reversal.",
+      "evidence": [
+        "mqft_restore85_20261127/THEORY.md",
+        "mqft_restore85_20261127/SUMMARY85.json",
+        "mqft_restore85_20261127/ORIGINAL_SOURCE85.json"
+      ],
+      "id": "THERMO-PHYSICAL-04",
+      "items": [
+        "L08",
+        "L18",
+        "L32",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q23"
+      ],
+      "limit": "Not established; original proposals explicitly reject natural physical energy. No independent physical bath/calibration or hardware-level reverse. Retire repetitive auxiliary fluctuation checks absent a new question.",
+      "stage": 85,
+      "status": "OPEN_PHYSICAL_IDENTIFICATION"
+    },
+    {
+      "claim": "For fixed quiescent history and width-four iid root law, the sector probability vector is sufficient and identifiable for the one-wave sector count law (multinomial). Equal coarse count/mark states need not give equal sector probability, with exact actual native witnesses. Full root N,W,prior and clock determine current PUCT root scores, not deeper mark dynamics.",
+      "evidence": [
+        "mqft_restore86_20261127/THEORY.md",
+        "mqft_restore86_20261127/AUDIT86.json",
+        "mqft_restore86_20261127/MEMORY86.json",
+        "mqft_restore86_20261127/COLLISION_WITNESSES86.json",
+        "mqft_restore86_20261127/INDEPENDENT86.json"
+      ],
+      "id": "MEM-SELECTOR-01",
+      "items": [
+        "L16",
+        "L39"
+      ],
+      "limit": "Fixed clean registered selectors and chosen sectors. Coarse pairs share same root/evaluator/time; no full root-count/NW collision in samples, so full-tree/mark sufficiency not established. Repeated pair counts not independent samples.",
+      "stage": 86,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For any fixed finite trajectory ensemble with clock-dependent coarse conditional projections, the exact two-time conditional propagator has a discrete nonstationary signed memory expansion; recursive kernels equal the orthogonal-residual projection products. Full recurrence exactly reconstructs the direct law.",
+      "evidence": [
+        "mqft_restore86_20261127/THEORY.md",
+        "mqft_restore86_20261127/MODEL86.json",
+        "mqft_restore86_20261127/MEMORY86.json",
+        "mqft_restore86_20261127/INDEPENDENT86.json",
+        "mqft_restore86_20261127/SUMMARY86.json"
+      ],
+      "id": "MEM-PROJECTION-02",
+      "items": [
+        "L16",
+        "L37",
+        "L38",
+        "L39"
+      ],
+      "limit": "Finite empirical projection, not autonomous Markov closure or a native microscopic memory force; no arbitrary population transfer. Truncated signed kernels may require simplex projection.",
+      "stage": 86,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Adaptive multinomial sector counts admit predictable compensation, exact quadratic variation and exponential martingale. Dyadic normalized compensated covariance equals expected averaged predictable covariance; no independent-wave assumption. Actual R76/R77 sector laws and frozen beta-zero reference verify the finite conditional identities.",
+      "evidence": [
+        "mqft_restore86_20261127/THEORY.md",
+        "mqft_restore86_20261127/SCALE86.json",
+        "mqft_restore86_20261127/AUTOCORRELATION86.json",
+        "mqft_restore86_20261127/INDEPENDENT86.json",
+        "mqft_restore86_20261127/SUMMARY86.json",
+        "mqft_restore87_20261128/ERRATUM86.json",
+        "mqft_restore87_20261128/THEORY.md"
+      ],
+      "id": "MEM-SCALE-03",
+      "items": [
+        "L38",
+        "L39"
+      ],
+      "limit": "Five finite sizes, two densities, three beta, separate cohorts. Empirical variance and exponential estimates not all calibrated; no native CLT, physical universality, stationary correlation time or spatial RG fixed point.",
+      "restore87_correction": "R49 startup is 1+1+2, not iid width4 for adaptive beta. Original theorem scoped to actual quiescent waves; per-selection conditional covariance/exponential compensator correct all startup cases. R86 D and cross-moments unchanged, replace predictable bracket and exponential summaries by ERRATUM86.json. R86 exact 81-string enumeration evaluated averaged probability, not actual adaptive startup. Historical files immutable.",
+      "stage": 86,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A controlled finite-memory closure of the native marked dynamics yields reliable multi-step transfer and a justified autonomous scale law.",
+      "evidence": [
+        "mqft_restore86_20261127/MEMORY86.json",
+        "mqft_restore86_20261127/SUMMARY86.json",
+        "mqft_restore86_20261127/THEORY.md"
+      ],
+      "id": "MEM-CLOSURE-04",
+      "items": [
+        "L16",
+        "L37",
+        "L38",
+        "L39"
+      ],
+      "limit": "Registered order-four endpoint Brier gate passes3/6 (all point estimates improve). No exact autonomous closure, no established sufficient minimal full tree state, no controlled long-memory cutoff or physical RG. Preserve partial predictive improvement and stop repeating same bin grid.",
+      "stage": 86,
+      "status": "OPEN_FINITE_MEMORY_PREDICTION_AND_AUTONOMOUS_CLOSURE"
+    },
+    {
+      "claim": "For fixed legal support, normalized categorical martingale innovation covariance is PSD, has constant-vector null mode, trace<=1-1/n and operator norm<=1/2, for arbitrary adapted conditional selection law and finite B. Scalar bounded mode variance <=range(f)^2/4. Actual per-selection R49 trace verified, including startup correction.",
+      "evidence": [
+        "mqft_restore87_20261128/THEORY.md",
+        "mqft_restore87_20261128/CRITICAL87.json",
+        "mqft_restore87_20261128/ERRATUM86.json",
+        "mqft_restore87_20261128/INDEPENDENT87.json",
+        "mqft_restore87_20261128/SUMMARY87.json"
+      ],
+      "id": "SCALE-BOUND-01",
+      "items": [
+        "L17",
+        "L26",
+        "L36",
+        "L37",
+        "L38",
+        "Q32"
+      ],
+      "limit": "Normalized innovation only; no claim excluding critical behavior in drift, extensive observables, length or a singular joint limit. R49 per-selection conditional law, not all first four IID.",
+      "stage": 87,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "A noninteracting categorical model with one score gap exhibits exact sigmoid collapse in beta*Delta-log(n-1), and a finite Gibbs concentration bound follows from score range. Actual finite-size score landscapes and declared log-size control tested separately from adaptive dynamics.",
+      "evidence": [
+        "mqft_restore87_20261128/THEORY.md",
+        "mqft_restore87_20261128/CRITICAL87.json",
+        "mqft_restore87_20261128/INDEPENDENT87.json",
+        "mqft_restore87_20261128/SUMMARY87.json"
+      ],
+      "id": "SCALE-ENTROPY-02",
+      "items": [
+        "L17",
+        "L26",
+        "L36",
+        "L37",
+        "L38"
+      ],
+      "limit": "Explicit counterexample to sufficiency of collapse as evidence of spatial criticality; not proof that all actual MCTS concentration is explained by this null. No physical temperature or scaling exponent.",
+      "stage": 87,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Native adaptive MCTS has a controlled spatial critical limit with consistent finite-size scaling and identified RG fixed point.",
+      "evidence": [
+        "mqft_restore87_20261128/CRITICAL87.json",
+        "mqft_restore87_20261128/SUMMARY87.json",
+        "mqft_restore87_20261128/THEORY.md"
+      ],
+      "id": "SCALE-CRITICAL-03",
+      "items": [
+        "L17",
+        "L26",
+        "L36",
+        "L37",
+        "L38",
+        "Q32"
+      ],
+      "limit": "Registered finite-size critical admission not established unless all predeclared comparisons pass; even a pass is descriptive and requires independent asymptotic mechanism. R76/R77 negative results and nonlumpability retained. No repeating same grid without new mechanism.",
+      "stage": 87,
+      "status": "OPEN_CONTROLLED_CRITICAL_LIMIT"
+    },
+    {
+      "claim": "On a finite graph, tree fixing reduces declared SU2 link gauge equivalence to simultaneous conjugacy of fundamental holonomies per connected component. Scalar and Gram invariants plus a nonzero oriented spanning triple if rank3 classify the tuple. Individual and pair commutator traces insufficient, explicit reflection counterexample.",
+      "evidence": [
+        "mqft_restore88_20261128/THEORY.md",
+        "mqft_restore88_20261128/GAUGE88.json",
+        "mqft_restore88_20261128/INDEPENDENT88.json",
+        "mqft_restore88_20261128/SUMMARY88.json"
+      ],
+      "id": "STRUCT-HOLONOMY-01",
+      "items": [
+        "L22"
+      ],
+      "limit": "48 actual legal graphs, declared links, 4005 loops, all rank3; no operational native SU2 field.",
+      "stage": 88,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Actual chronological prefix tree has H1=0, colored-set quotient can have undirected cycles while directed graph remains acyclic; lower-star legal graph and square-filled cubical complex yield different persistent H1. Minimax graph level equals earliest source-target sublevel connectivity, verified via Kruskal, threshold BFS and prior Dijkstra.",
+      "evidence": [
+        "mqft_restore88_20261128/THEORY.md",
+        "mqft_restore88_20261128/TOPOLOGY88.json",
+        "mqft_restore88_20261128/BARRIER88.json",
+        "mqft_restore88_20261128/INDEPENDENT88.json",
+        "mqft_restore88_20261128/PERSISTENCE_RANK88.json"
+      ],
+      "id": "STRUCT-PERSISTENCE-02",
+      "items": [
+        "L24",
+        "G20"
+      ],
+      "limit": "Fixed observed graph and score filtration, no continuum Morse stability or dynamical/physical topological phase.",
+      "stage": 88,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Native all-risk-set target first selection and same-side recovery are identifiable separately from declared coherent graph transport. All 3072 first-hit records and 16 historical games independently reduced; 96 graph references and controls reconstructed with explicit score, energy, width, exact scattering and dephasing.",
+      "evidence": [
+        "mqft_restore88_20261128/THEORY.md",
+        "mqft_restore88_20261128/BARRIER88.json",
+        "mqft_restore88_20261128/LANDSCAPE88.json",
+        "mqft_restore88_20261128/RECOVERY88.json",
+        "mqft_restore88_20261128/TRANSPORT88.json",
+        "mqft_restore88_20261128/INDEPENDENT88.json"
+      ],
+      "id": "STRUCT-BARRIER-03",
+      "items": [
+        "L10",
+        "G18",
+        "G19",
+        "G20",
+        "G21",
+        "G22"
+      ],
+      "limit": "Native categorical jumps are not spatial graph propagation, recovery censoring informative; assigned complex links and arbitrary energy/length scales not physically calibrated.",
+      "stage": 88,
+      "status": "ACCEPTED_CORRECTED_SCOPED"
+    },
+    {
+      "claim": "For the declared bit-flip repetition sign channel, the syndrome identifies complementary masks; equal-prior MAP residual is sum of smaller paired probabilities, majority optimal for p<=1/2 in iid/common mixture. Zero syndrome need not mean no error. Actual R67/R68 sign transport reauthenticated, conditioned success distinct from detection.",
+      "evidence": [
+        "mqft_restore89_20261128/THEORY.md",
+        "mqft_restore89_20261128/QEC89.json",
+        "mqft_restore89_20261128/NATIVE89.json",
+        "mqft_restore89_20261128/SUMMARY89.json",
+        "mqft_restore89_20261128/INDEPENDENT89.json"
+      ],
+      "id": "QEC-POSTERIOR-01",
+      "items": [
+        "L23",
+        "L21"
+      ],
+      "limit": "Classical sign channel with stated mask distribution and decoder. No phase/hardware correction or general game strength.",
+      "stage": 89,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For identical calibrated coherent X rotations on the explicit three-qubit repetition code, syndrome-conditioned logical Kraus operators are scalar times unitary, hence a known-angle conditional inverse restores any logical state. Ordinary recovered channel differs from Pauli-twirled repeated channel even at equal one-cycle entanglement fidelity.",
+      "evidence": [
+        "mqft_restore89_20261128/THEORY.md",
+        "mqft_restore89_20261128/QEC89.json",
+        "mqft_restore89_20261128/INDEPENDENT89.json"
+      ],
+      "id": "QEC-COHERENT-02",
+      "items": [
+        "L23",
+        "L21"
+      ],
+      "limit": "Exact declared auxiliary channel, ideal recovery, known noise angle; mismatch tested, arbitrary unknown noise or physical device not corrected. No superiority over direct calibrated physical inverse.",
+      "stage": 89,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For finite empirical P the Legendre rate is the constrained minimum KL; on an exposed face F it equals -log P(F) plus the conditional rate, with curvature inverse only on the affine tangent. Exact normal tilt residual is -log(1-off-face mass).",
+      "evidence": [
+        "THEORY.md",
+        "DUAL90.json",
+        "INDEPENDENT90.json"
+      ],
+      "id": "STAT-FACE-07",
+      "items": [
+        "L16"
+      ],
+      "limit": "Finite empirical law only; outside-support observations occur on independent native data. No universal native effective action or physical quantum claim.",
+      "stage": 90,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "In the declared cyclic feedback protocol the work MGF factors into diagonal plus rank-one heat-bath terms; independent enumeration reproduces moments and support-corrected IFT.",
+      "evidence": [
+        "THEORY.md",
+        "WORK90.json",
+        "INDEPENDENT90.json"
+      ],
+      "id": "THERMO-WORK-CGF-05",
+      "items": [
+        "Q21"
+      ],
+      "limit": "Declared finite Hamiltonian/protocol, arbitrary score energy units; no physical native thermodynamic calibration or control-cost inclusion.",
+      "stage": 90,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the specified Gibbs-start finite branch feedback and heat-bath refresh, beta <W>+I0 = Sigma_rel + D(r||p)+I1, with nonnegative conditional relaxation loss; signed step balance is marginal entropy increment minus mutual information increment minus beta heat. Independent measurement does not force zero final branch-state information.",
+      "evidence": [
+        "mqft_restore91_20261128/THEORY.md",
+        "mqft_restore91_20261128/THERMAL91.json",
+        "mqft_restore91_20261128/INDEPENDENT91.json"
+      ],
+      "id": "THERMO-SPLIT-06",
+      "items": [
+        "G04",
+        "G05",
+        "Q05",
+        "Q08"
+      ],
+      "limit": "Explicit declared finite reference; not native calibrated bath, physical entropy or controller reset cost. Same-agent algorithmic cross-check, 104 contexts.",
+      "stage": 91,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For n fixed legal sites and B>=2 iid categorical samples, E[m(X)]=1/B+(1-1/B)m(p), hence corrected collision m*=(B m(X)-1)/(B-1) is unbiased for m(p). For adapted selectors pair probability is E[p_t(a_s)] for s<t, not an iid probability product; the correction is a realized collision statistic, not generally an unbiased adaptive concentration estimator.",
+      "evidence": [
+        "mqft_restore92_20261128/THEORY.md",
+        "mqft_restore92_20261128/SCALE92.json.gz",
+        "mqft_restore92_20261128/SUMMARY92.json",
+        "mqft_restore92_20261128/INDEPENDENT92.json"
+      ],
+      "id": "SCALE-COLLISION-04",
+      "items": [
+        "G06",
+        "G09",
+        "Q31"
+      ],
+      "limit": "Finite n,B, fixed legal support, exact iid enumeration n3 B4 two laws; actual adaptive results descriptive, no symmetry-breaking limit.",
+      "stage": 92,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed legal sites, ordered squared-displacement shell masses of predictable categorical covariance sum to zero, with nonpositive off-diagonal masses and exact distance moment -sum_d d C_d=2 mean_t Var_{p_t}(position). Empirical raw covariance splits into drift, innovation and cross, shellwise and at fixed clocks; compensated time innovations have zero population off-lag covariance without stationarity.",
+      "evidence": [
+        "mqft_restore92_20261128/THEORY.md",
+        "mqft_restore92_20261128/SCALE92.json.gz",
+        "mqft_restore92_20261128/SUMMARY92.json",
+        "mqft_restore92_20261128/INDEPENDENT92.json"
+      ],
+      "id": "SCALE-SHELL-05",
+      "items": [
+        "G08",
+        "G09",
+        "Q29",
+        "Q31"
+      ],
+      "limit": "Native finite conditional categorical laws and repeated-root sample covariance; geometric spread not physical xi; finite sample pointwise deviations not universal autocorrelation; same-agent direct methods.",
+      "stage": 92,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For finite common-kernel full-support quiescent categorical histories, source-path score S_s and bracket V_s yield first response E[Y S_s] and Hessian E[Y(S_s S_u-delta_su V_s)]. Hit response is causal, with exact contact E[q_s(1-q_s)] and future history-mediated E[q_t S_s]. Measurable prehistory anchors preserve finite odd/even contrast expectations.",
+      "evidence": [
+        "mqft_restore93_20261128/THEORY.md",
+        "mqft_restore93_20261128/RESPONSE93.json",
+        "mqft_restore93_20261128/INDEPENDENT93.json"
+      ],
+      "id": "RESP-KERNEL-01",
+      "items": [
+        "G10",
+        "G11",
+        "G12"
+      ],
+      "limit": "Finite specified ideal randomized law, four quiescent draws per wave, source-independent downstream at fixed history; independent exact rational examples, direct pulse only wave8; not physical equilibrium FDT or universal variance reduction.",
+      "stage": 93,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For equal mixture of two finite common-support prefix path laws, exact RN contrast uses bounded weights w_F=2 sigmoid(log(P_F/P_C)), w_C=2-w_F. Equal per-arm independent samples yield stratified unbiased finite contrast for source-independent observables. Actual R66 comparisons retain overlap and sampling discrepancies.",
+      "evidence": [
+        "mqft_restore93_20261128/THEORY.md",
+        "mqft_restore93_20261128/RESPONSE93.json",
+        "mqft_restore93_20261128/INDEPENDENT93.json"
+      ],
+      "id": "RESP-MIXTURE-02",
+      "items": [
+        "G11",
+        "G12"
+      ],
+      "limit": "Standard importance-weight identity applied and verified here, no novelty or independent estimator superiority claim. R66 schedules separate from R74, no reverse dynamics or equilibrium assumption.",
+      "stage": 93,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the specified efficient grouped square-root qubit instrument, its nonselective map fixes the measured longitudinal Bloch component and contracts transverse components by gamma. Pointer readout TV=m lambda. Purification concavity gives mean selective entropy no larger than prepared entropy, while unital measurement increases unselective entropy; their difference is the Holevo balance. A frozen noncommuting sequence minimizes final pure-input entropy along its largest right singular direction.",
+      "evidence": [
+        "mqft_restore94_20261128/THEORY.md",
+        "mqft_restore94_20261128/NATIVE94.json",
+        "mqft_restore94_20261128/NATIVE94.npz",
+        "mqft_restore94_20261128/INDEPENDENT94.json"
+      ],
+      "id": "Q-INSTRUMENT-07",
+      "items": [
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G17"
+      ],
+      "limit": "Explicit instrument, fixed-history local channel and frozen sequence only. Actual selected entropy may increase or decrease; no global adaptive unselective law, native physical pointer or novelty claim.",
+      "stage": 94,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the specified branch-dependent coherent extension, each continuing prefix joint S-record matrix is a positive Gram product of Kraus path amplitudes with a mixed-input purifier. Its normalized system marginal equals the direct CP continuing density recurrence; accumulated complement failures restore trace one for the stopped system. Prefix survival normalization is not final postselection. Entropy of the joint SR equals the Schmidt entropy across SR versus bath-plus-purifier, not S-record entanglement alone.",
+      "evidence": [
+        "mqft_restore94_20261128/THEORY.md",
+        "mqft_restore94_20261128/RECORD94.json",
+        "mqft_restore94_20261128/INDEPENDENT94.json"
+      ],
+      "id": "Q-PREFIX-08",
+      "items": [
+        "G14",
+        "G16",
+        "G17"
+      ],
+      "limit": "Declared common bath convention, native-repeat and pair-diagnostic distinct; no identification of actual coherent branch state or physical Darwinism from measured diagonal outcomes.",
+      "stage": 94,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For the declared current-prefix coherent record extension, product local record tag channels preserve all computational diagonals; full tag gives a fully separable mixture, even when classical MI persists. Named pairwise reductions and all joint cuts distinguish NPT from classical correlation. The two-qubit CHSH maximum is realized by explicit local SVD directions; success-weighted excess is an indicator, not an unconditional native Bell result.",
+      "evidence": [
+        "mqft_restore95_20261128/THEORY.md",
+        "mqft_restore95_20261128/ENTANGLE95.json",
+        "mqft_restore95_20261128/JOINT95.npz",
+        "mqft_restore95_20261128/INDEPENDENT95.json"
+      ],
+      "id": "Q-WITNESS-09",
+      "items": [
+        "G23",
+        "G24",
+        "G25",
+        "G26",
+        "G27"
+      ],
+      "limit": "Known entanglement criteria applied to finite declared model; actual native coherent state and physical independent settings unestablished; no novelty claim.",
+      "stage": 95,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For lambda0 on the registered branch settings and common bath convention, each Kraus path is a scalar sqrt(w_h) times a branch-independent free product. The conditional joint state factors into the pure coherent probability-amplitude record tensor system marginal. A dependent classical probability table can therefore yield nonzero record entanglement and large record-record CHSH while system-record entanglement is exactly zero. This control is distinct from full record tagging.",
+      "evidence": [
+        "mqft_restore95_20261128/THEORY.md",
+        "mqft_restore95_20261128/BASE_CONTROL95.json",
+        "mqft_restore95_20261128/ENTANGLE95.json",
+        "mqft_restore95_20261128/JOINT95.npz"
+      ],
+      "id": "Q-BASE-10",
+      "items": [
+        "G24",
+        "G26",
+        "G27"
+      ],
+      "limit": "Finite counterfactual harvested plus81 node settings, not actual native baseline law or experimental Bell test. Verified 432 positive-depth cases; no general physical advantage.",
+      "stage": 95,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For a binary pointer ensemble and any POVM, classical common-overlap decomposition yields I(X:Y)<=H(X) TV(P0,P1)<=H(X) D(rho0,rho1). Together with Holevo and explicit projective candidates this bounds unrestricted accessible information. In the registered dataset the TV bound did not tighten Holevo at tolerance, and attainable candidates improved Z information in 10670 of 25920 evaluations.",
+      "evidence": [
+        "mqft_restore96_20261128/THEORY.md",
+        "mqft_restore96_20261128/DARWIN96.json",
+        "mqft_restore96_20261128/SUMMARY96.json",
+        "mqft_restore96_20261128/INDEPENDENT96.json"
+      ],
+      "id": "Q-ACCESS-11",
+      "items": [
+        "Q25",
+        "Q28"
+      ],
+      "limit": "Finite specified binary ensembles, no claimed unrestricted POVM optimum or new general theorem; no native physical objectivity.",
+      "stage": 96,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Exact disjoint packing from lower and upper fragment information bounds gives a certified cardinality interval. For H>1e-6 and 90% threshold, no two qualifying fragments are possible for either registered pointer in final plus81 xi1. All 18 attained two-fragment conditions are six native-repeat base81 contexts at three tags; one extra unresolved condition. System-Z has no possible two-fragment packing in any registered condition.",
+      "evidence": [
+        "mqft_restore96_20261128/THEORY.md",
+        "mqft_restore96_20261128/DARWIN96.json",
+        "mqft_restore96_20261128/SUMMARY96.json",
+        "mqft_restore96_20261128/INDEPENDENT96.json"
+      ],
+      "id": "Q-PACK-12",
+      "items": [
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q28"
+      ],
+      "limit": "Finite conditional model, not a universal no-go. Lambda0 counterfactual uses harvested plus settings; repeated tags not independent contexts; degeneracy and success weights retained.",
+      "stage": 96,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For any retained subset A of the declared current-prefix density, the canonical purification sqrt(rho) gives squared Schmidt values equal to the eigenvalues of rho_A across A:(BE). This is not original mixed A:B entanglement. Of 19008 cuts, 10260 NPT, 5674 negative conditional entropy witnesses, and 4586 NPT with nonnegative conditional entropies. All 36288 CMI values satisfy SSA within numerical tolerance. Product/dephase relative entropy identities checked with marginal log support.",
+      "evidence": [
+        "mqft_restore97_20261128/THEORY.md",
+        "mqft_restore97_20261128/ENTROPY97.json",
+        "mqft_restore97_20261128/ENTROPY97.json.gz",
+        "mqft_restore97_20261128/INDEPENDENT97.json"
+      ],
+      "id": "ENT-PART-13",
+      "items": [
+        "Q35",
+        "Q36",
+        "Q40"
+      ],
+      "limit": "Named finite conditional model, not physical native entanglement or area-law scaling. No general new theorem.",
+      "stage": 97,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "One-sided qubit discord lies between max(0,S(B)-S(AB)) and I-J_best for explicitly measured projective candidates, with Z-Z classical MI<=J_Z<=J_best. Across 15552 cases 4338 improve Z, mean fixed gap .13103674 nat and mean attainable upper .08495533 nat. R68 visit entropy and R91 fixed-spectrum thermodynamic identities are separate estimands.",
+      "evidence": [
+        "mqft_restore97_20261128/THEORY.md",
+        "mqft_restore97_20261128/SUMMARY97.json",
+        "mqft_restore97_20261128/NATIVE_THERMAL97.json",
+        "mqft_restore97_20261128/INDEPENDENT97.json"
+      ],
+      "id": "Q-DISCORD-14",
+      "items": [
+        "Q37",
+        "Q39",
+        "Q40"
+      ],
+      "limit": "Not unrestricted POVM optimum or native causal information flow, no bath, physical temperature or FDT. Independent clocks and populations retained.",
+      "stage": 97,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For specified nested dyadic map and fixed legal reference, exact induced block log-density is conditional logsumexp, KL loss equals conditional KL and frozen score Fisher loss equals conditional variance of retained score means. All 215040 actual recorded selection laws, 10400 prefix rows, six scales and 2400 derivative stencil cases checked.",
+      "evidence": [
+        "mqft_restore98_20261128/THEORY.md",
+        "mqft_restore98_20261128/RG98.json",
+        "mqft_restore98_20261128/RG98.npz",
+        "mqft_restore98_20261128/INDEPENDENT98.json"
+      ],
+      "id": "RG-PUSH-15",
+      "items": [
+        "Q09",
+        "Q11",
+        "Q12",
+        "Q13"
+      ],
+      "limit": "Fixed recorded histories and finite legal action probability; not actual altered-beta path response, continuum QFT or physical RG fixed point.",
+      "stage": 98,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Exact two-cosine log-coordinate closure fails for explicit checkerboard vs uniform with equal slopes. Actual native finite one-step projected push TV max 0.978761774; rank-two next coupling mismatches 27648/37440 and iterated projection TV max 0.98196938; beta0 uniform control retained.",
+      "evidence": [
+        "mqft_restore98_20261128/THEORY.md",
+        "mqft_restore98_20261128/SUMMARY98.json",
+        "mqft_restore98_20261128/RG98.npz",
+        "mqft_restore98_20261128/INDEPENDENT98.json"
+      ],
+      "id": "RG-PROJECTION-16",
+      "items": [
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q13"
+      ],
+      "limit": "Only designated two-coordinate truncation and registered finite dataset; no impossibility of richer closure or population critical inference.",
+      "stage": 98,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Exact peak-tail KL and concentration decompositions for positive finite categorical distributions; all 10400 actual prefix mixtures, 62400 dyadic rows, 41600 one-draw moments checked. Tail KL >1e-9 in 7680 prefixes, mean tail fraction .406062 among KL>1e-12, max matched-peak TV .755110. X Binder undefined86 retained.",
+      "evidence": [
+        "mqft_restore99_20261129/THEORY.md",
+        "mqft_restore99_20261129/SCALE99.json",
+        "mqft_restore99_20261129/SCALE99.npz",
+        "mqft_restore99_20261129/SUMMARY99.json",
+        "mqft_restore99_20261129/INDEPENDENT99.json"
+      ],
+      "id": "SCALE-TAIL-17",
+      "items": [
+        "Q16",
+        "Q31",
+        "Q34"
+      ],
+      "limit": "Peak-matched diagnostic, not independent prediction of M; no physical order parameter or interaction identification.",
+      "stage": 99,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Noninteracting one-spike categorical law has exact shifted sigmoid collapse, finite score Fisher peak and centered Bernoulli U4=2/3 at half mass. 96 development-only fits, 4536 grid candidates, 48 L21 external comparisons; critical-width beats all three alternatives 12/48, h64 3/16, one paired pointwise improvement against development-selected noncritical model. No universal exponent or impossibility claim.",
+      "evidence": [
+        "mqft_restore99_20261129/THEORY.md",
+        "mqft_restore99_20261129/FITS99.json",
+        "mqft_restore99_20261129/SUMMARY99.json",
+        "mqft_restore99_20261129/INDEPENDENT99.json"
+      ],
+      "id": "SCALE-CROSSOVER-18",
+      "items": [
+        "Q14",
+        "Q15",
+        "Q16",
+        "Q17",
+        "Q18",
+        "Q30",
+        "Q34"
+      ],
+      "limit": "Existing independent cohorts previously studied; finite score-control design, no calibrated transition or multiplicity-adjusted inference.",
+      "stage": 99,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For named one-draw categorical law W(J)=log E exp(Jf), Gamma(m(J))=Jm-W=D(p_J||p), W=Var(f)>0 and derivative of dual fixed by J. 104000 actual A/peak-matched source evaluations with direct KL residual2.484e-15.",
+      "evidence": [
+        "mqft_restore99_20261129/THEORY.md",
+        "mqft_restore99_20261129/EFFECTIVE_ACTION_EXTENSION99.md",
+        "mqft_restore99_20261129/ACTION99.json",
+        "mqft_restore99_20261129/ACTION99.npz",
+        "mqft_restore99_20261129/INDEPENDENT99.json"
+      ],
+      "id": "SCALE-ACTION-19",
+      "items": [
+        "Q16",
+        "Q34"
+      ],
+      "limit": "Categorical one-draw Legendre dual, not path-space or physical QFT 1PI effective action. Post-initial-run extension documented.",
+      "stage": 99,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "On full legal support with normalized predictable q, exp(-Sigma) is a mean-one likelihood-ratio martingale and cumulative conditional KL is its log-ratio compensator. Actual 4320 histories, 215040 root choices, 10400 prefixes and two comparisons checked; finite log sample IFT may be as low as -314.777, no equality imposed. Score switch and action change telescope exactly.",
+      "evidence": [
+        "mqft_restore100_20261129/THEORY.md",
+        "mqft_restore100_20261129/NATIVE100.json",
+        "mqft_restore100_20261129/NATIVE100.npz",
+        "mqft_restore100_20261129/INDEPENDENT100.json"
+      ],
+      "id": "NATIVE-LR-20",
+      "items": [
+        "Q01",
+        "Q06",
+        "Q07"
+      ],
+      "limit": "Native path likelihood against a comparator, not physical time reversal, work, heat or bath entropy.",
+      "stage": 100,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For declared Gibbs-start two-quench detailed-balance refresh protocol and properly ordered reverse, exact F/R ratio exp(beta(W-DeltaF)) and Jarzynski hold. 312 reference cases on 104 authenticated score spectra, 2555904 independent auxiliary draws; independent mixture/estimator checks, work cumulants and finite dual; final sample failures retained.",
+      "evidence": [
+        "mqft_restore100_20261129/THEORY.md",
+        "mqft_restore100_20261129/THERMAL100.json",
+        "mqft_restore100_20261129/THERMAL_SAMPLES100.npz",
+        "mqft_restore100_20261129/SUMMARY100.json",
+        "mqft_restore100_20261129/INDEPENDENT100.json"
+      ],
+      "id": "THERMO-DRIVE-21",
+      "items": [
+        "Q01",
+        "Q07",
+        "Q19",
+        "Q20",
+        "Q22",
+        "Q23",
+        "Q38"
+      ],
+      "limit": "Explicit finite reference only; no native calibrated work/heat, physical bath or asymptotic large deviation inference.",
+      "stage": 100,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For scaled-spectrum periodic two-reservoir reference with equal partial refresh r and scale a, y-x=r/(2-r)(ph-pc), Wout=(a-1)d, eta=1-1/a, below Carnot in declared regime. All 624 periodic cases checked by independent iteration and analytic heat formula; finite/ideal output attenuation r/(2-r).",
+      "evidence": [
+        "mqft_restore100_20261129/THEORY.md",
+        "mqft_restore100_20261129/THERMAL100.json",
+        "mqft_restore100_20261129/SUMMARY100.json",
+        "mqft_restore100_20261129/INDEPENDENT100.json"
+      ],
+      "id": "THERMO-CYCLE-22",
+      "items": [
+        "Q03",
+        "Q04",
+        "Q06",
+        "Q07",
+        "Q38"
+      ],
+      "limit": "Reference cycle with explicit reservoirs, not actual MCTS heat engine, Carnot implementation or coherence enhancement.",
+      "stage": 100,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed finite empirical path law W(J,h), gradient is tilted mean, Hessian covariance, dual is KL and mixed source derivative is covariance with normalized path score. 2160 cases, 1935 rank4 and225 rank3, 192 exact linear source restrictions, disjoint rep halves. Ordinary correlation differs from causal response (exact rational counterexample). Heldout joint vs factorized paired intervals all include zero.",
+      "evidence": [
+        "mqft_restore101_20261129/THEORY.md",
+        "mqft_restore101_20261129/FIELD101.json",
+        "mqft_restore101_20261129/SUMMARY101.json",
+        "mqft_restore101_20261129/INDEPENDENT101.json"
+      ],
+      "id": "FIELD-PATH-23",
+      "items": [
+        "Q43",
+        "Q45"
+      ],
+      "limit": "Finite empirical tilted path law, not physical QFT, continuum 1PI or new-root transfer.",
+      "stage": 101,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "41472 actual history-conditioned local programmed maps verified by complex Kraus and independent Choi. Fixed-axis generator in unit selection segment kappa=-ln gamma/2; singular erase and 4608 noncommuting order cases retained. Unit-action visibility proxy finite34560/singular6912, same-X dephased vs pure rotation trace distance sqrt(1-gamma^2)/2; no physical hbar.",
+      "evidence": [
+        "mqft_restore101_20261129/THEORY.md",
+        "mqft_restore101_20261129/QUANTUM101.json",
+        "mqft_restore101_20261129/QUANTUM101.npz",
+        "mqft_restore101_20261129/SUMMARY101.json",
+        "mqft_restore101_20261129/INDEPENDENT101.json"
+      ],
+      "id": "Q-CP-MAP-24",
+      "items": [
+        "Q41",
+        "Q42",
+        "Q44",
+        "Q45",
+        "L09",
+        "L20"
+      ],
+      "limit": "Frozen local nonselective sequence at actual histories not global adaptive unselective dynamics or a physical Lindblad generator.",
+      "stage": 101,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "5184 declared current-prefix complex joint states; local record phase tag leaves computational diagonal, joint spectrum and system-record NPT invariant but changes fixed Hadamard readout in3456 cases. Independent complex Gram amplitude verifies readout; system-record NPT1728. Native-repeat conditional and success-weighted phase TV distinct from pair diagnostic.",
+      "evidence": [
+        "mqft_restore101_20261129/THEORY.md",
+        "mqft_restore101_20261129/QUANTUM101.json",
+        "mqft_restore101_20261129/SUMMARY101.json",
+        "mqft_restore101_20261129/INDEPENDENT101.json"
+      ],
+      "id": "Q-PHASE-TAG-25",
+      "items": [
+        "Q43",
+        "Q45",
+        "L11"
+      ],
+      "limit": "Explicit declared record density and fixed readout, not native coherent hardware, observed physical path amplitudes or physical entanglement.",
+      "stage": 101,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Exact three-time Markovization Q=P_ab P_c|b preserves adjacent marginals, KL(P||Q)=CMI, weighted CK TV<=joint TV<=sqrt(CMI/2). XOR CK0 with CMI ln2, and exact time-dependent Markov control. 306 root-balanced triples and17952 root-specific triples checked; exact hypergeometric finite-sample conditional-permutation expectation retained.",
+      "evidence": [
+        "mqft_restore102_20261129/THEORY.md",
+        "mqft_restore102_20261129/MARKOV102.json",
+        "mqft_restore102_20261129/CMI_NULL102.json",
+        "mqft_restore102_20261129/INDEPENDENT102.json"
+      ],
+      "id": "MEM-TRIPLE-26",
+      "items": [
+        "L40",
+        "L48",
+        "L49"
+      ],
+      "limit": "Finite empirical distributions, root mixture and plug-in bias; no population Markov order or universal exact closure.",
+      "stage": 102,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Fixed 9-state development-only hierarchical clock-conditioned lag2 model improves clock1 on both previously independent root cohorts for all three evaluators, all6 pointwise paired intervals for log loss and Brier positive. Direct vs clock-composed multistep positive point gains18/18, intervals17/18 each. Independent verification165888 path/start/horizon cases; homogeneous model better than lag2 for g3 NLL.",
+      "evidence": [
+        "mqft_restore102_20261129/THEORY.md",
+        "mqft_restore102_20261129/MARKOV102.json",
+        "mqft_restore102_20261129/STATE102.npz",
+        "mqft_restore102_20261129/SUMMARY102.json",
+        "mqft_restore102_20261129/INDEPENDENT102.json"
+      ],
+      "id": "MEM-PREDICT-27",
+      "items": [
+        "L40",
+        "L43",
+        "L48",
+        "L49"
+      ],
+      "limit": "Previously acquired heldout roots, fixed smoothing and state bins, pointwise unadjusted intervals; no new campaign, universal order or closure.",
+      "stage": 102,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For predictable inner-sector p, D=X-p is a martingale difference; genuine width4 frozen-law count has exact binomial moments. Actual 4320 paths/215040 selections,49440 waves,160 strata,6080 root/lag conditions,755 undefined normalized covariances. Clock covariance split and startup1+1+2 defect verified;16/160 pointwise pair residual intervals exclude0 retained.",
+      "evidence": [
+        "mqft_restore102_20261129/THEORY.md",
+        "mqft_restore102_20261129/LAG102.json",
+        "mqft_restore102_20261129/SELECTION102.npz",
+        "mqft_restore102_20261129/SUMMARY102.json",
+        "mqft_restore102_20261129/INDEPENDENT102.json"
+      ],
+      "id": "MEM-LAG-28",
+      "items": [
+        "L39",
+        "L41",
+        "L42",
+        "L44",
+        "L48",
+        "L49"
+      ],
+      "limit": "Finite algorithmic selection clock, not stationary exponential decay or physical environment/system relaxation.",
+      "stage": 102,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Exact centered score/log-probability slope on nonflat legal support; affine score gauge preserves conditional probabilities, so independent physical energy calibration is required. Actual R87 215040 selections,210720 identifiable and4320 flat; R79 30720 waves,29760 identifiable and960 flat; controlled B16 training selects the programmed slope for all8 conditions, Q-only NLL worse in all36 nonzero-control L21 pointwise comparisons.",
+      "evidence": [
+        "mqft_restore103_20261129/THEORY.md",
+        "mqft_restore103_20261129/MEASURE103.json",
+        "mqft_restore103_20261129/PRIOR103.json",
+        "mqft_restore103_20261129/FIT103.json",
+        "mqft_restore103_20261129/INDEPENDENT103.json"
+      ],
+      "id": "MEASURE-LAW-29",
+      "items": [
+        "L03",
+        "L05",
+        "L25",
+        "L34"
+      ],
+      "limit": "Algorithmic conditional score law, not physical temperature or hypothetical policy trajectories; existing independent cohorts.",
+      "stage": 103,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed legal feature f, KL projection onto softmax(b f) obeys moment matching and constrained Pythagorean correction; temporal mixture gap separates changing laws from static projection residual. 62400 projections, all independently bisected; 62078 interior,110 finite-bound,212 support-face; 64 scaling fits, development-selected fresh L21 B64 wins/ties6/16 including two trivial uniform A controls (4/14 nontrivial).",
+      "evidence": [
+        "mqft_restore103_20261129/THEORY.md",
+        "mqft_restore103_20261129/MEASURE103.json",
+        "mqft_restore103_20261129/MEASURE103.npz",
+        "mqft_restore103_20261129/FIT103.json",
+        "mqft_restore103_20261129/SUMMARY103.json",
+        "mqft_restore103_20261129/INDEPENDENT103.json"
+      ],
+      "id": "MEASURE-PROJECTION-30",
+      "items": [
+        "L03",
+        "L04",
+        "L05",
+        "L25",
+        "L26",
+        "L34"
+      ],
+      "limit": "Fixed feature and finite signed bounded slope, no population or physical temperature scaling.",
+      "stage": 103,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Predictable visit residual E(X-A)=0; across independent repeats cross feature moment has expectation zero, self-feature moment need not. Exact self-minus-cross empirical covariance identity tested across3200 root/stratum blocks and26400 ordered pairs. Fresh dense beta0 endpoint-Q mean self -.284899 vs cross -.010665; constructed uniform two-action example attains infinite signed projection despite beta0.",
+      "evidence": [
+        "mqft_restore103_20261129/THEORY.md",
+        "mqft_restore103_20261129/CROSS_HISTORY_EXTENSION103.md",
+        "mqft_restore103_20261129/CROSS103.json",
+        "mqft_restore103_20261129/SUMMARY103.json",
+        "mqft_restore103_20261129/INDEPENDENT103.json"
+      ],
+      "id": "MEASURE-ENDOGENEITY-31",
+      "items": [
+        "L05",
+        "L25",
+        "L34"
+      ],
+      "limit": "Post-main-run diagnostic, ordered pairs not independent, no claim of zero bias from finite samples; not negative physical temperature.",
+      "stage": 103,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "corrected_report_artifacts_accepted": [
+    "L31",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "L10",
+    "L22",
+    "L24",
+    "L21",
+    "L23",
+    "G03",
+    "G07",
+    "L16",
+    "Q21",
+    "Q32",
+    "G01",
+    "G02",
+    "G04",
+    "G05",
+    "Q05",
+    "Q08",
+    "G06",
+    "G08",
+    "G09",
+    "Q29",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G14",
+    "G15",
+    "G16",
+    "G17",
+    "G23",
+    "G24",
+    "G25",
+    "G26",
+    "G27",
+    "Q24",
+    "Q25",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q35",
+    "Q37",
+    "Q39",
+    "Q40",
+    "Q09",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q16",
+    "Q17",
+    "Q18",
+    "Q33",
+    "Q34",
+    "Q01",
+    "Q03",
+    "Q04",
+    "Q07",
+    "Q22",
+    "Q23",
+    "Q38",
+    "Q41",
+    "Q42",
+    "Q44",
+    "Q45",
+    "L09",
+    "L11",
+    "L20",
+    "L39",
+    "L40",
+    "L41",
+    "L42",
+    "L43",
+    "L48",
+    "L49",
+    "L03",
+    "L04",
+    "L05",
+    "L25",
+    "L26",
+    "L34"
+  ],
+  "final_original_item_certifications": 0,
+  "new_accepted_subclaims": 3,
+  "new_corrected_artifacts": 6,
+  "scope": "Six corrected scoped measurement and scaling outputs; physical temperature unresolved; six open claims unchanged.",
+  "status": "SCOPED_CONVERGENCE"
+}

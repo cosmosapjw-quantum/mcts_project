@@ -1,0 +1,107 @@
+{
+  "artifact_reconstruction_sha": "b426da84c982f8f23ed5202d74514b77fedce35b08cf51ab082d52df8b8f1c05",
+  "claims": [
+    {
+      "claim": "Exact centered score/log-probability slope on nonflat legal support; affine score gauge preserves conditional probabilities, so independent physical energy calibration is required. Actual R87 215040 selections,210720 identifiable and4320 flat; R79 30720 waves,29760 identifiable and960 flat; controlled B16 training selects the programmed slope for all8 conditions, Q-only NLL worse in all36 nonzero-control L21 pointwise comparisons.",
+      "evidence": [
+        "mqft_restore103_20261129/THEORY.md",
+        "mqft_restore103_20261129/MEASURE103.json",
+        "mqft_restore103_20261129/PRIOR103.json",
+        "mqft_restore103_20261129/FIT103.json",
+        "mqft_restore103_20261129/INDEPENDENT103.json"
+      ],
+      "id": "MEASURE-LAW-29",
+      "items": [
+        "L03",
+        "L05",
+        "L25",
+        "L34"
+      ],
+      "limit": "Algorithmic conditional score law, not physical temperature or hypothetical policy trajectories; existing independent cohorts.",
+      "stage": 103,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed legal feature f, KL projection onto softmax(b f) obeys moment matching and constrained Pythagorean correction; temporal mixture gap separates changing laws from static projection residual. 62400 projections, all independently bisected; 62078 interior,110 finite-bound,212 support-face; 64 scaling fits, development-selected fresh L21 B64 wins/ties6/16 including two trivial uniform A controls (4/14 nontrivial).",
+      "evidence": [
+        "mqft_restore103_20261129/THEORY.md",
+        "mqft_restore103_20261129/MEASURE103.json",
+        "mqft_restore103_20261129/MEASURE103.npz",
+        "mqft_restore103_20261129/FIT103.json",
+        "mqft_restore103_20261129/SUMMARY103.json",
+        "mqft_restore103_20261129/INDEPENDENT103.json"
+      ],
+      "id": "MEASURE-PROJECTION-30",
+      "items": [
+        "L03",
+        "L04",
+        "L05",
+        "L25",
+        "L26",
+        "L34"
+      ],
+      "limit": "Fixed feature and finite signed bounded slope, no population or physical temperature scaling.",
+      "stage": 103,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Predictable visit residual E(X-A)=0; across independent repeats cross feature moment has expectation zero, self-feature moment need not. Exact self-minus-cross empirical covariance identity tested across3200 root/stratum blocks and26400 ordered pairs. Fresh dense beta0 endpoint-Q mean self -.284899 vs cross -.010665; constructed uniform two-action example attains infinite signed projection despite beta0.",
+      "evidence": [
+        "mqft_restore103_20261129/THEORY.md",
+        "mqft_restore103_20261129/CROSS_HISTORY_EXTENSION103.md",
+        "mqft_restore103_20261129/CROSS103.json",
+        "mqft_restore103_20261129/SUMMARY103.json",
+        "mqft_restore103_20261129/INDEPENDENT103.json"
+      ],
+      "id": "MEASURE-ENDOGENEITY-31",
+      "items": [
+        "L05",
+        "L25",
+        "L34"
+      ],
+      "limit": "Post-main-run diagnostic, ordered pairs not independent, no claim of zero bias from finite samples; not negative physical temperature.",
+      "stage": 103,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "MEASURE-LAW-29;MEASURE-PROJECTION-30",
+      "id": "L03",
+      "remaining_final_acceptance": "Authenticate conditional score slope and report unidentifiable cases, Q/occupancy mismatch; physical T requires calibrated conjugate energy.",
+      "scope": "Authenticated per-selection log-probability slope versus actual recorded score, affine scale invariance and flat startup masks, independent R79 and controlled R87 cohorts; no physical T."
+    },
+    {
+      "accepted": "MEASURE-PROJECTION-30",
+      "id": "L04",
+      "remaining_final_acceptance": "Compare explicit scaling candidate fits and heldout budget/size predictions with residuals, not an asserted universal best model.",
+      "scope": "Four explicit signed bounded occupancy-slope scaling candidates, development leave-one-size-out selection and existing independent L21 test; no universal scaling, retain negative comparisons."
+    },
+    {
+      "accepted": "MEASURE-LAW-29;MEASURE-PROJECTION-30;MEASURE-ENDOGENEITY-31",
+      "id": "L05",
+      "remaining_final_acceptance": "Report each validated observation type, unit of replication, failure and cross-validation; do not sum unrelated measurement counts.",
+      "scope": "Typed actual selection/wave/trajectory/prefix/projection counts and quality, explicit invalid flat and constrained/face status, independent numerical validation and cross-history controls; no physical T count."
+    },
+    {
+      "accepted": "MEASURE-LAW-29;MEASURE-PROJECTION-30;MEASURE-ENDOGENEITY-31",
+      "id": "L25",
+      "remaining_final_acceptance": "Temperature extraction from conditional likelihood and full-support occupancy projection with fit failure labels and uncertainty; no T without energy.",
+      "scope": "Full legal support A/X projection onto endpoint Q, mean and last preselection score, exact moment and KL identities, explicit negative and boundary cases, heldout conditional score/Q grid; no physical T."
+    },
+    {
+      "accepted": "MEASURE-PROJECTION-30",
+      "id": "L26",
+      "remaining_final_acceptance": "Independent budget and prefix trajectories, compare actual selector slope versus occupancy projection; fit scaling only if justified.",
+      "scope": "Separate actual independent B16/B64 and correlated B64 prefix diagnostics across five sizes, four fixed scaling candidates, separate log-size control; no physical power law."
+    },
+    {
+      "accepted": "MEASURE-LAW-29;MEASURE-PROJECTION-30;MEASURE-ENDOGENEITY-31",
+      "id": "L34",
+      "remaining_final_acceptance": "Typed measurement counts and quality with invalid/unidentified statuses; no artificial critical or physical temperature counts.",
+      "scope": "Typed measurement quality summary, flat score and constrained projection statuses, actual cross-history endogeneity comparison and exact counterexample, heldout error and independent checks; no artificial physical observations."
+    }
+  ],
+  "parent_convergence_sha256": "5c468d02c9ccd8ce5503277f1f02246c78ba0a9a28ad59ed489213352a36e415",
+  "parent_quality_matrix_sha256": "fa751ca9e2535272df0cc46db8d3a99703e82a5355627a83663e7d8f7f828816"
+}

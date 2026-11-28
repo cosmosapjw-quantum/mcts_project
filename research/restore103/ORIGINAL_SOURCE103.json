@@ -1,0 +1,1804 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "R69 archived source spans and temperature/measurement study documents",
+  "helpers": [
+    {
+      "excerpt": [
+        "    def extract_temperature_from_visits(self, visits: np.ndarray, ",
+        "                                      q_values: np.ndarray,",
+        "                                      metadata: dict = None) -> Tuple[float, float]:",
+        "        \"\"\"",
+        "        Extract temperature by measuring visit distribution.",
+        "        ",
+        "        NO ASSUMPTIONS about temperature scaling with N.",
+        "        ",
+        "        Method:",
+        "        - For thermal distribution: \u03c0(a) \u221d exp(\u03b2\u00b7Q(a))",
+        "        - Take log: log \u03c0(a) = \u03b2\u00b7Q(a) + const",
+        "        - Linear regression gives \u03b2, hence T = 1/\u03b2",
+        "        ",
+        "        Args:",
+        "            visits: Visit counts for each action",
+        "            q_values: Q-values for each action",
+        "            metadata: Optional metadata about evaluator type",
+        "        ",
+        "        Returns:",
+        "            (temperature, uncertainty)",
+        "        \"\"\"",
+        "        # Initialize diagnostics",
+        "        self._last_fit_diagnostics = {}",
+        "        ",
+        "        # Check for random evaluator - return NaN immediately",
+        "        if metadata and metadata.get('evaluator_type') in ['random', 'fast_random']:",
+        "            self._last_fit_diagnostics.update({",
+        "                'anomaly': 'random_evaluator',",
+        "                'reason': 'Random evaluator has no thermal structure',",
+        "                'valid': False",
+        "            })",
+        "            return np.nan, np.nan",
+        "        ",
+        "        # Need at least 3 visited actions",
+        "        mask = visits > 0",
+        "        if np.sum(mask) < 3:",
+        "            self._last_fit_diagnostics.update({",
+        "                'anomaly': 'insufficient_data',",
+        "                'reason': 'Less than 3 visited actions',",
+        "                'valid': False",
+        "            })",
+        "            return np.nan, np.nan",
+        "            ",
+        "        # Compute log probabilities",
+        "        probs = visits[mask] / visits.sum()",
+        "        log_probs = np.log(probs)",
+        "        q_vals = q_values[mask]",
+        "        ",
+        "        # Check if Q-values have meaningful variation",
+        "        q_std = np.std(q_vals)",
+        "        q_range = np.ptp(q_vals)",
+        "        ",
+        "        if q_std < 1e-6 or q_range < 1e-6:",
+        "            self._last_fit_diagnostics.update({",
+        "                'anomaly': 'no_q_variation',",
+        "                'reason': 'Q-values have no variation',",
+        "                'q_std': q_std,",
+        "                'q_range': q_range,",
+        "                'valid': False",
+        "            })",
+        "            return np.nan, np.nan",
+        "        ",
+        "        # Additional heuristic: check if Q-values look random",
+        "        # For random evaluator, Q-values should be uncorrelated with visits",
+        "        if len(q_vals) >= 5:",
+        "            # Spearman rank correlation (robust to outliers)",
+        "            from scipy.stats import spearmanr",
+        "            try:",
+        "                corr, p_value = spearmanr(q_vals, visits[mask])",
+        "                if p_value > 0.1:  # No significant correlation",
+        "                    self._last_fit_diagnostics.update({",
+        "                        'anomaly': 'no_q_visit_correlation',",
+        "                        'reason': 'Q-values uncorrelated with visits (likely random)',",
+        "                        'correlation': corr,",
+        "                        'p_value': p_value,",
+        "                        'valid': False",
+        "                    })",
+        "                    return np.nan, np.nan",
+        "            except:",
+        "                pass  # If correlation fails, continue with fitting",
+        "            ",
+        "        try:",
+        "            # Weighted linear regression: log \u03c0 = \u03b2\u00b7Q + c",
+        "            # Weight by sqrt(visits) to account for sampling noise",
+        "            weights = np.sqrt(visits[mask])",
+        "            ",
+        "            # Use polyfit with weights and covariance",
+        "            coeffs, cov = np.polyfit(q_vals, log_probs, 1, w=weights, cov=True)",
+        "            beta = coeffs[0]",
+        "            beta_err = np.sqrt(cov[0, 0])",
+        "            ",
+        "            # Check if fit is meaningful",
+        "            # Compute R\u00b2 to assess fit quality",
+        "            y_pred = np.polyval(coeffs, q_vals)",
+        "            ss_res = np.sum(weights * (log_probs - y_pred)**2)",
+        "            ss_tot = np.sum(weights * (log_probs - np.average(log_probs, weights=weights))**2)",
+        "            r_squared = 1 - ss_res / ss_tot if ss_tot > 0 else 0",
+        "            ",
+        "            # Reject poor fits (likely not thermal)",
+        "            # Note: beta <= 0 would give negative temperature (inverted population)",
+        "            # This can occur in forced exploration phases but is not thermal behavior",
+        "            if r_squared < 0.5:",
+        "                self._last_fit_diagnostics.update({",
+        "                    'anomaly': 'poor_fit',",
+        "                    'reason': 'R\u00b2 < 0.5 indicates non-thermal behavior',",
+        "                    'r_squared': r_squared,",
+        "                    'beta': beta,",
+        "                    'valid': False",
+        "                })",
+        "                return np.nan, np.nan",
+        "            ",
+        "            # Handle edge cases",
+        "            if beta <= 0:",
+        "                # Negative beta indicates anti-correlation between Q and visits",
+        "                # This might occur during forced exploration but isn't thermal",
+        "                self._last_fit_diagnostics.update({",
+        "                    'anomaly': 'negative_beta',",
+        "                    'reason': 'Negative beta indicates anti-correlation (non-thermal)',",
+        "                    'beta': beta,",
+        "                    'r_squared': r_squared,",
+        "                    'valid': False",
+        "                })",
+        "                return np.nan, np.nan",
+        "            elif beta < 0.01:",
+        "                # Very small beta means T \u2192 \u221e (uniform random policy)",
+        "                # Cap temperature at reasonable value",
+        "                temperature = 100.0  # High temperature limit",
+        "                temp_err = 10.0",
+        "                self._last_fit_diagnostics.update({",
+        "                    'anomaly': 'high_temperature_limit',",
+        "                    'reason': 'Beta < 0.01 indicates near-uniform distribution',",
+        "                    'beta': beta,",
+        "                    'r_squared': r_squared,",
+        "                    'capped_temperature': temperature,",
+        "                    'valid': True",
+        "                })",
+        "                return temperature, temp_err",
+        "                ",
+        "            # Temperature with error propagation",
+        "            temperature = 1.0 / beta",
+        "            temp_err = beta_err / (beta**2)",
+        "            ",
+        "            # Validate theoretical scaling \u03b2 \u221d \u221aN from quantum_mcts_foundation.md",
+        "            total_visits = np.sum(visits)",
+        "            theoretical_beta = np.sqrt(total_visits) / 1000.0  # Normalize for practical values",
+        "            scaling_validation = {",
+        "                'measured_beta': beta,",
+        "                'theoretical_beta': theoretical_beta,",
+        "                'scaling_ratio': beta / theoretical_beta if theoretical_beta > 0 else np.inf,",
+        "                'follows_sqrt_n_scaling': abs(beta / theoretical_beta - 1.0) < 0.5 if theoretical_beta > 0 else False",
+        "            }",
+        "            ",
+        "            # Store diagnostics for validation",
+        "            self._last_fit_diagnostics.update({",
+        "                'r_squared': r_squared,",
+        "                'beta': beta,",
+        "                'beta_err': beta_err,",
+        "                'temperature': temperature,",
+        "                'temp_err': temp_err,",
+        "                'scaling_validation': scaling_validation,",
+        "                'n_actions': np.sum(mask),",
+        "                'q_range': np.ptp(q_vals),",
+        "                'q_std': q_std,",
+        "                'visit_entropy': -np.sum(probs * np.log(probs)),",
+        "                'valid': True",
+        "            })",
+        "            ",
+        "            return temperature, temp_err",
+        "            ",
+        "        except Exception as e:",
+        "            import logging",
+        "            logger = logging.getLogger(__name__)",
+        "            logger.warning(f\"Temperature extraction failed: {e}\")",
+        "            self._last_fit_diagnostics.update({",
+        "                'anomaly': 'fitting_error',",
+        "                'reason': f'Fitting failed with error: {str(e)}',",
+        "                'valid': False",
+        "            })",
+        "            return np.nan, np.nan",
+        "    ",
+        "    def get_last_fit_diagnostics(self) -> dict:",
+        "        \"\"\"Get diagnostics from the last temperature fitting attempt\"\"\"",
+        "        return self._last_fit_diagnostics.copy()",
+        "    "
+      ],
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/authentic_physics_extractor.py",
+      "sha256": "364a7fd3faae62b8536af2db0dd47bd80f1bd52daee5b9fae027b3ded9ec2094",
+      "span": [
+        101,
+        284
+      ]
+    },
+    {
+      "excerpt": [
+        "    def extract_scaling_relations_from_ensemble(self, ",
+        "                                              measurements: List[Tuple[float, float]],",
+        "                                              parameter_name: str) -> Dict[str, Any]:",
+        "        \"\"\"",
+        "        Extract scaling relations from ensemble data without assumptions.",
+        "        ",
+        "        Tests multiple scaling hypotheses and lets data choose.",
+        "        ",
+        "        Args:",
+        "            measurements: List of (parameter, observable) tuples",
+        "            parameter_name: Name of parameter (e.g., 'N', 'L', 'T')",
+        "            ",
+        "        Returns:",
+        "            Dictionary with tested scaling relations and best fit",
+        "        \"\"\"",
+        "        if len(measurements) < 5:",
+        "            return {'error': 'Insufficient data for scaling analysis'}",
+        "            ",
+        "        params = np.array([m[0] for m in measurements])",
+        "        observables = np.array([m[1] for m in measurements])",
+        "        ",
+        "        # Filter out non-finite values and ensure positive values",
+        "        mask = np.isfinite(params) & np.isfinite(observables) & (params > 0) & (observables > 0)",
+        "        params = params[mask]",
+        "        observables = observables[mask]",
+        "        ",
+        "        if len(params) < 3:  # Need at least 3 points for fitting",
+        "            return {'error': 'Insufficient valid data for scaling analysis'}",
+        "        ",
+        "        if len(params) < 5:",
+        "            return {'error': 'Insufficient valid data after filtering'}",
+        "            ",
+        "        scaling_models = {}",
+        "        ",
+        "        # Test various scaling forms WITHOUT prejudice",
+        "        test_models = {",
+        "            'power': lambda x, a, b: a * x**b,",
+        "            'exponential': lambda x, a, b: a * np.exp(np.clip(b * x, -700, 700)),  # Clip to prevent overflow",
+        "            'logarithmic': lambda x, a, b: a + b * np.log(x),",
+        "            'sqrt': lambda x, a: a * np.sqrt(x),",
+        "            'linear': lambda x, a, b: a * x + b,",
+        "            'inverse': lambda x, a, b: a / x + b,",
+        "            'inverse_sqrt': lambda x, a: a / np.sqrt(x)",
+        "        }",
+        "        ",
+        "        for name, func in test_models.items():",
+        "            try:",
+        "                # Initial guess based on data",
+        "                if name in ['sqrt', 'inverse_sqrt']:",
+        "                    p0 = [observables[0] / func(params[0], 1)]",
+        "                else:",
+        "                    p0 = None",
+        "                    ",
+        "                try:",
+        "                    # Suppress the warning and catch it properly",
+        "                    import warnings",
+        "                    with warnings.catch_warnings():",
+        "                        warnings.filterwarnings('error', category=OptimizeWarning)",
+        "                        popt, pcov = curve_fit(func, params, observables, p0=p0, maxfev=5000)",
+        "                except (RuntimeError, ValueError, OptimizeWarning, Warning) as e:",
+        "                    # If fitting fails, skip this model",
+        "                    logger.debug(f\"Fitting failed for {name} model: {e}\")",
+        "                    results[name] = {",
+        "                        'params': None,",
+        "                        'r_squared': -np.inf,",
+        "                        'aic': np.inf,",
+        "                        'errors': None",
+        "                    }",
+        "                    continue",
+        "                ",
+        "                # Check if covariance was estimated",
+        "                if pcov is None or np.isinf(pcov).any():",
+        "                    # Covariance couldn't be estimated - fitting is uncertain",
+        "                    logger.debug(f\"Covariance estimation failed for {name} model\")",
+        "                    param_errors = None",
+        "                else:",
+        "                    # Extract parameter errors from covariance",
+        "                    param_errors = np.sqrt(np.diag(pcov))",
+        "                ",
+        "                # Compute R\u00b2 and AIC",
+        "                y_pred = func(params, *popt)",
+        "                residuals = observables - y_pred",
+        "                ss_res = np.sum(residuals**2)",
+        "                ss_tot = np.sum((observables - np.mean(observables))**2)",
+        "                r_squared = 1 - ss_res / ss_tot if ss_tot > 0 else -np.inf",
+        "                ",
+        "                # Akaike Information Criterion for model selection",
+        "                n = len(params)",
+        "                k = len(popt)  # number of parameters",
+        "                aic = n * np.log(ss_res / n) + 2 * k",
+        "                ",
+        "                scaling_models[name] = {",
+        "                    'parameters': popt.tolist(),",
+        "                    'parameter_errors': param_errors.tolist() if param_errors is not None else None,",
+        "                    'r_squared': r_squared,",
+        "                    'aic': aic,",
+        "                    'residuals_std': np.std(residuals)",
+        "                }",
+        "                ",
+        "            except Exception as e:",
+        "                logger.debug(f\"Scaling model {name} failed: {e}\")",
+        "                ",
+        "        if not scaling_models:",
+        "            return {'error': 'All scaling models failed'}",
+        "            ",
+        "        # Select best model using AIC (lower is better)",
+        "        best_model = min(scaling_models.items(), key=lambda x: x[1]['aic'])",
+        "        ",
+        "        return {",
+        "            'parameter_name': parameter_name,"
+      ],
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/authentic_physics_extractor.py",
+      "sha256": "364a7fd3faae62b8536af2db0dd47bd80f1bd52daee5b9fae027b3ded9ec2094",
+      "span": [
+        421,
+        530
+      ]
+    }
+  ],
+  "items": [
+    {
+      "acceptance": "Authenticate conditional score slope and report unidentifiable cases, Q/occupancy mismatch; physical T requires calibrated conjugate energy.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "L03",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "source_excerpt": [
+        "    def _plot_authentic_temperature(self, ax):",
+        "        \"\"\"Plot authentic temperature measurements\"\"\"",
+        "        if 'temperatures' not in self.results['authentic_measurements']:",
+        "            ax.text(0.5, 0.5, 'No temperature data', ha='center', va='center')",
+        "            ax.set_title('Authentic Temperature')",
+        "            return",
+        "            ",
+        "        temps = [t['temperature'] for t in self.results['authentic_measurements']['temperatures']]",
+        "        ax.hist(temps, bins=30, alpha=0.7, edgecolor='black')",
+        "        ax.axvline(np.mean(temps), color='red', linestyle='--', ",
+        "                  label=f'Mean: {np.mean(temps):.3f}')",
+        "        ax.set_xlabel('Temperature (measured from \u03c0 \u221d exp(\u03b2\u00b7Q))')",
+        "        ax.set_ylabel('Count')",
+        "        ax.set_title('Authentic Temperature Measurements')",
+        "        ax.legend()",
+        "        ax.grid(True, alpha=0.3)"
+      ],
+      "source_function": "_plot_authentic_temperature",
+      "span": [
+        1621,
+        1636
+      ]
+    },
+    {
+      "acceptance": "Compare explicit scaling candidate fits and heldout budget/size predictions with residuals, not an asserted universal best model.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "L04",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "source_excerpt": [
+        "    def _plot_scaling_discovery(self, ax):",
+        "        \"\"\"Plot scaling relation discovery\"\"\"",
+        "        if 'temperature_scaling' not in self.results['authentic_measurements']:",
+        "            ax.text(0.5, 0.5, 'Insufficient data for scaling', ha='center', va='center')",
+        "            ax.set_title('Scaling Discovery')",
+        "            return",
+        "            ",
+        "        scaling = self.results['authentic_measurements']['temperature_scaling']",
+        "        if 'data' in scaling:",
+        "            params = scaling['data']['parameters']",
+        "            obs = scaling['data']['observables']",
+        "            ax.scatter(params, obs, alpha=0.6, s=30)",
+        "            ax.set_xscale('log')",
+        "            ax.set_yscale('log')",
+        "            ax.set_xlabel('N (visits)')",
+        "            ax.set_ylabel('Temperature')",
+        "            ",
+        "            if 'best_model' in scaling:",
+        "                ax.set_title(f\"Best Scaling: {scaling['best_model']} \"",
+        "                           f\"(R\u00b2 = {scaling['best_model_details']['r_squared']:.3f})\")",
+        "            else:",
+        "                ax.set_title('Temperature Scaling')",
+        "        ax.grid(True, alpha=0.3)"
+      ],
+      "source_function": "_plot_scaling_discovery",
+      "span": [
+        1638,
+        1660
+      ]
+    },
+    {
+      "acceptance": "Report each validated observation type, unit of replication, failure and cross-validation; do not sum unrelated measurement counts.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "L05",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "source_excerpt": [
+        "    def _plot_measurement_quality(self, ax):",
+        "        \"\"\"Plot measurement quality metrics\"\"\"",
+        "        ax.axis('off')",
+        "        ",
+        "        quality_text = \"MEASUREMENT QUALITY\\n\" + \"=\"*25 + \"\\n\\n\"",
+        "        ",
+        "        # Count measurements",
+        "        n_temp = len(self.results['authentic_measurements'].get('temperatures', []))",
+        "        n_thermo = len(self.results['statistical_mechanics'].get('thermodynamics', []))",
+        "        n_critical = len(self.results['statistical_mechanics'].get('critical_points', []))",
+        "        ",
+        "        quality_text += f\"Authentic temperatures: {n_temp}\\n\"",
+        "        quality_text += f\"Thermodynamic states: {n_thermo}\\n\"",
+        "        quality_text += f\"Critical points: {n_critical}\\n\"",
+        "        ",
+        "        # Cross-validation results",
+        "        if 'cross_validations' in self.results:",
+        "            quality_text += \"\\nCross-Validations:\\n\"",
+        "            for key, val in self.results['cross_validations'].items():",
+        "                if isinstance(val, dict) and 'consistent' in val:",
+        "                    quality_text += f\"  {key}: {'\u2713' if val['consistent'] else '\u2717'}\\n\"",
+        "        ",
+        "        ax.text(0.05, 0.95, quality_text, transform=ax.transAxes,",
+        "               va='top', fontsize=10, family='monospace',",
+        "               bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))"
+      ],
+      "source_function": "_plot_measurement_quality",
+      "span": [
+        1662,
+        1686
+      ]
+    },
+    {
+      "acceptance": "Temperature extraction from conditional likelihood and full-support occupancy projection with fit failure labels and uncertainty; no T without energy.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "L25",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+      "member_sha": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+      "source_excerpt": [
+        "    def plot_temperature_extraction(self, ax):",
+        "        \"\"\"Plot temperature extraction results\"\"\"",
+        "        temp_data = self.results.get('authentic_measurements', {}).get('temperatures', [])",
+        "        ",
+        "        if temp_data and len(temp_data) > 0:",
+        "            # Plot measured temperatures",
+        "            temps = [t['temperature'] for t in temp_data if not np.isnan(t['temperature'])]",
+        "            errors = [t['error'] for t in temp_data if not np.isnan(t['temperature'])]",
+        "            ",
+        "            if temps:",
+        "                ax.hist(temps, bins=min(30, len(temps)//2), alpha=0.7, ",
+        "                       edgecolor='black', color='blue')",
+        "                ax.axvline(np.mean(temps), color='red', linestyle='--', ",
+        "                          label=f'Mean: {np.mean(temps):.3f}')",
+        "                ax.set_xlabel('Temperature (measured from \u03c0(a) \u221d exp(\u03b2Q(a)))')",
+        "                ax.set_ylabel('Count')",
+        "                ax.set_title('Authentic Temperature Measurements')",
+        "                ax.legend()",
+        "                self.add_measurement_label(ax)",
+        "            else:",
+        "                ax.text(0.5, 0.5, 'All temperature fits failed\\n(Poor R\u00b2 or random Q-values)', ",
+        "                       transform=ax.transAxes, ha='center', va='center',",
+        "                       bbox=dict(boxstyle='round', facecolor='orange', alpha=0.7),",
+        "                       fontsize=12, weight='bold')",
+        "                ax.set_title('Temperature Extraction Failed')",
+        "        else:",
+        "            self.add_no_data_label(ax, 'No temperature data')",
+        "            ax.set_title('Temperature Measurements')"
+      ],
+      "source_function": "plot_temperature_extraction",
+      "span": [
+        41,
+        68
+      ]
+    },
+    {
+      "acceptance": "Independent budget and prefix trajectories, compare actual selector slope versus occupancy projection; fit scaling only if justified.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "L26",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+      "member_sha": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+      "source_excerpt": [
+        "    def plot_temperature_scaling(self, ax):",
+        "        \"\"\"Plot temperature vs visits scaling\"\"\"",
+        "        temp_data = self.results.get('authentic_measurements', {}).get('temperatures', [])",
+        "        ",
+        "        if temp_data and len(temp_data) > 0:",
+        "            # Extract valid temperature measurements",
+        "            valid_data = [(t['temperature'], t['n_visits']) ",
+        "                         for t in temp_data ",
+        "                         if not np.isnan(t['temperature']) and 'n_visits' in t]",
+        "            ",
+        "            if len(valid_data) > 3:",
+        "                temps, visits = zip(*valid_data)",
+        "                ax.scatter(visits, temps, alpha=0.6, s=30)",
+        "                ",
+        "                # Try to fit scaling relation",
+        "                log_visits = np.log(visits)",
+        "                log_temps = np.log(temps)",
+        "                ",
+        "                try:",
+        "                    p = np.polyfit(log_visits, log_temps, 1)",
+        "                    r_squared = np.corrcoef(log_visits, log_temps)[0, 1]**2",
+        "                    ",
+        "                    if r_squared > 0.1:  # Only show if some correlation",
+        "                        x_fit = np.linspace(min(visits), max(visits), 100)",
+        "                        y_fit = np.exp(p[1]) * (x_fit ** p[0])",
+        "                        ax.plot(x_fit, y_fit, 'r--', alpha=0.5, ",
+        "                               label=f'T \u221d N^{p[0]:.3f} (R\u00b2 = {r_squared:.3f})')",
+        "                    ",
+        "                    ax.set_xlabel('N (visits)')",
+        "                    ax.set_ylabel('Temperature')",
+        "                    ax.set_title(f'Temperature Scaling (R\u00b2 = {r_squared:.3f})')",
+        "                    ax.legend()",
+        "                    ax.set_xscale('log')",
+        "                    ax.set_yscale('log')",
+        "                    self.add_measurement_label(ax)",
+        "                except:",
+        "                    ax.set_xlabel('N (visits)')",
+        "                    ax.set_ylabel('Temperature')",
+        "                    ax.set_title('Temperature Scaling (Fit failed)')",
+        "                    self.add_measurement_label(ax)",
+        "            else:",
+        "                self.add_no_data_label(ax, 'Insufficient valid data')",
+        "                ax.set_title('Temperature Scaling')",
+        "        else:",
+        "            self.add_no_data_label(ax)",
+        "            ax.set_title('Temperature Scaling')"
+      ],
+      "source_function": "plot_temperature_scaling",
+      "span": [
+        70,
+        115
+      ]
+    },
+    {
+      "acceptance": "Typed measurement counts and quality with invalid/unidentified statuses; no artificial critical or physical temperature counts.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "L34",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+      "member_sha": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+      "source_excerpt": [
+        "    def plot_measurement_quality(self, ax):",
+        "        \"\"\"Plot measurement quality summary\"\"\"",
+        "        # Count valid measurements",
+        "        temp_data = self.results.get('authentic_measurements', {}).get('temperatures', [])",
+        "        valid_temps = sum(1 for t in temp_data if not np.isnan(t['temperature']))",
+        "        ",
+        "        critical_points = self.results.get('summary', {}).get('n_critical_points', 0)",
+        "        ",
+        "        # Create quality summary",
+        "        quality_metrics = {",
+        "            'Valid Temperatures': valid_temps,",
+        "            'Critical Points': critical_points,",
+        "            'Thermodynamic States': len(self.results.get('statistical_mechanics', {}).get('thermodynamics', [])),",
+        "            'Decoherence Trajectories': len(self.results.get('quantum_phenomena', {}).get('decoherence', [])),",
+        "            'Entanglement Measurements': len(self.results.get('quantum_phenomena', {}).get('entanglement', []))",
+        "        }",
+        "        ",
+        "        metrics = list(quality_metrics.keys())",
+        "        values = list(quality_metrics.values())",
+        "        ",
+        "        ax.barh(metrics, values, alpha=0.7)",
+        "        ax.set_xlabel('Number of Measurements')",
+        "        ax.set_title('MEASUREMENT QUALITY\\n' + '='*20)",
+        "        ax.grid(True, alpha=0.3, axis='x')",
+        "        ",
+        "        # Add total count",
+        "        total = sum(values)",
+        "        ax.text(0.95, 0.95, f'Total: {total}', transform=ax.transAxes,",
+        "               ha='right', va='top', fontsize=12, weight='bold',",
+        "               bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.7))"
+      ],
+      "source_function": "plot_measurement_quality",
+      "span": [
+        317,
+        346
+      ]
+    }
+  ],
+  "study_selected": [
+    {
+      "excerpts": [
+        [
+          71,
+          "where T(N) = T\u2080/log(N+2) is the temperature schedule."
+        ],
+        [
+          130,
+          "4. Temperature T = T\u2080/log(N+2) provides Boltzmann weight \u25a1"
+        ],
+        [
+          132,
+          "### 3.3 Temperature Derivation"
+        ],
+        [
+          134,
+          "**Theorem 2.4** (Temperature from Fluctuation-Dissipation)"
+        ],
+        [
+          135,
+          "The temperature T(N) = T\u2080/log(N+2) emerges from matching quantum and thermal fluctuations."
+        ],
+        [
+          139,
+          "2. **Thermal fluctuations**: \u27e8(\u0394\u03c6)\u00b2\u27e9_thermal ~ T"
+        ],
+        [
+          140,
+          "3. **Critical point**: Quantum = Thermal when \u210f_eff(N_c) ~ T(N_c)"
+        ],
+        [
+          278,
+          "        self.T0 = 1.0  # Base temperature"
+        ],
+        [
+          286,
+          "    def compute_temperature(self, N):"
+        ],
+        [
+          287,
+          "        \"\"\"Temperature schedule from information time\"\"\""
+        ],
+        [
+          294,
+          "        T = self.compute_temperature(N)"
+        ],
+        [
+          315,
+          "                # Temperature-dependent exploitation"
+        ],
+        [
+          430,
+          "### 8.1 Information Scaling Test"
+        ],
+        [
+          433,
+          "def validate_information_scaling(game, num_trials=100):"
+        ],
+        [
+          434,
+          "    \"\"\"Test \u03c4(N) = log(N+2) scaling law\"\"\""
+        ],
+        [
+          448,
+          "            # Measure entropy before simulation"
+        ],
+        [
+          449,
+          "            entropy_before = compute_tree_entropy(mcts.root)"
+        ],
+        [
+          454,
+          "            # Measure entropy after"
+        ],
+        [
+          455,
+          "            entropy_after = compute_tree_entropy(mcts.root)"
+        ],
+        [
+          458,
+          "            info_gain = entropy_before - entropy_after"
+        ],
+        [
+          462,
+          "        # Fit 1/N scaling for information gain"
+        ],
+        [
+          477,
+          "def compute_tree_entropy(node):"
+        ],
+        [
+          478,
+          "    \"\"\"Compute entropy of visit distribution in tree\"\"\""
+        ],
+        [
+          485,
+          "    # Shannon entropy"
+        ],
+        [
+          486,
+          "    entropy = -np.sum(probs * np.log(probs + 1e-10))"
+        ],
+        [
+          490,
+          "        entropy += p * compute_tree_entropy(child)"
+        ],
+        [
+          492,
+          "    return entropy"
+        ]
+      ],
+      "lines": 602,
+      "member": "mcts_study/v3.0/qft-mcts-foundations.md",
+      "relevant_line_count": 27,
+      "sha256": "a0fc2fbda4a07e9b663a59e997e4a418c2f19aed04b071594b970d1f44c13ea3"
+    },
+    {
+      "excerpts": [
+        [
+          5,
+          "We develop the open quantum system formulation of MCTS, showing how environmental interactions lead to decoherence and the emergence of classical objectivity. Starting from the continuous Lindblad master equation, we derive its discrete-time version appropriate for MCTS evolution. The formalism reconciles position basis states |s,a\u27e9 with path states |\u03c8\u27e9 through partial trace operations. We detail the MinHash projection operator P_h and show how Dirichlet noise and evaluation uncertainty act as thermal baths. Quantum Darwinism explains convergence through redundant information encoding I(S:F) = H(S) - H(S|F) across tree fragments, with scaling R_\u03b4 ~ N^(-1/2). The Schwinger-Keldysh formalism on the closed-time contour justifies the decay of \u210f_eff(N) and provides numerical methods to validate the fluctuation-dissipation theorem."
+        ],
+        [
+          13,
+          "- Dirichlet exploration at the root (thermal noise bath)"
+        ],
+        [
+          14,
+          "- Finite precision arithmetic (measurement noise)"
+        ],
+        [
+          55,
+          "### 2.3 Von Neumann Entropy"
+        ],
+        [
+          57,
+          "**Definition 2.3** (Entropy)"
+        ],
+        [
+          117,
+          "3. **MinHash Measurement** (information channel):"
+        ],
+        [
+          136,
+          "**Physical Interpretation**: MinHash groups similar states, creating measurement channels that extract partial information about the quantum state."
+        ],
+        [
+          220,
+          "where H(\u00b7) is von Neumann entropy."
+        ],
+        [
+          240,
+          "**Theorem 5.1** (Darwinism Scaling)"
+        ],
+        [
+          258,
+          "7. Branching factor b enters through entropy H(S) ~ log b \u25a1"
+        ],
+        [
+          538,
+          "        # MinHash measurement operators"
+        ],
+        [
+          596,
+          "        # Von Neumann entropy"
+        ],
+        [
+          599,
+          "        entropy = -np.sum(eigenvals * np.log(eigenvals))"
+        ],
+        [
+          609,
+          "            'entropy': entropy,"
+        ],
+        [
+          612,
+          "            'max_entropy': np.log(self.dim),"
+        ],
+        [
+          627,
+          "    # Compute system entropy"
+        ],
+        [
+          668,
+          "        'scaling_exponent': alpha,"
+        ],
+        [
+          671,
+          "        'system_entropy': H_system,"
+        ],
+        [
+          691,
+          "    # Estimate conditional entropy H(S|F)"
+        ],
+        [
+          701,
+          "        H_conditional = -p_optimal_given_fragment * np.log("
+        ],
+        [
+          704,
+          "            H_conditional -= (1 - p_optimal_given_fragment) * np.log("
+        ],
+        [
+          707,
+          "        return H_system - H_conditional"
+        ],
+        [
+          820,
+          "        'entropy': [],"
+        ],
+        [
+          831,
+          "        metrics['entropy'].append(measures['entropy'])"
+        ],
+        [
+          841,
+          "    # Analyze scaling"
+        ],
+        [
+          842,
+          "    return analyze_decoherence_scaling(metrics)"
+        ],
+        [
+          844,
+          "def analyze_decoherence_scaling(metrics):"
+        ],
+        [
+          845,
+          "    \"\"\"Analyze power-law scaling of decoherence\"\"\""
+        ],
+        [
+          861,
+          "    # Entropy growth"
+        ],
+        [
+          862,
+          "    entropy_rate = (metrics['entropy'][-1] - metrics['entropy'][0]) / len(metrics['N'])"
+        ],
+        [
+          868,
+          "        'entropy_growth_rate': entropy_rate,"
+        ],
+        [
+          881,
+          "        'redundancy_scaling': test_redundancy_scaling(game, config),"
+        ],
+        [
+          907,
+          "def test_redundancy_scaling(game, config):"
+        ],
+        [
+          908,
+          "    \"\"\"Test R ~ N^(-1/2) scaling\"\"\""
+        ],
+        [
+          925,
+          "    # Check scaling"
+        ],
+        [
+          928,
+          "    return {'passed': True, 'scaling_verified': True}"
+        ],
+        [
+          935,
+          "    if test_results['redundancy_scaling']['passed']:"
+        ],
+        [
+          960,
+          "5. **MinHash projection**: P_h groups similar states for partial measurements"
+        ]
+      ],
+      "lines": 965,
+      "member": "mcts_study/v3.0/qft-mcts-decoherence.md",
+      "relevant_line_count": 38,
+      "sha256": "64a0c6eb98c1f8695b4230cda9121f7f5adc463f217e412670808bf9408358e5"
+    },
+    {
+      "excerpts": [
+        [
+          13,
+          "- Critical phenomena with universal scaling laws"
+        ],
+        [
+          74,
+          "   - \u210f_eff(N) \u2248 T(N): Competition between quantum and thermal"
+        ],
+        [
+          79,
+          "   - \u210f_eff(N) < T(N): Thermal fluctuations dominate"
+        ],
+        [
+          99,
+          "5. Prior coupling \u03bb shifts critical points through effective temperature \u25a1"
+        ],
+        [
+          160,
+          "- T(l) = T_0/log(N+2): Temperature"
+        ],
+        [
+          281,
+          "### 4.2 Numerical Measurement of Exponents"
+        ],
+        [
+          337,
+          "    # Check scaling relations"
+        ],
+        [
+          339,
+          "    # \u03b1 = 2 - 2\u03b2 - \u03b3 (hyperscaling)"
+        ],
+        [
+          357,
+          "        'scaling_relations_satisfied': check_scaling_relations(beta, gamma, nu)"
+        ],
+        [
+          380,
+          "def check_scaling_relations(beta, gamma, nu):"
+        ],
+        [
+          381,
+          "    \"\"\"Verify critical exponent scaling relations\"\"\""
+        ],
+        [
+          396,
+          "**Theorem 4.2** (Universal Scaling Function)"
+        ],
+        [
+          405,
+          "    \"\"\"Test universal scaling across different games\"\"\""
+        ],
+        [
+          493,
+          "**Theorem 5.1** (Minimum Energy Cost)"
+        ],
+        [
+          498,
+          "### 5.2 Numerical Measurement of Thermodynamic Quantities"
+        ],
+        [
+          509,
+          "        # Temperature at this step"
+        ],
+        [
+          512,
+          "        # Entropy before and after expansion"
+        ],
+        [
+          513,
+          "        S_before = compute_tree_entropy(step.tree_before_expansion)"
+        ],
+        [
+          514,
+          "        S_after = compute_tree_entropy(step.tree_after_expansion)"
+        ],
+        [
+          519,
+          "        # Landauer bound (energy units)"
+        ],
+        [
+          527,
+          "        # Free energy change"
+        ],
+        [
+          534,
+          "            'temperature': T,"
+        ],
+        [
+          535,
+          "            'entropy_change': S_after - S_before,"
+        ],
+        [
+          539,
+          "            'free_energy_change': delta_F,"
+        ],
+        [
+          545,
+          "def compute_tree_entropy(tree_root):"
+        ],
+        [
+          546,
+          "    \"\"\"Compute total entropy of tree from visit distribution\"\"\""
+        ],
+        [
+          548,
+          "    total_entropy = 0"
+        ],
+        [
+          551,
+          "        nonlocal total_entropy"
+        ],
+        [
+          556,
+          "        # Local entropy at this node"
+        ],
+        [
+          561,
+          "        # Shannon entropy"
+        ],
+        [
+          563,
+          "        total_entropy += H"
+        ],
+        [
+          570,
+          "    return total_entropy"
+        ],
+        [
+          598,
+          "3. Work extraction: Reduction in decision entropy"
+        ],
+        [
+          609,
+          "    S_initial = np.log(game.branching_factor)  # Maximum entropy"
+        ],
+        [
+          629,
+          "    S_final = compute_tree_entropy(mcts.root)"
+        ],
+        [
+          631,
+          "    # Total work extracted (entropy reduction)"
+        ],
+        [
+          648,
+          "        S_before = compute_tree_entropy(step['state_before'])"
+        ],
+        [
+          649,
+          "        S_after = compute_tree_entropy(step['state_after'])"
+        ],
+        [
+          678,
+          "### 5.4 Entropy Production"
+        ],
+        [
+          681,
+          "Total entropy never decreases:"
+        ],
+        [
+          697,
+          "            # Tree entropy change"
+        ],
+        [
+          698,
+          "            S_tree_before = compute_tree_entropy(trajectory[i].tree)"
+        ],
+        [
+          699,
+          "            S_tree_after = compute_tree_entropy(trajectory[i+1].tree)"
+        ],
+        [
+          702,
+          "            # Environment entropy change (information discarded)"
+        ],
+        [
+          707,
+          "            # Total entropy change"
+        ]
+      ],
+      "lines": 1308,
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "relevant_line_count": 57,
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    },
+    {
+      "excerpts": [
+        [
+          249,
+          "For envariant channel, output entropy is constrained by:"
+        ],
+        [
+          267,
+          "**Theorem 5.1 (Square Root Scaling).** R_\u03b4 ~ N^{-1/2} where N is total simulations."
+        ],
+        [
+          330,
+          "Free energy F = \u27e8E\u27e9 - TS. For fixed energy:"
+        ]
+      ],
+      "lines": 468,
+      "member": "mcts_study/qft-mcts-math-foundations.md",
+      "relevant_line_count": 3,
+      "sha256": "3c981ef5bd36b04cd2e0c323d690d96c158b8f08b38e78f0cea68e30d2ffd374"
+    },
+    {
+      "excerpts": [
+        [
+          36,
+          "- Total information ~ log N (Shannon entropy scaling)"
+        ],
+        [
+          48,
+          "- Proper scaling of quantum effects"
+        ],
+        [
+          49,
+          "- Temperature annealing"
+        ],
+        [
+          52,
+          "### Temperature Annealing"
+        ],
+        [
+          54,
+          "Temperature decreases with information time:"
+        ],
+        [
+          61,
+          "- High temperature (exploration) early: T(1) = T\u2080/log(3)"
+        ],
+        [
+          62,
+          "- Low temperature (exploitation) late: T \u2192 0 as N \u2192 \u221e"
+        ],
+        [
+          94,
+          "This scaling ensures:"
+        ],
+        [
+          165,
+          "- Information accumulation \u2192 power-law scaling"
+        ]
+      ],
+      "lines": 266,
+      "member": "mcts_study/v2.0/quantum-theory-foundations-v2.md",
+      "relevant_line_count": 9,
+      "sha256": "9d884f6052227def6dee3736fb2094c31dd9081d47c9d6c8db0120eedd16b3d3"
+    },
+    {
+      "excerpts": [
+        [
+          64,
+          "### 2.2 Temperature Dynamics"
+        ],
+        [
+          66,
+          "**Definition 2.2** (Temperature Schedule):"
+        ],
+        [
+          72,
+          "Temperature controls the exploration-exploitation tradeoff. High temperature (early in search) means high entropy and broad exploration. As information accumulates (\u03c4 increases), temperature decreases, leading to focused exploitation of promising regions."
+        ],
+        [
+          74,
+          "**Theorem 2.2** (Temperature Limits):"
+        ],
+        [
+          76,
+          "- lim\u2099\u2192\u221e T(N) = 0 (zero temperature)"
+        ],
+        [
+          84,
+          "The finite initial temperature prevents infinite exploration at start. The zero-temperature limit ensures eventual convergence to optimal play. The 1/log(N) decay is slower than exponential but faster than power law, providing balanced annealing."
+        ],
+        [
+          135,
+          "- **Visit term**: -log N(s,a) (kinetic energy analog)"
+        ],
+        [
+          154,
+          "5. Exponentiating recovers Boltzmann distribution \u25a1"
+        ],
+        [
+          157,
+          "PUCT implements a Boltzmann distribution over paths where the \"energy\" combines visit frequency (kinetic term) and neural network guidance (potential term). Temperature controls the sharpness of this distribution."
+        ],
+        [
+          178,
+          "- The specific scaling ensures \u210f_eff \u2192 0 at rate 1/\u221aN, balancing exploration decay"
+        ],
+        [
+          190,
+          "5. Residual Gaussian fluctuations give temperature T \u25a1"
+        ],
+        [
+          258,
+          "- Quantum correction: Reduces the \"energy barrier\" for exploring new paths"
+        ],
+        [
+          331,
+          "   - Non-trivial scaling behavior"
+        ],
+        [
+          404,
+          "**Theorem 6.1** (Order Parameter Scaling):"
+        ],
+        [
+          409,
+          "2. Near N_c: Expand free energy F = a(N-N_c)m\u00b2 + bm\u2074 + ..."
+        ],
+        [
+          424,
+          "1. Critical point where quantum fluctuations balance thermal fluctuations"
+        ],
+        [
+          428,
+          "5. Prior field shifts effective temperature: T_eff = T/(1 + \u03bb/(2\u03c0)) \u25a1"
+        ],
+        [
+          451,
+          "3. Extract anomalous dimensions from propagator scaling"
+        ],
+        [
+          452,
+          "4. Use scaling relations: \u03b3 = \u03bd(2-\u03b7), \u03b2 = \u03bd(d-2+\u03b7)/2"
+        ],
+        [
+          457,
+          "- **\u03b7** (anomalous dimension): Corrections to naive scaling"
+        ],
+        [
+          462,
+          "### 6.4 Scaling Functions"
+        ],
+        [
+          464,
+          "**Definition 6.2** (Universal Scaling):"
+        ],
+        [
+          476,
+          "All MCTS observables exhibit data collapse with the above scaling."
+        ],
+        [
+          498,
+          "- H(a*): Entropy of optimal action distribution"
+        ],
+        [
+          508,
+          "**Theorem 7.5** (Redundancy Scaling):"
+        ],
+        [
+          524,
+          "The N^(-1/2) scaling means:"
+        ],
+        [
+          571,
+          "**Theorem 7.1** (Decoherence Scaling):"
+        ],
+        [
+          603,
+          "- States with definite N(s,a) don't change under measurement"
+        ],
+        [
+          665,
+          "- Higher temperature T\u2080 speeds up decoherence"
+        ],
+        [
+          738,
+          "- **(\u2202\u03c6/\u2202\u03c4)\u00b2**: Kinetic energy of visit field evolution"
+        ],
+        [
+          758,
+          "| T(N) | T\u2080/log(N+2) | N \u2265 0 | Exploration temperature |"
+        ]
+      ],
+      "lines": 821,
+      "member": "mcts_study/v2.0/qft-mcts-math-foundations-v2.md",
+      "relevant_line_count": 31,
+      "sha256": "8d3e75ea26d73364dd902e51230b4633f0fba4575238a1ca592d646e6d4df307"
+    },
+    {
+      "excerpts": [
+        [
+          15,
+          "**Second Refinement**: Identification of emergent temperature parameter \u03b2(k) that controls exploration-exploitation"
+        ],
+        [
+          23,
+          "1. A finite-temperature path integral on a discrete, directed acyclic graph"
+        ],
+        [
+          33,
+          "- Temperature \u03b2 is emergent, not prescribed"
+        ],
+        [
+          74,
+          "**Scaling Law and Error Bounds**:"
+        ],
+        [
+          95,
+          "3. The system seeks to minimize total \"energy\" T + V"
+        ],
+        [
+          104,
+          "This is precisely the Boltzmann weight at temperature T=1."
+        ],
+        [
+          120,
+          "1. Consider softmax selection with inverse temperature $\\beta$: $P(a|s) = \\frac{e^{\\beta \\cdot \\text{Score}(s,a)}}{\\sum_b e^{\\beta \\cdot \\text{Score}(s,b)}}$"
+        ],
+        [
+          225,
+          "**Key Result**: The effective temperature is not input but emerges from:"
+        ],
+        [
+          228,
+          "### 4.6 Connection to Measured Temperature"
+        ],
+        [
+          230,
+          "**Theorem 4.2 (Temperature Correspondence)**:"
+        ],
+        [
+          231,
+          "The \u03b2 appearing in the Gibbs state equals the measured temperature:"
+        ],
+        [
+          234,
+          "**Proof**: The steady state of the Lindblad equation has the form of a thermal state with the same \u03b2 that best fits the empirical distribution."
+        ],
+        [
+          308,
+          "**Scaling Analysis**:"
+        ],
+        [
+          360,
+          "This quantifies when thermal fluctuations become negligible."
+        ],
+        [
+          362,
+          "### 6.4 Anomalous Dimensions and Scaling"
+        ],
+        [
+          364,
+          "**Definition 6.4 (Scaling Dimension)**:"
+        ],
+        [
+          367,
+          "where $\\Delta_O$ is the scaling dimension."
+        ],
+        [
+          412,
+          "where I is mutual information and H is entropy."
+        ],
+        [
+          427,
+          "The von Neumann entropy quantifies superposition:"
+        ],
+        [
+          431,
+          "The entropy follows:"
+        ],
+        [
+          435,
+          "- $S_0$: Initial entropy"
+        ],
+        [
+          437,
+          "- $S_{\\infty}$: Residual entropy"
+        ],
+        [
+          463,
+          "A sudden drop in policy entropy:"
+        ],
+        [
+          472,
+          "4. Entropy drops discontinuously"
+        ],
+        [
+          476,
+          "def detect_phase_transitions(entropy_trajectory):"
+        ],
+        [
+          477,
+          "    d2S = np.gradient(np.gradient(entropy_trajectory))"
+        ],
+        [
+          486,
+          "**Definition 8.1 (Free Energy)**:"
+        ],
+        [
+          493,
+          "**First Law**: $\\Delta U = Q - W$ where U is internal energy."
+        ],
+        [
+          528,
+          "### 8.4 Entropy Production"
+        ],
+        [
+          530,
+          "**Definition 8.3 (Entropy Production)**:"
+        ],
+        [
+          534,
+          "- $\\Delta S_{system} = -\\Delta S_{vN}$ (policy entropy decrease)"
+        ],
+        [
+          575,
+          "### 9.3 Finite-Size Scaling Theory"
+        ],
+        [
+          577,
+          "**Fundamental Hypothesis**: Near criticality, observables follow universal scaling:"
+        ],
+        [
+          579,
+          "**Theorem 9.1 (Scaling Relations)**:"
+        ],
+        [
+          588,
+          "- f: Universal scaling functions"
+        ],
+        [
+          590,
+          "### 9.4 Measurement of Critical Exponents"
+        ],
+        [
+          619,
+          "### 9.6 Data Collapse and Scaling Functions"
+        ],
+        [
+          621,
+          "**Validation of Scaling**:"
+        ],
+        [
+          640,
+          "- High-temperature regime correctly predicts instability at small N"
+        ],
+        [
+          655,
+          "- Steady state can still be thermal without detailed balance"
+        ],
+        [
+          677,
+          "   - Temperature from visit count scaling"
+        ],
+        [
+          684,
+          "   - Temperature evolution \u03b2 \u221d \u221aN"
+        ],
+        [
+          691,
+          "- MCTS implements Free Energy Principle"
+        ],
+        [
+          697,
+          "- Automatic temperature scheduling"
+        ],
+        [
+          731,
+          "1. **Adaptive Temperature Schedules**:"
+        ]
+      ],
+      "lines": 776,
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "relevant_line_count": 48,
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "excerpts": [
+        [
+          15,
+          "**Initial Approach**: Direct measurement of \"quantum\" properties"
+        ],
+        [
+          53,
+          "        self.measurements = defaultdict(list)"
+        ],
+        [
+          70,
+          "3. **Finite-Size Effects**: Scaling analysis to extrapolate infinite-size behavior"
+        ],
+        [
+          73,
+          "## 2. Temperature Measurement: Complete Protocol"
+        ],
+        [
+          77,
+          "**Initial Challenge**: How to measure an emergent, non-prescribed temperature?"
+        ],
+        [
+          80,
+          "1. First attempt: Assume Boltzmann distribution, fit \u03b2"
+        ],
+        [
+          84,
+          "**Physical Quantity**: Inverse temperature \u03b2(k) characterizing exploration-exploitation balance"
+        ],
+        [
+          86,
+          "**Key Insight**: Temperature emerges from the dynamics, not prescribed:"
+        ],
+        [
+          113,
+          "def measure_temperature_comprehensive("
+        ],
+        [
+          120,
+          "    Comprehensive temperature measurement with multiple methods"
+        ],
+        [
+          190,
+          "        beta_eff, diagnostics = fit_temperature_mle("
+        ],
+        [
+          204,
+          "        ci_lower, ci_upper = bootstrap_temperature_ci("
+        ],
+        [
+          227,
+          "def fit_temperature_mle("
+        ],
+        [
+          233,
+          "    Maximum likelihood estimation of temperature with diagnostics"
+        ],
+        [
+          298,
+          "def bootstrap_temperature_ci("
+        ],
+        [
+          305,
+          "    Bootstrap confidence interval for temperature"
+        ],
+        [
+          323,
+          "        # Fit temperature to resampled data"
+        ],
+        [
+          324,
+          "        beta_boot, _ = fit_temperature_mle("
+        ],
+        [
+          347,
+          "    Multiple goodness-of-fit tests for temperature model"
+        ],
+        [
+          389,
+          "def analyze_temperature_evolution_comprehensive("
+        ],
+        [
+          395,
+          "    Comprehensive analysis of temperature dynamics"
+        ],
+        [
+          399,
+          "    2. Mean-field scaling validation"
+        ],
+        [
+          400,
+          "    3. Phase transitions in temperature"
+        ],
+        [
+          401,
+          "    4. Convergence to thermal equilibrium"
+        ],
+        [
+          414,
+          "        # Track temperature at each snapshot"
+        ],
+        [
+          421,
+          "            # Measure temperature at scheduled points"
+        ],
+        [
+          423,
+          "                temp_data = measure_temperature_comprehensive(root, k)"
+        ],
+        [
+          425,
+          "                # Additional dynamics measurements"
+        ],
+        [
+          427,
+          "                temp_data['entropy'] = compute_policy_entropy(root)"
+        ],
+        [
+          443,
+          "    return aggregate_temperature_results(all_results)"
+        ],
+        [
+          445,
+          "def test_temperature_predictions(results_df: pd.DataFrame) -> Dict[str, Any]:"
+        ],
+        [
+          458,
+          "    # Test 2: Mean-field scaling"
+        ],
+        [
+          467,
+          "        tests['scaling_exponent'] = slope"
+        ],
+        [
+          468,
+          "        tests['scaling_r2'] = r_value**2"
+        ],
+        [
+          469,
+          "        tests['scaling_pvalue'] = p_value"
+        ],
+        [
+          474,
+          "    # Check if late-stage temperature stabilizes"
+        ],
+        [
+          498,
+          "   - Fixed temperature (no adaptation)"
+        ],
+        [
+          504,
+          "1. **Temperature Evolution**:"
+        ],
+        [
+          511,
+          "2. **Scaling Validation**:"
+        ],
+        [
+          523,
+          "   - Correlated with entropy drops"
+        ],
+        [
+          533,
+          "2. **Refinement 1**: Proper Hessian from free energy functional"
+        ],
+        [
+          535,
+          "4. **Final Form**: Temperature-dependent fluctuation awareness"
+        ],
+        [
+          541,
+          "Starting from the free energy functional:"
+        ],
+        [
+          561,
+          "    - Temperature-dependent fluctuation bonus"
+        ],
+        [
+          575,
+          "        self.temperature_cache = {}"
+        ]
+      ],
+      "lines": 2497,
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "relevant_line_count": 176,
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    },
+    {
+      "excerpts": [
+        [
+          40,
+          "            'policy_entropy': 2.45,                 # Policy distribution entropy"
+        ],
+        [
+          121,
+          "    # Step 3: Apply theoretical scaling"
+        ],
+        [
+          124,
+          "    scaling_factor = (1 + total_visits)**(-0.25)"
+        ],
+        [
+          126,
+          "    return hbar_eff * scaling_factor"
+        ],
+        [
+          136,
+          "### 2.2 System Temperatures"
+        ],
+        [
+          142,
+          "def compute_temperatures(q_values, tree_snapshots):"
+        ],
+        [
+          144,
+          "    Extract temperature schedule from Q-value fluctuations"
+        ],
+        [
+          147,
+          "    - High Q-value variance \u2192 high temperature (exploration)"
+        ],
+        [
+          148,
+          "    - Low Q-value variance \u2192 low temperature (exploitation)"
+        ],
+        [
+          152,
+          "    temp_base = max(0.1, q_std)  # Minimum temperature threshold"
+        ],
+        [
+          154,
+          "    # Step 2: Generate temperature range"
+        ],
+        [
+          157,
+          "    temperatures = np.linspace(temp_min, temp_max, 20)"
+        ],
+        [
+          159,
+          "    # Step 3: Apply information time scaling"
+        ],
+        [
+          163,
+          "        temperatures[i] *= 1.0 / tau  # Annealing schedule"
+        ],
+        [
+          165,
+          "    return temperatures"
+        ],
+        [
+          171,
+          "temperatures = [0.032, 0.064, ..., 3.2] (20 values)"
+        ],
+        [
+          174,
+          "### 2.3 Von Neumann Entropy"
+        ],
+        [
+          180,
+          "def compute_von_neumann_entropy(visit_counts):"
+        ],
+        [
+          182,
+          "    Compute quantum information entropy from visit distribution"
+        ],
+        [
+          185,
+          "    - Uniform visits \u2192 high entropy (exploration)"
+        ],
+        [
+          186,
+          "    - Concentrated visits \u2192 low entropy (exploitation)"
+        ],
+        [
+          195,
+          "    # Step 3: Compute Shannon entropy (quantum analog)"
+        ],
+        [
+          196,
+          "    entropy = -np.sum(probs * np.log(probs + 1e-10))  # Regularization"
+        ],
+        [
+          198,
+          "    # Step 4: Normalize by maximum possible entropy"
+        ],
+        [
+          199,
+          "    max_entropy = np.log(len(probs))"
+        ],
+        [
+          200,
+          "    normalized_entropy = entropy / max_entropy if max_entropy > 0 else 0"
+        ],
+        [
+          202,
+          "    return entropy, normalized_entropy"
+        ],
+        [
+          207,
+          "entropy = -sum(p * log(p)) = 1.58 bits"
+        ],
+        [
+          208,
+          "max_entropy = log(6) = 1.79 bits"
+        ],
+        [
+          209,
+          "normalized = 1.58/1.79 = 0.88 (88% of maximum entropy)"
+        ],
+        [
+          212,
+          "**Physical Meaning**: High entropy indicates diverse exploration, low entropy indicates focused exploitation."
+        ],
+        [
+          246,
+          "    # Step 3: Temperature dependence"
+        ],
+        [
+          247,
+          "    for temp in temperatures:"
+        ],
+        [
+          287,
+          "def compute_susceptibility(visit_counts, temperatures):"
+        ],
+        [
+          298,
+          "    # Step 2: Susceptibility = variance / temperature"
+        ],
+        [
+          300,
+          "    for temp in temperatures:"
+        ],
+        [
+          304,
+          "    # Step 3: Critical scaling near phase transitions"
+        ],
+        [
+          306,
+          "    T_critical = np.mean(temperatures)"
+        ],
+        [
+          307,
+          "    for i, temp in enumerate(temperatures):"
+        ],
+        [
+          336,
+          "        prior_weight = c_puct / (2 * np.pi)  # Typical scaling"
+        ],
+        [
+          363,
+          "def compute_correlation_length(correlations, temperatures, T_critical):"
+        ],
+        [
+          371,
+          "    for temp in temperatures:"
+        ],
+        [
+          395,
+          "    for temp, xi in zip(temperatures, correlation_lengths):"
+        ],
+        [
+          413,
+          "**Universal Scaling Function**:"
+        ],
+        [
+          415,
+          "def perform_data_collapse(observable_data, system_sizes, temperatures, "
+        ]
+      ],
+      "lines": 1278,
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "relevant_line_count": 132,
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    }
+  ]
+}

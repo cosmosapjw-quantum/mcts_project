@@ -1,0 +1,661 @@
+{
+  "corrected_artifacts_total": 84,
+  "items": [
+    {
+      "acceptance_contract": "Authenticate conditional score slope and report unidentifiable cases, Q/occupancy mismatch; physical T requires calibrated conjugate energy.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "L03_identified_conditional_law_and_information",
+          "ids": [
+            "L03",
+            "L05",
+            "L34"
+          ],
+          "pdf_sha": "95c1eacfcfaa0566eebdf9c260baeacfcaa4bea3fe84418c419578eb4fa39131",
+          "png_sha": "decbbfe679f6b5fbc26782e7a80ac745c7457403d55b2b073b691e2f95c007c9"
+        },
+        {
+          "figure": "L25_projection_feature_and_target_comparison",
+          "ids": [
+            "L03",
+            "L25",
+            "L34"
+          ],
+          "pdf_sha": "b5d653f7f2312b402a4f8fc0718f912306cc89f87f4ccd3cc56b0faad84d14e6",
+          "png_sha": "fff3726c8d89d1ac9a7b30351d87bdd0082fd29e8ea8403348e5f6029bb5c843"
+        },
+        {
+          "figure": "L03_L25_heldout_score_Q_likelihood",
+          "ids": [
+            "L03",
+            "L25",
+            "L05"
+          ],
+          "pdf_sha": "abb130feca6a78d9de75514515fd0893c6aabb1712113e9fdad28d9ad9b3a103",
+          "png_sha": "796274e66b152f9e4e20e0ad7c0324835cb30eddd915d65e87de34ce84a7d54a"
+        }
+      ],
+      "figures": [
+        "L03_identified_conditional_law_and_information",
+        "L25_projection_feature_and_target_comparison",
+        "L03_L25_heldout_score_Q_likelihood"
+      ],
+      "id": "L03",
+      "method": "Authenticated per-selection log-probability slope versus actual recorded score, affine scale invariance and flat startup masks, independent R79 and controlled R87 cohorts; no physical T.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Authenticate conditional score slope and report unidentifiable cases, Q/occupancy mismatch; physical T requires calibrated conjugate energy.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "L03",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "source_excerpt": [
+          "    def _plot_authentic_temperature(self, ax):",
+          "        \"\"\"Plot authentic temperature measurements\"\"\"",
+          "        if 'temperatures' not in self.results['authentic_measurements']:",
+          "            ax.text(0.5, 0.5, 'No temperature data', ha='center', va='center')",
+          "            ax.set_title('Authentic Temperature')",
+          "            return",
+          "            ",
+          "        temps = [t['temperature'] for t in self.results['authentic_measurements']['temperatures']]",
+          "        ax.hist(temps, bins=30, alpha=0.7, edgecolor='black')",
+          "        ax.axvline(np.mean(temps), color='red', linestyle='--', ",
+          "                  label=f'Mean: {np.mean(temps):.3f}')",
+          "        ax.set_xlabel('Temperature (measured from \u03c0 \u221d exp(\u03b2\u00b7Q))')",
+          "        ax.set_ylabel('Count')",
+          "        ax.set_title('Authentic Temperature Measurements')",
+          "        ax.legend()",
+          "        ax.grid(True, alpha=0.3)"
+        ],
+        "source_function": "_plot_authentic_temperature",
+        "span": [
+          1621,
+          1636
+        ]
+      },
+      "pdf_sha": "95c1eacfcfaa0566eebdf9c260baeacfcaa4bea3fe84418c419578eb4fa39131",
+      "png_sha": "decbbfe679f6b5fbc26782e7a80ac745c7457403d55b2b073b691e2f95c007c9",
+      "remaining_limit": "Independent physical energy and bath temperature calibration remain open."
+    },
+    {
+      "acceptance_contract": "Compare explicit scaling candidate fits and heldout budget/size predictions with residuals, not an asserted universal best model.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "L26_independent_budget_vs_prefix",
+          "ids": [
+            "L26",
+            "L04"
+          ],
+          "pdf_sha": "399230ac9d579378cb451f041727a80de50e2281527268838f9a0d5e9f605544",
+          "png_sha": "f778f4b7b7974317bcf30e289f896f730dbcfc60b8776bb2692270a7eaf9b3c7"
+        },
+        {
+          "figure": "L04_heldout_scaling_competition",
+          "ids": [
+            "L04",
+            "L26",
+            "L34"
+          ],
+          "pdf_sha": "e9e73bde92159b3afb38f86841d489e179eb7d6964cfb4c15910378f9503fc43",
+          "png_sha": "0a9a7d8243fa2c0236a0818ca82697acef5f0dcf98bff624104e3b8debb32366"
+        }
+      ],
+      "figures": [
+        "L26_independent_budget_vs_prefix",
+        "L04_heldout_scaling_competition"
+      ],
+      "id": "L04",
+      "method": "Four explicit signed bounded occupancy-slope scaling candidates, development leave-one-size-out selection and existing independent L21 test; no universal scaling, retain negative comparisons.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Compare explicit scaling candidate fits and heldout budget/size predictions with residuals, not an asserted universal best model.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "L04",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "source_excerpt": [
+          "    def _plot_scaling_discovery(self, ax):",
+          "        \"\"\"Plot scaling relation discovery\"\"\"",
+          "        if 'temperature_scaling' not in self.results['authentic_measurements']:",
+          "            ax.text(0.5, 0.5, 'Insufficient data for scaling', ha='center', va='center')",
+          "            ax.set_title('Scaling Discovery')",
+          "            return",
+          "            ",
+          "        scaling = self.results['authentic_measurements']['temperature_scaling']",
+          "        if 'data' in scaling:",
+          "            params = scaling['data']['parameters']",
+          "            obs = scaling['data']['observables']",
+          "            ax.scatter(params, obs, alpha=0.6, s=30)",
+          "            ax.set_xscale('log')",
+          "            ax.set_yscale('log')",
+          "            ax.set_xlabel('N (visits)')",
+          "            ax.set_ylabel('Temperature')",
+          "            ",
+          "            if 'best_model' in scaling:",
+          "                ax.set_title(f\"Best Scaling: {scaling['best_model']} \"",
+          "                           f\"(R\u00b2 = {scaling['best_model_details']['r_squared']:.3f})\")",
+          "            else:",
+          "                ax.set_title('Temperature Scaling')",
+          "        ax.grid(True, alpha=0.3)"
+        ],
+        "source_function": "_plot_scaling_discovery",
+        "span": [
+          1638,
+          1660
+        ]
+      },
+      "pdf_sha": "399230ac9d579378cb451f041727a80de50e2281527268838f9a0d5e9f605544",
+      "png_sha": "f778f4b7b7974317bcf30e289f896f730dbcfc60b8776bb2692270a7eaf9b3c7",
+      "remaining_limit": "Independent physical energy and bath temperature calibration remain open."
+    },
+    {
+      "acceptance_contract": "Report each validated observation type, unit of replication, failure and cross-validation; do not sum unrelated measurement counts.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "L03_identified_conditional_law_and_information",
+          "ids": [
+            "L03",
+            "L05",
+            "L34"
+          ],
+          "pdf_sha": "95c1eacfcfaa0566eebdf9c260baeacfcaa4bea3fe84418c419578eb4fa39131",
+          "png_sha": "decbbfe679f6b5fbc26782e7a80ac745c7457403d55b2b073b691e2f95c007c9"
+        },
+        {
+          "figure": "L25_temporal_mixture_decomposition",
+          "ids": [
+            "L25",
+            "L05"
+          ],
+          "pdf_sha": "59984d715f19f86f656b9e86ae6a208f6fa4b360b22e58e68541b572462345c5",
+          "png_sha": "c34914976ece483e52fd5fb6dca9f93fe954501dbfc503bf7d228543507f07a2"
+        },
+        {
+          "figure": "L03_L25_heldout_score_Q_likelihood",
+          "ids": [
+            "L03",
+            "L25",
+            "L05"
+          ],
+          "pdf_sha": "abb130feca6a78d9de75514515fd0893c6aabb1712113e9fdad28d9ad9b3a103",
+          "png_sha": "796274e66b152f9e4e20e0ad7c0324835cb30eddd915d65e87de34ce84a7d54a"
+        },
+        {
+          "figure": "L05_L34_typed_quality_and_identification",
+          "ids": [
+            "L05",
+            "L34",
+            "L25"
+          ],
+          "pdf_sha": "6e461ea0d80639c4d3f54c26b06b4929e56b3f59a1a1c57b910e25ce32c76593",
+          "png_sha": "d9df04597f8aaa568f883d4269949c04dec27e36d617983864796eb3aea1f8d0"
+        },
+        {
+          "figure": "L34_endogeneity_cross_history",
+          "ids": [
+            "L34",
+            "L25",
+            "L05"
+          ],
+          "pdf_sha": "492cd623136ffbb2d1b7a63d27cbe2a56fb6535f78adf580024c3ab43ad97c2b",
+          "png_sha": "8c0b93643b871c265c1d44cb1359194df6354b20533d581d808a63eb5dade2c3"
+        }
+      ],
+      "figures": [
+        "L03_identified_conditional_law_and_information",
+        "L25_temporal_mixture_decomposition",
+        "L03_L25_heldout_score_Q_likelihood",
+        "L05_L34_typed_quality_and_identification",
+        "L34_endogeneity_cross_history"
+      ],
+      "id": "L05",
+      "method": "Typed actual selection/wave/trajectory/prefix/projection counts and quality, explicit invalid flat and constrained/face status, independent numerical validation and cross-history controls; no physical T count.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Report each validated observation type, unit of replication, failure and cross-validation; do not sum unrelated measurement counts.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "L05",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "source_excerpt": [
+          "    def _plot_measurement_quality(self, ax):",
+          "        \"\"\"Plot measurement quality metrics\"\"\"",
+          "        ax.axis('off')",
+          "        ",
+          "        quality_text = \"MEASUREMENT QUALITY\\n\" + \"=\"*25 + \"\\n\\n\"",
+          "        ",
+          "        # Count measurements",
+          "        n_temp = len(self.results['authentic_measurements'].get('temperatures', []))",
+          "        n_thermo = len(self.results['statistical_mechanics'].get('thermodynamics', []))",
+          "        n_critical = len(self.results['statistical_mechanics'].get('critical_points', []))",
+          "        ",
+          "        quality_text += f\"Authentic temperatures: {n_temp}\\n\"",
+          "        quality_text += f\"Thermodynamic states: {n_thermo}\\n\"",
+          "        quality_text += f\"Critical points: {n_critical}\\n\"",
+          "        ",
+          "        # Cross-validation results",
+          "        if 'cross_validations' in self.results:",
+          "            quality_text += \"\\nCross-Validations:\\n\"",
+          "            for key, val in self.results['cross_validations'].items():",
+          "                if isinstance(val, dict) and 'consistent' in val:",
+          "                    quality_text += f\"  {key}: {'\u2713' if val['consistent'] else '\u2717'}\\n\"",
+          "        ",
+          "        ax.text(0.05, 0.95, quality_text, transform=ax.transAxes,",
+          "               va='top', fontsize=10, family='monospace',",
+          "               bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))"
+        ],
+        "source_function": "_plot_measurement_quality",
+        "span": [
+          1662,
+          1686
+        ]
+      },
+      "pdf_sha": "95c1eacfcfaa0566eebdf9c260baeacfcaa4bea3fe84418c419578eb4fa39131",
+      "png_sha": "decbbfe679f6b5fbc26782e7a80ac745c7457403d55b2b073b691e2f95c007c9",
+      "remaining_limit": "Independent physical energy and bath temperature calibration remain open."
+    },
+    {
+      "acceptance_contract": "Temperature extraction from conditional likelihood and full-support occupancy projection with fit failure labels and uncertainty; no T without energy.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "L25_projection_feature_and_target_comparison",
+          "ids": [
+            "L03",
+            "L25",
+            "L34"
+          ],
+          "pdf_sha": "b5d653f7f2312b402a4f8fc0718f912306cc89f87f4ccd3cc56b0faad84d14e6",
+          "png_sha": "fff3726c8d89d1ac9a7b30351d87bdd0082fd29e8ea8403348e5f6029bb5c843"
+        },
+        {
+          "figure": "L25_temporal_mixture_decomposition",
+          "ids": [
+            "L25",
+            "L05"
+          ],
+          "pdf_sha": "59984d715f19f86f656b9e86ae6a208f6fa4b360b22e58e68541b572462345c5",
+          "png_sha": "c34914976ece483e52fd5fb6dca9f93fe954501dbfc503bf7d228543507f07a2"
+        },
+        {
+          "figure": "L03_L25_heldout_score_Q_likelihood",
+          "ids": [
+            "L03",
+            "L25",
+            "L05"
+          ],
+          "pdf_sha": "abb130feca6a78d9de75514515fd0893c6aabb1712113e9fdad28d9ad9b3a103",
+          "png_sha": "796274e66b152f9e4e20e0ad7c0324835cb30eddd915d65e87de34ce84a7d54a"
+        },
+        {
+          "figure": "L05_L34_typed_quality_and_identification",
+          "ids": [
+            "L05",
+            "L34",
+            "L25"
+          ],
+          "pdf_sha": "6e461ea0d80639c4d3f54c26b06b4929e56b3f59a1a1c57b910e25ce32c76593",
+          "png_sha": "d9df04597f8aaa568f883d4269949c04dec27e36d617983864796eb3aea1f8d0"
+        },
+        {
+          "figure": "L34_endogeneity_cross_history",
+          "ids": [
+            "L34",
+            "L25",
+            "L05"
+          ],
+          "pdf_sha": "492cd623136ffbb2d1b7a63d27cbe2a56fb6535f78adf580024c3ab43ad97c2b",
+          "png_sha": "8c0b93643b871c265c1d44cb1359194df6354b20533d581d808a63eb5dade2c3"
+        }
+      ],
+      "figures": [
+        "L25_projection_feature_and_target_comparison",
+        "L25_temporal_mixture_decomposition",
+        "L03_L25_heldout_score_Q_likelihood",
+        "L05_L34_typed_quality_and_identification",
+        "L34_endogeneity_cross_history"
+      ],
+      "id": "L25",
+      "method": "Full legal support A/X projection onto endpoint Q, mean and last preselection score, exact moment and KL identities, explicit negative and boundary cases, heldout conditional score/Q grid; no physical T.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Temperature extraction from conditional likelihood and full-support occupancy projection with fit failure labels and uncertainty; no T without energy.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "L25",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+        "member_sha": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+        "source_excerpt": [
+          "    def plot_temperature_extraction(self, ax):",
+          "        \"\"\"Plot temperature extraction results\"\"\"",
+          "        temp_data = self.results.get('authentic_measurements', {}).get('temperatures', [])",
+          "        ",
+          "        if temp_data and len(temp_data) > 0:",
+          "            # Plot measured temperatures",
+          "            temps = [t['temperature'] for t in temp_data if not np.isnan(t['temperature'])]",
+          "            errors = [t['error'] for t in temp_data if not np.isnan(t['temperature'])]",
+          "            ",
+          "            if temps:",
+          "                ax.hist(temps, bins=min(30, len(temps)//2), alpha=0.7, ",
+          "                       edgecolor='black', color='blue')",
+          "                ax.axvline(np.mean(temps), color='red', linestyle='--', ",
+          "                          label=f'Mean: {np.mean(temps):.3f}')",
+          "                ax.set_xlabel('Temperature (measured from \u03c0(a) \u221d exp(\u03b2Q(a)))')",
+          "                ax.set_ylabel('Count')",
+          "                ax.set_title('Authentic Temperature Measurements')",
+          "                ax.legend()",
+          "                self.add_measurement_label(ax)",
+          "            else:",
+          "                ax.text(0.5, 0.5, 'All temperature fits failed\\n(Poor R\u00b2 or random Q-values)', ",
+          "                       transform=ax.transAxes, ha='center', va='center',",
+          "                       bbox=dict(boxstyle='round', facecolor='orange', alpha=0.7),",
+          "                       fontsize=12, weight='bold')",
+          "                ax.set_title('Temperature Extraction Failed')",
+          "        else:",
+          "            self.add_no_data_label(ax, 'No temperature data')",
+          "            ax.set_title('Temperature Measurements')"
+        ],
+        "source_function": "plot_temperature_extraction",
+        "span": [
+          41,
+          68
+        ]
+      },
+      "pdf_sha": "b5d653f7f2312b402a4f8fc0718f912306cc89f87f4ccd3cc56b0faad84d14e6",
+      "png_sha": "fff3726c8d89d1ac9a7b30351d87bdd0082fd29e8ea8403348e5f6029bb5c843",
+      "remaining_limit": "Independent physical energy and bath temperature calibration remain open."
+    },
+    {
+      "acceptance_contract": "Independent budget and prefix trajectories, compare actual selector slope versus occupancy projection; fit scaling only if justified.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "L26_independent_budget_vs_prefix",
+          "ids": [
+            "L26",
+            "L04"
+          ],
+          "pdf_sha": "399230ac9d579378cb451f041727a80de50e2281527268838f9a0d5e9f605544",
+          "png_sha": "f778f4b7b7974317bcf30e289f896f730dbcfc60b8776bb2692270a7eaf9b3c7"
+        },
+        {
+          "figure": "L04_heldout_scaling_competition",
+          "ids": [
+            "L04",
+            "L26",
+            "L34"
+          ],
+          "pdf_sha": "e9e73bde92159b3afb38f86841d489e179eb7d6964cfb4c15910378f9503fc43",
+          "png_sha": "0a9a7d8243fa2c0236a0818ca82697acef5f0dcf98bff624104e3b8debb32366"
+        }
+      ],
+      "figures": [
+        "L26_independent_budget_vs_prefix",
+        "L04_heldout_scaling_competition"
+      ],
+      "id": "L26",
+      "method": "Separate actual independent B16/B64 and correlated B64 prefix diagnostics across five sizes, four fixed scaling candidates, separate log-size control; no physical power law.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Independent budget and prefix trajectories, compare actual selector slope versus occupancy projection; fit scaling only if justified.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "L26",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+        "member_sha": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+        "source_excerpt": [
+          "    def plot_temperature_scaling(self, ax):",
+          "        \"\"\"Plot temperature vs visits scaling\"\"\"",
+          "        temp_data = self.results.get('authentic_measurements', {}).get('temperatures', [])",
+          "        ",
+          "        if temp_data and len(temp_data) > 0:",
+          "            # Extract valid temperature measurements",
+          "            valid_data = [(t['temperature'], t['n_visits']) ",
+          "                         for t in temp_data ",
+          "                         if not np.isnan(t['temperature']) and 'n_visits' in t]",
+          "            ",
+          "            if len(valid_data) > 3:",
+          "                temps, visits = zip(*valid_data)",
+          "                ax.scatter(visits, temps, alpha=0.6, s=30)",
+          "                ",
+          "                # Try to fit scaling relation",
+          "                log_visits = np.log(visits)",
+          "                log_temps = np.log(temps)",
+          "                ",
+          "                try:",
+          "                    p = np.polyfit(log_visits, log_temps, 1)",
+          "                    r_squared = np.corrcoef(log_visits, log_temps)[0, 1]**2",
+          "                    ",
+          "                    if r_squared > 0.1:  # Only show if some correlation",
+          "                        x_fit = np.linspace(min(visits), max(visits), 100)",
+          "                        y_fit = np.exp(p[1]) * (x_fit ** p[0])",
+          "                        ax.plot(x_fit, y_fit, 'r--', alpha=0.5, ",
+          "                               label=f'T \u221d N^{p[0]:.3f} (R\u00b2 = {r_squared:.3f})')",
+          "                    ",
+          "                    ax.set_xlabel('N (visits)')",
+          "                    ax.set_ylabel('Temperature')",
+          "                    ax.set_title(f'Temperature Scaling (R\u00b2 = {r_squared:.3f})')",
+          "                    ax.legend()",
+          "                    ax.set_xscale('log')",
+          "                    ax.set_yscale('log')",
+          "                    self.add_measurement_label(ax)",
+          "                except:",
+          "                    ax.set_xlabel('N (visits)')",
+          "                    ax.set_ylabel('Temperature')",
+          "                    ax.set_title('Temperature Scaling (Fit failed)')",
+          "                    self.add_measurement_label(ax)",
+          "            else:",
+          "                self.add_no_data_label(ax, 'Insufficient valid data')",
+          "                ax.set_title('Temperature Scaling')",
+          "        else:",
+          "            self.add_no_data_label(ax)",
+          "            ax.set_title('Temperature Scaling')"
+        ],
+        "source_function": "plot_temperature_scaling",
+        "span": [
+          70,
+          115
+        ]
+      },
+      "pdf_sha": "399230ac9d579378cb451f041727a80de50e2281527268838f9a0d5e9f605544",
+      "png_sha": "f778f4b7b7974317bcf30e289f896f730dbcfc60b8776bb2692270a7eaf9b3c7",
+      "remaining_limit": "Independent physical energy and bath temperature calibration remain open."
+    },
+    {
+      "acceptance_contract": "Typed measurement counts and quality with invalid/unidentified statuses; no artificial critical or physical temperature counts.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "L03_identified_conditional_law_and_information",
+          "ids": [
+            "L03",
+            "L05",
+            "L34"
+          ],
+          "pdf_sha": "95c1eacfcfaa0566eebdf9c260baeacfcaa4bea3fe84418c419578eb4fa39131",
+          "png_sha": "decbbfe679f6b5fbc26782e7a80ac745c7457403d55b2b073b691e2f95c007c9"
+        },
+        {
+          "figure": "L25_projection_feature_and_target_comparison",
+          "ids": [
+            "L03",
+            "L25",
+            "L34"
+          ],
+          "pdf_sha": "b5d653f7f2312b402a4f8fc0718f912306cc89f87f4ccd3cc56b0faad84d14e6",
+          "png_sha": "fff3726c8d89d1ac9a7b30351d87bdd0082fd29e8ea8403348e5f6029bb5c843"
+        },
+        {
+          "figure": "L04_heldout_scaling_competition",
+          "ids": [
+            "L04",
+            "L26",
+            "L34"
+          ],
+          "pdf_sha": "e9e73bde92159b3afb38f86841d489e179eb7d6964cfb4c15910378f9503fc43",
+          "png_sha": "0a9a7d8243fa2c0236a0818ca82697acef5f0dcf98bff624104e3b8debb32366"
+        },
+        {
+          "figure": "L05_L34_typed_quality_and_identification",
+          "ids": [
+            "L05",
+            "L34",
+            "L25"
+          ],
+          "pdf_sha": "6e461ea0d80639c4d3f54c26b06b4929e56b3f59a1a1c57b910e25ce32c76593",
+          "png_sha": "d9df04597f8aaa568f883d4269949c04dec27e36d617983864796eb3aea1f8d0"
+        },
+        {
+          "figure": "L34_endogeneity_cross_history",
+          "ids": [
+            "L34",
+            "L25",
+            "L05"
+          ],
+          "pdf_sha": "492cd623136ffbb2d1b7a63d27cbe2a56fb6535f78adf580024c3ab43ad97c2b",
+          "png_sha": "8c0b93643b871c265c1d44cb1359194df6354b20533d581d808a63eb5dade2c3"
+        }
+      ],
+      "figures": [
+        "L03_identified_conditional_law_and_information",
+        "L25_projection_feature_and_target_comparison",
+        "L04_heldout_scaling_competition",
+        "L05_L34_typed_quality_and_identification",
+        "L34_endogeneity_cross_history"
+      ],
+      "id": "L34",
+      "method": "Typed measurement quality summary, flat score and constrained projection statuses, actual cross-history endogeneity comparison and exact counterexample, heldout error and independent checks; no artificial physical observations.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Typed measurement counts and quality with invalid/unidentified statuses; no artificial critical or physical temperature counts.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "L34",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/honest_plots.py",
+        "member_sha": "9bdf459942df73695220e6b4a427bfb4382dedb57aff8fd280c70e02ff15808a",
+        "source_excerpt": [
+          "    def plot_measurement_quality(self, ax):",
+          "        \"\"\"Plot measurement quality summary\"\"\"",
+          "        # Count valid measurements",
+          "        temp_data = self.results.get('authentic_measurements', {}).get('temperatures', [])",
+          "        valid_temps = sum(1 for t in temp_data if not np.isnan(t['temperature']))",
+          "        ",
+          "        critical_points = self.results.get('summary', {}).get('n_critical_points', 0)",
+          "        ",
+          "        # Create quality summary",
+          "        quality_metrics = {",
+          "            'Valid Temperatures': valid_temps,",
+          "            'Critical Points': critical_points,",
+          "            'Thermodynamic States': len(self.results.get('statistical_mechanics', {}).get('thermodynamics', [])),",
+          "            'Decoherence Trajectories': len(self.results.get('quantum_phenomena', {}).get('decoherence', [])),",
+          "            'Entanglement Measurements': len(self.results.get('quantum_phenomena', {}).get('entanglement', []))",
+          "        }",
+          "        ",
+          "        metrics = list(quality_metrics.keys())",
+          "        values = list(quality_metrics.values())",
+          "        ",
+          "        ax.barh(metrics, values, alpha=0.7)",
+          "        ax.set_xlabel('Number of Measurements')",
+          "        ax.set_title('MEASUREMENT QUALITY\\n' + '='*20)",
+          "        ax.grid(True, alpha=0.3, axis='x')",
+          "        ",
+          "        # Add total count",
+          "        total = sum(values)",
+          "        ax.text(0.95, 0.95, f'Total: {total}', transform=ax.transAxes,",
+          "               ha='right', va='top', fontsize=12, weight='bold',",
+          "               bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.7))"
+        ],
+        "source_function": "plot_measurement_quality",
+        "span": [
+          317,
+          346
+        ]
+      },
+      "pdf_sha": "95c1eacfcfaa0566eebdf9c260baeacfcaa4bea3fe84418c419578eb4fa39131",
+      "png_sha": "decbbfe679f6b5fbc26782e7a80ac745c7457403d55b2b073b691e2f95c007c9",
+      "remaining_limit": "Independent physical energy and bath temperature calibration remain open."
+    }
+  ],
+  "original_scientific_certifications": 0,
+  "prior_report_artifacts": [
+    "L31",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "L10",
+    "L22",
+    "L24",
+    "L21",
+    "L23",
+    "G03",
+    "G07",
+    "L16",
+    "Q21",
+    "Q32",
+    "G01",
+    "G02",
+    "G04",
+    "G05",
+    "Q05",
+    "Q08",
+    "G06",
+    "G08",
+    "G09",
+    "Q29",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G14",
+    "G15",
+    "G16",
+    "G17",
+    "G23",
+    "G24",
+    "G25",
+    "G26",
+    "G27",
+    "Q24",
+    "Q25",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q35",
+    "Q37",
+    "Q39",
+    "Q40",
+    "Q09",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q16",
+    "Q17",
+    "Q18",
+    "Q33",
+    "Q34",
+    "Q01",
+    "Q03",
+    "Q04",
+    "Q07",
+    "Q22",
+    "Q23",
+    "Q38",
+    "Q41",
+    "Q42",
+    "Q44",
+    "Q45",
+    "L09",
+    "L11",
+    "L20",
+    "L39",
+    "L40",
+    "L41",
+    "L42",
+    "L43",
+    "L48",
+    "L49"
+  ],
+  "status": "SCOPED_CONVERGENCE"
+}

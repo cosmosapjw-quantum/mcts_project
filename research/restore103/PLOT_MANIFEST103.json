@@ -1,0 +1,94 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "L03_identified_conditional_law_and_information",
+      "ids": [
+        "L03",
+        "L05",
+        "L34"
+      ],
+      "pdf_sha": "95c1eacfcfaa0566eebdf9c260baeacfcaa4bea3fe84418c419578eb4fa39131",
+      "png_sha": "decbbfe679f6b5fbc26782e7a80ac745c7457403d55b2b073b691e2f95c007c9"
+    },
+    {
+      "figure": "L25_projection_feature_and_target_comparison",
+      "ids": [
+        "L03",
+        "L25",
+        "L34"
+      ],
+      "pdf_sha": "b5d653f7f2312b402a4f8fc0718f912306cc89f87f4ccd3cc56b0faad84d14e6",
+      "png_sha": "fff3726c8d89d1ac9a7b30351d87bdd0082fd29e8ea8403348e5f6029bb5c843"
+    },
+    {
+      "figure": "L25_temporal_mixture_decomposition",
+      "ids": [
+        "L25",
+        "L05"
+      ],
+      "pdf_sha": "59984d715f19f86f656b9e86ae6a208f6fa4b360b22e58e68541b572462345c5",
+      "png_sha": "c34914976ece483e52fd5fb6dca9f93fe954501dbfc503bf7d228543507f07a2"
+    },
+    {
+      "figure": "L26_independent_budget_vs_prefix",
+      "ids": [
+        "L26",
+        "L04"
+      ],
+      "pdf_sha": "399230ac9d579378cb451f041727a80de50e2281527268838f9a0d5e9f605544",
+      "png_sha": "f778f4b7b7974317bcf30e289f896f730dbcfc60b8776bb2692270a7eaf9b3c7"
+    },
+    {
+      "figure": "L04_heldout_scaling_competition",
+      "ids": [
+        "L04",
+        "L26",
+        "L34"
+      ],
+      "pdf_sha": "e9e73bde92159b3afb38f86841d489e179eb7d6964cfb4c15910378f9503fc43",
+      "png_sha": "0a9a7d8243fa2c0236a0818ca82697acef5f0dcf98bff624104e3b8debb32366"
+    },
+    {
+      "figure": "L03_L25_heldout_score_Q_likelihood",
+      "ids": [
+        "L03",
+        "L25",
+        "L05"
+      ],
+      "pdf_sha": "abb130feca6a78d9de75514515fd0893c6aabb1712113e9fdad28d9ad9b3a103",
+      "png_sha": "796274e66b152f9e4e20e0ad7c0324835cb30eddd915d65e87de34ce84a7d54a"
+    },
+    {
+      "figure": "L05_L34_typed_quality_and_identification",
+      "ids": [
+        "L05",
+        "L34",
+        "L25"
+      ],
+      "pdf_sha": "6e461ea0d80639c4d3f54c26b06b4929e56b3f59a1a1c57b910e25ce32c76593",
+      "png_sha": "d9df04597f8aaa568f883d4269949c04dec27e36d617983864796eb3aea1f8d0"
+    },
+    {
+      "figure": "L34_endogeneity_cross_history",
+      "ids": [
+        "L34",
+        "L25",
+        "L05"
+      ],
+      "pdf_sha": "492cd623136ffbb2d1b7a63d27cbe2a56fb6535f78adf580024c3ab43ad97c2b",
+      "png_sha": "8c0b93643b871c265c1d44cb1359194df6354b20533d581d808a63eb5dade2c3"
+    }
+  ],
+  "scope": "Actual score-law, full-support projections, heldout scaling and typed measurements; no physical temperature.",
+  "sources": {
+    "CROSS103.json": "811e9f02ef62677fec3133f6462eb518ab3717dc5053aceaa420f2ef2ae62ba9",
+    "FIT103.json": "c01d924a74bcf6acf53ed730ad3b22fe3cb5bccd9679b8ffda205685bf340631",
+    "INDEPENDENT103.json": "77a034fc54170c9e59da634df7ea06501baaec6f010df8e9e173f2b0e285cc9f",
+    "MEASURE103.json": "c3779f20ed4960e754646eb7544f869c6ab7491712eab8c8c05f664728d4048d",
+    "MEASURE103.npz": "c563551dccb48a6b19e3ab2f4d311597519894e70f622d52042d25fdb2269195",
+    "ORIGINAL_SOURCE103.json": "0332539658f38af867155b1c6b90412c27abf7477bb4baa9d236a898a7a1cb04",
+    "PRIOR103.json": "9043f0b8391f2de8242601ee3bbd881c9ead9f7bde295c17d4304861f5e4f99a",
+    "SUMMARY103.json": "3351458c82ee6669c3c01ae326ac2bac44ea53c7b920ec7bc795fed62fafaa55"
+  }
+}
