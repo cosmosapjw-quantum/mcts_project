@@ -1,7 +1,8 @@
 {
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
-  "convergence_ledger": "CONVERGENCE88.json",
+  "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
+  "convergence_ledger": "CONVERGENCE89.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -120,9 +121,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R89 L23 QEC and L21 integrated advanced report",
+    "R90 reconstruct original action and effective potential/CGF panels using R80\u2013R87 evidence",
     "Direct original item reconstruction and acceptance, no repetitive diagnostic grids",
-    "Existing six open scientific claims separate from corrected artifact completion"
+    "Six open scientific claims remain distinct from corrected artifacts"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -141,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE89-QEC-AND-ADVANCED-REPORT-RECONSTRUCTION",
+  "next_stage_id": "MQFT-RESTORE90-STATISTICAL-ACTION-ORIGINAL-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -890,6 +891,19 @@
         "evidence": "72 actual observed H32 contexts, 576 forced leaf replays, 72 exact unforced replays, branch-dependent 504 settings, complete stopped CP instrument, explicit shared-bath vs history-tag completion, distinct normalized pair diagnostic and fragment checks.",
         "remaining": "Q-RECORD-03 physical/operational native coherence and objectivity not identified. Rare native repeat success, no disjoint 90% packing, no native physical entanglement."
       },
+      "restore89_followup": {
+        "accepted_subclaims": [
+          "QEC-POSTERIOR-01",
+          "QEC-COHERENT-02"
+        ],
+        "artifact": "mqft_restore89_20261128/{ORIGINAL_OUTPUT_REPORT89.md,ITEM_RECONSTRUCTION89.json,CONVERGENCE89.json}",
+        "corrected_artifacts": [
+          "L21",
+          "L23"
+        ],
+        "evidence": "3200 actual fixed-root histories,80 registered games,579026 evaluator records; exact syndrome posterior and conditional coherent quantum recovery; L23 and L21 reconstruction.",
+        "remaining": "No general native quantum/hardware or utility admission; original scientific certification separate."
+      },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
       "structure_followup": "RESTORE22 complex Gram restricted spatial coherence filtration and triangle-phase gauge checks; actual projected density code and operational recovery; no physical phase identification.",
@@ -959,6 +973,19 @@
         ],
         "evidence": "3120 actual fixed-root histories and16 games reauthenticated; 48 gauge,144 topology,96 transport contexts; exact joint invariants, persistence rank and minimax, eight corrected original plates/report.",
         "remaining": "L23 QEC, L21 combined advanced report, native operational gauge/physical tunneling unestablished; original final scientific certification separate."
+      },
+      "restore89_followup": {
+        "accepted_subclaims": [
+          "QEC-POSTERIOR-01",
+          "QEC-COHERENT-02"
+        ],
+        "artifact": "mqft_restore89_20261128/{ORIGINAL_OUTPUT_REPORT89.md,ITEM_RECONSTRUCTION89.json,CONVERGENCE89.json}",
+        "corrected_artifacts": [
+          "L21",
+          "L23"
+        ],
+        "evidence": "3200 actual fixed-root histories,80 registered games,579026 evaluator records; exact syndrome posterior and conditional coherent quantum recovery; L23 and L21 reconstruction.",
+        "remaining": "No general native quantum/hardware or utility admission; original scientific certification separate."
       },
       "retained_evidence": "\uace0\uc804 \ud2b8\ub9ac topology \ubc0f \ub3c5\ub9bd complex/QEC reference.",
       "source": "ensemble_analyzer_complete.py::_plot_topological_analysis/_plot_quantum_error_correction."
@@ -1167,8 +1194,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-04.C",
-  "quality_matrix": "QUALITY_MATRIX88.csv",
+  "previous_entry": "X-STRUCT",
+  "quality_matrix": "QUALITY_MATRIX89.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4266,8 +4293,54 @@
     "topology_contexts": 144,
     "transport_contexts": 96
   },
-  "revision": "RESTORE88_20261128",
-  "scope": "Convergence: direct corrected original structural outputs",
+  "restore89": {
+    "CONVERGENCE89.json_sha256": "72de21b37eec09c6706651ca5ae742e4b20aa72655668d61930e56f71c1ccfe8",
+    "DRIFT_WATCHDOG.md_sha256": "aea5fa99c3623b5987b1e23d40584e1d2d3844ca5a66a3934920a2167926026e",
+    "INDEPENDENT89.json_sha256": "a7e79679e1442c48ec5920ea767582d0f0cee5d5d7e3be0358ad34ff7c0ce2ae",
+    "ITEM_CONVERGENCE89.json_sha256": "393f40cc876e3e3ad660269475267291e49e36b097bc7a1c140ad77e41402ff3",
+    "ITEM_RECONSTRUCTION89.json_sha256": "af7562f2fec5aac138593217e61418ac3079bc9c7ddbf72e8cff1a98d1c53645",
+    "NATIVE89.json_sha256": "1c80d40b5a2e6fe62b158bb559fbc1b0b0bd7a395608b78056d3d221d47bb2c7",
+    "NEXT_DYNAMICS.md_sha256": "1b80f4a36ec529192651b516c2fc4cabfec5750d9cd9818e6ec78c03b7c137c0",
+    "ORIGINAL_OUTPUT_EVIDENCE89.csv_sha256": "9aff36c2b0a4809f6632c72076c7763dc3c31223f6785676de87b2d4e6c21709",
+    "ORIGINAL_OUTPUT_PROGRESS89.csv_sha256": "683c3290609c4474a87942763e7294ba2cc7b3528c47099270705d3a68f4d828",
+    "ORIGINAL_OUTPUT_REPORT89.md_sha256": "d10cd415134ee5cb2a14ca0e362d567da6fbd0f91c000a430798582829a8b836",
+    "ORIGINAL_SOURCE89.json_sha256": "97f973ebb97058342ac2f600c38a03148444a32b1b41671f1763b0deb2be9134",
+    "PLOT_INVENTORY89.csv_sha256": "fe842b59ee3008e616438a5064e3a61986ac52739f6cb296af9ca4c7cd73db95",
+    "PLOT_MANIFEST89.json_sha256": "d986d8ff9afcd0d55f863d8ec0e2bbb87f10272d6aeb67a48a60aa56474dc18e",
+    "PROGRESS89.json_sha256": "eccb848a1b9a93d9a21c74cb95bcab86259caf115727ceb43da247165ad78dfa",
+    "QEC89.json_sha256": "d4ebaca0b4e58191e6272febdc41af6e524e2ce06f481146d98bd88b507b7a16",
+    "QUALITY_MATRIX89.csv_sha256": "8033e5c14034c5d4b7547b7e297a1df1e1abb9b4e2d7250baa7f824df5116336",
+    "REGISTRATION.json_sha256": "8016bf1cb4f50c478e5d51e8dd79338dca6e67e82d8afe18d72896730bdf31cf",
+    "SOURCE_CORRECTIONS89.json_sha256": "8819cddf37b1b667ca70787bf1d1a951953c49ecbf3b5ccf84c59e61c2c6e4e4",
+    "SUMMARY89.json_sha256": "f299662c8b2380c0fb34b38fdf31367d891b6618797d1c2e822675d06e4ee38e",
+    "THEORY.md_sha256": "9645c113ac047fa0d5d743025fe29c78ef18471762707e6f388c3506694e67ff",
+    "THEORY_REGISTERED89.md_sha256": "4236714fcc390b99ee979918953ff7549b403ef33d6405a892ab69f438ef8a71",
+    "accepted_corrected_subclaims": 23,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 11,
+    "cumulative_fixed_root_histories": 93336,
+    "eval_records": 579026,
+    "figures": 2,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_corrected_artifacts": 2,
+    "original_evidence_items": 2,
+    "original_evidence_union_R55_R89": 121,
+    "original_obligations": 121,
+    "parent_commit": "25860fa8209493a1738e7a650e47d6695ac14ff3",
+    "parent_dag_sha256": "48b4d23f202b5704e6ab8ff2739eb5c9928f03942731dc3ff197a0b2ffc94ff0",
+    "remaining": "110 original corrected artifact obligations; six open science claims. Dropbox-only backup policy.",
+    "retained_pairs": 678,
+    "reused_fixed_root_paths": 3200,
+    "reused_games": 80,
+    "source_path_receipts": 3280,
+    "status": "two_corrected_original_artifacts_two_new_qec_claims"
+  },
+  "revision": "RESTORE89_20261128",
+  "scope": "Convergence: QEC and integrated advanced quantum original report",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE88-STRUCTURAL-ORIGINAL-OUTPUT-RECONSTRUCTION"
+  "supersedes_next": "MQFT-RESTORE89-QEC-AND-ADVANCED-REPORT-RECONSTRUCTION"
 }

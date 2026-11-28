@@ -1,0 +1,56 @@
+{
+  "artifact_reconstruction_sha": "af7562f2fec5aac138593217e61418ac3079bc9c7ddbf72e8cff1a98d1c53645",
+  "claims": [
+    {
+      "claim": "For the declared bit-flip repetition sign channel, the syndrome identifies complementary masks; equal-prior MAP residual is sum of smaller paired probabilities, majority optimal for p<=1/2 in iid/common mixture. Zero syndrome need not mean no error. Actual R67/R68 sign transport reauthenticated, conditioned success distinct from detection.",
+      "evidence": [
+        "THEORY.md",
+        "QEC89.json",
+        "NATIVE89.json",
+        "SUMMARY89.json",
+        "INDEPENDENT89.json"
+      ],
+      "id": "QEC-POSTERIOR-01",
+      "items": [
+        "L23",
+        "L21"
+      ],
+      "limit": "Classical sign channel with stated mask distribution and decoder. No phase/hardware correction or general game strength.",
+      "stage": 89,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For identical calibrated coherent X rotations on the explicit three-qubit repetition code, syndrome-conditioned logical Kraus operators are scalar times unitary, hence a known-angle conditional inverse restores any logical state. Ordinary recovered channel differs from Pauli-twirled repeated channel even at equal one-cycle entanglement fidelity.",
+      "evidence": [
+        "THEORY.md",
+        "QEC89.json",
+        "INDEPENDENT89.json"
+      ],
+      "id": "QEC-COHERENT-02",
+      "items": [
+        "L23",
+        "L21"
+      ],
+      "limit": "Exact declared auxiliary channel, ideal recovery, known noise angle; mismatch tested, arbitrary unknown noise or physical device not corrected. No superiority over direct calibrated physical inverse.",
+      "stage": 89,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "QEC-POSTERIOR-01;QEC-COHERENT-02",
+      "id": "L21",
+      "remaining_final_acceptance": "Join gauge, recovery, topology and other advanced panels only for explicit operator/state and actual graph; preserve model-specific limitations.",
+      "scope": "Recreate original 3x3 gauge, QEC and topology report, R88 actual graphs/declared SU2 connection and discrete persistence, R89 explicit actual sign and declared channel. No shared physical joint state or native gauge/coherence identification; discrete extrema not dynamical stability."
+    },
+    {
+      "accepted": "QEC-POSTERIOR-01;QEC-COHERENT-02",
+      "id": "L23",
+      "remaining_final_acceptance": "Define code, fault channel, syndrome and correction success/utility with same evaluator; distinguish actual sign transport from hardware QEC.",
+      "scope": "Exact repetition code and stabilizer recovery, syndrome-conditioned MAP posterior, actual native sign fault rates and redundancy, coherent conditional recovery and matched native game evidence. Classical sign transport is not hardware QEC; quantum repetition code protects X errors only, known-angle inversion requires calibration; no general strength admission."
+    }
+  ],
+  "parent_convergence_sha256": "119f709cc2f5e150fc3cb4edbcc78228313eb2eb5e2b43c8a52b2974d154cf03",
+  "parent_quality_matrix_sha256": "e87ead62dd8b6b2099a49ff692d9f96c17f09bf8a7b572f4f5af7068404b9eb6",
+  "scope": "Two corrected artifact acceptances; original science not certified."
+}

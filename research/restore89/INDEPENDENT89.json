@@ -1,0 +1,24 @@
+{
+  "coherent_cases": 31,
+  "coherent_repeated_checks": 465,
+  "errors": {
+    "R67_channel_reproduction": 0.0,
+    "angle": 0.0,
+    "conditional_residual": 0.0,
+    "independent_coherence_eigenvalue": 6.206146707654625e-14,
+    "majority_error": 1.3877787807814457e-17,
+    "map_error": 1.3877787807814457e-17,
+    "mask_pair_mass": 1.1102230246251565e-16,
+    "state_independence": 0.0,
+    "syndrome_mass": 2.7755575615628914e-16,
+    "syndrome_prob": 0.0
+  },
+  "eval_records": 579026,
+  "game_paths": 80,
+  "posterior_cases": 24,
+  "prior_QEC67_cases": 31,
+  "raw_cut_error": 0.0,
+  "root_paths": 3200,
+  "scope": "Exact conditional syndrome posterior, independent X-eigenbasis logical channels and prior R67 recurrence, original source and R88 component identity; prior full root-law/evaluator replay inherited, new sign and cut audit all records. Same-agent separate implementation.",
+  "status": "PASS_SCOPED"
+}

@@ -1,0 +1,34 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "L23_quantum_error_correction",
+      "ids": [
+        "L23"
+      ],
+      "pdf_sha": "8cf7686e988a035ae077963970196be4b0ba0feff9bec31cb767834a58997d35",
+      "png_sha": "a55dbfdb2f28f6e27c8e94198715383f9bce91e7a4978ac0f738107e8770446a",
+      "scope": "Actual classical sign recovery distribution, declared redundancy and conditional confidence, coherent channel and utility; no physical device or general strength claim."
+    },
+    {
+      "figure": "L21_advanced_quantum_phenomena",
+      "ids": [
+        "L21"
+      ],
+      "pdf_sha": "524b1efcf03e35ed96d570c4025b03fb623ef7030a492f367462b103c2182cb4",
+      "png_sha": "3cfc197d81bf4eb624262ecc64280e115f2f29205b263b11b47470cedb64f44f",
+      "scope": "Exact original three-by-three layout intent; R88 gauge/topology and R89 actual sign transport and declared QEC kept separate. No joint physical state or hardware claim."
+    }
+  ],
+  "prior_sources": {
+    "mqft_restore88_20261128/GAUGE88.json": "fe6986eb2600264cae5d1ac8283dd999eaadce43ad9c9c562f3d344fbeaf6e43",
+    "mqft_restore88_20261128/ITEM_RECONSTRUCTION88.json": "7fca8b5ba6040c4eae909d8ea12d1e164d2969f6fa786852c8505906b24db375",
+    "mqft_restore88_20261128/TOPOLOGY88.json": "8f75c9ab9eb6e5397a8dd0327406f99b0817540213e8b5dba0d746e755fc491b"
+  },
+  "sources": {
+    "INDEPENDENT89.json": "a7e79679e1442c48ec5920ea767582d0f0cee5d5d7e3be0358ad34ff7c0ce2ae",
+    "QEC89.json": "d4ebaca0b4e58191e6272febdc41af6e524e2ce06f481146d98bd88b507b7a16",
+    "SUMMARY89.json": "f299662c8b2380c0fb34b38fdf31367d891b6618797d1c2e822675d06e4ee38e",
+    "plot89.py": "edaa1731f69a7251c20f459057627b45b5e05bcdac5beebdd551b9bfb3f41b2d"
+  }
+}

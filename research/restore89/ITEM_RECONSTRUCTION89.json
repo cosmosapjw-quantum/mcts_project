@@ -1,0 +1,96 @@
+{
+  "corrected_artifacts_total": 11,
+  "items": [
+    {
+      "acceptance_contract": "Join gauge, recovery, topology and other advanced panels only for explicit operator/state and actual graph; preserve model-specific limitations.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "INDEPENDENT89.json": "a7e79679e1442c48ec5920ea767582d0f0cee5d5d7e3be0358ad34ff7c0ce2ae",
+        "QEC89.json": "d4ebaca0b4e58191e6272febdc41af6e524e2ce06f481146d98bd88b507b7a16",
+        "SUMMARY89.json": "f299662c8b2380c0fb34b38fdf31367d891b6618797d1c2e822675d06e4ee38e"
+      },
+      "figure": "L21_advanced_quantum_phenomena",
+      "id": "L21",
+      "method": "Recreate original 3x3 gauge, QEC and topology report, R88 actual graphs/declared SU2 connection and discrete persistence, R89 explicit actual sign and declared channel.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 3741,
+        "function": "_generate_advanced_quantum_plots",
+        "id": "L21",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "advanced_quantum"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "fb664b3795fbe35343763359410ca38dd6eb7e3fe04116a265befd96f6274ed5",
+        "start": 3707
+      },
+      "pdf_sha": "524b1efcf03e35ed96d570c4025b03fb623ef7030a492f367462b103c2182cb4",
+      "png_sha": "3cfc197d81bf4eb624262ecc64280e115f2f29205b263b11b47470cedb64f44f",
+      "prior_evidence": {
+        "mqft_restore88_20261128/GAUGE88.json": "fe6986eb2600264cae5d1ac8283dd999eaadce43ad9c9c562f3d344fbeaf6e43",
+        "mqft_restore88_20261128/ITEM_RECONSTRUCTION88.json": "7fca8b5ba6040c4eae909d8ea12d1e164d2969f6fa786852c8505906b24db375",
+        "mqft_restore88_20261128/TOPOLOGY88.json": "8f75c9ab9eb6e5397a8dd0327406f99b0817540213e8b5dba0d746e755fc491b"
+      },
+      "remaining_limit": "No shared physical joint state or native gauge/coherence identification; discrete extrema not dynamical stability.",
+      "result": "R88 L22/L24 corrected component identities verified, L23 dedicated output reconstructed; nine panels preserve separate native and model quantities."
+    },
+    {
+      "acceptance_contract": "Define code, fault channel, syndrome and correction success/utility with same evaluator; distinguish actual sign transport from hardware QEC.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "INDEPENDENT89.json": "a7e79679e1442c48ec5920ea767582d0f0cee5d5d7e3be0358ad34ff7c0ce2ae",
+        "NATIVE89.json": "1c80d40b5a2e6fe62b158bb559fbc1b0b0bd7a395608b78056d3d221d47bb2c7",
+        "QEC89.json": "d4ebaca0b4e58191e6272febdc41af6e524e2ce06f481146d98bd88b507b7a16",
+        "SOURCE_CORRECTIONS89.json": "8819cddf37b1b667ca70787bf1d1a951953c49ecbf3b5ccf84c59e61c2c6e4e4",
+        "SUMMARY89.json": "f299662c8b2380c0fb34b38fdf31367d891b6618797d1c2e822675d06e4ee38e"
+      },
+      "figure": "L23_quantum_error_correction",
+      "id": "L23",
+      "method": "Exact repetition code and stabilizer recovery, syndrome-conditioned MAP posterior, actual native sign fault rates and redundancy, coherent conditional recovery and matched native game evidence.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 3844,
+        "function": "_plot_quantum_error_correction",
+        "id": "L23",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "advanced_quantum",
+          "avg_detection_confidence",
+          "correction_success_rate",
+          "error_rate",
+          "measurements",
+          "quantum_error_correction",
+          "redundancy_score"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "ba4214cfee836f027ab698c7509bc08c5690094a12d0427dffb1bc2dd8651487",
+        "start": 3795
+      },
+      "pdf_sha": "8cf7686e988a035ae077963970196be4b0ba0feff9bec31cb767834a58997d35",
+      "png_sha": "a55dbfdb2f28f6e27c8e94198715383f9bce91e7a4978ac0f738107e8770446a",
+      "prior_evidence": {},
+      "remaining_limit": "Classical sign transport is not hardware QEC; quantum repetition code protects X errors only, known-angle inversion requires calibration; no general strength admission.",
+      "result": "3200 R67 roots and80 R68 games,579026 eval records, zero cut error; 24 posterior cases and465 repeated-channel checks. Original value error, redundancy, confidence panels plus channel/utility diagnostics."
+    }
+  ],
+  "original_scientific_certifications": 0,
+  "prior_report_artifacts": [
+    "L31",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "L10",
+    "L22",
+    "L24"
+  ],
+  "status": "TWO_CORRECTED_SCOPED_ARTIFACTS_ACCEPTED"
+}

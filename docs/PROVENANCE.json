@@ -3915,6 +3915,76 @@
       }
     }
   },
+  "restore89": {
+    "CONVERGENCE89.json_sha256": "72de21b37eec09c6706651ca5ae742e4b20aa72655668d61930e56f71c1ccfe8",
+    "DRIFT_WATCHDOG.md_sha256": "aea5fa99c3623b5987b1e23d40584e1d2d3844ca5a66a3934920a2167926026e",
+    "INDEPENDENT89.json_sha256": "a7e79679e1442c48ec5920ea767582d0f0cee5d5d7e3be0358ad34ff7c0ce2ae",
+    "ITEM_CONVERGENCE89.json_sha256": "393f40cc876e3e3ad660269475267291e49e36b097bc7a1c140ad77e41402ff3",
+    "ITEM_RECONSTRUCTION89.json_sha256": "af7562f2fec5aac138593217e61418ac3079bc9c7ddbf72e8cff1a98d1c53645",
+    "NATIVE89.json_sha256": "1c80d40b5a2e6fe62b158bb559fbc1b0b0bd7a395608b78056d3d221d47bb2c7",
+    "NEXT_DYNAMICS.md_sha256": "1b80f4a36ec529192651b516c2fc4cabfec5750d9cd9818e6ec78c03b7c137c0",
+    "ORIGINAL_OUTPUT_EVIDENCE89.csv_sha256": "9aff36c2b0a4809f6632c72076c7763dc3c31223f6785676de87b2d4e6c21709",
+    "ORIGINAL_OUTPUT_PROGRESS89.csv_sha256": "683c3290609c4474a87942763e7294ba2cc7b3528c47099270705d3a68f4d828",
+    "ORIGINAL_OUTPUT_REPORT89.md_sha256": "d10cd415134ee5cb2a14ca0e362d567da6fbd0f91c000a430798582829a8b836",
+    "ORIGINAL_SOURCE89.json_sha256": "97f973ebb97058342ac2f600c38a03148444a32b1b41671f1763b0deb2be9134",
+    "PLOT_INVENTORY89.csv_sha256": "fe842b59ee3008e616438a5064e3a61986ac52739f6cb296af9ca4c7cd73db95",
+    "PLOT_MANIFEST89.json_sha256": "d986d8ff9afcd0d55f863d8ec0e2bbb87f10272d6aeb67a48a60aa56474dc18e",
+    "PROGRESS89.json_sha256": "eccb848a1b9a93d9a21c74cb95bcab86259caf115727ceb43da247165ad78dfa",
+    "QEC89.json_sha256": "d4ebaca0b4e58191e6272febdc41af6e524e2ce06f481146d98bd88b507b7a16",
+    "QUALITY_MATRIX89.csv_sha256": "8033e5c14034c5d4b7547b7e297a1df1e1abb9b4e2d7250baa7f824df5116336",
+    "REGISTRATION.json_sha256": "8016bf1cb4f50c478e5d51e8dd79338dca6e67e82d8afe18d72896730bdf31cf",
+    "SOURCE_CORRECTIONS89.json_sha256": "8819cddf37b1b667ca70787bf1d1a951953c49ecbf3b5ccf84c59e61c2c6e4e4",
+    "SUMMARY89.json_sha256": "f299662c8b2380c0fb34b38fdf31367d891b6618797d1c2e822675d06e4ee38e",
+    "THEORY.md_sha256": "9645c113ac047fa0d5d743025fe29c78ef18471762707e6f388c3506694e67ff",
+    "THEORY_REGISTERED89.md_sha256": "4236714fcc390b99ee979918953ff7549b403ef33d6405a892ab69f438ef8a71",
+    "accepted_corrected_subclaims": 23,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 11,
+    "cumulative_fixed_root_histories": 93336,
+    "dag_sha256": "555dcfda6636c37740d2e86ce40e6ef9984d0e6b4612acb0fa75beecd538555e",
+    "eval_records": 579026,
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 2,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_corrected_artifacts": 2,
+    "original_evidence_items": 2,
+    "original_evidence_union_R55_R89": 121,
+    "original_obligations": 121,
+    "parent_commit": "25860fa8209493a1738e7a650e47d6695ac14ff3",
+    "parent_dag_sha256": "48b4d23f202b5704e6ab8ff2739eb5c9928f03942731dc3ff197a0b2ffc94ff0",
+    "remaining": "110 original corrected artifact obligations; six open science claims. Dropbox-only backup policy.",
+    "retained_pairs": 678,
+    "reused_fixed_root_paths": 3200,
+    "reused_games": 80,
+    "source_path_receipts": 3280,
+    "status": "two_corrected_original_artifacts_two_new_qec_claims",
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

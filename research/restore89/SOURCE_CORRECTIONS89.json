@@ -1,0 +1,80 @@
+{
+  "code_tables": [
+    {
+      "n": 9,
+      "name": "Shor",
+      "noncommuting_pairs": [
+        [
+          5,
+          7
+        ]
+      ],
+      "stabilizers": [
+        "ZZIIIIIII",
+        "IZZIIIIII",
+        "IIIZZIIII",
+        "IIIIZZIII",
+        "IIIIIIZZI",
+        "IIIIIIIIZ",
+        "XXXXXXIII",
+        "IIIXXXXXX"
+      ]
+    },
+    {
+      "n": 7,
+      "name": "Steane",
+      "noncommuting_pairs": [],
+      "stabilizers": [
+        "IIIXXXX",
+        "IXXIIXX",
+        "XIXIXIX",
+        "IIIZZZZ",
+        "IZZIIZZ",
+        "ZIZIZIZ"
+      ]
+    },
+    {
+      "n": 5,
+      "name": "Surface",
+      "noncommuting_pairs": [],
+      "stabilizers": [
+        "XZZXI",
+        "IXZZX",
+        "XIXZZ",
+        "ZXIXZ"
+      ]
+    }
+  ],
+  "defects": [
+    "Two amplitudes rather than n-qubit encoded space",
+    "Noise changes scalar fidelity instead of actual state",
+    "Random fidelity-based syndrome rather than stabilizer outcome",
+    "Recovery changes scalar fidelity rather than channel",
+    "Shor listed stabilizer set includes anticommuting pair(s)"
+  ],
+  "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/quantum_error_correction.py",
+  "scope": "Static source audit only, corrected model separate, originals unchanged.",
+  "segments": [
+    {
+      "end": 198,
+      "start": 159,
+      "text": "    def _initialize_codes(self) -> Dict[str, QuantumCode]:\n        \"\"\"Initialize quantum error correction codes\"\"\"\n        codes = {}\n        \n        # Shor's 9-qubit code\n        codes[\"shor\"] = QuantumCode(\n            n=9, k=1, d=3,\n            stabilizers=[\n                \"ZZIIIIIII\", \"IZZIIIIII\", \"IIIZZIIII\", \"IIIIZZIII\",\n                \"IIIIIIZZI\", \"IIIIIIIIZ\", \"XXXXXXIII\", \"IIIXXXXXX\"\n            ],\n            logical_x=[\"XXXXXXXXX\"],\n            logical_z=[\"ZZZZZZZZZ\"],\n            name=\"Shor\"\n        )\n        \n        # Steane's 7-qubit code\n        codes[\"steane\"] = QuantumCode(\n            n=7, k=1, d=3,\n            stabilizers=[\n                \"IIIXXXX\", \"IXXIIXX\", \"XIXIXIX\",\n                \"IIIZZZZ\", \"IZZIIZZ\", \"ZIZIZIZ\"\n            ],\n            logical_x=[\"XXXXXXX\"],\n            logical_z=[\"ZZZZZZZ\"],\n            name=\"Steane\"\n        )\n        \n        # Surface code (5-qubit)\n        codes[\"surface\"] = QuantumCode(\n            n=5, k=1, d=3,\n            stabilizers=[\n                \"XZZXI\", \"IXZZX\", \"XIXZZ\", \"ZXIXZ\"\n            ],\n            logical_x=[\"XXXXX\"],\n            logical_z=[\"ZZZZZ\"],\n            name=\"Surface\"\n        )\n        \n        return codes"
+    },
+    {
+      "end": 307,
+      "start": 252,
+      "text": "    def encode_value(self, value: float, qubit_id: int) -> LogicalQubit:\n        \"\"\"\n        Encode MCTS value into logical qubit.\n        \n        Args:\n            value: Value to encode (normalized to [0,1])\n            qubit_id: Logical qubit identifier\n            \n        Returns:\n            Encoded logical qubit\n        \"\"\"\n        # Normalize value to [0, 1]\n        normalized_value = max(0.0, min(1.0, (value + 1.0) / 2.0))\n        \n        # Encode as quantum state |\u03c8\u27e9 = \u221a(1-p)|0\u27e9 + \u221ap|1\u27e9\n        amplitude_0 = np.sqrt(1 - normalized_value)\n        amplitude_1 = np.sqrt(normalized_value)\n        \n        # Create logical state vector\n        logical_state = torch.tensor([amplitude_0, amplitude_1], dtype=torch.complex64)\n        \n        # Assign physical qubits\n        physical_qubits = list(range(self.current_code.n))\n        \n        # Create logical qubit\n        logical_qubit = LogicalQubit(\n            logical_state=logical_state,\n            physical_qubits=physical_qubits,\n            code=self.current_code,\n            syndrome_history=[],\n            error_count=0,\n            fidelity=1.0\n        )\n        \n        # Store in registry\n        self.logical_qubits[qubit_id] = logical_qubit\n        \n        return logical_qubit\n    \n    def decode_value(self, logical_qubit: LogicalQubit) -> float:\n        \"\"\"\n        Decode logical qubit back to MCTS value.\n        \n        Args:\n            logical_qubit: Logical qubit to decode\n            \n        Returns:\n            Decoded value\n        \"\"\"\n        # Extract probability of |1\u27e9 state\n        prob_one = float(torch.abs(logical_qubit.logical_state[1])**2)\n        \n        # Convert back to [-1, 1] range\n        value = 2.0 * prob_one - 1.0\n        \n        return value"
+    },
+    {
+      "end": 394,
+      "start": 309,
+      "text": "    def apply_noise(self, logical_qubit: LogicalQubit, error_rate: float) -> LogicalQubit:\n        \"\"\"\n        Apply noise to logical qubit.\n        \n        Args:\n            logical_qubit: Logical qubit to apply noise to\n            error_rate: Probability of error per physical qubit\n            \n        Returns:\n            Noisy logical qubit\n        \"\"\"\n        # Generate random errors\n        errors = []\n        for i in range(self.current_code.n):\n            if np.random.random() < error_rate:\n                if self.noise_model == \"depolarizing\":\n                    error_type = np.random.choice(['X', 'Y', 'Z'])\n                elif self.noise_model == \"amplitude_damping\":\n                    error_type = 'X' if np.random.random() < 0.5 else 'Z'\n                elif self.noise_model == \"phase_damping\":\n                    error_type = 'Z'\n                else:\n                    error_type = 'X'\n                \n                errors.append((error_type, i))\n        \n        # Apply errors to logical state (simplified)\n        if errors:\n            # Reduce fidelity based on number of errors\n            fidelity_reduction = len(errors) * 0.1\n            logical_qubit.fidelity = max(0.0, logical_qubit.fidelity - fidelity_reduction)\n        \n        return logical_qubit\n    \n    def measure_syndrome(self, logical_qubit: LogicalQubit) -> ErrorSyndrome:\n        \"\"\"\n        Measure error syndrome without disturbing logical state.\n        \n        Args:\n            logical_qubit: Logical qubit to measure\n            \n        Returns:\n            Error syndrome\n        \"\"\"\n        # Simulate syndrome measurement\n        # In real implementation, this would involve stabilizer measurements\n        \n        # Generate random syndrome (for demonstration)\n        syndrome_bits = []\n        for _ in self.current_code.stabilizers:\n            # Probability of syndrome bit being 1 depends on fidelity\n            prob_error = 1.0 - logical_qubit.fidelity\n            syndrome_bit = 1 if np.random.random() < prob_error else 0\n            syndrome_bits.append(syndrome_bit)\n        \n        # Look up error from syndrome table\n        syndrome_tuple = tuple(syndrome_bits)\n        if syndrome_tuple in self.syndrome_table:\n            error_info = self.syndrome_table[syndrome_tuple]\n            if error_info:\n                error_type, error_location = error_info[0]\n                error_locations = [error_location]\n            else:\n                error_type = \"none\"\n                error_locations = []\n        else:\n            # Unknown syndrome - multiple errors\n            error_type = \"unknown\"\n            error_locations = []\n        \n        # Estimate detection confidence\n        detection_confidence = 1.0 - np.sum(syndrome_bits) * 0.1\n        \n        syndrome = ErrorSyndrome(\n            syndrome_bits=syndrome_bits,\n            error_type=error_type,\n            error_locations=error_locations,\n            correction_applied=False,\n            correction_success=False,\n            detection_confidence=detection_confidence\n        )\n        \n        # Add to history\n        logical_qubit.syndrome_history.append(syndrome)\n        \n        return syndrome"
+    },
+    {
+      "end": 440,
+      "start": 396,
+      "text": "    def correct_errors(self, logical_qubit: LogicalQubit, syndrome: ErrorSyndrome) -> bool:\n        \"\"\"\n        Correct errors based on syndrome measurement.\n        \n        Args:\n            logical_qubit: Logical qubit to correct\n            syndrome: Error syndrome from measurement\n            \n        Returns:\n            Whether correction was successful\n        \"\"\"\n        if syndrome.error_type == \"none\":\n            syndrome.correction_applied = True\n            syndrome.correction_success = True\n            return True\n        \n        if syndrome.error_type == \"unknown\":\n            # Cannot correct unknown syndrome\n            syndrome.correction_applied = False\n            syndrome.correction_success = False\n            return False\n        \n        # Apply correction\n        if syndrome.error_locations:\n            # Correct the error (simplified)\n            # In real implementation, this would apply Pauli corrections\n            \n            # Increase fidelity after correction\n            fidelity_improvement = 0.8 * (1.0 - logical_qubit.fidelity)\n            logical_qubit.fidelity = min(1.0, logical_qubit.fidelity + fidelity_improvement)\n            \n            # Update error count\n            logical_qubit.error_count += 1\n            \n            # Update syndrome\n            syndrome.correction_applied = True\n            syndrome.correction_success = True\n            \n            # Update statistics\n            self.total_corrections += 1\n            self.error_rates[syndrome.error_type] += 1\n            \n            return True\n        \n        return False"
+    }
+  ],
+  "sha256": "229b8f16bd564e99c5db4c302227645259630bbb4008bbd922f2614140d4bc8f"
+}

@@ -1,0 +1,71 @@
+{
+  "acceptance_contract_sha": "3fd7b31bbeef7e1e9799251cb956406bc82a6864eea26b7506b010d20d11d777",
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "items": [
+    {
+      "acceptance": "Join gauge, recovery, topology and other advanced panels only for explicit operator/state and actual graph; preserve model-specific limitations.",
+      "id": "L21",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 3741,
+        "function": "_generate_advanced_quantum_plots",
+        "id": "L21",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "advanced_quantum"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "fb664b3795fbe35343763359410ca38dd6eb7e3fe04116a265befd96f6274ed5",
+        "start": 3707
+      },
+      "source_excerpt": "    def _generate_advanced_quantum_plots(self) -> Dict[str, str]:\n        \"\"\"Generate plots for advanced quantum phenomena (gauge, QEC, topology)\"\"\"\n        plots = {}\n        \n        # Create figure for advanced quantum phenomena\n        fig = plt.figure(figsize=(18, 12))\n        gs = gridspec.GridSpec(3, 3, figure=fig, hspace=0.3, wspace=0.25)\n        \n        fig.suptitle('Advanced Quantum Phenomena in MCTS', fontsize=16)\n        \n        # Row 1: Gauge Policy Analysis\n        ax1 = fig.add_subplot(gs[0, 0])\n        ax2 = fig.add_subplot(gs[0, 1])\n        ax3 = fig.add_subplot(gs[0, 2])\n        self._plot_gauge_policy_analysis(ax1, ax2, ax3)\n        \n        # Row 2: Quantum Error Correction\n        ax4 = fig.add_subplot(gs[1, 0])\n        ax5 = fig.add_subplot(gs[1, 1])\n        ax6 = fig.add_subplot(gs[1, 2])\n        self._plot_quantum_error_correction(ax4, ax5, ax6)\n        \n        # Row 3: Topological Analysis\n        ax7 = fig.add_subplot(gs[2, 0])\n        ax8 = fig.add_subplot(gs[2, 1])\n        ax9 = fig.add_subplot(gs[2, 2])\n        self._plot_topological_analysis(ax7, ax8, ax9)\n        \n        # Save figure\n        plot_path = self.config.output_dir / f'advanced_quantum_phenomena.{self.config.figure_format}'\n        fig.savefig(plot_path, dpi=self.config.figure_dpi, bbox_inches='tight')\n        plt.close(fig)\n        plots['advanced_quantum'] = str(plot_path)\n        \n        return plots"
+    },
+    {
+      "acceptance": "Define code, fault channel, syndrome and correction success/utility with same evaluator; distinguish actual sign transport from hardware QEC.",
+      "id": "L23",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 3844,
+        "function": "_plot_quantum_error_correction",
+        "id": "L23",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "advanced_quantum",
+          "avg_detection_confidence",
+          "correction_success_rate",
+          "error_rate",
+          "measurements",
+          "quantum_error_correction",
+          "redundancy_score"
+        ],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "ba4214cfee836f027ab698c7509bc08c5690094a12d0427dffb1bc2dd8651487",
+        "start": 3795
+      },
+      "source_excerpt": "    def _plot_quantum_error_correction(self, ax1, ax2, ax3):\n        \"\"\"Plot quantum error correction results\"\"\"\n        if 'quantum_error_correction' in self.results.get('advanced_quantum', {}):\n            qec_data = self.results['advanced_quantum']['quantum_error_correction']\n            measurements = qec_data.get('measurements', [])\n            \n            if measurements:\n                # Plot 1: Error rates\n                error_rates = [m['error_rate'] for m in measurements if 'error_rate' in m]\n                if error_rates:\n                    ax1.hist(error_rates, bins=20, alpha=0.7, edgecolor='black')\n                    ax1.set_xlabel('Error Rate')\n                    ax1.set_ylabel('Count')\n                    ax1.set_title('Value Error Rate Distribution')\n                    ax1.axvline(np.mean(error_rates), color='red', linestyle='--',\n                               label=f'Mean: {np.mean(error_rates):.3f}')\n                    ax1.legend()\n                \n                # Plot 2: Correction success vs redundancy\n                success_rates = [m['correction_success_rate'] for m in measurements if 'correction_success_rate' in m]\n                redundancy = [m['redundancy_score'] for m in measurements if 'redundancy_score' in m]\n                if success_rates and redundancy and len(success_rates) == len(redundancy):\n                    ax2.scatter(redundancy, success_rates, alpha=0.6)\n                    ax2.set_xlabel('Redundancy Score')\n                    ax2.set_ylabel('Correction Success Rate')\n                    ax2.set_title('Error Correction vs Value Redundancy')\n                    ax2.set_xlim(-0.1, 1.1)\n                    ax2.set_ylim(-0.1, 1.1)\n                \n                # Plot 3: Detection confidence\n                confidences = []\n                for m in measurements:\n                    if 'avg_detection_confidence' in m and m['avg_detection_confidence'] > 0:\n                        confidences.append(m['avg_detection_confidence'])\n                \n                if confidences:\n                    ax3.hist(confidences, bins=20, alpha=0.7, edgecolor='black')\n                    ax3.set_xlabel('Average Detection Confidence')\n                    ax3.set_ylabel('Count')\n                    ax3.set_title('Error Detection Confidence')\n                else:\n                    ax3.text(0.5, 0.5, 'No errors detected', ha='center', va='center')\n            else:\n                ax1.text(0.5, 0.5, 'No QEC data', ha='center', va='center')\n                ax2.text(0.5, 0.5, 'No QEC data', ha='center', va='center')\n                ax3.text(0.5, 0.5, 'No QEC data', ha='center', va='center')\n        else:\n            ax1.text(0.5, 0.5, 'No QEC data', ha='center', va='center')\n            ax2.text(0.5, 0.5, 'No QEC data', ha='center', va='center')\n            ax3.text(0.5, 0.5, 'No QEC data', ha='center', va='center')"
+    }
+  ],
+  "original_attachment_receipt": {
+    "anchor_is_ancestor": true,
+    "git_anchor": "540ad9427caa86cbc8a292bed423153d5b05d607",
+    "guide_obligations": 27,
+    "original_output_obligations": 121,
+    "original_source_function_obligations": 94,
+    "original_source_zip_members": 347,
+    "parent": "9de636fc56fd34057553d78c0aad63fcc3832c08",
+    "restore32_attachment_sha256": "30e15a087b55810f024117963188308b942c5b10e8563f56efcc1f78b03322ef",
+    "scope": "current source hash and history census, not all historical raw executions replayed",
+    "supplied_zip_check_location": "conversation sandbox, original linked library materialization",
+    "supplied_zip_manifest_members_verified": 34,
+    "supplied_zip_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6"
+  },
+  "scope": "L21 and L23 exact source spans and R79 contracts. R88 accepted component artifact identities verified."
+}

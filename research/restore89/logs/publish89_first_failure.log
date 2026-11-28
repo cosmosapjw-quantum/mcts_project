@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore89_20261128/publish89.py", line 77, in <module>
+    git('add','research/restore89','docs');git('diff','--cached','--check','--','.',':(exclude)research/restore89/logs',':(exclude)research/restore89/THEORY_REGISTERED89.md')
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore89_20261128/publish89.py", line 5, in git
+    def git(*a):return subprocess.check_output(['git','-C',str(P),*a],text=True).strip()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', '-C', '/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore39_20261125/repo', 'diff', '--cached', '--check', '--', '.', ':(exclude)research/restore89/logs', ':(exclude)research/restore89/THEORY_REGISTERED89.md']' returned non-zero exit status 2.

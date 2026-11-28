@@ -1,24 +1,24 @@
-# R88 R1–R10 / C1–C10
-| Stage | Actual work | Evidence |
+# RESTORE89 R1–R10 / C1–C10
+| Stage | Work | Evidence |
 |---|---|---|
-| R1 | R69/R87 and original artifact contract | THEORY_REGISTERED88.md |
-| R2 | Original source spans/producers/study and literature | ORIGINAL_SOURCE88.json, SOURCE_CORRECTIONS88.json |
-| R3 | Native tree vs quotient vs declared connection/transport | THEORY.md |
-| R4 | Joint SU2, exact persistence and barrier routes | THEORY_REGISTERED88.md |
-| R5 | Constructive classification and minimax/inclusion-rank derivation | THEORY.md |
-| R6 | Original producer defects, physical boundaries | SOURCE_CORRECTIONS88.json |
-| R7 | CAS and independent rank/dense checks | INDEPENDENT88.json, PERSISTENCE_RANK88.json |
-| R8 | Three accepted bounded claims and eight corrected output decisions | CONVERGENCE88.json, ITEM_RECONSTRUCTION88.json |
-| R9 | Reconstruct exact original panels and report | ORIGINAL_OUTPUT_REPORT88.md |
-| R10 | L23/L21 handoff | NEXT_DYNAMICS.md |
-| C1 | Existing data and exact item conditions | REGISTRATION.json |
-| C2 | Actual R75/R78 source identities | BARRIER88.json, GAUGE88.json |
-| C3 | Kruskal, GF2, joint invariants and dense controls | scripts |
-| C4 | Bounded parallel CPU workers | logs |
-| C5 | 3072 raw first-hit reductions,48 gauge reconstructions | BARRIER88.json, GAUGE88.json |
-| C6 | Actual topology/persistence and raw game audits | TOPOLOGY88.json, RECOVERY88.json |
-| C7 | All96 coherent model reexecutions | TRANSPORT88.json |
-| C8 | Independent inclusion rank, dual holes, rotations, raw | INDEPENDENT88.json, PERSISTENCE_RANK88.json |
-| C9 | Eight distinct PNG/PDF original plates and report | PLOT_MANIFEST88.json, ORIGINAL_OUTPUT_REPORT88.md |
-| C10 | DAG/Git/backup/dedup | receipts |
-Theory contract registered before reduction; final empirical judgments follow actual computation. Logical stages, no independent native subagent, no full legacy suite.
+| R1 | R69/R88 and L21/L23 acceptance | THEORY_REGISTERED89.md |
+| R2 | Original producer, R67/R68 and literature | ORIGINAL_SOURCE89.json, SOURCE_CORRECTIONS89.json |
+| R3 | Quantum code vs classical fault distinction | THEORY.md |
+| R4 | Syndrome posterior, coherent conditional recovery, native utility routes | THEORY_REGISTERED89.md |
+| R5 | MAP, KL, Kraus and repeated channel derivation | THEORY.md |
+| R6 | Common/phase failure, calibration and original Shor issue | QEC89.json, SOURCE_CORRECTIONS89.json |
+| R7 | CAS and independent eigenvalue verification | INDEPENDENT89.json |
+| R8 | Scoped claims and corrected item decisions | CONVERGENCE89.json, ITEM_RECONSTRUCTION89.json |
+| R9 | L23 and L21 formal reconstruction | ORIGINAL_OUTPUT_REPORT89.md |
+| R10 | R90 action outputs and Dropbox policy | NEXT_DYNAMICS.md |
+| C1 | Immutable R67/R68 registration | REGISTRATION.json |
+| C2 | Raw codeword/evaluator/backup identity | NATIVE89.json |
+| C3 | Exact quantum and posterior calculations | qec89.py |
+| C4 | Six-worker bounded reductions | logs |
+| C5 | 3200 fixed-root paths and80 game re-reductions | native89.py, NATIVE89.json |
+| C6 | All codeword/cut and winner validation | NATIVE89.json |
+| C7 | Actual conditional calibration/proxy/paired game analysis | SUMMARY89.json |
+| C8 | Independent closed form and source verification | INDEPENDENT89.json |
+| C9 | Two original figures and report | PLOT_MANIFEST89.json |
+| C10 | DAG, Git, Dropbox-only snapshot and verified cleanup | receipts |
+Theory registered before computation, final decisions after observed evidence. Logical stages, no native subagent; prior full replay inherited.
