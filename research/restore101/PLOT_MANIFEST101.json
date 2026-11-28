@@ -1,0 +1,134 @@
+{
+  "animations": [
+    {
+      "clock": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "frame_rgb_sha256": [
+        "1fe08239088c282cdffbf6a7e3e33ba8568af8adde14d1c7b9708744fbe2ec86",
+        "33e266ffc8a569ee6ea8404a790aa585848671b817f70936bac752406e4f20c4",
+        "a28fbb6ce77196d50d17996ba59492763732a773cc5ecd982bc2ef0df402f82b",
+        "2515783a6643cbec5fc6d220ee517a3fc77191ae10f9b922d302057b543f6aad",
+        "4379b5c630e372f2051f78692a351eeb4a9d37efd28c1e38ff326bc4c7be5469",
+        "7cfb2bfb1041665f1bf00195eddd49ce8ff80c0d38418a445111e3997d78d4df",
+        "918567095b330c2fec821c04e89c8f54f604f8fb48acd3923d3ad9ee8f6076c4",
+        "d1f354c921701b3a7b9380284cb4a162d6b41808bf66513864ac2bf5e6abd182",
+        "1d1b1fb35b508ae22adf5418af6b115bb4aeb1fe0bbf454a456a4b3eede40905",
+        "956ff4d9f4b5055c6d34b2e2f3c9225d356f8f68639034103a8c2b911ca430f8",
+        "3834a37627b915a46f57ed9d16981eb993ed4ea5591835df8e6b1214622d68b2",
+        "5688c2a5efeb9ad464258b269d1e2b2521ca0f12487691a27fce9f07f59602d8"
+      ],
+      "frames": 12,
+      "id": "Q44",
+      "path": "plots/Q44_actual_visibility_clock.gif",
+      "sha256": "cf835669adbfcd616fcd84d396588a4d666eed834a42ca7345cff608327db88c"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "Q41_visibility_branch_and_state_mismatch",
+      "ids": [
+        "Q41",
+        "Q45"
+      ],
+      "pdf_sha": "0d0e2f5a2f811e9cff23b97eb08d3930459f533f7912f812c9eed35d4d3e35f7",
+      "png_sha": "621dd11f42e8c8b438fe20fe822c3e6549e20545cfe5b1ebf66d7b190c310dd9"
+    },
+    {
+      "figure": "Q42_CP_segments_and_noncommutation",
+      "ids": [
+        "Q42",
+        "L20",
+        "Q45"
+      ],
+      "pdf_sha": "c08116f3417435426ab714b249858a0f2824c79f3de775c9cbe3c20eff286353",
+      "png_sha": "d1bffdc580f5837232e86aa591808930def2ddcab1a0409d0e4a17efb77a1923"
+    },
+    {
+      "figure": "Q42_frozen_channel_spectrum",
+      "ids": [
+        "Q42",
+        "L20"
+      ],
+      "pdf_sha": "83e0b6f9b38ff4524d68a9ee63047c01f951601f6662b1801c757d55dbb3d754",
+      "png_sha": "1c309c0b924696d989eab4d1d98794591f9e4991b0f28ef0928dbb605058053a"
+    },
+    {
+      "figure": "L09_conditional_coherence_controls",
+      "ids": [
+        "L09",
+        "Q42",
+        "Q45"
+      ],
+      "pdf_sha": "6d4085d69aedc487a275ad37fd4a49f67a64ccc33d6c9c97f1d9f367c26ffb12",
+      "png_sha": "5a34597a088eafdf521901e0e91d92be631dd526f4f55a67bd4fe55ab00d53a9"
+    },
+    {
+      "figure": "Q43_finite_path_dual_heldout_partial",
+      "ids": [
+        "Q43",
+        "Q45"
+      ],
+      "pdf_sha": "35c6ad5ca64b6ede41345df9959b03b95d664f83c04083fa95d9a16e4b2d32f6",
+      "png_sha": "9df61037a84a895ec812899420eb9d28e03ec3904c58110308932e38147394bf"
+    },
+    {
+      "figure": "Q43_path_causal_response_partial",
+      "ids": [
+        "Q43",
+        "Q45"
+      ],
+      "pdf_sha": "a983ae1c3f76ffe8b954847f87f85b014e51abdabe3b7c95db83e6fee29e2f4f",
+      "png_sha": "6e5e17941ede337f64f693334e1f6fe978e0fe82b7de16e3bd7262ca243d8788"
+    },
+    {
+      "figure": "L11_complex_record_phase_and_entanglement",
+      "ids": [
+        "L11",
+        "Q43",
+        "Q45"
+      ],
+      "pdf_sha": "6f14ff622ebef24fcfa21b64b548249b5eaeda6f325779ed6979ef6cd4119220",
+      "png_sha": "f2670a3c6fa3835337d23f53d5804af735bf3f9b0c1d07f62fae41755aed3f62"
+    },
+    {
+      "figure": "Q43_record_operational_weight_partial",
+      "ids": [
+        "Q43",
+        "L11"
+      ],
+      "pdf_sha": "ef17405b20462032d077e26ff092c16e18235af64cef2b40baa388765481522e",
+      "png_sha": "aa2dd4d0afd1849ae69c8322323149de25d25da1e89e974babc585d960b7ff4f"
+    },
+    {
+      "figure": "Q44_visibility_clock_snapshot",
+      "ids": [
+        "Q44",
+        "Q41",
+        "Q45"
+      ],
+      "pdf_sha": "261023c8f4c138a94a0aff02ee85c817b6fb9e487cb4622d6167fbc07a263115",
+      "png_sha": "a5f5e0adc24b2c0d4afdc9f1b312556d0168f8761fc1d4e213f43f1ba276c0d4"
+    }
+  ],
+  "scope": "Actual finite path generating law; complex history-conditioned auxiliary instrument, not physical hbar or quantum field.",
+  "sources": {
+    "FIELD101.json": "8bc28f158f7e92307a206e9b6f54c38ce7579523c7e4d89f2ae2b0c59873ea6f",
+    "INDEPENDENT101.json": "4056a10abd295375afe916694aa2ae0e258be1fac2c48c5bd576bcb74b4d249f",
+    "ORIGINAL_SOURCE101.json": "a60ccba3ebb54cbd18590037c3fe3fbafa59f0f1459602f1bbe35e96670a9d11",
+    "QUANTUM101.json": "1c2dcb28241a5dc1b35d1e6b91f4ac097cb95348cd768855737d1b8a8f5eccfe",
+    "QUANTUM101.npz": "fdef9d36023c284031e023d14af86e2013eec9efd4791073811a2418de4f66f8",
+    "SUMMARY101.json": "40043db48edd85ae7fdedf2a02142535fe516eb527da1e1b835db3ccd874e7e8"
+  }
+}

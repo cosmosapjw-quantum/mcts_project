@@ -1,0 +1,1 @@
+Publication stopped before commit on trailing whitespace in byte-locked THEORY_REGISTERED101.md lines 3 and 4. Preserve exact preregistration hash. Exclude this file only alongside existing immutable-policy and log exclusions from diff whitespace check; verify its exact bytes separately. Recheck staged paths and manifest; scientific outputs unchanged.

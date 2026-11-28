@@ -1,0 +1,12 @@
+# RESTORE101 original output crosswalk
+
+- Q41: Actual frozen-history local visibility with explicit unit dimensionless action, finite/singular mask, principal-branch floor and exact dephase-vs-unitary matched-X counterexample; no physical hbar. (Q41_visibility_branch_and_state_mismatch; Q44_visibility_clock_snapshot)
+- Q42: Exact declared discrete Kraus/Choi and Bloch dynamics on 41472 actual active history-conditioned steps, local dimensionless generators, singular erase and noncommuting order; frozen sequence not global adaptive channel. (Q42_CP_segments_and_noncommutation; Q42_frozen_channel_spectrum; L09_conditional_coherence_controls)
+- Q43: Partial: empirical native path logMGF, Legendre dual, causal score and linear source contraction, heldout block comparison; explicit complex joint record phase/readout and success weighting. Physical phase/action, calibrated hbar, continuum path integral and one-loop identification absent. (Q43_finite_path_dual_heldout_partial; Q43_path_causal_response_partial; L11_complex_record_phase_and_entanglement; Q43_record_operational_weight_partial)
+- Q44: Twelve actual selection-clock frames for finite visibility proxy and singular mask, no fictitious physical crossover threshold. (Q44_visibility_clock_snapshot)
+- Q45: Comprehensive scoped native path source/response, dimensionless visibility, complex CP and record mapping report; retained negative predictive and postselection limitations, no physical quantum-classical limit. (Q41_visibility_branch_and_state_mismatch; Q42_CP_segments_and_noncommutation; L09_conditional_coherence_controls; Q43_finite_path_dual_heldout_partial; Q43_path_causal_response_partial; L11_complex_record_phase_and_entanglement; Q44_visibility_clock_snapshot)
+- L09: Actual conditional programmed qubit coherence trajectories with erase, phase and swap controls, explicit local frozen generator; no unjustified global relaxation-time fit. (L09_conditional_coherence_controls)
+- L11: Explicit complex system-record joint density and eigenvalues, independent partial transpose/negativity, phase-tag and dephased controls with Gram/Born readout; not branch correlations or native entanglement. (L11_complex_record_phase_and_entanglement; Q43_record_operational_weight_partial)
+- L20: Exact complex history-conditioned CP instrument, Kraus completeness/Choi PSD and trace, noncommuting and singular channels; local piecewise dimensionless GKSL reference only. (Q42_CP_segments_and_noncommutation; Q42_frozen_channel_spectrum)
+
+Full scientific certification remains 0/121.

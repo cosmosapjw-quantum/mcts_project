@@ -1,0 +1,2294 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "R69 archived source spans and quantum/field study documents",
+  "items": [
+    {
+      "acceptance": "Define hbar_eff only via independent phase/action calibration or explicitly dimensionless visibility convention; test branch singularities and units.",
+      "archive": "quantum.zip",
+      "id": "Q41",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+      "source_excerpt": [
+        "    def plot_hbar_eff_derivation(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot exact \u210f_eff derivation with temporal evolution\"\"\"",
+        "        ",
+        "        # Extract authentic quantum-classical transition data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_classical_limit_verification')",
+        "        data = optimize_for_large_data(data)",
+        "        ",
+        "        if show_temporal:",
+        "            fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "            fig.suptitle('Exact \u210f_eff Derivation with Temporal Evolution', fontsize=16, fontweight='bold')",
+        "        else:",
+        "            fig, axes = plt.subplots(2, 2, figsize=(15, 10))",
+        "            fig.suptitle('Exact \u210f_eff Derivation', fontsize=16, fontweight='bold')",
+        "        ",
+        "        axes_flat = axes.flatten()",
+        "        ",
+        "        # Add panel labels",
+        "        add_panel_labels(axes, fontsize=12)",
+        "        ",
+        "        hbar_values = data['hbar_values']",
+        "        visit_counts = data['visit_counts']",
+        "        ",
+        "        # 1. Exact \u210f_eff formula verification",
+        "        ax1 = axes_flat[0]",
+        "        ",
+        "        # The exact formula: \u210f_eff(N) = |\u0394E| / arccos(exp(-\u0393_N/2))",
+        "        # where \u0393_N = \u03b3_0 * (1 + N)^\u03b1",
+        "        ",
+        "        N_range = np.logspace(0, 3, 50)",
+        "        gamma_0 = 0.1",
+        "        alpha = 0.5",
+        "        delta_E = 1.0",
+        "        ",
+        "        # Compute exact \u210f_eff",
+        "        Gamma_N = gamma_0 * (1 + N_range)**alpha",
+        "        hbar_eff_exact = delta_E / np.arccos(np.exp(-Gamma_N / 2))",
+        "        ",
+        "        # Early search approximation: \u210f_eff \u2248 \u210f_0 * (1 + N)^(-\u03b1/2)",
+        "        hbar_0 = 2.0",
+        "        hbar_eff_approx = hbar_0 * (1 + N_range)**(-alpha/2)",
+        "        ",
+        "        ax1.loglog(N_range, hbar_eff_exact, 'o-', linewidth=3, ",
+        "                  label='Exact Formula', color='red', markersize=6)",
+        "        ax1.loglog(N_range, hbar_eff_approx, '--', linewidth=3, ",
+        "                  label='Early Search Approx', color='blue')",
+        "        ",
+        "        # MCTS data points",
+        "        if len(hbar_values) > 0 and len(visit_counts) > 0:",
+        "            # Map visit counts to N_range scale",
+        "            N_data = np.interp(hbar_values, [min(hbar_values), max(hbar_values)], ",
+        "                              [min(N_range), max(N_range)])",
+        "            ax1.loglog(N_data, hbar_values, 's', markersize=8, ",
+        "                      alpha=0.7, color='green', label='MCTS Data')",
+        "        ",
+        "        ax1.set_xlabel('Visit Count N')",
+        "        ax1.set_ylabel('\u210f_eff(N)')",
+        "        ax1.set_title('Exact \u210f_eff Formula Verification')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Decoherence rate scaling",
+        "        ax2 = axes_flat[1]",
+        "        ",
+        "        # Plot \u0393_N vs N",
+        "        ax2.loglog(N_range, Gamma_N, 'o-', linewidth=2, color='purple', ",
+        "                  markersize=6)",
+        "        ",
+        "        # Power law fit",
+        "        log_N = np.log(N_range)",
+        "        log_Gamma = np.log(Gamma_N)",
+        "        slope, intercept = np.polyfit(log_N, log_Gamma, 1)",
+        "        ",
+        "        fit_line = np.exp(intercept) * N_range**slope",
+        "        ax2.loglog(N_range, fit_line, '--', linewidth=2, color='red',",
+        "                  label=f'Fit: \u03b1 = {slope:.2f}')",
+        "        ",
+        "        ax2.set_xlabel('Visit Count N')",
+        "        ax2.set_ylabel('Decoherence Rate \u0393_N')",
+        "        ax2.set_title('Decoherence Rate Scaling')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Information time scaling",
+        "        ax3 = axes_flat[2]",
+        "        ",
+        "        # \u03c4(N) = log(N + 2) - exact information time",
+        "        tau_exact = np.log(N_range + 2)",
+        "        ",
+        "        # Alternative scalings for comparison",
+        "        tau_linear = N_range / 100  # Linear scaling",
+        "        tau_sqrt = np.sqrt(N_range)  # Square root scaling",
+        "        ",
+        "        ax3.plot(N_range, tau_exact, 'o-', linewidth=3, ",
+        "                label='\u03c4 = log(N+2)', color='red')",
+        "        ax3.plot(N_range, tau_linear, '--', linewidth=2, ",
+        "                label='\u03c4 \u221d N', color='blue', alpha=0.7)",
+        "        ax3.plot(N_range, tau_sqrt, ':', linewidth=2, ",
+        "                label='\u03c4 \u221d \u221aN', color='green', alpha=0.7)",
+        "        ",
+        "        ax3.set_xlabel('Visit Count N')",
+        "        ax3.set_ylabel('Information Time \u03c4(N)')",
+        "        ax3.set_title('Information Time Scaling')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Quantum-classical crossover",
+        "        ax4 = axes_flat[3]",
+        "        ",
+        "        # Define crossover criteria",
+        "        # Quantum regime: \u210f_eff > threshold",
+        "        # Classical regime: \u210f_eff < threshold",
+        "        ",
+        "        crossover_threshold = 0.5",
+        "        quantum_regime = hbar_eff_exact > crossover_threshold",
+        "        classical_regime = hbar_eff_exact <= crossover_threshold",
+        "        ",
+        "        ax4.loglog(N_range[quantum_regime], hbar_eff_exact[quantum_regime], ",
+        "                  'o', color='red', markersize=8, alpha=0.8, label='Quantum Regime')",
+        "        ax4.loglog(N_range[classical_regime], hbar_eff_exact[classical_regime], ",
+        "                  's', color='blue', markersize=8, alpha=0.8, label='Classical Regime')",
+        "        ",
+        "        # Mark crossover point with better calculation",
+        "        crossover_idx = np.where(np.diff(np.sign(hbar_eff_exact - crossover_threshold)))[0]",
+        "        if len(crossover_idx) > 0:",
+        "            N_crossover = N_range[crossover_idx[0]]",
+        "            ax4.axvline(x=N_crossover, color='black', linestyle='--', ",
+        "                       linewidth=2, label=f'Crossover N \u2248 {N_crossover:.0f}')",
+        "        else:",
+        "            # Fallback crossover calculation",
+        "            N_crossover = 50",
+        "            ax4.axvline(x=N_crossover, color='black', linestyle='--', ",
+        "                       linewidth=2, label=f'Crossover N \u2248 {N_crossover}')",
+        "        ",
+        "        ax4.axhline(y=crossover_threshold, color='gray', linestyle='-', ",
+        "                   alpha=0.5, label='Threshold')",
+        "        ",
+        "        ax4.set_xlabel('Visit Count N', fontsize=11)",
+        "        ax4.set_ylabel('\u210f_eff(N)', fontsize=11)",
+        "        ax4.set_title('Quantum-Classical Crossover', fontsize=12, fontweight='bold')",
+        "        fix_legend_positioning(ax4, location='upper right', fontsize=10)",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # Add crossover region shading",
+        "        if 'N_crossover' in locals():",
+        "            ax4.axvspan(N_crossover*0.5, N_crossover*2, alpha=0.1, color='gray', label='Transition Region')",
+        "        ",
+        "        if show_temporal:",
+        "            # 5. Parameter sensitivity analysis",
+        "            ax5 = axes_flat[4]",
+        "            ",
+        "            # Vary \u03b1 parameter",
+        "            alpha_values = [0.2, 0.5, 0.8, 1.0]",
+        "            colors = plt.cm.viridis(np.linspace(0, 1, len(alpha_values)))",
+        "            ",
+        "            for alpha_val, color in zip(alpha_values, colors):",
+        "                Gamma_alpha = gamma_0 * (1 + N_range)**alpha_val",
+        "                hbar_alpha = delta_E / np.arccos(np.exp(-Gamma_alpha / 2))",
+        "                ",
+        "                ax5.loglog(N_range, hbar_alpha, '-', linewidth=2, ",
+        "                          color=color, label=f'\u03b1 = {alpha_val}')",
+        "            ",
+        "            ax5.set_xlabel('Visit Count N')",
+        "            ax5.set_ylabel('\u210f_eff(N)')",
+        "            ax5.set_title('Parameter Sensitivity (\u03b1 variation)')",
+        "            ax5.legend()",
+        "            ax5.grid(True, alpha=0.3)",
+        "            ",
+        "            # 6. Discrete vs continuous comparison",
+        "            ax6 = axes_flat[5]",
+        "            ",
+        "            # Discrete Kraus evolution with improved numerical stability",
+        "            N_discrete = list(range(1, 100, 5))",
+        "            hbar_discrete = []",
+        "            ",
+        "            for N in N_discrete:",
+        "                # Discrete time step: \u03b4\u03c4 = 1/(N + 2)",
+        "                delta_tau = 1.0 / (N + 2)",
+        "                ",
+        "                # Discrete \u210f_eff from Kraus operators with bounds checking",
+        "                Gamma_discrete = gamma_0 * (1 + N)**alpha",
+        "                exp_arg = -Gamma_discrete * delta_tau / 2",
+        "                if exp_arg > -50:  # Avoid numerical underflow",
+        "                    cos_arg = np.exp(exp_arg)",
+        "                    cos_arg = np.clip(cos_arg, -1 + 1e-10, 1 - 1e-10)  # Ensure valid arccos domain",
+        "                    hbar_disc = delta_E / np.arccos(cos_arg)",
+        "                else:",
+        "                    hbar_disc = delta_E / (np.pi/2)  # Limiting case",
+        "                hbar_discrete.append(hbar_disc)",
+        "            ",
+        "            # Continuous limit with same bounds checking",
+        "            N_continuous = np.array(N_discrete)",
+        "            Gamma_cont = gamma_0 * (1 + N_continuous)**alpha",
+        "            exp_args = -Gamma_cont / 2",
+        "            cos_args = np.exp(np.clip(exp_args, -50, 0))",
+        "            cos_args = np.clip(cos_args, 1e-10, 1 - 1e-10)",
+        "            hbar_continuous = delta_E / np.arccos(cos_args)",
+        "            ",
+        "            ax6.semilogy(N_discrete, hbar_discrete, 'o-', linewidth=2, ",
+        "                        markersize=8, label='Discrete Kraus', color='red', alpha=0.8)",
+        "            ax6.semilogy(N_discrete, hbar_continuous, 's-', linewidth=2, ",
+        "                        markersize=6, label='Continuous Limit', color='blue', alpha=0.8)",
+        "            ",
+        "            ax6.set_xlabel('Visit Count N', fontsize=11)",
+        "            ax6.set_ylabel('\u210f_eff(N)', fontsize=11)",
+        "            ax6.set_title('Discrete vs Continuous Evolution', fontsize=12, fontweight='bold')",
+        "            fix_legend_positioning(ax6, location='upper right', fontsize=10)",
+        "            ax6.grid(True, alpha=0.3)",
+        "            ensure_positive_axis(ax6, axis='y', min_val=0.01)",
+        "        ",
+        "        improve_subplot_layout(fig, axes if 'axes' in locals() else None)",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'hbar_eff_derivation.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved \u210f_eff derivation plot\")",
+        "        ",
+        "        return {",
+        "            'hbar_analysis': {",
+        "                'exact_formula_verified': True,",
+        "                'crossover_point': N_crossover if 'N_crossover' in locals() else 50,",
+        "                'scaling_exponent': slope if 'slope' in locals() else alpha,",
+        "                'information_time_scaling': 'logarithmic'",
+        "            },",
+        "            'parameters': {",
+        "                'gamma_0': gamma_0,",
+        "                'alpha': alpha,",
+        "                'delta_E': delta_E,",
+        "                'hbar_0': hbar_0",
+        "            },",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_hbar_eff_derivation",
+      "span": [
+        70,
+        299
+      ]
+    },
+    {
+      "acceptance": "Specify exact CP/GKSL generator, physical time and bath if claimed; convergence, positivity, trace and actual phase-sensitive controls.",
+      "archive": "quantum.zip",
+      "id": "Q42",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+      "source_excerpt": [
+        "    def plot_lindblad_dynamics(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot Lindblad dynamics and exact mapping\"\"\"",
+        "        ",
+        "        fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "        fig.suptitle('Lindblad Dynamics and Exact Mapping Analysis', fontsize=16, fontweight='bold')",
+        "        ",
+        "        # 1. Two-level system dynamics",
+        "        ax1 = axes[0, 0]",
+        "        ",
+        "        # Lindblad master equation: \u03c1\u0307_ab = -(2\u0393_N + i\u03a9_0)\u03c1_ab",
+        "        times = np.linspace(0, 10, 100)",
+        "        Omega_0 = 1.0  # Characteristic frequency",
+        "        Gamma_values = [0.1, 0.3, 0.5, 1.0]",
+        "        ",
+        "        for Gamma in Gamma_values:",
+        "            # Solution: |\u03c1_ab(t)| = |\u03c1_ab(0)| * exp(-\u0393t)",
+        "            coherence = np.exp(-Gamma * times)",
+        "            ax1.semilogy(times, coherence, '-', linewidth=2, ",
+        "                        label=f'\u0393 = {Gamma}')",
+        "        ",
+        "        ax1.set_xlabel('Time t')",
+        "        ax1.set_ylabel('Coherence |\u03c1_{01}|')",
+        "        ax1.set_title('Lindblad Coherence Decay')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Fictitious unitary mapping",
+        "        ax2 = axes[0, 1]",
+        "        ",
+        "        # Map decoherence to fictitious unitary evolution",
+        "        # |\u03c1_ab(1)| = exp(-\u0393/2) = cos(|\u0394E|/\u210f_eff)",
+        "        ",
+        "        Gamma_range = np.linspace(0.1, 3.0, 50)",
+        "        delta_E = 1.0",
+        "        ",
+        "        # Exact mapping",
+        "        hbar_eff_mapped = delta_E / np.arccos(np.exp(-Gamma_range / 2))",
+        "        ",
+        "        ax2.plot(Gamma_range, hbar_eff_mapped, 'o-', linewidth=3, ",
+        "                color='red', markersize=6)",
+        "        ",
+        "        ax2.set_xlabel('Decoherence Rate \u0393')",
+        "        ax2.set_ylabel('Effective \u210f_eff')",
+        "        ax2.set_title('Fictitious Unitary Mapping')",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Phase space evolution",
+        "        ax3 = axes[0, 2]",
+        "        ",
+        "        # Bloch sphere representation",
+        "        theta = np.linspace(0, 2*np.pi, 100)",
+        "        ",
+        "        # Initial pure state",
+        "        r_initial = 1.0",
+        "        x_initial = r_initial * np.cos(theta)",
+        "        y_initial = r_initial * np.sin(theta)",
+        "        ",
+        "        ax3.plot(x_initial, y_initial, 'b-', linewidth=2, label='t = 0 (Pure)')",
+        "        ",
+        "        # Decoherence: r(t) = exp(-\u0393t)",
+        "        for i, t in enumerate([2, 5, 10]):",
+        "            r_t = np.exp(-0.3 * t)  # \u0393 = 0.3",
+        "            x_t = r_t * np.cos(theta)",
+        "            y_t = r_t * np.sin(theta)",
+        "            ",
+        "            alpha = 0.8 - i * 0.2",
+        "            ax3.plot(x_t, y_t, '--', linewidth=2, alpha=alpha, ",
+        "                    label=f't = {t}')",
+        "        ",
+        "        ax3.set_xlim(-1.2, 1.2)",
+        "        ax3.set_ylim(-1.2, 1.2)",
+        "        ax3.set_aspect('equal')",
+        "        ax3.set_xlabel('\u27e8\u03c3_x\u27e9')",
+        "        ax3.set_ylabel('\u27e8\u03c3_y\u27e9')",
+        "        ax3.set_title('Bloch Sphere Decoherence')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Kraus operator representation",
+        "        ax4 = axes[1, 0]",
+        "        ",
+        "        # Discrete Kraus evolution",
+        "        n_steps = 20",
+        "        dt = 0.5",
+        "        ",
+        "        # Kraus operators: K_0 = \u221a(1-\u03b5)|0\u27e9\u27e80| + \u221a(1-\u03b5)|1\u27e9\u27e81|, K_1 = \u221a\u03b5 \u03c3_x",
+        "        epsilon_values = [0.01, 0.05, 0.1]",
+        "        ",
+        "        for eps in epsilon_values:",
+        "            purity = []",
+        "            for step in range(n_steps):",
+        "                # Purity evolution under Kraus operators",
+        "                p_t = (1 - eps)**step",
+        "                purity.append(p_t)",
+        "            ",
+        "            ax4.semilogy(range(n_steps), purity, 'o-', linewidth=2, ",
+        "                        label=f'\u03b5 = {eps}')",
+        "        ",
+        "        ax4.set_xlabel('Kraus Steps')",
+        "        ax4.set_ylabel('Purity Tr(\u03c1\u00b2)')",
+        "        ax4.set_title('Discrete Kraus Evolution')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # 5. Environment coupling analysis",
+        "        ax5 = axes[1, 1]",
+        "        ",
+        "        # System-environment coupling strength vs decoherence",
+        "        coupling_strengths = np.linspace(0, 1.0, 20)",
+        "        decoherence_rates = []",
+        "        ",
+        "        for g in coupling_strengths:",
+        "            # Born-Markov approximation: \u0393 \u221d g\u00b2",
+        "            Gamma = g**2 * 2.0  # Proportionality constant",
+        "            decoherence_rates.append(Gamma)",
+        "        ",
+        "        ax5.plot(coupling_strengths, decoherence_rates, 'o-', ",
+        "                linewidth=2, markersize=6, color='green')",
+        "        ",
+        "        # Quadratic fit",
+        "        fit_params = np.polyfit(coupling_strengths, decoherence_rates, 2)",
+        "        fit_curve = np.polyval(fit_params, coupling_strengths)",
+        "        ax5.plot(coupling_strengths, fit_curve, '--', linewidth=2, ",
+        "                color='red', label='g\u00b2 Scaling')",
+        "        ",
+        "        ax5.set_xlabel('Coupling Strength g')",
+        "        ax5.set_ylabel('Decoherence Rate \u0393')",
+        "        ax5.set_title('Environment Coupling Analysis')",
+        "        ax5.legend()",
+        "        ax5.grid(True, alpha=0.3)",
+        "        ",
+        "        # 6. Multi-level system extension",
+        "        ax6 = axes[1, 2]",
+        "        ",
+        "        # Extend to N-level system",
+        "        n_levels = range(2, 10)",
+        "        effective_decoherence = []",
+        "        ",
+        "        for N in n_levels:",
+        "            # Effective decoherence for N-level system",
+        "            # Simplified model: \u0393_eff \u221d N",
+        "            Gamma_eff = 0.1 * N * np.log(N)",
+        "            effective_decoherence.append(Gamma_eff)",
+        "        ",
+        "        ax6.plot(n_levels, effective_decoherence, 's-', ",
+        "                linewidth=2, markersize=8, color='purple')",
+        "        ",
+        "        ax6.set_xlabel('Number of Levels N')",
+        "        ax6.set_ylabel('Effective Decoherence Rate')",
+        "        ax6.set_title('Multi-Level System Extension')",
+        "        ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'lindblad_dynamics.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved Lindblad dynamics plot\")",
+        "        ",
+        "        return {",
+        "            'lindblad_analysis': {",
+        "                'two_level_mapping_verified': True,",
+        "                'kraus_operators_analyzed': True,",
+        "                'environment_coupling_scaling': 'quadratic',",
+        "                'multi_level_extension': True",
+        "            },",
+        "            'mapping_parameters': {",
+        "                'Omega_0': Omega_0,",
+        "                'delta_E': delta_E,",
+        "                'coupling_scalings': fit_params.tolist() if 'fit_params' in locals() else []",
+        "            },",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_lindblad_dynamics",
+      "span": [
+        301,
+        472
+      ]
+    },
+    {
+      "acceptance": "Define complex path amplitude, measure, action and independently calibrated hbar; compare actual finite conditional instrument and coherent readout.",
+      "archive": "quantum.zip",
+      "id": "Q43",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+      "source_excerpt": [
+        "    def plot_path_integral_hbar(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot path integral formulation with dynamic \u210f_eff\"\"\"",
+        "        ",
+        "        fig, axes = plt.subplots(2, 2, figsize=(15, 12))",
+        "        fig.suptitle('Path Integral Formulation with Dynamic \u210f_eff', fontsize=16, fontweight='bold')",
+        "        ",
+        "        # 1. Path integral weight evolution",
+        "        ax1 = axes[0, 0]",
+        "        ",
+        "        # Generate path ensemble with time-dependent \u210f_eff",
+        "        n_paths = 50",
+        "        path_length = 30",
+        "        ",
+        "        paths = []",
+        "        path_weights = []",
+        "        ",
+        "        for i in range(n_paths):",
+        "            path = np.cumsum(np.random.normal(0, 0.3, path_length))",
+        "            paths.append(path)",
+        "            ",
+        "            # Time-dependent \u210f_eff",
+        "            hbar_t = 1.0 / (1 + np.arange(path_length) * 0.1)",
+        "            ",
+        "            # Action with dynamic \u210f_eff",
+        "            kinetic_action = np.sum(np.diff(path)**2 / hbar_t[1:])",
+        "            weight = np.exp(-kinetic_action / 2.0)",
+        "            path_weights.append(weight)",
+        "        ",
+        "        # Plot paths colored by weight",
+        "        for i, (path, weight) in enumerate(zip(paths, path_weights)):",
+        "            alpha = min(weight * 10, 1.0)",
+        "            color_intensity = weight / max(path_weights)",
+        "            ax1.plot(range(path_length), path, alpha=alpha, ",
+        "                    color=plt.cm.plasma(color_intensity), linewidth=1)",
+        "        ",
+        "        ax1.set_xlabel('Time Step')",
+        "        ax1.set_ylabel('Path Value')",
+        "        ax1.set_title('Path Ensemble with Dynamic \u210f_eff')",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Effective action evolution",
+        "        ax2 = axes[0, 1]",
+        "        ",
+        "        # Calculate effective action as function of \u210f_eff",
+        "        hbar_range = np.logspace(-1, 1, 30)",
+        "        effective_actions = []",
+        "        ",
+        "        for hbar in hbar_range:",
+        "            # Monte Carlo estimate of effective action",
+        "            sample_actions = []",
+        "            for _ in range(100):",
+        "                sample_path = np.cumsum(np.random.normal(0, np.sqrt(hbar), 20))",
+        "                action = np.sum(np.diff(sample_path)**2) / hbar",
+        "                sample_actions.append(action)",
+        "            ",
+        "            # S_eff = -log\u27e8exp(-S/\u210f)\u27e9",
+        "            exp_actions = [np.exp(-S/hbar) for S in sample_actions]",
+        "            S_eff = -hbar * np.log(np.mean(exp_actions))",
+        "            effective_actions.append(S_eff)",
+        "        ",
+        "        ax2.loglog(hbar_range, effective_actions, 'o-', ",
+        "                  linewidth=2, markersize=6, color='red')",
+        "        ",
+        "        ax2.set_xlabel('\u210f_eff')",
+        "        ax2.set_ylabel('Effective Action S_eff')",
+        "        ax2.set_title('Effective Action vs \u210f_eff')",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Quantum correction analysis",
+        "        ax3 = axes[1, 0]",
+        "        ",
+        "        # One-loop quantum corrections",
+        "        # \u0394\u0393^(1) = 2\u210f_eff \u03a3_k log h_k",
+        "        visit_counts = np.arange(1, 20)",
+        "        hbar_eff_values = 1.0 / (1 + visit_counts * 0.1)",
+        "        ",
+        "        quantum_corrections = []",
+        "        for N, hbar in zip(visit_counts, hbar_eff_values):",
+        "            # Hessian: h_k = 2\u03bap_k N_tot / N_k^3",
+        "            kappa = 1.0",
+        "            p_k = 1.0 / len(visit_counts)  # Uniform prior",
+        "            N_tot = np.sum(visit_counts[:N])",
+        "            ",
+        "            h_k = 2 * kappa * p_k * N_tot / N**3",
+        "            correction = 2 * hbar * np.log(h_k)",
+        "            quantum_corrections.append(correction)",
+        "        ",
+        "        ax3.plot(visit_counts, quantum_corrections, 'o-', ",
+        "                linewidth=2, markersize=6, color='blue')",
+        "        ",
+        "        ax3.set_xlabel('Visit Count N_k')",
+        "        ax3.set_ylabel('Quantum Correction \u0394\u0393^(1)')",
+        "        ax3.set_title('One-Loop Quantum Corrections')",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Classical limit verification",
+        "        ax4 = axes[1, 1]",
+        "        ",
+        "        # Show approach to classical limit as \u210f_eff \u2192 0",
+        "        hbar_classical = np.logspace(-3, 0, 30)",
+        "        ",
+        "        # Quantum observable: \u27e8O\u27e9_quantum",
+        "        quantum_observable = []",
+        "        classical_observable = []",
+        "        ",
+        "        for hbar in hbar_classical:",
+        "            # Mock quantum observable with \u210f dependence",
+        "            O_quantum = 1.0 + hbar * np.sin(1/hbar) * np.exp(-1/hbar)",
+        "            O_classical = 1.0  # Classical limit",
+        "            ",
+        "            quantum_observable.append(O_quantum)",
+        "            classical_observable.append(O_classical)",
+        "        ",
+        "        ax4.semilogx(hbar_classical, quantum_observable, 'o-', ",
+        "                    linewidth=2, label='Quantum \u27e8O\u27e9', color='red')",
+        "        ax4.semilogx(hbar_classical, classical_observable, '--', ",
+        "                    linewidth=3, label='Classical Limit', color='blue')",
+        "        ",
+        "        # Difference",
+        "        difference = np.abs(np.array(quantum_observable) - np.array(classical_observable))",
+        "        ax4_twin = ax4.twinx()",
+        "        ax4_twin.semilogx(hbar_classical, difference, 's-', ",
+        "                         linewidth=2, label='|Quantum - Classical|', ",
+        "                         color='green', alpha=0.7)",
+        "        ",
+        "        ax4.set_xlabel('\u210f_eff')",
+        "        ax4.set_ylabel('Observable Value', color='red')",
+        "        ax4_twin.set_ylabel('Difference', color='green')",
+        "        ax4.set_title('Classical Limit Verification')",
+        "        ",
+        "        # Combine legends",
+        "        lines1, labels1 = ax4.get_legend_handles_labels()",
+        "        lines2, labels2 = ax4_twin.get_legend_handles_labels()",
+        "        ax4.legend(lines1 + lines2, labels1 + labels2, loc='upper right')",
+        "        ",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'path_integral_hbar.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved path integral \u210f_eff plot\")",
+        "        ",
+        "        return {",
+        "            'path_integral_analysis': {",
+        "                'dynamic_hbar_implemented': True,",
+        "                'effective_action_computed': True,",
+        "                'quantum_corrections_analyzed': True,",
+        "                'classical_limit_verified': True",
+        "            },",
+        "            'computational_details': {",
+        "                'path_ensemble_size': n_paths,",
+        "                'monte_carlo_samples': 100,",
+        "                'convergence_achieved': True",
+        "            },",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_path_integral_hbar",
+      "span": [
+        474,
+        630
+      ]
+    },
+    {
+      "acceptance": "Animate actual visibility-defined proxy with singular cases and no physical hbar claim; physical crossover needs independent calibration.",
+      "archive": "quantum.zip",
+      "id": "Q44",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+      "source_excerpt": [
+        "    def create_hbar_evolution_animation(self, save_animation: bool = True) -> Any:",
+        "        \"\"\"Create animation showing \u210f_eff evolution during MCTS\"\"\"",
+        "        ",
+        "        # Generate \u210f_eff evolution during MCTS simulation",
+        "        n_frames = 100",
+        "        max_visits = 1000",
+        "        ",
+        "        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10))",
+        "        fig.suptitle('\u210f_eff Evolution During MCTS Simulation')",
+        "        ",
+        "        # Parameters",
+        "        gamma_0 = 0.1",
+        "        alpha = 0.5",
+        "        delta_E = 1.0",
+        "        hbar_0 = 2.0",
+        "        ",
+        "        def animate(frame):",
+        "            # Current number of visits",
+        "            N_current = int(1 + max_visits * (frame / n_frames)**2)",
+        "            ",
+        "            # Clear axes",
+        "            ax1.clear()",
+        "            ax2.clear()",
+        "            ",
+        "            # Plot 1: \u210f_eff evolution",
+        "            N_range = np.arange(1, N_current + 1)",
+        "            ",
+        "            # Exact formula",
+        "            Gamma_N = gamma_0 * (1 + N_range)**alpha",
+        "            hbar_exact = delta_E / np.arccos(np.exp(-Gamma_N / 2))",
+        "            ",
+        "            # Approximation",
+        "            hbar_approx = hbar_0 * (1 + N_range)**(-alpha/2)",
+        "            ",
+        "            ax1.loglog(N_range, hbar_exact, 'r-', linewidth=3, label='Exact')",
+        "            ax1.loglog(N_range, hbar_approx, 'b--', linewidth=2, label='Approximation')",
+        "            ",
+        "            # Current point",
+        "            if N_current > 1:",
+        "                ax1.loglog(N_current, hbar_exact[-1], 'ro', markersize=15, ",
+        "                          markeredgecolor='black', markeredgewidth=2)",
+        "            ",
+        "            ax1.set_xlim(1, max_visits)",
+        "            ax1.set_ylim(0.1, 10)",
+        "            ax1.set_xlabel('Visit Count N')",
+        "            ax1.set_ylabel('\u210f_eff(N)')",
+        "            ax1.set_title(f'\u210f_eff Evolution (N = {N_current})')",
+        "            ax1.legend()",
+        "            ax1.grid(True, alpha=0.3)",
+        "            ",
+        "            # Plot 2: Quantum vs Classical regime",
+        "            threshold = 0.5",
+        "            quantum_mask = hbar_exact > threshold",
+        "            classical_mask = hbar_exact <= threshold",
+        "            ",
+        "            if np.any(quantum_mask):",
+        "                ax2.semilogy(N_range[quantum_mask], hbar_exact[quantum_mask], ",
+        "                           'ro', markersize=6, alpha=0.8, label='Quantum')",
+        "            if np.any(classical_mask):",
+        "                ax2.semilogy(N_range[classical_mask], hbar_exact[classical_mask], ",
+        "                           'bs', markersize=6, alpha=0.8, label='Classical')",
+        "            ",
+        "            ax2.axhline(y=threshold, color='gray', linestyle='--', ",
+        "                       alpha=0.7, label='Threshold')",
+        "            ",
+        "            ax2.set_xlim(1, max_visits)",
+        "            ax2.set_ylim(0.1, 10)",
+        "            ax2.set_xlabel('Visit Count N')",
+        "            ax2.set_ylabel('\u210f_eff(N)')",
+        "            ax2.set_title('Quantum-Classical Regime Classification')",
+        "            ax2.legend()",
+        "            ax2.grid(True, alpha=0.3)",
+        "            ",
+        "            # Add regime text",
+        "            if N_current > 1:",
+        "                current_hbar = hbar_exact[-1]",
+        "                regime = \"Quantum\" if current_hbar > threshold else \"Classical\"",
+        "                ax2.text(0.7, 0.9, f'Current Regime: {regime}\\n\u210f_eff = {current_hbar:.3f}', ",
+        "                        transform=ax2.transAxes, fontsize=12, ",
+        "                        bbox=dict(boxstyle=\"round,pad=0.3\", facecolor=\"lightyellow\"))",
+        "        ",
+        "        anim = FuncAnimation(fig, animate, frames=n_frames, interval=100, repeat=True)",
+        "        ",
+        "        if save_animation:",
+        "            anim.save(self.output_dir / 'hbar_evolution.gif', writer='pillow', fps=10)",
+        "            logger.info(\"Saved \u210f_eff evolution animation\")",
+        "        ",
+        "        return anim"
+      ],
+      "source_function": "create_hbar_evolution_animation",
+      "span": [
+        632,
+        719
+      ]
+    },
+    {
+      "acceptance": "Comprehensive action/hbar/Lindblad/classical-limit report with explicit assumptions, singularity/negative utility retained and no forced regime.",
+      "archive": "quantum.zip",
+      "id": "Q45",
+      "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+      "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+      "source_excerpt": [
+        "    def generate_comprehensive_report(self, save_report: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Generate comprehensive exact \u210f_eff analysis report\"\"\"",
+        "        ",
+        "        logger.info(\"Generating comprehensive exact \u210f_eff analysis report...\")",
+        "        ",
+        "        # Run all analyses",
+        "        hbar_results = self.plot_hbar_eff_derivation(save_plots=save_report)",
+        "        lindblad_results = self.plot_lindblad_dynamics(save_plots=save_report)",
+        "        path_results = self.plot_path_integral_hbar(save_plots=save_report)",
+        "        ",
+        "        # Compile report",
+        "        report = {",
+        "            'timestamp': pd.Timestamp.now().isoformat(),",
+        "            'mcts_data_summary': {",
+        "                'datasets_analyzed': len(self.mcts_data.get('tree_expansion_data', [])),",
+        "                'data_source': 'authentic_mcts_tree_dynamics'",
+        "            },",
+        "            'exact_hbar_eff_analysis': {",
+        "                'exact_formula_derived': True,",
+        "                'formula': '\u210f_eff(N) = |\u0394E| / arccos(exp(-\u0393_N/2))',",
+        "                'decoherence_scaling': f\"\u0393_N = \u03b3_0 * (1+N)^{hbar_results['parameters']['alpha']}\",",
+        "                'information_time_scaling': hbar_results['hbar_analysis']['information_time_scaling'],",
+        "                'crossover_analysis': {",
+        "                    'crossover_point': hbar_results['hbar_analysis']['crossover_point'],",
+        "                    'quantum_regime_identified': True,",
+        "                    'classical_regime_identified': True",
+        "                }",
+        "            },",
+        "            'lindblad_dynamics': {",
+        "                'two_level_mapping_verified': lindblad_results['lindblad_analysis']['two_level_mapping_verified'],",
+        "                'kraus_operators_implemented': lindblad_results['lindblad_analysis']['kraus_operators_analyzed'],",
+        "                'environment_coupling_analyzed': True,",
+        "                'multi_level_extension': lindblad_results['lindblad_analysis']['multi_level_extension']",
+        "            },",
+        "            'path_integral_formulation': {",
+        "                'dynamic_hbar_implemented': path_results['path_integral_analysis']['dynamic_hbar_implemented'],",
+        "                'effective_action_computed': path_results['path_integral_analysis']['effective_action_computed'],",
+        "                'quantum_corrections_included': path_results['path_integral_analysis']['quantum_corrections_analyzed'],",
+        "                'classical_limit_verified': path_results['path_integral_analysis']['classical_limit_verified']",
+        "            },",
+        "            'theoretical_validation': {",
+        "                'exact_derivation_confirmed': True,",
+        "                'approximation_accuracy_verified': True,",
+        "                'parameter_sensitivity_analyzed': True,",
+        "                'discrete_continuous_comparison': True",
+        "            },",
+        "            'output_files': [",
+        "                'hbar_eff_derivation.png',",
+        "                'lindblad_dynamics.png',",
+        "                'path_integral_hbar.png'",
+        "            ]",
+        "        }",
+        "        ",
+        "        if save_report:",
+        "            report_file = self.output_dir / 'exact_hbar_analysis_report.json'",
+        "            import json",
+        "            with open(report_file, 'w') as f:",
+        "                json.dump(report, f, indent=2)",
+        "            logger.info(f\"Saved comprehensive report to {report_file}\")",
+        "        ",
+        "        logger.info(\"Exact \u210f_eff analysis complete!\")",
+        "        return report"
+      ],
+      "source_function": "generate_comprehensive_report",
+      "span": [
+        721,
+        782
+      ]
+    },
+    {
+      "acceptance": "Estimate defined coherence trajectory and relaxation fit only under identified dynamical model; compare measured-record/dephased control.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "L09",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "source_excerpt": [
+        "    def _plot_decoherence(self, ax):",
+        "        \"\"\"Plot decoherence analysis\"\"\"",
+        "        if 'decoherence' not in self.results['quantum_phenomena']:",
+        "            ax.text(0.5, 0.5, 'No decoherence data', ha='center', va='center')",
+        "            ax.set_title('Decoherence')",
+        "            return",
+        "            ",
+        "        dec_results = self.results['quantum_phenomena']['decoherence']",
+        "        if dec_results:",
+        "            dec_times = [r['relaxation_time'] for r in dec_results if r['relaxation_time'] > 0 and r['relaxation_time'] != float('inf')]",
+        "            ",
+        "            if dec_times:",
+        "                ax.hist(dec_times, bins=20, alpha=0.7, edgecolor='black')",
+        "                ax.axvline(np.mean(dec_times), color='red', linestyle='--',",
+        "                          label=f'Mean: {np.mean(dec_times):.2f}')",
+        "                ax.set_xlabel('Decoherence Time')",
+        "                ax.set_ylabel('Count')",
+        "                ax.set_title('Decoherence Time Distribution')",
+        "                ax.legend()",
+        "                ax.grid(True, alpha=0.3)"
+      ],
+      "source_function": "_plot_decoherence",
+      "span": [
+        1758,
+        1777
+      ]
+    },
+    {
+      "acceptance": "Specify joint density, subsystem, eigenvalues and entanglement criterion; no classical correlation as entanglement.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "L11",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "source_excerpt": [
+        "    def _plot_entanglement(self, ax):",
+        "        \"\"\"Plot entanglement measures\"\"\"",
+        "        if 'entanglement' not in self.results['quantum_phenomena']:",
+        "            ax.text(0.5, 0.5, 'No entanglement data', ha='center', va='center')",
+        "            ax.set_title('Entanglement')",
+        "            return",
+        "            ",
+        "        ent_results = self.results['quantum_phenomena']['entanglement']",
+        "        if ent_results:",
+        "            entropies = [r['entanglement_entropy'] for r in ent_results]",
+        "            ",
+        "            ax.hist(entropies, bins=30, alpha=0.7, edgecolor='black')",
+        "            ax.set_xlabel('Von Neumann Entropy')",
+        "            ax.set_ylabel('Count')",
+        "            ax.set_title('Action Entanglement')",
+        "            ax.grid(True, alpha=0.3)"
+      ],
+      "source_function": "_plot_entanglement",
+      "span": [
+        1797,
+        1812
+      ]
+    },
+    {
+      "acceptance": "Specify GKSL or exact discrete CP instrument and time unit, check positivity, coherence/rates and noncommuting dynamics; native bath separate.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "L20",
+      "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+      "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+      "source_excerpt": [
+        "    def _create_lindblad_plots(self, results: List[Dict]):",
+        "        \"\"\"Create plots for Lindblad dynamics analysis\"\"\"",
+        "        if not results:",
+        "            return",
+        "        ",
+        "        try:",
+        "            try:",
+        "                from .honest_plots import HonestPlotter",
+        "            except ImportError:",
+        "                from honest_plots import HonestPlotter",
+        "            plotter = HonestPlotter(self.results, self.config.output_dir)",
+        "            ",
+        "            # Extract data for plotting",
+        "            decoherence_rates = [r['decoherence_rates']['decoherence_rate'] for r in results]",
+        "            correlation_strengths = [r['quantum_correlations']['correlation_strength'] for r in results]",
+        "            ",
+        "            # Create coherence evolution plots",
+        "            coherence_data = []",
+        "            for r in results:",
+        "                if r['coherence_evolution']['coherence_timeline']:",
+        "                    coherence_data.append(r['coherence_evolution']['coherence_timeline'])",
+        "            ",
+        "            # Use existing plotting infrastructure",
+        "            import matplotlib.pyplot as plt",
+        "            ",
+        "            fig, axes = plt.subplots(2, 2, figsize=(12, 10))",
+        "            ",
+        "            # Plot 1: Decoherence rates distribution",
+        "            axes[0, 0].hist(decoherence_rates, bins=20, alpha=0.7, color='blue', edgecolor='black')",
+        "            axes[0, 0].set_xlabel('Decoherence Rate')",
+        "            axes[0, 0].set_ylabel('Frequency')",
+        "            axes[0, 0].set_title('MEASURED: Decoherence Rates Distribution')",
+        "            axes[0, 0].grid(True, alpha=0.3)",
+        "            ",
+        "            # Plot 2: Correlation strengths",
+        "            axes[0, 1].hist(correlation_strengths, bins=20, alpha=0.7, color='green', edgecolor='black')",
+        "            axes[0, 1].set_xlabel('Correlation Strength')",
+        "            axes[0, 1].set_ylabel('Frequency')",
+        "            axes[0, 1].set_title('MEASURED: Quantum Correlations')",
+        "            axes[0, 1].grid(True, alpha=0.3)",
+        "            ",
+        "            # Plot 3: Coherence evolution",
+        "            if coherence_data:",
+        "                for i, timeline in enumerate(coherence_data[:5]):  # Show first 5 games",
+        "                    times = [p['time'] for p in timeline]",
+        "                    coherences = [p['coherence'] for p in timeline]",
+        "                    axes[1, 0].plot(times, coherences, alpha=0.7, label=f'Game {i+1}')",
+        "            ",
+        "            axes[1, 0].set_xlabel('Time Step')",
+        "            axes[1, 0].set_ylabel('Coherence')",
+        "            axes[1, 0].set_title('MEASURED: Coherence Evolution')",
+        "            axes[1, 0].legend()",
+        "            axes[1, 0].grid(True, alpha=0.3)",
+        "            ",
+        "            # Plot 4: Decoherence vs correlation",
+        "            axes[1, 1].scatter(decoherence_rates, correlation_strengths, alpha=0.7, color='red')",
+        "            axes[1, 1].set_xlabel('Decoherence Rate')",
+        "            axes[1, 1].set_ylabel('Correlation Strength')",
+        "            axes[1, 1].set_title('MEASURED: Decoherence vs Correlations')",
+        "            axes[1, 1].grid(True, alpha=0.3)",
+        "            ",
+        "            plt.tight_layout()",
+        "            plt.savefig(self.config.output_dir / 'lindblad_dynamics_analysis.png', dpi=300, bbox_inches='tight')",
+        "            plt.close()",
+        "            ",
+        "            logger.info(\"Created Lindblad dynamics plots\")",
+        "            ",
+        "        except Exception as e:",
+        "            logger.warning(f\"Failed to create Lindblad plots: {e}\")"
+      ],
+      "source_function": "_create_lindblad_plots",
+      "span": [
+        3349,
+        3417
+      ]
+    }
+  ],
+  "study_selected": [
+    {
+      "excerpts": [
+        [
+          5,
+          "We present a rigorous quantum field theory formulation of Monte Carlo Tree Search (MCTS) based on discrete information time \u03c4(N) = log(N+2). Starting from the classical UCB formula, we derive the PUCT action S[\u03b3] = -\u03a3[log N(s,a) + \u03bb log P(a|s)] through variational principles. The framework maps tree search onto a path integral formalism with an effective Planck constant \u210f_eff(N) = c_puct/(\u221a(N+1)log(N+2)). Tree-level analysis recovers classical MCTS, while one-loop quantum corrections yield enhanced UCB formulas with measurable performance improvements. The discrete tree structure provides natural UV regularization, connecting to renormalization group flow. All results are implementable on classical hardware with controlled overhead."
+        ],
+        [
+          15,
+          "- Rigorous convergence criteria via decoherence"
+        ],
+        [
+          19,
+          "This document develops the quantum field theory foundations of MCTS as a self-contained framework. We begin with information-theoretic time, derive the path integral formulation, compute quantum corrections, and provide practical implementations."
+        ],
+        [
+          21,
+          "## 2. From UCB to PUCT Action"
+        ],
+        [
+          30,
+          "where Q\u0304(a) is the empirical mean reward, t is total trials, n_a is trials of action a, and c is the exploration constant."
+        ],
+        [
+          32,
+          "### 2.2 Variational Derivation of PUCT Action"
+        ],
+        [
+          34,
+          "**Theorem 2.1** (Action Principle for Tree Search)"
+        ],
+        [
+          35,
+          "The PUCT selection probabilities arise from minimizing the action functional:"
+        ],
+        [
+          47,
+          "2. **Information-theoretic cost**: The cost of exploring action a is the information gain:"
+        ],
+        [
+          62,
+          "5. **Path action**: For a complete path \u03b3 = (s\u2080,a\u2080,s\u2081,...,s\u2097), sum over transitions:"
+        ],
+        [
+          92,
+          "## 3. Path Integral Formulation"
+        ],
+        [
+          119,
+          "**Theorem 2.3** (Classical Limit)"
+        ],
+        [
+          154,
+          "Action in field notation:"
+        ],
+        [
+          174,
+          "**Theorem 4.1** (One-Loop Effective Action)"
+        ],
+        [
+          222,
+          "### 5.2 Regularized Action"
+        ],
+        [
+          224,
+          "**Theorem 5.1** (Regularized Action)"
+        ],
+        [
+          282,
+          "    def compute_hbar_eff(self, N):"
+        ],
+        [
+          293,
+          "        hbar_eff = self.compute_hbar_eff(N)"
+        ],
+        [
+          305,
+          "                prior = self.get_prior(node.state, child.action)"
+        ],
+        [
+          313,
+          "                quantum_correction = hbar_eff / np.sqrt(child.visits + 1)"
+        ],
+        [
+          325,
+          "    def get_prior(self, state, action):"
+        ],
+        [
+          329,
+          "            return priors[action]"
+        ],
+        [
+          334,
+          "### 7.2 Path Integral Computation"
+        ],
+        [
+          337,
+          "def compute_action(path, lambda_puct=1.0):"
+        ],
+        [
+          338,
+          "    \"\"\"PUCT action for a path\"\"\""
+        ],
+        [
+          339,
+          "    action = 0"
+        ],
+        [
+          344,
+          "        # Find the action connecting nodes"
+        ],
+        [
+          345,
+          "        action_taken = None"
+        ],
+        [
+          348,
+          "                action_taken = j"
+        ],
+        [
+          351,
+          "        if action_taken is not None:"
+        ],
+        [
+          353,
+          "            P_sa = node.prior_probs[action_taken] if hasattr(node, 'prior_probs') else 1.0/len(node.children)"
+        ],
+        [
+          355,
+          "            # Regularized action"
+        ],
+        [
+          356,
+          "            action -= np.log(N_sa + 1)"
+        ],
+        [
+          357,
+          "            action -= lambda_puct * np.log(P_sa + 1e-8)"
+        ],
+        [
+          359,
+          "    return action"
+        ],
+        [
+          362,
+          "    \"\"\"Monte Carlo approximation of path integral\"\"\""
+        ],
+        [
+          364,
+          "    hbar_eff = tree.compute_hbar_eff(N)"
+        ],
+        [
+          370,
+          "        # Compute action"
+        ],
+        [
+          371,
+          "        S = compute_action(path, tree.lambda_puct)"
+        ],
+        [
+          374,
+          "        Z += np.exp(1j * S / hbar_eff)"
+        ],
+        [
+          398,
+          "    \"\"\"Compute one-loop quantum correction to action\"\"\""
+        ],
+        [
+          399,
+          "    hbar_eff = compute_hbar_eff(N)"
+        ],
+        [
+          410,
+          "    return (hbar_eff / 2) * correction"
+        ],
+        [
+          412,
+          "def quantum_effective_action(node, N):"
+        ],
+        [
+          413,
+          "    \"\"\"Full one-loop effective action\"\"\""
+        ]
+      ],
+      "lines": 602,
+      "member": "mcts_study/v3.0/qft-mcts-foundations.md",
+      "relevant_line_count": 51,
+      "sha256": "a0fc2fbda4a07e9b663a59e997e4a418c2f19aed04b071594b970d1f44c13ea3"
+    },
+    {
+      "excerpts": [
+        [
+          1,
+          "# Open Quantum Systems in MCTS: Decoherence and Darwinism"
+        ],
+        [
+          5,
+          "We develop the open quantum system formulation of MCTS, showing how environmental interactions lead to decoherence and the emergence of classical objectivity. Starting from the continuous Lindblad master equation, we derive its discrete-time version appropriate for MCTS evolution. The formalism reconciles position basis states |s,a\u27e9 with path states |\u03c8\u27e9 through partial trace operations. We detail the MinHash projection operator P_h and show how Dirichlet noise and evaluation uncertainty act as thermal baths. Quantum Darwinism explains convergence through redundant information encoding I(S:F) = H(S) - H(S|F) across tree fragments, with scaling R_\u03b4 ~ N^(-1/2). The Schwinger-Keldysh formalism on the closed-time contour justifies the decay of \u210f_eff(N) and provides numerical methods to validate the fluctuation-dissipation theorem."
+        ],
+        [
+          15,
+          "- Parallel search interference (decoherence channel)"
+        ],
+        [
+          17,
+          "These environments cause decoherence, selecting pointer states that become effectively classical through einselection (environment-induced superselection)."
+        ],
+        [
+          21,
+          "This document provides a complete open quantum systems treatment of MCTS. We develop the density matrix formulation, derive the discrete Lindblad equation from first principles, explain quantum Darwinism in the tree context, and extend to non-equilibrium dynamics via the Schwinger-Keldysh formalism."
+        ],
+        [
+          39,
+          "1. **Position basis**: |s,a\u27e9 denotes being at state s, considering action a"
+        ],
+        [
+          66,
+          "### 3.1 Continuous Lindblad Equation"
+        ],
+        [
+          68,
+          "**Definition 3.1** (Lindblad Master Equation)"
+        ],
+        [
+          75,
+          "- Dissipative part: Lindblad terms (environmental decoherence)"
+        ],
+        [
+          80,
+          "**Theorem 3.1** (Discrete Lindblad Equation)"
+        ],
+        [
+          85,
+          "where \u0394\u03c4_N = log((N+3)/(N+2)) and L is the Lindbladian."
+        ],
+        [
+          101,
+          "### 3.3 Environmental Interactions"
+        ],
+        [
+          103,
+          "**Definition 3.2** (MCTS Lindblad Operators)"
+        ],
+        [
+          109,
+          "Effect: Adds exploration noise to root action selection"
+        ],
+        [
+          175,
+          "1. Lindblad operators in visit basis:"
+        ],
+        [
+          176,
+          "   - L_D diagonal: acts on action space"
+        ],
+        [
+          182,
+          "### 4.2 Decoherence Dynamics"
+        ],
+        [
+          184,
+          "**Theorem 4.2** (Power-Law Decoherence)"
+        ],
+        [
+          196,
+          "2. Effective decoherence rate:"
+        ],
+        [
+          226,
+          "Measures fraction of fragments containing substantial information about S."
+        ],
+        [
+          281,
+          "                MI = compute_mutual_information(run.optimal_action, fragment)"
+        ],
+        [
+          297,
+          "    # Estimate c as median plateau fraction"
+        ],
+        [
+          308,
+          "def compute_mutual_information(optimal_action, fragment):"
+        ],
+        [
+          309,
+          "    \"\"\"Compute I(S:F) between optimal action and fragment\"\"\""
+        ],
+        [
+          311,
+          "    p_optimal = estimate_action_distribution(fragment, focus='optimal')"
+        ],
+        [
+          312,
+          "    p_marginal = estimate_action_distribution(fragment, focus='all')"
+        ],
+        [
+          365,
+          "**Definition 6.3** (Keldysh Action for MCTS)"
+        ],
+        [
+          502,
+          "        # Decoherence parameters"
+        ],
+        [
+          513,
+          "        dim = self.game.action_space_size"
+        ],
+        [
+          516,
+          "    def setup_lindblad_operators(self):"
+        ],
+        [
+          517,
+          "        \"\"\"Construct Lindblad operators for MCTS\"\"\""
+        ],
+        [
+          522,
+          "        for a in range(self.game.action_space_size):"
+        ],
+        [
+          531,
+          "            for a in range(self.game.action_space_size):"
+        ],
+        [
+          532,
+          "                idx = s * self.game.action_space_size + a"
+        ],
+        [
+          555,
+          "                for a in range(self.game.action_space_size):"
+        ],
+        [
+          556,
+          "                    idx = s * self.game.action_space_size + a"
+        ],
+        [
+          566,
+          "        hbar_eff = self.c_puct / (np.sqrt(N + 1) * np.log(N + 2))"
+        ],
+        [
+          571,
+          "        self.rho -= 1j * dt * commutator / hbar_eff"
+        ],
+        [
+          573,
+          "        # Lindblad terms"
+        ],
+        [
+          574,
+          "        operators, rates = self.setup_lindblad_operators()"
+        ],
+        [
+          594,
+          "    def measure_decoherence(self):"
+        ],
+        [
+          595,
+          "        \"\"\"Compute decoherence measures\"\"\""
+        ],
+        [
+          604,
+          "        # Total coherence (off-diagonal norm)"
+        ],
+        [
+          606,
+          "        coherence = np.linalg.norm(self.rho - diag_rho, 'fro')"
+        ],
+        [
+          611,
+          "            'coherence': coherence,"
+        ]
+      ],
+      "lines": 965,
+      "member": "mcts_study/v3.0/qft-mcts-decoherence.md",
+      "relevant_line_count": 81,
+      "sha256": "64a0c6eb98c1f8695b4230cda9121f7f5adc463f217e412670808bf9408358e5"
+    },
+    {
+      "excerpts": [
+        [
+          8,
+          "### 1.1 Classical Action"
+        ],
+        [
+          10,
+          "**Definition 1.1 (Path Space).** The configuration space consists of paths \u03c0 = (s\u2080, a\u2080, s\u2081, a\u2081, ..., s\u2099) where s\u1d62 are states and a\u1d62 are actions."
+        ],
+        [
+          12,
+          "**Definition 1.2 (Classical Action).** The classical action functional is:"
+        ],
+        [
+          18,
+          "where N(s, a) is the visit count for state-action pair (s, a)."
+        ],
+        [
+          20,
+          "**Theorem 1.1 (Variational Principle).** The path \u03c0* that extremizes the action satisfies:"
+        ],
+        [
+          33,
+          "### 1.2 Path Integral Quantization"
+        ],
+        [
+          43,
+          "**Theorem 1.2 (Saddle Point Approximation).** In the classical limit \u210f_eff \u2192 0:"
+        ],
+        [
+          51,
+          "### 1.3 Effective Action"
+        ],
+        [
+          53,
+          "**Definition 1.4 (Effective Action).** The quantum effective action is the Legendre transform:"
+        ],
+        [
+          152,
+          "- D[\u03c1] is the decoherence superoperator"
+        ],
+        [
+          155,
+          "**Theorem 3.1 (Lindblad Form).** The decoherence term has the form:"
+        ],
+        [
+          161,
+          "where L_k are Lindblad operators and \u03b3_k are rates."
+        ],
+        [
+          163,
+          "### 3.2 Decoherence Dynamics"
+        ],
+        [
+          165,
+          "**Definition 3.2 (Decoherence Rate).** For paths with visit counts N\u2081, N\u2082:"
+        ],
+        [
+          173,
+          "**Theorem 3.2 (Pointer States).** The pointer states that survive decoherence are eigenstates of the visit count operator:"
+        ],
+        [
+          180,
+          "Pointer states minimize entanglement growth:"
+        ],
+        [
+          186,
+          "### 3.3 Decoherence-Modified Effective Action"
+        ],
+        [
+          188,
+          "**Theorem 3.3 (Complex Effective Action).** Including decoherence:"
+        ],
+        [
+          211,
+          "### 4.1 Entanglement Structure"
+        ],
+        [
+          289,
+          "**Definition 5.2 (Discord).** Quantum correlations beyond entanglement:"
+        ],
+        [
+          321,
+          "### 6.2 Quantum Work Extraction"
+        ],
+        [
+          323,
+          "**Theorem 6.2 (Coherence Work).** Maximum extractable work:"
+        ],
+        [
+          350,
+          "## 7. Classical Limit Consistency"
+        ],
+        [
+          352,
+          "### 7.1 Unified Classical Limit"
+        ],
+        [
+          365,
+          "   - Decoherence: Pointer states are N\u0302 eigenstates"
+        ],
+        [
+          381,
+          "Decoherence: Coherence ~ exp(-\u0393t) ~ exp(-N) gives same order. \u25a1"
+        ],
+        [
+          450,
+          "   - Classical action in path integral"
+        ],
+        [
+          451,
+          "   - Pointer observable for decoherence"
+        ],
+        [
+          455,
+          "   - Environmental monitoring (decoherence)"
+        ],
+        [
+          459,
+          "   - \u210f \u2192 0 (action dominance)"
+        ],
+        [
+          460,
+          "   - \u0393 \u2192 \u221e (complete decoherence)"
+        ]
+      ],
+      "lines": 468,
+      "member": "mcts_study/qft-mcts-math-foundations.md",
+      "relevant_line_count": 31,
+      "sha256": "3c981ef5bd36b04cd2e0c323d690d96c158b8f08b38e78f0cea68e30d2ffd374"
+    },
+    {
+      "excerpts": [
+        [
+          2,
+          "## Path Integral Formulation with Discrete Information Time"
+        ],
+        [
+          7,
+          "3. [Path Integral Formulation with PUCT](#path-integral-formulation-with-puct)"
+        ],
+        [
+          9,
+          "5. [Decoherence and Classical Emergence](#decoherence-and-classical-emergence)"
+        ],
+        [
+          15,
+          "This document establishes the rigorous mathematical foundations for quantum-enhanced MCTS based on path integral formulation and discrete information time. The key insight is that MCTS naturally exhibits quantum-like phenomena when viewed through the lens of information theory, with neural network priors acting as an external field in the quantum framework."
+        ],
+        [
+          19,
+          "- Visit counts play dual role: classical action and decoherence pointer observable"
+        ],
+        [
+          21,
+          "- Power-law decoherence replaces exponential decay, matching algorithmic structure"
+        ],
+        [
+          65,
+          "## Path Integral Formulation with PUCT"
+        ],
+        [
+          67,
+          "### Action Functional"
+        ],
+        [
+          69,
+          "For path \u03b3 = (s\u2080, a\u2080, s\u2081, a\u2081, ..., s\u2097), the PUCT action is:"
+        ],
+        [
+          80,
+          "### Path Integral"
+        ],
+        [
+          95,
+          "- \u210f_eff \u2192 0 as N \u2192 \u221e (classical limit)"
+        ],
+        [
+          101,
+          "The action separates into two fields:"
+        ],
+        [
+          111,
+          "The effective action including quantum corrections:"
+        ],
+        [
+          151,
+          "## Decoherence and Classical Emergence"
+        ],
+        [
+          153,
+          "### Power-Law Decoherence"
+        ],
+        [
+          155,
+          "Unlike exponential decay in physical systems, MCTS exhibits power-law decoherence:"
+        ],
+        [
+          171,
+          "- Robust to decoherence"
+        ],
+        [
+          236,
+          "2. **Action as Surprise**: -log N(s,a) quantifies statistical surprise"
+        ],
+        [
+          243,
+          "1. **Classical Action**: Determines most likely paths"
+        ],
+        [
+          248,
+          "- Decoherence approach (\u0393 \u2192 \u221e limit)"
+        ],
+        [
+          255,
+          "3. **Exploitation**: Decoherence selects robust strategies"
+        ],
+        [
+          266,
+          "The power comes from recognizing that tree search naturally exhibits quantum-like interference and decoherence when viewed through information time, allowing us to apply powerful mathematical tools from quantum theory to optimize classical computation."
+        ]
+      ],
+      "lines": 266,
+      "member": "mcts_study/v2.0/quantum-theory-foundations-v2.md",
+      "relevant_line_count": 22,
+      "sha256": "9d884f6052227def6dee3736fb2094c31dd9081d47c9d6c8db0120eedd16b3d3"
+    },
+    {
+      "excerpts": [
+        [
+          7,
+          "3. [Path Integral Formulation](#path-integral-formulation)"
+        ],
+        [
+          11,
+          "7. [Decoherence and Classical Limit](#decoherence-and-classical-limit)"
+        ],
+        [
+          16,
+          "This document provides the complete mathematical foundations for MCTS as a quantum field theory with discrete time evolution. The key insight is that MCTS admits an exact mapping to a field theory where visit counts and neural network priors combine in a path integral formulation."
+        ],
+        [
+          22,
+          "2. **Path integral**: Z = \u03a3 exp(iS[\u03b3]/\u210f_eff) over tree paths"
+        ],
+        [
+          111,
+          "Unitarity ensures probability conservation\u2014the total probability of all paths remains 1 throughout evolution. This guarantees the path integral formulation is well-defined."
+        ],
+        [
+          113,
+          "## Path Integral Formulation"
+        ],
+        [
+          122,
+          "where s\u1d62 are states, a\u1d62 are actions, and (s\u1d62, a\u1d62) \u2192 s\u1d62\u208a\u2081."
+        ],
+        [
+          125,
+          "Each path represents a possible line of play from root to leaf in the game tree. The path space \u0393 contains all legal sequences of moves. This discreteness is fundamental\u2014unlike continuous path integrals in quantum mechanics, MCTS operates on a discrete tree structure."
+        ],
+        [
+          127,
+          "### 3.2 PUCT Action Functional"
+        ],
+        [
+          129,
+          "**Definition 3.2** (Full Action):"
+        ],
+        [
+          140,
+          "The action measures the \"cost\" of a path. The visit term -log N is the surprisal (information content) of choosing rarely-visited actions. The prior term -\u03bb log P represents the influence of learned knowledge from neural networks. Paths with high visits and high prior probability have low action (are favored)."
+        ],
+        [
+          167,
+          "The partition function sums over all paths with complex phase factors. Paths with similar actions interfere constructively, while paths with different actions interfere destructively. This interference creates exploration bonuses for uncertain regions."
+        ],
+        [
+          180,
+          "**Theorem 3.2** (Classical Limit):"
+        ],
+        [
+          193,
+          "The classical limit recovers standard MCTS. Quantum effects vanish as the tree becomes well-explored, ensuring convergence to optimal play. The transition is smooth, not sudden."
+        ],
+        [
+          203,
+          "The action in field notation:"
+        ],
+        [
+          212,
+          "- The integral \u222b_Tree sums over all state-action pairs"
+        ],
+        [
+          240,
+          "4. Path integral computes expectation value \u25a1"
+        ],
+        [
+          242,
+          "### 4.3 One-Loop Effective Action"
+        ],
+        [
+          251,
+          "2. Expand action: S[\u03c6_cl + \u03b7] = S[\u03c6_cl] + (1/2)\u03b7^T M \u03b7 + O(\u03b7\u00b3)"
+        ],
+        [
+          253,
+          "4. Effective action: \u0393_eff = -\u210f_eff log Z = S_cl + (\u210f_eff/2)log det M"
+        ],
+        [
+          257,
+          "- S_cl: Classical action favoring high-visit paths"
+        ],
+        [
+          280,
+          "1. Start with effective action \u0393_eff from Theorem 4.2"
+        ],
+        [
+          328,
+          "   - Free theory, no interactions"
+        ],
+        [
+          490,
+          "The redundancy of information about optimal action a* is:"
+        ],
+        [
+          497,
+          "- I(F;a*): Mutual information between fragment and optimal action"
+        ],
+        [
+          498,
+          "- H(a*): Entropy of optimal action distribution"
+        ],
+        [
+          542,
+          "- Beyond plateau: Complete information about optimal action"
+        ],
+        [
+          567,
+          "## 7. Decoherence and Classical Limit"
+        ],
+        [
+          569,
+          "### 7.1 Power-Law Decoherence"
+        ],
+        [
+          571,
+          "**Theorem 7.1** (Decoherence Scaling):"
+        ],
+        [
+          581,
+          "2. Decoherence term: L[\u03c1]\u1d62\u2c7c = -\u03b3(N)\u03c1\u1d62\u2c7c for i\u2260j"
+        ],
+        [
+          589,
+          "Unlike continuous quantum systems with exponential decay, discrete MCTS exhibits power-law decoherence:"
+        ],
+        [
+          615,
+          "2. Environment monitors action selection frequencies"
+        ],
+        [
+          616,
+          "3. These frequencies determine the action S[\u03b3]"
+        ],
+        [
+          626,
+          "### 7.3 Classical Limit"
+        ],
+        [
+          643,
+          "**Proof Outline** (Decoherence):"
+        ],
+        [
+          644,
+          "1. As N\u2192\u221e: Decoherence rate \u0393\u2080 log N \u2192 \u221e"
+        ],
+        [
+          652,
+          "2. **Decoherence mechanism**: Environment selects pointer states"
+        ],
+        [
+          655,
+          "**Theorem 7.4** (Decoherence Time):"
+        ],
+        [
+          656,
+          "The decoherence time scale is:"
+        ],
+        [
+          662,
+          "- Early (small N): Slow decoherence, quantum effects persist"
+        ],
+        [
+          663,
+          "- Late (large N): Fast decoherence, rapid classicalization"
+        ],
+        [
+          665,
+          "- Higher temperature T\u2080 speeds up decoherence"
+        ],
+        [
+          683,
+          "- **Dissipative evolution** (L[\u03c1]): Decoherence from environment interaction"
+        ],
+        [
+          685,
+          "- Lindblad operators L\u2096 model evaluation noise and selection stochasticity"
+        ]
+      ],
+      "lines": 821,
+      "member": "mcts_study/v2.0/qft-mcts-math-foundations-v2.md",
+      "relevant_line_count": 57,
+      "sha256": "8d3e75ea26d73364dd902e51230b4633f0fba4575238a1ca592d646e6d4df307"
+    },
+    {
+      "excerpts": [
+        [
+          11,
+          "**Initial Observation**: MCTS appears to \"sum over paths\" like a path integral"
+        ],
+        [
+          19,
+          "**Final Framework**: MCTS as a non-equilibrium open quantum system undergoing decoherence"
+        ],
+        [
+          23,
+          "1. A finite-temperature path integral on a discrete, directed acyclic graph"
+        ],
+        [
+          24,
+          "2. An open quantum system evolving under a Lindblad master equation"
+        ],
+        [
+          32,
+          "- The action must be non-linear to produce meaningful corrections"
+        ],
+        [
+          45,
+          "- Action: S = \u222bdt (T - V) with T = \u00bd(\u2202\u03c6/\u2202t)\u00b2 and V = -PUCT score"
+        ],
+        [
+          54,
+          "- Edges $E = \\{(s,a)\\}$ represent state-action pairs with orientation"
+        ],
+        [
+          58,
+          "**Critical Refinement**: Initially we considered nodes as sites. The correct identification is **edges as sites**, since MCTS statistics live on state-action pairs."
+        ],
+        [
+          88,
+          "**Consequence for the Action**:"
+        ],
+        [
+          89,
+          "- Minkowski action: $S_M = \\int dt (T - V)$ with oscillating weight $e^{iS_M/\\hbar}$"
+        ],
+        [
+          90,
+          "- Euclidean action: $S_E = \\int d\\tau (T + V)$ with real weight $e^{-S_E}$"
+        ],
+        [
+          106,
+          "### 2.2 The Path Integral Formulation"
+        ],
+        [
+          111,
+          "**Definition 2.4 (Action of a Path)**: The action $S[\\gamma]$ quantifies the \"cost\" of a path:"
+        ],
+        [
+          115,
+          "**Theorem 2.1 (MCTS as Path Integral)**: The probability of selecting a path in MCTS approximates a path integral:"
+        ],
+        [
+          126,
+          "### 2.3 The Effective Field Theory Action"
+        ],
+        [
+          128,
+          "**Definition 2.5 (Euclidean Action Functional)**: The total action governing MCTS dynamics is:"
+        ],
+        [
+          152,
+          "## 4. The Lindblad Master Equation Formulation"
+        ],
+        [
+          162,
+          "### 4.2 The MCTS Lindblad Equation"
+        ],
+        [
+          167,
+          "- Off-diagonal elements: $\\rho_{ab}$ represents \"coherence\" between actions"
+        ],
+        [
+          169,
+          "**Definition 4.2 (MCTS Lindblad Master Equation)**:"
+        ],
+        [
+          196,
+          "For path \u03b3 starting with action a:"
+        ],
+        [
+          205,
+          "- Evaluation: Interaction with environment"
+        ],
+        [
+          210,
+          "**Theorem 4.1 (Stationary State)**: The Lindblad evolution reaches steady state when:"
+        ],
+        [
+          234,
+          "**Proof**: The steady state of the Lindblad equation has the form of a thermal state with the same \u03b2 that best fits the empirical distribution."
+        ],
+        [
+          236,
+          "## 5. Quantum Corrections and One-Loop Effective Action"
+        ],
+        [
+          238,
+          "### 5.1 Path Integral Quantization"
+        ],
+        [
+          248,
+          "**Step 1: Action Expansion**"
+        ],
+        [
+          257,
+          "For our action $S = \\beta(T_k + T_s + V_Q)$, we compute each contribution:"
+        ],
+        [
+          274,
+          "### 5.3 The One-Loop Effective Action"
+        ],
+        [
+          282,
+          "**Step 5: Effective Action**"
+        ],
+        [
+          405,
+          "- Interaction: Each simulation \"measures\" the system"
+        ],
+        [
+          408,
+          "A fragment $\\mathcal{F}_f$ is a random subset containing fraction f of all simulations."
+        ],
+        [
+          419,
+          "1. Each simulation through action a increments N(a)"
+        ],
+        [
+          424,
+          "### 7.3 Decoherence Dynamics"
+        ],
+        [
+          426,
+          "**Definition 7.4 (Policy Coherence)**:"
+        ],
+        [
+          430,
+          "**Theorem 7.2 (Decoherence Law)**:"
+        ],
+        [
+          436,
+          "- $k_{dec}$: Decoherence time"
+        ],
+        [
+          440,
+          "1. Initial state: Superposition over actions (high S)"
+        ],
+        [
+          449,
+          "Actions that satisfy:"
+        ],
+        [
+          455,
+          "An action a is a pointer state iff:"
+        ],
+        [
+          469,
+          "1. Multiple actions compete (metastable state)"
+        ],
+        [
+          642,
+          "**Critique 2: Biased Sampling vs True Path Integral**"
+        ],
+        [
+          644,
+          "- Resolution: Action S encodes bias; pruned paths have S \u2192 \u221e"
+        ],
+        [
+          645,
+          "- MCTS implements importance sampling of its own path integral"
+        ],
+        [
+          649,
+          "- Resolution: Maps to quantum control theory, not natural decoherence"
+        ]
+      ],
+      "lines": 776,
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "relevant_line_count": 53,
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "excerpts": [
+        [
+          8,
+          "- Provide actionable insights for algorithm improvement"
+        ],
+        [
+          138,
+          "    actions = list(node.children.keys())"
+        ],
+        [
+          139,
+          "    n_actions = len(actions)"
+        ],
+        [
+          141,
+          "    if n_actions == 0:"
+        ],
+        [
+          147,
+          "            'diagnostics': {'error': 'No actions available'}"
+        ],
+        [
+          151,
+          "    visits = np.array([node.children[a].visits for a in actions])"
+        ],
+        [
+          169,
+          "    for a in actions:"
+        ],
+        [
+          224,
+          "        'n_actions': n_actions"
+        ],
+        [
+          310,
+          "    n_actions = len(visits)"
+        ],
+        [
+          429,
+          "                temp_data['exploration_fraction'] = compute_exploration_fraction(root)"
+        ],
+        [
+          550,
+          "The one-loop correction to action selection:"
+        ],
+        [
+          578,
+          "    def select_action(self, node: MCTSNode, k: int) -> Action:"
+        ],
+        [
+          580,
+          "        Select action using quantum-corrected PUCT formula"
+        ],
+        [
+          591,
+          "        # Step 2: Compute scores for all actions"
+        ],
+        [
+          592,
+          "        action_scores = {}"
+        ],
+        [
+          595,
+          "        for action in node.legal_actions():"
+        ],
+        [
+          597,
+          "            q_value, u_value = self._compute_qu_values(node, action)"
+        ],
+        [
+          603,
+          "                    node, action, beta"
+        ],
+        [
+          607,
+          "                debug_info[action] = {"
+        ],
+        [
+          618,
+          "            action_scores[action] = total_score"
+        ],
+        [
+          620,
+          "        # Step 3: Select best action (with epsilon-greedy for exploration)"
+        ],
+        [
+          621,
+          "        best_action = max(action_scores.keys(), key=lambda a: action_scores[a])"
+        ],
+        [
+          625,
+          "            self.logger.log_selection(k, action_scores, best_action, debug_info)"
+        ],
+        [
+          627,
+          "        return best_action"
+        ],
+        [
+          659,
+          "    def _compute_qu_values(self, node: MCTSNode, action: Action) -> Tuple[float, float]:"
+        ],
+        [
+          663,
+          "        child = node.children.get(action)"
+        ],
+        [
+          668,
+          "            u_value = self.c_puct * node.action_priors[action] * np.sqrt(node.visits)"
+        ],
+        [
+          692,
+          "        action: Action,"
+        ],
+        [
+          709,
+          "        # Find index of current action"
+        ],
+        [
+          710,
+          "        action_idx = policy_data['actions'].index(action)"
+        ],
+        [
+          711,
+          "        pi_a = policy_data['policy'][action_idx]"
+        ],
+        [
+          724,
+          "            # Unvisited action - use large but finite value"
+        ],
+        [
+          753,
+          "        actions = []"
+        ],
+        [
+          757,
+          "        for action, child in node.children.items():"
+        ],
+        [
+          758,
+          "            actions.append(action)"
+        ],
+        [
+          775,
+          "            'actions': actions,"
+        ],
+        [
+          798,
+          "    def update_statistics(self, path: List[Tuple[State, Action]], value: float):"
+        ],
+        [
+          804,
+          "        for state, action in reversed(path):"
+        ],
+        [
+          806,
+          "            child = node.children[action]"
+        ],
+        [
+          978,
+          "        # Top move visit fraction"
+        ],
+        [
+          980,
+          "            top_fraction = max(visits) / total if total > 0 else 0"
+        ],
+        [
+          982,
+          "            top_fraction = 0"
+        ],
+        [
+          998,
+          "            'top_move_visits': top_fraction,"
+        ],
+        [
+          1108,
+          "### 4.2 RG Flow Extraction Algorithm"
+        ],
+        [
+          1112,
+          "                    action: Action) -> pd.DataFrame:"
+        ]
+      ],
+      "lines": 2497,
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "relevant_line_count": 105,
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    },
+    {
+      "excerpts": [
+        [
+          17,
+          "7. [Decoherence and Quantum Variables](#7-decoherence-and-quantum-variables)"
+        ],
+        [
+          106,
+          "def compute_hbar_eff(visit_counts):"
+        ],
+        [
+          119,
+          "    hbar_eff = 1.0 / (1.0 + visit_normalized)"
+        ],
+        [
+          126,
+          "    return hbar_eff * scaling_factor"
+        ],
+        [
+          130,
+          "hbar_eff = compute_hbar_eff(visit_counts)"
+        ],
+        [
+          596,
+          "### 6.1 Entanglement Entropy"
+        ],
+        [
+          600,
+          "def compute_entanglement_entropy(visit_counts, system_sizes):"
+        ],
+        [
+          602,
+          "    Extract entanglement entropy from visit correlations"
+        ],
+        [
+          608,
+          "    # Step 1: Base entanglement from visit correlations"
+        ],
+        [
+          611,
+          "        entanglement_base = abs(corr_matrix[0, 1])"
+        ],
+        [
+          613,
+          "        entanglement_base = 0.0"
+        ],
+        [
+          617,
+          "    entanglement_base *= von_neumann_entropy"
+        ],
+        [
+          620,
+          "    entanglement_entropies = []"
+        ],
+        [
+          623,
+          "        area_scaling = entanglement_base * (L**(0.5))  # d-1 for d=1.5"
+        ],
+        [
+          624,
+          "        volume_scaling = entanglement_base * np.log(L + 1)  # Log volume"
+        ],
+        [
+          628,
+          "        entanglement_entropies.append(S_ent)"
+        ],
+        [
+          630,
+          "    return entanglement_entropies"
+        ],
+        [
+          635,
+          "entanglement_base = 0.7 * 1.58 = 1.11"
+        ],
+        [
+          686,
+          "## 7. Decoherence and Quantum Variables"
+        ],
+        [
+          688,
+          "### 7.1 Coherence Evolution"
+        ],
+        [
+          692,
+          "def compute_coherence_evolution(policy_entropies, times):"
+        ],
+        [
+          694,
+          "    Track loss of quantum coherence over search time"
+        ],
+        [
+          704,
+          "    # Step 2: Coherence as exponential of entropy"
+        ],
+        [
+          705,
+          "    coherence_decay = np.exp(-normalized_entropies)"
+        ],
+        [
+          709,
+          "    coherence_evolution = []"
+        ],
+        [
+          711,
+          "        if i < len(coherence_decay):"
+        ],
+        [
+          713,
+          "            coherence = coherence_decay[i] * (1 + t)**(-0.5)"
+        ],
+        [
+          715,
+          "            coherence = 0.1  # Minimum coherence"
+        ],
+        [
+          716,
+          "        coherence_evolution.append(coherence)"
+        ],
+        [
+          718,
+          "    return coherence_evolution"
+        ],
+        [
+          725,
+          "coherence_decay = [0.37, 0.41, 0.49, 0.57, 0.67, 0.79]"
+        ],
+        [
+          726,
+          "For t=30: coherence = 0.57 * (1+30)^(-0.5) = 0.57 * 0.18 = 0.10"
+        ],
+        [
+          729,
+          "### 7.2 Decoherence Rate"
+        ],
+        [
+          733,
+          "def compute_decoherence_rate(tree_sizes, evaluation_noise, hash_functions):"
+        ],
+        [
+          735,
+          "    Calculate decoherence rate from environmental factors"
+        ],
+        [
+          739,
+          "    decoherence_rates = []"
+        ],
+        [
+          743,
+          "        gamma_0 = 0.1  # Base decoherence rate"
+        ],
+        [
+          760,
+          "        # Total decoherence rate"
+        ],
+        [
+          762,
+          "        decoherence_rates.append(Gamma_N)"
+        ],
+        [
+          764,
+          "    return decoherence_rates"
+        ],
+        [
+          798,
+          "                    'action_index': i,"
+        ],
+        [
+          808,
+          "For action 0: relative_change = sqrt(100)/100 = 0.1 = threshold \u2192 stable"
+        ],
+        [
+          809,
+          "For action 1: relative_change = sqrt(80)/80 = 0.11 > threshold \u2192 unstable"
+        ],
+        [
+          810,
+          "For action 2: relative_change = sqrt(20)/20 = 0.22 > threshold \u2192 unstable"
+        ],
+        [
+          811,
+          "Pointer states = [action 0] (most visited and stable)"
+        ]
+      ],
+      "lines": 1278,
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "relevant_line_count": 63,
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    }
+  ]
+}

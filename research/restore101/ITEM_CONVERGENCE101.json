@@ -1,0 +1,114 @@
+{
+  "artifact_reconstruction_sha": "25121e320eeba0bafceb7f6027475a522b8a79fd651f4ef069e82e1ed47225e1",
+  "claims": [
+    {
+      "claim": "For fixed finite empirical path law W(J,h), gradient is tilted mean, Hessian covariance, dual is KL and mixed source derivative is covariance with normalized path score. 2160 cases, 1935 rank4 and225 rank3, 192 exact linear source restrictions, disjoint rep halves. Ordinary correlation differs from causal response (exact rational counterexample). Heldout joint vs factorized paired intervals all include zero.",
+      "evidence": [
+        "mqft_restore101_20261129/THEORY.md",
+        "mqft_restore101_20261129/FIELD101.json",
+        "mqft_restore101_20261129/SUMMARY101.json",
+        "mqft_restore101_20261129/INDEPENDENT101.json"
+      ],
+      "id": "FIELD-PATH-23",
+      "items": [
+        "Q43",
+        "Q45"
+      ],
+      "limit": "Finite empirical tilted path law, not physical QFT, continuum 1PI or new-root transfer.",
+      "stage": 101,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "41472 actual history-conditioned local programmed maps verified by complex Kraus and independent Choi. Fixed-axis generator in unit selection segment kappa=-ln gamma/2; singular erase and 4608 noncommuting order cases retained. Unit-action visibility proxy finite34560/singular6912, same-X dephased vs pure rotation trace distance sqrt(1-gamma^2)/2; no physical hbar.",
+      "evidence": [
+        "mqft_restore101_20261129/THEORY.md",
+        "mqft_restore101_20261129/QUANTUM101.json",
+        "mqft_restore101_20261129/QUANTUM101.npz",
+        "mqft_restore101_20261129/SUMMARY101.json",
+        "mqft_restore101_20261129/INDEPENDENT101.json"
+      ],
+      "id": "Q-CP-MAP-24",
+      "items": [
+        "Q41",
+        "Q42",
+        "Q44",
+        "Q45",
+        "L09",
+        "L20"
+      ],
+      "limit": "Frozen local nonselective sequence at actual histories not global adaptive unselective dynamics or a physical Lindblad generator.",
+      "stage": 101,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "5184 declared current-prefix complex joint states; local record phase tag leaves computational diagonal, joint spectrum and system-record NPT invariant but changes fixed Hadamard readout in3456 cases. Independent complex Gram amplitude verifies readout; system-record NPT1728. Native-repeat conditional and success-weighted phase TV distinct from pair diagnostic.",
+      "evidence": [
+        "mqft_restore101_20261129/THEORY.md",
+        "mqft_restore101_20261129/QUANTUM101.json",
+        "mqft_restore101_20261129/SUMMARY101.json",
+        "mqft_restore101_20261129/INDEPENDENT101.json"
+      ],
+      "id": "Q-PHASE-TAG-25",
+      "items": [
+        "Q43",
+        "Q45",
+        "L11"
+      ],
+      "limit": "Explicit declared record density and fixed readout, not native coherent hardware, observed physical path amplitudes or physical entanglement.",
+      "stage": 101,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "Q-CP-MAP-24",
+      "id": "L09",
+      "remaining_final_acceptance": "Estimate defined coherence trajectory and relaxation fit only under identified dynamical model; compare measured-record/dephased control.",
+      "scope": "Actual conditional programmed qubit coherence trajectories with erase, phase and swap controls, explicit local frozen generator; no unjustified global relaxation-time fit."
+    },
+    {
+      "accepted": "Q-PHASE-TAG-25",
+      "id": "L11",
+      "remaining_final_acceptance": "Specify joint density, subsystem, eigenvalues and entanglement criterion; no classical correlation as entanglement.",
+      "scope": "Explicit complex system-record joint density and eigenvalues, independent partial transpose/negativity, phase-tag and dephased controls with Gram/Born readout; not branch correlations or native entanglement."
+    },
+    {
+      "accepted": "Q-CP-MAP-24",
+      "id": "L20",
+      "remaining_final_acceptance": "Specify GKSL or exact discrete CP instrument and time unit, check positivity, coherence/rates and noncommuting dynamics; native bath separate.",
+      "scope": "Exact complex history-conditioned CP instrument, Kraus completeness/Choi PSD and trace, noncommuting and singular channels; local piecewise dimensionless GKSL reference only."
+    },
+    {
+      "accepted": "Q-CP-MAP-24",
+      "id": "Q41",
+      "remaining_final_acceptance": "Define hbar_eff only via independent phase/action calibration or explicitly dimensionless visibility convention; test branch singularities and units.",
+      "scope": "Actual frozen-history local visibility with explicit unit dimensionless action, finite/singular mask, principal-branch floor and exact dephase-vs-unitary matched-X counterexample; no physical hbar."
+    },
+    {
+      "accepted": "Q-CP-MAP-24",
+      "id": "Q42",
+      "remaining_final_acceptance": "Specify exact CP/GKSL generator, physical time and bath if claimed; convergence, positivity, trace and actual phase-sensitive controls.",
+      "scope": "Exact declared discrete Kraus/Choi and Bloch dynamics on 41472 actual active history-conditioned steps, local dimensionless generators, singular erase and noncommuting order; frozen sequence not global adaptive channel."
+    },
+    {
+      "accepted": "FIELD-PATH-23;Q-PHASE-TAG-25",
+      "id": "Q43",
+      "remaining_final_acceptance": "Define complex path amplitude, measure, action and independently calibrated hbar; compare actual finite conditional instrument and coherent readout.",
+      "scope": "Partial: empirical native path logMGF, Legendre dual, causal score and linear source contraction, heldout block comparison; explicit complex joint record phase/readout and success weighting. Physical phase/action, calibrated hbar, continuum path integral and one-loop identification absent."
+    },
+    {
+      "accepted": "Q-CP-MAP-24",
+      "id": "Q44",
+      "remaining_final_acceptance": "Animate actual visibility-defined proxy with singular cases and no physical hbar claim; physical crossover needs independent calibration.",
+      "scope": "Twelve actual selection-clock frames for finite visibility proxy and singular mask, no fictitious physical crossover threshold."
+    },
+    {
+      "accepted": "FIELD-PATH-23;Q-CP-MAP-24;Q-PHASE-TAG-25",
+      "id": "Q45",
+      "remaining_final_acceptance": "Comprehensive action/hbar/Lindblad/classical-limit report with explicit assumptions, singularity/negative utility retained and no forced regime.",
+      "scope": "Comprehensive scoped native path source/response, dimensionless visibility, complex CP and record mapping report; retained negative predictive and postselection limitations, no physical quantum-classical limit."
+    }
+  ],
+  "parent_convergence_sha256": "f8bfa9efb5086d0beecab926cc2b8f9c056c84a1fa73390341c531699201f8c1",
+  "parent_quality_matrix_sha256": "781ae3d6432fe1f0a02938fa024b027f3493d7f7b50b5e2b9be398004c0986cf"
+}
