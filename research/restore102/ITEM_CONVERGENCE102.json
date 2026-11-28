@@ -1,0 +1,117 @@
+{
+  "artifact_reconstruction_sha": "68149630779c744b943741007db05c8d2969ebf12d3b5608d4f8f9b9f9c07868",
+  "claims": [
+    {
+      "claim": "Exact three-time Markovization Q=P_ab P_c|b preserves adjacent marginals, KL(P||Q)=CMI, weighted CK TV<=joint TV<=sqrt(CMI/2). XOR CK0 with CMI ln2, and exact time-dependent Markov control. 306 root-balanced triples and17952 root-specific triples checked; exact hypergeometric finite-sample conditional-permutation expectation retained.",
+      "evidence": [
+        "mqft_restore102_20261129/THEORY.md",
+        "mqft_restore102_20261129/MARKOV102.json",
+        "mqft_restore102_20261129/CMI_NULL102.json",
+        "mqft_restore102_20261129/INDEPENDENT102.json"
+      ],
+      "id": "MEM-TRIPLE-26",
+      "items": [
+        "L40",
+        "L48",
+        "L49"
+      ],
+      "limit": "Finite empirical distributions, root mixture and plug-in bias; no population Markov order or universal exact closure.",
+      "stage": 102,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Fixed 9-state development-only hierarchical clock-conditioned lag2 model improves clock1 on both previously independent root cohorts for all three evaluators, all6 pointwise paired intervals for log loss and Brier positive. Direct vs clock-composed multistep positive point gains18/18, intervals17/18 each. Independent verification165888 path/start/horizon cases; homogeneous model better than lag2 for g3 NLL.",
+      "evidence": [
+        "mqft_restore102_20261129/THEORY.md",
+        "mqft_restore102_20261129/MARKOV102.json",
+        "mqft_restore102_20261129/STATE102.npz",
+        "mqft_restore102_20261129/SUMMARY102.json",
+        "mqft_restore102_20261129/INDEPENDENT102.json"
+      ],
+      "id": "MEM-PREDICT-27",
+      "items": [
+        "L40",
+        "L43",
+        "L48",
+        "L49"
+      ],
+      "limit": "Previously acquired heldout roots, fixed smoothing and state bins, pointwise unadjusted intervals; no new campaign, universal order or closure.",
+      "stage": 102,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For predictable inner-sector p, D=X-p is a martingale difference; genuine width4 frozen-law count has exact binomial moments. Actual 4320 paths/215040 selections,49440 waves,160 strata,6080 root/lag conditions,755 undefined normalized covariances. Clock covariance split and startup1+1+2 defect verified;16/160 pointwise pair residual intervals exclude0 retained.",
+      "evidence": [
+        "mqft_restore102_20261129/THEORY.md",
+        "mqft_restore102_20261129/LAG102.json",
+        "mqft_restore102_20261129/SELECTION102.npz",
+        "mqft_restore102_20261129/SUMMARY102.json",
+        "mqft_restore102_20261129/INDEPENDENT102.json"
+      ],
+      "id": "MEM-LAG-28",
+      "items": [
+        "L39",
+        "L41",
+        "L42",
+        "L44",
+        "L48",
+        "L49"
+      ],
+      "limit": "Finite algorithmic selection clock, not stationary exponential decay or physical environment/system relaxation.",
+      "stage": 102,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "MEM-LAG-28",
+      "id": "L39",
+      "remaining_final_acceptance": "Measure root/time-conditioned autocorrelation with lag and geometry blocks; estimate tau only if resolved model and independent prediction.",
+      "scope": "Actual within-root/clock lag covariance, valid normalized covariance and predictable innovation moments, all five sizes and distinct budget/cohort strata; no stationary exponential or physical tau."
+    },
+    {
+      "accepted": "MEM-TRIPLE-26;MEM-PREDICT-27",
+      "id": "L40",
+      "remaining_final_acceptance": "Strong/weak Markov closure specified, exact collision tests and direct/composed CK on new roots; no blanket Markov claim.",
+      "scope": "Exact finite triple Markovization, CMI and CK weighted TV bound, XOR and nonstationary controls, root-conditioned finite-sample permutation expectation and independent-root predictive tests; prior strong nonclosure retained, no blanket Markov verdict."
+    },
+    {
+      "accepted": "MEM-LAG-28",
+      "id": "L41",
+      "remaining_final_acceptance": "Derive analytical correlation/count kernel from actual conditional law and compare measured with independent uncertainty.",
+      "scope": "Actual quiescent width4 conditional binomial count and factorial pair moments, observed conditional calibration, predictive variance/NLL/Brier, independent polynomial check, corrected startup1+1+2."
+    },
+    {
+      "accepted": "MEM-LAG-28",
+      "id": "L42",
+      "remaining_final_acceptance": "Use all conditional lag pairs and root-level distributions, separate clock mixture and intrinsic memory.",
+      "scope": "Actual root-level distributions of lag covariance and innovation, valid normalization and clock mixture decomposition; no fabricated game durations or relaxation times."
+    },
+    {
+      "accepted": "MEM-PREDICT-27",
+      "id": "L43",
+      "remaining_final_acceptance": "Define transition state and stochastic kernel, check normalization, unseen support, direct vs composed and heldout error.",
+      "scope": "Explicit 9-state time-dependent stochastic kernels, positive hierarchical backoff and independent root one/multistep validation; direct vs composed and homogeneous controls, no autonomous exact closure."
+    },
+    {
+      "accepted": "MEM-LAG-28",
+      "id": "L44",
+      "remaining_final_acceptance": "Identify actual physical or algorithmic system/environment clocks and resolved relaxation scales, not exponential fit assumed.",
+      "scope": "Partial: actual finite lag and backup clocks, clock-mixture decomposition, no separately identified environment/system relaxation time or physical tau."
+    },
+    {
+      "accepted": "MEM-TRIPLE-26;MEM-PREDICT-27;MEM-LAG-28",
+      "id": "L48",
+      "remaining_final_acceptance": "Reconstruct all Markovian report sections, including actual lag/CK/analytic comparisons and failures; no utility claim as proxy.",
+      "scope": "Comprehensive scoped Markovian report: exact triple CMI/CK, finite conditional null, actual lag and analytic count law, heldout root predictions and unresolved timescale, retained R86 strong counterexamples."
+    },
+    {
+      "accepted": "MEM-TRIPLE-26;MEM-PREDICT-27;MEM-LAG-28",
+      "id": "L49",
+      "remaining_final_acceptance": "Assemble correlation, c1 prediction, tau and JS transition diagnostic with independent uncertainty and no unsupported Markov verdict.",
+      "scope": "Scoped summary figure and report of actual finite lag/CK, conditional law, heldout prediction and finite-sample CMI baseline; explicit unresolved tau, no Markov YES/NO or physical correlation time."
+    }
+  ],
+  "parent_convergence_sha256": "3736e56fad3b901969555c0229548b756ed076dfc1be90c459f79bc5d69c77c2",
+  "parent_quality_matrix_sha256": "acc4734d0f823126eb38c1ffa2bded51d0cbc051aa1147e13f996d76706734ce"
+}

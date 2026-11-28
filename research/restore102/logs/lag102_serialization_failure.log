@@ -1,0 +1,36 @@
+LAG L 13 864 43008 9888
+LAG L 15 864 86016 19776
+LAG L 17 864 129024 29664
+LAG L 19 864 172032 39552
+LAG L 21 864 215040 49440
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore102_20261129/lag102.py", line 70, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore102_20261129/lag102.py", line 68, in main
+    dump(S/'LAG102.json',dict(status='PASS_SCOPED',paths=len(raw),draws=total,quiescent_waves=waves,strata=strata,fields=FIELDS,wave_fields=['count','expected_count','pair_observed','pair_predicted','pair_residual','count_residual_square','conditional_variance','NLL','Brier'],groups=groups,checks=err,raw_receipts=raw,source_hashes=src,array_sha=sha(S/'SELECTION102.npz'),elapsed_s=time.monotonic()-start,scope='Inner Chebyshev sector; root-clock covariance across independent histories, raw innovation lag product; true quiescent waves exclude startup; not stationary physical ACF.'))
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore102_20261129/base61.py", line 16, in dump
+    p=Path(p);q=p.with_suffix(p.suffix+'.part');q.write_text(json.dumps(d,indent=2,sort_keys=True,allow_nan=False)+'\n');q.replace(p)
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ndarray is not JSON serializable

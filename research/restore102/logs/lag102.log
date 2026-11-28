@@ -1,0 +1,6 @@
+LAG L 13 864 43008 9888
+LAG L 15 864 86016 19776
+LAG L 17 864 129024 29664
+LAG L 19 864 172032 39552
+LAG L 21 864 215040 49440
+LAG DONE 215040 49440 160 {'raw_probability': 1.687538997430238e-14, 'normalization': 1.6653345369377348e-14, 'sector_norm': 1.687538997430238e-14, 'startup_pair': 0.0, 'quiescent_wave': 0.0, 'uniform': 5.995204332975845e-15, 'binomial_norm': 4.440892098500626e-16, 'binomial_mean': 6.661338147750939e-16, 'binomial_factorial': 3.552713678800501e-15, 'startup_trace_defect': 1.4797191250082165e-15, 'uniform_startup_defect': 0.0, 'R87_sector_prob': 7.327471962526033e-15, 'total_covariance': 1.3877787807814457e-16, 'independent_covariance': 5.551115123125783e-17, 'R87_startup_max': 9.769962616701378e-15}

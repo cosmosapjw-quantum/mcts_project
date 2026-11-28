@@ -1,0 +1,12 @@
+# RESTORE102 original output crosswalk
+
+- L39: Actual within-root/clock lag covariance, valid normalized covariance and predictable innovation moments, all five sizes and distinct budget/cohort strata; no stationary exponential or physical tau. (L39_actual_lag_covariance; L39_valid_normalized_lag; L44_finite_clock_lag_partial)
+- L40: Exact finite triple Markovization, CMI and CK weighted TV bound, XOR and nonstationary controls, root-conditioned finite-sample permutation expectation and independent-root predictive tests; prior strong nonclosure retained, no blanket Markov verdict. (L40_CMI_CK_and_finite_sample_null; L43_clock_direct_composed_kernels; L49_markov_summary_and_negative_controls)
+- L41: Actual quiescent width4 conditional binomial count and factorial pair moments, observed conditional calibration, predictive variance/NLL/Brier, independent polynomial check, corrected startup1+1+2. (L41_analytic_quiescent_wave_count_law)
+- L42: Actual root-level distributions of lag covariance and innovation, valid normalization and clock mixture decomposition; no fabricated game durations or relaxation times. (L39_valid_normalized_lag; L42_observed_root_lag_distributions)
+- L43: Explicit 9-state time-dependent stochastic kernels, positive hierarchical backoff and independent root one/multistep validation; direct vs composed and homogeneous controls, no autonomous exact closure. (L43_clock_direct_composed_kernels; L43_heldout_direct_composed_prediction)
+- L44: Partial: actual finite lag and backup clocks, clock-mixture decomposition, no separately identified environment/system relaxation time or physical tau. (L39_valid_normalized_lag; L44_finite_clock_lag_partial)
+- L48: Comprehensive scoped Markovian report: exact triple CMI/CK, finite conditional null, actual lag and analytic count law, heldout root predictions and unresolved timescale, retained R86 strong counterexamples. (L39_actual_lag_covariance; L40_CMI_CK_and_finite_sample_null; L41_analytic_quiescent_wave_count_law; L42_observed_root_lag_distributions; L43_heldout_direct_composed_prediction; L49_markov_summary_and_negative_controls)
+- L49: Scoped summary figure and report of actual finite lag/CK, conditional law, heldout prediction and finite-sample CMI baseline; explicit unresolved tau, no Markov YES/NO or physical correlation time. (L39_actual_lag_covariance; L40_CMI_CK_and_finite_sample_null; L41_analytic_quiescent_wave_count_law; L43_heldout_direct_composed_prediction; L49_markov_summary_and_negative_controls)
+
+Full scientific certification remains 0/121.

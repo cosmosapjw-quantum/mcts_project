@@ -1,0 +1,18 @@
+{
+  "authority": "RESTORE69",
+  "backup_policy": "Dropbox only",
+  "contract_sha": "9511878e7c21ff4bb758e6f8b545cc99e424277cec30b0d3b9630c600db3517b",
+  "fresh_native": 0,
+  "parent": "ca9453563c6b320627eedb201094a57fb86583cc",
+  "parent_dag_sha": "163edb243becb303123530e5ebc7c75d2d69e6485fd3cf1b4bda4ca6b779a102",
+  "targets": [
+    "L39",
+    "L40",
+    "L41",
+    "L42",
+    "L43",
+    "L44",
+    "L48",
+    "L49"
+  ]
+}

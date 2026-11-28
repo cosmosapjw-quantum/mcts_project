@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE101.json",
+  "convergence_ledger": "CONVERGENCE102.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -58,7 +58,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-05",
+  "entry": "X-MEMORY",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -121,7 +121,7 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R102 L39-L44/L48/L49 temporal Markov and closure reports; inspect acceptance list",
+    "R103 L03/L04/L05/L25/L26/L34 authentic temperature and typed measurement quality; inspect acceptance list",
     "Direct original reconstruction; no optimizer drift",
     "Six open science claims, Q10 Q36 Q19/Q20 partial"
   ],
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE102-LEGACY-MARKOV-CLOSURE",
+  "next_stage_id": "MQFT-RESTORE103-LEGACY-MEASUREMENT-QUALITY",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -1407,6 +1407,28 @@
       "record_repeat_followup": "RESTORE36 actual disjoint vs overlapping records, injective empirical MI artifact, declared complex coherent/tag/CQ lifts and label-write channel. Preserve all scope limits; no native physical phase or general scaling.",
       "remaining_scope": "Native full-tree transition theorem beyond observed sequential deterministic streams, trained evaluator and parallel/GPU/async; broader game population and physical time/quantum memory kernel not established",
       "response_selector_followup": "RESTORE35 true path-score response and independent utility; fixed contrast correction not admitted, declared complex phase/noise controls preserve diagonal utility, change coherent probe. No general quantum advantage.",
+      "restore102_followup": {
+        "accepted_subclaims": [
+          "MEM-TRIPLE-26",
+          "MEM-PREDICT-27",
+          "MEM-LAG-28"
+        ],
+        "artifact": "mqft_restore102_20261129/{ORIGINAL_OUTPUT_REPORT102.md,ITEM_RECONSTRUCTION102.json,CONVERGENCE102.json}",
+        "corrected_artifacts": [
+          "L39",
+          "L40",
+          "L41",
+          "L42",
+          "L43",
+          "L48",
+          "L49"
+        ],
+        "evidence": "11808 raw receipts, 306 empirical triples and 17952 root triples; 165888 heldout cases; 215040 selections,49440 quiescent waves",
+        "partial": [
+          "L44"
+        ],
+        "remaining": "Exact autonomous closure, population Markov order and separate physical relaxation clocks not identified."
+      },
       "restore62_followup": {
         "artifact": "mqft_restore62_20261126/{RESULTS_KO.md,PHYSICS_RESULTS.json,LEGENDRE62.json,AUDIT62.json,SYMMETRY62.json}",
         "evidence": "32/32 geometry train/test split: occupancy closure wins 6 of 8 strata; mark or count ridge each wins one, history not robust.",
@@ -1585,8 +1607,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-06",
-  "quality_matrix": "QUALITY_MATRIX101.csv",
+  "previous_entry": "REPLAN-05",
+  "quality_matrix": "QUALITY_MATRIX102.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -1699,6 +1721,58 @@
     "reused_phase_paths": 3456,
     "reused_pulse_paths": 2304,
     "status": "seven_corrected_artifacts_one_partial_three_new_scoped_claims"
+  },
+  "restore102": {
+    "CMI_NULL102.json_sha256": "b788475dc9b7f217bec5ec521aac73460b1ef4fa13897ccec21c7f24f3c49834",
+    "CONVERGENCE102.json_sha256": "5c468d02c9ccd8ce5503277f1f02246c78ba0a9a28ad59ed489213352a36e415",
+    "DRIFT_WATCHDOG.md_sha256": "647f2af7f75804591d2beceaa33eeec2938d4e49dac95e9973ec9b7d1d6848cc",
+    "INDEPENDENT102.json_sha256": "f2477c849ce672c874d08d590e485b7d96481c63955e72df41c21bdb5fd699bb",
+    "ITEM_CONVERGENCE102.json_sha256": "d8f2f6639ceef3e23269ab644455a1b16304e2d4471ed4ade1b5af5372aea71f",
+    "ITEM_RECONSTRUCTION102.json_sha256": "68149630779c744b943741007db05c8d2969ebf12d3b5608d4f8f9b9f9c07868",
+    "LAG102.json_sha256": "3d33281d2a80b2c12d5d5216af2c274abacf0e50601bf762b99808f52b9aafc3",
+    "MARKOV102.json_sha256": "510c931385b701e67bf47bf7077fa163f204ec53cef50a0cfa5c4d6e2342717a",
+    "NEXT_DYNAMICS.md_sha256": "9034ec3f159f34e445aa034330fd356798b9e6c5169e75448d097e71c15edd8f",
+    "ORIGINAL_OUTPUT_EVIDENCE102.csv_sha256": "ff664d732a689d9729bf2a028198a51d3d966cf5237b4165d771bc22fc3c1f4e",
+    "ORIGINAL_OUTPUT_PROGRESS102.csv_sha256": "94ef2a9432a40fdff68eafb5a0f0b64bce582945b28e6b9facac2554c51b4570",
+    "ORIGINAL_OUTPUT_REPORT102.md_sha256": "5d544f09e6cd82f149af257a67bbd7fb73b38bcf0336134f4f4515baf7dd63b0",
+    "ORIGINAL_SOURCE102.json_sha256": "9ca9fc5a1fbfd5ef4a08aefc34e5fc8749bd4a9ed3078fcb2d2c6fd4bc0d450a",
+    "PLOT_INVENTORY102.csv_sha256": "38b93585a8f2ec43ba5c03989b34156b8d1979b4a87236b72349e7fb45ec758f",
+    "PLOT_MANIFEST102.json_sha256": "bed19c264e750cfa82a221f4e893278329f00507a0296a08c50dfaee21219596",
+    "PROGRESS102.json_sha256": "0410f5d0adbb628cb14707f92903eb5adc1cbd871e72f72e2d7fc523927a1ac6",
+    "QUALITY_MATRIX102.csv_sha256": "fa751ca9e2535272df0cc46db8d3a99703e82a5355627a83663e7d8f7f828816",
+    "REGISTRATION.json_sha256": "28c59bf66666936fa2248566c4ca0f09ef767a9811bb6df6f67b773f8d82e391",
+    "SELECTION102.npz_sha256": "020c70d9297c0e034151e11d044d86c663f1a1a85b72d895899ea2052b6a0d50",
+    "STATE102.npz_sha256": "494fc161cc9aea91c8298eebc9f76a7afdd8e020367cbeaf9e192feae6666acd",
+    "SUMMARY102.json_sha256": "744ad9f4bdf562807649abf89f1388d162f1c29776205ec4f63b7c5450b74ff7",
+    "THEORY.md_sha256": "a1f640649ea1d348b53edbcc65369f2d75d49bb24204b62ce432e56b1f393983",
+    "THEORY_REGISTERED102.md_sha256": "9511878e7c21ff4bb758e6f8b545cc99e424277cec30b0d3b9630c600db3517b",
+    "accepted_corrected_subclaims": 52,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 78,
+    "cumulative_fixed_root_histories": 93336,
+    "figures": 9,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "heldout_cases": 165888,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 3,
+    "new_corrected_artifacts": 7,
+    "original_evidence_items": 8,
+    "original_evidence_union_R55_R102": 121,
+    "original_obligations": 121,
+    "parent_commit": "ca9453563c6b320627eedb201094a57fb86583cc",
+    "parent_dag_sha256": "163edb243becb303123530e5ebc7c75d2d69e6485fd3cf1b4bda4ca6b779a102",
+    "quiescent_waves": 49440,
+    "raw_receipts": 11808,
+    "remaining": "43 corrected artifact obligations; L44 partial; six open science claims; measurement quality next.",
+    "retained_pairs": 780,
+    "reused_B128_paths": 7488,
+    "reused_size_paths": 4320,
+    "root_triples": 17952,
+    "selection_events": 215040,
+    "status": "seven_corrected_artifacts_one_partial_three_new_scoped_claims",
+    "triple_cases": 306
   },
   "restore41": {
     "common_backups": 10032,
@@ -5289,8 +5363,8 @@
     "reused_fixed_root_paths": 4320,
     "status": "five_corrected_artifacts_four_partial_three_new_scoped_claims"
   },
-  "revision": "RESTORE101_20261129",
-  "scope": "Convergence: native path source dual, history-conditioned complex CP and phase-tag readout",
+  "revision": "RESTORE102_20261129",
+  "scope": "Convergence: nonstationary triple Markovization, heldout lag prediction and actual quiescent count law",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE101-FIELD-MAPPING-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE102-LEGACY-MARKOV-CLOSURE"
 }

@@ -1,0 +1,13 @@
+LAG L 13 864 43008 9888
+LAG L 15 864 86016 19776
+LAG L 17 864 129024 29664
+LAG L 19 864 172032 39552
+LAG L 21 864 215040 49440
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore102_20261129/lag102.py", line 70, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore102_20261129/lag102.py", line 65, in main
+    assert recs==raw and total==215040 and waves==(215040-4320*4)//4 and len(groups)==200
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

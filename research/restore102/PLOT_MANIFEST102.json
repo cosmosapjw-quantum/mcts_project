@@ -1,0 +1,103 @@
+{
+  "animations": [],
+  "figures": [
+    {
+      "figure": "L39_actual_lag_covariance",
+      "ids": [
+        "L39",
+        "L48",
+        "L49"
+      ],
+      "pdf_sha": "137c8620787f7bb331e1cf23d5a0f95900f796ec4276d49e21782240dfffd34c",
+      "png_sha": "c859627946245c2e702db97b59f9979f3ced4f43b4f88280ef79f8febd8d206b"
+    },
+    {
+      "figure": "L39_valid_normalized_lag",
+      "ids": [
+        "L39",
+        "L42",
+        "L44"
+      ],
+      "pdf_sha": "c7ad1eb9cc57dac5dd3d36d5a5a4d3fbe75cfbd01e0464411d2f393894f9aa98",
+      "png_sha": "013ffd45d797833bae48f6d1e5b2b49ed5b9690718bd986dbbbb359499ce17a4"
+    },
+    {
+      "figure": "L40_CMI_CK_and_finite_sample_null",
+      "ids": [
+        "L40",
+        "L48",
+        "L49"
+      ],
+      "pdf_sha": "12f713804217cec2eac617e074182d55652f570d8396fec34256a8ade1fc1624",
+      "png_sha": "298c1b345a94d7ce24f3ebfedc86a91cfefc95bde2b45bfc50a968d408c1b2f5"
+    },
+    {
+      "figure": "L41_analytic_quiescent_wave_count_law",
+      "ids": [
+        "L41",
+        "L48",
+        "L49"
+      ],
+      "pdf_sha": "33a5e874dc631dada6563bae88c67b657b5d90ed5dd0539faf6c70a5d47d05f0",
+      "png_sha": "755712963542df5acdbc2e57c4bd28629df3dd52440fc893783090be10955f06"
+    },
+    {
+      "figure": "L42_observed_root_lag_distributions",
+      "ids": [
+        "L42",
+        "L48"
+      ],
+      "pdf_sha": "36ca929b40b29afd9479a226f3165411ff2506f312b68aecca18f739bea4e2d4",
+      "png_sha": "9b11527b3c3c3e0c27e60fede07c25058e4a3ea0ba192dc2598292b10c884da9"
+    },
+    {
+      "figure": "L43_clock_direct_composed_kernels",
+      "ids": [
+        "L43",
+        "L40"
+      ],
+      "pdf_sha": "0b217b401120abbef02715fc3efc1931b838237f88cde996b2db8d48418362b3",
+      "png_sha": "c1d7381ae5575a723031620b3f53a4da545774d1825e922ba98be6c75e66b239"
+    },
+    {
+      "figure": "L43_heldout_direct_composed_prediction",
+      "ids": [
+        "L43",
+        "L48",
+        "L49"
+      ],
+      "pdf_sha": "47af76f9b107ec92edce0af894eead7a971664af901cb4c4fdc4a47acb4853c0",
+      "png_sha": "4e8b4a11fa3f0f19b5371f56b43050b956c4d074f326c6f1ebadf8d6faddb2bd"
+    },
+    {
+      "figure": "L44_finite_clock_lag_partial",
+      "ids": [
+        "L44",
+        "L39"
+      ],
+      "pdf_sha": "6b1417f1eeae70a145c24cf0fdaf5275d0a59975e9532c7d5c6f7e57e37456a8",
+      "png_sha": "bfd25536a84097e734369dd95a96e13183b2779e7dfe38d3447435a86f2d0b84"
+    },
+    {
+      "figure": "L49_markov_summary_and_negative_controls",
+      "ids": [
+        "L49",
+        "L48",
+        "L40"
+      ],
+      "pdf_sha": "737d45df0517eaece3281b606a2943e15efcf1dcf54bd329a52ea8e5921fa57e",
+      "png_sha": "9fb16139879e16375ce01c0ee920c69c88560fd21605f1497c7715a0a27aeb16"
+    }
+  ],
+  "scope": "Actual nonstationary finite projection, independent root predictions and quiescent wave law; no physical relaxation times.",
+  "sources": {
+    "CMI_NULL102.json": "b788475dc9b7f217bec5ec521aac73460b1ef4fa13897ccec21c7f24f3c49834",
+    "INDEPENDENT102.json": "f2477c849ce672c874d08d590e485b7d96481c63955e72df41c21bdb5fd699bb",
+    "LAG102.json": "3d33281d2a80b2c12d5d5216af2c274abacf0e50601bf762b99808f52b9aafc3",
+    "MARKOV102.json": "510c931385b701e67bf47bf7077fa163f204ec53cef50a0cfa5c4d6e2342717a",
+    "ORIGINAL_SOURCE102.json": "9ca9fc5a1fbfd5ef4a08aefc34e5fc8749bd4a9ed3078fcb2d2c6fd4bc0d450a",
+    "SELECTION102.npz": "020c70d9297c0e034151e11d044d86c663f1a1a85b72d895899ea2052b6a0d50",
+    "STATE102.npz": "494fc161cc9aea91c8298eebc9f76a7afdd8e020367cbeaf9e192feae6666acd",
+    "SUMMARY102.json": "744ad9f4bdf562807649abf89f1388d162f1c29776205ec4f63b7c5450b74ff7"
+  }
+}
