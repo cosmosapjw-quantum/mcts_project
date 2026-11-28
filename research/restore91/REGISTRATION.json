@@ -1,0 +1,19 @@
+{
+  "authority": "RESTORE69",
+  "backup_policy": "Dropbox only",
+  "contract_sha": "ddfcdf62541919cda4e9d330ec54add845ac67bb295dca34f76697edc480977b",
+  "fresh_native": 0,
+  "parent": "846c3b91f6ba802249dbfabb69439c9e154c3576",
+  "parent_dag_sha": "d4a66bb3594cb934a8e85700e1f077b718b41802a056eb4a72406efc0117c9a6",
+  "pre_execution_correction": "Noisy independent measurement I0=0 does not imply final branch-state independence I1=0.",
+  "targets": [
+    "G01",
+    "G02",
+    "G04",
+    "G05",
+    "Q05",
+    "Q08",
+    "Q19",
+    "Q20"
+  ]
+}

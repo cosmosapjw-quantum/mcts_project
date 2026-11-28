@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore91_20261128/thermal91.py", line 140, in <module>
+    native();therm()
+    ^^^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore91_20261128/thermal91.py", line 61, in native
+    if x['beta'] is not None:assert abs(x['beta']-a['beta'])<2e-7 and abs(x['KL']-a['occupancy_KL'])<1e-9,(x,a)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ({'core': 7, 'rep': 0, 'B': 4, 'beta': 25.569218893081597, 'status': 'interior', 'KL': 1.6524881463197971e-09}, {'B': 4, 'beta': 25.569205341469676, 'core': 7, 'curvature': 1.245669582642861e-10, 'occupancy_KL': 1.652485481784538e-09, 'rep': 0, 'status': 'interior'})

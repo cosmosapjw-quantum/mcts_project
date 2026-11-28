@@ -1,0 +1,686 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "RESTORE69 original source identity; exact spans and guide labels",
+  "guide_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+  "items": [
+    {
+      "acceptance": "Recompute E_score=-sum occupancy Q with sign frame and clock; identify physical energy independently or explicitly retain score units.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G01",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 energy_evolution.png",
+      "span": [
+        272,
+        272
+      ]
+    },
+    {
+      "acceptance": "Separate B^-1/2 proxy, conditional selector scale, and occupancy projection; calibrated energy/temperature needed for physical T.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G02",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 temperature_evolution.png",
+      "span": [
+        273,
+        273
+      ]
+    },
+    {
+      "acceptance": "Specify fixed Hamiltonian and equilibrium derivative, energy units and bath; validate C=dE/dT against controlled T scan.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G04",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+      "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 heat_capacity.png",
+      "span": [
+        275,
+        275
+      ]
+    },
+    {
+      "acceptance": "Reconstruct signed energy/entropy/work ledger with all panels, independently identified energy/bath or declared reference; show residual.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G05",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+      "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+      "source_excerpt": "\u2502   \u2502       \u2514\u2500\u2500 thermodynamics_summary.png",
+      "span": [
+        276,
+        276
+      ]
+    },
+    {
+      "acceptance": "Derive entropy production for specified reverse/reference and state evolution; verify signed derivatives and positivity within hypotheses.",
+      "archive": "quantum.zip",
+      "id": "Q05",
+      "member": "quantum/research/visualization/plot_thermodynamics.py",
+      "member_sha": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb",
+      "source_excerpt": "    def validate_entropy_production_consistency(self, save_plots: bool = True) -> Dict[str, Any]:\n        \"\"\"Validate consistency between entropy production formula and temporal entropy change\n        \n        This method:\n        1. Extracts entropy production \u03c3 from flux-force thermodynamic formula\n        2. Computes dS/dt from temporal entropy evolution\n        3. Validates that \u03c3 \u2248 dS/dt (within physical tolerances)\n        4. Creates visualization plots showing the comparison\n        \"\"\"\n        \n        logger.info(\"Validating entropy production consistency between formula and temporal data...\")\n        \n        # Extract temporal thermodynamic data\n        temporal_data = self.extract_temporal_thermodynamic_data()\n        times = temporal_data['timestamps']\n        \n        # Get extractor for validation\n        try:\n            import sys\n            from pathlib import Path\n            sys.path.insert(0, str(Path(__file__).parent.parent))\n            from authentic_mcts_physics_extractor import AuthenticMCTSPhysicsExtractor\n            extractor = AuthenticMCTSPhysicsExtractor(self.mcts_data)\n            \n            # Get temperatures from extractor\n            temperatures = extractor.extract_temperatures()\n            \n            # Perform validation\n            validation_results = extractor.validate_entropy_production_consistency(times, temperatures)\n            \n        except Exception as e:\n            logger.error(f\"Failed to perform entropy production validation: {e}\")\n            return {'validation_passed': False, 'error': str(e)}\n        \n        # Create validation plots\n        if save_plots:\n            fig, axes = plt.subplots(2, 2, figsize=(15, 12))\n            fig.suptitle('Entropy Production Consistency Validation', fontsize=16, fontweight='bold')\n            \n            # Plot 1: Entropy production from formula vs temperature\n            ax1 = axes[0, 0]\n            entropy_production = validation_results['entropy_production_formula']\n            ax1.plot(temperatures, entropy_production, 'o-', linewidth=2, \n                    label='\u03c3 (flux-force formula)', color='red')\n            ax1.set_xlabel('Temperature T')\n            ax1.set_ylabel('Entropy Production \u03c3')\n            ax1.set_title('Entropy Production from Thermodynamic Formula')\n            ax1.legend()\n            ax1.grid(True, alpha=0.3)\n            \n            # Plot 2: Temporal entropy evolution\n            ax2 = axes[0, 1]\n            temporal_entropy = validation_results['temporal_entropy']\n            ax2.plot(times, temporal_entropy['von_neumann_entropy'], '-', \n                    label='Von Neumann S', linewidth=2)\n            ax2.plot(times, temporal_entropy['policy_entropy'], '-', \n                    label='Policy S', linewidth=2)\n            ax2.plot(times, temporal_entropy['total_entropy'], '-', \n                    label='Total S', linewidth=2)\n            ax2.set_xlabel('Time t')\n            ax2.set_ylabel('Entropy S(t)')\n            ax2.set_title('Temporal Entropy Evolution')\n            ax2.legend()\n            ax2.grid(True, alpha=0.3)\n            \n            # Plot 3: dS/dt comparison\n            ax3 = axes[1, 0]\n            derivatives = validation_results['temporal_derivatives']\n            ax3.plot(times, derivatives['dS_dt_von_neumann'], '-', \n                    label='dS/dt (Von Neumann)', linewidth=2)\n            ax3.plot(times, derivatives['dS_dt_policy'], '-', \n                    label='dS/dt (Policy)', linewidth=2) \n            ax3.plot(times, derivatives['dS_dt_total'], '-', \n                    label='dS/dt (Total)', linewidth=2)\n            \n            # Add horizontal line for average \u03c3\n            T_index = len(temperatures) // 2\n            sigma_avg = entropy_production[T_index]\n            ax3.axhline(y=sigma_avg, color='red', linestyle='--', linewidth=2,\n                       label=f'\u03c3 (avg) = {sigma_avg:.6f}')\n            \n            ax3.set_xlabel('Time t')\n            ax3.set_ylabel('dS/dt')\n            ax3.set_title('Temporal Entropy Derivatives vs \u03c3')\n            ax3.legend()\n            ax3.grid(True, alpha=0.3)\n            \n            # Plot 4: Consistency check summary\n            ax4 = axes[1, 1]\n            checks = validation_results['consistency_checks']\n            \n            # Bar chart of relative errors\n            entropy_types = ['Von Neumann', 'Policy', 'Total']\n            errors = [checks['von_neumann']['relative_error'], \n                     checks['policy']['relative_error'],\n                     checks['total']['relative_error']]\n            colors = ['green' if checks[key]['consistent'] else 'red' \n                     for key in ['von_neumann', 'policy', 'total']]\n            \n            bars = ax4.bar(entropy_types, errors, color=colors, alpha=0.7)\n            ax4.axhline(y=0.5, color='orange', linestyle='--', linewidth=2,\n                       label='50% tolerance')\n            ax4.set_ylabel('Relative Error |\u03c3 - dS/dt|/|dS/dt|')\n            ax4.set_title('Consistency Check Results')\n            ax4.legend()\n            ax4.grid(True, alpha=0.3)\n            \n            # Add value labels on bars\n            for bar, error in zip(bars, errors):\n                height = bar.get_height()\n                ax4.text(bar.get_x() + bar.get_width()/2., height + 0.01,\n                        f'{error:.1%}', ha='center', va='bottom', fontweight='bold')\n            \n            plt.tight_layout()\n            \n            if save_plots:\n                plt.savefig(self.output_dir / 'entropy_production_validation.png', \n                           dpi=300, bbox_inches='tight')\n                logger.info(\"Saved entropy production validation plot\")\n        \n        # Summary results\n        overall_passed = validation_results['validation_passed']\n        consistency_summary = {\n            'validation_passed': overall_passed,\n            'consistency_checks': validation_results['consistency_checks'],\n            'second_law_satisfied': all(validation_results['second_law_check'].values()),\n            'overall_consistent': validation_results['overall_consistent']\n        }\n        \n        # Log summary\n        logger.info(f\"Entropy production validation summary:\")\n        logger.info(f\"  Overall validation passed: {overall_passed}\")\n        logger.info(f\"  Second Law satisfied: {consistency_summary['second_law_satisfied']}\")\n        logger.info(f\"  At least one entropy measure consistent: {consistency_summary['overall_consistent']}\")\n        \n        for entropy_type, results in validation_results['consistency_checks'].items():\n            status = \"\u2713\" if results['consistent'] else \"\u2717\"\n            logger.info(f\"  {entropy_type.title()}: {status} (error: {results['relative_error']:.1%})\")\n        \n        return {\n            **consistency_summary,\n            'full_validation_results': validation_results,\n            'figure': fig if save_plots else None\n        }",
+      "span": [
+        1037,
+        1180
+      ],
+      "span_sha": "1b0c13718d610fe23629ff803b9890767de418e7c48ab3c3463e156272fa92d0"
+    },
+    {
+      "acceptance": "Validate full signed entropy balance with identified heat flux and bath, not abs(dS_sys/dt); retain residual and support.",
+      "archive": "quantum.zip",
+      "id": "Q08",
+      "member": "quantum/research/visualization/plot_thermodynamics.py",
+      "member_sha": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb",
+      "source_excerpt": "    def validate_full_entropy_balance(self, save_plots: bool = True) -> Dict[str, Any]:\n        \"\"\"Test the full entropy-balance equality: \u03c3(t) = Q\u0307(t)/T(t) + |dS_sys/dt(t)|\n        \n        This validates the complete thermodynamic relationship including heat flux.\n        Creates a comprehensive dashboard plot showing all components.\n        \n        Args:\n            save_plots: Whether to save validation plots\n            \n        Returns:\n            Dictionary with validation results and metrics\n        \"\"\"\n        \n        logger.info(\"Validating full entropy-balance equality with heat flux\")\n        \n        # 1. Create authentic physics extractor with our MCTS data\n        try:\n            from ..authentic_mcts_physics_extractor import AuthenticMCTSPhysicsExtractor\n        except ImportError:\n            # Handle standalone execution\n            import sys\n            from pathlib import Path\n            sys.path.insert(0, str(Path(__file__).parent.parent))\n            from authentic_mcts_physics_extractor import AuthenticMCTSPhysicsExtractor\n        \n        try:\n            extractor = AuthenticMCTSPhysicsExtractor(self.mcts_data)\n        except Exception as e:\n            logger.warning(f\"Failed to create physics extractor: {e}\")\n            return {'validation_passed': False, 'error': str(e)}\n        \n        # 2. Set up time grid and temperature schedule\n        max_games = min(40, len(self.mcts_data.get('tree_expansion_data', [])))\n        times = np.linspace(0, max_games * 0.2, max_games)  # Regular time steps\n        \n        # Temperature schedule based on policy entropy evolution\n        if hasattr(extractor, 'policy_entropies') and len(extractor.policy_entropies) > 0:\n            # Use actual policy entropies to derive temperature\n            temperatures = np.array([max(0.1, 0.5 + entropy) for entropy in extractor.policy_entropies[:len(times)]])\n        else:\n            # Fallback temperature schedule\n            temperatures = np.linspace(2.5, 1.0, len(times))  # Cooling schedule\n        \n        # 3. Perform full entropy-balance validation\n        try:\n            validation_results = extractor.validate_full_entropy_balance(times, temperatures)\n        except Exception as e:\n            logger.error(f\"Full entropy-balance validation failed: {e}\")\n            return {'validation_passed': False, 'error': str(e)}\n        \n        # 4. Create comprehensive dashboard plot\n        if save_plots:\n            fig, axes = plt.subplots(2, 2, figsize=(16, 12))\n            fig.suptitle('Full Entropy-Balance Validation: \u03c3(t) = Q\u0307(t)/T(t) + |dS_sys/dt(t)|', \n                        fontsize=16, fontweight='bold')\n            \n            times_plot = validation_results['times']\n            \n            # Upper-left: \u03c3 vs time\n            ax1 = axes[0, 0]\n            ax1.plot(times_plot, validation_results['sigma_t'], 'r-o', linewidth=2, markersize=4,\n                    label='\u03c3(t) [entropy production]')\n            ax1.set_xlabel('Time t')\n            ax1.set_ylabel('Entropy Production \u03c3(t)')\n            ax1.set_title('Entropy Production vs Time')\n            ax1.grid(True, alpha=0.3)\n            ax1.legend()\n            \n            # Upper-right: |dS_sys/dt| and Q\u0307/T vs time\n            ax2 = axes[0, 1]\n            ax2.plot(times_plot, validation_results['abs_dS_sys_dt'], 'b-s', linewidth=2, markersize=4,\n                    label='|dS_sys/dt| [system entropy rate]')\n            ax2.plot(times_plot, validation_results['heat_entropy_flux'], 'g-^', linewidth=2, markersize=4,\n                    label='Q\u0307/T [heat entropy flux]')\n            ax2.plot(times_plot, validation_results['rhs_total'], 'k--', linewidth=2,\n                    label='|dS_sys/dt| + Q\u0307/T [RHS total]')\n            ax2.set_xlabel('Time t')\n            ax2.set_ylabel('Entropy Rate Components')\n            ax2.set_title('RHS Components: |dS_sys/dt| and Q\u0307/T')\n            ax2.grid(True, alpha=0.3)\n            ax2.legend()\n            \n            # Lower-left: Residual vs time\n            ax3 = axes[1, 0]\n            ax3.plot(times_plot, validation_results['residual'], 'purple', linewidth=2, marker='x',\n                    label='\u03c3 - (|dS_sys/dt| + Q\u0307/T)')\n            ax3.axhline(y=0, color='black', linestyle='--', alpha=0.5)\n            ax3.set_xlabel('Time t')\n            ax3.set_ylabel('Residual')\n            ax3.set_title('Entropy-Balance Residual (should \u2248 0)')\n            ax3.grid(True, alpha=0.3)\n            ax3.legend()\n            \n            # Lower-right: Histogram of relative errors\n            ax4 = axes[1, 1]\n            rel_errors = validation_results['relative_error'] * 100  # Convert to percentage\n            ax4.hist(rel_errors, bins=20, alpha=0.7, color='orange', edgecolor='black')\n            ax4.axvline(x=20, color='red', linestyle='--', linewidth=2, label='20% criterion')\n            ax4.axvline(x=50, color='orange', linestyle='--', linewidth=2, label='50% max criterion')\n            ax4.set_xlabel('Relative Error (%)')\n            ax4.set_ylabel('Frequency')\n            ax4.set_title('Distribution of Relative Errors')\n            ax4.grid(True, alpha=0.3)\n            ax4.legend()\n            \n            # Add validation summary text\n            metrics = validation_results['validation_metrics']\n            summary_text = (\n                f\"Validation Summary:\\n\"\n                f\"Mean |residual|: {metrics['mean_abs_residual']:.4f} nats/s\\n\"\n                f\"95th percentile error: {metrics['percentile_95_rel_err']:.1%}\\n\"\n                f\"Max error: {metrics['max_rel_err']:.1%}\\n\"\n                f\"Validation passed: {metrics['full_validation_passed']}\"\n            )\n            fig.text(0.02, 0.02, summary_text, fontsize=10, \n                    bbox=dict(boxstyle='round', facecolor='lightblue', alpha=0.7))\n            \n            plt.tight_layout()\n            \n            # Save plot\n            output_file = self.output_dir / 'full_entropy_balance_validation.png'\n            plt.savefig(output_file, dpi=300, bbox_inches='tight')\n            logger.info(f\"Full entropy-balance validation plot saved to {output_file}\")\n            \n            if save_plots:\n                plt.close()\n            else:\n                plt.show()\n        \n        # 5. Return comprehensive results\n        return {\n            'validation_passed': validation_results['validation_metrics']['full_validation_passed'],\n            'full_validation_results': validation_results,\n            'summary_metrics': {\n                'mean_abs_residual': validation_results['validation_metrics']['mean_abs_residual'],\n                'percentile_95_rel_err': validation_results['validation_metrics']['percentile_95_rel_err'],\n                'max_rel_err': validation_results['validation_metrics']['max_rel_err'],\n                'criteria_met': {\n                    'mean_residual': validation_results['validation_metrics']['mean_residual_criterion'],\n                    'percentile_95': validation_results['validation_metrics']['percentile_criterion'],\n                    'max_error': validation_results['validation_metrics']['max_error_criterion']\n                }\n            },\n            'physical_interpretation': {\n                'heat_flux_range': (np.min(validation_results['heat_flux']), np.max(validation_results['heat_flux'])),\n                'entropy_production_range': (np.min(validation_results['sigma_t']), np.max(validation_results['sigma_t'])),\n                'system_entropy_rate_range': (np.min(validation_results['abs_dS_sys_dt']), np.max(validation_results['abs_dS_sys_dt'])),\n                'energy_exchange_detected': np.any(np.abs(validation_results['heat_flux']) > 1e-6),\n                'thermodynamic_consistency': validation_results['validation_metrics']['full_validation_passed']\n            }\n        }",
+      "span": [
+        1612,
+        1762
+      ],
+      "span_sha": "6f676ca7643c463ffd7a4e9e508070b50a07c509ed1ddd0335756de6ab3040f7"
+    },
+    {
+      "acceptance": "Explicit forward/reverse protocol and Gibbs start, actual work and DeltaF; finite Jarzynski estimator ESS and exact reference.",
+      "archive": "quantum.zip",
+      "id": "Q19",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "source_excerpt": "    def plot_jarzynski_verification(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:\n        \"\"\"Plot Jarzynski equality verification with temporal evolution\"\"\"\n        \n        # Extract authentic MCTS data for Jarzynski analysis\n        # Since we don't have a specific method, use thermodynamics data\n        data = create_authentic_physics_data(self.mcts_data, 'plot_non_equilibrium_thermodynamics')\n        \n        if show_temporal:\n            fig, axes = plt.subplots(2, 3, figsize=(20, 12))\n            fig.suptitle('Jarzynski Equality Verification with Temporal Evolution', fontsize=16, fontweight='bold')\n        else:\n            fig, axes = plt.subplots(2, 2, figsize=(15, 10))\n            fig.suptitle('Jarzynski Equality Verification', fontsize=16, fontweight='bold')\n        \n        axes_flat = axes.flatten()\n        \n        # Generate mock work distributions from MCTS performance data\n        work_distributions = data['work_distributions']\n        system_sizes = data['system_sizes']\n        \n        # 1. Work distribution for forward process\n        ax1 = axes_flat[0]\n        \n        # Generate forward work distribution from MCTS Q-values\n        forward_work = work_distributions[0] if work_distributions else np.random.normal(2.0, 1.0, 1000)\n        \n        # Plot histogram\n        n_bins = 30\n        counts, bins, patches = ax1.hist(forward_work, bins=n_bins, density=True, alpha=0.7, \n                                        color='skyblue', label='Forward Process')\n        \n        # Fit Gaussian for comparison\n        mu_f, sigma_f = np.mean(forward_work), np.std(forward_work)\n        x_fit = np.linspace(bins[0], bins[-1], 100)\n        gaussian_fit = stats.norm.pdf(x_fit, mu_f, sigma_f)\n        ax1.plot(x_fit, gaussian_fit, 'r-', linewidth=2, label=f'Gaussian Fit \u03bc={mu_f:.2f}')\n        \n        ax1.set_xlabel('Work W')\n        ax1.set_ylabel('Probability Density P(W)')\n        ax1.set_title('Forward Process Work Distribution')\n        ax1.legend()\n        ax1.grid(True, alpha=0.3)\n        \n        # 2. Reverse work distribution and Crooks theorem\n        ax2 = axes_flat[1]\n        \n        # Generate reverse work distribution\n        # Crooks theorem: P_f(W) / P_r(-W) = exp(W/T)\n        temperature = 1.0\n        reverse_work = -forward_work + np.random.normal(0, 0.2, len(forward_work))\n        \n        ax2.hist(forward_work, bins=n_bins, density=True, alpha=0.6, \n                color='red', label='Forward P_f(W)', histtype='step', linewidth=2)\n        ax2.hist(-reverse_work, bins=n_bins, density=True, alpha=0.6, \n                color='blue', label='Reverse P_r(-W)', histtype='step', linewidth=2)\n        \n        ax2.set_xlabel('Work W')\n        ax2.set_ylabel('Probability Density')\n        ax2.set_title('Crooks Fluctuation Theorem')\n        ax2.legend()\n        ax2.grid(True, alpha=0.3)\n        \n        # 3. Jarzynski equality verification\n        ax3 = axes_flat[2]\n        \n        # Compute exponential average: \u27e8exp(-W/T)\u27e9\n        exp_work_forward = np.exp(-forward_work / temperature)\n        exp_work_reverse = np.exp(reverse_work / temperature)\n        \n        # Cumulative average\n        cumulative_avg_f = np.cumsum(exp_work_forward) / np.arange(1, len(exp_work_forward) + 1)\n        cumulative_avg_r = np.cumsum(exp_work_reverse) / np.arange(1, len(exp_work_reverse) + 1)\n        \n        n_points = np.arange(1, len(cumulative_avg_f) + 1)\n        \n        ax3.semilogx(n_points[::10], cumulative_avg_f[::10], 'o-', \n                    label='\u27e8exp(-W_f/T)\u27e9', linewidth=2, alpha=0.8)\n        ax3.semilogx(n_points[::10], cumulative_avg_r[::10], 's-', \n                    label='\u27e8exp(W_r/T)\u27e9', linewidth=2, alpha=0.8)\n        \n        # Theoretical value (equilibrium free energy difference)\n        delta_F = 1.0  # Mock free energy difference\n        jarzynski_value = np.exp(-delta_F / temperature)\n        ax3.axhline(y=jarzynski_value, color='red', linestyle='--', linewidth=2,\n                   label=f'Theory: exp(-\u0394F/T) = {jarzynski_value:.3f}')\n        \n        ax3.set_xlabel('Number of Trajectories')\n        ax3.set_ylabel('Exponential Average')\n        ax3.set_title('Jarzynski Equality Convergence')\n        ax3.legend()\n        ax3.grid(True, alpha=0.3)\n        \n        # 4. Free energy calculation accuracy\n        ax4 = axes_flat[3]\n        \n        # Calculate running estimate of free energy\n        jarzynski_estimates = -temperature * np.log(cumulative_avg_f)\n        \n        ax4.plot(n_points[::10], jarzynski_estimates[::10], 'o-', \n                linewidth=2, alpha=0.8, label='Jarzynski Estimate')\n        ax4.axhline(y=delta_F, color='red', linestyle='--', linewidth=2,\n                   label=f'True \u0394F = {delta_F}')\n        \n        # Error bands\n        errors = np.abs(jarzynski_estimates - delta_F)\n        ax4.fill_between(n_points[::10], \n                        jarzynski_estimates[::10] - errors[::10]/2,\n                        jarzynski_estimates[::10] + errors[::10]/2,\n                        alpha=0.3, color='blue')\n        \n        ax4.set_xlabel('Number of Trajectories')\n        ax4.set_ylabel('Free Energy Difference \u0394F')\n        ax4.set_title('Free Energy Estimation Accuracy')\n        ax4.legend()\n        ax4.grid(True, alpha=0.3)\n        \n        if show_temporal:\n            # 5. Work variance analysis\n            ax5 = axes_flat[4]\n            \n            # Plot work variance vs driving time\n            driving_times = np.logspace(-1, 1, 20)\n            work_variances = []\n            \n            for dt in driving_times:\n                # Model: faster driving \u2192 larger work fluctuations\n                variance = 1.0 + 2.0 / dt  # Inverse relationship\n                work_variances.append(variance)\n            \n            ax5.loglog(driving_times, work_variances, 'o-', linewidth=2, \n                      markersize=8, color='purple')\n            \n            # Theoretical scaling\n            theory_variance = 3.0 / driving_times\n            ax5.loglog(driving_times, theory_variance, '--', linewidth=2, \n                      color='red', label='Theory ~ 1/\u03c4')\n            \n            ax5.set_xlabel('Driving Time \u03c4')\n            ax5.set_ylabel('Work Variance Var(W)')\n            ax5.set_title('Work Fluctuations vs Driving Speed')\n            ax5.legend()\n            ax5.grid(True, alpha=0.3)\n            \n            # 6. Entropy production analysis\n            ax6 = axes_flat[5]\n            \n            # Calculate entropy production from work distributions\n            # \u0394S = \u27e8W\u27e9/T - \u0394F/T \u2265 0\n            mean_work_forward = np.mean(forward_work)\n            mean_work_reverse = np.mean(reverse_work)\n            \n            entropy_production_f = (mean_work_forward - delta_F) / temperature\n            entropy_production_r = (-mean_work_reverse - delta_F) / temperature\n            \n            processes = ['Forward', 'Reverse']\n            entropy_values = [entropy_production_f, entropy_production_r]\n            \n            bars = ax6.bar(processes, entropy_values, alpha=0.7, \n                          color=['red', 'blue'])\n            \n            # Add horizontal line at zero\n            ax6.axhline(y=0, color='black', linestyle='-', alpha=0.5)\n            \n            ax6.set_ylabel('Entropy Production \u0394S')\n            ax6.set_title('Entropy Production (Second Law)')\n            ax6.grid(True, alpha=0.3)\n            \n            # Add value labels\n            for bar, value in zip(bars, entropy_values):\n                height = bar.get_height()\n                ax6.text(bar.get_x() + bar.get_width()/2., height + 0.01,\n                        f'{value:.3f}', ha='center', va='bottom', fontweight='bold')\n        \n        plt.tight_layout()\n        \n        if save_plots:\n            plt.savefig(self.output_dir / 'jarzynski_verification.png', dpi=300, bbox_inches='tight')\n            logger.info(\"Saved Jarzynski verification plot\")\n        \n        return {\n            'jarzynski_data': {\n                'forward_work': forward_work,\n                'reverse_work': reverse_work,\n                'jarzynski_estimate': jarzynski_estimates[-1] if 'jarzynski_estimates' in locals() else delta_F,\n                'true_delta_F': delta_F,\n                'temperature': temperature\n            },\n            'convergence_analysis': {\n                'final_error': abs(jarzynski_estimates[-1] - delta_F) if 'jarzynski_estimates' in locals() else 0.1,\n                'trajectories_needed': len(forward_work)\n            },\n            'figure': fig\n        }",
+      "span": [
+        54,
+        246
+      ],
+      "span_sha": "20e2ff1ef63bf8632ddf093fc84859a848d882738ac338a53c4b83a5bf7fadc9"
+    },
+    {
+      "acceptance": "Actual protocol work fluctuations, cumulants and uncertainty, no synthetic random-walk surrogate or native energy assumption.",
+      "archive": "quantum.zip",
+      "id": "Q20",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "source_excerpt": "    def plot_work_fluctuation_analysis(self, save_plots: bool = True) -> Dict[str, Any]:\n        \"\"\"Plot detailed work fluctuation analysis\"\"\"\n        \n        # Extract MCTS data for fluctuation analysis\n        data = create_authentic_physics_data(self.mcts_data, 'plot_non_equilibrium_thermodynamics')\n        \n        fig, axes = plt.subplots(2, 3, figsize=(20, 12))\n        fig.suptitle('Work Fluctuation Analysis and Path Ensembles', fontsize=16, fontweight='bold')\n        \n        work_distributions = data['work_distributions']\n        \n        # Generate multiple work trajectories\n        n_trajectories = 500\n        n_steps = 50\n        temperature = 1.0\n        \n        # 1. Individual work trajectories\n        ax1 = axes[0, 0]\n        \n        trajectories = []\n        for i in range(min(20, n_trajectories)):  # Show only 20 for visibility\n            # Generate trajectory from MCTS-inspired random walk\n            work_traj = np.cumsum(np.random.normal(0.04, 0.1, n_steps))\n            trajectories.append(work_traj)\n            \n            ax1.plot(range(n_steps), work_traj, alpha=0.3, linewidth=1)\n        \n        # Average trajectory\n        avg_trajectory = np.mean(trajectories, axis=0)\n        ax1.plot(range(n_steps), avg_trajectory, 'r-', linewidth=3, \n                label='Average')\n        \n        ax1.set_xlabel('Time Step')\n        ax1.set_ylabel('Cumulative Work')\n        ax1.set_title('Work Trajectory Ensemble')\n        ax1.legend()\n        ax1.grid(True, alpha=0.3)\n        \n        # 2. Work distribution evolution\n        ax2 = axes[0, 1]\n        \n        # Show work distribution at different time points\n        time_points = [10, 25, 40, 49]\n        colors = ['red', 'blue', 'green', 'purple']\n        \n        for i, (t, color) in enumerate(zip(time_points, colors)):\n            work_at_t = [traj[t] for traj in trajectories]\n            ax2.hist(work_at_t, bins=15, alpha=0.6, density=True, \n                    color=color, label=f't = {t}', histtype='step', linewidth=2)\n        \n        ax2.set_xlabel('Work W')\n        ax2.set_ylabel('Probability Density')\n        ax2.set_title('Work Distribution Evolution')\n        ax2.legend()\n        ax2.grid(True, alpha=0.3)\n        \n        # 3. Cumulant analysis\n        ax3 = axes[0, 2]\n        \n        # Calculate first few cumulants\n        final_works = [traj[-1] for traj in trajectories]\n        \n        mean_work = np.mean(final_works)\n        variance = np.var(final_works)\n        skewness = stats.skew(final_works)\n        kurtosis = stats.kurtosis(final_works)\n        \n        cumulants = [mean_work, variance, skewness, kurtosis]\n        cumulant_names = ['Mean', 'Variance', 'Skewness', 'Kurtosis']\n        \n        bars = ax3.bar(range(len(cumulants)), cumulants, alpha=0.7,\n                      color=['red', 'blue', 'green', 'orange'])\n        \n        ax3.set_xticks(range(len(cumulants)))\n        ax3.set_xticklabels(cumulant_names)\n        ax3.set_ylabel('Cumulant Value')\n        ax3.set_title('Work Distribution Cumulants')\n        ax3.grid(True, alpha=0.3)\n        \n        # Add value labels\n        for bar, value in zip(bars, cumulants):\n            height = bar.get_height()\n            ax3.text(bar.get_x() + bar.get_width()/2., height + 0.05,\n                    f'{value:.3f}', ha='center', va='bottom', fontweight='bold')\n        \n        # 4. Large deviation analysis\n        ax4 = axes[1, 0]\n        \n        # Plot log probability vs work (rate function)\n        work_bins = np.linspace(min(final_works), max(final_works), 30)\n        hist, bin_edges = np.histogram(final_works, bins=work_bins, density=True)\n        bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2\n        \n        # Rate function I(w) = -log P(w)\n        log_prob = np.log(hist + 1e-10)  # Avoid log(0)\n        rate_function = -log_prob\n        \n        ax4.plot(bin_centers, rate_function, 'o-', linewidth=2, markersize=6,\n                color='darkgreen')\n        \n        # Theoretical quadratic form for Gaussian\n        work_centered = bin_centers - mean_work\n        theoretical_rate = work_centered**2 / (2 * variance)\n        ax4.plot(bin_centers, theoretical_rate, '--', linewidth=2, \n                color='red', label='Gaussian Theory')\n        \n        ax4.set_xlabel('Work W')\n        ax4.set_ylabel('Rate Function I(W)')\n        ax4.set_title('Large Deviation Rate Function')\n        ax4.legend()\n        ax4.grid(True, alpha=0.3)\n        \n        # 5. Work-heat decomposition\n        ax5 = axes[1, 1]\n        \n        # Decompose work into different contributions\n        # For MCTS: exploration work, exploitation work, quantum corrections\n        n_decomp = len(final_works)\n        \n        exploration_work = np.random.normal(mean_work * 0.6, variance * 0.3, n_decomp)\n        exploitation_work = np.random.normal(mean_work * 0.3, variance * 0.2, n_decomp)\n        quantum_work = final_works - exploration_work - exploitation_work\n        \n        scatter = ax5.scatter(exploration_work, exploitation_work, alpha=0.6, \n                             c=quantum_work, cmap='viridis', s=30)\n        \n        colorbar = plt.colorbar(scatter, ax=ax5)\n        colorbar.set_label('Quantum Work Component')\n        \n        ax5.set_xlabel('Exploration Work')\n        ax5.set_ylabel('Exploitation Work')\n        ax5.set_title('Work Component Decomposition')\n        ax5.grid(True, alpha=0.3)\n        \n        # 6. Fluctuation-dissipation verification\n        ax6 = axes[1, 2]\n        \n        # Check fluctuation-dissipation relation\n        # \u27e8W\u00b2\u27e9 - \u27e8W\u27e9\u00b2 = T * \u2202\u27e8W\u27e9/\u2202\u03bb (linear response)\n        \n        # Vary control parameter and measure response\n        control_params = np.linspace(0.5, 2.0, 15)\n        mean_works = []\n        work_variances = []\n        \n        for param in control_params:\n            # Model: work increases with control parameter\n            work_sample = np.random.normal(param, 0.5, 100)\n            mean_works.append(np.mean(work_sample))\n            work_variances.append(np.var(work_sample))\n        \n        # Compute response function\n        response = np.gradient(mean_works, control_params)\n        \n        ax6.plot(control_params, work_variances, 'o-', linewidth=2, \n                label='Variance', color='blue')\n        \n        ax6_twin = ax6.twinx()\n        ax6_twin.plot(control_params, temperature * response, 's-', linewidth=2,\n                     label='T \u00d7 Response', color='red')\n        \n        ax6.set_xlabel('Control Parameter \u03bb')\n        ax6.set_ylabel('Work Variance', color='blue')\n        ax6_twin.set_ylabel('T \u00d7 \u2202\u27e8W\u27e9/\u2202\u03bb', color='red')\n        ax6.set_title('Fluctuation-Dissipation Relation')\n        \n        # Combine legends\n        lines1, labels1 = ax6.get_legend_handles_labels()\n        lines2, labels2 = ax6_twin.get_legend_handles_labels()\n        ax6.legend(lines1 + lines2, labels1 + labels2, loc='upper left')\n        \n        ax6.grid(True, alpha=0.3)\n        \n        plt.tight_layout()\n        \n        if save_plots:\n            plt.savefig(self.output_dir / 'work_fluctuation_analysis.png', dpi=300, bbox_inches='tight')\n            logger.info(\"Saved work fluctuation analysis plot\")\n        \n        return {\n            'fluctuation_data': {\n                'work_trajectories': trajectories[:10],  # Save subset\n                'final_work_distribution': final_works,\n                'work_cumulants': dict(zip(cumulant_names, cumulants))\n            },\n            'large_deviation_analysis': {\n                'rate_function': rate_function,\n                'work_range': bin_centers\n            },\n            'figure': fig\n        }",
+      "span": [
+        248,
+        438
+      ],
+      "span_sha": "d94aa924796d0015d061e44d03b4c68de86bbedeeee2ddec1d3c2d9495eb4e46"
+    }
+  ],
+  "study_members": 60,
+  "study_selected": [
+    {
+      "headings": [
+        "# Quantum Field Theory of MCTS: Foundations and Implementation",
+        "## Abstract",
+        "## 1. Introduction",
+        "### 1.1 Motivation",
+        "### 1.2 Overview"
+      ],
+      "member": "mcts_study/v3.0/qft-mcts-foundations.md",
+      "sha256": "a0fc2fbda4a07e9b663a59e997e4a418c2f19aed04b071594b970d1f44c13ea3"
+    },
+    {
+      "headings": [
+        "# Open Quantum Systems in MCTS: Decoherence and Darwinism",
+        "## Abstract",
+        "## 1. Introduction",
+        "### 1.1 Why Open Quantum Systems?",
+        "### 1.2 Overview"
+      ],
+      "member": "mcts_study/v3.0/qft-mcts-decoherence.md",
+      "sha256": "64a0c6eb98c1f8695b4230cda9121f7f5adc463f217e412670808bf9408358e5"
+    },
+    {
+      "headings": [
+        "# Statistical Physics of Tree Search: Phase Transitions and Optimality",
+        "## Abstract",
+        "## 1. Introduction",
+        "### 1.1 Statistical Physics Perspective",
+        "### 1.2 Overview"
+      ],
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    },
+    {
+      "headings": [
+        "# Quantum-Inspired MCTS: Complete Implementation and Validation Plan",
+        "## Executive Summary",
+        "## 1. Implementation Architecture",
+        "### 1.1 Core Framework Structure",
+        "# quantum_mcts/core.py"
+      ],
+      "member": "mcts_study/v3.0/quantum-mcts-validation-plan.md",
+      "sha256": "356bc4ec6b6b3cce9ba6f5c631fba025a7f53439882cd1832381f12e1468e459"
+    },
+    {
+      "headings": [
+        "# Effective Action in Quantum Monte Carlo Tree Search: A Field-Theoretic Analysis",
+        "## 1. The Classical Action in MCTS",
+        "### 1.1 Identifying the Classical Action",
+        "### 1.2 Why This Is the Natural Classical Action",
+        "### 1.3 The Full Action with Quantum Terms"
+      ],
+      "member": "mcts_study/effective-action-mcts.md",
+      "sha256": "d8638991645cc3803ab363e3c81f9f843d5dc5b0d2afe865c29f4bc80b38386b"
+    },
+    {
+      "headings": [
+        "# Research Proposal: Quantum Field Theory and Information-Theoretic Monte Carlo Tree Search",
+        "## Massively Parallel Algorithm with GPU Acceleration",
+        "## Abstract",
+        "## 1. Introduction",
+        "### 1.1 Motivation"
+      ],
+      "member": "mcts_study/qft-mcts-research-proposal.md",
+      "sha256": "e720c79fdf54204b432b33b2013376af6b82dd64040a363709a26a1abca6763a"
+    },
+    {
+      "headings": [
+        "# Classical Limit Consistency: Unifying QFT and Decoherence Approaches in MCTS",
+        "## 1. Introduction: The Consistency Requirement",
+        "## 2. The QFT Classical Limit",
+        "### 2.1 Path Integral Formulation",
+        "### 2.2 Stationary Phase Analysis"
+      ],
+      "member": "mcts_study/classical-limit-consistency.md",
+      "sha256": "7ee48f9a4bec6252c184f4652610bef07631385c9f8034f087c3804c32438f2f"
+    },
+    {
+      "headings": [
+        "# Mathematical Foundations of Quantum Field Theory Monte Carlo Tree Search",
+        "## Complete Theoretical Framework",
+        "## 1. Field Theory Formulation",
+        "### 1.1 Classical Action",
+        "### 1.2 Path Integral Quantization"
+      ],
+      "member": "mcts_study/qft-mcts-math-foundations.md",
+      "sha256": "3c981ef5bd36b04cd2e0c323d690d96c158b8f08b38e78f0cea68e30d2ffd374"
+    },
+    {
+      "headings": [
+        "# Information-Theoretic Enhancement of Monte Carlo Tree Search: A Research Proposal",
+        "## Table of Contents",
+        "## 1. Executive Summary {#executive-summary}",
+        "### Research Question",
+        "### Core Approach"
+      ],
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_1.md",
+      "sha256": "995e790cbe97938b44e1c04be51046e850d3760448b7270c8361b4c823a127c7"
+    },
+    {
+      "headings": [
+        "# Thermodynamically-Inspired MCTS: Practical Development Guide",
+        "## Table of Contents",
+        "## 1. Overview and Realistic Goals {#overview}",
+        "### Purpose",
+        "### Key Principles (Revised)"
+      ],
+      "member": "mcts_study/thermodynamic-mcts-guide_1.md",
+      "sha256": "7a60b83197916d83e528e89675228008a15b8dbb5864561ff9a87b39d540aaf3"
+    },
+    {
+      "headings": [
+        "# Information-Theoretic Enhancement of Monte Carlo Tree Search: A Research Proposal",
+        "## Abstract",
+        "## 1. Introduction",
+        "### 1.1 Motivation",
+        "### 1.2 Core Hypothesis"
+      ],
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_2.md",
+      "sha256": "db8ed5ca98bb718e2856a3c450e87d38d76806ac70fbe3fe8edbd80a76728f10"
+    },
+    {
+      "headings": [
+        "# Research Proposal: Practical Wave-Based Vectorization of Monte Carlo Tree Search",
+        "## Abstract",
+        "## 1. Introduction",
+        "### 1.1 Background",
+        "### 1.2 Problem Statement"
+      ],
+      "member": "mcts_study/vectorized-mcts-research-proposal_2.md",
+      "sha256": "7db2fb2fb0fd7f1156a3c0aa697a0e4bf853dc5e361ba0c05aa8eaa1a067a234"
+    },
+    {
+      "headings": [
+        "# Research Proposal: Practical Vectorized MCTS Based on Wave Processing",
+        "## Table of Contents",
+        "## 1. Abstract",
+        "## 2. Introduction",
+        "### 2.1 Motivation"
+      ],
+      "member": "mcts_study/vectorized-mcts-research-proposal_1.md",
+      "sha256": "fe3aa8ad3a0623d488ed9038a21a3ef01e4e35b1230a3cf618fb0d63ed050a44"
+    },
+    {
+      "headings": [
+        "# Research Proposal: Massively Parallel Vectorized MCTS with Quantum-Inspired Diversity Mechanisms",
+        "## Version 2.0 - Refined with Rigorous Justification",
+        "## Abstract",
+        "## 1. Introduction and Motivation",
+        "### 1.1 The Vectorization Challenge"
+      ],
+      "member": "mcts_study/vectorized-mcts-research-proposal_4.md",
+      "sha256": "7a2d4adf95a78e19ec8ac83af155c0f7ca07390b203622ec94be915af3e7f791"
+    },
+    {
+      "headings": [
+        "# Practical Development Guide: Wave-Based Vectorized MCTS",
+        "## Table of Contents",
+        "## 1. Executive Summary",
+        "### Key Principles",
+        "### Target Performance"
+      ],
+      "member": "mcts_study/vectorized-mcts-guide_2.md",
+      "sha256": "0f70af9c42ec16bd42232495bfcd1dbbf5591f17220eb0962f232a09a5d56144"
+    },
+    {
+      "headings": [
+        "# Addressing Technical Criticisms: From Theory to Implementation",
+        "## 1. Path Integral Implementation Criticisms",
+        "### Criticism 1: \"Uses simplified discretized action instead of full continuum formulation\"",
+        "# Sum over ALL possible paths",
+        "# Exact discrete action"
+      ],
+      "member": "mcts_study/qft-answers.md",
+      "sha256": "dc5f9dd55326ea39eaa5939915d6d526470af9f8765885d619af259407e29a42"
+    },
+    {
+      "headings": [
+        "# Information Dynamics in Game Tree Search: A Nonequilibrium Statistical Mechanics Approach",
+        "## Research Proposal v2.0",
+        "### Table of Contents",
+        "## 1. Executive Summary {#executive-summary}",
+        "### Research Question"
+      ],
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_4.md",
+      "sha256": "9ab2ef483470accd2b6831fc622b788e266c2d18ee19d95840268249dba75c32"
+    },
+    {
+      "headings": [
+        "# Quantum Information Theory in Monte Carlo Tree Search: A Rigorous Mathematical Framework for Massively Parallel Search Algorithms",
+        "## Abstract",
+        "## 1. Introduction: Quantum Foundations for Classical Algorithms",
+        "### 1.1 The Quantum-Classical Bridge",
+        "### 1.2 Mathematical Foundations"
+      ],
+      "member": "mcts_study/quantum-mcts-article.md",
+      "sha256": "c8f4bc44847c32d7d5698ddb67211fa5eb7a231523255b35310cd464355db054"
+    },
+    {
+      "headings": [
+        "# Thermodynamically-Efficient MCTS: Practical Development Guide v2.0",
+        "## Table of Contents",
+        "## 1. Executive Summary {#executive-summary}",
+        "### Purpose",
+        "### Key Innovation"
+      ],
+      "member": "mcts_study/thermodynamic-mcts-guide_4.md",
+      "sha256": "9d034d48283166d71f299dceba75794e8c26ffcb82a7b353a09acfa0d58ad9bb"
+    },
+    {
+      "headings": [
+        "# Quantum Information Theory and Thermodynamics in Monte Carlo Tree Search",
+        "## Rigorous Treatment of Envariance, Decoherence, and Quantum Darwinism",
+        "## 1. Introduction: Bridging QFT and Quantum Information",
+        "### 1.1 Master Equation Formulation",
+        "## 2. Envariance: Entanglement-Assisted Invariance"
+      ],
+      "member": "mcts_study/quantum-info-mcts.md",
+      "sha256": "364ffa18398a69d6652e57d8428ff70274d13b6f3e35f61dd7349611e2f0479e"
+    },
+    {
+      "headings": [
+        "# GPU-Accelerated Quantum Field Theory MCTS",
+        "## High-Performance Implementation Guide",
+        "### Version 4.0 - Production-Ready with Full GPU Optimization",
+        "## Table of Contents",
+        "## 1. Quick Start"
+      ],
+      "member": "mcts_study/qft-mcts-guide.md",
+      "sha256": "20435b1fc6c69bf0961eab2e361f3b7779d85ba0a84ac6e1810620fe6ec5dbe7"
+    },
+    {
+      "headings": [
+        "# GPU-Accelerated Vectorized MCTS with Quantum-Inspired Enhancements",
+        "## Refined Development Guide",
+        "### Version 2.0 - Incorporating Critical Refinements",
+        "## Table of Contents",
+        "## 1. Executive Summary"
+      ],
+      "member": "mcts_study/vectorized-mcts-guide_4.md",
+      "sha256": "fd5eb4c6a0390b6622d3943422ecc5150fa582d596236fabe062619a0897b009"
+    },
+    {
+      "headings": [
+        "# Practical Development Guide: GPU-Accelerated Vectorized MCTS",
+        "## Table of Contents",
+        "## 1. Executive Overview",
+        "### Purpose",
+        "### Target Performance (Realistic)"
+      ],
+      "member": "mcts_study/vectorized-mcts-guide_1.md",
+      "sha256": "0c4d439830a36b0ca17b60c7ae79d9bdbf48e7bf9717d330651af8727b2a3584"
+    },
+    {
+      "headings": [
+        "# Information-Theoretic MCTS: Practical Development Guide",
+        "## Table of Contents",
+        "## 1. Overview {#overview}",
+        "### Purpose",
+        "### Core Principle"
+      ],
+      "member": "mcts_study/thermodynamic-mcts-guide_2.md",
+      "sha256": "1b7738fa1542d9af25f226fd53db85985a64819ae4c7f99f495a11d0c08f7265"
+    },
+    {
+      "headings": [
+        "# Thermodynamic Active Inference in Monte Carlo Tree Search: A Research Proposal",
+        "## Table of Contents",
+        "## 1. Executive Summary {#executive-summary}",
+        "### Research Question",
+        "### Core Innovation"
+      ],
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_3.md",
+      "sha256": "25f98f8901751e2bb3209c1554b0e0d5dbf82eee008555e5e790ba62ffe3b5f5"
+    },
+    {
+      "headings": [
+        "# Experimental Validation and Performance Testing Guide",
+        "## QFT-MCTS vs Classical MCTS: Comprehensive Benchmarks",
+        "## 1. Executive Summary",
+        "## 2. Experimental Setup",
+        "### 2.1 Hardware Configurations"
+      ],
+      "member": "mcts_study/qft-mcts-validation.md",
+      "sha256": "244b57b117ac20da5c0a07c576e4ce9670a6e132f06798cc65f5d6d61ff08387"
+    },
+    {
+      "headings": [
+        "# Research Proposal: Massively Parallel Vectorized MCTS with Quantum-Inspired Diversity Mechanisms",
+        "## Table of Contents",
+        "## 1. Abstract",
+        "## 2. Introduction and Motivation",
+        "### 2.1 Problem Statement"
+      ],
+      "member": "mcts_study/vectorized-mcts-research-proposal_3.md",
+      "sha256": "a12f8c08bd48ed63de130890600eca59b558e3962f0f7b6eadf74abef06258e0"
+    },
+    {
+      "headings": [
+        "# Omoknuni: Production Requirements Document",
+        "## AlphaZero-Style Game AI with Thermodynamically-Efficient MCTS",
+        "### Version 2.0 | December 2024",
+        "## Table of Contents",
+        "## 1. Executive Summary {#executive-summary}"
+      ],
+      "member": "mcts_study/tai-omoknuni-prd.md",
+      "sha256": "ab5ca3a4efe3dbd9a6739a45834d20da29a98f296de491c7f53ddd7fe8e8e014"
+    },
+    {
+      "headings": [
+        "# Comprehensive Development Guide: GPU-Accelerated Vectorized MCTS with Quantum-Inspired Enhancements",
+        "## Table of Contents",
+        "## 1. Executive Overview",
+        "### Purpose",
+        "### Target Performance"
+      ],
+      "member": "mcts_study/vectorized-mcts-guide_3.md",
+      "sha256": "2393465c7731fcab9ebcb2267a867116a7580047c1213a122cd8936639fc2613"
+    },
+    {
+      "headings": [
+        "# Thermodynamically Efficient MCTS: Comprehensive Development Guide",
+        "## Table of Contents",
+        "## 1. Overview and Theoretical Foundation {#overview}",
+        "### Purpose",
+        "### Core Principle"
+      ],
+      "member": "mcts_study/thermodynamic-mcts-guide_3.md",
+      "sha256": "2fa7fa85d45c448933bc39f2bffb58fd7ca3159aaeeb710654765ecec1cf7c97"
+    },
+    {
+      "headings": [
+        "# Quantum Theory Foundations for MCTS",
+        "## Path Integral Formulation with Discrete Information Time",
+        "## Table of Contents",
+        "## Executive Summary",
+        "## Discrete Time Framework"
+      ],
+      "member": "mcts_study/v2.0/quantum-theory-foundations-v2.md",
+      "sha256": "9d884f6052227def6dee3736fb2094c31dd9081d47c9d6c8db0120eedd16b3d3"
+    },
+    {
+      "headings": [
+        "# Quantum Parameters Explained - Version 2.0",
+        "## Physics-Derived Parameter Selection Guide",
+        "## Table of Contents",
+        "## Overview",
+        "### Key Principles"
+      ],
+      "member": "mcts_study/v2.0/quantum-parameters-explained-v2.md",
+      "sha256": "f7e95af83b3d2316bc27b54944c0bd650740bddd189fd1bbba8d4724a80fb8c9"
+    },
+    {
+      "headings": [
+        "# Quantum MCTS Guide - Version 2.0",
+        "## Production Implementation with Rigorous Foundations",
+        "## Table of Contents",
+        "## Overview",
+        "### Key Benefits"
+      ],
+      "member": "mcts_study/v2.0/quantum-mcts-guide-v2.md",
+      "sha256": "82d5590570b24c49fba479bd2c677f69043d3eb53166ed3d01b7e11c16144685"
+    },
+    {
+      "headings": [
+        "# Quantum Field Theory MCTS: Validated Framework and Results",
+        "## From Research Proposal to Production Implementation",
+        "## Abstract",
+        "## 1. Introduction",
+        "### 1.1 From Proposal to Reality"
+      ],
+      "member": "mcts_study/v2.0/qft-mcts-research-proposal-v2.md",
+      "sha256": "e88cafa7364f72c1bee4000faea013a28086b3f1d1fac81e90b719317e1ea974"
+    },
+    {
+      "headings": [
+        "# QFT MCTS Mathematical Foundations - Version 2.0",
+        "## Complete Field Theory Formulation with Discrete Time",
+        "## Table of Contents",
+        "## Introduction",
+        "### Core Mathematical Structure"
+      ],
+      "member": "mcts_study/v2.0/qft-mcts-math-foundations-v2.md",
+      "sha256": "8d3e75ea26d73364dd902e51230b4633f0fba4575238a1ca592d646e6d4df307"
+    },
+    {
+      "headings": [
+        "# Quantum-Inspired MCTS: A Unified Path Integral Framework",
+        "## Table of Contents",
+        "### Part I: Foundations",
+        "### Part II: Quantum Framework",
+        "### Part III: Statistical Mechanics and Decoherence"
+      ],
+      "member": "mcts_study/v2.0/quantum-mcts-new.md",
+      "sha256": "22620f078b9e1d0228d3f2fba1d310ef8cb70e2d9e7bc89013b5ae1f4d76f293"
+    },
+    {
+      "headings": [
+        "# QFT MCTS Validation Guide - Version 2.0",
+        "## Experimental Validation of Discrete-Time Quantum Framework",
+        "## Table of Contents",
+        "## Overview",
+        "### Validation Principles"
+      ],
+      "member": "mcts_study/v2.0/qft-mcts-validation-v2.md",
+      "sha256": "e5df81a485ead7fff27fb23c9220bfbfebd3bd18157d931a156a146e25e2e43f"
+    },
+    {
+      "headings": [
+        "# Quantum-Inspired Monte Carlo Tree Search: Comprehensive Theoretical Framework",
+        "## 1. Introduction: From Heuristic to Physics",
+        "### 1.1 Motivation and Historical Development",
+        "### 1.2 Evolution of the Core Thesis",
+        "### 1.3 Core Thesis Statement"
+      ],
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "headings": [
+        "# Quantum-Inspired MCTS: Comprehensive Experimental Validation Plan",
+        "## 1. Overview: From Theory to Experiment",
+        "### 1.1 Validation Philosophy",
+        "### 1.2 Evolution of the Validation Approach",
+        "### 1.3 Data Collection Architecture"
+      ],
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    },
+    {
+      "headings": [
+        "### Overall Assessment: A More Potent, Albeit Still Analogical, Framework",
+        "### 1. Virtual Loss as a Form of \"Interference\"",
+        "#### 1.1 Constructing the Analogy",
+        "#### 1.2 Critical Evaluation",
+        "### 2. MCTS Dynamics as a Non-Equilibrium Process: The Schwinger-Keldysh Formalism"
+      ],
+      "member": "mcts_study/v6.0/mcts_conversation.txt",
+      "sha256": "c691be3a2124bec4891d95a16463fb8f73671bfd16c1e5fe2ce0d1909c2022ec"
+    },
+    {
+      "headings": [
+        "# Quantum MCTS Implementation Changes Summary",
+        "## Overview",
+        "## 1. Core Formula Updates",
+        "### One-Loop Corrections Module (`one_loop_corrections.py`)",
+        "### Unified Quantum MCTS (`unified_quantum_mcts.py`)"
+      ],
+      "member": "mcts_study/v5.0/implementation_changes.md",
+      "sha256": "8753afc4576c2917a5b0e676d50d512a174ee3cdbe112940455702a23ab76ffc"
+    },
+    {
+      "headings": [
+        "# Quantum MCTS: Corrected One-Loop Formulation",
+        "## Overview",
+        "## 1. Classical Action (Corrected)",
+        "## 2. Exact Hessian",
+        "## 3. One-Loop Quantum Correction"
+      ],
+      "member": "mcts_study/v5.0/quantum_mcts_corrected.md",
+      "sha256": "5cc35a2956d56f2b6c85d813559308d4efba5aea44dd1431a4d920fdb322e3f3"
+    },
+    {
+      "headings": [
+        "# Quantum\u2011Inspired Monte\u00a0Carlo\u00a0Tree\u00a0Search (Q\u2011MCTS)",
+        "## A Fully\u2011Audited Field\u2011Theoretic Foundation \u2014\u202fExtended Manuscript\u00a0(v2.0)",
+        "## Table\u00a0of\u00a0Contents",
+        "## 1. Notation, Conventions\u00a0& Physical Map",
+        "### World\u2011line picture"
+      ],
+      "member": "mcts_study/v5.0/new_quantum_mcts.md",
+      "sha256": "b0918d64a49ef0b554d3cd7a763027c3bfc4b98c2299c0b722a6d201d18cf455"
+    },
+    {
+      "headings": [
+        "# Comprehensive Mathematical Documentation of Quantum-MCTS Visualization Framework",
+        "## Executive Summary",
+        "## Table of Contents",
+        "## 1. Raw MCTS Data Fields",
+        "### 1.1 Primary Data Sources"
+      ],
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    },
+    {
+      "headings": [
+        "# Classical Action Correction for Quantum MCTS",
+        "## Important Update on Classical Action Formulation",
+        "### The Issue",
+        "### The Correct Formulation",
+        "### Physical Interpretation"
+      ],
+      "member": "mcts_study/v4.0/classical_action_correction.md",
+      "sha256": "dd980bdf2a0522f57bdc9d37f7b6f85675d5ea82150df2d29d82c69136fa20cf"
+    },
+    {
+      "headings": [
+        "# Consistent Quantum Corrections with KL Divergence Action",
+        "## Overview",
+        "## Classical Action (KL Divergence)",
+        "## Hessian Matrix",
+        "## One-Loop Corrections"
+      ],
+      "member": "mcts_study/v4.0/consistent_quantum_corrections.md",
+      "sha256": "8938ed436fa5867e79293d4ad90a86e72184f464c3464ce9a19bc3fe37e649fa"
+    },
+    {
+      "headings": [
+        "# Corrected Effective Planck Constant Derivation",
+        "## Executive Summary",
+        "## 1. What Went Wrong with the Linear Formula",
+        "### The Physics Error",
+        "## 2. Operational Definition"
+      ],
+      "member": "mcts_study/v4.0/corrected_hbar_eff_derivation.md",
+      "sha256": "847ea3d75c13e95393557d1b4673d249e69e265b0438ea8bb4fa1ddedc03e39d"
+    },
+    {
+      "headings": [
+        "# Quantum-Inspired Monte Carlo Tree Search: Rigorous Theory",
+        "## Executive Summary",
+        "## Units and Conventions",
+        "## Glossary: Tree Search \u2194 Quantum Field Theory",
+        "## Part I: Mathematical Foundations"
+      ],
+      "member": "mcts_study/v4.0/quantum-mcts-refined.md",
+      "sha256": "1aa2be848a24058d4577288971d6f8fca32eeda050961c9f3aa676cb61d9c147"
+    },
+    {
+      "headings": [
+        "# Exact Effective Planck Constant: Rigorous Derivation and Implementation",
+        "## Overview",
+        "## Table of Contents",
+        "## Theoretical Foundation",
+        "### The Problem"
+      ],
+      "member": "mcts_study/v4.0/exact_hbar_eff_derivation.md",
+      "sha256": "e9c2fdd422cc15809bed245244b1751bdfc8767b75a83fa8779e81ae30b4f67d"
+    },
+    {
+      "headings": [
+        "# Quantum-Inspired Monte Carlo Tree Search: Rigorous Theory",
+        "## Executive Summary",
+        "## Units and Conventions",
+        "## Glossary: Tree Search \u2194 Quantum Field Theory",
+        "## Part I: Mathematical Foundations"
+      ],
+      "member": "mcts_study/v4.0/quantum_mcts.md",
+      "sha256": "e5209b6b86242d6c7d7c2cb988706b9cc2feaa94bfab11cf8605397cc1884843"
+    },
+    {
+      "headings": [
+        "# Quantum-Inspired MCTS: Engineering Validation Appendix",
+        "## Overview",
+        "## Part I: Information Time Validation",
+        "### 1. Definition 1.1 & Theorem 1.1: Information Time Derivation",
+        "# Step 1: Empirically measure information gain"
+      ],
+      "member": "mcts_study/v4.0/quantum_mcts_engineering.md",
+      "sha256": "1f8e502ae863eb07fbf2c533820b3b57b3888818f5245dc213d9fba4dd98b11f"
+    },
+    {
+      "headings": [
+        "# Quantum-Inspired MCTS: Engineering Validation Appendix",
+        "## Overview",
+        "## Part I: Information Time Validation",
+        "### 1. Definition 1.1 & Theorem 1.1: Information Time Derivation",
+        "# Step 1: Empirically measure information gain"
+      ],
+      "member": "mcts_study/v4.0/quantum-mcts-engineering.md",
+      "sha256": "1f8e502ae863eb07fbf2c533820b3b57b3888818f5245dc213d9fba4dd98b11f"
+    }
+  ]
+}

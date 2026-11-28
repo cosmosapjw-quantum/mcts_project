@@ -1,23 +1,21 @@
-# R90 theory and coding stages
-| Stage | Executed task | Evidence / status |
-|---|---|---|
-| R1 | Recover R69 and R89 authority | REGISTRATION.json; original policy hashes |
-| R2 | Original source contracts and study sections | ORIGINAL_SOURCE90.json |
-| R3 | Literature comparison and finite-law scope | THEORY.md; exponential family closure |
-| R4 | Normalize marked ordered history | THEORY.md; R80 forced replay |
-| R5 | Interior convex duality and tangent Hessian | DUAL90.json (261) |
-| R6 | Boundary face/vertex and normal limits | DUAL90.json (124+124) |
-| R7 | Statistical replica expansion and CAS | THEORY.md; 180 coefficient checks, 6 FFT reruns |
-| R8 | Source score response and entropy distinction | RESPONSE90.json; PATH90.json |
-| R9 | Declared work MGF and record model | WORK90.json; PHASE90.json |
-| R10 | Scientific decisions, negative evidence and next | CONVERGENCE90.json; DRIFT_WATCHDOG.md |
-| C1 | Read-only source/manifest inventory | INDEPENDENT90.json |
-| C2 | Implement and execute actual path reduction | path90.py; 7488 |
-| C3 | Implement and execute face/replica checks | dual90.py |
-| C4 | Re-reduce actual source pulse | response90.py; 2304 |
-| C5 | Recompute work CGF | work90.py; 832 |
-| C6 | Verify actual phase and declared record | phase90.py; repaired prepared/post mismatch |
-| C7 | Crosscheck prior receipts and heldout truth | verify90.py; 15648 unique raw receipts |
-| C8 | Generate original and supplementary figures | plot90.py; PLOT_MANIFEST90.json |
-| C9 | Source-specific acceptance and convergence | report90.py; ITEM_RECONSTRUCTION90.json |
-| C10 | DAG, publication and verified Dropbox snapshot | publish90.py; backup90.py; receipts |
+# R91 selected R1–R10 and C1–C10
+R1: RESTORE69 authority, R90 parent; fixed target in THEORY_REGISTERED91.md and REGISTRATION.json.
+R2: original guide labels and exact source spans, three archive hashes, study archive members in ORIGINAL_SOURCE91.json; Sagawa/Ueda 2010, 2012 and Murashita/Funo/Ueda 2014 primary metadata/abstracts reviewed; direct finite derivation not dependent on an unverified theorem.
+R3: native E_score, conditional logit beta, endpoint projection, declared H/bath distinct.
+R4: alternative endpoint fit vs true conditional law; conditional vs marginal entropy, final KL and I1.
+R5: exact entropy split and sign proof; fixed-H derivative in THEORY.md.
+R6: adversarial checks alpha=0, eps=1, singular support; corrected pre-run I1 assertion, self-review.
+R7: Wolfram two-level derivative {0,0}, numerical checks thermal91.py/verify91.py.
+R8: accept scoped split, not native physical thermo; 6 corrected artifact acceptances, 2 partial.
+R9: discrete finite kernel and operational computation contract in THEORY.md.
+R10: results, drift, next, DAG and convergence handoff.
+C1: fixed thresholds 1e-9 energy/entropy, 2e-6 capacity derivative; R85/R79 baseline.
+C2: R79 raw and calibration arrays, R61 hashed game reduction, R85 branch energy and MC arrays.
+C3: stable logsumexp, xlogy, rank-one reduction, bisection and centered finite difference.
+C4: bounded 960 raw histories; 104 contexts x8 conditions; 41 temperature grid; 3328 steps.
+C5: thermal91.py, verify91.py, plot91.py actual runnable.
+C6: initial ill-conditioned beta test failure retained; targeted semantic probability/KL repair and rerun, successful output logs.
+C7: exact energy, likelihood, entropy split, support, signed heat, pairwise variance checks.
+C8: numerical residuals, 2048 independent historical samples/direction/case, derivative vs exact variance; no speed improvement claim.
+C9: independent algorithmic same-agent check (not independent human/subagent), plot file verification; 3D warning noted.
+C10: convergence/status matrix and publish/backup receipt separate. Final science not certified; Q19 Q20 partial and G06 next.

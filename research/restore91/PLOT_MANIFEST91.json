@@ -1,0 +1,74 @@
+{
+  "figures": [
+    {
+      "figure": "G01_energy_evolution",
+      "ids": [
+        "G01"
+      ],
+      "pdf_sha": "5ebb3442c664117f7b51e87b6b3676cdef2c142f3ab9e2adb4e138fe4b885ec5",
+      "png_sha": "56bf7eec86ef6a60279dbb6b420d5bd426a9bce0299b3b7f363d5262af1f8ce0"
+    },
+    {
+      "figure": "G02_temperature_evolution",
+      "ids": [
+        "G02"
+      ],
+      "pdf_sha": "b8f5b47ffe36f3d34dcb0ece8a80e924a6027f01e42f9e3a3bc794ea4b460b3d",
+      "png_sha": "d3d1e2de8f2af5a6230dc019ee3895291a259ece07b9efa75cee0da834d485be"
+    },
+    {
+      "figure": "G04_heat_capacity",
+      "ids": [
+        "G04"
+      ],
+      "pdf_sha": "07070f5c8b2003d5d5a7c8f8fa06746d04de3279762cbdce444054c3ac5a69a7",
+      "png_sha": "7aa80ea303087ebf9534f1e7cb70927e2f6460977e82071cdef853ddd9ae0f8b"
+    },
+    {
+      "figure": "G05_thermodynamics_summary",
+      "ids": [
+        "G05"
+      ],
+      "pdf_sha": "74d4e7cdee46a5e2f16731c576fd69f901f70bfff53c700323fb4a8142ad4a4a",
+      "png_sha": "dbd9a9fe6c11b4a1b134a8d9ab635611edd054a895a708875f4875ad93530b3a"
+    },
+    {
+      "figure": "Q05_entropy_production_validation",
+      "ids": [
+        "Q05"
+      ],
+      "pdf_sha": "157db0caa9c1648e5a01c822510b0a066e841d9ebc1ce7f5a56ea166c883a772",
+      "png_sha": "be7a2bca9b591f74ac687d82f718a79764839893005c19941b9d4721f050ce12"
+    },
+    {
+      "figure": "Q08_full_entropy_balance",
+      "ids": [
+        "Q08"
+      ],
+      "pdf_sha": "50588bc8d99c5871c1b46656dd7e443553470e0d4a3e4b360cbc844b50b190f3",
+      "png_sha": "5cad78eca766577bb5e42530aae09ff9e517ed94d576c7b5e321561920670d86"
+    },
+    {
+      "figure": "Q19_partial_ift",
+      "ids": [
+        "Q19"
+      ],
+      "pdf_sha": "842e1397b8c814db36738d40892fc8abd70ab36dac4a76763d92c66fd8bc5f7b",
+      "png_sha": "0c96a91ff414512aa3200eea67b6f553cac020db5b9e444b675dd2f4c9030acf"
+    },
+    {
+      "figure": "Q20_partial_work",
+      "ids": [
+        "Q20"
+      ],
+      "pdf_sha": "2fb507f775cc01bbdab9b4fc0f6e67bbd2011b94d15aff9c6d5785723ff7e106",
+      "png_sha": "1a258c61409836762a79fc4cbf2eac55597a1a56e11bec89c6616dd543c649c0"
+    }
+  ],
+  "scope": "New direct item reconstructions; no native bath or physical T. Shaded quantiles descriptive, not CI.",
+  "sources": {
+    "INDEPENDENT91.json": "b9e4db3f4803c328763711199b77080d891eb94be4986c0de30aed21a9792c39",
+    "NATIVE91.json": "1e11cfbc87186b83608a8e882004adc8293a00da96a82c9a0cca2a248bf2c501",
+    "THERMAL91.json": "8a69b10709e61b1ceb668892e1a3793ef89c4256fd6e07be964b3a88e441780d"
+  }
+}

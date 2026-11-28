@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE90.json",
+  "convergence_ledger": "CONVERGENCE91.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -58,7 +58,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-03",
+  "entry": "REPLAN-06",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -121,9 +121,9 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R91 reconstruct remaining statistical mechanics/thermal outputs using actual evidence and exact contracts",
-    "Direct original artifact convergence; no repetitive diagnostic grids",
-    "Six open scientific claims and Q43 missing calibration remain distinct from corrected artifacts"
+    "R92 G06/G08/G09 and Q02/Q29/Q31 corrected finite-size/order parameter outputs",
+    "Direct original reconstruction; no repetitive diagnostic sweep",
+    "Six open science claims, Q19/Q20 partial"
   ],
   "migration": {
     "data_generation": "NOT_RUN_USER_EXPLICITLY_DEFERRED",
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE91-STATISTICAL-MECHANICS-THERMAL-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE92-FINITE-SIZE-ORDER-PARAMETER-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -241,6 +241,26 @@
         "artifact": "mqft_restore85_20261127/{CONVERGENCE85.json,NATIVE85.json,THERMAL85.json,STATIONARY85.json,INDEPENDENT85.json}",
         "evidence": "2304 authenticated native pulse histories reversed as ordered ledgers, 768 exact conditional wave support identities, 104 actual branch-derived energy settings from2448 records,832 feedback cycles and114360704 exact triples,6553600 auxiliary F/R paths,768 stationary Gibbs marginal ambiguity witnesses.",
         "remaining": "THERMO-PHYSICAL-04 physical native energy/reservoir/time not established, no repeated auxiliary FT scan; record/control cost absent. Original final item acceptance separate."
+      },
+      "restore91_followup": {
+        "accepted_subclaims": [
+          "THERMO-SPLIT-06"
+        ],
+        "artifact": "mqft_restore91_20261128/{ORIGINAL_OUTPUT_REPORT91.md,ITEM_RECONSTRUCTION91.json,CONVERGENCE91.json}",
+        "corrected_artifacts": [
+          "G01",
+          "G02",
+          "G04",
+          "G05",
+          "Q05",
+          "Q08"
+        ],
+        "evidence": "960 raw histories, 5760 cuts, 832 declared feedback cases, 3328 signed steps",
+        "partial": [
+          "Q19",
+          "Q20"
+        ],
+        "remaining": "Native physical temperature/heat/reverse not identified."
       },
       "retained_evidence": "STATE06 c_PUCT sweep, RESTORE01 \uc608\uc0b0\ubcc4 \uc2e4\uce21\uacfc fit \uc9c4\ub2e8. \uacbd\ub85c dominance\u00b7overlap \ubc0f STATE16 \uc870\uac74\ubd80 \uc120\ud0dd \ud1b5\uacc4\ub294 \ud45c\ubcf8\uacfc clock\uc774 \ub9de\uc73c\uba74 \uacb0\ud569\ud55c\ub2e4.",
       "source": "ensemble_analyzer_complete.py::_plot_authentic_temperature, honest_plots.py::plot_temperature_extraction/plot_temperature_scaling, \uacbd\ub85c \ud328\ub110 L16. v6 validation\uc758 \u03b2\uc640 mean-field \uc608\uce21.",
@@ -757,6 +777,26 @@
           "Q43"
         ],
         "remaining": "Physical hbar, thermometry, native coherence and broad transfer not admitted."
+      },
+      "restore91_followup": {
+        "accepted_subclaims": [
+          "THERMO-SPLIT-06"
+        ],
+        "artifact": "mqft_restore91_20261128/{ORIGINAL_OUTPUT_REPORT91.md,ITEM_RECONSTRUCTION91.json,CONVERGENCE91.json}",
+        "corrected_artifacts": [
+          "G01",
+          "G02",
+          "G04",
+          "G05",
+          "Q05",
+          "Q08"
+        ],
+        "evidence": "960 raw histories, 5760 cuts, 832 declared feedback cases, 3328 signed steps",
+        "partial": [
+          "Q19",
+          "Q20"
+        ],
+        "remaining": "Native physical temperature/heat/reverse not identified."
       },
       "retained_evidence": "A09/A10 reference \ubc0f RESTORE06 frozen-root identities\u00b7native switching/backup score\u00b7same-clock likelihood. RESTORE07/08\uc758 matched controls\u00b7cost\u00b7\ud640\ub4dc\uc544\uc6c3 rollout\uc740 feedback \ub300\uc870\uc5d0 \ud55c\uc815\ud55c\ub2e4.",
       "source": "plot_thermodynamics.py::plot_non_equilibrium_thermodynamics/plot_thermodynamic_cycles, plot_jarzynski_equality.py::plot_jarzynski_verification/plot_work_fluctuation_analysis, L08/L18/L32.",
@@ -1289,8 +1329,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "X-STRUCT",
-  "quality_matrix": "QUALITY_MATRIX90.csv",
+  "previous_entry": "REPLAN-03",
+  "quality_matrix": "QUALITY_MATRIX91.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4480,8 +4520,50 @@
     "source_path_receipts": 15648,
     "status": "five_corrected_original_artifacts_two_new_scoped_claims_one_partial"
   },
-  "revision": "RESTORE90_20261128",
-  "scope": "Convergence: statistical action, finite support and declared work CGF original reconstruction",
+  "restore91": {
+    "CONVERGENCE91.json_sha256": "d069da60ebe3a35c400f37e28df3aa869e15a7cab38057eb4c2f806d3ae15af0",
+    "DRIFT_WATCHDOG.md_sha256": "ae0115c6998f6d7d44fa74bf88de20405443358020f14190868cd98410b6c07d",
+    "INDEPENDENT91.json_sha256": "b9e4db3f4803c328763711199b77080d891eb94be4986c0de30aed21a9792c39",
+    "ITEM_CONVERGENCE91.json_sha256": "506b08dbf59e0787f8cf89470fbee5b4c1c8925011ea1e12b3829c55c2c60f11",
+    "ITEM_RECONSTRUCTION91.json_sha256": "e7059bb41cc2c3b3f9eeed90b47d504fa44395ef51f9aeea290fa85612bacdd3",
+    "NATIVE91.json_sha256": "1e11cfbc87186b83608a8e882004adc8293a00da96a82c9a0cca2a248bf2c501",
+    "NEXT_DYNAMICS.md_sha256": "ac99771780d68c36776f963f63895a4fe5e80be6aef104ba6228bb1fd01cfc64",
+    "ORIGINAL_OUTPUT_EVIDENCE91.csv_sha256": "c3c8821b23268595b0ac8535616ef7c3ec6d69c3c4823374abe2bf8d5300913a",
+    "ORIGINAL_OUTPUT_PROGRESS91.csv_sha256": "7129b80ca9d62b84ad02111d31e80f9abd0068a2195aad21d3ae0d8c0861c8de",
+    "ORIGINAL_OUTPUT_REPORT91.md_sha256": "67a2edaf59328bed6d3c739b4ef5eef92ef29b43fffcc784a54a6242ce5066b8",
+    "ORIGINAL_SOURCE91.json_sha256": "9962144a8e575522adca4b4cd69ff33a64317068ba17d3b758eb3a9c9bfd7b89",
+    "PLOT_INVENTORY91.csv_sha256": "421a4af34c09a1834db2569b8afce4cd82166f176981f800284ec93d6e740ab7",
+    "PLOT_MANIFEST91.json_sha256": "975f1bf301c2b77d5b4766292b9b7d65bb9cd531a77e1f64531299b3d9403e72",
+    "PROGRESS91.json_sha256": "ebc6ac623b2a2aec7dcf3f3e23b8800221013679236fc11d9dc7e94325d62a13",
+    "QUALITY_MATRIX91.csv_sha256": "587a1d8705e5c7f9df8681fcafedbb97a337c07b6f7d3ec3daac71643cadd589",
+    "REGISTRATION.json_sha256": "4581472fa476b1be7766987a3b74285b12e25ac4b01520a9ad1cad5883a26eeb",
+    "THEORY.md_sha256": "dc1da4166efc2074d3939ef3a275c793dff6a8219dd686f2dd691583198463bb",
+    "THEORY_REGISTERED91.md_sha256": "ddfcdf62541919cda4e9d330ec54add845ac67bb295dca34f76697edc480977b",
+    "THERMAL91.json_sha256": "8a69b10709e61b1ceb668892e1a3793ef89c4256fd6e07be964b3a88e441780d",
+    "accepted_corrected_subclaims": 26,
+    "animations": 0,
+    "branch_source_receipts": 2448,
+    "corrected_report_artifact_accepted": 22,
+    "cumulative_fixed_root_histories": 93336,
+    "figures": 8,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 1,
+    "new_corrected_artifacts": 6,
+    "original_evidence_items": 8,
+    "original_evidence_union_R55_R91": 121,
+    "original_obligations": 121,
+    "parent_commit": "846c3b91f6ba802249dbfabb69439c9e154c3576",
+    "parent_dag_sha256": "d4a66bb3594cb934a8e85700e1f077b718b41802a056eb4a72406efc0117c9a6",
+    "remaining": "99 corrected artifact obligations; six open science claims, Q19/Q20 partial; G06 next.",
+    "retained_pairs": 693,
+    "reused_fixed_root_paths": 960,
+    "status": "six_corrected_original_artifacts_one_new_scoped_claim_two_partial"
+  },
+  "revision": "RESTORE91_20261128",
+  "scope": "Convergence: corrected statistical mechanics and declared thermal entropy outputs",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE90-STATISTICAL-ACTION-ORIGINAL-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE91-STATISTICAL-MECHANICS-THERMAL-OUTPUTS"
 }

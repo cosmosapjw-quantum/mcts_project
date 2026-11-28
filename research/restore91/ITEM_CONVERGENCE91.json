@@ -1,0 +1,75 @@
+{
+  "artifact_reconstruction_sha": "e7059bb41cc2c3b3f9eeed90b47d504fa44395ef51f9aeea290fa85612bacdd3",
+  "claims": [
+    {
+      "claim": "For the specified Gibbs-start finite branch feedback and heat-bath refresh, beta <W>+I0 = Sigma_rel + D(r||p)+I1, with nonnegative conditional relaxation loss; signed step balance is marginal entropy increment minus mutual information increment minus beta heat. Independent measurement does not force zero final branch-state information.",
+      "evidence": [
+        "mqft_restore91_20261128/THEORY.md",
+        "mqft_restore91_20261128/THERMAL91.json",
+        "mqft_restore91_20261128/INDEPENDENT91.json"
+      ],
+      "id": "THERMO-SPLIT-06",
+      "items": [
+        "G04",
+        "G05",
+        "Q05",
+        "Q08"
+      ],
+      "limit": "Explicit declared finite reference; not native calibrated bath, physical entropy or controller reset cost. Same-agent algorithmic cross-check, 104 contexts.",
+      "stage": 91,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "",
+      "id": "G01",
+      "remaining_final_acceptance": "Recompute E_score=-sum occupancy Q with sign frame and clock; identify physical energy independently or explicitly retain score units.",
+      "scope": "Actual signed score energy at six cuts and actual game progression, no calibrated energy."
+    },
+    {
+      "accepted": "",
+      "id": "G02",
+      "remaining_final_acceptance": "Separate B^-1/2 proxy, conditional selector scale, and occupancy projection; calibrated energy/temperature needed for physical T.",
+      "scope": "Budget proxy, conditional logit scale and endpoint KL projection distinguished, no physical T."
+    },
+    {
+      "accepted": "THERMO-SPLIT-06",
+      "id": "G04",
+      "remaining_final_acceptance": "Specify fixed Hamiltonian and equilibrium derivative, energy units and bath; validate C=dE/dT against controlled T scan.",
+      "scope": "Fixed declared H Gibbs C/k_B and centered derivative under theta scan; no native heat capacity."
+    },
+    {
+      "accepted": "THERMO-SPLIT-06",
+      "id": "G05",
+      "remaining_final_acceptance": "Reconstruct signed energy/entropy/work ledger with all panels, independently identified energy/bath or declared reference; show residual.",
+      "scope": "Native score and separately declared signed energy/entropy/work/heat ledger with residual."
+    },
+    {
+      "accepted": "THERMO-SPLIT-06",
+      "id": "Q05",
+      "remaining_final_acceptance": "Derive entropy production for specified reverse/reference and state evolution; verify signed derivatives and positivity within hypotheses.",
+      "scope": "Exact nonnegative conditional entropy production and signed temporal increments for declared reference."
+    },
+    {
+      "accepted": "THERMO-SPLIT-06",
+      "id": "Q08",
+      "remaining_final_acceptance": "Validate full signed entropy balance with identified heat flux and bath, not abs(dS_sys/dt); retain residual and support.",
+      "scope": "Signed marginal entropy minus information change minus beta heat, independent repeated kernel; no native bath."
+    },
+    {
+      "accepted": "",
+      "id": "Q19",
+      "remaining_final_acceptance": "Explicit forward/reverse protocol and Gibbs start, actual work and DeltaF; finite Jarzynski estimator ESS and exact reference.",
+      "scope": "Partial: actual historical F/R auxiliary MC and support-aware feedback IFT; source-specific full panel not complete."
+    },
+    {
+      "accepted": "",
+      "id": "Q20",
+      "remaining_final_acceptance": "Actual protocol work fluctuations, cumulants and uncertainty, no synthetic random-walk surrogate or native energy assumption.",
+      "scope": "Partial: finite declared work mean and SD and MC estimates; full work distribution panels still open."
+    }
+  ],
+  "parent_convergence_sha256": "be48fda855ce9b22c2ee6b76dcceb4762da78e269f80ca9ff05bd1074ca03e93",
+  "parent_quality_matrix_sha256": "a8dcfe6ebd842875840893c0c08d4c4978b2fab676bf77e35267eeb8c9484dda"
+}
