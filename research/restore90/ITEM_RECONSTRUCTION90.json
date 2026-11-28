@@ -1,0 +1,250 @@
+{
+  "corrected_artifacts_total": 16,
+  "items": [
+    {
+      "acceptance_contract": "Reproduce visit/prior/conditional Shannon entropy with legal support and clock; no thermodynamic equivalence without state map.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "PATH90.json": "4e8dd8f5bd23ab126166e91c201a8507564c181eb88093c38cf2395bf4040aa8"
+      },
+      "figure": "G03_entropy",
+      "figures": [
+        "G03_entropy"
+      ],
+      "id": "G03",
+      "method": "Visit/prior/mean conditional Shannon entropy at actual cuts with legal support.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          274
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+        "id": "G03",
+        "member": "entropy_evolution.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "T_temperature_entropy",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "pdf_sha": "452caca75f73f58b254361a41e28f0add2862257289f7c10513c630905a21b38",
+      "png_sha": "54c6ae4817da14aa56fb625aa5365868c9dec90b9fa1c3d779cc92df76d74b6c",
+      "remaining_limit": "Not thermodynamic entropy without state identification.",
+      "result": "R86 heldout geometry, six cut clocks, all three evaluator families."
+    },
+    {
+      "acceptance_contract": "Measure direct causal field response with same score law and mark, distinguish connected fluctuation and FDT; independent geometry.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "RESPONSE90.json": "27442a51190d71f146262b44e48e7396cc4bcd34d8dc5cc36b70b4b5a0252a4b"
+      },
+      "figure": "G07_response",
+      "figures": [
+        "G07_response"
+      ],
+      "id": "G07",
+      "method": "Actual matched +/-0.35 source pulse and exact path likelihood score, naive covariance and predictable drift comparison.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "guide_only",
+        "end": "",
+        "function": "",
+        "guide_lines": [
+          280
+        ],
+        "guide_source_member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+        "guide_source_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+        "id": "G07",
+        "member": "susceptibility.png",
+        "member_sha": "",
+        "observable_fields": [],
+        "panel": "C_finite_budget_response;C_graph_correlation;A_C_paired_source_response",
+        "source_status": "GUIDE_LABEL_ONLY",
+        "span_sha": "",
+        "start": ""
+      },
+      "pdf_sha": "b87e00b4a9762dd5f962da2d3016f16802695521d84b3a5903f06ca5bb36f828",
+      "png_sha": "1e749592e25e50154271500d47b2a0e9d55c245b729a2d0a3bb209e7fd6fa577",
+      "remaining_limit": "Finite contrast versus derivative distinguished; no equilibrium FDT.",
+      "result": "2304 paths; 768 matched prefix triples; 16 root blocks per family."
+    },
+    {
+      "acceptance_contract": "Normalized full-support marked path measure with action, overlaps and complex readout where specified; controlled 1PI/loop expansion and independent prediction.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "DUAL90.json": "e0f7edb59157372e8413eccb14c71f279fe5dc621534153f7b8a608f5405ccfd",
+        "INDEPENDENT90.json": "db5b92df7510896bd2acd4294ee2cdf6dd7ba0e95ca0fbbb8def8430f96b988c",
+        "PATH90.json": "4e8dd8f5bd23ab126166e91c201a8507564c181eb88093c38cf2395bf4040aa8",
+        "PHASE90.json": "a2891b5138ee4f6be0890c529cbba075dadb7f07e66c19ea9a12927bae615195"
+      },
+      "figure": "L16_path_integral",
+      "figures": [
+        "L16_path_integral",
+        "L16_effective_action"
+      ],
+      "id": "L16",
+      "method": "Actual ordered marked law and log likelihood, classical overlaps, visited Q, programmed phase post-state, finite-face 1PI and statistical replica expansion, R84 held-out prediction.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "omoknuni_quantum-main.zip",
+        "end": 2390,
+        "function": "_generate_path_integral_plots",
+        "id": "L16",
+        "member": "omoknuni_quantum-main/python/mcts/quantum/analysis/ensemble_analyzer_complete.py",
+        "member_sha": "2c5fe86559b477941b1adde09de0d7e181b6f6979462cd50192c3e8720ac45c7",
+        "observable_fields": [
+          "action",
+          "coherence_evolution",
+          "decoherence",
+          "dominant_paths",
+          "overlap",
+          "path_distance",
+          "path_integral",
+          "path_overlaps",
+          "path_visits",
+          "path_weights",
+          "position",
+          "q_value",
+          "q_value_landscape",
+          "quantum_phenomena",
+          "simulation_counts",
+          "weight",
+          "weights"
+        ],
+        "panel": "A_action_curvature;A_C_paired_source_response",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "bccf5ebd77c7c9f11f3b511ee9cc9afd91c8790c17d64d3e94ec9fbf9f89a02f",
+        "start": 2212
+      },
+      "pdf_sha": "79480321139fe7cc4806510e027dac39cc48c6db853a435e53fd2331cf99948c",
+      "png_sha": "792b28b45f2d6b9b60547628a7284f8d4e3c901d056ca8f31ccc407c4e006460",
+      "remaining_limit": "Empirical support distinct from native legal support; coherent dilation declared, no physical hbar; one heldout cohort, no matched-cost transfer.",
+      "result": "7488 actual clean histories, 52320 within-root overlap pairs, 261 interior and 372 face tilts; 180 coefficient checks, six independent FFTs."
+    },
+    {
+      "acceptance_contract": "Derive normalized path measure and work generating function for identified Hamiltonian/protocol; complex action separately with operational phase.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "PATH90.json": "4e8dd8f5bd23ab126166e91c201a8507564c181eb88093c38cf2395bf4040aa8",
+        "PHASE90.json": "a2891b5138ee4f6be0890c529cbba075dadb7f07e66c19ea9a12927bae615195",
+        "WORK90.json": "5dafcba8f141ce7b7fe7957e9f3cfe68910e468af87fcd456c637be5f8f087b2"
+      },
+      "figure": "Q21_work_path",
+      "figures": [
+        "Q21_work_path"
+      ],
+      "id": "Q21",
+      "method": "Normalized marked law; explicit diagonal Hamiltonian cyclic feedback work generator; separate complex record amplitude action and operational programmed phase.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "quantum.zip",
+        "end": 549,
+        "function": "plot_path_integral_formulation",
+        "id": "Q21",
+        "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+        "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+        "observable_fields": [],
+        "panel": "N_score_balance;A_action_curvature;A_C_paired_source_response",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "ccd8dd8280aab71bcbd13570365f63754103ca526523634d6859e4529c6c239e",
+        "start": 440
+      },
+      "pdf_sha": "020bf1485e76796383dd5efe92b415b6ea8fbbf42befd44de479f78384e350fb",
+      "png_sha": "762e51ea7bdbc041cc9045da3e541ae3251376ee0d8ac0a25ad682792682bc85",
+      "remaining_limit": "Hamiltonian model declared, not native heat/work; complex dilation nonunique; physical hbar uncalibrated.",
+      "result": "832 exact work cases, 3456 phase paths and 72 declared record contexts, matched readout and stopped mass."
+    },
+    {
+      "acceptance_contract": "Measure direct conjugate source response, compare path-score and fluctuation; thermal susceptibility/C only if calibrated T.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "evidence": {
+        "INDEPENDENT90.json": "db5b92df7510896bd2acd4294ee2cdf6dd7ba0e95ca0fbbb8def8430f96b988c",
+        "RESPONSE90.json": "27442a51190d71f146262b44e48e7396cc4bcd34d8dc5cc36b70b4b5a0252a4b"
+      },
+      "figure": "Q32_susceptibility",
+      "figures": [
+        "Q32_susceptibility"
+      ],
+      "id": "Q32",
+      "method": "Same-wave exact conjugate source derivative and actual response, score Gibbs capacity, R87 corrected innovation trace across size.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "quantum.zip",
+        "end": 641,
+        "function": "plot_susceptibility_analysis",
+        "id": "Q32",
+        "member": "quantum/research/visualization/plot_statistical_physics.py",
+        "member_sha": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+        "observable_fields": [
+          "field_susceptibility",
+          "fields",
+          "heat_capacity",
+          "response",
+          "susceptibility",
+          "temperature_susceptibility",
+          "temperatures"
+        ],
+        "panel": "C_finite_budget_response;C_graph_correlation;A_C_paired_source_response;N_score_balance",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "ba1bc75224d86026923f5a91adadde75936913e18b0f3d515b643e2024017cd7",
+        "start": 492
+      },
+      "pdf_sha": "ccf4969fbd7ad6ead4086594590be946b8fe6fc60f44401f6bcb56a3a52bf362",
+      "png_sha": "131848e160ca41d5af4e65f1030da45629312a62f76d83aee85a70b470dd0424",
+      "remaining_limit": "Dimensionless score beta only, no calibrated T or physical heat capacity; critical gate 0/8.",
+      "result": "2304 pulse paths and 40 inherited corrected finite-size aggregate strata checked."
+    },
+    {
+      "acceptance_contract": "Define complex path amplitude, measure, action and independently calibrated hbar; compare actual finite conditional instrument and coherent readout.",
+      "decision": "PARTIAL_CORRECTED_ARTIFACT_CALIBRATION_UNRESOLVED",
+      "evidence": {
+        "DUAL90.json": "e0f7edb59157372e8413eccb14c71f279fe5dc621534153f7b8a608f5405ccfd",
+        "PHASE90.json": "a2891b5138ee4f6be0890c529cbba075dadb7f07e66c19ea9a12927bae615195"
+      },
+      "figure": "Q43_partial_hbar",
+      "figures": [
+        "Q43_partial_hbar"
+      ],
+      "id": "Q43",
+      "method": "Complex record amplitude/action with explicit tagged readout and dimensionless 1/M replica limit, no fitted hbar.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "archive": "quantum.zip",
+        "end": 630,
+        "function": "plot_path_integral_hbar",
+        "id": "Q43",
+        "member": "quantum/research/visualization/plot_exact_hbar_analysis.py",
+        "member_sha": "a6d443da8f940359f0b3b1e09e0fbd8f8ace5ff3f724378fa0e455279447e738",
+        "observable_fields": [],
+        "panel": "",
+        "source_status": "EXACT_SOURCE_SPAN",
+        "span_sha": "fc867168d0c83df5b6ba03cfa786314ea5d0e77a3da5614d24f12d60ce03d880",
+        "start": 474
+      },
+      "pdf_sha": "766ff1d74273a7589bbcd17fbb21412745c49050161bd8d70c41104a0840bd34",
+      "png_sha": "5aae1d186edb3da4f05ba8b61b497d47ff8f0e01fdf37f0aa54cfeb05f0dc0f1",
+      "remaining_limit": "PARTIAL: independently calibrated physical hbar and native quantum-classical limit absent.",
+      "result": "72 declared record contexts and 180 statistical replica checks."
+    }
+  ],
+  "original_scientific_certifications": 0,
+  "prior_report_artifacts": [
+    "L31",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "L10",
+    "L22",
+    "L24",
+    "L21",
+    "L23"
+  ],
+  "status": "FIVE_CORRECTED_SCOPED_ONE_PARTIAL"
+}

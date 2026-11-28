@@ -1,0 +1,17 @@
+{
+  "parent": "d9094e195944edfe78de23c98b798777590f5568",
+  "contract_sha": "74b055397403d6ab10150b11ec1c24f1c35d47b56971fa3a57ec5abe9858888e",
+  "target": [
+    "L16",
+    "G03",
+    "G07",
+    "Q32",
+    "Q21",
+    "Q43"
+  ],
+  "clean_paths": 7488,
+  "pulse_paths": 2304,
+  "law_count": 12,
+  "seed": 900001,
+  "backup": "Dropbox only"
+}

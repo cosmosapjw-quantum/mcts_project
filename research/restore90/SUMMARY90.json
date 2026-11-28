@@ -1,0 +1,160 @@
+{
+  "clean_backups": 958464,
+  "clean_paths": 7488,
+  "diagnostic_union": 2952,
+  "edge_tilt_cases": 372,
+  "edges": 124,
+  "figures": 7,
+  "forced_replay": 24,
+  "heldout_truth_values": 29232,
+  "interior_cases": 261,
+  "loop_cases": 180,
+  "max_path_probability_error": 6.328271240363392e-15,
+  "max_work_mgf_error": 7.105427357601002e-14,
+  "max_work_moment_error": 6.661338147750939e-16,
+  "new_corrected_artifacts": 5,
+  "new_fixed_roots": 0,
+  "normal_checks": 2232,
+  "outside_hull": [
+    {
+      "cohort": "matched",
+      "family": "g0",
+      "n": 256,
+      "outside": 8
+    },
+    {
+      "cohort": "novel_R80",
+      "family": "g0",
+      "n": 128,
+      "outside": 21
+    },
+    {
+      "cohort": "R84",
+      "family": "g0",
+      "n": 768,
+      "outside": 74
+    },
+    {
+      "cohort": "R86",
+      "family": "g0",
+      "n": 384,
+      "outside": 23
+    },
+    {
+      "cohort": "matched",
+      "family": "g3",
+      "n": 256,
+      "outside": 6
+    },
+    {
+      "cohort": "novel_R80",
+      "family": "g3",
+      "n": 128,
+      "outside": 12
+    },
+    {
+      "cohort": "R84",
+      "family": "g3",
+      "n": 768,
+      "outside": 109
+    },
+    {
+      "cohort": "R86",
+      "family": "g3",
+      "n": 384,
+      "outside": 39
+    },
+    {
+      "cohort": "matched",
+      "family": "Rapfi",
+      "n": 256,
+      "outside": 6
+    },
+    {
+      "cohort": "novel_R80",
+      "family": "Rapfi",
+      "n": 128,
+      "outside": 1
+    },
+    {
+      "cohort": "R84",
+      "family": "Rapfi",
+      "n": 768,
+      "outside": 51
+    },
+    {
+      "cohort": "R86",
+      "family": "Rapfi",
+      "n": 384,
+      "outside": 8
+    }
+  ],
+  "overlap_pairs": 52320,
+  "partial": [
+    "Q43"
+  ],
+  "phase_paths": 3456,
+  "pulse_paths": 2304,
+  "record_contexts": 72,
+  "status": "PASS_SCOPED",
+  "transfer": [
+    {
+      "W": [
+        1.2127164919355626,
+        0.5290518564266778
+      ],
+      "baseline": "root_ridge",
+      "candidate": "combined_ridge",
+      "energy": [
+        0.1338071970501776,
+        0.06693468208208453
+      ],
+      "family": "g0",
+      "gain_ci": [
+        0.06687251496809307,
+        0.04570584738645002,
+        0.08803918254973613
+      ]
+    },
+    {
+      "W": [
+        0.8637409505181878,
+        0.4446985089097547
+      ],
+      "baseline": "root_ridge",
+      "candidate": "combined_ridge",
+      "energy": [
+        0.09328502674160664,
+        0.049871036946564334
+      ],
+      "family": "g3",
+      "gain_ci": [
+        0.04341398979504232,
+        0.029807081105565784,
+        0.05702089848451885
+      ]
+    },
+    {
+      "W": [
+        1.0182873178709317,
+        0.2832501621594582
+      ],
+      "baseline": "root_ridge",
+      "candidate": "combined_ridge",
+      "energy": [
+        0.10008402894527729,
+        0.036963514857352255
+      ],
+      "family": "Rapfi",
+      "gain_ci": [
+        0.06312051408792506,
+        0.043942485862068434,
+        0.08229854231378168
+      ]
+    }
+  ],
+  "unaliased_FFT": 6,
+  "unique_raw_receipts": 15648,
+  "vertices": 124,
+  "work_cases": 832
+}

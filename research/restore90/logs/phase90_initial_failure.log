@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore90_20261128/phase90.py", line 91, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore90_20261128/phase90.py", line 37, in main
+    chk('raw_group_probability',q,D['group_probs'][i,:,arm]);chk('raw_state_prepared',s,D['states'][i]);chk('raw_baseinfo',m,D['baseinfo'][i])
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore90_20261128/phase90.py", line 32, in chk
+    e=float(abs(np.asarray(a)-np.asarray(b)).max());err[k]=max(e,err[k]);assert e<tol,(k,e)
+                                                                                ^^^^^
+AssertionError: ('raw_state_prepared', 0.735335702971047)

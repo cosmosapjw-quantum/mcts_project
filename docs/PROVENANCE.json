@@ -3985,6 +3985,76 @@
       }
     }
   },
+  "restore90": {
+    "CONVERGENCE90.json_sha256": "be48fda855ce9b22c2ee6b76dcceb4762da78e269f80ca9ff05bd1074ca03e93",
+    "DRIFT_WATCHDOG.md_sha256": "207288826667d10cd5e1695c42c7cc887d34b4238defb8ffee02bd5b34901034",
+    "DUAL90.json_sha256": "e0f7edb59157372e8413eccb14c71f279fe5dc621534153f7b8a608f5405ccfd",
+    "INDEPENDENT90.json_sha256": "db5b92df7510896bd2acd4294ee2cdf6dd7ba0e95ca0fbbb8def8430f96b988c",
+    "ITEM_CONVERGENCE90.json_sha256": "925b4918140dc08a5cf3951d15e8ab1f60052c2208b4aba6e791d31b1da3987f",
+    "ITEM_RECONSTRUCTION90.json_sha256": "8fdd87b4301c729ef08bda0c66a8a0b774bbd5033e7101833722aebaf264e14f",
+    "NEXT_DYNAMICS.md_sha256": "b4a7c04fdb2da6662baa0159a3e6669988528b048881f3ff9820e2a92c85bb28",
+    "ORIGINAL_OUTPUT_EVIDENCE90.csv_sha256": "7b07319957b1c041fca407eeb259cb7d9a1d771547ca52efc14b524e040f00db",
+    "ORIGINAL_OUTPUT_PROGRESS90.csv_sha256": "2be4ac7bd58304c7f8702c00eaa015742a3bbd691ef1e85bc4941776435fd8dc",
+    "ORIGINAL_OUTPUT_REPORT90.md_sha256": "58008e775c553ae95e53af12bc76943da2cc529e5e2a0a49f54e40f51d0cef46",
+    "ORIGINAL_SOURCE90.json_sha256": "9ca82d32c87ff5a0f2b9edfcbbd74918b86401c01b5b92555bffa2013a8908eb",
+    "PATH90.json_sha256": "4e8dd8f5bd23ab126166e91c201a8507564c181eb88093c38cf2395bf4040aa8",
+    "PHASE90.json_sha256": "a2891b5138ee4f6be0890c529cbba075dadb7f07e66c19ea9a12927bae615195",
+    "PLOT_INVENTORY90.csv_sha256": "7f4cacd6ad859fa7300a3dc19aa2190b429777605832a8ee8f54ec17e1a1a4b4",
+    "PLOT_MANIFEST90.json_sha256": "b2c66a871c95a27193cf30e5a73827afbcdd106e759d6e4b4330027a118048c2",
+    "PROGRESS90.json_sha256": "b908e9321a7911dcffff9866d5dcf7296b727a7abebd56711bf5002d4690fe0a",
+    "QUALITY_MATRIX90.csv_sha256": "a8dcfe6ebd842875840893c0c08d4c4978b2fab676bf77e35267eeb8c9484dda",
+    "REGISTRATION.json_sha256": "d9196f0971c7aa02f81146342697795b40ff4ab2711ba2d59b2efc945bc22a97",
+    "RESPONSE90.json_sha256": "27442a51190d71f146262b44e48e7396cc4bcd34d8dc5cc36b70b4b5a0252a4b",
+    "SUMMARY90.json_sha256": "3491a0d2556f8928dc0637b6ed077ea91f9303e4e6c92d1dc473ee20e67522fe",
+    "THEORY.md_sha256": "77f97e9d53bb5ca1ace3b3fb3a2eec63655f7a430b7443bf06af5e4820f13e93",
+    "THEORY_REGISTERED90.md_sha256": "74b055397403d6ab10150b11ec1c24f1c35d47b56971fa3a57ec5abe9858888e",
+    "WORK90.json_sha256": "5dafcba8f141ce7b7fe7957e9f3cfe68910e468af87fcd456c637be5f8f087b2",
+    "accepted_corrected_subclaims": 25,
+    "animations": 0,
+    "corrected_report_artifact_accepted": 16,
+    "cumulative_fixed_root_histories": 93336,
+    "dag_sha256": "d4a66bb3594cb934a8e85700e1f077b718b41802a056eb4a72406efc0117c9a6",
+    "external": {
+      "files": {
+        "config.toml": "32b9180c91247541d399ceef62906d5ffeb48e34eb5f261612987633820d5d3c",
+        "mix9svqfreestyle_bsmix.bin.lz4": "6bc0d1b0ff8e1d857f7f412923cd458f38f1a435087c91ae71fec3676c23ef62",
+        "pbrain-rapfi-linux-clang-avx2": "4217c3202cdd8dbb58524110d9064299e314a695e58ddbd055d9a4dd99de201c"
+      },
+      "license": "GPL-3.0",
+      "release": "250615",
+      "release_url": "https://github.com/dotb1ue/rapfi/releases/tag/250615",
+      "rules": "freestyle15",
+      "score_semantics": "external strong move proxy, not exact",
+      "source": "https://github.com/dhbloo/rapfi"
+    },
+    "figures": 7,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_corrected_artifacts": 5,
+    "original_evidence_items": 6,
+    "original_evidence_union_R55_R90": 121,
+    "original_obligations": 121,
+    "parent_commit": "d9094e195944edfe78de23c98b798777590f5568",
+    "parent_dag_sha256": "555dcfda6636c37740d2e86ce40e6ef9984d0e6b4612acb0fa75beecd538555e",
+    "remaining": "105 original corrected artifact obligations; six open science claims. Q43 partial. Dropbox only.",
+    "retained_pairs": 685,
+    "reused_fixed_root_paths": 7488,
+    "source_path_receipts": 15648,
+    "status": "five_corrected_original_artifacts_two_new_scoped_claims_one_partial",
+    "weights": {
+      "0": {
+        "path": "mqft_restore60_20261126/checkpoints/g0.bin",
+        "sha256": "3c5ae3b4a6e5a60f3e79f19bbb0d1d26c641ce76aa7fdc791b1a969800510a57"
+      },
+      "3": {
+        "path": "mqft_restore60_20261126/checkpoints/g3.bin",
+        "sha256": "66d4ff7fc6b5351f89a0cda68555927a23d28e8eb069bb0a31ae87dfe835f7eb"
+      }
+    }
+  },
   "source_plan_sha256": "04313e24ec5328f8407fe29f92a659c2f8aceba1fda80c014f3c73ad15ae1fe6",
   "target_parent": "eb19e5f4ca9a502d645ccab45a8dcfbcc733f537"
 }

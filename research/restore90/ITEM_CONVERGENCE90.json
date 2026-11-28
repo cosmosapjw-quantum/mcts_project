@@ -1,0 +1,76 @@
+{
+  "artifact_reconstruction_sha": "8fdd87b4301c729ef08bda0c66a8a0b774bbd5033e7101833722aebaf264e14f",
+  "claims": [
+    {
+      "claim": "For finite empirical P the Legendre rate is the constrained minimum KL; on an exposed face F it equals -log P(F) plus the conditional rate, with curvature inverse only on the affine tangent. Exact normal tilt residual is -log(1-off-face mass).",
+      "evidence": [
+        "THEORY.md",
+        "DUAL90.json",
+        "INDEPENDENT90.json"
+      ],
+      "id": "STAT-FACE-07",
+      "items": [
+        "L16"
+      ],
+      "limit": "Finite empirical law only; outside-support observations occur on independent native data. No universal native effective action or physical quantum claim.",
+      "stage": 90,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "In the declared cyclic feedback protocol the work MGF factors into diagonal plus rank-one heat-bath terms; independent enumeration reproduces moments and support-corrected IFT.",
+      "evidence": [
+        "THEORY.md",
+        "WORK90.json",
+        "INDEPENDENT90.json"
+      ],
+      "id": "THERMO-WORK-CGF-05",
+      "items": [
+        "Q21"
+      ],
+      "limit": "Declared finite Hamiltonian/protocol, arbitrary score energy units; no physical native thermodynamic calibration or control-cost inclusion.",
+      "stage": 90,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "",
+      "id": "G03",
+      "remaining_final_acceptance": "Reproduce visit/prior/conditional Shannon entropy with legal support and clock; no thermodynamic equivalence without state map.",
+      "scope": "Visit/prior/mean conditional Shannon entropy at actual cuts with legal support. Not thermodynamic entropy without state identification."
+    },
+    {
+      "accepted": "",
+      "id": "G07",
+      "remaining_final_acceptance": "Measure direct causal field response with same score law and mark, distinguish connected fluctuation and FDT; independent geometry.",
+      "scope": "Actual matched +/-0.35 source pulse and exact path likelihood score, naive covariance and predictable drift comparison. Finite contrast versus derivative distinguished; no equilibrium FDT."
+    },
+    {
+      "accepted": "STAT-FACE-07",
+      "id": "L16",
+      "remaining_final_acceptance": "Normalized full-support marked path measure with action, overlaps and complex readout where specified; controlled 1PI/loop expansion and independent prediction.",
+      "scope": "Actual ordered marked law and log likelihood, classical overlaps, visited Q, programmed phase post-state, finite-face 1PI and statistical replica expansion, R84 held-out prediction. Empirical support distinct from native legal support; coherent dilation declared, no physical hbar; one heldout cohort, no matched-cost transfer."
+    },
+    {
+      "accepted": "THERMO-WORK-CGF-05",
+      "id": "Q21",
+      "remaining_final_acceptance": "Derive normalized path measure and work generating function for identified Hamiltonian/protocol; complex action separately with operational phase.",
+      "scope": "Normalized marked law; explicit diagonal Hamiltonian cyclic feedback work generator; separate complex record amplitude action and operational programmed phase. Hamiltonian model declared, not native heat/work; complex dilation nonunique; physical hbar uncalibrated."
+    },
+    {
+      "accepted": "",
+      "id": "Q32",
+      "remaining_final_acceptance": "Measure direct conjugate source response, compare path-score and fluctuation; thermal susceptibility/C only if calibrated T.",
+      "scope": "Same-wave exact conjugate source derivative and actual response, score Gibbs capacity, R87 corrected innovation trace across size. Dimensionless score beta only, no calibrated T or physical heat capacity; critical gate 0/8."
+    },
+    {
+      "accepted": "",
+      "id": "Q43",
+      "remaining_final_acceptance": "Define complex path amplitude, measure, action and independently calibrated hbar; compare actual finite conditional instrument and coherent readout.",
+      "scope": "Complex record amplitude/action with explicit tagged readout and dimensionless 1/M replica limit, no fitted hbar. PARTIAL: independently calibrated physical hbar and native quantum-classical limit absent."
+    }
+  ],
+  "parent_convergence_sha256": "72de21b37eec09c6706651ca5ae742e4b20aa72655668d61930e56f71c1ccfe8",
+  "parent_quality_matrix_sha256": "8033e5c14034c5d4b7547b7e297a1df1e1abb9b4e2d7250baa7f824df5116336",
+  "scope": "Five corrected artifacts, Q43 partial; original science not certified."
+}

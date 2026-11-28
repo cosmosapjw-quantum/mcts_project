@@ -1,0 +1,80 @@
+{
+  "figures": [
+    {
+      "figure": "L16_path_integral",
+      "ids": [
+        "L16"
+      ],
+      "pdf_sha": "79480321139fe7cc4806510e027dac39cc48c6db853a435e53fd2331cf99948c",
+      "png_sha": "792b28b45f2d6b9b60547628a7284f8d4e3c901d056ca8f31ccc407c4e006460",
+      "scope": "Actual paths; classical overlap and separately programmed register coherence."
+    },
+    {
+      "figure": "L16_effective_action",
+      "ids": [
+        "L16"
+      ],
+      "pdf_sha": "9c0be0c4350b37aabd1022b26f4dc1a191af9a850138ec309082957f052e8518",
+      "png_sha": "7a691c6c3187182e9f41947ac5721a92c84e0ca91cb111e614f4dce681e16042",
+      "scope": "Empirical convex support, face limit, independently checked statistical expansion and transfer."
+    },
+    {
+      "figure": "G03_entropy",
+      "ids": [
+        "G03"
+      ],
+      "pdf_sha": "452caca75f73f58b254361a41e28f0add2862257289f7c10513c630905a21b38",
+      "png_sha": "54c6ae4817da14aa56fb625aa5365868c9dec90b9fa1c3d779cc92df76d74b6c",
+      "scope": "R86 actual cuts, legal support, prior and conditional entropy distinguished."
+    },
+    {
+      "figure": "G07_response",
+      "ids": [
+        "G07"
+      ],
+      "pdf_sha": "b87e00b4a9762dd5f962da2d3016f16802695521d84b3a5903f06ca5bb36f828",
+      "png_sha": "1e749592e25e50154271500d47b2a0e9d55c245b729a2d0a3bb209e7fd6fa577",
+      "scope": "R74 paired source pulse, 16 geometry blocks per family; finite h differs from derivative."
+    },
+    {
+      "figure": "Q32_susceptibility",
+      "ids": [
+        "Q32"
+      ],
+      "pdf_sha": "ccf4969fbd7ad6ead4086594590be946b8fe6fc60f44401f6bcb56a3a52bf362",
+      "png_sha": "131848e160ca41d5af4e65f1030da45629312a62f76d83aee85a70b470dd0424",
+      "scope": "Dimensionless score response only; R87 corrected startup schedule; no physical temperature or critical claim."
+    },
+    {
+      "figure": "Q21_work_path",
+      "ids": [
+        "Q21"
+      ],
+      "pdf_sha": "020bf1485e76796383dd5efe92b415b6ea8fbbf42befd44de479f78384e350fb",
+      "png_sha": "762e51ea7bdbc041cc9045da3e541ae3251376ee0d8ac0a25ad682792682bc85",
+      "scope": "Declared Hamiltonian/protocol plus actual programmed phase and separate complex record readout."
+    },
+    {
+      "figure": "Q43_partial_hbar",
+      "ids": [
+        "Q43"
+      ],
+      "pdf_sha": "766ff1d74273a7589bbcd17fbb21412745c49050161bd8d70c41104a0840bd34",
+      "png_sha": "5aae1d186edb3da4f05ba8b61b497d47ff8f0e01fdf37f0aa54cfeb05f0dc0f1",
+      "scope": "Partial only: no physical hbar or native quantum-classical calibration."
+    }
+  ],
+  "prior_sources": {
+    "mqft_restore81_20261127/PATHS81.npz": "ea14f6c7d48812485290630f9cc0722a09f632713aab130e0f11ff9cdbb6ee71"
+  },
+  "sources": {
+    "DUAL90.json": "e0f7edb59157372e8413eccb14c71f279fe5dc621534153f7b8a608f5405ccfd",
+    "INDEPENDENT90.json": "db5b92df7510896bd2acd4294ee2cdf6dd7ba0e95ca0fbbb8def8430f96b988c",
+    "PATH90.json": "4e8dd8f5bd23ab126166e91c201a8507564c181eb88093c38cf2395bf4040aa8",
+    "PATH90.npz": "0bb115a3aff338b20e022d7898f1de7b90cd9e22dba1bdf8aae7d82e96ea40c2",
+    "PHASE90.json": "a2891b5138ee4f6be0890c529cbba075dadb7f07e66c19ea9a12927bae615195",
+    "RESPONSE90.json": "27442a51190d71f146262b44e48e7396cc4bcd34d8dc5cc36b70b4b5a0252a4b",
+    "WORK90.json": "5dafcba8f141ce7b7fe7957e9f3cfe68910e468af87fcd456c637be5f8f087b2",
+    "plot90.py": "9e576b954819b40c17380b9bc631180e42321b33b54c42e6a34e3e84c728f0b0"
+  }
+}
