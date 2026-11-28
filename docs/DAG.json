@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE96.json",
+  "convergence_ledger": "CONVERGENCE97.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -121,7 +121,7 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R97 Q35-Q37 Q39-Q40 entropy and partition outputs",
+    "R98 Q09-Q13 exact pushforward, induced beta field and RG closure",
     "Direct original reconstruction; no optimizer drift",
     "Six open science claims, Q02/Q31 and Q19/Q20 partial"
   ],
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE97-ENTROPY-PARTITION-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE98-RG-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -797,6 +797,19 @@
         "partial": [],
         "remaining": "Native physical objectivity and coherent record identification not established."
       },
+      "restore97_followup": {
+        "accepted_subclaims": [
+          "ENT-PART-13",
+          "Q-DISCORD-14"
+        ],
+        "artifact": "mqft_restore97_20261128/{ORIGINAL_OUTPUT_REPORT97.md,ITEM_RECONSTRUCTION97.json,CONVERGENCE97.json}",
+        "corrected_artifacts": [
+          "Q37"
+        ],
+        "evidence": "4184 raw receipts; 5760 states, 43776 subsets, 19008 cuts, 36288 CMI, 15552 measurements, 4265 native game cut replays, 4264 thermal derivative points",
+        "partial": [],
+        "remaining": "Spatial area-law and coherent size series not established; native bath, physical entanglement identification open."
+      },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -1167,6 +1180,23 @@
         "partial": [],
         "remaining": "Native physical entanglement, coherent branch identification and operational Bell settings not established."
       },
+      "restore97_followup": {
+        "accepted_subclaims": [
+          "ENT-PART-13",
+          "Q-DISCORD-14"
+        ],
+        "artifact": "mqft_restore97_20261128/{ORIGINAL_OUTPUT_REPORT97.md,ITEM_RECONSTRUCTION97.json,CONVERGENCE97.json}",
+        "corrected_artifacts": [
+          "Q35",
+          "Q39",
+          "Q40"
+        ],
+        "evidence": "4184 raw receipts; 5760 states, 43776 subsets, 19008 cuts, 36288 CMI, 15552 measurements, 4265 native game cut replays, 4264 thermal derivative points",
+        "partial": [
+          "Q36"
+        ],
+        "remaining": "Spatial area-law and coherent size series not established; native bath, physical entanglement identification open."
+      },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
       "structure_followup": "RESTORE22 complex Gram restricted spatial coherence filtration and triangle-phase gauge checks; actual projected density code and operational recovery; no physical phase identification.",
@@ -1458,7 +1488,7 @@
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
   "previous_entry": "REPLAN-05",
-  "quality_matrix": "QUALITY_MATRIX96.csv",
+  "quality_matrix": "QUALITY_MATRIX97.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4913,8 +4943,59 @@
     "reused_fixed_root_paths": 3456,
     "status": "five_corrected_original_artifacts_two_new_scoped_claims"
   },
-  "revision": "RESTORE96_20261128",
-  "scope": "Convergence: declared adaptive prefix accessible information and disjoint fragment packing",
+  "restore97": {
+    "CONVERGENCE97.json_sha256": "9847a53a4afde8f7fe73c87905d925cd2576125153cd993ea81899c0259a0a0f",
+    "DRIFT_WATCHDOG.md_sha256": "da9021135ab8ed854967c0de5eeeed76f0c33e599b0177e1cf8f20d53b2b546c",
+    "ENTROPY97.json.gz_sha256": "ab4a29bb3b27998ac082da6af1e76126a24c83360df12b81b67f496ae70101be",
+    "ENTROPY97.json_sha256": "aea6724be6a957c4b729edee31b243717f10bf9386b0852d1d9296978770f7e4",
+    "INDEPENDENT97.json_sha256": "0f5d714617e6555e0c3c5a8f43129fba19b768a5d9a633359593b5982fc7be8e",
+    "ITEM_CONVERGENCE97.json_sha256": "f0dee52672d9528ab4e6a678810a33e1124f59ee25e5d08f109d5ef807c612b8",
+    "ITEM_RECONSTRUCTION97.json_sha256": "dd78e465b714123baea0a0f753f8c89198280ad86978db763c2e32675c44a4b6",
+    "NATIVE_THERMAL97.json_sha256": "527e80337eea60bff36f98a89fd447f61b5d082caaedfa461f1b9361c6cfa0d0",
+    "NEXT_DYNAMICS.md_sha256": "fa1dd28bebbdd8859eab187d2a685e636e2c7ff833552194d496fa7bc835585f",
+    "ORIGINAL_OUTPUT_EVIDENCE97.csv_sha256": "7d2e090a7092743b21920fe91c141a382e6a470e3ba980174147c5fcab9ca8a3",
+    "ORIGINAL_OUTPUT_PROGRESS97.csv_sha256": "935cbb142520f46a9696821d202167f4abc10e293d356da495546fbbe2d8c66f",
+    "ORIGINAL_OUTPUT_REPORT97.md_sha256": "6145fe10a019a8a8edd94cec4c35aa2cc004b1a6a4cd3737cfb962bc61d09d9b",
+    "ORIGINAL_SOURCE97.json_sha256": "fd90428d43d53701bd7b749e2529b054a5b29a92a20afa26fe023a431b2eb0fc",
+    "PLOT_INVENTORY97.csv_sha256": "4f1caffe1db7c615b180eb2b5078b98f8cb692710dbadae38f7f7308343edb77",
+    "PLOT_MANIFEST97.json_sha256": "089855993b93537e2925c55a76111cdc4397105562576fa6ea9a0d5a17e67f9f",
+    "PROGRESS97.json_sha256": "4d82a42f3748098912bd9b9eb9baab878243aaa58672d284f2a8eb14192bab48",
+    "QUALITY_MATRIX97.csv_sha256": "ab7d9b67af9ad3b62df5108248d48a331886e39f53afda2c4642a62d2c287770",
+    "REGISTRATION.json_sha256": "15d16492b67a2bb93a829033cca5a3f4ff248024c4efd2090e719ec0a317be33",
+    "SUMMARY97.json_sha256": "ae03301da2e109c2bd09ee797eb4ed8956af75ed971c7d991c9d90a546bde016",
+    "THEORY.md_sha256": "c682c1bcd1d941891feb266e0f64da1d0bc044a380d2ab3ddbfbd3204e7671fa",
+    "THEORY_REGISTERED97.md_sha256": "dd9709e9cf0a49e473f6a7e07be67fa17f72113f1d659f8dae35ae0d2e903abe",
+    "accepted_corrected_subclaims": 38,
+    "animations": 2,
+    "conditional_MI": 36288,
+    "controlled_prefixes": 5760,
+    "corrected_report_artifact_accepted": 48,
+    "cumulative_fixed_root_histories": 93336,
+    "cuts": 19008,
+    "diagnostic_paths": 648,
+    "figures": 8,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "measurement_cases": 15552,
+    "native_game_searches": 853,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_corrected_artifacts": 4,
+    "original_evidence_items": 5,
+    "original_evidence_union_R55_R97": 121,
+    "original_obligations": 121,
+    "parent_commit": "ef1feb40f444715b8312d0cb1a0fbcd207d50cfc",
+    "parent_dag_sha256": "c1cd0c03408c4cf8a6136785c0980a5add7080f86566f7064fa8fbdac8d0cf0b",
+    "raw_game_histories": 80,
+    "remaining": "73 corrected artifact obligations; Q36 remains partial, Q38 historical; six open science claims; Q09-Q13 next.",
+    "retained_pairs": 734,
+    "reused_fixed_root_paths": 3456,
+    "status": "four_corrected_artifacts_one_partial_two_new_scoped_claims",
+    "subsets": 43776
+  },
+  "revision": "RESTORE97_20261128",
+  "scope": "Convergence: mixed partition entropy, purification and discord bounds, native entropy clock and reference thermodynamics",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE96-DARWINISM-DEDICATED-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE97-ENTROPY-PARTITION-OUTPUTS"
 }

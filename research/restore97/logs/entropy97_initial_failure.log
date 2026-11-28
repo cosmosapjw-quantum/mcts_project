@@ -1,0 +1,41 @@
+RAW RECORDS 4104
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 263, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 212, in _process_chunk
+    return [fn(*args) for args in chunk]
+            ^^^^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore97_20261128/entropy97.py", line 87, in calc
+    rsort=red(a,K+T,n);ref=np.kron(R[k],R[t]);ds=spectral_log_cross(rsort,ref)-sab
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore97_20261128/entropy97.py", line 35, in spectral_log_cross
+    m=e>1e-14;lost=float(abs(w[~m]).sum());assert lost<1e-10
+                                                  ^^^^^^^^^^
+AssertionError
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore97_20261128/entropy97.py", line 217, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/cosmosapjw/quantum/research/reboot_20261120/mqft_restore97_20261128/entropy97.py", line 148, in main
+    for i,(r,e) in enumerate(pool.map(calc,args,chunksize=12)):
+  File "/usr/lib/python3.12/concurrent/futures/process.py", line 642, in _chain_from_iterable_of_lists
+    for element in iterable:
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+AssertionError

@@ -1,0 +1,1300 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "R69 byte-identical originals, exact function spans; archived mcts_study; original source not edited",
+  "items": [
+    {
+      "acceptance": "Specify joint density/partition, spectrum, negativity and QMI, actual noncommuting controls and phase identification.",
+      "archive": "quantum.zip",
+      "id": "Q35",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "member_sha": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472",
+      "source_excerpt": [
+        "    def plot_entanglement_analysis(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot entanglement entropy analysis with temporal evolution\"\"\"",
+        "        ",
+        "        # Extract authentic entanglement data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_entanglement_analysis')",
+        "        ",
+        "        if show_temporal:",
+        "            fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "            fig.suptitle('Entanglement Analysis with Temporal Evolution', fontsize=16, fontweight='bold')",
+        "        else:",
+        "            fig, axes = plt.subplots(2, 2, figsize=(15, 10))",
+        "            fig.suptitle('Entanglement Analysis', fontsize=16, fontweight='bold')",
+        "        ",
+        "        axes_flat = axes.flatten()",
+        "        ",
+        "        system_sizes = data['system_sizes']",
+        "        entanglement_data = data['entanglement_data']",
+        "        entanglement_entropy = entanglement_data['entanglement_entropy']",
+        "        mutual_information = entanglement_data['mutual_information']",
+        "        ",
+        "        # 1. Entanglement entropy vs subsystem size",
+        "        ax1 = axes_flat[0]",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in entanglement_entropy:",
+        "                subsystem_sizes = range(1, len(entanglement_entropy[sys_size]) + 1)",
+        "                entropy_values = entanglement_entropy[sys_size]",
+        "                ",
+        "                ax1.plot(subsystem_sizes, entropy_values, 'o-', ",
+        "                        label=f'L={sys_size}', linewidth=2, alpha=0.8, markersize=6)",
+        "        ",
+        "        # Area law scaling",
+        "        if len(system_sizes) > 0:",
+        "            x_theory = np.linspace(1, max([len(entanglement_entropy.get(size, [])) for size in system_sizes]), 50)",
+        "            area_law = np.log(x_theory + 1)  # Logarithmic growth for 1D",
+        "            ax1.plot(x_theory, area_law, 'k--', linewidth=2, alpha=0.7, label='Area Law ~ log(l)')",
+        "        ",
+        "        ax1.set_xlabel('Subsystem Size l')",
+        "        ax1.set_ylabel('Entanglement Entropy S(l)')",
+        "        ax1.set_title('Entanglement Entropy Scaling')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Mutual information analysis",
+        "        ax2 = axes_flat[1]",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in mutual_information:",
+        "                subsystem_sizes = range(1, len(mutual_information[sys_size]) + 1)",
+        "                mi_values = mutual_information[sys_size]",
+        "                ",
+        "                ax2.plot(subsystem_sizes, mi_values, 's-', ",
+        "                        label=f'I(A:B) L={sys_size}', linewidth=2, alpha=0.8, markersize=6)",
+        "        ",
+        "        ax2.set_xlabel('Subsystem Size')",
+        "        ax2.set_ylabel('Mutual Information I(A:B)')",
+        "        ax2.set_title('Mutual Information Analysis')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Negativity measure",
+        "        ax3 = axes_flat[2]",
+        "        ",
+        "        if 'negativity' in entanglement_data:",
+        "            negativity = entanglement_data['negativity']",
+        "            ",
+        "            for sys_size in system_sizes:",
+        "                if sys_size in negativity:",
+        "                    subsystem_sizes = range(1, len(negativity[sys_size]) + 1)",
+        "                    neg_values = negativity[sys_size]",
+        "                    ",
+        "                    ax3.plot(subsystem_sizes, neg_values, '^-', ",
+        "                            label=f'N(A:B) L={sys_size}', linewidth=2, alpha=0.8, markersize=6)",
+        "        ",
+        "        ax3.set_xlabel('Subsystem Size')",
+        "        ax3.set_ylabel('Logarithmic Negativity')",
+        "        ax3.set_title('Entanglement Negativity')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Von Neumann entropy distribution",
+        "        ax4 = axes_flat[3]",
+        "        ",
+        "        von_neumann_dict = data['von_neumann_entropy']",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in von_neumann_dict:",
+        "                vn_entropy = von_neumann_dict[sys_size]",
+        "                if hasattr(vn_entropy, '__len__') and len(vn_entropy) > 1:",
+        "                    # Plot entropy as function of some parameter (e.g., temperature)",
+        "                    param_range = np.linspace(0, 1, len(vn_entropy))",
+        "                    ax4.plot(param_range, vn_entropy, 'd-', ",
+        "                            label=f'S_VN L={sys_size}', linewidth=2, alpha=0.8)",
+        "                else:",
+        "                    # Single value - plot as horizontal line",
+        "                    entropy_val = float(vn_entropy) if hasattr(vn_entropy, '__float__') else vn_entropy",
+        "                    ax4.axhline(y=entropy_val, linestyle='--', alpha=0.7, ",
+        "                               label=f'S_VN L={sys_size} = {entropy_val:.3f}')",
+        "        ",
+        "        ax4.set_xlabel('Parameter (e.g., Temperature)')",
+        "        ax4.set_ylabel('Von Neumann Entropy')",
+        "        ax4.set_title('Von Neumann Entropy Distribution')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        if show_temporal:",
+        "            # 5. Entanglement spectrum",
+        "            ax5 = axes_flat[4]",
+        "            ",
+        "            if 'entanglement_spectrum' in entanglement_data:",
+        "                spectrum_data = entanglement_data['entanglement_spectrum']",
+        "                ",
+        "                for sys_size in system_sizes:",
+        "                    if sys_size in spectrum_data and sys_size <= 8:  # Only small systems",
+        "                        spectrum = spectrum_data[sys_size]",
+        "                        eigenvalue_indices = range(len(spectrum))",
+        "                        ",
+        "                        ax5.semilogy(eigenvalue_indices, spectrum, 'o-', ",
+        "                                    label=f'L={sys_size}', linewidth=2, alpha=0.8)",
+        "            ",
+        "            ax5.set_xlabel('Eigenvalue Index')",
+        "            ax5.set_ylabel('Entanglement Spectrum \u03bb_i')",
+        "            ax5.set_title('Entanglement Spectrum')",
+        "            ax5.legend()",
+        "            ax5.grid(True, alpha=0.3)",
+        "            ",
+        "            # 6. Quantum correlations vs classical correlations",
+        "            ax6 = axes_flat[5]",
+        "            ",
+        "            quantum_correlations = data['quantum_correlations']",
+        "            ",
+        "            # Plot quantum discord, entanglement, and coherence",
+        "            measures = ['quantum_discord', 'entanglement_measure', 'quantum_coherence']",
+        "            values = [quantum_correlations[measure] for measure in measures]",
+        "            ",
+        "            bars = ax6.bar(range(len(measures)), values, alpha=0.7, ",
+        "                          color=['skyblue', 'lightcoral', 'lightgreen'])",
+        "            ",
+        "            ax6.set_xticks(range(len(measures)))",
+        "            ax6.set_xticklabels([m.replace('_', '\\n').title() for m in measures])",
+        "            ax6.set_ylabel('Correlation Measure')",
+        "            ax6.set_title('Quantum vs Classical Correlations')",
+        "            ax6.grid(True, alpha=0.3)",
+        "            ",
+        "            # Add value labels",
+        "            for bar, value in zip(bars, values):",
+        "                height = bar.get_height()",
+        "                ax6.text(bar.get_x() + bar.get_width()/2., height + 0.01,",
+        "                        f'{value:.3f}', ha='center', va='bottom', fontweight='bold')",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'entanglement_analysis.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved entanglement analysis plot\")",
+        "        ",
+        "        return {",
+        "            'entanglement_data': data,",
+        "            'scaling_analysis': {",
+        "                'area_law_confirmed': True,",
+        "                'entanglement_growth': 'logarithmic'",
+        "            },",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_entanglement_analysis",
+      "span": [
+        55,
+        218
+      ]
+    },
+    {
+      "acceptance": "Actual entanglement entropy scaling across declared subsystem area/volume, separate visit entropy and finite clock.",
+      "archive": "quantum.zip",
+      "id": "Q36",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "member_sha": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472",
+      "source_excerpt": [
+        "    def plot_entropy_scaling(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot entropy scaling laws and area law analysis\"\"\"",
+        "        ",
+        "        # Extract authentic entropy scaling data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_entropy_scaling')",
+        "        ",
+        "        fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "        fig.suptitle('Entropy Scaling Laws and Area Law Analysis', fontsize=16, fontweight='bold')",
+        "        ",
+        "        system_sizes = data['system_sizes']",
+        "        ",
+        "        # 1. Area law vs volume law",
+        "        ax1 = axes[0, 0]",
+        "        ",
+        "        # Generate scaling data",
+        "        subsystem_fractions = np.linspace(0.1, 0.5, 10)",
+        "        ",
+        "        for i, size in enumerate(system_sizes):",
+        "            area_law_entropy = []",
+        "            volume_law_entropy = []",
+        "            ",
+        "            for fraction in subsystem_fractions:",
+        "                subsystem_size = int(fraction * size)",
+        "                ",
+        "                # Area law: S ~ L^{d-1} (for d=2, S ~ L)",
+        "                area_entropy = np.log(subsystem_size + 1) + 0.1 * i",
+        "                area_law_entropy.append(area_entropy)",
+        "                ",
+        "                # Volume law: S ~ L^d (for d=2, S ~ L\u00b2)",
+        "                volume_entropy = subsystem_size * 0.1",
+        "                volume_law_entropy.append(volume_entropy)",
+        "            ",
+        "            ax1.plot(subsystem_fractions, area_law_entropy, 'o-', ",
+        "                    label=f'Area Law L={size}', linewidth=2, alpha=0.8)",
+        "            ax1.plot(subsystem_fractions, volume_law_entropy, 's--', ",
+        "                    label=f'Volume Law L={size}', linewidth=2, alpha=0.6)",
+        "        ",
+        "        ax1.set_xlabel('Subsystem Fraction')",
+        "        ax1.set_ylabel('Entanglement Entropy')",
+        "        ax1.set_title('Area Law vs Volume Law')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Scaling law identification",
+        "        ax2 = axes[0, 1]",
+        "        ",
+        "        scaling_law = data.get('scaling_law', 'area_law')",
+        "        ",
+        "        if scaling_law == 'area_law':",
+        "            # Plot area law coefficients",
+        "            coefficients = data.get('area_law_coefficients', [1.0, 0.5, 0.1])",
+        "            coeff_labels = ['Leading', 'Sub-leading', 'Correction']",
+        "            ",
+        "            bars = ax2.bar(range(len(coefficients)), coefficients, alpha=0.7,",
+        "                          color=['red', 'blue', 'green'])",
+        "            ",
+        "            ax2.set_xticks(range(len(coefficients)))",
+        "            ax2.set_xticklabels(coeff_labels)",
+        "            ax2.set_ylabel('Coefficient Value')",
+        "            ax2.set_title('Area Law Coefficient Analysis')",
+        "            ",
+        "            # Add value labels",
+        "            for bar, coeff in zip(bars, coefficients):",
+        "                height = bar.get_height()",
+        "                ax2.text(bar.get_x() + bar.get_width()/2., height + 0.02,",
+        "                        f'{coeff:.3f}', ha='center', va='bottom', fontweight='bold')",
+        "        ",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Entanglement spectrum analysis",
+        "        ax3 = axes[0, 2]",
+        "        ",
+        "        if 'entanglement_spectrum' in data:",
+        "            spectrum_data = data['entanglement_spectrum']",
+        "            ",
+        "            for sys_size in list(spectrum_data.keys())[:3]:  # Limit for clarity",
+        "                spectrum = spectrum_data[sys_size]",
+        "                eigenvalue_indices = range(len(spectrum))",
+        "                ",
+        "                ax3.semilogy(eigenvalue_indices, spectrum, 'o-', ",
+        "                            label=f'L={sys_size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax3.set_xlabel('Eigenvalue Index i')",
+        "        ax3.set_ylabel('Schmidt Eigenvalue \u03bb_i')",
+        "        ax3.set_title('Entanglement Spectrum')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Finite-size corrections",
+        "        ax4 = axes[1, 0]",
+        "        ",
+        "        # Model finite-size corrections to area law",
+        "        for i, size in enumerate(system_sizes):",
+        "            subsystem_range = range(1, min(size//2, 20))",
+        "            ",
+        "            finite_size_entropy = []",
+        "            for l in subsystem_range:",
+        "                # S(l) = a*log(l) + b + c/l + d/l\u00b2",
+        "                a, b, c, d = 1.0, 0.5, 0.1, 0.01",
+        "                entropy = a * np.log(l + 1) + b + c/l + d/(l**2)",
+        "                entropy *= (1 + 0.05 * i)  # Size-dependent factor",
+        "                finite_size_entropy.append(entropy)",
+        "            ",
+        "            ax4.plot(list(subsystem_range), finite_size_entropy, 'o-', ",
+        "                    label=f'L={size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax4.set_xlabel('Subsystem Size l')",
+        "        ax4.set_ylabel('Entropy with Finite-Size Corrections')",
+        "        ax4.set_title('Finite-Size Scaling Corrections')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # 5. Critical vs non-critical scaling",
+        "        ax5 = axes[1, 1]",
+        "        ",
+        "        # Compare scaling at critical and non-critical points",
+        "        l_range = np.linspace(1, 50, 25)",
+        "        ",
+        "        # Critical point: logarithmic",
+        "        critical_scaling = np.log(l_range + 1)",
+        "        ax5.plot(l_range, critical_scaling, 'o-', linewidth=3, ",
+        "                label='Critical Point (log)', color='red', alpha=0.8)",
+        "        ",
+        "        # Non-critical: constant",
+        "        non_critical_scaling = np.ones_like(l_range) * 2.0",
+        "        ax5.plot(l_range, non_critical_scaling, 's-', linewidth=3,",
+        "                label='Non-Critical (const)', color='blue', alpha=0.8)",
+        "        ",
+        "        # Gapped phase: exponential decay",
+        "        gapped_scaling = 3.0 * np.exp(-l_range / 10)",
+        "        ax5.plot(l_range, gapped_scaling, '^-', linewidth=3,",
+        "                label='Gapped Phase (exp)', color='green', alpha=0.8)",
+        "        ",
+        "        ax5.set_xlabel('Subsystem Size l')",
+        "        ax5.set_ylabel('Entanglement Entropy')",
+        "        ax5.set_title('Critical vs Non-Critical Scaling')",
+        "        ax5.legend()",
+        "        ax5.grid(True, alpha=0.3)",
+        "        ",
+        "        # 6. Scaling exponent extraction",
+        "        ax6 = axes[1, 2]",
+        "        ",
+        "        # Extract scaling exponents from different system sizes",
+        "        scaling_exponents = []",
+        "        size_labels = []",
+        "        ",
+        "        for size in system_sizes:",
+        "            # Mock extraction of scaling exponent",
+        "            l_data = np.array(range(2, min(size//2, 15)))",
+        "            entropy_data = np.log(l_data + 1) + 0.1 * np.random.randn(len(l_data))",
+        "            ",
+        "            # Fit S(l) = a * log(l) + b",
+        "            if len(l_data) > 3:",
+        "                try:",
+        "                    log_l = np.log(l_data)",
+        "                    slope, intercept = np.polyfit(log_l, entropy_data, 1)",
+        "                    scaling_exponents.append(slope)",
+        "                    size_labels.append(size)",
+        "                except:",
+        "                    continue",
+        "        ",
+        "        if scaling_exponents:",
+        "            bars = ax6.bar(range(len(scaling_exponents)), scaling_exponents, ",
+        "                          alpha=0.7, color='orange')",
+        "            ",
+        "            ax6.set_xticks(range(len(scaling_exponents)))",
+        "            ax6.set_xticklabels(size_labels)",
+        "            ax6.set_xlabel('System Size L')",
+        "            ax6.set_ylabel('Scaling Exponent')",
+        "            ax6.set_title('Extracted Scaling Exponents')",
+        "            ",
+        "            # Theoretical expectation",
+        "            ax6.axhline(y=1.0, color='red', linestyle='--', linewidth=2,",
+        "                       label='Theory: 1.0')",
+        "            ax6.legend()",
+        "            ",
+        "            # Add value labels",
+        "            for bar, exp in zip(bars, scaling_exponents):",
+        "                height = bar.get_height()",
+        "                ax6.text(bar.get_x() + bar.get_width()/2., height + 0.02,",
+        "                        f'{exp:.2f}', ha='center', va='bottom', fontweight='bold')",
+        "        ",
+        "        ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'entropy_scaling.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved entropy scaling plot\")",
+        "        ",
+        "        return {",
+        "            'scaling_data': data,",
+        "            'scaling_exponents': scaling_exponents if 'scaling_exponents' in locals() else [],",
+        "            'area_law_confirmed': True,",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_entropy_scaling",
+      "span": [
+        220,
+        415
+      ]
+    },
+    {
+      "acceptance": "Define joint classical/quantum information and discord with operational readout; independent adaptive decision comparison.",
+      "archive": "quantum.zip",
+      "id": "Q37",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "member_sha": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472",
+      "source_excerpt": [
+        "    def plot_information_flow(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot information flow and quantum/classical information\"\"\"",
+        "        ",
+        "        # Extract authentic information flow data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_information_flow')",
+        "        ",
+        "        fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "        fig.suptitle('Information Flow and Quantum-Classical Information', fontsize=16, fontweight='bold')",
+        "        ",
+        "        system_sizes = data['system_sizes']",
+        "        information_data = data['information_data']",
+        "        ",
+        "        # 1. Quantum vs classical mutual information",
+        "        ax1 = axes[0, 0]",
+        "        ",
+        "        quantum_mi = information_data['quantum_mutual_info']",
+        "        classical_mi = information_data['classical_mutual_info']",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in quantum_mi and sys_size in classical_mi:",
+        "                subsystem_range = range(1, len(quantum_mi[sys_size]) + 1)",
+        "                ",
+        "                quantum_values = quantum_mi[sys_size]",
+        "                classical_values = classical_mi[sys_size]",
+        "                ",
+        "                ax1.plot(subsystem_range, quantum_values, 'o-', ",
+        "                        label=f'Quantum L={sys_size}', linewidth=2, alpha=0.8)",
+        "                ax1.plot(subsystem_range, classical_values, 's--', ",
+        "                        label=f'Classical L={sys_size}', linewidth=2, alpha=0.6)",
+        "        ",
+        "        ax1.set_xlabel('Subsystem Size')",
+        "        ax1.set_ylabel('Mutual Information')",
+        "        ax1.set_title('Quantum vs Classical Mutual Information')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Quantum discord",
+        "        ax2 = axes[0, 1]",
+        "        ",
+        "        if 'quantum_discord' in information_data:",
+        "            quantum_discord = information_data['quantum_discord']",
+        "            ",
+        "            for sys_size in system_sizes:",
+        "                if sys_size in quantum_discord:",
+        "                    subsystem_range = range(1, len(quantum_discord[sys_size]) + 1)",
+        "                    discord_values = quantum_discord[sys_size]",
+        "                    ",
+        "                    ax2.plot(subsystem_range, discord_values, '^-', ",
+        "                            label=f'Discord L={sys_size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax2.set_xlabel('Subsystem Size')",
+        "        ax2.set_ylabel('Quantum Discord')",
+        "        ax2.set_title('Quantum Discord Analysis')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Information flow network",
+        "        ax3 = axes[0, 2]",
+        "        ",
+        "        # Create network visualization",
+        "        n_nodes = 6",
+        "        positions = []",
+        "        ",
+        "        # Arrange nodes in circle",
+        "        for i in range(n_nodes):",
+        "            angle = 2 * np.pi * i / n_nodes",
+        "            x = np.cos(angle)",
+        "            y = np.sin(angle)",
+        "            positions.append((x, y))",
+        "        ",
+        "        # Draw nodes",
+        "        for i, pos in enumerate(positions):",
+        "            circle = Circle(pos, 0.1, color='lightblue', alpha=0.8)",
+        "            ax3.add_patch(circle)",
+        "            ax3.text(pos[0], pos[1], f'{i+1}', ha='center', va='center', fontweight='bold')",
+        "        ",
+        "        # Draw information flow connections",
+        "        information_strengths = [0.8, 0.6, 0.4, 0.7, 0.3, 0.5]  # Mock data",
+        "        ",
+        "        for i in range(n_nodes):",
+        "            j = (i + 1) % n_nodes",
+        "            strength = information_strengths[i]",
+        "            ",
+        "            # Line width proportional to information flow",
+        "            ax3.plot([positions[i][0], positions[j][0]], ",
+        "                    [positions[i][1], positions[j][1]], ",
+        "                    'k-', linewidth=strength*5, alpha=0.6)",
+        "            ",
+        "            # Add arrow for direction",
+        "            mid_x = (positions[i][0] + positions[j][0]) / 2",
+        "            mid_y = (positions[i][1] + positions[j][1]) / 2",
+        "            dx = positions[j][0] - positions[i][0]",
+        "            dy = positions[j][1] - positions[i][1]",
+        "            ",
+        "            ax3.arrow(mid_x - dx*0.1, mid_y - dy*0.1, dx*0.05, dy*0.05,",
+        "                     head_width=0.03, head_length=0.02, fc='red', ec='red', alpha=0.8)",
+        "        ",
+        "        ax3.set_xlim(-1.5, 1.5)",
+        "        ax3.set_ylim(-1.5, 1.5)",
+        "        ax3.set_aspect('equal')",
+        "        ax3.set_title('Information Flow Network')",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Relative entropy analysis",
+        "        ax4 = axes[1, 0]",
+        "        ",
+        "        relative_entropy = data['relative_entropy']",
+        "        ",
+        "        sizes_rel = []",
+        "        entropy_values = []",
+        "        divergence_values = []",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in relative_entropy:",
+        "                sizes_rel.append(sys_size)",
+        "                rel_data = relative_entropy[sys_size]",
+        "                entropy_values.append(rel_data['entropy'])",
+        "                divergence_values.append(rel_data['divergence'])",
+        "        ",
+        "        if sizes_rel:",
+        "            ax4_twin = ax4.twinx()",
+        "            ",
+        "            line1 = ax4.plot(sizes_rel, entropy_values, 'o-', linewidth=2, ",
+        "                           color='blue', label='Relative Entropy')",
+        "            line2 = ax4_twin.plot(sizes_rel, divergence_values, 's-', linewidth=2,",
+        "                                color='red', label='KL Divergence')",
+        "            ",
+        "            ax4.set_xlabel('System Size')",
+        "            ax4.set_ylabel('Relative Entropy', color='blue')",
+        "            ax4_twin.set_ylabel('KL Divergence', color='red')",
+        "            ax4.set_title('Relative Entropy and Divergence')",
+        "            ",
+        "            # Combine legends",
+        "            lines = line1 + line2",
+        "            labels = [l.get_label() for l in lines]",
+        "            ax4.legend(lines, labels, loc='upper right')",
+        "        ",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # 5. Shannon vs Von Neumann entropy",
+        "        ax5 = axes[1, 1]",
+        "        ",
+        "        shannon_entropy = data['shannon_entropy']",
+        "        von_neumann_entropy = data['von_neumann_entropy']",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in shannon_entropy and sys_size in von_neumann_entropy:",
+        "                # Extract entropies (handle both array and scalar cases)",
+        "                shannon_vals = shannon_entropy[sys_size]",
+        "                vn_vals = von_neumann_entropy[sys_size]",
+        "                ",
+        "                if hasattr(shannon_vals, '__len__') and hasattr(vn_vals, '__len__'):",
+        "                    param_range = range(len(shannon_vals))",
+        "                    ax5.plot(param_range, shannon_vals, 'o-', ",
+        "                            label=f'Shannon L={sys_size}', linewidth=2, alpha=0.8)",
+        "                    ax5.plot(param_range, vn_vals, 's-', ",
+        "                            label=f'Von Neumann L={sys_size}', linewidth=2, alpha=0.8)",
+        "                else:",
+        "                    # Single values - plot as points",
+        "                    shannon_val = float(shannon_vals) if hasattr(shannon_vals, '__float__') else shannon_vals",
+        "                    vn_val = float(vn_vals) if hasattr(vn_vals, '__float__') else vn_vals",
+        "                    ax5.scatter([sys_size], [shannon_val], label=f'Shannon L={sys_size}', s=60, alpha=0.8)",
+        "                    ax5.scatter([sys_size], [vn_val], label=f'Von Neumann L={sys_size}', s=60, alpha=0.8, marker='s')",
+        "        ",
+        "        ax5.set_xlabel('Parameter/System Size')",
+        "        ax5.set_ylabel('Entropy')",
+        "        ax5.set_title('Shannon vs Von Neumann Entropy')",
+        "        ax5.legend()",
+        "        ax5.grid(True, alpha=0.3)",
+        "        ",
+        "        # 6. Information measures summary",
+        "        ax6 = axes[1, 2]",
+        "        ",
+        "        # Summary of different information measures",
+        "        info_measures = ['Von Neumann', 'Shannon', 'Mutual Info', 'Quantum Discord', 'Relative Entropy']",
+        "        ",
+        "        # Extract representative values",
+        "        measure_values = []",
+        "        measure_values.append(data['correlation_strength'])  # Von Neumann proxy",
+        "        ",
+        "        # Shannon entropy (mean)",
+        "        shannon_mean = 0",
+        "        count = 0",
+        "        for size_data in shannon_entropy.values():",
+        "            if hasattr(size_data, '__len__'):",
+        "                shannon_mean += np.mean(size_data)",
+        "            else:",
+        "                shannon_mean += float(size_data)",
+        "            count += 1",
+        "        measure_values.append(shannon_mean / count if count > 0 else 1.0)",
+        "        ",
+        "        # Mutual information (mean)",
+        "        mi_mean = 0",
+        "        count = 0",
+        "        for size_data in quantum_mi.values():",
+        "            mi_mean += np.mean(size_data)",
+        "            count += 1",
+        "        measure_values.append(mi_mean / count if count > 0 else 0.5)",
+        "        ",
+        "        # Quantum discord (mean if available)",
+        "        if 'quantum_discord' in information_data:",
+        "            discord_mean = 0",
+        "            count = 0",
+        "            for size_data in information_data['quantum_discord'].values():",
+        "                discord_mean += np.mean(size_data)",
+        "                count += 1",
+        "            measure_values.append(discord_mean / count if count > 0 else 0.3)",
+        "        else:",
+        "            measure_values.append(0.3)",
+        "        ",
+        "        # Relative entropy (mean)",
+        "        rel_mean = np.mean([rel_data['entropy'] for rel_data in relative_entropy.values()])",
+        "        measure_values.append(rel_mean)",
+        "        ",
+        "        # Create bar plot",
+        "        bars = ax6.bar(range(len(info_measures)), measure_values, ",
+        "                      alpha=0.7, color=['red', 'blue', 'green', 'orange', 'purple'])",
+        "        ",
+        "        ax6.set_xticks(range(len(info_measures)))",
+        "        ax6.set_xticklabels([m.replace(' ', '\\n') for m in info_measures], fontsize=10)",
+        "        ax6.set_ylabel('Information Measure Value')",
+        "        ax6.set_title('Information Measures Summary')",
+        "        ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        # Add value labels",
+        "        for bar, value in zip(bars, measure_values):",
+        "            height = bar.get_height()",
+        "            ax6.text(bar.get_x() + bar.get_width()/2., height + 0.01,",
+        "                    f'{value:.3f}', ha='center', va='bottom', fontweight='bold', fontsize=9)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'information_flow.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved information flow plot\")",
+        "        ",
+        "        return {",
+        "            'information_data': data,",
+        "            'information_measures': dict(zip(info_measures, measure_values)),",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_information_flow",
+      "span": [
+        417,
+        657
+      ]
+    },
+    {
+      "acceptance": "Actual native entropy animation with changing risk set; true entanglement/thermal entropy requires defined state and separate panels.",
+      "archive": "quantum.zip",
+      "id": "Q39",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "member_sha": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472",
+      "source_excerpt": [
+        "    def create_entropy_animation(self, entropy_type: str = 'entanglement', ",
+        "                                save_animation: bool = True) -> Any:",
+        "        \"\"\"Create animation showing entropy evolution\"\"\"",
+        "        ",
+        "        # Generate time-dependent entropy data",
+        "        time_steps = np.linspace(0, 10, 100)",
+        "        system_sizes = [5, 10, 20]",
+        "        ",
+        "        fig, ax = plt.subplots(figsize=(10, 8))",
+        "        ax.set_xlim(0, 10)",
+        "        ax.set_ylim(0, 5)",
+        "        ax.set_xlabel('Time t')",
+        "        ax.set_ylabel(f'{entropy_type.title()} Entropy')",
+        "        ax.set_title(f'{entropy_type.title()} Entropy Evolution')",
+        "        ax.grid(True, alpha=0.3)",
+        "        ",
+        "        lines = []",
+        "        for i, size in enumerate(system_sizes):",
+        "            line, = ax.plot([], [], 'o-', linewidth=2, alpha=0.8, label=f'L={size}')",
+        "            lines.append(line)",
+        "        ",
+        "        ax.legend()",
+        "        ",
+        "        def animate(frame):",
+        "            current_time = time_steps[frame]",
+        "            times_up_to_current = time_steps[:frame+1]",
+        "            ",
+        "            for i, (line, size) in enumerate(zip(lines, system_sizes)):",
+        "                if entropy_type == 'entanglement':",
+        "                    # Growing entanglement entropy",
+        "                    values = np.log(times_up_to_current + 1) * (1 + 0.1 * i)",
+        "                elif entropy_type == 'von_neumann':",
+        "                    # Oscillating Von Neumann entropy",
+        "                    values = (1 + 0.5 * np.sin(times_up_to_current)) * (1 + 0.1 * i)",
+        "                elif entropy_type == 'thermodynamic':",
+        "                    # Temperature-driven entropy changes",
+        "                    values = 2.0 + np.sin(times_up_to_current / 2) * np.exp(-times_up_to_current/8) * (1 + 0.1 * i)",
+        "                else:",
+        "                    # Default: growing with saturation",
+        "                    values = 3.0 * (1 - np.exp(-times_up_to_current/3)) * (1 + 0.1 * i)",
+        "                ",
+        "                line.set_data(times_up_to_current, values)",
+        "            ",
+        "            ax.set_title(f'{entropy_type.title()} Entropy Evolution (t = {current_time:.1f})')",
+        "            return lines",
+        "        ",
+        "        anim = FuncAnimation(fig, animate, frames=len(time_steps), interval=50, blit=False)",
+        "        ",
+        "        if save_animation:",
+        "            anim.save(self.output_dir / f'{entropy_type}_entropy_evolution.gif', ",
+        "                     writer='pillow', fps=20)",
+        "            logger.info(f\"Saved {entropy_type} entropy evolution animation\")",
+        "        ",
+        "        return anim"
+      ],
+      "source_function": "create_entropy_animation",
+      "span": [
+        827,
+        880
+      ]
+    },
+    {
+      "acceptance": "Comprehensive entropy/entanglement and thermodynamic relations report, actual partition scaling and Maxwell assumptions.",
+      "archive": "quantum.zip",
+      "id": "Q40",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "member_sha": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472",
+      "source_excerpt": [
+        "    def generate_comprehensive_report(self, save_report: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Generate comprehensive entropy analysis report\"\"\"",
+        "        ",
+        "        logger.info(\"Generating comprehensive entropy analysis report...\")",
+        "        ",
+        "        # Run all analyses",
+        "        entanglement_results = self.plot_entanglement_analysis(save_plots=save_report)",
+        "        scaling_results = self.plot_entropy_scaling(save_plots=save_report)",
+        "        information_results = self.plot_information_flow(save_plots=save_report)",
+        "        thermodynamic_results = self.plot_thermodynamic_entropy(save_plots=save_report)",
+        "        ",
+        "        # Compile report",
+        "        report = {",
+        "            'timestamp': pd.Timestamp.now().isoformat(),",
+        "            'mcts_data_summary': {",
+        "                'datasets_analyzed': len(self.mcts_data.get('tree_expansion_data', [])),",
+        "                'data_source': 'authentic_mcts_tree_dynamics'",
+        "            },",
+        "            'entanglement_analysis': {",
+        "                'area_law_confirmed': entanglement_results['scaling_analysis']['area_law_confirmed'],",
+        "                'entanglement_growth': entanglement_results['scaling_analysis']['entanglement_growth'],",
+        "                'mutual_information_analyzed': True,",
+        "                'negativity_computed': True",
+        "            },",
+        "            'entropy_scaling': {",
+        "                'scaling_law': 'area_law',",
+        "                'scaling_exponents_extracted': len(scaling_results['scaling_exponents']),",
+        "                'finite_size_corrections': True,",
+        "                'critical_scaling_identified': True",
+        "            },",
+        "            'information_theory': {",
+        "                'quantum_classical_distinction': True,",
+        "                'quantum_discord_analyzed': True,",
+        "                'information_measures': information_results['information_measures'],",
+        "                'relative_entropy_computed': True",
+        "            },",
+        "            'thermodynamic_entropy': {",
+        "                'heat_capacity_analyzed': True,",
+        "                'maxwell_relations_verified': thermodynamic_results['maxwell_relations_verified'],",
+        "                'entropy_production_studied': thermodynamic_results['entropy_production_analyzed'],",
+        "                'fluctuation_dissipation_checked': True",
+        "            },",
+        "            'output_files': [",
+        "                'entanglement_analysis.png',",
+        "                'entropy_scaling.png',",
+        "                'information_flow.png',",
+        "                'thermodynamic_entropy.png'",
+        "            ]",
+        "        }",
+        "        ",
+        "        if save_report:",
+        "            report_file = self.output_dir / 'entropy_analysis_report.json'",
+        "            import json",
+        "            with open(report_file, 'w') as f:",
+        "                json.dump(report, f, indent=2)",
+        "            logger.info(f\"Saved comprehensive report to {report_file}\")",
+        "        ",
+        "        logger.info(\"Entropy analysis complete!\")",
+        "        return report"
+      ],
+      "source_function": "generate_comprehensive_report",
+      "span": [
+        882,
+        940
+      ]
+    }
+  ],
+  "study_selected": [
+    {
+      "excerpts": [
+        [
+          55,
+          "### 2.3 Von Neumann Entropy"
+        ],
+        [
+          57,
+          "**Definition 2.3** (Entropy)"
+        ],
+        [
+          220,
+          "where H(\u00b7) is von Neumann entropy."
+        ],
+        [
+          258,
+          "7. Branching factor b enters through entropy H(S) ~ log b \u25a1"
+        ],
+        [
+          596,
+          "        # Von Neumann entropy"
+        ],
+        [
+          599,
+          "        entropy = -np.sum(eigenvals * np.log(eigenvals))"
+        ],
+        [
+          609,
+          "            'entropy': entropy,"
+        ],
+        [
+          612,
+          "            'max_entropy': np.log(self.dim),"
+        ],
+        [
+          627,
+          "    # Compute system entropy"
+        ],
+        [
+          671,
+          "        'system_entropy': H_system,"
+        ],
+        [
+          691,
+          "    # Estimate conditional entropy H(S|F)"
+        ],
+        [
+          820,
+          "        'entropy': [],"
+        ],
+        [
+          831,
+          "        metrics['entropy'].append(measures['entropy'])"
+        ],
+        [
+          861,
+          "    # Entropy growth"
+        ],
+        [
+          862,
+          "    entropy_rate = (metrics['entropy'][-1] - metrics['entropy'][0]) / len(metrics['N'])"
+        ],
+        [
+          868,
+          "        'entropy_growth_rate': entropy_rate,"
+        ]
+      ],
+      "lines": 965,
+      "member": "mcts_study/v3.0/qft-mcts-decoherence.md",
+      "relevant_line_count": 16,
+      "sha256": "64a0c6eb98c1f8695b4230cda9121f7f5adc463f217e412670808bf9408358e5"
+    },
+    {
+      "excerpts": [
+        [
+          15,
+          "5. [Thermodynamic Variables](#5-thermodynamic-variables)"
+        ],
+        [
+          20,
+          "10. [Non-Equilibrium Thermodynamics](#10-non-equilibrium-thermodynamics)"
+        ],
+        [
+          40,
+          "            'policy_entropy': 2.45,                 # Policy distribution entropy"
+        ],
+        [
+          174,
+          "### 2.3 Von Neumann Entropy"
+        ],
+        [
+          180,
+          "def compute_von_neumann_entropy(visit_counts):"
+        ],
+        [
+          182,
+          "    Compute quantum information entropy from visit distribution"
+        ],
+        [
+          185,
+          "    - Uniform visits \u2192 high entropy (exploration)"
+        ],
+        [
+          186,
+          "    - Concentrated visits \u2192 low entropy (exploitation)"
+        ],
+        [
+          195,
+          "    # Step 3: Compute Shannon entropy (quantum analog)"
+        ],
+        [
+          196,
+          "    entropy = -np.sum(probs * np.log(probs + 1e-10))  # Regularization"
+        ],
+        [
+          198,
+          "    # Step 4: Normalize by maximum possible entropy"
+        ],
+        [
+          199,
+          "    max_entropy = np.log(len(probs))"
+        ],
+        [
+          200,
+          "    normalized_entropy = entropy / max_entropy if max_entropy > 0 else 0"
+        ],
+        [
+          202,
+          "    return entropy, normalized_entropy"
+        ],
+        [
+          207,
+          "entropy = -sum(p * log(p)) = 1.58 bits"
+        ],
+        [
+          208,
+          "max_entropy = log(6) = 1.79 bits"
+        ],
+        [
+          209,
+          "normalized = 1.58/1.79 = 0.88 (88% of maximum entropy)"
+        ],
+        [
+          212,
+          "**Physical Meaning**: High entropy indicates diverse exploration, low entropy indicates focused exploitation."
+        ],
+        [
+          460,
+          "## 5. Thermodynamic Variables"
+        ],
+        [
+          531,
+          "### 5.3 Work and Entropy Production"
+        ],
+        [
+          566,
+          "**Entropy Production Rate**:"
+        ],
+        [
+          568,
+          "def compute_entropy_production(tree_sizes, temperatures):"
+        ],
+        [
+          570,
+          "    Measure irreversible entropy production during search"
+        ],
+        [
+          573,
+          "    - Entropy production = departure from equilibrium"
+        ],
+        [
+          583,
+          "    # Step 2: Entropy production \u221d growth \u00d7 temperature"
+        ],
+        [
+          584,
+          "    entropy_production = []"
+        ],
+        [
+          587,
+          "        entropy_production.append(sigma)"
+        ],
+        [
+          589,
+          "    return entropy_production"
+        ],
+        [
+          596,
+          "### 6.1 Entanglement Entropy"
+        ],
+        [
+          598,
+          "**Area Law vs Volume Law Scaling**:"
+        ],
+        [
+          600,
+          "def compute_entanglement_entropy(visit_counts, system_sizes):"
+        ],
+        [
+          602,
+          "    Extract entanglement entropy from visit correlations"
+        ],
+        [
+          605,
+          "    - Area law: S \u223c L^(d-1) (efficient information)"
+        ],
+        [
+          608,
+          "    # Step 1: Base entanglement from visit correlations"
+        ],
+        [
+          611,
+          "        entanglement_base = abs(corr_matrix[0, 1])"
+        ],
+        [
+          613,
+          "        entanglement_base = 0.0"
+        ],
+        [
+          615,
+          "    # Step 2: Von Neumann entropy contribution"
+        ],
+        [
+          616,
+          "    von_neumann_entropy = compute_von_neumann_entropy(visit_counts)[0]"
+        ],
+        [
+          617,
+          "    entanglement_base *= von_neumann_entropy"
+        ],
+        [
+          620,
+          "    entanglement_entropies = []"
+        ]
+      ],
+      "lines": 1278,
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "relevant_line_count": 70,
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    },
+    {
+      "excerpts": [
+        [
+          27,
+          "5. A non-equilibrium thermodynamic process obeying fluctuation theorems"
+        ],
+        [
+          208,
+          "### 4.5 Derivation of Thermodynamic Equilibrium"
+        ],
+        [
+          240,
+          "**Setup**: Starting from the partition function:"
+        ],
+        [
+          412,
+          "where I is mutual information and H is entropy."
+        ],
+        [
+          427,
+          "The von Neumann entropy quantifies superposition:"
+        ],
+        [
+          431,
+          "The entropy follows:"
+        ],
+        [
+          435,
+          "- $S_0$: Initial entropy"
+        ],
+        [
+          437,
+          "- $S_{\\infty}$: Residual entropy"
+        ],
+        [
+          463,
+          "A sudden drop in policy entropy:"
+        ],
+        [
+          472,
+          "4. Entropy drops discontinuously"
+        ],
+        [
+          476,
+          "def detect_phase_transitions(entropy_trajectory):"
+        ],
+        [
+          477,
+          "    d2S = np.gradient(np.gradient(entropy_trajectory))"
+        ],
+        [
+          482,
+          "## 8. Non-Equilibrium Thermodynamics of MCTS"
+        ],
+        [
+          484,
+          "### 8.1 Thermodynamic Quantities in MCTS"
+        ],
+        [
+          512,
+          "**Physical Significance**: Even irreversible MCTS trajectories obey universal thermodynamic relations."
+        ],
+        [
+          528,
+          "### 8.4 Entropy Production"
+        ],
+        [
+          530,
+          "**Definition 8.3 (Entropy Production)**:"
+        ],
+        [
+          534,
+          "- $\\Delta S_{system} = -\\Delta S_{vN}$ (policy entropy decrease)"
+        ],
+        [
+          674,
+          "   - Non-equilibrium thermodynamics (fluctuation theorems)"
+        ],
+        [
+          680,
+          "   - Thermodynamic relations from counting statistics"
+        ],
+        [
+          702,
+          "- Information thermodynamics"
+        ],
+        [
+          732,
+          "   - Optimal \u03b2(k) from maximum entropy"
+        ],
+        [
+          756,
+          "   - Can we derive game theory from thermodynamics?"
+        ],
+        [
+          767,
+          "1. **Thermodynamic Efficiency**: Minimizing free energy subject to information constraints"
+        ],
+        [
+          774,
+          "Perhaps most profoundly, this work hints at deep connections between intelligence, physics, and information theory\u2014suggesting that the principles governing effective decision-making may be as fundamental as the laws of thermodynamics themselves."
+        ]
+      ],
+      "lines": 776,
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "relevant_line_count": 25,
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "excerpts": [
+        [
+          427,
+          "                temp_data['entropy'] = compute_policy_entropy(root)"
+        ],
+        [
+          523,
+          "   - Correlated with entropy drops"
+        ],
+        [
+          937,
+          "            'entropy': [],"
+        ],
+        [
+          968,
+          "        # Policy entropy"
+        ],
+        [
+          974,
+          "            entropy = -np.sum(probs * np.log(probs))"
+        ],
+        [
+          976,
+          "            entropy = np.log(len(root.children))"
+        ],
+        [
+          997,
+          "            'entropy': entropy,"
+        ],
+        [
+          1365,
+          "    # Compute decision entropy"
+        ],
+        [
+          1366,
+          "    # For a deterministic decision, H = 0, so we use action space entropy"
+        ],
+        [
+          1369,
+          "    h_decision = np.log(n_actions)  # Maximum entropy baseline"
+        ],
+        [
+          1437,
+          "    Track decoherence through policy entropy evolution"
+        ],
+        [
+          1441,
+          "        - entropy: Policy entropy H(\u03c0)"
+        ],
+        [
+          1456,
+          "            # Shannon entropy"
+        ],
+        [
+          1458,
+          "            entropy = -np.sum(policy_nonzero * np.log(policy_nonzero))"
+        ],
+        [
+          1464,
+          "            n_effective = np.exp(entropy)"
+        ],
+        [
+          1474,
+          "            entropy = np.log(n_actions)"
+        ],
+        [
+          1481,
+          "            'entropy': entropy,"
+        ],
+        [
+          1492,
+          "    Detect sudden drops in entropy indicating phase transitions"
+        ],
+        [
+          1497,
+          "    entropy = decoherence_df['entropy'].values"
+        ],
+        [
+          1501,
+          "    if len(entropy) < 3:"
+        ],
+        [
+          1504,
+          "    d2_entropy = np.gradient(np.gradient(entropy))"
+        ],
+        [
+          1508,
+          "    peaks, properties = find_peaks(-d2_entropy, prominence=0.1)"
+        ],
+        [
+          1621,
+          "- Entropy shows monotonic decay with possible sudden drops"
+        ],
+        [
+          1624,
+          "## 6. Non-Equilibrium Thermodynamics Validation"
+        ],
+        [
+          1634,
+          "### 6.2 Thermodynamic Measurement Algorithm"
+        ],
+        [
+          1637,
+          "def measure_thermodynamic_quantities(mcts_run: MCTSRun) -> Dict[str, float]:"
+        ],
+        [
+          1639,
+          "    Extract thermodynamic quantities from a single MCTS run"
+        ],
+        [
+          1716,
+          "        # Measure thermodynamic quantities"
+        ],
+        [
+          1717,
+          "        thermo = measure_thermodynamic_quantities(mcts_run)"
+        ],
+        [
+          1788,
+          "        thermo = measure_thermodynamic_quantities(mcts_run)"
+        ],
+        [
+          2252,
+          "                    /entropy"
+        ],
+        [
+          2337,
+          "        'thermodynamics': {},"
+        ],
+        [
+          2390,
+          "    # 5. Thermodynamic Relations"
+        ],
+        [
+          2391,
+          "    print(\"\\n5. Testing Thermodynamic Relations...\")"
+        ],
+        [
+          2393,
+          "    all_results['thermodynamics']['jarzynski'] = jarzynski_results"
+        ],
+        [
+          2490,
+          "5. **Thermodynamics**: Validation of Jarzynski equality and fluctuation theorems"
+        ],
+        [
+          2494,
+          "- Establish MCTS as a physical process obeying thermodynamic laws"
+        ]
+      ],
+      "lines": 2497,
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "relevant_line_count": 37,
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    }
+  ]
+}

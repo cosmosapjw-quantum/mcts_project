@@ -1,0 +1,124 @@
+{
+  "animations": [
+    {
+      "clocks": [
+        0,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        56
+      ],
+      "frame_rgb_sha256": [
+        "a65b884df9bc25e6bddc16eff1d1c332f30024ac5576a7df42c2629d04690005",
+        "3aebe055f315e8af5c8904f97d93c3b29249cd53a957718a7bc37274ff938b5c",
+        "2400a755ac670851beaee0398129dd341f897559e88dcfb932fa6f3bcf393e54",
+        "6827630af2252c4c2c8074b81c5f44fcd26787bfc03538ace3ff4b001e303f76",
+        "a6a057ecb6b0efd43204e3cfc5f5579146050064b048df1dbecafdeaec025da3",
+        "555bf8809deab539148cc6db94907ac6d508732b6837ae9997202f0df1cefb40",
+        "4321b9cf3310e259e7d16fda0c54be1ecc9ded1362560b3e2bda16fa7351efe2",
+        "d9fc8d0bea8e1a68c7e727ea61c342d3e882a116da60a4ec4f19abe8ef59f645"
+      ],
+      "frames": 8,
+      "id": "Q39",
+      "path": "plots/Q39_native_entropy_evolution.gif",
+      "sha256": "95648faa760083dac57a0d15e143f4c22f9e67f5b87c778fb3c13e2482db1b62"
+    },
+    {
+      "clocks": [
+        32,
+        36,
+        40,
+        44
+      ],
+      "frame_rgb_sha256": [
+        "4ce064da4cdeec1f094618f9f3f5949ca8b021d30e0561e399e7ff49ffaba4f5",
+        "c1e97c441ba24fc0062e25dee715e28e74cacd9fea307f5f912a752829968b29",
+        "2b6a510976d8d3885ae17711846d43dc39abc7db7c2ec63cec624d867fc112a8",
+        "085862284e36470c3f6b4967d5a2f41287f79d079ea0f311100e0a9c27fde73b"
+      ],
+      "frames": 4,
+      "id": "Q39",
+      "path": "plots/Q39_declared_partition_evolution.gif",
+      "sha256": "3040237a2ab0bcc7f4674f15cd6151b75ee6c3e3be94d1c78c9158d5d78e06e8"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "Q35_entanglement_analysis",
+      "ids": [
+        "Q35"
+      ],
+      "pdf_sha": "fee980901e9263927bb61b896d80f8126df7e48769d819e54c3eecfbf6026517",
+      "png_sha": "b3e9f5fe67c2c2e36219ab661968cf5d15903bce77ae04ac1c8e5096dc9a562a"
+    },
+    {
+      "figure": "Q35_partition_spectra",
+      "ids": [
+        "Q35"
+      ],
+      "pdf_sha": "c87479737d97e2d0bd0296cf228755e1cc114b66dee9caeb37101fa97582b840",
+      "png_sha": "3872d6f0f7cce826d7867797fe22613658d14d4bbee3e3a1bda4a11a12c674cf"
+    },
+    {
+      "figure": "Q36_finite_partition_scaling_partial",
+      "ids": [
+        "Q36"
+      ],
+      "pdf_sha": "91445feefa72ee8dc44c8eeeae712840e7cbee2191ebe192cae90c4c96372f60",
+      "png_sha": "cd5479bd86061b2c70269a4e83aab58d6ff006168360f3403cac05618aca4cf9"
+    },
+    {
+      "figure": "Q36_native_size_entropy_comparator",
+      "ids": [
+        "Q36",
+        "Q40"
+      ],
+      "pdf_sha": "27fc8c49f1a5c703c9119a054c807a1d90e73aeba022bade6902d57662dbb37f",
+      "png_sha": "04d0efae716af69c3160d93ed9f5f669804e1bffc4e616192555f0c30dcba5c1"
+    },
+    {
+      "figure": "Q37_information_flow_discord",
+      "ids": [
+        "Q37"
+      ],
+      "pdf_sha": "1a9b45deba844aa0d8d12359f9222b4f85c7fc1c7068cd748b5db5a7ae341dba",
+      "png_sha": "72f26523bc179021cbb0da7ac8400990cc5731cb09ca407c428862306a670806"
+    },
+    {
+      "figure": "Q37_measurement_comparison",
+      "ids": [
+        "Q37"
+      ],
+      "pdf_sha": "0f42cdf81860b137d042c4f42d3458a38afcc43fc8a9b94cee10fd804cd324a8",
+      "png_sha": "449eb8d81588a617000563336846e7a939147a2db8110a44028e5f29a117abeb"
+    },
+    {
+      "figure": "Q39_entropy_clock_snapshots",
+      "ids": [
+        "Q39"
+      ],
+      "pdf_sha": "a6997cb4e230e349500b87a80b92ca2dcd2a44652887ef78eeb517e5c9ee0976",
+      "png_sha": "6c289e6565099f781edea3c3bbdd770e7374bf71259072adb95e78ffe0f73e9e"
+    },
+    {
+      "figure": "Q40_declared_thermal_reference",
+      "ids": [
+        "Q40"
+      ],
+      "pdf_sha": "3292bbf6a454e5615b9c24e27eae91e95c4bcaac93c64035d553f1c8e3fe2a11",
+      "png_sha": "988382d5769846fb6368eb907ac045bc310b29118e068d126519e3eb412f432f"
+    }
+  ],
+  "scope": "Separate real visit, programmed quantum and declared reference panels; no spatial area law or native thermal calibration",
+  "sources": {
+    "ENTROPY97.json": "aea6724be6a957c4b729edee31b243717f10bf9386b0852d1d9296978770f7e4",
+    "ENTROPY97.json.gz": "ab4a29bb3b27998ac082da6af1e76126a24c83360df12b81b67f496ae70101be",
+    "INDEPENDENT97.json": "0f5d714617e6555e0c3c5a8f43129fba19b768a5d9a633359593b5982fc7be8e",
+    "NATIVE_THERMAL97.json": "527e80337eea60bff36f98a89fd447f61b5d082caaedfa461f1b9361c6cfa0d0",
+    "ORIGINAL_SOURCE97.json": "fd90428d43d53701bd7b749e2529b054a5b29a92a20afa26fe023a431b2eb0fc",
+    "SUMMARY97.json": "ae03301da2e109c2bd09ee797eb4ed8956af75ed971c7d991c9d90a546bde016"
+  }
+}

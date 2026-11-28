@@ -1,0 +1,535 @@
+{
+  "schema": "mqft.plot_groups.v1",
+  "catalog_sha256": "d5d58c6f48e1fb95a3b3a11f355a5260ce95744aa86bcfc988b65d9985155696",
+  "authority": "RESTORE32 user-supplied confirmed core + original Q28/Q30",
+  "original_target_count": 121,
+  "source_function_count": 94,
+  "guide_only_count": 27,
+  "existing_node_count": 13,
+  "additional_plot_nodes": 0,
+  "group_count": 13,
+  "scope": "Group by scientific question, not number of legacy plots; each original ID has one primary owner; per-item catalog remains authoritative and unchanged.",
+  "groups": [
+    {
+      "node": "REPLAN-01",
+      "name": "동일 self-play와 탐색 이력 연결",
+      "topic": "native data/measurement integrity; combined reports",
+      "original_targets": [
+        "L02",
+        "L05",
+        "L12",
+        "L31",
+        "L34"
+      ],
+      "target_count": 5,
+      "secondary_references": [],
+      "restore32_figures": [
+        "F01"
+      ],
+      "current_status": "scoped_group_figure",
+      "evidence": {
+        "scope": "observed_native",
+        "source": "games,native",
+        "files": {
+          "REPLAN-01.png": "3c4d9dd64a8c274a5626e081671d54b32571c812fc8ace405f32f0dac7789da4",
+          "REPLAN-01.pdf": "221665234f088134d7e7ada027e97ae6a9ecad51e7dc773c0cb5df81af19a0bf"
+        }
+      },
+      "remaining": "Actual games, full histories, collision rates; do not mark old comprehensive reports complete."
+    },
+    {
+      "node": "REPLAN-02",
+      "name": "온도·엔트로피·경로 집중",
+      "topic": "score scale, entropy, concentration and temperature",
+      "original_targets": [
+        "L03",
+        "L04",
+        "L25",
+        "L26",
+        "L45",
+        "G01",
+        "G02",
+        "G03",
+        "G05",
+        "G15"
+      ],
+      "target_count": 10,
+      "secondary_references": [
+        "G04"
+      ],
+      "restore32_figures": [
+        "F02"
+      ],
+      "current_status": "scoped_group_figure",
+      "evidence": {
+        "scope": "native_observed",
+        "source": "scale_fits,native_temperature",
+        "files": {
+          "REPLAN-02.png": "330c1839ce129d1e5563d3a4c5a18f54d26c8497bac9b9eacd764839eea3cd5d",
+          "REPLAN-02.pdf": "57aa6586c9b36834e73e2c3e00cb6ab3cde417209e9fd098fbbef4e1ca1baf5a"
+        }
+      },
+      "remaining": "Actual conditional scale and occupancy fit; physical temperature calibration separate."
+    },
+    {
+      "node": "REPLAN-03",
+      "name": "작용·경로측도·one-loop",
+      "topic": "marked path action, effective action and controlled one-loop",
+      "original_targets": [
+        "L16"
+      ],
+      "target_count": 1,
+      "secondary_references": [
+        "Q21",
+        "Q43",
+        "G10"
+      ],
+      "restore32_figures": [
+        "F03"
+      ],
+      "current_status": "scoped_group_figure",
+      "evidence": {
+        "scope": "native_and_exact_restricted_reference",
+        "source": "native,exact,loop",
+        "files": {
+          "REPLAN-03.png": "1966ae1732a991ba73edc0362b36e9b270a3c4f456363d86747e0760fdc1ca37",
+          "REPLAN-03.pdf": "63bbf8f409d3a405bd91a9c91c2758bc82d14b581d0dcb56c6ae1d3675879fba"
+        }
+      },
+      "remaining": "Exact restricted-wave count saddle correction; true adaptive 1PI and field loop not solved."
+    },
+    {
+      "node": "REPLAN-04.R",
+      "name": "예산 흐름과 실제 트리의 RG",
+      "topic": "RG, coarse action, Fisher and graph flow",
+      "original_targets": [
+        "L13",
+        "L29",
+        "L35",
+        "L36",
+        "L37",
+        "L38",
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13"
+      ],
+      "target_count": 11,
+      "secondary_references": [],
+      "restore32_figures": [],
+      "current_status": "scoped_group_figure",
+      "evidence": {
+        "scope": "restricted_reference_and_native_graph_operator",
+        "source": "coarse,graph",
+        "files": {
+          "REPLAN-04.R.png": "1f51b175d69676d9c2a718d6e239d4855a9b798e475e390750179ed0bcc81441",
+          "REPLAN-04.R.pdf": "b7f6c57654bf214c01008fd888b4661a9e9f76405c0e1fc68c1e27d10a1de782"
+        }
+      },
+      "remaining": "Exact pushforward and weighted native graph; autonomous beta functions/fixed points remain open."
+    },
+    {
+      "node": "REPLAN-04.C",
+      "name": "유한크기·감수율·상관",
+      "topic": "finite-size, criticality, susceptibility and correlations",
+      "original_targets": [
+        "L01",
+        "L07",
+        "L14",
+        "L17",
+        "L27",
+        "L28",
+        "Q02",
+        "Q14",
+        "Q15",
+        "Q16",
+        "Q17",
+        "Q18",
+        "Q29",
+        "Q30",
+        "Q31",
+        "Q32",
+        "Q33",
+        "Q34",
+        "G06",
+        "G07",
+        "G08",
+        "G09"
+      ],
+      "target_count": 22,
+      "secondary_references": [
+        "Q09",
+        "Q10"
+      ],
+      "restore32_figures": [],
+      "current_status": "scoped_group_figure",
+      "evidence": {
+        "scope": "native_pilot_and_exact_reference",
+        "source": "paired,cumulants",
+        "files": {
+          "REPLAN-04.C.png": "e7c0ab1c053f2d6f0561b70bda29d51eca84ab9fd3e7147b4afa32626b4f650b",
+          "REPLAN-04.C.pdf": "488d769c739cb8f51297e67c4417802c5833db1ba02c10fda6b1ef6b72efbae6"
+        }
+      },
+      "remaining": "Native response pilot and independent-replica scaling; board-size scaling/critical exponents unresolved."
+    },
+    {
+      "node": "REPLAN-05",
+      "name": "결정의 고전성·fragment 정보 중복",
+      "topic": "decoherence, pointer states, classicality and redundant records",
+      "original_targets": [
+        "L09",
+        "L15",
+        "L19",
+        "L30",
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q27",
+        "Q28",
+        "Q37",
+        "G13",
+        "G14",
+        "G16",
+        "G17",
+        "G23"
+      ],
+      "target_count": 15,
+      "secondary_references": [
+        "L20",
+        "Q35",
+        "Q36",
+        "Q42",
+        "G24"
+      ],
+      "restore32_figures": [],
+      "current_status": "scoped_group_figure",
+      "evidence": {
+        "scope": "conditional_quantum",
+        "source": "quantum,darwinism",
+        "files": {
+          "REPLAN-05.png": "c33c85f7ed424e42843b34dd8f246fd20462f6ab8d7b954dd49c86efc622497b",
+          "REPLAN-05.pdf": "a633b17023cd13c19c2ca15ec4108ef284c99949f5e74d558720bd56862f8b2f"
+        }
+      },
+      "remaining": "Explicit controlled record state, partial trace and Holevo; native objectivity/SBS/envariance not established."
+    },
+    {
+      "node": "REPLAN-06",
+      "name": "구동 탐색의 비평형 열역학",
+      "topic": "nonequilibrium entropy, work, heat and fluctuation relations",
+      "original_targets": [
+        "L06",
+        "L08",
+        "L18",
+        "L32",
+        "L33",
+        "Q01",
+        "Q03",
+        "Q04",
+        "Q05",
+        "Q06",
+        "Q07",
+        "Q08",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q22",
+        "Q23",
+        "Q38",
+        "G04",
+        "G10",
+        "G11",
+        "G12"
+      ],
+      "target_count": 22,
+      "secondary_references": [
+        "G01",
+        "G02",
+        "G03",
+        "G06"
+      ],
+      "restore32_figures": [],
+      "current_status": "scoped_group_figure",
+      "evidence": {
+        "scope": "conditional_thermal_reference",
+        "source": "thermal",
+        "files": {
+          "REPLAN-06.png": "e7aeab6893c36fcd84073241102c948117aa9b9447976fc77244d29c1802cc38",
+          "REPLAN-06.pdf": "904a8005aab934307a9dfce242814c03713ae3460ab7a87adcd402667e3532bd"
+        }
+      },
+      "remaining": "Exact conditional Gibbs quench/reset; native likelihood response not physical FDT; calibrated bath unresolved."
+    },
+    {
+      "node": "REPLAN-07",
+      "name": "물리 예측을 쓰는 선택자와 vanilla PUCT",
+      "topic": "physical predictions for selection versus vanilla PUCT",
+      "original_targets": [],
+      "target_count": 0,
+      "secondary_references": [
+        "L01",
+        "L12"
+      ],
+      "restore32_figures": [],
+      "current_status": "retained_not_newly_executed",
+      "evidence": null,
+      "remaining": "Previous same-evaluator arena and failed selector/closure remain; no new selector in this round."
+    },
+    {
+      "node": "X-BARRIER",
+      "name": "탐색 장벽과 crossing",
+      "topic": "barrier crossing, tunneling and WKB",
+      "original_targets": [
+        "L10",
+        "G18",
+        "G19",
+        "G20",
+        "G21",
+        "G22"
+      ],
+      "target_count": 6,
+      "secondary_references": [],
+      "restore32_figures": [],
+      "current_status": "retained_not_newly_executed",
+      "evidence": null,
+      "remaining": "Existing conditional models preserved; independent physical phase/dynamics needed, no new data this round."
+    },
+    {
+      "node": "X-REP",
+      "name": "유효 ħ·표현·entanglement·압축",
+      "topic": "complex representation, CP dynamics, effective hbar, entanglement",
+      "original_targets": [
+        "L11",
+        "L20",
+        "L21",
+        "Q35",
+        "Q36",
+        "Q39",
+        "Q40",
+        "Q41",
+        "Q42",
+        "Q43",
+        "Q44",
+        "Q45",
+        "G24",
+        "G25",
+        "G26",
+        "G27"
+      ],
+      "target_count": 16,
+      "secondary_references": [
+        "L19",
+        "Q24",
+        "Q25"
+      ],
+      "restore32_figures": [
+        "F04",
+        "F07"
+      ],
+      "current_status": "scoped_group_figure",
+      "evidence": {
+        "scope": "conditional_quantum_reference",
+        "source": "quantum,obstructions",
+        "files": {
+          "X-REP.png": "6da4260b6f92e3d25fb246247e42b64687f885ac1d78b7adcc795a5e49dd9a88",
+          "X-REP.pdf": "f28e6893d0eae9723eb8f3e26d1fe3d0c79925d74e1e5118b5799da5747a436c"
+        }
+      },
+      "remaining": "Explicit Gram states, negativity and dissipator obstructions; physical hbar, Bell intervention and full native quantum map unresolved."
+    },
+    {
+      "node": "X-STRUCT",
+      "name": "위상·오류정정",
+      "topic": "gauge, topology and quantum error correction",
+      "original_targets": [
+        "L22",
+        "L23",
+        "L24"
+      ],
+      "target_count": 3,
+      "secondary_references": [],
+      "restore32_figures": [],
+      "current_status": "retained_not_newly_executed",
+      "evidence": null,
+      "remaining": "Preserved opt-in; specify actual encoding/observable before data or plots."
+    },
+    {
+      "node": "X-MEMORY",
+      "name": "기억·Markov성·시간척도",
+      "topic": "Markovity, temporal correlations, memory and closure",
+      "original_targets": [
+        "L39",
+        "L40",
+        "L41",
+        "L42",
+        "L43",
+        "L44",
+        "L48",
+        "L49"
+      ],
+      "target_count": 8,
+      "secondary_references": [
+        "Q29",
+        "Q37",
+        "L20"
+      ],
+      "restore32_figures": [
+        "F05",
+        "F06"
+      ],
+      "current_status": "scoped_group_figure",
+      "evidence": {
+        "scope": "native_pilot_and_conditional_quantum",
+        "source": "quantum,graph,closure",
+        "files": {
+          "X-MEMORY.png": "54676fbea33e274b65d9004f51d5523922c8369187797cb42161ee0ec6ddb3ed",
+          "X-MEMORY.pdf": "d02bbf32ec70e0d3329bd162b35a7a2c1f60d77ab7a163062b626abb8dfb17c2"
+        }
+      },
+      "remaining": "Actual history prediction, conditional random-unitary memory and graph projected semigroup."
+    },
+    {
+      "node": "X-TRAIN",
+      "name": "학습 궤적과 계산 비용",
+      "topic": "training traces and resource accounting",
+      "original_targets": [
+        "L46",
+        "L47"
+      ],
+      "target_count": 2,
+      "secondary_references": [
+        "L05",
+        "L34"
+      ],
+      "restore32_figures": [],
+      "current_status": "retained_not_newly_executed",
+      "evidence": null,
+      "remaining": "Existing artifacts preserved; no new training curve claimed."
+    }
+  ],
+  "original_target_owner": {
+    "L02": "REPLAN-01",
+    "L05": "REPLAN-01",
+    "L12": "REPLAN-01",
+    "L31": "REPLAN-01",
+    "L34": "REPLAN-01",
+    "L03": "REPLAN-02",
+    "L04": "REPLAN-02",
+    "L25": "REPLAN-02",
+    "L26": "REPLAN-02",
+    "L45": "REPLAN-02",
+    "G01": "REPLAN-02",
+    "G02": "REPLAN-02",
+    "G03": "REPLAN-02",
+    "G05": "REPLAN-02",
+    "G15": "REPLAN-02",
+    "L16": "REPLAN-03",
+    "L13": "REPLAN-04.R",
+    "L29": "REPLAN-04.R",
+    "L35": "REPLAN-04.R",
+    "L36": "REPLAN-04.R",
+    "L37": "REPLAN-04.R",
+    "L38": "REPLAN-04.R",
+    "Q09": "REPLAN-04.R",
+    "Q10": "REPLAN-04.R",
+    "Q11": "REPLAN-04.R",
+    "Q12": "REPLAN-04.R",
+    "Q13": "REPLAN-04.R",
+    "L01": "REPLAN-04.C",
+    "L07": "REPLAN-04.C",
+    "L14": "REPLAN-04.C",
+    "L17": "REPLAN-04.C",
+    "L27": "REPLAN-04.C",
+    "L28": "REPLAN-04.C",
+    "Q02": "REPLAN-04.C",
+    "Q14": "REPLAN-04.C",
+    "Q15": "REPLAN-04.C",
+    "Q16": "REPLAN-04.C",
+    "Q17": "REPLAN-04.C",
+    "Q18": "REPLAN-04.C",
+    "Q29": "REPLAN-04.C",
+    "Q30": "REPLAN-04.C",
+    "Q31": "REPLAN-04.C",
+    "Q32": "REPLAN-04.C",
+    "Q33": "REPLAN-04.C",
+    "Q34": "REPLAN-04.C",
+    "G06": "REPLAN-04.C",
+    "G07": "REPLAN-04.C",
+    "G08": "REPLAN-04.C",
+    "G09": "REPLAN-04.C",
+    "L09": "REPLAN-05",
+    "L15": "REPLAN-05",
+    "L19": "REPLAN-05",
+    "L30": "REPLAN-05",
+    "Q24": "REPLAN-05",
+    "Q25": "REPLAN-05",
+    "Q26": "REPLAN-05",
+    "Q27": "REPLAN-05",
+    "Q28": "REPLAN-05",
+    "Q37": "REPLAN-05",
+    "G13": "REPLAN-05",
+    "G14": "REPLAN-05",
+    "G16": "REPLAN-05",
+    "G17": "REPLAN-05",
+    "G23": "REPLAN-05",
+    "L06": "REPLAN-06",
+    "L08": "REPLAN-06",
+    "L18": "REPLAN-06",
+    "L32": "REPLAN-06",
+    "L33": "REPLAN-06",
+    "Q01": "REPLAN-06",
+    "Q03": "REPLAN-06",
+    "Q04": "REPLAN-06",
+    "Q05": "REPLAN-06",
+    "Q06": "REPLAN-06",
+    "Q07": "REPLAN-06",
+    "Q08": "REPLAN-06",
+    "Q19": "REPLAN-06",
+    "Q20": "REPLAN-06",
+    "Q21": "REPLAN-06",
+    "Q22": "REPLAN-06",
+    "Q23": "REPLAN-06",
+    "Q38": "REPLAN-06",
+    "G04": "REPLAN-06",
+    "G10": "REPLAN-06",
+    "G11": "REPLAN-06",
+    "G12": "REPLAN-06",
+    "L10": "X-BARRIER",
+    "G18": "X-BARRIER",
+    "G19": "X-BARRIER",
+    "G20": "X-BARRIER",
+    "G21": "X-BARRIER",
+    "G22": "X-BARRIER",
+    "L11": "X-REP",
+    "L20": "X-REP",
+    "L21": "X-REP",
+    "Q35": "X-REP",
+    "Q36": "X-REP",
+    "Q39": "X-REP",
+    "Q40": "X-REP",
+    "Q41": "X-REP",
+    "Q42": "X-REP",
+    "Q43": "X-REP",
+    "Q44": "X-REP",
+    "Q45": "X-REP",
+    "G24": "X-REP",
+    "G25": "X-REP",
+    "G26": "X-REP",
+    "G27": "X-REP",
+    "L22": "X-STRUCT",
+    "L23": "X-STRUCT",
+    "L24": "X-STRUCT",
+    "L39": "X-MEMORY",
+    "L40": "X-MEMORY",
+    "L41": "X-MEMORY",
+    "L42": "X-MEMORY",
+    "L43": "X-MEMORY",
+    "L44": "X-MEMORY",
+    "L48": "X-MEMORY",
+    "L49": "X-MEMORY",
+    "L46": "X-TRAIN",
+    "L47": "X-TRAIN"
+  }
+}

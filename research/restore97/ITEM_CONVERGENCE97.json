@@ -1,0 +1,75 @@
+{
+  "artifact_reconstruction_sha": "dd78e465b714123baea0a0f753f8c89198280ad86978db763c2e32675c44a4b6",
+  "claims": [
+    {
+      "claim": "For any retained subset A of the declared current-prefix density, the canonical purification sqrt(rho) gives squared Schmidt values equal to the eigenvalues of rho_A across A:(BE). This is not original mixed A:B entanglement. Of 19008 cuts, 10260 NPT, 5674 negative conditional entropy witnesses, and 4586 NPT with nonnegative conditional entropies. All 36288 CMI values satisfy SSA within numerical tolerance. Product/dephase relative entropy identities checked with marginal log support.",
+      "evidence": [
+        "mqft_restore97_20261128/THEORY.md",
+        "mqft_restore97_20261128/ENTROPY97.json",
+        "mqft_restore97_20261128/ENTROPY97.json.gz",
+        "mqft_restore97_20261128/INDEPENDENT97.json"
+      ],
+      "id": "ENT-PART-13",
+      "items": [
+        "Q35",
+        "Q36",
+        "Q40"
+      ],
+      "limit": "Named finite conditional model, not physical native entanglement or area-law scaling. No general new theorem.",
+      "stage": 97,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "One-sided qubit discord lies between max(0,S(B)-S(AB)) and I-J_best for explicitly measured projective candidates, with Z-Z classical MI<=J_Z<=J_best. Across 15552 cases 4338 improve Z, mean fixed gap .13103674 nat and mean attainable upper .08495533 nat. R68 visit entropy and R91 fixed-spectrum thermodynamic identities are separate estimands.",
+      "evidence": [
+        "mqft_restore97_20261128/THEORY.md",
+        "mqft_restore97_20261128/SUMMARY97.json",
+        "mqft_restore97_20261128/NATIVE_THERMAL97.json",
+        "mqft_restore97_20261128/INDEPENDENT97.json"
+      ],
+      "id": "Q-DISCORD-14",
+      "items": [
+        "Q37",
+        "Q39",
+        "Q40"
+      ],
+      "limit": "Not unrestricted POVM optimum or native causal information flow, no bath, physical temperature or FDT. Independent clocks and populations retained.",
+      "stage": 97,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "ENT-PART-13",
+      "id": "Q35",
+      "remaining_final_acceptance": "Specify joint density/partition, spectrum, negativity and QMI, actual noncommuting controls and phase identification.",
+      "scope": "Declared joint state, all reductions and unique cuts, purification Schmidt spectra, conditional entropy, QMI and NPT with independently checked PT; original physical coherent record identification remains open."
+    },
+    {
+      "accepted": "ENT-PART-13",
+      "id": "Q36",
+      "remaining_final_acceptance": "Actual entanglement entropy scaling across declared subsystem area/volume, separate visit entropy and finite clock.",
+      "scope": "Partial only: finite record cut-cardinality and partition spectra plus separate R92 native categorical size series; no independent spatial coherent size/cut geometry, area or volume law not certified."
+    },
+    {
+      "accepted": "Q-DISCORD-14",
+      "id": "Q37",
+      "remaining_final_acceptance": "Define joint classical/quantum information and discord with operational readout; independent adaptive decision comparison.",
+      "scope": "Named one-sided qubit measurement and finite projective discord bounds, Z-Z MI, relative entropy identities, prior actual native phase/decision comparator; no causal flow or unrestricted optimal discord."
+    },
+    {
+      "accepted": "Q-DISCORD-14",
+      "id": "Q39",
+      "remaining_final_acceptance": "Actual native entropy animation with changing risk set; true entanglement/thermal entropy requires defined state and separate panels.",
+      "scope": "Actual R68 native game-ply entropy with contributing games and changing risk set, separate R94 actual conditional qubit and declared R95 prefix state clocks; two GIFs with 8 and 4 distinct frames."
+    },
+    {
+      "accepted": "ENT-PART-13;Q-DISCORD-14",
+      "id": "Q40",
+      "remaining_final_acceptance": "Comprehensive entropy/entanglement and thermodynamic relations report, actual partition scaling and Maxwell assumptions.",
+      "scope": "Comprehensive scoped report of entropy, original mixed-state cuts, measurement bounds, explicit R91 fixed-spectrum thermodynamic derivatives and feedback identities, R92/R93 references; spatial scaling partial, native bath and physical FDT not identified."
+    }
+  ],
+  "parent_convergence_sha256": "3c5b3d98800a99c8f2a21c2b2192999970419d345c05609c1b253346709e840e",
+  "parent_quality_matrix_sha256": "b6afb54d7f3f7f01340272270667b69023c23365d5ab87f53ab14bfcf173da0a"
+}
