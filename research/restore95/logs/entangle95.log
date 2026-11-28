@@ -1,0 +1,5 @@
+RAW VERIFIED 720
+CONTEXT 24 rows 1728
+CONTEXT 48 rows 3456
+CONTEXT 72 rows 5184
+DONE 5184 17280 19008 {'raw_logp': 0.0, 'raw_leaf_relative': 0.0, 'raw_node_settings': 3.3306690738754696e-16, 'pair_trace': 4.44102716997835e-16, 'PT_trace_norm': 8.881784197001252e-16, 'concurrence_independent': 1.7188884982033414e-08, 'CHSH_unit_norm': 1.1102230246251565e-15, 'CHSH_Born_norm': 6.661338147750939e-16, 'CHSH_nosignal_A': 4.440892098500626e-16, 'CHSH_nosignal_B': 4.440892098500626e-16, 'CHSH_explicit': 2.4424906541753444e-15, 'CHSH_operator': 2.220446049250313e-15, 'Bell': 8.881784197001252e-16, 'classic': 0.0, 'GHZ_pair': 4.440892098500626e-16, 'GHZ_cut': 1.1102230246251565e-16, 'W_pair_concurrence': 0.0, 'Werner': 8.881784197001252e-16, 'joint_trace': 4.440952280452413e-16, 'R94_success_relative': 1.3322676295501878e-15, 'R94_joint_entropy': 2.1316282072803006e-14, 'R94_system_entropy': 7.771561172376096e-16, 'tag_diag': 0.0, 'partial_trace_independent': 0.0, 'R83_final_record': 8.881790905321633e-16, 'pair_complete': 4.440892098500626e-16}

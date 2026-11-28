@@ -1,0 +1,389 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "R69 original archive byte identity; archived mcts_study; separate live folder not used",
+  "guide_features": [
+    {
+      "line": 108,
+      "text": "### 3. Quantum Entanglement"
+    },
+    {
+      "line": 109,
+      "text": ""
+    },
+    {
+      "line": 110,
+      "text": "#### EntanglementAnalyzer (`entanglement.py`)"
+    },
+    {
+      "line": 111,
+      "text": "```python"
+    },
+    {
+      "line": 112,
+      "text": "class EntanglementAnalyzer:"
+    },
+    {
+      "line": 113,
+      "text": "    \"\"\"Measures entanglement between tree branches\"\"\""
+    },
+    {
+      "line": 114,
+      "text": "    "
+    },
+    {
+      "line": 115,
+      "text": "    def compute_mutual_information(self, branch1: TreeBranch, "
+    },
+    {
+      "line": 116,
+      "text": "                                  branch2: TreeBranch) -> float:"
+    },
+    {
+      "line": 117,
+      "text": "        \"\"\"Mutual information between branches\"\"\""
+    },
+    {
+      "line": 118,
+      "text": "        "
+    },
+    {
+      "line": 119,
+      "text": "    def measure_concurrence(self, subsystem: TreeSubsystem) -> float:"
+    },
+    {
+      "line": 120,
+      "text": "        \"\"\"Two-branch entanglement measure\"\"\""
+    },
+    {
+      "line": 121,
+      "text": "        "
+    },
+    {
+      "line": 122,
+      "text": "    def check_bell_inequality(self, tree_state: TreeState) -> BellResult:"
+    },
+    {
+      "line": 123,
+      "text": "        \"\"\"CHSH inequality violation test\"\"\""
+    },
+    {
+      "line": 124,
+      "text": "```"
+    },
+    {
+      "line": 125,
+      "text": ""
+    },
+    {
+      "line": 126,
+      "text": "#### EntanglementPlotter (`entanglement_plotter.py`)"
+    },
+    {
+      "line": 127,
+      "text": "**Visualization Features:**"
+    },
+    {
+      "line": 128,
+      "text": "1. **Mutual Information Matrix**"
+    },
+    {
+      "line": 129,
+      "text": "   - Heatmap visualization"
+    },
+    {
+      "line": 130,
+      "text": "   - Hierarchical clustering"
+    },
+    {
+      "line": 131,
+      "text": "   - Time evolution"
+    },
+    {
+      "line": 132,
+      "text": ""
+    },
+    {
+      "line": 133,
+      "text": "2. **Entanglement Network**"
+    },
+    {
+      "line": 134,
+      "text": "   - Graph representation"
+    },
+    {
+      "line": 135,
+      "text": "   - Edge weights as entanglement"
+    },
+    {
+      "line": 136,
+      "text": "   - Community detection"
+    },
+    {
+      "line": 137,
+      "text": ""
+    },
+    {
+      "line": 138,
+      "text": "3. **Bell Inequality Tests**"
+    },
+    {
+      "line": 139,
+      "text": "   - CHSH correlation plots"
+    },
+    {
+      "line": 140,
+      "text": "   - Violation detection"
+    },
+    {
+      "line": 141,
+      "text": "   - Statistical significance"
+    },
+    {
+      "line": 142,
+      "text": ""
+    },
+    {
+      "line": 143,
+      "text": "---"
+    },
+    {
+      "line": 144,
+      "text": ""
+    },
+    {
+      "line": 145,
+      "text": "## Visualization Tools"
+    },
+    {
+      "line": 367,
+      "text": "### 3. Quantum Entanglement"
+    },
+    {
+      "line": 368,
+      "text": "- **Von Neumann Entropy**: S = -Tr(\u03c1 log \u03c1)"
+    },
+    {
+      "line": 369,
+      "text": "- **Mutual Information**: I(A:B) = S(A) + S(B) - S(AB)"
+    },
+    {
+      "line": 370,
+      "text": "- **Concurrence**: C = max(0, \u03bb\u2081 - \u03bb\u2082 - \u03bb\u2083 - \u03bb\u2084)"
+    },
+    {
+      "line": 371,
+      "text": "- **Bell Inequalities**: |\u27e8CHSH\u27e9| \u2264 2 (classical) vs 2\u221a2 (quantum)"
+    }
+  ],
+  "guide_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+  "items": [
+    {
+      "acceptance": "Compute QMI matrix for actual defined record partition with reduced states and compare classical MI; original branch matrix needs branch instrument.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G23",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502           \u251c\u2500\u2500 mutual_info_matrix.png",
+      "span": [
+        343,
+        343
+      ]
+    },
+    {
+      "acceptance": "Use specified entanglement criterion on defined bipartitions; distinguish classical/quantum MI network and separability.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G24",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502           \u251c\u2500\u2500 entanglement_network.png",
+      "span": [
+        344,
+        344
+      ]
+    },
+    {
+      "acceptance": "For declared two-qubit compression verify concurrence formula and time/fragment conditioning; native branch concurrence needs physical state.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G25",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502           \u251c\u2500\u2500 concurrence_evolution.png",
+      "span": [
+        345,
+        345
+      ]
+    },
+    {
+      "acceptance": "For explicit state and local observables calculate CHSH and separable controls; physical Bell claim requires operational independent settings.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G26",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502           \u251c\u2500\u2500 bell_test_results.png",
+      "span": [
+        346,
+        346
+      ]
+    },
+    {
+      "acceptance": "Combine entanglement, QMI, concurrence and Bell controls, include separable/null cases and native-identification limit.",
+      "archive": "omoknuni_quantum-main.zip",
+      "id": "G27",
+      "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+      "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+      "source_excerpt": "\u2502           \u2514\u2500\u2500 entanglement_summary.png",
+      "span": [
+        347,
+        347
+      ]
+    }
+  ],
+  "legacy_code": {
+    "member": "omoknuni_quantum-main/python/mcts/quantum/phenomena/entanglement.py",
+    "sha256": "1ba41214e548d98b645e243b3b8f53b2ad3a9c31b430fbb4a92ce975a7453328",
+    "source": "\"\"\"\nEntanglement analysis for MCTS based on path integral interpretation.\n\nAccording to the quantum foundation document, MCTS implements a path integral\nwhere multiple paths are explored in parallel, creating quantum-like superposition.\nThe \"entanglement\" measures correlations between different regions of the search tree,\nreflecting how information about good moves spreads through the tree structure.\n\nKey insight: Increasing simulation number acts as temporal evolution with\ninterference between paths (waves), leading to quantum-to-classical transition.\n\"\"\"\nimport torch\nimport numpy as np\nfrom typing import Dict, List, Any, Optional, Tuple, Set\nfrom dataclasses import dataclass\nfrom scipy.optimize import curve_fit\nfrom scipy.linalg import expm, logm\n\n# Import unified quantum definitions\nimport sys\nfrom pathlib import Path\nsys.path.append(str(Path(__file__).parent.parent))\nfrom quantum_definitions import (\n    UnifiedQuantumDefinitions,\n    MCTSQuantumState,\n    compute_von_neumann_entropy,\n    compute_entanglement_entropy,\n    construct_quantum_state_from_visits\n)\n\n\n@dataclass\nclass EntanglementResult:\n    \"\"\"Results from entanglement analysis\"\"\"\n    entropy: float\n    partition_scheme: str\n    region_A_size: int\n    region_B_size: int\n    boundary_size: int\n    mutual_information: float\n    \n    def to_dict(self) -> Dict[str, Any]:\n        \"\"\"Export to dictionary\"\"\"\n        return {\n            'entropy': self.entropy,\n            'partition_scheme': self.partition_scheme,\n            'region_A_size': self.region_A_size,\n            'region_B_size': self.region_B_size,\n            'boundary_size': self.boundary_size,\n            'mutual_information': self.mutual_information\n        }\n\n\nclass EntanglementAnalyzer:\n    \"\"\"\n    Analyze quantum-like entanglement in MCTS trees.\n    \n    Key insight from quantum information theory:\n    - Entanglement = Superposition in composite systems\n    - In MCTS: Different paths create superposition state\n    - Entanglement entropy measures path diversity/coherence\n    \n    Methods:\n    - Von Neumann entropy of reduced density matrix\n    - Mutual information between subtrees\n    - Path concurrence (quantum measure)\n    - Participation ratio of paths\n    \"\"\"\n    \n    def __init__(self, device: Optional[str] = None):\n        \"\"\"\n        Initialize entanglement analyzer.\n        \n        Args:\n            device: Computation device\n        \"\"\"\n        if device is None:\n            self.device = 'cuda' if torch.cuda.is_available() else 'cpu'\n        else:\n            self.device = device\n        \n        # Initialize unified quantum definitions\n        self.quantum_defs = UnifiedQuantumDefinitions(device=self.device)\n    \n    def compute_entanglement_entropy(self, tree_data: Dict[str, Any],\n                                   partition_scheme: str = 'depth') -> float:\n        \"\"\"\n        Compute entanglement entropy for tree partition.\n        \n        In the path integral interpretation, this measures how information\n        about good moves is distributed across different regions of the tree.\n        High entropy indicates many paths contribute equally (superposition),\n        while low entropy indicates convergence to specific paths (classical).\n        \n        Args:\n            tree_data: Dictionary with tree observables including:\n                - visit_distribution: N(s,a) for each state-action\n                - tree_size: Total number of nodes\n                - depth_distribution: Optional depth information\n                - value_landscape: Optional Q-values\n            partition_scheme: How to partition ('depth', 'half', 'value', 'subtree')\n            \n        Returns:\n            Von Neumann entropy of the reduced density matrix\n        \"\"\"\n        # Get visit distribution\n        visits = tree_data.get('visit_distribution', tree_data.get('visits'))\n        if visits is None:\n            raise ValueError(\"No visit distribution found in tree_data\")\n            \n        if not isinstance(visits, torch.Tensor):\n            visits = torch.tensor(visits, device=self.device, dtype=torch.float32)\n        else:\n            visits = visits.to(self.device)\n        \n        # Ensure non-negative visits\n        visits = torch.abs(visits)\n        \n        # Partition tree into regions A and B\n        region_A, region_B = self._partition_tree(tree_data, partition_scheme)\n        \n        # Construct quantum state using unified definitions\n        # This naturally creates mixed states with off-diagonal terms\n        quantum_state = self.quantum_defs.construct_quantum_state_from_single_visits(\n            visits, outcome_uncertainty=0.2  # Model inherent search uncertainty\n        )\n        \n        # Compute entanglement entropy using unified definitions\n        # This traces out region B to get reduced density matrix for region A\n        entropy = self.quantum_defs.compute_entanglement_entropy(\n            quantum_state, region_B\n        )\n        \n        # Add normalization for interpretability\n        # Maximum entropy is log(dim(A))\n        max_entropy = np.log(len(region_A)) if len(region_A) > 0 else 1.0\n        normalized_entropy = float(entropy) / max_entropy if max_entropy > 0 else 0.0\n        \n        # Return raw entropy (normalized version available in metadata)\n        return float(entropy)\n    \n    def _partition_tree(self, tree_data: Dict[str, Any], \n                       scheme: str) -> Tuple[List[int], List[int]]:\n        \"\"\"\n        Partition tree nodes into two regions.\n        \n        In the path integral formulation, different partitions reveal\n        different aspects of the quantum-like correlations:\n        - 'depth': Separates early vs late decisions (UV vs IR in RG flow)\n        - 'value': Separates good vs bad paths (pointer states)\n        - 'subtree': Separates different strategic options (path bundles)\n        - 'half': Simple bipartition for baseline\n        \n        Args:\n            tree_data: Tree observables\n            scheme: Partition scheme\n            \n        Returns:\n            (region_A_indices, region_B_indices)\n        \"\"\"\n        n_nodes = tree_data.get('tree_size', len(tree_data.get('visit_distribution', [])))\n        \n        if scheme == 'depth':\n            # Partition by depth - separates scales in RG flow\n            depths = tree_data.get('depth_distribution', torch.zeros(n_nodes))\n            if not isinstance(depths, torch.Tensor):\n                depths = torch.tensor(depths)\n            \n            median_depth = torch.median(depths)\n            region_A = [i for i in range(n_nodes) if depths[i] <= median_depth]\n            region_B = [i for i in range(n_nodes) if depths[i] > median_depth]\n            \n        elif scheme == 'half':\n            # Simple half partition\n            mid = n_nodes // 2\n            region_A = list(range(mid))\n            region_B = list(range(mid, n_nodes))\n            \n        elif scheme == 'value':\n            # Partition by value - separates pointer states\n            values = tree_data.get('value_landscape', tree_data.get('q_values', torch.zeros(n_nodes)))\n            if not isinstance(values, torch.Tensor):\n                values = torch.tensor(values)\n                \n            median_value = torch.median(values)\n            region_A = [i for i in range(n_nodes) if values[i] <= median_value]\n            region_B = [i for i in range(n_nodes) if values[i] > median_value]\n            \n        elif scheme == 'subtree':\n            # Partition by subtree structure - separates path bundles\n            # This best reflects the path integral structure\n            visits = tree_data.get('visit_distribution', tree_data.get('visits', torch.zeros(n_nodes)))\n            if not isinstance(visits, torch.Tensor):\n                visits = torch.tensor(visits)\n            \n            # Find the most visited actions at root level\n            # Assume first few nodes are root actions\n            n_root_actions = min(10, n_nodes // 10)  # Heuristic\n            root_visits = visits[:n_root_actions]\n            \n            # Find top two subtrees\n            if len(root_visits) >= 2:\n                top_indices = torch.argsort(root_visits, descending=True)[:2]\n                \n                # Region A: Nodes associated with top action\n                # Region B: Nodes associated with second action\n                # This is simplified - in practice would trace actual tree structure\n                region_A = list(range(top_indices[0], n_nodes, n_root_actions))\n                region_B = list(range(top_indices[1], n_nodes, n_root_actions))\n                \n                # Ensure all nodes are assigned\n                assigned = set(region_A + region_B)\n                unassigned = [i for i in range(n_nodes) if i not in assigned]\n                # Split unassigned evenly\n                mid_unassigned = len(unassigned) // 2\n                region_A.extend(unassigned[:mid_unassigned])\n                region_B.extend(unassigned[mid_unassigned:])\n            else:\n                # Fallback to half partition\n                mid = n_nodes // 2\n                region_A = list(range(mid))\n                region_B = list(range(mid, n_nodes))\n            \n        else:\n            raise ValueError(f\"Unknown partition scheme: {scheme}\")\n        \n        # Ensure non-empty regions\n        if not region_A:\n            region_A = [0]\n        if not region_B:\n            region_B = [n_nodes - 1] if n_nodes > 1 else [0]\n        \n        return region_A, region_B\n    \n    def _construct_density_matrix(self, visits: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Construct density matrix from visit distribution.\n        \n        Treats normalized visit counts as quantum amplitudes squared.\n        \n        Args:\n            visits: Visit count distribution\n            \n        Returns:\n            Density matrix\n        \"\"\"\n        # Normalize visits to get probabilities\n        probs = visits / visits.sum()\n        \n        # For simplicity, treat as diagonal density matrix\n        # In full implementation, could include off-diagonal correlations\n        n = len(probs)\n        rho = torch.diag(probs).to(self.device)\n        \n        return rho\n    \n    def _partial_trace(self, rho: torch.Tensor, \n                      trace_indices: List[int]) -> torch.Tensor:\n        \"\"\"\n        Compute partial trace over specified indices.\n        \n        Args:\n            rho: Full density matrix\n            trace_indices: Indices to trace out\n            \n        Returns:\n            Reduced density matrix\n        \"\"\"\n        n = rho.shape[0]\n        keep_indices = [i for i in range(n) if i not in trace_indices]\n        \n        if len(keep_indices) == 0:\n            return torch.tensor([[1.0]], device=self.device)\n        \n        # For diagonal density matrix, partial trace is simple\n        rho_reduced = torch.zeros(len(keep_indices), len(keep_indices), \n                                 device=self.device)\n        \n        for i, idx_i in enumerate(keep_indices):\n            for j, idx_j in enumerate(keep_indices):\n                if idx_i == idx_j:\n                    # Sum over traced indices\n                    rho_reduced[i, j] = rho[idx_i, idx_i]\n                    for trace_idx in trace_indices:\n                        if trace_idx < n:\n                            rho_reduced[i, j] += rho[trace_idx, trace_idx]\n        \n        # Renormalize\n        trace = torch.trace(rho_reduced)\n        if trace > 0:\n            rho_reduced = rho_reduced / trace\n        \n        return rho_reduced\n    \n    def _von_neumann_entropy(self, rho: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Compute von Neumann entropy: S = -Tr(\u03c1 log \u03c1).\n        \n        Args:\n            rho: Density matrix\n            \n        Returns:\n            Entropy\n        \"\"\"\n        # Compute eigenvalues\n        eigenvalues = torch.linalg.eigvalsh(rho)\n        \n        # Filter out numerical zeros\n        eigenvalues = eigenvalues[eigenvalues > 1e-10]\n        \n        # Von Neumann entropy\n        if len(eigenvalues) == 0:\n            return torch.tensor(0.0, device=self.device)\n        \n        entropy = -torch.sum(eigenvalues * torch.log(eigenvalues))\n        \n        return entropy\n    \n    def compute_mutual_information(self, tree_data: Dict[str, Any],\n                                 region_A_indices: List[int],\n                                 region_B_indices: List[int]) -> float:\n        \"\"\"\n        Compute mutual information between regions.\n        \n        I(A:B) = S(A) + S(B) - S(A\u222aB)\n        \n        Args:\n            tree_data: Tree observables\n            region_A_indices: Indices for region A\n            region_B_indices: Indices for region B\n            \n        Returns:\n            Mutual information\n        \"\"\"\n        visits = tree_data['visit_distribution']\n        if not isinstance(visits, torch.Tensor):\n            visits = torch.tensor(visits, device=self.device)\n        else:\n            visits = visits.to(self.device)\n        \n        # Compute individual entropies\n        rho_full = self._construct_density_matrix(visits)\n        \n        # S(A)\n        rho_A = self._partial_trace(rho_full, region_B_indices)\n        S_A = self._von_neumann_entropy(rho_A)\n        \n        # S(B)\n        rho_B = self._partial_trace(rho_full, region_A_indices)\n        S_B = self._von_neumann_entropy(rho_B)\n        \n        # S(A\u222aB) - entropy of full system\n        all_indices = list(set(region_A_indices + region_B_indices))\n        complement = [i for i in range(len(visits)) if i not in all_indices]\n        rho_AB = self._partial_trace(rho_full, complement)\n        S_AB = self._von_neumann_entropy(rho_AB)\n        \n        # Mutual information\n        MI = S_A + S_B - S_AB\n        \n        return float(MI)\n    \n    def get_boundary_size(self, tree_data: Dict[str, Any],\n                         partition_scheme: str) -> int:\n        \"\"\"\n        Get boundary size between partitions.\n        \n        Args:\n            tree_data: Tree observables\n            partition_scheme: Partition scheme\n            \n        Returns:\n            Number of connections across boundary\n        \"\"\"\n        region_A, region_B = self._partition_tree(tree_data, partition_scheme)\n        \n        # For tree structure, boundary is number of edges crossing partition\n        # Simplified: use geometric mean of region sizes\n        boundary = int(np.sqrt(len(region_A) * len(region_B)))\n        \n        return boundary\n    \n    def verify_area_law(self, entropies: List[float],\n                       boundary_sizes: List[int]) -> Dict[str, Any]:\n        \"\"\"\n        Verify area law scaling: S ~ boundary^\u03b1.\n        \n        Args:\n            entropies: List of entanglement entropies\n            boundary_sizes: Corresponding boundary sizes\n            \n        Returns:\n            Dictionary with scaling analysis\n        \"\"\"\n        # Fit power law in log space\n        log_boundaries = np.log(boundary_sizes)\n        log_entropies = np.log(np.array(entropies) + 1e-10)\n        \n        # Linear fit in log space\n        alpha, log_c = np.polyfit(log_boundaries, log_entropies, 1)\n        \n        # Area law has \u03b1 \u2248 1\n        area_law_verified = abs(alpha - 1.0) < 0.2\n        \n        return {\n            'scaling_exponent': float(alpha),\n            'area_law_verified': area_law_verified,\n            'r_squared': float(np.corrcoef(log_boundaries, log_entropies)[0, 1]**2)\n        }\n    \n    def compute_path_superposition_entropy(self, path_amplitudes: np.ndarray) -> float:\n        \"\"\"\n        Compute entanglement entropy from path superposition.\n        \n        In quantum information theory:\n        - Pure superposition state: |\u03c8\u27e9 = \u03a3_i \u03b1_i |path_i\u27e9\n        - Entanglement entropy = Shannon entropy of |\u03b1_i|\u00b2\n        \n        Args:\n            path_amplitudes: Amplitudes for each path\n            \n        Returns:\n            Entanglement entropy\n        \"\"\"\n        # Normalize amplitudes\n        amplitudes = np.abs(path_amplitudes)\n        if np.sum(amplitudes) == 0:\n            return 0.0\n            \n        probabilities = amplitudes**2 / np.sum(amplitudes**2)\n        \n        # Shannon entropy = entanglement entropy for pure states\n        entropy = -np.sum(probabilities * np.log(probabilities + 1e-10))\n        \n        return entropy\n    \n    def compute_path_concurrence(self, path_amplitudes_A: np.ndarray,\n                                path_amplitudes_B: np.ndarray) -> float:\n        \"\"\"\n        Compute concurrence between two path sets (quantum entanglement measure).\n        \n        Concurrence C \u2208 [0,1]:\n        - C = 0: No entanglement (product state)\n        - C = 1: Maximum entanglement\n        \n        Args:\n            path_amplitudes_A: Amplitudes for paths in region A\n            path_amplitudes_B: Amplitudes for paths in region B\n            \n        Returns:\n            Concurrence value\n        \"\"\"\n        # Normalize\n        psi_A = path_amplitudes_A / np.sqrt(np.sum(np.abs(path_amplitudes_A)**2) + 1e-10)\n        psi_B = path_amplitudes_B / np.sqrt(np.sum(np.abs(path_amplitudes_B)**2) + 1e-10)\n        \n        # For bipartite pure states, concurrence relates to overlap\n        # C = 2 * |\u27e8\u03c8_A|\u03c8_B\u27e9| for maximally entangled basis\n        \n        # Simplified: use participation ratio as proxy\n        participation_A = 1.0 / np.sum(np.abs(psi_A)**4)\n        participation_B = 1.0 / np.sum(np.abs(psi_B)**4)\n        \n        # Geometric mean of participations\n        concurrence = 2 * np.sqrt(participation_A * participation_B) / (participation_A + participation_B)\n        \n        return min(1.0, concurrence)\n    \n    def compute_superposition_measures(self, visits: torch.Tensor) -> Dict[str, float]:\n        \"\"\"\n        Compute various superposition/entanglement measures.\n        \n        Returns:\n            Dictionary with:\n            - participation_ratio: Effective number of superposed states\n            - coherence_length: Spread of superposition\n            - entanglement_entropy: von Neumann entropy\n            - purity: Tr(\u03c1\u00b2) - measures mixedness\n        \"\"\"\n        # Convert to probabilities\n        total_visits = visits.sum()\n        if total_visits == 0:\n            return {\n                'participation_ratio': 1.0,\n                'coherence_length': 0.0,\n                'entanglement_entropy': 0.0,\n                'purity': 1.0\n            }\n        \n        probs = visits / total_visits\n        \n        # Participation ratio: 1/\u03a3p_i\u00b2 \n        # Measures effective number of states in superposition\n        participation_ratio = 1.0 / torch.sum(probs**2)\n        \n        # Coherence length: RMS spread of probability\n        indices = torch.arange(len(probs), device=self.device)\n        mean_idx = torch.sum(probs * indices)\n        coherence_length = torch.sqrt(torch.sum(probs * (indices - mean_idx)**2))\n        \n        # Entanglement entropy (Shannon)\n        probs_nonzero = probs[probs > 0]\n        entropy = -torch.sum(probs_nonzero * torch.log(probs_nonzero))\n        \n        # Purity\n        purity = torch.sum(probs**2)\n        \n        return {\n            'participation_ratio': float(participation_ratio),\n            'coherence_length': float(coherence_length),\n            'entanglement_entropy': float(entropy),\n            'purity': float(purity)\n        }\n    \n    def compute_entanglement_evolution(self, snapshots: List[Dict[str, Any]], \n                                     partition_scheme: str = 'subtree') -> Dict[str, Any]:\n        \"\"\"\n        Track entanglement evolution over MCTS simulations.\n        \n        According to the quantum foundation, increasing simulation number\n        acts as temporal evolution with interference between paths.\n        We expect to see:\n        1. Initial high entanglement (many paths in superposition)\n        2. Gradual decrease as good paths are selected (decoherence)\n        3. Low final entanglement (classical decision emerges)\n        \n        Args:\n            snapshots: List of tree snapshots over time\n            partition_scheme: How to partition the tree\n            \n        Returns:\n            Dictionary with evolution metrics\n        \"\"\"\n        entropies = []\n        mutual_infos = []\n        times = []\n        \n        for i, snapshot in enumerate(snapshots):\n            try:\n                # Compute entanglement entropy\n                S = self.compute_entanglement_entropy(snapshot, partition_scheme)\n                entropies.append(S)\n                \n                # Also compute mutual information if possible\n                if 'tree_size' in snapshot and snapshot['tree_size'] > 10:\n                    region_A, region_B = self._partition_tree(snapshot, partition_scheme)\n                    MI = self.compute_mutual_information(snapshot, region_A, region_B)\n                    mutual_infos.append(MI)\n                else:\n                    mutual_infos.append(0.0)\n                \n                times.append(snapshot.get('timestamp', i))\n                \n            except Exception as e:\n                # Skip problematic snapshots\n                continue\n        \n        if len(entropies) < 2:\n            return {'error': 'Insufficient data for evolution analysis'}\n        \n        # Analyze the evolution\n        entropies_np = np.array(entropies)\n        times_np = np.array(times)\n        \n        # Measure decay rate (quantum-to-classical transition)\n        if entropies_np[0] > entropies_np[-1]:\n            # Decreasing entropy - decoherence happening\n            decay_rate = (entropies_np[0] - entropies_np[-1]) / (times_np[-1] - times_np[0])\n            transition_time = times_np[np.argmin(np.abs(entropies_np - entropies_np[0]/2))]\n        else:\n            decay_rate = 0.0\n            transition_time = times_np[-1]\n        \n        # Check for phase transitions (sudden drops)\n        d_entropy = np.gradient(entropies_np)\n        phase_transitions = np.where(d_entropy < -0.1 * np.std(d_entropy))[0]\n        \n        return {\n            'entropies': entropies,\n            'mutual_informations': mutual_infos,\n            'times': times,\n            'initial_entropy': float(entropies[0]),\n            'final_entropy': float(entropies[-1]),\n            'decay_rate': float(decay_rate),\n            'transition_time': float(transition_time),\n            'phase_transitions': phase_transitions.tolist(),\n            'quantum_to_classical': entropies[0] > entropies[-1]  # Expected behavior\n        }\n    \n    def compute_correlation_length(self, tree_data: Dict[str, Any]) -> float:\n        \"\"\"\n        Estimate correlation length in tree.\n        \n        In the path integral formulation, this measures how far\n        information about good moves propagates through the tree.\n        \n        Args:\n            tree_data: Tree observables\n            \n        Returns:\n            Correlation length\n        \"\"\"\n        visits = tree_data.get('visit_distribution', tree_data.get('visits'))\n        if visits is None:\n            return 0.0\n            \n        if not isinstance(visits, torch.Tensor):\n            visits = torch.tensor(visits, device=self.device)\n        else:\n            visits = visits.to(self.device)\n        \n        n = len(visits)\n        \n        # Compute correlation function\n        correlations = []\n        for distance in range(1, min(n//2, 20)):\n            corr = 0.0\n            count = 0\n            \n            for i in range(n - distance):\n                corr += visits[i] * visits[i + distance]\n                count += 1\n            \n            if count > 0:\n                corr = corr / count\n                correlations.append(float(corr))\n        \n        # Fit exponential decay to extract correlation length\n        if len(correlations) > 3:\n            distances = np.arange(1, len(correlations) + 1)\n            try:\n                # Fit C(r) = A * exp(-r/\u03be)\n                def exp_decay(r, A, xi):\n                    return A * np.exp(-r / xi)\n                \n                popt, _ = curve_fit(exp_decay, distances, correlations,\n                                  p0=[correlations[0], 5.0])\n                correlation_length = popt[1]\n            except:\n                correlation_length = 1.0\n        else:\n            correlation_length = 1.0\n        \n        return float(correlation_length)\n    \n    def compute_entanglement_spectrum(self, tree_data: Dict[str, Any],\n                                    partition_scheme: str) -> List[float]:\n        \"\"\"\n        Compute entanglement spectrum (eigenvalues of reduced density matrix).\n        \n        Args:\n            tree_data: Tree observables\n            partition_scheme: Partition scheme\n            \n        Returns:\n            List of eigenvalues (entanglement spectrum)\n        \"\"\"\n        visits = tree_data['visit_distribution']\n        if not isinstance(visits, torch.Tensor):\n            visits = torch.tensor(visits, device=self.device)\n        else:\n            visits = visits.to(self.device)\n        \n        # Partition and compute reduced density matrix\n        region_A, region_B = self._partition_tree(tree_data, partition_scheme)\n        rho = self._construct_density_matrix(visits)\n        rho_A = self._partial_trace(rho, region_B)\n        \n        # Get eigenvalues\n        eigenvalues = torch.linalg.eigvalsh(rho_A)\n        eigenvalues = eigenvalues[eigenvalues > 1e-10]\n        \n        # Normalize\n        eigenvalues = eigenvalues / eigenvalues.sum()\n        \n        return eigenvalues.tolist()"
+  },
+  "study_members": 60,
+  "study_selected": [
+    {
+      "excerpts": [
+        [
+          215,
+          "**Definition 5.1** (Quantum Mutual Information)"
+        ],
+        [
+          272,
+          "        # Compute mutual information for different fragment sizes"
+        ],
+        [
+          314,
+          "    # Classical mutual information (upper bound on quantum)"
+        ],
+        [
+          642,
+          "            # Compute mutual information I(S:F)"
+        ],
+        [
+          694,
+          "    # Approximate mutual information"
+        ]
+      ],
+      "lines": 965,
+      "member": "mcts_study/v3.0/qft-mcts-decoherence.md",
+      "relevant_line_count": 5,
+      "sha256": "64a0c6eb98c1f8695b4230cda9121f7f5adc463f217e412670808bf9408358e5"
+    },
+    {
+      "excerpts": [
+        [
+          596,
+          "### 6.1 Entanglement Entropy"
+        ],
+        [
+          600,
+          "def compute_entanglement_entropy(visit_counts, system_sizes):"
+        ],
+        [
+          602,
+          "    Extract entanglement entropy from visit correlations"
+        ],
+        [
+          608,
+          "    # Step 1: Base entanglement from visit correlations"
+        ],
+        [
+          611,
+          "        entanglement_base = abs(corr_matrix[0, 1])"
+        ],
+        [
+          613,
+          "        entanglement_base = 0.0"
+        ],
+        [
+          617,
+          "    entanglement_base *= von_neumann_entropy"
+        ],
+        [
+          620,
+          "    entanglement_entropies = []"
+        ],
+        [
+          623,
+          "        area_scaling = entanglement_base * (L**(0.5))  # d-1 for d=1.5"
+        ],
+        [
+          624,
+          "        volume_scaling = entanglement_base * np.log(L + 1)  # Log volume"
+        ],
+        [
+          628,
+          "        entanglement_entropies.append(S_ent)"
+        ],
+        [
+          630,
+          "    return entanglement_entropies"
+        ],
+        [
+          635,
+          "entanglement_base = 0.7 * 1.58 = 1.11"
+        ],
+        [
+          640,
+          "### 6.2 Mutual Information"
+        ],
+        [
+          664,
+          "    # Step 4: Mutual information"
+        ],
+        [
+          671,
+          "    \"\"\"Estimate mutual information from correlations\"\"\""
+        ],
+        [
+          678,
+          "            I = 5.0  # High mutual information"
+        ]
+      ],
+      "lines": 1278,
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "relevant_line_count": 17,
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    },
+    {
+      "excerpts": [
+        [
+          412,
+          "where I is mutual information and H is entropy."
+        ]
+      ],
+      "lines": 776,
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "relevant_line_count": 1,
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "excerpts": [
+        [
+          1356,
+          "            - mutual_info: Raw mutual information"
+        ],
+        [
+          1400,
+          "                # Compute mutual information"
+        ],
+        [
+          1405,
+          "                # Estimate mutual information using accuracy"
+        ]
+      ],
+      "lines": 2497,
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "relevant_line_count": 3,
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    }
+  ]
+}

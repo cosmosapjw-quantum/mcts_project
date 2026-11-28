@@ -1,0 +1,77 @@
+{
+  "artifact_reconstruction_sha": "4f5d473f0f440ff69a38dfc6d3b457b61bd47f5f6c5830c1c11e53b768138e3f",
+  "claims": [
+    {
+      "claim": "For the declared current-prefix coherent record extension, product local record tag channels preserve all computational diagonals; full tag gives a fully separable mixture, even when classical MI persists. Named pairwise reductions and all joint cuts distinguish NPT from classical correlation. The two-qubit CHSH maximum is realized by explicit local SVD directions; success-weighted excess is an indicator, not an unconditional native Bell result.",
+      "evidence": [
+        "mqft_restore95_20261128/THEORY.md",
+        "mqft_restore95_20261128/ENTANGLE95.json",
+        "mqft_restore95_20261128/JOINT95.npz",
+        "mqft_restore95_20261128/INDEPENDENT95.json"
+      ],
+      "id": "Q-WITNESS-09",
+      "items": [
+        "G23",
+        "G24",
+        "G25",
+        "G26",
+        "G27"
+      ],
+      "limit": "Known entanglement criteria applied to finite declared model; actual native coherent state and physical independent settings unestablished; no novelty claim.",
+      "stage": 95,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For lambda0 on the registered branch settings and common bath convention, each Kraus path is a scalar sqrt(w_h) times a branch-independent free product. The conditional joint state factors into the pure coherent probability-amplitude record tensor system marginal. A dependent classical probability table can therefore yield nonzero record entanglement and large record-record CHSH while system-record entanglement is exactly zero. This control is distinct from full record tagging.",
+      "evidence": [
+        "mqft_restore95_20261128/THEORY.md",
+        "mqft_restore95_20261128/BASE_CONTROL95.json",
+        "mqft_restore95_20261128/ENTANGLE95.json",
+        "mqft_restore95_20261128/JOINT95.npz"
+      ],
+      "id": "Q-BASE-10",
+      "items": [
+        "G24",
+        "G26",
+        "G27"
+      ],
+      "limit": "Finite counterfactual harvested plus81 node settings, not actual native baseline law or experimental Bell test. Verified 432 positive-depth cases; no general physical advantage.",
+      "stage": 95,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "Q-WITNESS-09",
+      "id": "G23",
+      "remaining_final_acceptance": "Compute QMI matrix for actual defined record partition with reduced states and compare classical MI; original branch matrix needs branch instrument.",
+      "scope": "Current-depth explicit R1..Rd,S two-qubit reduced QMI and classical Z MI matrices with independent partial trace; not native branch MI identification."
+    },
+    {
+      "accepted": "Q-WITNESS-09;Q-BASE-10",
+      "id": "G24",
+      "remaining_final_acceptance": "Use specified entanglement criterion on defined bipartitions; distinguish classical/quantum MI network and separability.",
+      "scope": "Pairwise negativity network and all unique joint bipartition cuts, tagged separable controls; PPT limits and pair-vs-cut distinction."
+    },
+    {
+      "accepted": "Q-WITNESS-09",
+      "id": "G25",
+      "remaining_final_acceptance": "For declared two-qubit compression verify concurrence formula and time/fragment conditioning; native branch concurrence needs physical state.",
+      "scope": "Actual branch-derived prefix concurrence for named two-qubit factors and independent spin-flip/SVD checks; no absent pair treated as zero."
+    },
+    {
+      "accepted": "Q-WITNESS-09;Q-BASE-10",
+      "id": "G26",
+      "remaining_final_acceptance": "For explicit state and local observables calculate CHSH and separable controls; physical Bell claim requires operational independent settings.",
+      "scope": "Maximal nondegenerate Pauli CHSH with explicit local directions, Born probability and no-signalling checks, Bell/Werner/separable controls, success-weighted indicator and lambda0 counterexample; not physical Bell experiment."
+    },
+    {
+      "accepted": "Q-WITNESS-09;Q-BASE-10",
+      "id": "G27",
+      "remaining_final_acceptance": "Combine entanglement, QMI, concurrence and Bell controls, include separable/null cases and native-identification limit.",
+      "scope": "Combined QMI, negativity, concurrence, CHSH and tag/phase/base controls on declared adaptive prefix records; rare-event success retained, no native physical identification."
+    }
+  ],
+  "parent_convergence_sha256": "b4e858684747c3211428444f3c763e1bd74b78b1a96a865b04a3c8e77984f518",
+  "parent_quality_matrix_sha256": "d7bb2d873b377a91f74213a77fbaa01e7632591d526f5abc8f0569ce6ef0628a"
+}

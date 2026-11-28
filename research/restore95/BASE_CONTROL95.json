@@ -1,0 +1,3900 @@
+{
+  "checks": {
+    "base_S_pair_concurrence": 8.758380727921937e-16,
+    "base_S_record_negativity": 8.727411804125089e-16,
+    "base_factorization": 7.216783253021517e-16,
+    "base_success": 3.219646771412954e-15
+  },
+  "rows": [
+    {
+      "core": 0,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 8.188576284135572e-07
+    },
+    {
+      "core": 0,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.1443260746640105,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 5.5006571451546384e-11
+    },
+    {
+      "core": 0,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.0029706362495867,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 1.5326772848267872e-15
+    },
+    {
+      "core": 0,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 0,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.273459168963591,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 0,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.139186128987968,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 1,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 6.0444786204732284e-05
+    },
+    {
+      "core": 1,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.131154834267627,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 3.4283534186753148e-16
+    },
+    {
+      "core": 1,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.0004879893637213,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 7.978785271442756e-20
+    },
+    {
+      "core": 1,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 1,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0006091169793128,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 1,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.673926902662765,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 2,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 0.0014989965473593873
+    },
+    {
+      "core": 2,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.3657095751867856,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.7597681157033705e-06
+    },
+    {
+      "core": 2,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.975600470087191,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 3.129590328215319e-09
+    },
+    {
+      "core": 2,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 2,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0427535789617095,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 2,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9921311710597294,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999996,
+      "success": 1.0
+    },
+    {
+      "core": 3,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 4.841255372939714e-06
+    },
+    {
+      "core": 3,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.034400317292307,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999994,
+      "success": 6.565667804597547e-11
+    },
+    {
+      "core": 3,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9918611146439884,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 1.8922182610431014e-15
+    },
+    {
+      "core": 3,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 3,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0454877953526833,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 3,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.0010166662454476,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 4,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.651564907693748e-11
+    },
+    {
+      "core": 4,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.1764722075420737,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000007,
+      "success": 5.084016032859566e-16
+    },
+    {
+      "core": 4,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9999997837846202,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.2643076796247332e-20
+    },
+    {
+      "core": 4,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 4,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.724911748388601,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 4,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9867755235595885,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999998
+    },
+    {
+      "core": 5,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 0.0022938503563396935
+    },
+    {
+      "core": 5,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0000102345419544,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 2.177584566812354e-06
+    },
+    {
+      "core": 5,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.999734679320034,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 3.514743282449486e-10
+    },
+    {
+      "core": 5,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 5,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.001315601909525,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 5,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.000144247513135,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 0.9999999999999998
+    },
+    {
+      "core": 6,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 2.408112630550113e-10
+    },
+    {
+      "core": 6,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0001274199824786,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 1.7733127248735004e-19
+    },
+    {
+      "core": 6,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9695880546876903,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 1.01876692588893e-29
+    },
+    {
+      "core": 6,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 6,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0011813041106086,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 6,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.003672365100037,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 7,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 2.4203518143550364e-11
+    },
+    {
+      "core": 7,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0003593870442478,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.2284867668361001e-15
+    },
+    {
+      "core": 7,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.000000000011786,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 1.6119467900152417e-20
+    },
+    {
+      "core": 7,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 7,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.5827740634319363,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999999,
+      "success": 1.0
+    },
+    {
+      "core": 7,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.008839779484345,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 8,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 4.180772937856808e-11
+    },
+    {
+      "core": 8,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.1236334818107117,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 8.523173176800246e-20
+    },
+    {
+      "core": 8,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.985820166654971,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 2.8761268229082513e-28
+    },
+    {
+      "core": 8,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 8,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.1502722882109713,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999998,
+      "success": 1.0
+    },
+    {
+      "core": 8,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.951565281363552,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 9,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 9.6025788309944e-12
+    },
+    {
+      "core": 9,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.012381940708816,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 3.905222974043647e-21
+    },
+    {
+      "core": 9,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9999980924718483,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999992,
+      "success": 2.1298879216494262e-28
+    },
+    {
+      "core": 9,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 9,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.061831397802031,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 9,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.029368379920734,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999998
+    },
+    {
+      "core": 10,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 1.2958475691881354e-05
+    },
+    {
+      "core": 10,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0000000000011044,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 9.94740996247833e-09
+    },
+    {
+      "core": 10,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.000000000000011,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 2.4735455710105483e-12
+    },
+    {
+      "core": 10,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 10,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.003187544818374,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999999,
+      "success": 1.0
+    },
+    {
+      "core": 10,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.002819718092077,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 11,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 0.01736981745934511
+    },
+    {
+      "core": 11,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.004276583052808,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 7.151905135910633e-05
+    },
+    {
+      "core": 11,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.0275991752416402,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999993,
+      "success": 7.936120365727707e-08
+    },
+    {
+      "core": 11,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 11,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0338125761771564,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 11,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9858392504948386,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 12,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 1.7072223841037818e-10
+    },
+    {
+      "core": 12,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.754601321244641,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 7.198129310486475e-21
+    },
+    {
+      "core": 12,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.951433728383284,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 2.8279348412755997e-32
+    },
+    {
+      "core": 12,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999998,
+      "success": 1.0
+    },
+    {
+      "core": 12,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.19174554323461,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 12,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.151557356626584,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 13,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 5.486596650333362e-09
+    },
+    {
+      "core": 13,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.742823034498641,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 2.9462138403579254e-18
+    },
+    {
+      "core": 13,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9733181470070948,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.707595002034215e-28
+    },
+    {
+      "core": 13,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 13,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.2181484268986797,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999997,
+      "success": 1.0
+    },
+    {
+      "core": 13,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.1577705635903395,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 14,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 2.6066500940741937e-06
+    },
+    {
+      "core": 14,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.5022124949153035,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999994,
+      "success": 1.8211002368715242e-14
+    },
+    {
+      "core": 14,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9648643133644017,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 7.545457888441881e-23
+    },
+    {
+      "core": 14,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 14,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.1001857890567015,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 14,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.101991655774101,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 15,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 6.163862080821272e-10
+    },
+    {
+      "core": 15,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.001164782933667,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.586290908564589e-13
+    },
+    {
+      "core": 15,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9999999999603455,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.999191294507511e-16
+    },
+    {
+      "core": 15,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 15,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.55231875305304,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 15,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.993515934286274,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 16,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 3.5007479355336012e-06
+    },
+    {
+      "core": 16,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.001848495497284,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 1.1680591804943174e-10
+    },
+    {
+      "core": 16,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9990211631973565,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 6.355950916867021e-15
+    },
+    {
+      "core": 16,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 16,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0206518546681274,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 16,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.005802835633733,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999999,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 17,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 0.0030536367542220847
+    },
+    {
+      "core": 17,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.5080222973997284,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 8.096481262582403e-06
+    },
+    {
+      "core": 17,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.0285439615026304,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.1109782785982614e-08
+    },
+    {
+      "core": 17,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 17,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0583530189178942,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 17,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.0239030898781207,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 18,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.4305624058863173e-09
+    },
+    {
+      "core": 18,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.043878247758415,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 6.104220179443092e-14
+    },
+    {
+      "core": 18,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.999999975280616,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.1256353966999904e-17
+    },
+    {
+      "core": 18,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 18,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.577372444120243,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 18,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.104230443348763,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 19,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 5.0897415283516944e-11
+    },
+    {
+      "core": 19,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.295073039207066,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 9.240823152435015e-20
+    },
+    {
+      "core": 19,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9974139020736463,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 1.1805591304525921e-29
+    },
+    {
+      "core": 19,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 19,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.167195730464368,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 19,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.1667996428966383,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999998,
+      "success": 1.0
+    },
+    {
+      "core": 20,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.6142003697955725e-11
+    },
+    {
+      "core": 20,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.145386877393679,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 2.544102159153227e-22
+    },
+    {
+      "core": 20,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9514392555034898,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.4251448040749625e-33
+    },
+    {
+      "core": 20,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999998
+    },
+    {
+      "core": 20,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0297688006249057,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000009,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 20,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.977938955580543,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 21,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 2.5251730639508787e-05
+    },
+    {
+      "core": 21,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.3714078941541152,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 2.2301038217599719e-13
+    },
+    {
+      "core": 21,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9824954515721798,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 5.219769435631306e-18
+    },
+    {
+      "core": 21,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 21,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.011200925386262,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 21,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.2743052374537123,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 1.0
+    },
+    {
+      "core": 22,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 8.787436741723801e-10
+    },
+    {
+      "core": 22,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.013810342320267,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000007,
+      "success": 8.692186293807864e-19
+    },
+    {
+      "core": 22,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9709244240459143,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 7.337647459262597e-28
+    },
+    {
+      "core": 22,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 22,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.0011709834968605,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 22,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.000659720883597,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 23,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 9.363739337319511e-11
+    },
+    {
+      "core": 23,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.015891569770452,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000007,
+      "success": 2.075630697336607e-18
+    },
+    {
+      "core": 23,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 1.9998311743120738,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 7.58188421326928e-27
+    },
+    {
+      "core": 23,
+      "depth": 1,
+      "family": 0,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999999,
+      "success": 1.0
+    },
+    {
+      "core": 23,
+      "depth": 2,
+      "family": 0,
+      "max_RR_CHSH": 2.1887079041896036,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 23,
+      "depth": 3,
+      "family": 0,
+      "max_RR_CHSH": 2.173570965054418,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999998,
+      "success": 1.0
+    },
+    {
+      "core": 0,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999994,
+      "success": 0.005393421026686817
+    },
+    {
+      "core": 0,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.581153586466477,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.794557679627028e-07
+    },
+    {
+      "core": 0,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.098295017534235,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 3.853572781570124e-12
+    },
+    {
+      "core": 0,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 0,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.229871986429862,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 0,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.117940572840641,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 1,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 9.935944497571027e-05
+    },
+    {
+      "core": 1,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.1649713792027194,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.349569372532037e-14
+    },
+    {
+      "core": 1,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.94388754478959,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 9.249825418003465e-25
+    },
+    {
+      "core": 1,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 1,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0268248409324623,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 1,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.013273700742378,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 2,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 0.008435342135175796
+    },
+    {
+      "core": 2,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.2985062395693343,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 5.507229236589674e-05
+    },
+    {
+      "core": 2,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.0275809959087563,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.706163083477879e-07
+    },
+    {
+      "core": 2,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 2,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.039995344097043,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 2,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.0152047880238197,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 3,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.4499143724066907e-06
+    },
+    {
+      "core": 3,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0000002522371743,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 5.043261037771841e-10
+    },
+    {
+      "core": 3,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.272455713660402,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 7.262387376984484e-16
+    },
+    {
+      "core": 3,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 3,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.000936748948601,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 3,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.3293999609485785,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 4,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 3.031389629638529e-06
+    },
+    {
+      "core": 4,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.008240719423007,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.825820302949978e-12
+    },
+    {
+      "core": 4,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.959264563703886,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 9.708090694927173e-18
+    },
+    {
+      "core": 4,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999998
+    },
+    {
+      "core": 4,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0005219571240547,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 4,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.010749001564082,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 5,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 0.0010375031019018472
+    },
+    {
+      "core": 5,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0000000927822588,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 3.8383665653689667e-07
+    },
+    {
+      "core": 5,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9999981336802866,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 1.1088634903196268e-10
+    },
+    {
+      "core": 5,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 5,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.000244990207703,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 5,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.000414770335595,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 6,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 0.00028671918524290555
+    },
+    {
+      "core": 6,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.1121114842380444,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.436960319723019e-11
+    },
+    {
+      "core": 6,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9999995600352858,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 2.5100001838371755e-17
+    },
+    {
+      "core": 6,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 6,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.066955249813738,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 6,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.0679086537376232,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 7,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 0.0025776836877091066
+    },
+    {
+      "core": 7,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.6291890364508674,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.1119404731157811e-10
+    },
+    {
+      "core": 7,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.151153175902374,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 9.590381686839745e-15
+    },
+    {
+      "core": 7,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 7,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.065650576661566,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 7,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.106797019608193,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 8,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 3.106937656557612e-07
+    },
+    {
+      "core": 8,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.770617895741974,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 2.522815694234171e-12
+    },
+    {
+      "core": 8,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9946308605542522,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 1.2320969645334427e-16
+    },
+    {
+      "core": 8,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 8,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.250750320491214,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 8,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.936694170453105,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 9,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.5786472364444226e-06
+    },
+    {
+      "core": 9,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.000129735081749,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 7.025372306969381e-15
+    },
+    {
+      "core": 9,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9999105172587284,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 2.1996591922350024e-23
+    },
+    {
+      "core": 9,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 9,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.017429854280709,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 9,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.0082447422860286,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 10,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 6.712330588153555e-09
+    },
+    {
+      "core": 10,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.7693814579151996,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 2.7606555983111665e-19
+    },
+    {
+      "core": 10,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.000106076342093,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 2.042036448463549e-30
+    },
+    {
+      "core": 10,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 10,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.210892306399909,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 10,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.2121453470002392,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999999,
+      "success": 1.0
+    },
+    {
+      "core": 11,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 0.00032035345545353014
+    },
+    {
+      "core": 11,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0000206056823435,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 1.195920406485856e-07
+    },
+    {
+      "core": 11,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.1011347684895822,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 8.816816813916039e-13
+    },
+    {
+      "core": 11,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 11,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0011019188042907,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 11,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.0005265732098825,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 12,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 5.258485143081631e-07
+    },
+    {
+      "core": 12,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0124932901801134,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 2.744909849960441e-11
+    },
+    {
+      "core": 12,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.0239042059613115,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.294494217767527e-17
+    },
+    {
+      "core": 12,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 12,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.1516126252880636,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999998,
+      "success": 1.0
+    },
+    {
+      "core": 12,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.1469296681610532,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 13,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999994,
+      "success": 3.501194206729192e-06
+    },
+    {
+      "core": 13,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.8188065687897788,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 6.217953764937522e-12
+    },
+    {
+      "core": 13,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9607637987948037,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 4.982073058146321e-19
+    },
+    {
+      "core": 13,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 13,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.3711509545947753,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 13,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.349312777404144,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 14,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 0.0015831635498886277
+    },
+    {
+      "core": 14,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0080065337267197,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 2.4881792060075965e-07
+    },
+    {
+      "core": 14,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9978158615643598,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 3.0221594839308524e-11
+    },
+    {
+      "core": 14,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 14,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.027912405202706,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 14,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.020080172480053,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 15,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 9.243329124602009e-06
+    },
+    {
+      "core": 15,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0339089984230614,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 1.0845979366849355e-11
+    },
+    {
+      "core": 15,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9344970757788902,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.031025187241303e-17
+    },
+    {
+      "core": 15,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 15,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.092066468648598,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 15,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.032242446979513,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999997
+    },
+    {
+      "core": 16,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.3764973825222532e-05
+    },
+    {
+      "core": 16,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0177300616706515,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.300606314990181e-09
+    },
+    {
+      "core": 16,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.998694855095391,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 1.5673603981195707e-13
+    },
+    {
+      "core": 16,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 16,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.111053312997485,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 16,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9896983545280122,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 17,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 0.011201883973106591
+    },
+    {
+      "core": 17,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.1794180786874002,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 9.578697049002272e-05
+    },
+    {
+      "core": 17,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9728926609977528,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 6.933304595488355e-07
+    },
+    {
+      "core": 17,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 17,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.024755507197258,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 17,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.001171389745467,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 18,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 0.0003892156201203925
+    },
+    {
+      "core": 18,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.8014085072577357,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 6.061756086909244e-08
+    },
+    {
+      "core": 18,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.2324540461488693,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 5.385157171312472e-13
+    },
+    {
+      "core": 18,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 18,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.39161679378776,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 18,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.369250241649707,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 19,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 7.171927529918187e-12
+    },
+    {
+      "core": 19,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.385253319687523,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 2.3552042496121204e-23
+    },
+    {
+      "core": 19,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9487148982930294,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 3.3929058106899995e-35
+    },
+    {
+      "core": 19,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 19,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0415648870122576,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 19,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.028666612529534,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 20,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.4426161234680215e-08
+    },
+    {
+      "core": 20,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.096684438248012,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 1.1274883401455737e-16
+    },
+    {
+      "core": 20,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.972234669800615,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 7.176912326632424e-25
+    },
+    {
+      "core": 20,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 20,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0074148460728214,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 20,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.9991654227944484,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999998,
+      "success": 1.0
+    },
+    {
+      "core": 21,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.1040653924002352e-05
+    },
+    {
+      "core": 21,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.017509421658057,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 5.1241787741403406e-09
+    },
+    {
+      "core": 21,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.0002262448349644,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 1.3560435496874376e-12
+    },
+    {
+      "core": 21,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 21,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.2381931999996265,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999998
+    },
+    {
+      "core": 21,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.069199799469967,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999999,
+      "success": 1.0
+    },
+    {
+      "core": 22,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.0263028097178983e-08
+    },
+    {
+      "core": 22,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.0458254829102915,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.4793388235818347e-13
+    },
+    {
+      "core": 22,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.0051245386437646,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.476123906717352e-21
+    },
+    {
+      "core": 22,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 22,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.3946406815671066,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 22,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.3879435063336794,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 23,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 4.275448895894762e-06
+    },
+    {
+      "core": 23,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.814696237148991,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.1242561235350984e-11
+    },
+    {
+      "core": 23,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 1.910113279250539,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 8.03835804070649e-19
+    },
+    {
+      "core": 23,
+      "depth": 1,
+      "family": 1,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 23,
+      "depth": 2,
+      "family": 1,
+      "max_RR_CHSH": 2.4564273247573007,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 23,
+      "depth": 3,
+      "family": 1,
+      "max_RR_CHSH": 2.3743567540869277,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 0,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 6.362473644606736e-09
+    },
+    {
+      "core": 0,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.000015635635148,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 7.893047594375458e-17
+    },
+    {
+      "core": 0,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9999907496650113,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 1.2013527126308841e-24
+    },
+    {
+      "core": 0,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 0,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0031490210935172,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 0,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.000880096115671,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 1,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 6.462719710995988e-10
+    },
+    {
+      "core": 1,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.8276196075483657,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.5207292554911124e-19
+    },
+    {
+      "core": 1,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.8909467673218128,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 8.18868585735773e-33
+    },
+    {
+      "core": 1,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 1,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.591094185703419,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 1,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.583836801738304,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 2,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 5.4743653645188174e-05
+    },
+    {
+      "core": 2,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.1267367563069413,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.859520846429747e-09
+    },
+    {
+      "core": 2,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9843117923055524,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 5.119586276940068e-14
+    },
+    {
+      "core": 2,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 2,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.012895141315067,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 2,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0012801537334464,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 3,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 7.673804260192757e-10
+    },
+    {
+      "core": 3,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.3899293101907815,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 2.7043507910719453e-24
+    },
+    {
+      "core": 3,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.941234621739281,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 4.480990941418313e-37
+    },
+    {
+      "core": 3,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 3,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0246800745455986,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 3,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.1555716341874223,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999998
+    },
+    {
+      "core": 4,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 7.814838893418632e-08
+    },
+    {
+      "core": 4,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0015210784404673,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 1.016780333715374e-12
+    },
+    {
+      "core": 4,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0000029360694653,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 6.229430305165629e-18
+    },
+    {
+      "core": 4,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 4,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.249928440527615,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999999,
+      "success": 1.0
+    },
+    {
+      "core": 4,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0579873916690676,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 5,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 7.545889244039547e-10
+    },
+    {
+      "core": 5,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0060854905264667,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 6.331059413354103e-23
+    },
+    {
+      "core": 5,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9948666327295372,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 3.170738136245241e-35
+    },
+    {
+      "core": 5,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 5,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0171048293577694,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 5,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0188453603848506,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 6,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.0528071146302032e-08
+    },
+    {
+      "core": 6,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0000090468777043,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 5.607147229066237e-14
+    },
+    {
+      "core": 6,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0000000089172487,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 1.1758420670280419e-19
+    },
+    {
+      "core": 6,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 6,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.1618982273678946,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 6,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0731653662942016,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 7,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 1.11649894037421e-06
+    },
+    {
+      "core": 7,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.159484350620917,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 8.430552489109869e-16
+    },
+    {
+      "core": 7,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9843403890013496,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 4.698774285331744e-25
+    },
+    {
+      "core": 7,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 7,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0989498560515103,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 7,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0151599113395364,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 8,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 9.089761147577422e-07
+    },
+    {
+      "core": 8,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0000750670182437,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 6.139286865686818e-12
+    },
+    {
+      "core": 8,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0000014730611686,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999997,
+      "success": 5.0311871153343166e-17
+    },
+    {
+      "core": 8,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 8,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.079437039001254,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 8,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9881546931130276,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 9,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 2.9520473690715957e-09
+    },
+    {
+      "core": 9,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.000002519737178,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 3.0651309534652017e-19
+    },
+    {
+      "core": 9,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9991252928173635,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 8.917878333709476e-29
+    },
+    {
+      "core": 9,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 9,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.000063568769547,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 9,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0158989143082757,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 10,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.4125261160520975e-09
+    },
+    {
+      "core": 10,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.8284148217090035,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 9.701064702792631e-19
+    },
+    {
+      "core": 10,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.8901682048195954,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 2.836365925700571e-33
+    },
+    {
+      "core": 10,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999998,
+      "success": 1.0
+    },
+    {
+      "core": 10,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.7346415432785105,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 10,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.7331873259724913,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 11,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 3.354293089773747e-10
+    },
+    {
+      "core": 11,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.828411421562056,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 5.05347309107886e-20
+    },
+    {
+      "core": 11,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.8899056956685496,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 3.0229692453435036e-35
+    },
+    {
+      "core": 11,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 11,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.734589318643828,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 11,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.7334850224474305,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 12,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.4966098936257115e-10
+    },
+    {
+      "core": 12,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.147116216584773,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.6216203704738986e-17
+    },
+    {
+      "core": 12,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9999869840065874,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 9.864959202103682e-24
+    },
+    {
+      "core": 12,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 12,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.4052483499070836,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 12,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9696269887652864,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 13,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 4.5645815483293644e-07
+    },
+    {
+      "core": 13,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0032004658760694,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.3255739118800817e-12
+    },
+    {
+      "core": 13,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9999409470470608,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000007,
+      "success": 3.787487892396247e-18
+    },
+    {
+      "core": 13,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 13,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.095785179245124,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999999,
+      "success": 1.0
+    },
+    {
+      "core": 13,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9995943115306423,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999998
+    },
+    {
+      "core": 14,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 1.1527197389132393e-05
+    },
+    {
+      "core": 14,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.000018001009241,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.0987100956945388e-09
+    },
+    {
+      "core": 14,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0000072075554822,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 3.0577015590976695e-14
+    },
+    {
+      "core": 14,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 14,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.07105192744222,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 14,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.013251065627759,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 15,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999993,
+      "success": 1.990919758304564e-11
+    },
+    {
+      "core": 15,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.003347192190778,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 3.300194441409758e-22
+    },
+    {
+      "core": 15,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9852467178837965,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 3.795826988325147e-33
+    },
+    {
+      "core": 15,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0
+    },
+    {
+      "core": 15,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0002191950888504,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 15,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.999854738102199,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 16,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 7.115999828056507e-09
+    },
+    {
+      "core": 16,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.2064482288547933,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 1.796779132013361e-14
+    },
+    {
+      "core": 16,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.999693434904831,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999996,
+      "success": 6.505231776415032e-20
+    },
+    {
+      "core": 16,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999999,
+      "success": 1.0
+    },
+    {
+      "core": 16,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.411904082959305,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 16,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0151452843139936,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 17,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 3.806295556985737e-05
+    },
+    {
+      "core": 17,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0064400970437872,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 7.418161160614764e-10
+    },
+    {
+      "core": 17,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0165675505327787,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 1.592724638401491e-14
+    },
+    {
+      "core": 17,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 17,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.000642732343948,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 17,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.0005746085727742,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 18,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 6.589169542657649e-06
+    },
+    {
+      "core": 18,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0000024603399207,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 6.658394742362577e-12
+    },
+    {
+      "core": 18,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9999396966579817,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 9.484655890421006e-19
+    },
+    {
+      "core": 18,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 18,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.016838275531526,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 18,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9944799194743472,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 19,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.5284430821277941e-09
+    },
+    {
+      "core": 19,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.8284213190399097,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 1.160682198477556e-18
+    },
+    {
+      "core": 19,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.8963343402044714,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 4.273045124419107e-33
+    },
+    {
+      "core": 19,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 19,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.7323993732340486,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000007,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 19,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.730976524298254,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 20,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999999,
+      "success": 0.00013814029028732584
+    },
+    {
+      "core": 20,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.00000677769968,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000002,
+      "success": 7.499391287314883e-10
+    },
+    {
+      "core": 20,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.000000010828162,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999994,
+      "success": 4.233479005376986e-15
+    },
+    {
+      "core": 20,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 20,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.0057687247674134,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 20,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.005799279904286,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000002,
+      "success": 1.0000000000000002
+    },
+    {
+      "core": 21,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 3.211398473638817e-08
+    },
+    {
+      "core": 21,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.756131154403502,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 1.4230253287319018e-14
+    },
+    {
+      "core": 21,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9930008635346654,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 2.6638740009348357e-20
+    },
+    {
+      "core": 21,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 21,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.1752800126774097,
+      "protocol": "pair_diagnostic",
+      "record_purity": 0.9999999999999997,
+      "success": 1.0
+    },
+    {
+      "core": 21,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.9889514897415252,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 0.9999999999999999
+    },
+    {
+      "core": 22,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999994,
+      "success": 1.5868964641889813e-09
+    },
+    {
+      "core": 22,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.828421813792133,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 1.2666911358975542e-18
+    },
+    {
+      "core": 22,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.897091706443129,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 4.8014586041011416e-33
+    },
+    {
+      "core": 22,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 22,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.733134131041031,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 22,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.731644519215858,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 23,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "native_repeat",
+      "record_purity": 1.0000000000000004,
+      "success": 4.39912030384021e-09
+    },
+    {
+      "core": 23,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.828349833793784,
+      "protocol": "native_repeat",
+      "record_purity": 0.9999999999999998,
+      "success": 9.955673216516566e-18
+    },
+    {
+      "core": 23,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 1.8934026642528925,
+      "protocol": "native_repeat",
+      "record_purity": 1.0,
+      "success": 4.3474501319731703e-32
+    },
+    {
+      "core": 23,
+      "depth": 1,
+      "family": 2,
+      "max_RR_CHSH": 0.0,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    },
+    {
+      "core": 23,
+      "depth": 2,
+      "family": 2,
+      "max_RR_CHSH": 2.7507513303774855,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0000000000000004,
+      "success": 1.0
+    },
+    {
+      "core": 23,
+      "depth": 3,
+      "family": 2,
+      "max_RR_CHSH": 2.7496696533366314,
+      "protocol": "pair_diagnostic",
+      "record_purity": 1.0,
+      "success": 1.0
+    }
+  ],
+  "scope": "lambda=0 on branch settings harvested from plus81 forced histories; coherent amplitude encoding of adaptive probabilities can generate record-record entanglement despite no measurement backaction on S. Not an actual native baseline trajectory ensemble or tagged null.",
+  "status": "PASS_SCOPED"
+}

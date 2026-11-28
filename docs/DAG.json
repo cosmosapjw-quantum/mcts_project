@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE94.json",
+  "convergence_ledger": "CONVERGENCE95.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -58,7 +58,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-02",
+  "entry": "REPLAN-05",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -121,7 +121,7 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R95 G23-G27 explicit entanglement, QMI, concurrence and Bell controls",
+    "R96 Q24-Q28 dedicated decoherence/Darwinism and accessible information",
     "Direct original reconstruction; no optimizer drift",
     "Six open science claims, Q02/Q31 and Q19/Q20 partial"
   ],
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE95-ENTANGLEMENT-NETWORK-CONCURRENCE-BELL-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE96-DARWINISM-DEDICATED-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -767,6 +767,19 @@
         "partial": [],
         "remaining": "Native physical coherent branch identification and objectivity not established."
       },
+      "restore95_followup": {
+        "accepted_subclaims": [
+          "Q-WITNESS-09",
+          "Q-BASE-10"
+        ],
+        "artifact": "mqft_restore95_20261128/{ORIGINAL_OUTPUT_REPORT95.md,ITEM_RECONSTRUCTION95.json,CONVERGENCE95.json}",
+        "corrected_artifacts": [
+          "G23"
+        ],
+        "evidence": "720 raw receipts; 2304 joint prefixes, 5184 controlled states, 17280 pair and 19008 cut evaluations; 432 lambda0 factorization checks",
+        "partial": [],
+        "remaining": "Native physical entanglement, coherent branch identification and operational Bell settings not established."
+      },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
       "thermal_path_followup": "RESTORE30 exact marked characteristic, noncanonical adaptive family, path Hilbert/QGT and thermal nonGaussian influence. Use exact or controlled positivity-preserving closure, preserve native dynamics/RG/algorithm obligations."
@@ -1121,6 +1134,22 @@
         ],
         "remaining": "Physical hbar, thermometry, native coherence and broad transfer not admitted."
       },
+      "restore95_followup": {
+        "accepted_subclaims": [
+          "Q-WITNESS-09",
+          "Q-BASE-10"
+        ],
+        "artifact": "mqft_restore95_20261128/{ORIGINAL_OUTPUT_REPORT95.md,ITEM_RECONSTRUCTION95.json,CONVERGENCE95.json}",
+        "corrected_artifacts": [
+          "G24",
+          "G25",
+          "G26",
+          "G27"
+        ],
+        "evidence": "720 raw receipts; 2304 joint prefixes, 5184 controlled states, 17280 pair and 19008 cut evaluations; 432 lambda0 factorization checks",
+        "partial": [],
+        "remaining": "Native physical entanglement, coherent branch identification and operational Bell settings not established."
+      },
       "retained_evidence": "\ub3c5\ub9bd qubit\u00b7dephasing\u00b7tensor \uacc4\uc0b0\uc740 \ud45c\ud604/\uc218\uce58 \ub300\uc870.",
       "source": "plot_exact_hbar_analysis.py, exact_hbar_effective.py, plot_entropy_analysis.py, entanglement \ubc0f gauge-policy panel.",
       "structure_followup": "RESTORE22 complex Gram restricted spatial coherence filtration and triangle-phase gauge checks; actual projected density code and operational recovery; no physical phase identification.",
@@ -1411,8 +1440,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-06",
-  "quality_matrix": "QUALITY_MATRIX94.csv",
+  "previous_entry": "REPLAN-02",
+  "quality_matrix": "QUALITY_MATRIX95.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4774,8 +4803,56 @@
     "reused_fixed_root_paths": 3456,
     "status": "five_corrected_original_artifacts_two_new_scoped_claims"
   },
-  "revision": "RESTORE94_20261128",
-  "scope": "Convergence: actual conditional complex qubit and declared adaptive record prefix, coherence entropy pointer",
+  "restore95": {
+    "BASE_CONTROL95.json_sha256": "97b58d2f4f7beaf66a0d5af7108fbca1c1703566fa38b280679be68fb8b914ba",
+    "CONVERGENCE95.json_sha256": "42f970b0f473268bad09987b0756547e9ecabccf52d8ac9a58746627d508cf9f",
+    "DRIFT_WATCHDOG.md_sha256": "7d130775474e4c4b86192d7b3bd4a8f23dee145d7919bd68aee172bf9dfbb13a",
+    "ENTANGLE95.json_sha256": "424ef72327f22f6c7d4a569a74e6fc2d6be47faa0fc927e46b7aaf2529e93de2",
+    "INDEPENDENT95.json_sha256": "e013e06b780a422443591c88e398ae173cd421ba7c6710cf88318039c6c0180f",
+    "ITEM_CONVERGENCE95.json_sha256": "7d0155a429cd1c94d0d8b4728346154fafff0908df47634623b186f76dce24da",
+    "ITEM_RECONSTRUCTION95.json_sha256": "4f5d473f0f440ff69a38dfc6d3b457b61bd47f5f6c5830c1c11e53b768138e3f",
+    "JOINT95.npz_sha256": "b5e05801fab8f7e9589c32e3f95e7232db8e2779f1e08c8c37ca3cfd9519ee69",
+    "NEXT_DYNAMICS.md_sha256": "6a37072089011d0644a5cdedc1190d47b1a08896f3b925e067766a4feef6ec1d",
+    "ORIGINAL_OUTPUT_EVIDENCE95.csv_sha256": "24c17e1c33ae25f479dfc52f51019ef6fc6d1d492fe991f1818fea376238cda4",
+    "ORIGINAL_OUTPUT_PROGRESS95.csv_sha256": "84f28195e4dda15878504ae362cbdde142378237af98e3b8c97c3ffdbe716fa2",
+    "ORIGINAL_OUTPUT_REPORT95.md_sha256": "57e7f9e1ce1b9d86c334cbe9334b5bfd94efbe60a4a64cbc3093f1f78fab9432",
+    "ORIGINAL_SOURCE95.json_sha256": "22d3ab8376607910435bde3b30c86f5c3b34365f41e3f2759aad906b3fb9d1a4",
+    "PLOT_INVENTORY95.csv_sha256": "fd69c0a673efea242137fdbb69c40017f62d4286e377fbd7155df5eee2a0bb4b",
+    "PLOT_MANIFEST95.json_sha256": "d21959a68adcbe4a83b1ed54838fec8dcd46d2805abf4b076d0a9c017faa9408",
+    "PROGRESS95.json_sha256": "eb0c4654629931b32b59a656a711f39b4cd1d4f0861fdacc573b3ca12abb64e0",
+    "QUALITY_MATRIX95.csv_sha256": "fa914561b943211815f0d76dab192312bb4743d59af839221b12a5686f5e0bf2",
+    "REGISTRATION.json_sha256": "7b51b5639aa12d0b622c9a492695960c41892872b5336aded43c1f28f8303710",
+    "SUMMARY95.json_sha256": "863c2570facdd926a43f599c6c12420cd7820d00488502cd5ae759c4624e1366",
+    "THEORY.md_sha256": "0d09febc0b28b2a50dbcdfa560b64371e924da8c1ce3ded26e2a3407422a37fd",
+    "THEORY_REGISTERED95.md_sha256": "3512998477c34f3e3e20b9ccd240fd4d646b2e892992785a34bceb32c75560f5",
+    "accepted_corrected_subclaims": 34,
+    "animations": 0,
+    "controlled_prefixes": 5184,
+    "corrected_report_artifact_accepted": 39,
+    "cumulative_fixed_root_histories": 93336,
+    "cut_evaluations": 19008,
+    "declared_prefix_states": 2304,
+    "diagnostic_paths": 648,
+    "figures": 8,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_corrected_artifacts": 5,
+    "original_evidence_items": 5,
+    "original_evidence_union_R55_R95": 121,
+    "original_obligations": 121,
+    "pair_evaluations": 17280,
+    "parent_commit": "aadfc5db1d17641dd58969a80984baed8f6c90fb",
+    "parent_dag_sha256": "dc0e7e5c460e24fb858f5b29a78a8bb7951fc88f460239ababc29d972426afb8",
+    "remaining": "82 corrected artifact obligations; six open science claims, Q02/Q31 and Q19/Q20 partial; Q24-Q28 next.",
+    "retained_pairs": 720,
+    "reused_fixed_root_paths": 72,
+    "status": "five_corrected_original_artifacts_two_new_scoped_claims"
+  },
+  "revision": "RESTORE95_20261128",
+  "scope": "Convergence: declared adaptive prefix pair/cut entanglement, concurrence and CHSH",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE94-COMPLEX-STATE-POINTER-ENTROPY-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE95-ENTANGLEMENT-NETWORK-CONCURRENCE-BELL-OUTPUTS"
 }

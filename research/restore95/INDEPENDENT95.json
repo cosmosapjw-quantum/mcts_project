@@ -1,0 +1,71 @@
+{
+  "R73_comparator": {
+    "branch_paths": 4544,
+    "contexts": 64,
+    "scope": "prior distinct compatible fine branch construction, not re-executed"
+  },
+  "R83_record_only_cut_checks": 432,
+  "R94_phase_comparator": [
+    {
+      "family": "g0",
+      "phase_first_signed_ci": [
+        0.125,
+        0.03695208496134987,
+        0.21304791503865012
+      ],
+      "recommend_disagreement": 7
+    },
+    {
+      "family": "g3",
+      "phase_first_signed_ci": [
+        0.08333333333333333,
+        0.04314514232669414,
+        0.12352152433997252
+      ],
+      "recommend_disagreement": 10
+    },
+    {
+      "family": "Rapfi",
+      "phase_first_signed_ci": [
+        0.08333333333333333,
+        0.03016935381076842,
+        0.13649731285589822
+      ],
+      "recommend_disagreement": 16
+    }
+  ],
+  "checks": {
+    "CHSH_Horodecki_eigen": 1.7763568394002505e-15,
+    "R83_record_only_cut": 3.1051550219984847e-16,
+    "Z_diagonal_control": 0.0,
+    "cut_PT_independent": 0.0,
+    "pair_PT": 0.0,
+    "pair_QMI": 0.0,
+    "weighted": 0.0
+  },
+  "independence": "Same-agent independent explicit bit-index PT, reduced states, eigen CHSH; no native subagent",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.12.3"
+  },
+  "source_hashes": {
+    "mqft_restore73_20261126/INSTRUMENT73.json": "7cb2ba098a82a0586d211be1d025643fd01db770eb5e4a923ff92506795f10c6",
+    "mqft_restore73_20261126/RESULTS_KO.md": "ed007d4bf403b6cd08c42445e0dba92cf8d82cb514b14c4b3057b7b755360db0",
+    "mqft_restore81_20261127/AUDIT81.json": "4e0c448cb4d8a4520720f9b1e0f6fcce8b79a280d5e5551596220f0ce5095160",
+    "mqft_restore83_20261127/AUDIT83.json": "4c6e6e6ef45854cacd6afc9dccc09e354ce250081815e9c67d8cd7e5987097a0",
+    "mqft_restore83_20261127/RECORD83.json": "06f5c1e001c685c174404bb637e3f669f64a2a4a49d3095f3d7982562e9e68a9",
+    "mqft_restore83_20261127/RECORD_MATRICES83.npz": "f9db91fa3e274165316b22a427307dd743222416b0d1787b61cc6d1bf431d87c",
+    "mqft_restore83_20261127/TREE83.json": "b539913e58ff1494028747f4cc583aaf52e7450228af0772d16577f41d8b22cb",
+    "mqft_restore94_20261128/CONVERGENCE94.json": "b4e858684747c3211428444f3c763e1bd74b78b1a96a865b04a3c8e77984f518",
+    "mqft_restore94_20261128/DAG.json": "dc0e7e5c460e24fb858f5b29a78a8bb7951fc88f460239ababc29d972426afb8",
+    "mqft_restore94_20261128/NATIVE94.json": "e5572826479c1af7dda79763936144620401a046f866a46a33f10cb3984fa56f",
+    "mqft_restore94_20261128/ORIGINAL_OUTPUT_PROGRESS94.csv": "75a4bb82980464011e71a82bf5091f19565472c908836fbc3c23d3e1076454b4",
+    "mqft_restore94_20261128/ORIGINAL_SOURCE94.json": "f2c0e565b3ea161e7b5309b22a60dcc1cd2721522135699c18db206272fb5650",
+    "mqft_restore94_20261128/PLOT_INVENTORY94.csv": "51c927c444cabf193a10b36e4c52d205f12a4fb295ace62d1a3bd3a52af26781",
+    "mqft_restore94_20261128/PROGRESS94.json": "9f3ce82f866329c15e4a679dfec1a232148b5f7798cb6f8305952758ed39d41a",
+    "mqft_restore94_20261128/QUALITY_MATRIX94.csv": "d7bb2d873b377a91f74213a77fbaa01e7632591d526f5abc8f0569ce6ef0628a",
+    "mqft_restore94_20261128/RECORD94.json": "43f1c4ae1dcbc4a95029fe4568647d89e390caadf4abbc630124de19e419caea",
+    "mqft_restore94_20261128/instrument81.py": "a042eb1df30c42fdf3b6d783b599fa04d1397ccd1502189fa603c23049e1e7b2"
+  },
+  "status": "PASS_SCOPED"
+}

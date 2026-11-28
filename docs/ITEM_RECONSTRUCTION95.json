@@ -1,0 +1,278 @@
+{
+  "corrected_artifacts_total": 39,
+  "items": [
+    {
+      "acceptance_contract": "Compute QMI matrix for actual defined record partition with reduced states and compare classical MI; original branch matrix needs branch instrument.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G23_mutual_info_matrix",
+          "ids": [
+            "G23"
+          ],
+          "pdf_sha": "f2524da9d25e8d09207c8a2f002c779699a299a3ae08f49bce13a5919cf0909d",
+          "png_sha": "94c9ff4906c9bb0984708dbf45526a7ba20e37e5d3dd0de3b5855fb02dd261f1"
+        }
+      ],
+      "figures": [
+        "G23_mutual_info_matrix"
+      ],
+      "id": "G23",
+      "method": "Current-depth explicit R1..Rd,S two-qubit reduced QMI and classical Z MI matrices with independent partial trace; not native branch MI identification.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Compute QMI matrix for actual defined record partition with reduced states and compare classical MI; original branch matrix needs branch instrument.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G23",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502           \u251c\u2500\u2500 mutual_info_matrix.png",
+        "span": [
+          343,
+          343
+        ]
+      },
+      "pdf_sha": "f2524da9d25e8d09207c8a2f002c779699a299a3ae08f49bce13a5919cf0909d",
+      "png_sha": "94c9ff4906c9bb0984708dbf45526a7ba20e37e5d3dd0de3b5855fb02dd261f1",
+      "remaining_limit": "Native physical entanglement and coherent branch identification, physical Bell locality and setting independence remain open."
+    },
+    {
+      "acceptance_contract": "Use specified entanglement criterion on defined bipartitions; distinguish classical/quantum MI network and separability.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G24_entanglement_network",
+          "ids": [
+            "G24"
+          ],
+          "pdf_sha": "c0d150901acda6164e9581f8f032b89bff19b56befbddfd1b521ac3d2f966faa",
+          "png_sha": "eda7e9c77a8e02f705e5217d9dbbb2e0237f54898ef89dde7bf4e8dd5ba09a1e"
+        },
+        {
+          "figure": "G24_bipartition_negativity",
+          "ids": [
+            "G24",
+            "G27"
+          ],
+          "pdf_sha": "99b93c1dde8b049d620d85ff14299b7a8a5a3149e430b5bfd48a92a83f364741",
+          "png_sha": "2df6c82ef77f85d9a055e808248f89d5121d54a5782b729be85a9c56e452d582"
+        }
+      ],
+      "figures": [
+        "G24_entanglement_network",
+        "G24_bipartition_negativity"
+      ],
+      "id": "G24",
+      "method": "Pairwise negativity network and all unique joint bipartition cuts, tagged separable controls; PPT limits and pair-vs-cut distinction.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Use specified entanglement criterion on defined bipartitions; distinguish classical/quantum MI network and separability.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G24",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502           \u251c\u2500\u2500 entanglement_network.png",
+        "span": [
+          344,
+          344
+        ]
+      },
+      "pdf_sha": "c0d150901acda6164e9581f8f032b89bff19b56befbddfd1b521ac3d2f966faa",
+      "png_sha": "eda7e9c77a8e02f705e5217d9dbbb2e0237f54898ef89dde7bf4e8dd5ba09a1e",
+      "remaining_limit": "Native physical entanglement and coherent branch identification, physical Bell locality and setting independence remain open."
+    },
+    {
+      "acceptance_contract": "For declared two-qubit compression verify concurrence formula and time/fragment conditioning; native branch concurrence needs physical state.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G25_concurrence_evolution",
+          "ids": [
+            "G25"
+          ],
+          "pdf_sha": "06e0e14be8885358afbdcab59c92686b6fa177b92e606adeeebbee8cc978be13",
+          "png_sha": "daa14f339fe6657a5e8cfcecaaeb7acb089453ee4a6b22ab7b4be89b80023dd6"
+        }
+      ],
+      "figures": [
+        "G25_concurrence_evolution"
+      ],
+      "id": "G25",
+      "method": "Actual branch-derived prefix concurrence for named two-qubit factors and independent spin-flip/SVD checks; no absent pair treated as zero.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "For declared two-qubit compression verify concurrence formula and time/fragment conditioning; native branch concurrence needs physical state.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G25",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502           \u251c\u2500\u2500 concurrence_evolution.png",
+        "span": [
+          345,
+          345
+        ]
+      },
+      "pdf_sha": "06e0e14be8885358afbdcab59c92686b6fa177b92e606adeeebbee8cc978be13",
+      "png_sha": "daa14f339fe6657a5e8cfcecaaeb7acb089453ee4a6b22ab7b4be89b80023dd6",
+      "remaining_limit": "Native physical entanglement and coherent branch identification, physical Bell locality and setting independence remain open."
+    },
+    {
+      "acceptance_contract": "For explicit state and local observables calculate CHSH and separable controls; physical Bell claim requires operational independent settings.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G26_bell_test_results",
+          "ids": [
+            "G26"
+          ],
+          "pdf_sha": "aa21430857f99bc020bd0c0f17e7b7423aeee6fb926ffd9b360b9b864e4f4293",
+          "png_sha": "760ca4ccf5d5f9b5389d7cb36441a5f9c4b179a839591161417958bf6bf8b334"
+        },
+        {
+          "figure": "G26_tag_and_success_controls",
+          "ids": [
+            "G26",
+            "G27"
+          ],
+          "pdf_sha": "2ec45c64292eb7a6a4a0d46ae5a5afb42a6de082d0945ac7ba5a92cc03b986cc",
+          "png_sha": "ba59b0dd2b2234a5e3ae6661a2fe487fa1f6ee9b4d774d3958178b5c5fd1e902"
+        },
+        {
+          "figure": "G27_lambda0_factorization",
+          "ids": [
+            "G27",
+            "G26"
+          ],
+          "pdf_sha": "6811cc87fc33d57677d43e51fd57425b00a03bddd202f79116cdcc07061ce155",
+          "png_sha": "44da35d6deb511a6b9bba2e6154ff775db99afe2fa6500e46dd59018b798c471"
+        }
+      ],
+      "figures": [
+        "G26_bell_test_results",
+        "G26_tag_and_success_controls",
+        "G27_lambda0_factorization"
+      ],
+      "id": "G26",
+      "method": "Maximal nondegenerate Pauli CHSH with explicit local directions, Born probability and no-signalling checks, Bell/Werner/separable controls, success-weighted indicator and lambda0 counterexample; not physical Bell experiment.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "For explicit state and local observables calculate CHSH and separable controls; physical Bell claim requires operational independent settings.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G26",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502           \u251c\u2500\u2500 bell_test_results.png",
+        "span": [
+          346,
+          346
+        ]
+      },
+      "pdf_sha": "aa21430857f99bc020bd0c0f17e7b7423aeee6fb926ffd9b360b9b864e4f4293",
+      "png_sha": "760ca4ccf5d5f9b5389d7cb36441a5f9c4b179a839591161417958bf6bf8b334",
+      "remaining_limit": "Native physical entanglement and coherent branch identification, physical Bell locality and setting independence remain open."
+    },
+    {
+      "acceptance_contract": "Combine entanglement, QMI, concurrence and Bell controls, include separable/null cases and native-identification limit.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G24_bipartition_negativity",
+          "ids": [
+            "G24",
+            "G27"
+          ],
+          "pdf_sha": "99b93c1dde8b049d620d85ff14299b7a8a5a3149e430b5bfd48a92a83f364741",
+          "png_sha": "2df6c82ef77f85d9a055e808248f89d5121d54a5782b729be85a9c56e452d582"
+        },
+        {
+          "figure": "G26_tag_and_success_controls",
+          "ids": [
+            "G26",
+            "G27"
+          ],
+          "pdf_sha": "2ec45c64292eb7a6a4a0d46ae5a5afb42a6de082d0945ac7ba5a92cc03b986cc",
+          "png_sha": "ba59b0dd2b2234a5e3ae6661a2fe487fa1f6ee9b4d774d3958178b5c5fd1e902"
+        },
+        {
+          "figure": "G27_entanglement_summary",
+          "ids": [
+            "G27"
+          ],
+          "pdf_sha": "c6b2b81e9fb31052af4bc014ac0148a13c09f261fb7d5c6d712f842ae036a503",
+          "png_sha": "dea7bd020f15263f3cb37d6427366ed3f082f6a15418edb288b4f1ab1646414f"
+        },
+        {
+          "figure": "G27_lambda0_factorization",
+          "ids": [
+            "G27",
+            "G26"
+          ],
+          "pdf_sha": "6811cc87fc33d57677d43e51fd57425b00a03bddd202f79116cdcc07061ce155",
+          "png_sha": "44da35d6deb511a6b9bba2e6154ff775db99afe2fa6500e46dd59018b798c471"
+        }
+      ],
+      "figures": [
+        "G24_bipartition_negativity",
+        "G26_tag_and_success_controls",
+        "G27_entanglement_summary",
+        "G27_lambda0_factorization"
+      ],
+      "id": "G27",
+      "method": "Combined QMI, negativity, concurrence, CHSH and tag/phase/base controls on declared adaptive prefix records; rare-event success retained, no native physical identification.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Combine entanglement, QMI, concurrence and Bell controls, include separable/null cases and native-identification limit.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G27",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/QUANTUM_PHENOMENA_ANALYSIS_GUIDE.md",
+        "member_sha": "1789cedff042b0d1da1a2368ca2ce3f5dc60f5ec60e68c1834cef18caaa528aa",
+        "source_excerpt": "\u2502           \u2514\u2500\u2500 entanglement_summary.png",
+        "span": [
+          347,
+          347
+        ]
+      },
+      "pdf_sha": "99b93c1dde8b049d620d85ff14299b7a8a5a3149e430b5bfd48a92a83f364741",
+      "png_sha": "2df6c82ef77f85d9a055e808248f89d5121d54a5782b729be85a9c56e452d582",
+      "remaining_limit": "Native physical entanglement and coherent branch identification, physical Bell locality and setting independence remain open."
+    }
+  ],
+  "original_scientific_certifications": 0,
+  "prior_report_artifacts": [
+    "L31",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "L10",
+    "L22",
+    "L24",
+    "L21",
+    "L23",
+    "G03",
+    "G07",
+    "L16",
+    "Q21",
+    "Q32",
+    "G01",
+    "G02",
+    "G04",
+    "G05",
+    "Q05",
+    "Q08",
+    "G06",
+    "G08",
+    "G09",
+    "Q29",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G14",
+    "G15",
+    "G16",
+    "G17"
+  ],
+  "status": "SCOPED_CONVERGENCE"
+}
