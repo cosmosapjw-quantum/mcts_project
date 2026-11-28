@@ -1,0 +1,14 @@
+# RESTORE100 original output crosswalk
+
+- Q01: Actual native likelihood and score ledgers plus new explicit no-feedback driven reference, exact signed work/heat, Crooks and dissipation; not a native physical bath. (Q01_native_information_ledger; Q01_native_likelihood_sampling; Q01_reference_driven_protocol; Q19_reference_Crooks_work_partial; Q20_reference_work_trajectories_partial)
+- Q03: Explicit periodic scaled-spectrum two-bath Otto-type reference, 624 closed marginal cycles, work/heat and efficiency, finite versus full refresh; no physical native engine or actual Carnot cycle. (Q03_periodic_Otto_reference)
+- Q04: Five exact reference cycle stages and animation, periodic closure and cumulative signed work/heat; no invented interpolation. (Q03_periodic_Otto_reference)
+- Q06: Partial: reference full versus finite refresh and separate actual native score ledger, no common physical state variables/reservoirs, no native versus ideal efficiency admission. (Q06_noncomparable_native_reference_partial)
+- Q07: Comprehensive scoped nonequilibrium report, actual native information and score ledger, explicit reference work/heat and entropy, cyclic closure, capacity and prior feedback/quantum/response evidence; no measured bath. (Q01_native_information_ledger; Q01_native_likelihood_sampling; Q01_reference_driven_protocol; Q03_periodic_Otto_reference; Q06_noncomparable_native_reference_partial; Q38_Gibbs_capacity_entropy_DOS)
+- Q19: Partial: independent exact F/R reference work laws, 312 cases and 4096 independent samples/direction, support-aware Crooks/Jarzynski, uncertainty and failures; native calibrated work and reverse measure absent. (Q19_reference_Crooks_work_partial; Q19_Q22_Jarzynski_sampling)
+- Q20: Partial: actual reference sample trajectories, exact cumulants, component covariance and finite tilted dual; no native thermodynamic work or asymptotic rate/FDT. (Q20_reference_work_cumulants_partial; Q20_reference_work_trajectories_partial)
+- Q22: Four sample-count frames of actual independently generated F/R reference estimators and ESS, retained nonconvergence; not physical native equality. (Q19_Q22_Jarzynski_sampling)
+- Q23: Comprehensive scoped declared reference work and fluctuation report; explicit Gibbs starts, exact DeltaF, independent F/R paths, finite sample uncertainty, prior feedback support correction distinct. (Q01_reference_driven_protocol; Q19_reference_Crooks_work_partial; Q19_Q22_Jarzynski_sampling; Q20_reference_work_cumulants_partial)
+- Q38: Explicit finite Gibbs spectrum entropy, free energy, heat capacity, occupied energy-bin counts and driven entropy production; R91/R97 thermal derivative and R93 reference response retained; no continuum microcanonical derivative or native T. (Q01_reference_driven_protocol; Q38_Gibbs_capacity_entropy_DOS)
+
+Full scientific certification remains 0/121.

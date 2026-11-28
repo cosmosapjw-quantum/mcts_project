@@ -1,0 +1,3594 @@
+{
+  "archives": {
+    "mcts_study.zip": "40057e44a49097a552933791a434afd075ac086d507a3af519e727af54ee61a4",
+    "omoknuni_quantum-main.zip": "915edcf90ef15a155d1fa1ba520f6d9cefc445e084c4980be8e8679c487124dd",
+    "quantum.zip": "5216ad17dc09757bd0b0f2b71669998ab684a251d57761cc2e2740cae18768c9"
+  },
+  "authority": "R69 exact archive spans; original mcts_study thermal proposals/guides and prior study docs",
+  "items": [
+    {
+      "acceptance": "Specified driven protocol, signed work distributions and entropy-production rate at defined sizes, actual reverse and model-vs-native boundary.",
+      "archive": "quantum.zip",
+      "id": "Q01",
+      "member": "quantum/research/visualization/plot_thermodynamics.py",
+      "member_sha": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb",
+      "source_excerpt": [
+        "    def plot_non_equilibrium_thermodynamics(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot non-equilibrium thermodynamics with temporal evolution\"\"\"",
+        "        ",
+        "        # Extract authentic non-equilibrium thermodynamics data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_non_equilibrium_thermodynamics')",
+        "        ",
+        "        if show_temporal:",
+        "            fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "            fig.suptitle('Non-Equilibrium Thermodynamics with Temporal Evolution', fontsize=16, fontweight='bold')",
+        "        else:",
+        "            fig, axes = plt.subplots(2, 2, figsize=(15, 10))",
+        "            fig.suptitle('Non-Equilibrium Thermodynamics', fontsize=16, fontweight='bold')",
+        "        ",
+        "        axes_flat = axes.flatten()",
+        "        ",
+        "        system_sizes = data['system_sizes']",
+        "        driving_protocols = data['driving_protocols']",
+        "        ",
+        "        # 1. Driving protocols comparison",
+        "        ax1 = axes_flat[0]",
+        "        ",
+        "        # Plot different driving protocols for one system size",
+        "        representative_size = system_sizes[0]",
+        "        if representative_size in driving_protocols:",
+        "            protocol_data = driving_protocols[representative_size]",
+        "            times = protocol_data['times']",
+        "            ",
+        "            ax1.plot(times, protocol_data['linear_ramp'], 'o-', ",
+        "                    label='Linear Ramp', linewidth=2, alpha=0.8)",
+        "            ax1.plot(times, protocol_data['exponential_ramp'], 's-', ",
+        "                    label='Exponential Ramp', linewidth=2, alpha=0.8)",
+        "            ax1.plot(times, protocol_data['sinusoidal'], '^-', ",
+        "                    label='Sinusoidal', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax1.set_xlabel('Time t')",
+        "        ax1.set_ylabel('Control Parameter \u03bb(t)')",
+        "        ax1.set_title('Driving Protocols')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Work distributions",
+        "        ax2 = axes_flat[1]",
+        "        ",
+        "        work_distributions = data['work_distributions']",
+        "        ",
+        "        for i, work_dist in enumerate(work_distributions[:3]):  # Limit for clarity",
+        "            ax2.hist(work_dist, bins=20, alpha=0.7, density=True, ",
+        "                    label=f'Protocol {i+1}', histtype='step', linewidth=2)",
+        "        ",
+        "        ax2.set_xlabel('Work W')",
+        "        ax2.set_ylabel('Probability Density P(W)')",
+        "        ax2.set_title('Work Distribution')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Entropy production rate",
+        "        ax3 = axes_flat[2]",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in driving_protocols:",
+        "                protocol_data = driving_protocols[sys_size]",
+        "                times = protocol_data['times']",
+        "                entropy_production_rate = protocol_data['entropy_production_rate']",
+        "                ",
+        "                ax3.plot(times, entropy_production_rate, 'o-', ",
+        "                        label=f'\u03c3(t) L={sys_size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax3.set_xlabel('Time t')",
+        "        ax3.set_ylabel('Entropy Production Rate \u03c3(t)')",
+        "        ax3.set_title('Entropy Production Dynamics')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Work vs time for different protocols",
+        "        ax4 = axes_flat[3]",
+        "        ",
+        "        for sys_size in system_sizes[:2]:  # Limit for clarity",
+        "            if sys_size in driving_protocols:",
+        "                protocol_data = driving_protocols[sys_size]",
+        "                times = protocol_data['times']",
+        "                work_done = protocol_data['work_done']",
+        "                ",
+        "                ax4.plot(times, work_done, 'o-', ",
+        "                        label=f'W(t) L={sys_size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax4.set_xlabel('Time t')",
+        "        ax4.set_ylabel('Cumulative Work W(t)')",
+        "        ax4.set_title('Work Accumulation')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        if show_temporal:",
+        "            # 5. Fluctuation theorem verification",
+        "            ax5 = axes_flat[4]",
+        "            ",
+        "            # Plot P(W)/P(-W) = exp(W/T) for fluctuation theorem",
+        "            work_range = np.linspace(-2, 2, 100)",
+        "            temperature = 1.0",
+        "            ",
+        "            # Mock work distributions",
+        "            P_forward = np.exp(-0.5 * (work_range - 0.5)**2)  # Forward process",
+        "            P_reverse = np.exp(-0.5 * (work_range + 0.5)**2)  # Reverse process",
+        "            ",
+        "            # Normalize",
+        "            P_forward = P_forward / np.trapz(P_forward, work_range)",
+        "            P_reverse = P_reverse / np.trapz(P_reverse, work_range)",
+        "            ",
+        "            ax5.semilogy(work_range, P_forward, 'o-', label='P(W)', linewidth=2, alpha=0.8)",
+        "            ax5.semilogy(work_range, P_reverse, 's-', label='P(-W)', linewidth=2, alpha=0.8)",
+        "            ",
+        "            # Theoretical fluctuation theorem",
+        "            ratio_theory = np.exp(work_range / temperature)",
+        "            ax5.semilogy(work_range, ratio_theory * np.max(P_reverse), '--', ",
+        "                        label='exp(W/T)', linewidth=2, alpha=0.7, color='red')",
+        "            ",
+        "            ax5.set_xlabel('Work W')",
+        "            ax5.set_ylabel('Probability Density')",
+        "            ax5.set_title('Fluctuation Theorem Verification')",
+        "            ax5.legend()",
+        "            ax5.grid(True, alpha=0.3)",
+        "            ",
+        "            # 6. Irreversible work analysis",
+        "            ax6 = axes_flat[5]",
+        "            ",
+        "            # Plot reversible vs irreversible work",
+        "            driving_speeds = np.logspace(-2, 1, 20)  # Different driving speeds",
+        "            ",
+        "            reversible_work = np.ones_like(driving_speeds) * 1.0  # Quasi-static limit",
+        "            irreversible_work = []",
+        "            ",
+        "            for speed in driving_speeds:",
+        "                # Irreversible work increases with driving speed",
+        "                W_irr = reversible_work[0] + 0.5 * speed**0.5",
+        "                irreversible_work.append(W_irr)",
+        "            ",
+        "            ax6.semilogx(driving_speeds, reversible_work, '--', ",
+        "                        linewidth=3, label='Reversible Work', color='blue')",
+        "            ax6.semilogx(driving_speeds, irreversible_work, 'o-', ",
+        "                        linewidth=2, label='Irreversible Work', color='red', alpha=0.8)",
+        "            ",
+        "            # Extra work",
+        "            extra_work = np.array(irreversible_work) - reversible_work",
+        "            ax6.semilogx(driving_speeds, extra_work, 's-', ",
+        "                        linewidth=2, label='Extra Work', color='green', alpha=0.8)",
+        "            ",
+        "            ax6.set_xlabel('Driving Speed')",
+        "            ax6.set_ylabel('Work')",
+        "            ax6.set_title('Reversible vs Irreversible Work')",
+        "            ax6.legend()",
+        "            ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'non_equilibrium_thermodynamics.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved non-equilibrium thermodynamics plot\")",
+        "        ",
+        "        return {",
+        "            'thermodynamics_data': data,",
+        "            'entropy_production_analyzed': True,",
+        "            'work_distributions_computed': True,",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_non_equilibrium_thermodynamics",
+      "span": [
+        55,
+        217
+      ]
+    },
+    {
+      "acceptance": "Closed state cycle under specified thermal reservoirs, work/output and efficiency; switched H alone not Otto/Carnot or enhancement.",
+      "archive": "quantum.zip",
+      "id": "Q03",
+      "member": "quantum/research/visualization/plot_thermodynamics.py",
+      "member_sha": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb",
+      "source_excerpt": [
+        "    def plot_thermodynamic_cycles(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot thermodynamic cycles and work extraction\"\"\"",
+        "        ",
+        "        # Extract authentic thermodynamic cycle data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_thermodynamic_cycles')",
+        "        ",
+        "        # Use conservative figure creation to prevent rendering corruption",
+        "        plt.close('all')  # Clear any existing figures",
+        "        ",
+        "        # Create figure with robust error handling",
+        "        try:",
+        "            # Start with reasonable size to avoid matplotlib limits",
+        "            fig = plt.figure(figsize=(15, 10))",
+        "            ",
+        "            # Test figure validity immediately",
+        "            test_size = fig.get_size_inches()",
+        "            if not (1.0 < test_size[0] < 50 and 1.0 < test_size[1] < 50):",
+        "                raise ValueError(f\"Figure size out of safe range: {test_size}\")",
+        "                ",
+        "            # Create subplots with error handling",
+        "            axes = fig.subplots(2, 3)",
+        "            ",
+        "            # Verify axes creation",
+        "            if axes is None or not hasattr(axes, 'flatten'):",
+        "                raise ValueError(\"Subplot creation failed\")",
+        "                ",
+        "        except Exception as e:",
+        "            logger.warning(f\"Primary figure creation failed: {e}, using fallback\")",
+        "            plt.close('all')",
+        "            ",
+        "            # Fallback: simpler layout",
+        "            fig, axes = plt.subplots(2, 2, figsize=(12, 8))",
+        "            ",
+        "            # Add empty subplot to match expected layout",
+        "            axes = np.pad(axes.flatten(), (0, 2), mode='constant', constant_values=None)",
+        "            axes = axes.reshape(2, 3)",
+        "        fig.suptitle('Thermodynamic Cycles and Work Extraction', fontsize=16, fontweight='bold')",
+        "        ",
+        "        system_sizes = data['system_sizes']",
+        "        cycle_data = data['cycle_data']",
+        "        ",
+        "        # 1. Otto cycle P-V diagram",
+        "        ax1 = axes[0, 0]",
+        "        ",
+        "        otto_cycles = cycle_data['otto_cycles']",
+        "        ",
+        "        for sys_size in system_sizes[:2]:  # Limit for clarity",
+        "            if sys_size in otto_cycles:",
+        "                otto_data = otto_cycles[sys_size]",
+        "                volumes = otto_data['volumes']",
+        "                pressures = otto_data['pressures']",
+        "                ",
+        "                # Plot cycle",
+        "                ax1.plot(volumes, pressures, 'o-', linewidth=3, ",
+        "                        label=f'Otto Cycle L={sys_size}', alpha=0.8)",
+        "                ",
+        "                # Close the cycle",
+        "                ax1.plot([volumes[-1], volumes[0]], [pressures[-1], pressures[0]], ",
+        "                        'o-', linewidth=3, alpha=0.8, color=ax1.lines[-1].get_color())",
+        "                ",
+        "                # Mark processes",
+        "                if sys_size == system_sizes[0]:  # Only label once",
+        "                    n_points = len(volumes)",
+        "                    quarter = n_points // 4",
+        "                    ",
+        "                    ax1.annotate('1\u21922\\nAdiabatic\\nCompression', ",
+        "                               (volumes[quarter], pressures[quarter]),",
+        "                               xytext=(10, 10), textcoords='offset points',",
+        "                               bbox=dict(boxstyle=\"round,pad=0.3\", facecolor=\"yellow\", alpha=0.7))",
+        "                    ",
+        "                    ax1.annotate('3\u21924\\nAdiabatic\\nExpansion', ",
+        "                               (volumes[3*quarter], pressures[3*quarter]),",
+        "                               xytext=(-50, -20), textcoords='offset points',",
+        "                               bbox=dict(boxstyle=\"round,pad=0.3\", facecolor=\"lightgreen\", alpha=0.7))",
+        "        ",
+        "        ax1.set_xlabel('Volume V')",
+        "        ax1.set_ylabel('Pressure P')",
+        "        ax1.set_title('Otto Cycle P-V Diagram')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Carnot cycle T-S diagram",
+        "        ax2 = axes[0, 1]",
+        "        ",
+        "        carnot_cycles = cycle_data['carnot_cycles']",
+        "        ",
+        "        for sys_size in system_sizes[:2]:",
+        "            if sys_size in carnot_cycles:",
+        "                carnot_data = carnot_cycles[sys_size]",
+        "                temperatures = carnot_data['temperatures']",
+        "                entropies = carnot_data['entropy']",
+        "                ",
+        "                # Plot Carnot cycle (rectangle in T-S space)",
+        "                T_h = max(temperatures)",
+        "                T_c = min(temperatures)",
+        "                S_max = max(entropies)",
+        "                S_min = min(entropies)",
+        "                ",
+        "                # Rectangle vertices",
+        "                T_rect = [T_c, T_c, T_h, T_h, T_c]",
+        "                S_rect = [S_min, S_max, S_max, S_min, S_min]",
+        "                ",
+        "                ax2.plot(S_rect, T_rect, 's-', linewidth=3, ",
+        "                        label=f'Carnot L={sys_size}', alpha=0.8)",
+        "        ",
+        "        ax2.set_xlabel('Entropy S')",
+        "        ax2.set_ylabel('Temperature T')",
+        "        ax2.set_title('Carnot Cycle T-S Diagram')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Efficiency comparison",
+        "        ax3 = axes[0, 2]",
+        "        ",
+        "        # Extract efficiencies",
+        "        otto_efficiencies = []",
+        "        carnot_efficiencies = []",
+        "        quantum_efficiencies = []",
+        "        ",
+        "        quantum_cycles = cycle_data['quantum_cycles']",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in otto_cycles:",
+        "                otto_efficiencies.append(otto_cycles[sys_size]['efficiency'])",
+        "            if sys_size in carnot_cycles:",
+        "                carnot_efficiencies.append(carnot_cycles[sys_size]['efficiency'])",
+        "            if sys_size in quantum_cycles:",
+        "                quantum_efficiencies.append(quantum_cycles[sys_size]['quantum_efficiency'])",
+        "        ",
+        "        x_pos = np.arange(len(system_sizes))",
+        "        width = 0.25",
+        "        ",
+        "        bars1 = ax3.bar(x_pos - width, otto_efficiencies, width, ",
+        "                       label='Otto', alpha=0.7, color='red')",
+        "        bars2 = ax3.bar(x_pos, carnot_efficiencies, width, ",
+        "                       label='Carnot', alpha=0.7, color='blue')",
+        "        bars3 = ax3.bar(x_pos + width, quantum_efficiencies, width, ",
+        "                       label='Quantum', alpha=0.7, color='green')",
+        "        ",
+        "        ax3.set_xlabel('System Size')",
+        "        ax3.set_ylabel('Efficiency \u03b7')",
+        "        ax3.set_title('Cycle Efficiency Comparison')",
+        "        ax3.set_xticks(x_pos)",
+        "        ax3.set_xticklabels(system_sizes)",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # Add value labels",
+        "        for bars in [bars1, bars2, bars3]:",
+        "            for bar in bars:",
+        "                height = bar.get_height()",
+        "                ax3.text(bar.get_x() + bar.get_width()/2., height + 0.01,",
+        "                        f'{height:.2f}', ha='center', va='bottom', fontsize=9)",
+        "        ",
+        "        # 4. Work output analysis",
+        "        ax4 = axes[1, 0]",
+        "        ",
+        "        # Extract work outputs",
+        "        otto_work = []",
+        "        carnot_work = []",
+        "        quantum_work = []",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in otto_cycles:",
+        "                otto_work.append(otto_cycles[sys_size]['work_output'])",
+        "            if sys_size in carnot_cycles:",
+        "                carnot_work.append(carnot_cycles[sys_size]['work_output'])",
+        "            if sys_size in quantum_cycles:",
+        "                quantum_work.append(quantum_cycles[sys_size]['work_done'])",
+        "        ",
+        "        ax4.plot(system_sizes, otto_work, 'o-', linewidth=2, ",
+        "                label='Otto Work', alpha=0.8, markersize=8)",
+        "        ax4.plot(system_sizes, carnot_work, 's-', linewidth=2, ",
+        "                label='Carnot Work', alpha=0.8, markersize=8)",
+        "        ax4.plot(system_sizes, quantum_work, '^-', linewidth=2, ",
+        "                label='Quantum Work', alpha=0.8, markersize=8)",
+        "        ",
+        "        ax4.set_xlabel('System Size')",
+        "        ax4.set_ylabel('Work Output W')",
+        "        ax4.set_title('Work Output vs System Size')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # 5. Quantum coherence contribution",
+        "        ax5 = axes[1, 1]",
+        "        ",
+        "        # Plot quantum coherence work contribution",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in quantum_cycles:",
+        "                quantum_data = quantum_cycles[sys_size]",
+        "                total_work = quantum_data['work_done']",
+        "                coherence_work = quantum_data['coherence_work']",
+        "                classical_work = total_work - (coherence_work - total_work)",
+        "                ",
+        "                # Stacked bar chart",
+        "                ax5.bar(sys_size, classical_work, alpha=0.7, color='lightblue', ",
+        "                       label='Classical' if sys_size == system_sizes[0] else \"\")",
+        "                ax5.bar(sys_size, coherence_work - classical_work, ",
+        "                       bottom=classical_work, alpha=0.7, color='red',",
+        "                       label='Quantum Coherence' if sys_size == system_sizes[0] else \"\")",
+        "        ",
+        "        ax5.set_xlabel('System Size')",
+        "        ax5.set_ylabel('Work Contribution')",
+        "        ax5.set_title('Quantum Coherence Work Contribution')",
+        "        ax5.legend()",
+        "        ax5.grid(True, alpha=0.3)",
+        "        ",
+        "        # 6. Efficiency vs temperature ratio",
+        "        ax6 = axes[1, 2]",
+        "        ",
+        "        # Plot efficiency vs temperature ratio for different cycles",
+        "        temp_ratios = np.linspace(0.1, 0.9, 20)",
+        "        ",
+        "        carnot_eff_theory = 1 - temp_ratios  # \u03b7_Carnot = 1 - T_c/T_h",
+        "        otto_eff_theory = 1 - temp_ratios**0.4  # Otto with compression ratio",
+        "        quantum_eff_theory = carnot_eff_theory * (1 + 0.1 * (1 - temp_ratios))  # Quantum enhancement",
+        "        ",
+        "        ax6.plot(temp_ratios, carnot_eff_theory, '-', linewidth=3, ",
+        "                label='Carnot Theory', color='blue')",
+        "        ax6.plot(temp_ratios, otto_eff_theory, '--', linewidth=3, ",
+        "                label='Otto Theory', color='red')",
+        "        ax6.plot(temp_ratios, quantum_eff_theory, ':', linewidth=3, ",
+        "                label='Quantum Enhanced', color='green')",
+        "        ",
+        "        # Add data points from our cycles",
+        "        if carnot_efficiencies and otto_efficiencies:",
+        "            T_ratio = 0.6  # Mock temperature ratio",
+        "            ax6.scatter([T_ratio], [np.mean(carnot_efficiencies)], ",
+        "                       s=100, color='blue', marker='o', zorder=5, label='Carnot Data')",
+        "            ax6.scatter([T_ratio], [np.mean(otto_efficiencies)], ",
+        "                       s=100, color='red', marker='s', zorder=5, label='Otto Data')",
+        "            ax6.scatter([T_ratio], [np.mean(quantum_efficiencies)], ",
+        "                       s=100, color='green', marker='^', zorder=5, label='Quantum Data')",
+        "        ",
+        "        ax6.set_xlabel('Temperature Ratio T_c/T_h')",
+        "        ax6.set_ylabel('Efficiency \u03b7')",
+        "        ax6.set_title('Efficiency vs Temperature Ratio')",
+        "        ax6.legend()",
+        "        ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            try:",
+        "                # Comprehensive pre-save validation",
+        "                try:",
+        "                    size = fig.get_size_inches()",
+        "                    if not (1.0 < size[0] < 50 and 1.0 < size[1] < 50):",
+        "                        raise ValueError(f\"Invalid figure size: {size}\")",
+        "                    ",
+        "                    # Test figure canvas",
+        "                    canvas = fig.canvas",
+        "                    if canvas is None:",
+        "                        raise ValueError(\"Figure canvas is None\")",
+        "                        ",
+        "                    # Verify axes are still valid",
+        "                    if not hasattr(fig, 'axes') or len(fig.axes) == 0:",
+        "                        raise ValueError(\"Figure has no axes\")",
+        "                        ",
+        "                except Exception as validation_error:",
+        "                    raise ValueError(f\"Figure validation failed: {validation_error}\")",
+        "                ",
+        "                # Attempt to save with multiple fallback options",
+        "                save_path = self.output_dir / 'thermodynamic_cycles.png'",
+        "                ",
+        "                # Primary save attempt",
+        "                fig.savefig(save_path, dpi=200, bbox_inches='tight', ",
+        "                           facecolor='white', edgecolor='none')",
+        "                logger.info(\"Successfully saved thermodynamic cycles plot\")",
+        "                ",
+        "            except Exception as save_error:",
+        "                logger.warning(f\"Primary save failed: {save_error}, attempting recovery\")",
+        "                ",
+        "                try:",
+        "                    # Close problematic figure",
+        "                    plt.close(fig)",
+        "                    ",
+        "                    # Create robust replacement figure",
+        "                    fig_replacement = plt.figure(figsize=(10, 6), facecolor='white')",
+        "                    ax = fig_replacement.add_subplot(111)",
+        "                    ",
+        "                    # Create informative replacement content",
+        "                    ax.text(0.5, 0.6, 'Thermodynamic Cycles Analysis', ",
+        "                           ha='center', va='center', fontsize=18, fontweight='bold',",
+        "                           transform=ax.transAxes)",
+        "                    ",
+        "                    ax.text(0.5, 0.4, 'Data successfully generated\\nbut complex figure rendering failed.\\n\\nRaw thermodynamic data preserved in:\\nthermodynamic_cycles_data.pkl', ",
+        "                           ha='center', va='center', fontsize=12, ",
+        "                           transform=ax.transAxes,",
+        "                           bbox=dict(boxstyle=\"round,pad=0.5\", facecolor=\"lightcyan\", ",
+        "                                   edgecolor=\"navy\", linewidth=2))",
+        "                    ",
+        "                    ax.set_xlim(0, 1)",
+        "                    ax.set_ylim(0, 1)",
+        "                    ax.axis('off')",
+        "                    ",
+        "                    # Save replacement",
+        "                    fig_replacement.savefig(save_path, dpi=150, bbox_inches='tight',",
+        "                                          facecolor='white', edgecolor='none')",
+        "                    plt.close(fig_replacement)",
+        "                    logger.info(\"Saved replacement thermodynamic cycles plot\")",
+        "                    ",
+        "                    # Always save the raw data",
+        "                    import pickle",
+        "                    data_path = self.output_dir / 'thermodynamic_cycles_data.pkl'",
+        "                    with open(data_path, 'wb') as f:",
+        "                        pickle.dump(data, f)",
+        "                    logger.info(f\"Preserved raw thermodynamic data to {data_path}\")",
+        "                    ",
+        "                except Exception as recovery_error:",
+        "                    logger.error(f\"Recovery save also failed: {recovery_error}\")",
+        "                    ",
+        "                    # Last resort - data only",
+        "                    try:",
+        "                        import pickle",
+        "                        data_path = self.output_dir / 'thermodynamic_cycles_data.pkl'",
+        "                        with open(data_path, 'wb') as f:",
+        "                            pickle.dump(data, f)",
+        "                        logger.info(\"At minimum, preserved raw data\")",
+        "                    except Exception as final_error:",
+        "                        logger.error(f\"Complete save failure: {final_error}\")",
+        "        ",
+        "        return {",
+        "            'cycle_data': data,",
+        "            'efficiency_analysis': {",
+        "                'otto_avg': np.mean(otto_efficiencies) if otto_efficiencies else 0,",
+        "                'carnot_avg': np.mean(carnot_efficiencies) if carnot_efficiencies else 0,",
+        "                'quantum_avg': np.mean(quantum_efficiencies) if quantum_efficiencies else 0",
+        "            },",
+        "            'quantum_enhancement_detected': True,",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_thermodynamic_cycles",
+      "span": [
+        415,
+        746
+      ]
+    },
+    {
+      "acceptance": "Generate animation from verified driven state/work/heat path, preserve exact temporal stages and scope; no physical native cycle.",
+      "archive": "quantum.zip",
+      "id": "Q04",
+      "member": "quantum/research/visualization/plot_thermodynamics.py",
+      "member_sha": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb",
+      "source_excerpt": [
+        "    def create_thermodynamic_animation(self, cycle_type: str = 'otto', ",
+        "                                     save_animation: bool = True) -> Any:",
+        "        \"\"\"Create animation showing thermodynamic cycle evolution\"\"\"",
+        "        ",
+        "        # Generate cycle animation data",
+        "        n_steps = 100",
+        "        ",
+        "        if cycle_type == 'otto':",
+        "            # Otto cycle: 4 processes",
+        "            fig, ax = plt.subplots(figsize=(10, 8))",
+        "            ax.set_xlim(0.5, 4)",
+        "            ax.set_ylim(0.5, 4)",
+        "            ax.set_xlabel('Volume V')",
+        "            ax.set_ylabel('Pressure P')",
+        "            ax.set_title('Otto Cycle Animation')",
+        "            ax.grid(True, alpha=0.3)",
+        "            ",
+        "            # Define Otto cycle points",
+        "            V1, P1 = 1.0, 3.0  # Compression start",
+        "            V2, P2 = 1.5, 2.0  # Compression end / heating start",
+        "            V3, P3 = 1.5, 3.5  # Heating end / expansion start",
+        "            V4, P4 = 1.0, 2.5  # Expansion end / cooling start",
+        "            ",
+        "            cycle_V = [V1, V2, V3, V4, V1]",
+        "            cycle_P = [P1, P2, P3, P4, P1]",
+        "            ",
+        "            line, = ax.plot([], [], 'o-', linewidth=3, markersize=8)",
+        "            point, = ax.plot([], [], 'ro', markersize=12)",
+        "            ",
+        "            def animate(frame):",
+        "                step = frame % (4 * 25)  # 25 steps per process",
+        "                process = step // 25",
+        "                substep = step % 25",
+        "                ",
+        "                if process == 0:  # Adiabatic compression",
+        "                    V = V1 + (V2 - V1) * substep / 25",
+        "                    P = P1 + (P2 - P1) * substep / 25",
+        "                    current_V = cycle_V[:1] + [V]",
+        "                    current_P = cycle_P[:1] + [P]",
+        "                elif process == 1:  # Isochoric heating",
+        "                    V = V2",
+        "                    P = P2 + (P3 - P2) * substep / 25",
+        "                    current_V = cycle_V[:2] + [V]",
+        "                    current_P = cycle_P[:2] + [P]",
+        "                elif process == 2:  # Adiabatic expansion",
+        "                    V = V3 + (V4 - V3) * substep / 25",
+        "                    P = P3 + (P4 - P3) * substep / 25",
+        "                    current_V = cycle_V[:3] + [V]",
+        "                    current_P = cycle_P[:3] + [P]",
+        "                else:  # Isochoric cooling",
+        "                    V = V4",
+        "                    P = P4 + (P1 - P4) * substep / 25",
+        "                    current_V = cycle_V[:4] + [V]",
+        "                    current_P = cycle_P[:4] + [P]",
+        "                ",
+        "                line.set_data(current_V, current_P)",
+        "                point.set_data([V], [P])",
+        "                ",
+        "                ax.set_title(f'Otto Cycle Animation - Process {process + 1}/4')",
+        "                return line, point",
+        "                ",
+        "        else:  # Carnot cycle",
+        "            fig, ax = plt.subplots(figsize=(10, 8))",
+        "            ax.set_xlim(0, 4)",
+        "            ax.set_ylim(0.5, 3)",
+        "            ax.set_xlabel('Entropy S')",
+        "            ax.set_ylabel('Temperature T')",
+        "            ax.set_title('Carnot Cycle Animation')",
+        "            ax.grid(True, alpha=0.3)",
+        "            ",
+        "            # Carnot cycle in T-S space (rectangle)",
+        "            S1, T1 = 1.0, 2.5  # Isothermal expansion start",
+        "            S2, T2 = 3.0, 2.5  # Isothermal expansion end",
+        "            S3, T3 = 3.0, 1.0  # Isothermal compression start",
+        "            S4, T4 = 1.0, 1.0  # Isothermal compression end",
+        "            ",
+        "            line, = ax.plot([], [], 'o-', linewidth=3, markersize=8)",
+        "            point, = ax.plot([], [], 'ro', markersize=12)",
+        "            ",
+        "            def animate(frame):",
+        "                step = frame % n_steps",
+        "                progress = step / n_steps",
+        "                ",
+        "                if progress < 0.25:  # Isothermal expansion",
+        "                    t = progress * 4",
+        "                    S = S1 + (S2 - S1) * t",
+        "                    T = T1",
+        "                    current_S = [S1, S]",
+        "                    current_T = [T1, T]",
+        "                elif progress < 0.5:  # Adiabatic expansion",
+        "                    t = (progress - 0.25) * 4",
+        "                    S = S2",
+        "                    T = T2 + (T3 - T2) * t",
+        "                    current_S = [S1, S2, S]",
+        "                    current_T = [T1, T2, T]",
+        "                elif progress < 0.75:  # Isothermal compression",
+        "                    t = (progress - 0.5) * 4",
+        "                    S = S3 + (S4 - S3) * t",
+        "                    T = T3",
+        "                    current_S = [S1, S2, S3, S]",
+        "                    current_T = [T1, T2, T3, T]",
+        "                else:  # Adiabatic compression",
+        "                    t = (progress - 0.75) * 4",
+        "                    S = S4",
+        "                    T = T4 + (T1 - T4) * t",
+        "                    current_S = [S1, S2, S3, S4, S]",
+        "                    current_T = [T1, T2, T3, T4, T]",
+        "                ",
+        "                line.set_data(current_S, current_T)",
+        "                point.set_data([S], [T])",
+        "                ",
+        "                process_names = ['Isothermal Expansion', 'Adiabatic Expansion', ",
+        "                               'Isothermal Compression', 'Adiabatic Compression']",
+        "                process_idx = int(progress * 4)",
+        "                ax.set_title(f'Carnot Cycle Animation - {process_names[process_idx]}')",
+        "                return line, point",
+        "        ",
+        "        anim = FuncAnimation(fig, animate, frames=n_steps, interval=100, blit=False, repeat=True)",
+        "        ",
+        "        if save_animation:",
+        "            anim.save(self.output_dir / f'{cycle_type}_cycle_animation.gif', ",
+        "                     writer='pillow', fps=10)",
+        "            logger.info(f\"Saved {cycle_type} cycle animation\")",
+        "        ",
+        "        return anim"
+      ],
+      "source_function": "create_thermodynamic_animation",
+      "span": [
+        748,
+        872
+      ]
+    },
+    {
+      "acceptance": "Actual native/ideal cycle comparison needs common calibrated state variables, reservoirs and closure; reference switched-H animation explicitly separate.",
+      "archive": "quantum.zip",
+      "id": "Q06",
+      "member": "quantum/research/visualization/plot_thermodynamics.py",
+      "member_sha": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb",
+      "source_excerpt": [
+        "    def create_mcts_vs_ideal_cycle_animation(self, cycle_type: str = 'otto', ",
+        "                                           save_animation: bool = True) -> Any:",
+        "        \"\"\"Create side-by-side animation comparing real MCTS temporal data vs ideal thermodynamic cycle\"\"\"",
+        "        ",
+        "        # Extract REAL temporal thermodynamic data from MCTS runs",
+        "        temporal_data = self.extract_temporal_thermodynamic_data()",
+        "        ",
+        "        # Create side-by-side figure",
+        "        fig, (ax_ideal, ax_mcts) = plt.subplots(1, 2, figsize=(16, 8))",
+        "        fig.suptitle(f'{cycle_type.title()} Cycle: Ideal vs MCTS Data Comparison', fontsize=16, fontweight='bold')",
+        "        ",
+        "        n_steps = 120",
+        "        ",
+        "        if cycle_type == 'otto':",
+        "            # Set up ideal cycle (left panel)",
+        "            ax_ideal.set_xlim(0.5, 4)",
+        "            ax_ideal.set_ylim(0.5, 4)",
+        "            ax_ideal.set_xlabel('Volume V (Ideal)', fontsize=12)",
+        "            ax_ideal.set_ylabel('Pressure P (Ideal)', fontsize=12)",
+        "            ax_ideal.set_title('Ideal Otto Cycle', fontsize=14, fontweight='bold')",
+        "            ax_ideal.grid(True, alpha=0.3)",
+        "            ",
+        "            # Set up MCTS data cycle (right panel)",
+        "            ax_mcts.set_xlim(0.5, 4)",
+        "            ax_mcts.set_ylim(0.5, 4)",
+        "            ax_mcts.set_xlabel('Volume V (MCTS-derived)', fontsize=12)",
+        "            ax_mcts.set_ylabel('Pressure P (MCTS-derived)', fontsize=12)",
+        "            ax_mcts.set_title('MCTS-Derived Otto Cycle', fontsize=14, fontweight='bold')",
+        "            ax_mcts.grid(True, alpha=0.3)",
+        "            ",
+        "            # Ideal Otto cycle parameters",
+        "            V1_ideal, P1_ideal = 1.0, 3.0",
+        "            V2_ideal, P2_ideal = 1.5, 2.0",
+        "            V3_ideal, P3_ideal = 1.5, 3.5",
+        "            V4_ideal, P4_ideal = 1.0, 2.5",
+        "            ",
+        "            # Use REAL temporal MCTS data for Otto cycle",
+        "            mcts_volumes = temporal_data['volumes']",
+        "            mcts_pressures = temporal_data['pressures']",
+        "            mcts_timestamps = temporal_data['timestamps']",
+        "            mcts_game_ids = temporal_data['game_ids']",
+        "            ",
+        "            # Check if we have sufficient temporal data",
+        "            if len(mcts_volumes) < 4:",
+        "                logger.warning(f\"Insufficient MCTS temporal data ({len(mcts_volumes)} points), using fallback\")",
+        "                # Fallback to ideal values with noise",
+        "                noise_scale = 0.15",
+        "                V1_mcts = V1_ideal + np.random.normal(0, noise_scale)",
+        "                V2_mcts = V2_ideal + np.random.normal(0, noise_scale)",
+        "                V3_mcts = V3_ideal + np.random.normal(0, noise_scale)",
+        "                V4_mcts = V4_ideal + np.random.normal(0, noise_scale)",
+        "                P1_mcts = P1_ideal + np.random.normal(0, noise_scale)",
+        "                P2_mcts = P2_ideal + np.random.normal(0, noise_scale)",
+        "                P3_mcts = P3_ideal + np.random.normal(0, noise_scale)",
+        "                P4_mcts = P4_ideal + np.random.normal(0, noise_scale)",
+        "                use_temporal = False",
+        "            else:",
+        "                # Use temporal data - divide into 4 Otto cycle processes",
+        "                n_points = len(mcts_volumes)",
+        "                process_size = n_points // 4",
+        "                ",
+        "                # Extract characteristic points for each Otto process from temporal data",
+        "                V1_mcts = np.mean(mcts_volumes[0:process_size]) if process_size > 0 else mcts_volumes[0]",
+        "                V2_mcts = np.mean(mcts_volumes[process_size:2*process_size]) if 2*process_size <= n_points else mcts_volumes[min(process_size, n_points-1)]",
+        "                V3_mcts = np.mean(mcts_volumes[2*process_size:3*process_size]) if 3*process_size <= n_points else mcts_volumes[min(2*process_size, n_points-1)]",
+        "                V4_mcts = np.mean(mcts_volumes[3*process_size:]) if 3*process_size < n_points else mcts_volumes[-1]",
+        "                ",
+        "                P1_mcts = np.mean(mcts_pressures[0:process_size]) if process_size > 0 else mcts_pressures[0]",
+        "                P2_mcts = np.mean(mcts_pressures[process_size:2*process_size]) if 2*process_size <= n_points else mcts_pressures[min(process_size, n_points-1)]",
+        "                P3_mcts = np.mean(mcts_pressures[2*process_size:3*process_size]) if 3*process_size <= n_points else mcts_pressures[min(2*process_size, n_points-1)]",
+        "                P4_mcts = np.mean(mcts_pressures[3*process_size:]) if 3*process_size < n_points else mcts_pressures[-1]",
+        "                use_temporal = True",
+        "            ",
+        "            # Initialize plot elements",
+        "            line_ideal, = ax_ideal.plot([], [], 'b-o', linewidth=3, markersize=8, label='Ideal Cycle', alpha=0.8)",
+        "            point_ideal, = ax_ideal.plot([], [], 'ro', markersize=12, label='Current State')",
+        "            ",
+        "            line_mcts, = ax_mcts.plot([], [], 'g-s', linewidth=3, markersize=8, label='MCTS Cycle', alpha=0.8)",
+        "            point_mcts, = ax_mcts.plot([], [], 'ro', markersize=12, label='Current State')",
+        "            ",
+        "            # Add legends",
+        "            ax_ideal.legend(loc='upper right', fontsize=10)",
+        "            ax_mcts.legend(loc='upper right', fontsize=10)",
+        "            ",
+        "            # Store cycle data",
+        "            cycle_ideal = [(V1_ideal, P1_ideal), (V2_ideal, P2_ideal), (V3_ideal, P3_ideal), (V4_ideal, P4_ideal)]",
+        "            cycle_mcts = [(V1_mcts, P1_mcts), (V2_mcts, P2_mcts), (V3_mcts, P3_mcts), (V4_mcts, P4_mcts)]",
+        "            ",
+        "            # Process names for annotation",
+        "            process_names = ['Adiabatic Compression', 'Isochoric Heating', 'Adiabatic Expansion', 'Isochoric Cooling']",
+        "            ",
+        "            # Add temporal information display",
+        "            if use_temporal:",
+        "                info_text = fig.text(0.5, 0.02, '', ha='center', fontsize=10, fontweight='bold')",
+        "            ",
+        "            def animate(frame):",
+        "                step = frame % (4 * 30)  # 30 steps per process",
+        "                process = step // 30",
+        "                substep = step % 30",
+        "                progress = substep / 30.0",
+        "                ",
+        "                # Get current and next points for both cycles",
+        "                current_ideal = cycle_ideal[process]",
+        "                next_ideal = cycle_ideal[(process + 1) % 4]",
+        "                current_mcts = cycle_mcts[process]",
+        "                next_mcts = cycle_mcts[(process + 1) % 4]",
+        "                ",
+        "                # Interpolate between current and next points",
+        "                V_ideal = current_ideal[0] + (next_ideal[0] - current_ideal[0]) * progress",
+        "                P_ideal = current_ideal[1] + (next_ideal[1] - current_ideal[1]) * progress",
+        "                V_mcts = current_mcts[0] + (next_mcts[0] - current_mcts[0]) * progress",
+        "                P_mcts = current_mcts[1] + (next_mcts[1] - current_mcts[1]) * progress",
+        "                ",
+        "                # Build trajectory up to current point",
+        "                ideal_V_traj = []",
+        "                ideal_P_traj = []",
+        "                mcts_V_traj = []",
+        "                mcts_P_traj = []",
+        "                ",
+        "                # Add completed processes",
+        "                for i in range(process + 1):",
+        "                    ideal_V_traj.append(cycle_ideal[i][0])",
+        "                    ideal_P_traj.append(cycle_ideal[i][1])",
+        "                    mcts_V_traj.append(cycle_mcts[i][0])",
+        "                    mcts_P_traj.append(cycle_mcts[i][1])",
+        "                ",
+        "                # Add current interpolated point",
+        "                ideal_V_traj.append(V_ideal)",
+        "                ideal_P_traj.append(P_ideal)",
+        "                mcts_V_traj.append(V_mcts)",
+        "                mcts_P_traj.append(P_mcts)",
+        "                ",
+        "                # Update plots",
+        "                line_ideal.set_data(ideal_V_traj, ideal_P_traj)",
+        "                point_ideal.set_data([V_ideal], [P_ideal])",
+        "                line_mcts.set_data(mcts_V_traj, mcts_P_traj)",
+        "                point_mcts.set_data([V_mcts], [P_mcts])",
+        "                ",
+        "                # Update titles with current process",
+        "                ax_ideal.set_title(f'Ideal Otto Cycle\\n{process_names[process]}', fontsize=14, fontweight='bold')",
+        "                ax_mcts.set_title(f'MCTS-Derived Otto Cycle\\n{process_names[process]}', fontsize=14, fontweight='bold')",
+        "                ",
+        "                # Display real-time MCTS data information",
+        "                if use_temporal and len(mcts_timestamps) > 0:",
+        "                    # Map animation frame to actual MCTS temporal data",
+        "                    total_frames = 4 * 30",
+        "                    temporal_progress = frame / total_frames",
+        "                    data_idx = int(temporal_progress * (len(mcts_timestamps) - 1))",
+        "                    data_idx = min(data_idx, len(mcts_timestamps) - 1)",
+        "                    ",
+        "                    current_time = mcts_timestamps[data_idx]",
+        "                    current_game = mcts_game_ids[data_idx]",
+        "                    current_energy = temporal_data['internal_energies'][data_idx]",
+        "                    current_work = temporal_data['work_done'][data_idx]",
+        "                    ",
+        "                    info_text.set_text(",
+        "                        f'Real MCTS Data - Game: {current_game}, Time: {current_time:.1f}, '",
+        "                        f'Energy: {current_energy:.3f}, Work: {current_work:.3f}'",
+        "                    )",
+        "                    ",
+        "                    return line_ideal, point_ideal, line_mcts, point_mcts, info_text",
+        "                else:",
+        "                    return line_ideal, point_ideal, line_mcts, point_mcts",
+        "                ",
+        "        else:  # Carnot cycle",
+        "            # Set up ideal cycle (left panel)",
+        "            ax_ideal.set_xlim(0, 4)",
+        "            ax_ideal.set_ylim(0.5, 3)",
+        "            ax_ideal.set_xlabel('Entropy S (Ideal)', fontsize=12)",
+        "            ax_ideal.set_ylabel('Temperature T (Ideal)', fontsize=12)",
+        "            ax_ideal.set_title('Ideal Carnot Cycle', fontsize=14, fontweight='bold')",
+        "            ax_ideal.grid(True, alpha=0.3)",
+        "            ",
+        "            # Set up MCTS data cycle (right panel)",
+        "            ax_mcts.set_xlim(0, 4)",
+        "            ax_mcts.set_ylim(0.5, 3)",
+        "            ax_mcts.set_xlabel('Entropy S (MCTS-derived)', fontsize=12)",
+        "            ax_mcts.set_ylabel('Temperature T (MCTS-derived)', fontsize=12)",
+        "            ax_mcts.set_title('MCTS-Derived Carnot Cycle', fontsize=14, fontweight='bold')",
+        "            ax_mcts.grid(True, alpha=0.3)",
+        "            ",
+        "            # Ideal Carnot cycle parameters (rectangle in T-S space)",
+        "            S1_ideal, T1_ideal = 1.0, 2.5  # Isothermal expansion start (hot)",
+        "            S2_ideal, T2_ideal = 3.0, 2.5  # Isothermal expansion end (hot)",
+        "            S3_ideal, T3_ideal = 3.0, 1.0  # Isothermal compression start (cold)",
+        "            S4_ideal, T4_ideal = 1.0, 1.0  # Isothermal compression end (cold)",
+        "            ",
+        "            # Use REAL temporal MCTS data for Carnot cycle (T-S diagram)",
+        "            mcts_temperatures = temporal_data['temperatures']",
+        "            mcts_entropies = temporal_data['entropies']",
+        "            ",
+        "            # Check if we have sufficient temporal data",
+        "            if len(mcts_temperatures) < 4:",
+        "                logger.warning(f\"Insufficient MCTS temporal data for Carnot cycle ({len(mcts_temperatures)} points), using fallback\")",
+        "                # Generate MCTS-like data with realistic deviations",
+        "                noise_scale = 0.1",
+        "                S1_mcts = S1_ideal + np.random.normal(0, noise_scale)",
+        "                S2_mcts = S2_ideal + np.random.normal(0, noise_scale)",
+        "                S3_mcts = S3_ideal + np.random.normal(0, noise_scale)",
+        "                S4_mcts = S4_ideal + np.random.normal(0, noise_scale)",
+        "                T1_mcts = T1_ideal + np.random.normal(0, noise_scale)",
+        "                T2_mcts = T2_ideal + np.random.normal(0, noise_scale)",
+        "                T3_mcts = T3_ideal + np.random.normal(0, noise_scale)",
+        "                T4_mcts = T4_ideal + np.random.normal(0, noise_scale)",
+        "                use_temporal_carnot = False",
+        "            else:",
+        "                # Use temporal data - divide into 4 Carnot cycle processes  ",
+        "                n_points = len(mcts_temperatures)",
+        "                process_size = n_points // 4",
+        "                ",
+        "                # Extract characteristic points for each Carnot process from temporal data",
+        "                T1_mcts = np.mean(mcts_temperatures[0:process_size]) if process_size > 0 else mcts_temperatures[0]",
+        "                T2_mcts = np.mean(mcts_temperatures[process_size:2*process_size]) if 2*process_size <= n_points else mcts_temperatures[min(process_size, n_points-1)]",
+        "                T3_mcts = np.mean(mcts_temperatures[2*process_size:3*process_size]) if 3*process_size <= n_points else mcts_temperatures[min(2*process_size, n_points-1)]",
+        "                T4_mcts = np.mean(mcts_temperatures[3*process_size:]) if 3*process_size < n_points else mcts_temperatures[-1]",
+        "                ",
+        "                S1_mcts = np.mean(mcts_entropies[0:process_size]) if process_size > 0 else mcts_entropies[0]",
+        "                S2_mcts = np.mean(mcts_entropies[process_size:2*process_size]) if 2*process_size <= n_points else mcts_entropies[min(process_size, n_points-1)]",
+        "                S3_mcts = np.mean(mcts_entropies[2*process_size:3*process_size]) if 3*process_size <= n_points else mcts_entropies[min(2*process_size, n_points-1)]",
+        "                S4_mcts = np.mean(mcts_entropies[3*process_size:]) if 3*process_size < n_points else mcts_entropies[-1]",
+        "                use_temporal_carnot = True",
+        "            ",
+        "            # Initialize plot elements",
+        "            line_ideal, = ax_ideal.plot([], [], 'b-o', linewidth=3, markersize=8, label='Ideal Cycle', alpha=0.8)",
+        "            point_ideal, = ax_ideal.plot([], [], 'ro', markersize=12, label='Current State')",
+        "            ",
+        "            line_mcts, = ax_mcts.plot([], [], 'g-s', linewidth=3, markersize=8, label='MCTS Cycle', alpha=0.8)",
+        "            point_mcts, = ax_mcts.plot([], [], 'ro', markersize=12, label='Current State')",
+        "            ",
+        "            # Add legends",
+        "            ax_ideal.legend(loc='upper right', fontsize=10)",
+        "            ax_mcts.legend(loc='upper right', fontsize=10)",
+        "            ",
+        "            # Store cycle data",
+        "            cycle_ideal = [(S1_ideal, T1_ideal), (S2_ideal, T2_ideal), (S3_ideal, T3_ideal), (S4_ideal, T4_ideal)]",
+        "            cycle_mcts = [(S1_mcts, T1_mcts), (S2_mcts, T2_mcts), (S3_mcts, T3_mcts), (S4_mcts, T4_mcts)]",
+        "            ",
+        "            # Process names for Carnot cycle",
+        "            process_names = ['Isothermal Expansion (Hot)', 'Adiabatic Expansion', 'Isothermal Compression (Cold)', 'Adiabatic Compression']",
+        "            ",
+        "            # Add temporal information display for Carnot cycle",
+        "            if use_temporal_carnot:",
+        "                info_text_carnot = fig.text(0.5, 0.02, '', ha='center', fontsize=10, fontweight='bold')",
+        "            ",
+        "            def animate(frame):",
+        "                step = frame % n_steps",
+        "                progress = step / n_steps",
+        "                ",
+        "                # Determine which process we're in (4 processes total)",
+        "                process_progress = progress * 4",
+        "                process = int(process_progress)",
+        "                substep_progress = process_progress - process",
+        "                ",
+        "                if process >= 4:",
+        "                    process = 3",
+        "                    substep_progress = 1.0",
+        "                ",
+        "                # Get current and next points",
+        "                current_ideal = cycle_ideal[process]",
+        "                next_ideal = cycle_ideal[(process + 1) % 4]",
+        "                current_mcts = cycle_mcts[process]",
+        "                next_mcts = cycle_mcts[(process + 1) % 4]",
+        "                ",
+        "                # Interpolate",
+        "                S_ideal = current_ideal[0] + (next_ideal[0] - current_ideal[0]) * substep_progress",
+        "                T_ideal = current_ideal[1] + (next_ideal[1] - current_ideal[1]) * substep_progress",
+        "                S_mcts = current_mcts[0] + (next_mcts[0] - current_mcts[0]) * substep_progress",
+        "                T_mcts = current_mcts[1] + (next_mcts[1] - current_mcts[1]) * substep_progress",
+        "                ",
+        "                # Build trajectory",
+        "                ideal_S_traj = []",
+        "                ideal_T_traj = []",
+        "                mcts_S_traj = []",
+        "                mcts_T_traj = []",
+        "                ",
+        "                # Add completed processes",
+        "                for i in range(process + 1):",
+        "                    ideal_S_traj.append(cycle_ideal[i][0])",
+        "                    ideal_T_traj.append(cycle_ideal[i][1])",
+        "                    mcts_S_traj.append(cycle_mcts[i][0])",
+        "                    mcts_T_traj.append(cycle_mcts[i][1])",
+        "                ",
+        "                # Add current point",
+        "                ideal_S_traj.append(S_ideal)",
+        "                ideal_T_traj.append(T_ideal)",
+        "                mcts_S_traj.append(S_mcts)",
+        "                mcts_T_traj.append(T_mcts)",
+        "                ",
+        "                # Update plots",
+        "                line_ideal.set_data(ideal_S_traj, ideal_T_traj)",
+        "                point_ideal.set_data([S_ideal], [T_ideal])",
+        "                line_mcts.set_data(mcts_S_traj, mcts_T_traj)",
+        "                point_mcts.set_data([S_mcts], [T_mcts])",
+        "                ",
+        "                # Update titles",
+        "                ax_ideal.set_title(f'Ideal Carnot Cycle\\n{process_names[process]}', fontsize=14, fontweight='bold')",
+        "                ax_mcts.set_title(f'MCTS-Derived Carnot Cycle\\n{process_names[process]}', fontsize=14, fontweight='bold')",
+        "                ",
+        "                # Display real-time MCTS data information for Carnot",
+        "                if use_temporal_carnot and len(mcts_timestamps) > 0:",
+        "                    data_idx = int(progress * (len(mcts_timestamps) - 1))",
+        "                    data_idx = min(data_idx, len(mcts_timestamps) - 1)",
+        "                    ",
+        "                    current_time = mcts_timestamps[data_idx]",
+        "                    current_game = mcts_game_ids[data_idx]",
+        "                    current_entropy = temporal_data['entropies'][data_idx]",
+        "                    current_temp = temporal_data['temperatures'][data_idx]",
+        "                    ",
+        "                    info_text_carnot.set_text(",
+        "                        f'Real MCTS Data - Game: {current_game}, Time: {current_time:.1f}, '",
+        "                        f'Temp: {current_temp:.3f}, Entropy: {current_entropy:.3f}'",
+        "                    )",
+        "                    ",
+        "                    return line_ideal, point_ideal, line_mcts, point_mcts, info_text_carnot",
+        "                else:",
+        "                    return line_ideal, point_ideal, line_mcts, point_mcts",
+        "        ",
+        "        # Create animation",
+        "        anim = FuncAnimation(fig, animate, frames=n_steps, interval=100, blit=False, repeat=True)",
+        "        ",
+        "        # Add efficiency comparison text using real temporal data",
+        "        if len(temporal_data['timestamps']) > 0:",
+        "            # Calculate MCTS efficiency from temporal data",
+        "            work_total = temporal_data['work_done'][-1] if len(temporal_data['work_done']) > 0 else 0.3",
+        "            energy_total = np.mean(temporal_data['internal_energies']) if len(temporal_data['internal_energies']) > 0 else 1.0",
+        "            ",
+        "            # Efficiency = Work_out / Energy_in (simplified)",
+        "            mcts_efficiency = abs(work_total) / (abs(energy_total) + 1e-10)",
+        "            mcts_efficiency = min(mcts_efficiency, 1.0)  # Cap at 100%",
+        "            ",
+        "            if cycle_type == 'otto':",
+        "                ideal_efficiency = 0.4  # Typical Otto cycle efficiency",
+        "                if not (use_temporal if 'use_temporal' in locals() else False):",
+        "                    fig.text(0.5, 0.02, f'Efficiency Comparison: Ideal = {ideal_efficiency:.1%}, MCTS (temporal) = {mcts_efficiency:.1%}', ",
+        "                            ha='center', fontsize=12, fontweight='bold')",
+        "            else:  # carnot",
+        "                ideal_efficiency = 0.7  # Typical Carnot efficiency  ",
+        "                if not (use_temporal_carnot if 'use_temporal_carnot' in locals() else False):",
+        "                    fig.text(0.5, 0.02, f'Efficiency Comparison: Ideal = {ideal_efficiency:.1%}, MCTS (temporal) = {mcts_efficiency:.1%}', ",
+        "                            ha='center', fontsize=12, fontweight='bold')",
+        "        else:",
+        "            # Fallback for no temporal data",
+        "            if cycle_type == 'otto':",
+        "                ideal_efficiency = 0.4",
+        "                mcts_efficiency = 0.3",
+        "            else:",
+        "                ideal_efficiency = 0.7",
+        "                mcts_efficiency = 0.6",
+        "            ",
+        "            fig.text(0.5, 0.02, f'Efficiency Comparison: Ideal = {ideal_efficiency:.1%}, MCTS (estimated) = {mcts_efficiency:.1%}', ",
+        "                    ha='center', fontsize=12, fontweight='bold')",
+        "        ",
+        "        if save_animation:",
+        "            filename = f'{cycle_type}_ideal_vs_mcts_comparison.gif'",
+        "            anim.save(self.output_dir / filename, writer='pillow', fps=10)",
+        "            logger.info(f\"Saved {cycle_type} ideal vs MCTS comparison animation\")",
+        "        ",
+        "        return anim"
+      ],
+      "source_function": "create_mcts_vs_ideal_cycle_animation",
+      "span": [
+        1182,
+        1539
+      ]
+    },
+    {
+      "acceptance": "Comprehensive nonequilibrium report with independently calibrated thermal quantities or explicit reference, uncertainty and failed criteria.",
+      "archive": "quantum.zip",
+      "id": "Q07",
+      "member": "quantum/research/visualization/plot_thermodynamics.py",
+      "member_sha": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb",
+      "source_excerpt": [
+        "    def generate_comprehensive_report(self, save_report: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Generate comprehensive thermodynamics analysis report\"\"\"",
+        "        ",
+        "        logger.info(\"Generating comprehensive thermodynamics report...\")",
+        "        ",
+        "        # Run all analyses",
+        "        neq_results = self.plot_non_equilibrium_thermodynamics(save_plots=save_report)",
+        "        phase_results = self.plot_phase_transitions(save_plots=save_report)",
+        "        cycle_results = self.plot_thermodynamic_cycles(save_plots=save_report)",
+        "        ",
+        "        # Create comparison animations",
+        "        if save_report:",
+        "            try:",
+        "                logger.info(\"Creating Otto cycle comparison animation...\")",
+        "                self.create_mcts_vs_ideal_cycle_animation('otto', save_animation=True)",
+        "                logger.info(\"Creating Carnot cycle comparison animation...\")",
+        "                self.create_mcts_vs_ideal_cycle_animation('carnot', save_animation=True)",
+        "            except Exception as e:",
+        "                logger.warning(f\"Failed to create comparison animations: {e}\")",
+        "        ",
+        "        # Compile report",
+        "        report = {",
+        "            'timestamp': pd.Timestamp.now().isoformat(),",
+        "            'mcts_data_summary': {",
+        "                'datasets_analyzed': len(self.mcts_data.get('tree_expansion_data', [])),",
+        "                'data_source': 'authentic_mcts_tree_dynamics'",
+        "            },",
+        "            'non_equilibrium_thermodynamics': {",
+        "                'entropy_production_analyzed': neq_results['entropy_production_analyzed'],",
+        "                'work_distributions_computed': neq_results['work_distributions_computed'],",
+        "                'driving_protocols_compared': True,",
+        "                'fluctuation_theorems_verified': True",
+        "            },",
+        "            'phase_transitions': {",
+        "                'phase_transitions_detected': phase_results['phase_transitions_detected'],",
+        "                'critical_temperatures_extracted': len(phase_results['critical_temperatures']),",
+        "                'order_parameters_analyzed': True,",
+        "                'correlation_length_divergence': True",
+        "            },",
+        "            'thermodynamic_cycles': {",
+        "                'otto_cycle_analyzed': True,",
+        "                'carnot_cycle_analyzed': True,",
+        "                'quantum_enhancement_detected': cycle_results['quantum_enhancement_detected'],",
+        "                'efficiency_analysis': cycle_results['efficiency_analysis'],",
+        "                'work_extraction_optimized': True",
+        "            },",
+        "            'statistical_mechanics': {",
+        "                'heat_capacity_peaks_identified': True,",
+        "                'susceptibility_divergence_analyzed': True,",
+        "                'finite_size_scaling_performed': True,",
+        "                'universality_class_identification': True",
+        "            },",
+        "            'output_files': [",
+        "                'non_equilibrium_thermodynamics.png',",
+        "                'phase_transitions.png',",
+        "                'thermodynamic_cycles.png',",
+        "                'otto_ideal_vs_mcts_comparison.gif',",
+        "                'carnot_ideal_vs_mcts_comparison.gif'",
+        "            ]",
+        "        }",
+        "        ",
+        "        if save_report:",
+        "            report_file = self.output_dir / 'thermodynamics_report.json'",
+        "            import json",
+        "            with open(report_file, 'w') as f:",
+        "                json.dump(report, f, indent=2)",
+        "            logger.info(f\"Saved comprehensive report to {report_file}\")",
+        "        ",
+        "        logger.info(\"Thermodynamics analysis complete!\")",
+        "        return report"
+      ],
+      "source_function": "generate_comprehensive_report",
+      "span": [
+        1541,
+        1610
+      ]
+    },
+    {
+      "acceptance": "Explicit forward/reverse protocol and Gibbs start, actual work and DeltaF; finite Jarzynski estimator ESS and exact reference.",
+      "archive": "quantum.zip",
+      "id": "Q19",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "source_excerpt": [
+        "    def plot_jarzynski_verification(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot Jarzynski equality verification with temporal evolution\"\"\"",
+        "        ",
+        "        # Extract authentic MCTS data for Jarzynski analysis",
+        "        # Since we don't have a specific method, use thermodynamics data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_non_equilibrium_thermodynamics')",
+        "        ",
+        "        if show_temporal:",
+        "            fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "            fig.suptitle('Jarzynski Equality Verification with Temporal Evolution', fontsize=16, fontweight='bold')",
+        "        else:",
+        "            fig, axes = plt.subplots(2, 2, figsize=(15, 10))",
+        "            fig.suptitle('Jarzynski Equality Verification', fontsize=16, fontweight='bold')",
+        "        ",
+        "        axes_flat = axes.flatten()",
+        "        ",
+        "        # Generate mock work distributions from MCTS performance data",
+        "        work_distributions = data['work_distributions']",
+        "        system_sizes = data['system_sizes']",
+        "        ",
+        "        # 1. Work distribution for forward process",
+        "        ax1 = axes_flat[0]",
+        "        ",
+        "        # Generate forward work distribution from MCTS Q-values",
+        "        forward_work = work_distributions[0] if work_distributions else np.random.normal(2.0, 1.0, 1000)",
+        "        ",
+        "        # Plot histogram",
+        "        n_bins = 30",
+        "        counts, bins, patches = ax1.hist(forward_work, bins=n_bins, density=True, alpha=0.7, ",
+        "                                        color='skyblue', label='Forward Process')",
+        "        ",
+        "        # Fit Gaussian for comparison",
+        "        mu_f, sigma_f = np.mean(forward_work), np.std(forward_work)",
+        "        x_fit = np.linspace(bins[0], bins[-1], 100)",
+        "        gaussian_fit = stats.norm.pdf(x_fit, mu_f, sigma_f)",
+        "        ax1.plot(x_fit, gaussian_fit, 'r-', linewidth=2, label=f'Gaussian Fit \u03bc={mu_f:.2f}')",
+        "        ",
+        "        ax1.set_xlabel('Work W')",
+        "        ax1.set_ylabel('Probability Density P(W)')",
+        "        ax1.set_title('Forward Process Work Distribution')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Reverse work distribution and Crooks theorem",
+        "        ax2 = axes_flat[1]",
+        "        ",
+        "        # Generate reverse work distribution",
+        "        # Crooks theorem: P_f(W) / P_r(-W) = exp(W/T)",
+        "        temperature = 1.0",
+        "        reverse_work = -forward_work + np.random.normal(0, 0.2, len(forward_work))",
+        "        ",
+        "        ax2.hist(forward_work, bins=n_bins, density=True, alpha=0.6, ",
+        "                color='red', label='Forward P_f(W)', histtype='step', linewidth=2)",
+        "        ax2.hist(-reverse_work, bins=n_bins, density=True, alpha=0.6, ",
+        "                color='blue', label='Reverse P_r(-W)', histtype='step', linewidth=2)",
+        "        ",
+        "        ax2.set_xlabel('Work W')",
+        "        ax2.set_ylabel('Probability Density')",
+        "        ax2.set_title('Crooks Fluctuation Theorem')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Jarzynski equality verification",
+        "        ax3 = axes_flat[2]",
+        "        ",
+        "        # Compute exponential average: \u27e8exp(-W/T)\u27e9",
+        "        exp_work_forward = np.exp(-forward_work / temperature)",
+        "        exp_work_reverse = np.exp(reverse_work / temperature)",
+        "        ",
+        "        # Cumulative average",
+        "        cumulative_avg_f = np.cumsum(exp_work_forward) / np.arange(1, len(exp_work_forward) + 1)",
+        "        cumulative_avg_r = np.cumsum(exp_work_reverse) / np.arange(1, len(exp_work_reverse) + 1)",
+        "        ",
+        "        n_points = np.arange(1, len(cumulative_avg_f) + 1)",
+        "        ",
+        "        ax3.semilogx(n_points[::10], cumulative_avg_f[::10], 'o-', ",
+        "                    label='\u27e8exp(-W_f/T)\u27e9', linewidth=2, alpha=0.8)",
+        "        ax3.semilogx(n_points[::10], cumulative_avg_r[::10], 's-', ",
+        "                    label='\u27e8exp(W_r/T)\u27e9', linewidth=2, alpha=0.8)",
+        "        ",
+        "        # Theoretical value (equilibrium free energy difference)",
+        "        delta_F = 1.0  # Mock free energy difference",
+        "        jarzynski_value = np.exp(-delta_F / temperature)",
+        "        ax3.axhline(y=jarzynski_value, color='red', linestyle='--', linewidth=2,",
+        "                   label=f'Theory: exp(-\u0394F/T) = {jarzynski_value:.3f}')",
+        "        ",
+        "        ax3.set_xlabel('Number of Trajectories')",
+        "        ax3.set_ylabel('Exponential Average')",
+        "        ax3.set_title('Jarzynski Equality Convergence')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Free energy calculation accuracy",
+        "        ax4 = axes_flat[3]",
+        "        ",
+        "        # Calculate running estimate of free energy",
+        "        jarzynski_estimates = -temperature * np.log(cumulative_avg_f)",
+        "        ",
+        "        ax4.plot(n_points[::10], jarzynski_estimates[::10], 'o-', ",
+        "                linewidth=2, alpha=0.8, label='Jarzynski Estimate')",
+        "        ax4.axhline(y=delta_F, color='red', linestyle='--', linewidth=2,",
+        "                   label=f'True \u0394F = {delta_F}')",
+        "        ",
+        "        # Error bands",
+        "        errors = np.abs(jarzynski_estimates - delta_F)",
+        "        ax4.fill_between(n_points[::10], ",
+        "                        jarzynski_estimates[::10] - errors[::10]/2,",
+        "                        jarzynski_estimates[::10] + errors[::10]/2,",
+        "                        alpha=0.3, color='blue')",
+        "        ",
+        "        ax4.set_xlabel('Number of Trajectories')",
+        "        ax4.set_ylabel('Free Energy Difference \u0394F')",
+        "        ax4.set_title('Free Energy Estimation Accuracy')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        if show_temporal:",
+        "            # 5. Work variance analysis",
+        "            ax5 = axes_flat[4]",
+        "            ",
+        "            # Plot work variance vs driving time",
+        "            driving_times = np.logspace(-1, 1, 20)",
+        "            work_variances = []",
+        "            ",
+        "            for dt in driving_times:",
+        "                # Model: faster driving \u2192 larger work fluctuations",
+        "                variance = 1.0 + 2.0 / dt  # Inverse relationship",
+        "                work_variances.append(variance)",
+        "            ",
+        "            ax5.loglog(driving_times, work_variances, 'o-', linewidth=2, ",
+        "                      markersize=8, color='purple')",
+        "            ",
+        "            # Theoretical scaling",
+        "            theory_variance = 3.0 / driving_times",
+        "            ax5.loglog(driving_times, theory_variance, '--', linewidth=2, ",
+        "                      color='red', label='Theory ~ 1/\u03c4')",
+        "            ",
+        "            ax5.set_xlabel('Driving Time \u03c4')",
+        "            ax5.set_ylabel('Work Variance Var(W)')",
+        "            ax5.set_title('Work Fluctuations vs Driving Speed')",
+        "            ax5.legend()",
+        "            ax5.grid(True, alpha=0.3)",
+        "            ",
+        "            # 6. Entropy production analysis",
+        "            ax6 = axes_flat[5]",
+        "            ",
+        "            # Calculate entropy production from work distributions",
+        "            # \u0394S = \u27e8W\u27e9/T - \u0394F/T \u2265 0",
+        "            mean_work_forward = np.mean(forward_work)",
+        "            mean_work_reverse = np.mean(reverse_work)",
+        "            ",
+        "            entropy_production_f = (mean_work_forward - delta_F) / temperature",
+        "            entropy_production_r = (-mean_work_reverse - delta_F) / temperature",
+        "            ",
+        "            processes = ['Forward', 'Reverse']",
+        "            entropy_values = [entropy_production_f, entropy_production_r]",
+        "            ",
+        "            bars = ax6.bar(processes, entropy_values, alpha=0.7, ",
+        "                          color=['red', 'blue'])",
+        "            ",
+        "            # Add horizontal line at zero",
+        "            ax6.axhline(y=0, color='black', linestyle='-', alpha=0.5)",
+        "            ",
+        "            ax6.set_ylabel('Entropy Production \u0394S')",
+        "            ax6.set_title('Entropy Production (Second Law)')",
+        "            ax6.grid(True, alpha=0.3)",
+        "            ",
+        "            # Add value labels",
+        "            for bar, value in zip(bars, entropy_values):",
+        "                height = bar.get_height()",
+        "                ax6.text(bar.get_x() + bar.get_width()/2., height + 0.01,",
+        "                        f'{value:.3f}', ha='center', va='bottom', fontweight='bold')",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'jarzynski_verification.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved Jarzynski verification plot\")",
+        "        ",
+        "        return {",
+        "            'jarzynski_data': {",
+        "                'forward_work': forward_work,",
+        "                'reverse_work': reverse_work,",
+        "                'jarzynski_estimate': jarzynski_estimates[-1] if 'jarzynski_estimates' in locals() else delta_F,",
+        "                'true_delta_F': delta_F,",
+        "                'temperature': temperature",
+        "            },",
+        "            'convergence_analysis': {",
+        "                'final_error': abs(jarzynski_estimates[-1] - delta_F) if 'jarzynski_estimates' in locals() else 0.1,",
+        "                'trajectories_needed': len(forward_work)",
+        "            },",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_jarzynski_verification",
+      "span": [
+        54,
+        246
+      ]
+    },
+    {
+      "acceptance": "Actual protocol work fluctuations, cumulants and uncertainty, no synthetic random-walk surrogate or native energy assumption.",
+      "archive": "quantum.zip",
+      "id": "Q20",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "source_excerpt": [
+        "    def plot_work_fluctuation_analysis(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot detailed work fluctuation analysis\"\"\"",
+        "        ",
+        "        # Extract MCTS data for fluctuation analysis",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_non_equilibrium_thermodynamics')",
+        "        ",
+        "        fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "        fig.suptitle('Work Fluctuation Analysis and Path Ensembles', fontsize=16, fontweight='bold')",
+        "        ",
+        "        work_distributions = data['work_distributions']",
+        "        ",
+        "        # Generate multiple work trajectories",
+        "        n_trajectories = 500",
+        "        n_steps = 50",
+        "        temperature = 1.0",
+        "        ",
+        "        # 1. Individual work trajectories",
+        "        ax1 = axes[0, 0]",
+        "        ",
+        "        trajectories = []",
+        "        for i in range(min(20, n_trajectories)):  # Show only 20 for visibility",
+        "            # Generate trajectory from MCTS-inspired random walk",
+        "            work_traj = np.cumsum(np.random.normal(0.04, 0.1, n_steps))",
+        "            trajectories.append(work_traj)",
+        "            ",
+        "            ax1.plot(range(n_steps), work_traj, alpha=0.3, linewidth=1)",
+        "        ",
+        "        # Average trajectory",
+        "        avg_trajectory = np.mean(trajectories, axis=0)",
+        "        ax1.plot(range(n_steps), avg_trajectory, 'r-', linewidth=3, ",
+        "                label='Average')",
+        "        ",
+        "        ax1.set_xlabel('Time Step')",
+        "        ax1.set_ylabel('Cumulative Work')",
+        "        ax1.set_title('Work Trajectory Ensemble')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Work distribution evolution",
+        "        ax2 = axes[0, 1]",
+        "        ",
+        "        # Show work distribution at different time points",
+        "        time_points = [10, 25, 40, 49]",
+        "        colors = ['red', 'blue', 'green', 'purple']",
+        "        ",
+        "        for i, (t, color) in enumerate(zip(time_points, colors)):",
+        "            work_at_t = [traj[t] for traj in trajectories]",
+        "            ax2.hist(work_at_t, bins=15, alpha=0.6, density=True, ",
+        "                    color=color, label=f't = {t}', histtype='step', linewidth=2)",
+        "        ",
+        "        ax2.set_xlabel('Work W')",
+        "        ax2.set_ylabel('Probability Density')",
+        "        ax2.set_title('Work Distribution Evolution')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Cumulant analysis",
+        "        ax3 = axes[0, 2]",
+        "        ",
+        "        # Calculate first few cumulants",
+        "        final_works = [traj[-1] for traj in trajectories]",
+        "        ",
+        "        mean_work = np.mean(final_works)",
+        "        variance = np.var(final_works)",
+        "        skewness = stats.skew(final_works)",
+        "        kurtosis = stats.kurtosis(final_works)",
+        "        ",
+        "        cumulants = [mean_work, variance, skewness, kurtosis]",
+        "        cumulant_names = ['Mean', 'Variance', 'Skewness', 'Kurtosis']",
+        "        ",
+        "        bars = ax3.bar(range(len(cumulants)), cumulants, alpha=0.7,",
+        "                      color=['red', 'blue', 'green', 'orange'])",
+        "        ",
+        "        ax3.set_xticks(range(len(cumulants)))",
+        "        ax3.set_xticklabels(cumulant_names)",
+        "        ax3.set_ylabel('Cumulant Value')",
+        "        ax3.set_title('Work Distribution Cumulants')",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # Add value labels",
+        "        for bar, value in zip(bars, cumulants):",
+        "            height = bar.get_height()",
+        "            ax3.text(bar.get_x() + bar.get_width()/2., height + 0.05,",
+        "                    f'{value:.3f}', ha='center', va='bottom', fontweight='bold')",
+        "        ",
+        "        # 4. Large deviation analysis",
+        "        ax4 = axes[1, 0]",
+        "        ",
+        "        # Plot log probability vs work (rate function)",
+        "        work_bins = np.linspace(min(final_works), max(final_works), 30)",
+        "        hist, bin_edges = np.histogram(final_works, bins=work_bins, density=True)",
+        "        bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2",
+        "        ",
+        "        # Rate function I(w) = -log P(w)",
+        "        log_prob = np.log(hist + 1e-10)  # Avoid log(0)",
+        "        rate_function = -log_prob",
+        "        ",
+        "        ax4.plot(bin_centers, rate_function, 'o-', linewidth=2, markersize=6,",
+        "                color='darkgreen')",
+        "        ",
+        "        # Theoretical quadratic form for Gaussian",
+        "        work_centered = bin_centers - mean_work",
+        "        theoretical_rate = work_centered**2 / (2 * variance)",
+        "        ax4.plot(bin_centers, theoretical_rate, '--', linewidth=2, ",
+        "                color='red', label='Gaussian Theory')",
+        "        ",
+        "        ax4.set_xlabel('Work W')",
+        "        ax4.set_ylabel('Rate Function I(W)')",
+        "        ax4.set_title('Large Deviation Rate Function')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # 5. Work-heat decomposition",
+        "        ax5 = axes[1, 1]",
+        "        ",
+        "        # Decompose work into different contributions",
+        "        # For MCTS: exploration work, exploitation work, quantum corrections",
+        "        n_decomp = len(final_works)",
+        "        ",
+        "        exploration_work = np.random.normal(mean_work * 0.6, variance * 0.3, n_decomp)",
+        "        exploitation_work = np.random.normal(mean_work * 0.3, variance * 0.2, n_decomp)",
+        "        quantum_work = final_works - exploration_work - exploitation_work",
+        "        ",
+        "        scatter = ax5.scatter(exploration_work, exploitation_work, alpha=0.6, ",
+        "                             c=quantum_work, cmap='viridis', s=30)",
+        "        ",
+        "        colorbar = plt.colorbar(scatter, ax=ax5)",
+        "        colorbar.set_label('Quantum Work Component')",
+        "        ",
+        "        ax5.set_xlabel('Exploration Work')",
+        "        ax5.set_ylabel('Exploitation Work')",
+        "        ax5.set_title('Work Component Decomposition')",
+        "        ax5.grid(True, alpha=0.3)",
+        "        ",
+        "        # 6. Fluctuation-dissipation verification",
+        "        ax6 = axes[1, 2]",
+        "        ",
+        "        # Check fluctuation-dissipation relation",
+        "        # \u27e8W\u00b2\u27e9 - \u27e8W\u27e9\u00b2 = T * \u2202\u27e8W\u27e9/\u2202\u03bb (linear response)",
+        "        ",
+        "        # Vary control parameter and measure response",
+        "        control_params = np.linspace(0.5, 2.0, 15)",
+        "        mean_works = []",
+        "        work_variances = []",
+        "        ",
+        "        for param in control_params:",
+        "            # Model: work increases with control parameter",
+        "            work_sample = np.random.normal(param, 0.5, 100)",
+        "            mean_works.append(np.mean(work_sample))",
+        "            work_variances.append(np.var(work_sample))",
+        "        ",
+        "        # Compute response function",
+        "        response = np.gradient(mean_works, control_params)",
+        "        ",
+        "        ax6.plot(control_params, work_variances, 'o-', linewidth=2, ",
+        "                label='Variance', color='blue')",
+        "        ",
+        "        ax6_twin = ax6.twinx()",
+        "        ax6_twin.plot(control_params, temperature * response, 's-', linewidth=2,",
+        "                     label='T \u00d7 Response', color='red')",
+        "        ",
+        "        ax6.set_xlabel('Control Parameter \u03bb')",
+        "        ax6.set_ylabel('Work Variance', color='blue')",
+        "        ax6_twin.set_ylabel('T \u00d7 \u2202\u27e8W\u27e9/\u2202\u03bb', color='red')",
+        "        ax6.set_title('Fluctuation-Dissipation Relation')",
+        "        ",
+        "        # Combine legends",
+        "        lines1, labels1 = ax6.get_legend_handles_labels()",
+        "        lines2, labels2 = ax6_twin.get_legend_handles_labels()",
+        "        ax6.legend(lines1 + lines2, labels1 + labels2, loc='upper left')",
+        "        ",
+        "        ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'work_fluctuation_analysis.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved work fluctuation analysis plot\")",
+        "        ",
+        "        return {",
+        "            'fluctuation_data': {",
+        "                'work_trajectories': trajectories[:10],  # Save subset",
+        "                'final_work_distribution': final_works,",
+        "                'work_cumulants': dict(zip(cumulant_names, cumulants))",
+        "            },",
+        "            'large_deviation_analysis': {",
+        "                'rate_function': rate_function,",
+        "                'work_range': bin_centers",
+        "            },",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_work_fluctuation_analysis",
+      "span": [
+        248,
+        438
+      ]
+    },
+    {
+      "acceptance": "Actual convergence animation with raw forward/reverse work and ESS, retain estimator failures; no forced Jarzynski agreement.",
+      "archive": "quantum.zip",
+      "id": "Q22",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "source_excerpt": [
+        "    def create_jarzynski_animation(self, save_animation: bool = True) -> Any:",
+        "        \"\"\"Create animation showing Jarzynski equality convergence\"\"\"",
+        "        ",
+        "        # Generate time-dependent Jarzynski convergence",
+        "        n_frames = 100",
+        "        max_trajectories = 1000",
+        "        ",
+        "        fig, ax = plt.subplots(figsize=(10, 8))",
+        "        ax.set_xlim(1, max_trajectories)",
+        "        ax.set_ylim(0.5, 1.5)",
+        "        ax.set_xlabel('Number of Trajectories')",
+        "        ax.set_ylabel('Free Energy Estimate')",
+        "        ax.set_title('Jarzynski Equality Convergence Animation')",
+        "        ax.grid(True, alpha=0.3)",
+        "        ",
+        "        # True free energy",
+        "        true_delta_F = 1.0",
+        "        ax.axhline(y=true_delta_F, color='red', linestyle='--', linewidth=2,",
+        "                  label=f'True \u0394F = {true_delta_F}')",
+        "        ",
+        "        # Initialize plot elements",
+        "        line, = ax.plot([], [], 'b-', linewidth=2, label='Jarzynski Estimate')",
+        "        scatter = ax.scatter([], [], c='blue', alpha=0.6, s=20)",
+        "        ax.legend()",
+        "        ",
+        "        # Pre-generate work data",
+        "        temperature = 1.0",
+        "        all_work = np.random.normal(true_delta_F + 0.5, 1.0, max_trajectories)",
+        "        ",
+        "        def animate(frame):",
+        "            n_traj = int(10 + (max_trajectories - 10) * (frame / n_frames)**2)",
+        "            ",
+        "            # Compute Jarzynski estimate up to n_traj",
+        "            work_subset = all_work[:n_traj]",
+        "            exp_work = np.exp(-work_subset / temperature)",
+        "            cumulative_avg = np.cumsum(exp_work) / np.arange(1, len(exp_work) + 1)",
+        "            jarzynski_estimates = -temperature * np.log(cumulative_avg)",
+        "            ",
+        "            # Update line plot",
+        "            n_points = np.arange(1, n_traj + 1)",
+        "            line.set_data(n_points[::max(1, n_traj//100)], ",
+        "                         jarzynski_estimates[::max(1, n_traj//100)])",
+        "            ",
+        "            # Update scatter plot (show recent points)",
+        "            if n_traj > 50:",
+        "                recent_n = n_points[-50:]",
+        "                recent_estimates = jarzynski_estimates[-50:]",
+        "                scatter.set_offsets(np.column_stack([recent_n, recent_estimates]))",
+        "            ",
+        "            ax.set_title(f'Jarzynski Equality Convergence (N = {n_traj})')",
+        "            ",
+        "            return line, scatter",
+        "        ",
+        "        anim = FuncAnimation(fig, animate, frames=n_frames, interval=100, blit=False, repeat=True)",
+        "        ",
+        "        if save_animation:",
+        "            anim.save(self.output_dir / 'jarzynski_convergence.gif', writer='pillow', fps=10)",
+        "            logger.info(\"Saved Jarzynski convergence animation\")",
+        "        ",
+        "        return anim"
+      ],
+      "source_function": "create_jarzynski_animation",
+      "span": [
+        551,
+        610
+      ]
+    },
+    {
+      "acceptance": "Comprehensive work and fluctuation report, analytic exact DeltaF, finite estimates/uncertainty, identified thermodynamic system.",
+      "archive": "quantum.zip",
+      "id": "Q23",
+      "member": "quantum/research/visualization/plot_jarzynski_equality.py",
+      "member_sha": "23070ecf4e4632f15ecb4033921cf65575b8b906bfb1ef3df8a2d0941ebd5413",
+      "source_excerpt": [
+        "    def generate_comprehensive_report(self, save_report: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Generate comprehensive Jarzynski equality analysis report\"\"\"",
+        "        ",
+        "        logger.info(\"Generating comprehensive Jarzynski equality report...\")",
+        "        ",
+        "        # Run all analyses",
+        "        jarzynski_results = self.plot_jarzynski_verification(save_plots=save_report)",
+        "        fluctuation_results = self.plot_work_fluctuation_analysis(save_plots=save_report)",
+        "        path_results = self.plot_path_integral_formulation(save_plots=save_report)",
+        "        ",
+        "        # Compile report",
+        "        report = {",
+        "            'timestamp': pd.Timestamp.now().isoformat(),",
+        "            'mcts_data_summary': {",
+        "                'datasets_analyzed': len(self.mcts_data.get('tree_expansion_data', [])),",
+        "                'data_source': 'authentic_mcts_tree_dynamics'",
+        "            },",
+        "            'jarzynski_equality': {",
+        "                'convergence_verified': True,",
+        "                'final_error': jarzynski_results['convergence_analysis']['final_error'],",
+        "                'trajectories_analyzed': jarzynski_results['convergence_analysis']['trajectories_needed'],",
+        "                'free_energy_estimate': jarzynski_results['jarzynski_data']['jarzynski_estimate'],",
+        "                'true_free_energy': jarzynski_results['jarzynski_data']['true_delta_F']",
+        "            },",
+        "            'fluctuation_theorems': {",
+        "                'crooks_theorem_verified': True,",
+        "                'work_distribution_analyzed': True,",
+        "                'cumulant_analysis': fluctuation_results['fluctuation_data']['work_cumulants'],",
+        "                'large_deviation_function': True,",
+        "                'fluctuation_dissipation_checked': True",
+        "            },",
+        "            'path_integral_analysis': {",
+        "                'path_ensemble_generated': True,",
+        "                'action_distribution_computed': True,",
+        "                'effective_action_scaling': True,",
+        "                'quantum_classical_transition': True",
+        "            },",
+        "            'non_equilibrium_physics': {",
+        "                'entropy_production_positive': True,",
+        "                'irreversibility_quantified': True,",
+        "                'second_law_verified': True,",
+        "                'work_heat_decomposition': True",
+        "            },",
+        "            'output_files': [",
+        "                'jarzynski_verification.png',",
+        "                'work_fluctuation_analysis.png',",
+        "                'path_integral_formulation.png'",
+        "            ]",
+        "        }",
+        "        ",
+        "        if save_report:",
+        "            report_file = self.output_dir / 'jarzynski_equality_report.json'",
+        "            import json",
+        "            with open(report_file, 'w') as f:",
+        "                json.dump(report, f, indent=2)",
+        "            logger.info(f\"Saved comprehensive report to {report_file}\")",
+        "        ",
+        "        logger.info(\"Jarzynski equality analysis complete!\")",
+        "        return report"
+      ],
+      "source_function": "generate_comprehensive_report",
+      "span": [
+        612,
+        670
+      ]
+    },
+    {
+      "acceptance": "Calibrated thermal energy/free energy/entropy/C or explicitly declared reference; do not identify score beta with bath T.",
+      "archive": "quantum.zip",
+      "id": "Q38",
+      "member": "quantum/research/visualization/plot_entropy_analysis.py",
+      "member_sha": "62a7f925c6174527588e88b66fb35883ef15e83afb3d067fdff07db1fca51472",
+      "source_excerpt": [
+        "    def plot_thermodynamic_entropy(self, save_plots: bool = True) -> Dict[str, Any]:",
+        "        \"\"\"Plot thermodynamic entropy and statistical mechanics connections\"\"\"",
+        "        ",
+        "        # Extract authentic thermodynamic entropy data",
+        "        data = create_authentic_physics_data(self.mcts_data, 'plot_thermodynamic_entropy')",
+        "        ",
+        "        fig, axes = plt.subplots(2, 3, figsize=(20, 12))",
+        "        fig.suptitle('Thermodynamic Entropy and Statistical Mechanics', fontsize=16, fontweight='bold')",
+        "        ",
+        "        system_sizes = data['system_sizes']",
+        "        thermodynamic_data = data['thermodynamic_data']",
+        "        ",
+        "        # 1. Heat capacity analysis",
+        "        ax1 = axes[0, 0]",
+        "        ",
+        "        heat_capacity_data = thermodynamic_data['heat_capacity']",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in heat_capacity_data:",
+        "                hc_data = heat_capacity_data[sys_size]",
+        "                temperatures = hc_data['temperatures']",
+        "                heat_capacity = hc_data['heat_capacity']",
+        "                ",
+        "                ax1.plot(temperatures, heat_capacity, 'o-', ",
+        "                        label=f'C_V L={sys_size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax1.set_xlabel('Temperature T')",
+        "        ax1.set_ylabel('Heat Capacity C_V')",
+        "        ax1.set_title('Heat Capacity Temperature Dependence')",
+        "        ax1.legend()",
+        "        ax1.grid(True, alpha=0.3)",
+        "        ",
+        "        # 2. Free energy landscape",
+        "        ax2 = axes[0, 1]",
+        "        ",
+        "        free_energy_data = thermodynamic_data['free_energy']",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in free_energy_data:",
+        "                fe_data = free_energy_data[sys_size]",
+        "                temperatures = fe_data['temperatures']",
+        "                free_energy = fe_data['free_energy']",
+        "                ",
+        "                ax2.plot(temperatures, free_energy, 's-', ",
+        "                        label=f'F L={sys_size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax2.set_xlabel('Temperature T')",
+        "        ax2.set_ylabel('Free Energy F')",
+        "        ax2.set_title('Free Energy Landscape')",
+        "        ax2.legend()",
+        "        ax2.grid(True, alpha=0.3)",
+        "        ",
+        "        # 3. Entropy vs energy",
+        "        ax3 = axes[0, 2]",
+        "        ",
+        "        for sys_size in system_sizes:",
+        "            if sys_size in heat_capacity_data:",
+        "                hc_data = heat_capacity_data[sys_size]",
+        "                temperatures = hc_data['temperatures']",
+        "                entropy = hc_data['entropy']",
+        "                energies = hc_data['energies']",
+        "                ",
+        "                ax3.plot(energies, entropy, '^-', ",
+        "                        label=f'S(E) L={sys_size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax3.set_xlabel('Energy E')",
+        "        ax3.set_ylabel('Thermodynamic Entropy S')",
+        "        ax3.set_title('Microcanonical Entropy S(E)')",
+        "        ax3.legend()",
+        "        ax3.grid(True, alpha=0.3)",
+        "        ",
+        "        # 4. Maxwell relations verification",
+        "        ax4 = axes[1, 0]",
+        "        ",
+        "        # Verify thermodynamic consistency: (\u2202S/\u2202E)_V = 1/T",
+        "        for sys_size in system_sizes[:2]:  # Limit for clarity",
+        "            if sys_size in heat_capacity_data:",
+        "                hc_data = heat_capacity_data[sys_size]",
+        "                temperatures = hc_data['temperatures']",
+        "                entropy = hc_data['entropy']",
+        "                energies = hc_data['energies']",
+        "                ",
+        "                # Compute numerical derivatives",
+        "                if len(entropy) > 2 and len(energies) > 2:",
+        "                    dS_dE = np.gradient(entropy, energies)",
+        "                    one_over_T = 1.0 / (temperatures + 0.1)  # Avoid division by zero",
+        "                    ",
+        "                    ax4.plot(temperatures, dS_dE, 'o-', ",
+        "                            label=f'\u2202S/\u2202E L={sys_size}', linewidth=2, alpha=0.8)",
+        "                    ax4.plot(temperatures, one_over_T, 's--', ",
+        "                            label=f'1/T L={sys_size}', linewidth=2, alpha=0.6)",
+        "        ",
+        "        ax4.set_xlabel('Temperature T')",
+        "        ax4.set_ylabel('Derivative')",
+        "        ax4.set_title('Maxwell Relation: \u2202S/\u2202E = 1/T')",
+        "        ax4.legend()",
+        "        ax4.grid(True, alpha=0.3)",
+        "        ",
+        "        # 5. Entropy production",
+        "        ax5 = axes[1, 1]",
+        "        ",
+        "        # Model entropy production in non-equilibrium",
+        "        time_steps = np.linspace(0, 10, 50)",
+        "        ",
+        "        for sys_size in system_sizes[:3]:",
+        "            entropy_production = []",
+        "            ",
+        "            for t in time_steps:",
+        "                # Model: dS/dt = \u03c3(t) with relaxation",
+        "                sigma = 0.1 * np.exp(-t/3) * (1 + 0.05 * sys_size)",
+        "                entropy_production.append(sigma)",
+        "            ",
+        "            ax5.plot(time_steps, entropy_production, 'o-', ",
+        "                    label=f'\u03c3(t) L={sys_size}', linewidth=2, alpha=0.8)",
+        "        ",
+        "        ax5.set_xlabel('Time t')",
+        "        ax5.set_ylabel('Entropy Production Rate \u03c3')",
+        "        ax5.set_title('Entropy Production Dynamics')",
+        "        ax5.legend()",
+        "        ax5.grid(True, alpha=0.3)",
+        "        ",
+        "        # 6. Fluctuation-dissipation analysis",
+        "        ax6 = axes[1, 2]",
+        "        ",
+        "        # Model fluctuation-dissipation relation",
+        "        for sys_size in system_sizes[:3]:",
+        "            if sys_size in heat_capacity_data:",
+        "                hc_data = heat_capacity_data[sys_size]",
+        "                temperatures = hc_data['temperatures']",
+        "                heat_capacity = hc_data['heat_capacity']",
+        "                ",
+        "                # Fluctuation: \u27e8(\u0394E)\u00b2\u27e9 = k_B T\u00b2 C_V",
+        "                energy_fluctuations = temperatures**2 * heat_capacity",
+        "                ",
+        "                # Dissipation: response function",
+        "                response_function = heat_capacity / temperatures",
+        "                ",
+        "                ax6.plot(temperatures, energy_fluctuations, 'o-', ",
+        "                        label=f'\u27e8(\u0394E)\u00b2\u27e9 L={sys_size}', linewidth=2, alpha=0.8)",
+        "                ax6_twin = ax6.twinx()",
+        "                ax6_twin.plot(temperatures, response_function, 's--', ",
+        "                             label=f'Response L={sys_size}', linewidth=2, alpha=0.6, color='red')",
+        "        ",
+        "        ax6.set_xlabel('Temperature T')",
+        "        ax6.set_ylabel('Energy Fluctuations')",
+        "        ax6_twin.set_ylabel('Response Function', color='red')",
+        "        ax6.set_title('Fluctuation-Dissipation Relation')",
+        "        ",
+        "        # Combine legends",
+        "        lines1, labels1 = ax6.get_legend_handles_labels()",
+        "        lines2, labels2 = ax6_twin.get_legend_handles_labels()",
+        "        ax6.legend(lines1 + lines2, labels1 + labels2, loc='upper right')",
+        "        ",
+        "        ax6.grid(True, alpha=0.3)",
+        "        ",
+        "        plt.tight_layout()",
+        "        ",
+        "        if save_plots:",
+        "            plt.savefig(self.output_dir / 'thermodynamic_entropy.png', dpi=300, bbox_inches='tight')",
+        "            logger.info(\"Saved thermodynamic entropy plot\")",
+        "        ",
+        "        return {",
+        "            'thermodynamic_data': data,",
+        "            'maxwell_relations_verified': True,",
+        "            'entropy_production_analyzed': True,",
+        "            'figure': fig",
+        "        }"
+      ],
+      "source_function": "plot_thermodynamic_entropy",
+      "span": [
+        659,
+        825
+      ]
+    }
+  ],
+  "study_selected": [
+    {
+      "excerpts": [
+        [
+          5,
+          "We develop the complete statistical physics description of MCTS, revealing three distinct phases separated by critical points at N_c1 and N_c2. Starting from the quantum field theory framework with \u210f_eff(N) = c_puct/(\u221a(N+1)log(N+2)), we derive the renormalization group flow equations that yield optimal parameters from first principles: c_puct = \u221a(2 log b)[1 + 1/(4 log N_c)]. The connection to Document 1's path integral formalism appears through the RG transformation of the effective action. We provide numerical methods to extract all thermodynamic quantities directly from MCTS runs. The Landauer principle connects information erasure in node expansion to thermodynamic costs, while critical exponents match 3D Ising universality. Practical algorithms compute phase boundaries, order parameters, and validate theoretical predictions."
+        ],
+        [
+          14,
+          "- Thermodynamic constraints on computation efficiency"
+        ],
+        [
+          19,
+          "This document provides a self-contained statistical physics treatment of MCTS. We identify phase structure, derive optimal parameters via renormalization group analysis, establish thermodynamic principles, and provide numerical validation methods for all theoretical predictions."
+        ],
+        [
+          31,
+          "- m \u2248 0: Visits uncorrelated with neural network priors (exploration)"
+        ],
+        [
+          99,
+          "5. Prior coupling \u03bb shifts critical points through effective temperature \u25a1"
+        ],
+        [
+          160,
+          "- T(l) = T_0/log(N+2): Temperature"
+        ],
+        [
+          190,
+          "   - Neural network completely determines search"
+        ],
+        [
+          276,
+          "\u03b1 = -0.41 \u00b1 0.10   (specific heat)"
+        ],
+        [
+          486,
+          "## 5. Thermodynamics of Information"
+        ],
+        [
+          498,
+          "### 5.2 Numerical Measurement of Thermodynamic Quantities"
+        ],
+        [
+          501,
+          "def measure_thermodynamic_quantities(mcts_trajectory):"
+        ],
+        [
+          502,
+          "    \"\"\"Extract thermodynamic quantities from MCTS execution\"\"\""
+        ],
+        [
+          509,
+          "        # Temperature at this step"
+        ],
+        [
+          522,
+          "        # Actual \"work\" done (change in tree value function)"
+        ],
+        [
+          525,
+          "        work_done = abs(V_after - V_before)"
+        ],
+        [
+          534,
+          "            'temperature': T,"
+        ],
+        [
+          538,
+          "            'work_done': work_done,"
+        ],
+        [
+          540,
+          "            'efficiency': landauer_bound / (work_done + 1e-10)"
+        ],
+        [
+          593,
+          "### 5.3 MCTS as Heat Engine"
+        ],
+        [
+          595,
+          "**Definition 5.2** (Thermodynamic Cycle)"
+        ],
+        [
+          598,
+          "3. Work extraction: Reduction in decision entropy"
+        ],
+        [
+          602,
+          "def analyze_mcts_heat_engine(game, N_final=1000):"
+        ],
+        [
+          603,
+          "    \"\"\"Analyze MCTS as thermodynamic engine\"\"\""
+        ],
+        [
+          631,
+          "    # Total work extracted (entropy reduction)"
+        ],
+        [
+          634,
+          "    # Heat absorbed from hot reservoir"
+        ],
+        [
+          639,
+          "    eta_carnot = 1 - T_cold / T_hot"
+        ],
+        [
+          643,
+          "    cumulative_work = 0"
+        ],
+        [
+          651,
+          "        # Infinitesimal work"
+        ],
+        [
+          653,
+          "        cumulative_work += dW"
+        ],
+        [
+          659,
+          "            'cumulative_work': cumulative_work,"
+        ],
+        [
+          671,
+          "        'eta_carnot': eta_carnot,"
+        ],
+        [
+          672,
+          "        'efficiency_ratio': eta_actual / eta_carnot,"
+        ],
+        [
+          674,
+          "        'carnot_bound_satisfied': eta_actual <= eta_carnot"
+        ],
+        [
+          678,
+          "### 5.4 Entropy Production"
+        ],
+        [
+          689,
+          "    \"\"\"Verify second law of thermodynamics in MCTS\"\"\""
+        ],
+        [
+          924,
+          "        # Thermodynamic quantities"
+        ],
+        [
+          941,
+          "            'temperature': T,"
+        ],
+        [
+          961,
+          "        # Thermodynamic analysis"
+        ],
+        [
+          962,
+          "        thermo = self.thermodynamic_analysis()"
+        ],
+        [
+          970,
+          "            'thermodynamics': thermo,"
+        ],
+        [
+          1032,
+          "    def thermodynamic_analysis(self):"
+        ],
+        [
+          1033,
+          "        \"\"\"Analyze thermodynamic properties\"\"\""
+        ],
+        [
+          1035,
+          "        # Total work and heat"
+        ],
+        [
+          1040,
+          "            T = self.trajectory[i]['temperature']"
+        ],
+        [
+          1048,
+          "            # Heat absorbed"
+        ],
+        [
+          1055,
+          "        # Carnot bound"
+        ],
+        [
+          1056,
+          "        T_initial = self.trajectory[0]['temperature']"
+        ],
+        [
+          1057,
+          "        T_final = self.trajectory[-1]['temperature']"
+        ],
+        [
+          1058,
+          "        eta_carnot = 1 - T_final / T_initial"
+        ],
+        [
+          1061,
+          "            'total_work': W_total,"
+        ]
+      ],
+      "lines": 1308,
+      "member": "mcts_study/v3.0/qft-mcts-statistical.md",
+      "relevant_line_count": 64,
+      "sha256": "a6dabad21d3e47a037e5db9eaa81d4e3fe52a63ca0bf1994095ecce02b236499"
+    },
+    {
+      "excerpts": [
+        [
+          5,
+          "We present a rigorous quantum field theory formulation of Monte Carlo Tree Search (MCTS) based on discrete information time \u03c4(N) = log(N+2). Starting from the classical UCB formula, we derive the PUCT action S[\u03b3] = -\u03a3[log N(s,a) + \u03bb log P(a|s)] through variational principles. The framework maps tree search onto a path integral formalism with an effective Planck constant \u210f_eff(N) = c_puct/(\u221a(N+1)log(N+2)). Tree-level analysis recovers classical MCTS, while one-loop quantum corrections yield enhanced UCB formulas with measurable performance improvements. The discrete tree structure provides natural UV regularization, connecting to renormalization group flow. All results are implementable on classical hardware with controlled overhead."
+        ],
+        [
+          14,
+          "- Natural integration with neural network priors"
+        ],
+        [
+          19,
+          "This document develops the quantum field theory foundations of MCTS as a self-contained framework. We begin with information-theoretic time, derive the path integral formulation, compute quantum corrections, and provide practical implementations."
+        ],
+        [
+          71,
+          "where T(N) = T\u2080/log(N+2) is the temperature schedule."
+        ],
+        [
+          130,
+          "4. Temperature T = T\u2080/log(N+2) provides Boltzmann weight \u25a1"
+        ],
+        [
+          132,
+          "### 3.3 Temperature Derivation"
+        ],
+        [
+          134,
+          "**Theorem 2.4** (Temperature from Fluctuation-Dissipation)"
+        ],
+        [
+          135,
+          "The temperature T(N) = T\u2080/log(N+2) emerges from matching quantum and thermal fluctuations."
+        ],
+        [
+          245,
+          "## 6. Discrete Evolution Framework"
+        ],
+        [
+          275,
+          "    def __init__(self, game, neural_network=None):"
+        ],
+        [
+          278,
+          "        self.T0 = 1.0  # Base temperature"
+        ],
+        [
+          279,
+          "        self.neural_network = neural_network"
+        ],
+        [
+          280,
+          "        self.lambda_puct = self.c_puct if neural_network else 0"
+        ],
+        [
+          286,
+          "    def compute_temperature(self, N):"
+        ],
+        [
+          287,
+          "        \"\"\"Temperature schedule from information time\"\"\""
+        ],
+        [
+          294,
+          "        T = self.compute_temperature(N)"
+        ],
+        [
+          315,
+          "                # Temperature-dependent exploitation"
+        ],
+        [
+          326,
+          "        \"\"\"Get neural network prior or uniform prior\"\"\""
+        ],
+        [
+          327,
+          "        if self.neural_network:"
+        ],
+        [
+          328,
+          "            priors, _ = self.neural_network.predict(state)"
+        ],
+        [
+          602,
+          "The framework bridges abstract physics principles with concrete algorithmic improvements, eliminating empirical parameter tuning through first-principles derivations."
+        ]
+      ],
+      "lines": 602,
+      "member": "mcts_study/v3.0/qft-mcts-foundations.md",
+      "relevant_line_count": 21,
+      "sha256": "a0fc2fbda4a07e9b663a59e997e4a418c2f19aed04b071594b970d1f44c13ea3"
+    },
+    {
+      "excerpts": [
+        [
+          1,
+          "# Comprehensive Mathematical Documentation of Quantum-MCTS Visualization Framework"
+        ],
+        [
+          5,
+          "This document provides rigorous mathematical definitions, explicit computational procedures, and physical intuitions for all variables visualized in the quantum-inspired Monte Carlo Tree Search (Q-MCTS) framework. Each physics variable is extracted from authentic MCTS tree dynamics using concrete algorithms detailed herein."
+        ],
+        [
+          15,
+          "5. [Thermodynamic Variables](#5-thermodynamic-variables)"
+        ],
+        [
+          20,
+          "10. [Non-Equilibrium Thermodynamics](#10-non-equilibrium-thermodynamics)"
+        ],
+        [
+          29,
+          "The quantum-MCTS framework extracts physics variables from the following raw MCTS data:"
+        ],
+        [
+          136,
+          "### 2.2 System Temperatures"
+        ],
+        [
+          142,
+          "def compute_temperatures(q_values, tree_snapshots):"
+        ],
+        [
+          144,
+          "    Extract temperature schedule from Q-value fluctuations"
+        ],
+        [
+          147,
+          "    - High Q-value variance \u2192 high temperature (exploration)"
+        ],
+        [
+          148,
+          "    - Low Q-value variance \u2192 low temperature (exploitation)"
+        ],
+        [
+          152,
+          "    temp_base = max(0.1, q_std)  # Minimum temperature threshold"
+        ],
+        [
+          154,
+          "    # Step 2: Generate temperature range"
+        ],
+        [
+          157,
+          "    temperatures = np.linspace(temp_min, temp_max, 20)"
+        ],
+        [
+          163,
+          "        temperatures[i] *= 1.0 / tau  # Annealing schedule"
+        ],
+        [
+          165,
+          "    return temperatures"
+        ],
+        [
+          171,
+          "temperatures = [0.032, 0.064, ..., 3.2] (20 values)"
+        ],
+        [
+          246,
+          "    # Step 3: Temperature dependence"
+        ],
+        [
+          247,
+          "    for temp in temperatures:"
+        ],
+        [
+          287,
+          "def compute_susceptibility(visit_counts, temperatures):"
+        ],
+        [
+          298,
+          "    # Step 2: Susceptibility = variance / temperature"
+        ],
+        [
+          300,
+          "    for temp in temperatures:"
+        ],
+        [
+          306,
+          "    T_critical = np.mean(temperatures)"
+        ],
+        [
+          307,
+          "    for i, temp in enumerate(temperatures):"
+        ],
+        [
+          325,
+          "    Measure alignment between visits and neural network priors"
+        ],
+        [
+          339,
+          "        # Uniform priors if no neural network"
+        ],
+        [
+          363,
+          "def compute_correlation_length(correlations, temperatures, T_critical):"
+        ],
+        [
+          371,
+          "    for temp in temperatures:"
+        ],
+        [
+          395,
+          "    for temp, xi in zip(temperatures, correlation_lengths):"
+        ],
+        [
+          415,
+          "def perform_data_collapse(observable_data, system_sizes, temperatures, "
+        ],
+        [
+          422,
+          "    collapsed_x = []  # Scaled temperature"
+        ],
+        [
+          425,
+          "    for L, T, obs in zip(system_sizes, temperatures, observable_data):"
+        ],
+        [
+          426,
+          "        # Reduced temperature"
+        ],
+        [
+          460,
+          "## 5. Thermodynamic Variables"
+        ],
+        [
+          466,
+          "def compute_internal_energy(q_values, visit_counts, temperatures):"
+        ],
+        [
+          472,
+          "    - Temperature modulates thermal fluctuations"
+        ],
+        [
+          481,
+          "    # Step 2: Temperature-dependent fluctuations"
+        ],
+        [
+          485,
+          "    for temp in temperatures:"
+        ],
+        [
+          502,
+          "### 5.2 Heat Capacity"
+        ],
+        [
+          506,
+          "def compute_heat_capacity(q_values, temperatures):"
+        ],
+        [
+          508,
+          "    Compute heat capacity from energy fluctuations"
+        ],
+        [
+          515,
+          "    # Step 2: Heat capacity formula"
+        ],
+        [
+          516,
+          "    heat_capacities = []"
+        ],
+        [
+          517,
+          "    for temp in temperatures:"
+        ],
+        [
+          522,
+          "        heat_capacities.append(C)"
+        ],
+        [
+          525,
+          "    max_idx = np.argmax(heat_capacities)"
+        ],
+        [
+          526,
+          "    T_critical = temperatures[max_idx]"
+        ],
+        [
+          528,
+          "    return heat_capacities, T_critical"
+        ],
+        [
+          531,
+          "### 5.3 Work and Entropy Production"
+        ],
+        [
+          533,
+          "**Work from Q-Value Evolution**:"
+        ],
+        [
+          535,
+          "def compute_work_distribution(q_value_timeseries):"
+        ]
+      ],
+      "lines": 1278,
+      "member": "mcts_study/v5.0/COMPREHENSIVE_PLOT_DOCUMENTATION.md",
+      "relevant_line_count": 112,
+      "sha256": "1f9b43d4336cb47addd794c649533d11b9dcaeb77725b33d967203b70552f592"
+    },
+    {
+      "excerpts": [
+        [
+          1,
+          "# Quantum-Inspired Monte Carlo Tree Search: Comprehensive Theoretical Framework"
+        ],
+        [
+          6,
+          "This document presents the complete theoretical development of a quantum and statistical field theory interpretation of Monte Carlo Tree Search (MCTS), as evolved through rigorous mathematical analysis and critical refinement. The framework emerged from recognizing that MCTS, despite being designed as a heuristic algorithm, naturally implements fundamental principles from physics."
+        ],
+        [
+          9,
+          "The theoretical framework underwent several critical refinements:"
+        ],
+        [
+          15,
+          "**Second Refinement**: Identification of emergent temperature parameter \u03b2(k) that controls exploration-exploitation"
+        ],
+        [
+          19,
+          "**Final Framework**: MCTS as a non-equilibrium open quantum system undergoing decoherence"
+        ],
+        [
+          23,
+          "1. A finite-temperature path integral on a discrete, directed acyclic graph"
+        ],
+        [
+          27,
+          "5. A non-equilibrium thermodynamic process obeying fluctuation theorems"
+        ],
+        [
+          33,
+          "- Temperature \u03b2 is emergent, not prescribed"
+        ],
+        [
+          34,
+          "- The system is open, with the neural network acting as environment"
+        ],
+        [
+          35,
+          "- Detailed balance is violated, making this inherently non-equilibrium"
+        ],
+        [
+          37,
+          "## 2. Development of the Mathematical Framework"
+        ],
+        [
+          104,
+          "This is precisely the Boltzmann weight at temperature T=1."
+        ],
+        [
+          120,
+          "1. Consider softmax selection with inverse temperature $\\beta$: $P(a|s) = \\frac{e^{\\beta \\cdot \\text{Score}(s,a)}}{\\sum_b e^{\\beta \\cdot \\text{Score}(s,b)}}$"
+        ],
+        [
+          142,
+          "- $\\vec{P}_p$ is the neural network prior distribution"
+        ],
+        [
+          160,
+          "**Resolution**: The neural network, noise sources, and simulation outcomes constitute an \"environment\" that drives the system dynamics."
+        ],
+        [
+          208,
+          "### 4.5 Derivation of Thermodynamic Equilibrium"
+        ],
+        [
+          225,
+          "**Key Result**: The effective temperature is not input but emerges from:"
+        ],
+        [
+          228,
+          "### 4.6 Connection to Measured Temperature"
+        ],
+        [
+          230,
+          "**Theorem 4.2 (Temperature Correspondence)**:"
+        ],
+        [
+          231,
+          "The \u03b2 appearing in the Gibbs state equals the measured temperature:"
+        ],
+        [
+          450,
+          "1. High prior P(a) (network support)"
+        ],
+        [
+          466,
+          "**Physical Analogy**: First-order phase transition with latent heat."
+        ],
+        [
+          482,
+          "## 8. Non-Equilibrium Thermodynamics of MCTS"
+        ],
+        [
+          484,
+          "### 8.1 Thermodynamic Quantities in MCTS"
+        ],
+        [
+          489,
+          "**Definition 8.2 (Work and Heat)**:"
+        ],
+        [
+          490,
+          "- Work: $W = G(k_{final}) - G(k_{initial})$ (controlled change)"
+        ],
+        [
+          491,
+          "- Heat: $Q = \\sum_{i=1}^{N_{sim}} v_i$ (stochastic input from simulations)"
+        ],
+        [
+          495,
+          "### 8.2 The Jarzynski Equality"
+        ],
+        [
+          497,
+          "**Theorem 8.1 (Jarzynski Equality for MCTS)**:"
+        ],
+        [
+          505,
+          "3. Work along trajectory:"
+        ],
+        [
+          512,
+          "**Physical Significance**: Even irreversible MCTS trajectories obey universal thermodynamic relations."
+        ],
+        [
+          514,
+          "### 8.3 Crooks Fluctuation Theorem"
+        ],
+        [
+          516,
+          "**Theorem 8.2 (Crooks Theorem)**:"
+        ],
+        [
+          525,
+          "3. Measure work distributions"
+        ],
+        [
+          528,
+          "### 8.4 Entropy Production"
+        ],
+        [
+          530,
+          "**Definition 8.3 (Entropy Production)**:"
+        ],
+        [
+          535,
+          "- $\\Delta S_{environment} = \\beta Q$ (heat dissipated)"
+        ],
+        [
+          640,
+          "- High-temperature regime correctly predicts instability at small N"
+        ],
+        [
+          648,
+          "- Challenge: Neural network is designed, not natural"
+        ],
+        [
+          653,
+          "- Challenge: MCTS violates detailed balance"
+        ],
+        [
+          655,
+          "- Steady state can still be thermal without detailed balance"
+        ],
+        [
+          669,
+          "1. **Unified Framework**: Connected MCTS to:"
+        ],
+        [
+          674,
+          "   - Non-equilibrium thermodynamics (fluctuation theorems)"
+        ],
+        [
+          677,
+          "   - Temperature from visit count scaling"
+        ],
+        [
+          680,
+          "   - Thermodynamic relations from counting statistics"
+        ],
+        [
+          684,
+          "   - Temperature evolution \u03b2 \u221d \u221aN"
+        ],
+        [
+          697,
+          "- Automatic temperature scheduling"
+        ],
+        [
+          702,
+          "- Information thermodynamics"
+        ],
+        [
+          731,
+          "1. **Adaptive Temperature Schedules**:"
+        ],
+        [
+          756,
+          "   - Can we derive game theory from thermodynamics?"
+        ]
+      ],
+      "lines": 776,
+      "member": "mcts_study/v6.0/quantum_mcts_foundation.md",
+      "relevant_line_count": 54,
+      "sha256": "fc8bb41be8b8ec43a924d17c41a9a7528bc185a7df96a0d7da1a059d065389c6"
+    },
+    {
+      "excerpts": [
+        [
+          23,
+          "**Final Framework**: Comprehensive suite testing all theoretical predictions"
+        ],
+        [
+          73,
+          "## 2. Temperature Measurement: Complete Protocol"
+        ],
+        [
+          77,
+          "**Initial Challenge**: How to measure an emergent, non-prescribed temperature?"
+        ],
+        [
+          84,
+          "**Physical Quantity**: Inverse temperature \u03b2(k) characterizing exploration-exploitation balance"
+        ],
+        [
+          86,
+          "**Key Insight**: Temperature emerges from the dynamics, not prescribed:"
+        ],
+        [
+          113,
+          "def measure_temperature_comprehensive("
+        ],
+        [
+          120,
+          "    Comprehensive temperature measurement with multiple methods"
+        ],
+        [
+          190,
+          "        beta_eff, diagnostics = fit_temperature_mle("
+        ],
+        [
+          204,
+          "        ci_lower, ci_upper = bootstrap_temperature_ci("
+        ],
+        [
+          227,
+          "def fit_temperature_mle("
+        ],
+        [
+          233,
+          "    Maximum likelihood estimation of temperature with diagnostics"
+        ],
+        [
+          298,
+          "def bootstrap_temperature_ci("
+        ],
+        [
+          305,
+          "    Bootstrap confidence interval for temperature"
+        ],
+        [
+          323,
+          "        # Fit temperature to resampled data"
+        ],
+        [
+          324,
+          "        beta_boot, _ = fit_temperature_mle("
+        ],
+        [
+          347,
+          "    Multiple goodness-of-fit tests for temperature model"
+        ],
+        [
+          389,
+          "def analyze_temperature_evolution_comprehensive("
+        ],
+        [
+          395,
+          "    Comprehensive analysis of temperature dynamics"
+        ],
+        [
+          400,
+          "    3. Phase transitions in temperature"
+        ],
+        [
+          414,
+          "        # Track temperature at each snapshot"
+        ],
+        [
+          421,
+          "            # Measure temperature at scheduled points"
+        ],
+        [
+          423,
+          "                temp_data = measure_temperature_comprehensive(root, k)"
+        ],
+        [
+          443,
+          "    return aggregate_temperature_results(all_results)"
+        ],
+        [
+          445,
+          "def test_temperature_predictions(results_df: pd.DataFrame) -> Dict[str, Any]:"
+        ],
+        [
+          474,
+          "    # Check if late-stage temperature stabilizes"
+        ],
+        [
+          498,
+          "   - Fixed temperature (no adaptation)"
+        ],
+        [
+          504,
+          "1. **Temperature Evolution**:"
+        ],
+        [
+          535,
+          "4. **Final Form**: Temperature-dependent fluctuation awareness"
+        ],
+        [
+          561,
+          "    - Temperature-dependent fluctuation bonus"
+        ],
+        [
+          575,
+          "        self.temperature_cache = {}"
+        ],
+        [
+          588,
+          "        # Step 1: Measure or estimate temperature"
+        ],
+        [
+          589,
+          "        beta = self._get_temperature(node, k)"
+        ],
+        [
+          629,
+          "    def _get_temperature(self, node: MCTSNode, k: int) -> float:"
+        ],
+        [
+          631,
+          "        Get temperature using specified method"
+        ],
+        [
+          635,
+          "            return 1.0  # Default temperature"
+        ],
+        [
+          642,
+          "            # Cache temperature measurements"
+        ],
+        [
+          644,
+          "            if cache_key in self.temperature_cache:"
+        ],
+        [
+          645,
+          "                return self.temperature_cache[cache_key]"
+        ],
+        [
+          647,
+          "            # Measure temperature"
+        ],
+        [
+          648,
+          "            temp_data = measure_temperature_comprehensive(node, k)"
+        ],
+        [
+          656,
+          "            self.temperature_cache[cache_key] = beta"
+        ],
+        [
+          818,
+          "            self.temperature_cache.clear()"
+        ],
+        [
+          939,
+          "            'temperature': [],"
+        ],
+        [
+          984,
+          "        # Temperature"
+        ],
+        [
+          985,
+          "        temp_data = measure_temperature_comprehensive(root, root.visits)"
+        ],
+        [
+          986,
+          "        temperature = temp_data['beta_eff']"
+        ],
+        [
+          999,
+          "            'temperature': temperature,"
+        ],
+        [
+          1097,
+          "- Temperature dependence ensures proper scaling"
+        ],
+        [
+          1303,
+          "    # Estimate temperature from visits"
+        ],
+        [
+          1624,
+          "## 6. Non-Equilibrium Thermodynamics Validation"
+        ]
+      ],
+      "lines": 2497,
+      "member": "mcts_study/v6.0/quantum_mcts_validation.md",
+      "relevant_line_count": 134,
+      "sha256": "8f7a2ac7217fb661dbce199ff9de2f7bdb29e98d0d3eee1beabbcdb018766205"
+    },
+    {
+      "excerpts": [
+        [
+          7,
+          "3. [Theoretical Framework](#theoretical-framework)"
+        ],
+        [
+          23,
+          "1. Uses **configuration entropy** as a complexity measure (not thermodynamic entropy)"
+        ],
+        [
+          29,
+          "- **No thermodynamic claims**: We use information theory, not statistical mechanics"
+        ],
+        [
+          46,
+          "Rather than thermodynamics, we draw from:"
+        ],
+        [
+          51,
+          "### 2.3 Why NOT Thermodynamics"
+        ],
+        [
+          52,
+          "After critical analysis, we avoid thermodynamic analogies because:"
+        ],
+        [
+          66,
+          "## 3. Theoretical Framework {#theoretical-framework}"
+        ],
+        [
+          77,
+          "**Interpretation**: Measures position complexity, NOT thermodynamic entropy."
+        ],
+        [
+          163,
+          "- Thermodynamic analogies"
+        ],
+        [
+          165,
+          "- Detailed balance"
+        ],
+        [
+          390,
+          "- Avoiding unsubstantiated thermodynamic claims"
+        ]
+      ],
+      "lines": 399,
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_1.md",
+      "relevant_line_count": 11,
+      "sha256": "995e790cbe97938b44e1c04be51046e850d3760448b7270c8361b4c823a127c7"
+    },
+    {
+      "excerpts": [
+        [
+          1,
+          "# Thermodynamically-Inspired MCTS: Practical Development Guide"
+        ],
+        [
+          8,
+          "5. [Validation Framework](#validation)"
+        ],
+        [
+          16,
+          "This guide provides a practical implementation framework for thermodynamically-inspired Monte Carlo Tree Search (TI-MCTS), which aims to improve search efficiency by 10-30% through information-theoretic principles."
+        ],
+        [
+          20,
+          "- **Small-System Effects**: Apply finite-system corrections, not thermodynamic limits"
+        ],
+        [
+          59,
+          "**Note**: This is NOT thermodynamic free energy. We avoid conflating physics with information theory."
+        ],
+        [
+          178,
+          "- Thermodynamic pruning (risky, can prune good moves)"
+        ],
+        [
+          237,
+          "## 5. Validation Framework {#validation}"
+        ],
+        [
+          283,
+          "- \"Entropy production\" in non-physical system"
+        ],
+        [
+          284,
+          "- Detailed balance in adaptive search"
+        ],
+        [
+          285,
+          "- Thermodynamic uncertainty relations"
+        ],
+        [
+          322,
+          "### Minimal Working Example"
+        ]
+      ],
+      "lines": 381,
+      "member": "mcts_study/thermodynamic-mcts-guide_1.md",
+      "relevant_line_count": 11,
+      "sha256": "7a60b83197916d83e528e89675228008a15b8dbb5864561ff9a87b39d540aaf3"
+    },
+    {
+      "excerpts": [
+        [
+          26,
+          "## 2. Background and Related Work"
+        ],
+        [
+          33,
+          "3. **Simulation**: Evaluate via rollout or neural network"
+        ],
+        [
+          43,
+          "Previous work has explored information-theoretic concepts in tree search:"
+        ],
+        [
+          56,
+          "## 3. Theoretical Framework"
+        ],
+        [
+          70,
+          "**Interpretation**: Measures position complexity, not thermodynamic properties."
+        ],
+        [
+          229,
+          "### 5.3 Validation Framework"
+        ],
+        [
+          348,
+          "- Foundation for future work"
+        ]
+      ],
+      "lines": 397,
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_2.md",
+      "relevant_line_count": 7,
+      "sha256": "db8ed5ca98bb718e2856a3c450e87d38d76806ac70fbe3fe8edbd80a76728f10"
+    },
+    {
+      "excerpts": [
+        [
+          9,
+          "3. [Theoretical Framework](#theoretical-framework)"
+        ],
+        [
+          30,
+          "1. **Information Dynamics Framework**: Quantify how information flows through game trees during search"
+        ],
+        [
+          32,
+          "3. **Empirical Validation**: Test multiple entropy production principles without theoretical assumptions"
+        ],
+        [
+          33,
+          "4. **Practical Algorithms**: Deliver working implementations with measurable efficiency gains"
+        ],
+        [
+          66,
+          "- **Stochastic Thermodynamics**: Extends thermodynamics to small, discrete systems"
+        ],
+        [
+          67,
+          "- **Active Inference**: Provides mathematical framework for adaptive behavior"
+        ],
+        [
+          75,
+          "- Neural network integration (AlphaZero)"
+        ],
+        [
+          79,
+          "Missing: Fundamental understanding of search as an information process with thermodynamic constraints."
+        ],
+        [
+          83,
+          "## 3. Theoretical Framework {#theoretical-framework}"
+        ],
+        [
+          94,
+          "This naturally connects to thermodynamic engines that convert energy to work under constraints."
+        ],
+        [
+          100,
+          "- **Entropy Production**: Total uncertainty increases during search"
+        ],
+        [
+          109,
+          "- **Entropy Production**: \u03c3 = rate of information extraction"
+        ],
+        [
+          134,
+          "- No thermodynamic limit required"
+        ],
+        [
+          141,
+          "- **Information Gain**: Analogous to useful work"
+        ],
+        [
+          156,
+          "Active inference provides a principled framework for intelligent behavior under uncertainty. We show how it naturally applies to game-playing:"
+        ],
+        [
+          177,
+          "Becomes in our framework:"
+        ],
+        [
+          186,
+          "- T: Temperature (exploration control)"
+        ],
+        [
+          230,
+          "#### 5.1.2 Entropy Production"
+        ],
+        [
+          344,
+          "- Test entropy production principles"
+        ],
+        [
+          404,
+          "### 7.2 Thermodynamic Measurements"
+        ],
+        [
+          437,
+          "1. **Information dynamics framework** for tree search"
+        ],
+        [
+          475,
+          "| Theoretical framework invalid | Low | Medium | Empirical-first approach |"
+        ],
+        [
+          489,
+          "- Working open-source code"
+        ],
+        [
+          526,
+          "- 1 Postdoc (theoretical work)"
+        ],
+        [
+          549,
+          "- Validation of small-system thermodynamics"
+        ],
+        [
+          585,
+          "This research program offers a disciplined approach to understanding game tree search through information dynamics and active inference. By grounding our work in:"
+        ]
+      ],
+      "lines": 614,
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_4.md",
+      "relevant_line_count": 26,
+      "sha256": "9ab2ef483470accd2b6831fc622b788e266c2d18ee19d95840268249dba75c32"
+    },
+    {
+      "excerpts": [
+        [
+          1,
+          "# Thermodynamically-Efficient MCTS: Practical Development Guide v2.0"
+        ],
+        [
+          9,
+          "6. [Validation Framework](#validation-framework)"
+        ],
+        [
+          18,
+          "This guide provides a **practical, incremental** implementation path for Thermodynamically-Efficient Monte Carlo Tree Search (TAI-MCTS), which reduces computational requirements by 30-50% while maintaining playing strength."
+        ],
+        [
+          21,
+          "TAI-MCTS treats game tree search as an information extraction process that naturally exhibits nonequilibrium thermodynamic properties. By tracking and optimizing information gain per unit computation, we achieve superior efficiency."
+        ],
+        [
+          26,
+          "- **Engineering Rigor**: Clear metrics aligned with thermodynamic principles"
+        ],
+        [
+          43,
+          "| **\u03c3** | Entropy production rate | \u211d\u22650 |"
+        ],
+        [
+          45,
+          "| **T** | Exploration temperature | \u211d>0 |"
+        ],
+        [
+          72,
+          "Active inference provides a principled framework for balancing exploration and exploitation:"
+        ],
+        [
+          82,
+          "   - Temperature T controls risk tolerance"
+        ],
+        [
+          189,
+          "- Add thermodynamic pruning"
+        ],
+        [
+          277,
+          "    \"\"\"Track entropy production with minimal overhead\"\"\""
+        ],
+        [
+          297,
+          "        \"\"\"Compute discrete system entropy production\"\"\""
+        ],
+        [
+          321,
+          "                # Entropy production contribution"
+        ],
+        [
+          439,
+          "## 6. Validation Framework {#validation-framework}"
+        ],
+        [
+          441,
+          "### 6.1 Thermodynamic Metrics"
+        ],
+        [
+          444,
+          "class ThermodynamicMetrics:"
+        ],
+        [
+          445,
+          "    \"\"\"Measure actual thermodynamic quantities\"\"\""
+        ],
+        [
+          627,
+          "### 8.2 A/B Testing Framework"
+        ],
+        [
+          681,
+          "The key insight remains: game tree search naturally exhibits information-theoretic patterns that we can exploit for efficiency, without requiring deep thermodynamic assumptions."
+        ]
+      ],
+      "lines": 681,
+      "member": "mcts_study/thermodynamic-mcts-guide_4.md",
+      "relevant_line_count": 19,
+      "sha256": "9d034d48283166d71f299dceba75794e8c26ffcb82a7b353a09acfa0d58ad9bb"
+    },
+    {
+      "excerpts": [
+        [
+          8,
+          "5. [Validation Framework](#validation)"
+        ],
+        [
+          17,
+          "This guide provides a practical implementation framework for Information-Theoretic Monte Carlo Tree Search (IT-MCTS), which aims to improve search efficiency by 10-30% through principled information gain maximization."
+        ],
+        [
+          29,
+          "- Not a thermodynamic system"
+        ],
+        [
+          483,
+          "## 5. Validation Framework {#validation}"
+        ],
+        [
+          488,
+          "class ValidationFramework:"
+        ],
+        [
+          573,
+          "### Decision Framework"
+        ],
+        [
+          728,
+          "        # Random rollout or neural network evaluation"
+        ],
+        [
+          744,
+          "        # Temperature = 1 for training, 0 for play"
+        ],
+        [
+          827,
+          "3. **Premature Optimization**: Get it working correctly first"
+        ],
+        [
+          832,
+          "IT-MCTS provides a practical framework for improving MCTS efficiency through information-theoretic principles. While not revolutionary, the 10-30% improvements in appropriate positions make it a valuable tool in the algorithmic toolkit. Success requires careful implementation, empirical validation, and realistic expectations."
+        ]
+      ],
+      "lines": 832,
+      "member": "mcts_study/thermodynamic-mcts-guide_2.md",
+      "relevant_line_count": 10,
+      "sha256": "1b7738fa1542d9af25f226fd53db85985a64819ae4c7f99f495a11d0c08f7265"
+    },
+    {
+      "excerpts": [
+        [
+          1,
+          "# Thermodynamic Active Inference in Monte Carlo Tree Search: A Research Proposal"
+        ],
+        [
+          9,
+          "5. [Mathematical Framework](#mathematical-framework)"
+        ],
+        [
+          23,
+          "Can we dramatically reduce the computational requirements of Monte Carlo Tree Search (MCTS) by 50-80% while maintaining playing strength, by treating game tree exploration as a nonequilibrium thermodynamic process governed by active inference principles?"
+        ],
+        [
+          26,
+          "We propose **Thermodynamic Active Inference MCTS (TAI-MCTS)**, which unifies three theoretical frameworks:"
+        ],
+        [
+          27,
+          "1. **Nonequilibrium Thermodynamics**: Game positions have measurable entropy; search produces entropy"
+        ],
+        [
+          32,
+          "1. MCTS exhibits thermodynamic properties with measurable entropy production"
+        ],
+        [
+          33,
+          "2. Optimal search strategies maximize entropy production rate under resource constraints"
+        ],
+        [
+          34,
+          "3. Active inference provides the mathematical framework for unifying perception (evaluation) and action (move selection)"
+        ],
+        [
+          53,
+          "- Cognitive resources are metabolically constrained (thermodynamics)"
+        ],
+        [
+          60,
+          "- Thermodynamic constraints on computation"
+        ],
+        [
+          66,
+          "1. **Scale Issues**: We show thermodynamic behavior emerges even in finite systems through modern stochastic thermodynamics"
+        ],
+        [
+          69,
+          "4. **Principle Selection**: We empirically test multiple entropy production principles rather than assuming one"
+        ],
+        [
+          71,
+          "By addressing these challenges rigorously, we establish a solid foundation for applying thermodynamic principles to game AI."
+        ],
+        [
+          79,
+          "#### Foundational Work"
+        ],
+        [
+          82,
+          "- **Fields et al. (2024)**: Thermodynamic cost of active inference"
+        ],
+        [
+          98,
+          "These approaches don't consider thermodynamic constraints or active inference principles."
+        ],
+        [
+          100,
+          "### 3.3 Thermodynamics of Computation"
+        ],
+        [
+          104,
+          "- **Stochastic Thermodynamics**: Entropy production in discrete systems"
+        ],
+        [
+          105,
+          "- **MaxEnt Production**: Systems evolve to maximize entropy production"
+        ],
+        [
+          108,
+          "No prior work applies these principles systematically to game tree search."
+        ],
+        [
+          112,
+          "Our work bridges these domains by:"
+        ],
+        [
+          115,
+          "3. Using entropy production to guide resource allocation"
+        ],
+        [
+          140,
+          "#### Definition 4.1.3 (Thermodynamic Free Energy)"
+        ],
+        [
+          141,
+          "The **thermodynamic free energy** of a state is:"
+        ],
+        [
+          147,
+          "- $T$: Temperature (exploration parameter)"
+        ],
+        [
+          154,
+          "#### Principle 4.2.1 (Entropy Production)"
+        ],
+        [
+          155,
+          "During MCTS, total entropy production is:"
+        ],
+        [
+          170,
+          "#### Principle 4.2.3 (Maximum Entropy Production)"
+        ],
+        [
+          171,
+          "Under constraints, systems evolve to maximize entropy production rate:"
+        ],
+        [
+          193,
+          "- **Opening** = High temperature, crystallization"
+        ],
+        [
+          194,
+          "- **Midgame** = Critical temperature, maximum complexity"
+        ],
+        [
+          195,
+          "- **Endgame** = Low temperature, convergence"
+        ],
+        [
+          211,
+          "#### 4.4.2 Detailed Balance for Games"
+        ],
+        [
+          236,
+          "## 5. Mathematical Framework {#mathematical-framework}"
+        ],
+        [
+          240,
+          "#### 5.1.1 Thermodynamic State Space"
+        ],
+        [
+          278,
+          "### 5.3 Thermodynamic Quantities"
+        ],
+        [
+          280,
+          "#### 5.3.1 Entropy Production Rate"
+        ],
+        [
+          288,
+          "#### 5.3.2 Thermodynamic Efficiency"
+        ],
+        [
+          316,
+          "- Satisfies detailed balance at equilibrium"
+        ],
+        [
+          319,
+          "#### 5.4.3 Entropy Production Formula"
+        ],
+        [
+          329,
+          "#### 5.5.1 Maximum Entropy Production (MaxEPP)"
+        ],
+        [
+          334,
+          "#### 5.5.2 Moderate Entropy Production (MEPP)"
+        ],
+        [
+          352,
+          "#### Theorem 6.1.1 (Entropy Production Bound)"
+        ],
+        [
+          353,
+          "**Statement**: For any MCTS algorithm, the entropy production rate is bounded:"
+        ],
+        [
+          369,
+          "**Statement**: TAI-MCTS with proper temperature schedule converges to optimal policy:"
+        ],
+        [
+          419,
+          "#### Theorem 6.3.1 (Thermodynamic Convergence)"
+        ],
+        [
+          428,
+          "3. Use thermodynamic uncertainty relation"
+        ],
+        [
+          450,
+          "#### Theorem 6.4.2 (Detailed Balance Violation)"
+        ],
+        [
+          451,
+          "**Statement**: During active play, MCTS violates detailed balance:"
+        ],
+        [
+          459,
+          "3. Currents imply detailed balance violation"
+        ]
+      ],
+      "lines": 964,
+      "member": "mcts_study/thermodynamic-mcts-research-proposal_3.md",
+      "relevant_line_count": 100,
+      "sha256": "25f98f8901751e2bb3209c1554b0e0d5dbf82eee008555e5e790ba62ffe3b5f5"
+    },
+    {
+      "excerpts": [
+        [
+          1,
+          "# Thermodynamically Efficient MCTS: Comprehensive Development Guide"
+        ],
+        [
+          5,
+          "2. [Core Mathematical Framework](#mathematical-framework)"
+        ],
+        [
+          8,
+          "5. [Component 3: Entropy Production Tracker](#component-3)"
+        ],
+        [
+          10,
+          "7. [Component 5: Thermodynamic Pruning System](#component-5)"
+        ],
+        [
+          13,
+          "10. [Component 8: Discrete System Thermodynamics](#component-8)"
+        ],
+        [
+          16,
+          "13. [Testing and Validation Framework](#testing)"
+        ],
+        [
+          23,
+          "This guide provides a complete implementation blueprint for Thermodynamically Efficient Monte Carlo Tree Search (TAI-MCTS), which reduces simulation count by 50-80% while maintaining playing strength."
+        ],
+        [
+          26,
+          "TAI-MCTS treats game tree search as a nonequilibrium thermodynamic process where:"
+        ],
+        [
+          28,
+          "- **Entropy production** measures the rate of information gain"
+        ],
+        [
+          30,
+          "- **Discrete systems** exhibit thermodynamic behavior without requiring infinite particles"
+        ],
+        [
+          43,
+          "3. **Detailed balance** violation measurements"
+        ],
+        [
+          44,
+          "4. **Small system thermodynamics** validation"
+        ],
+        [
+          48,
+          "## 2. Core Mathematical Framework {#mathematical-framework}"
+        ],
+        [
+          82,
+          "#### 2.5 Entropy Production Rate"
+        ],
+        [
+          97,
+          "# Entropy production principles to test"
+        ],
+        [
+          99,
+          "    'MaxEPP': lambda \u03c3: -\u03c3,  # Maximize entropy production"
+        ],
+        [
+          108,
+          "# Thermodynamic parameters"
+        ],
+        [
+          109,
+          "DEFAULT_TEMPERATURE = 1.0"
+        ],
+        [
+          121,
+          "# Detailed balance parameters"
+        ],
+        [
+          329,
+          "Select nodes that maximize expected information gain per simulation, with support for multiple entropy production principles."
+        ],
+        [
+          345,
+          "#### Entropy Production Principles"
+        ],
+        [
+          346,
+          "1. **MaxEPP**: Maximize entropy production \u03c3 \u2192 max"
+        ],
+        [
+          347,
+          "2. **MEPP**: Stationary entropy production \u03b4\u03c3 = 0"
+        ],
+        [
+          418,
+          "        \"\"\"MaxEPP: Select action maximizing entropy production\"\"\""
+        ],
+        [
+          424,
+          "            # Estimate entropy production"
+        ],
+        [
+          438,
+          "        \"\"\"MEPP: Select action keeping entropy production stationary\"\"\""
+        ],
+        [
+          440,
+          "        # Get current entropy production rate"
+        ],
+        [
+          447,
+          "            # Estimate future entropy production"
+        ],
+        [
+          511,
+          "        \"\"\"Estimate entropy production for an action\"\"\""
+        ],
+        [
+          619,
+          "  \u251c\u2500\u2192 MaxEPP: [Compute Entropy Production]"
+        ],
+        [
+          645,
+          "            config = ThermodynamicMCTSConfig("
+        ],
+        [
+          650,
+          "            mcts = ThermodynamicMCTS(config)"
+        ],
+        [
+          683,
+          "## 5. Component 3: Entropy Production Tracker {#component-3}"
+        ],
+        [
+          686,
+          "Monitor rate of information extraction to optimize search efficiency, detect convergence, and measure detailed balance violations."
+        ],
+        [
+          690,
+          "#### Total Entropy Production (Discrete Systems)"
+        ],
+        [
+          699,
+          "#### Detailed Balance Violation"
+        ],
+        [
+          722,
+          "        // Compute discrete entropy production"
+        ],
+        [
+          725,
+          "        // Compute detailed balance violation"
+        ],
+        [
+          751,
+          "    \"\"\"Monitors entropy production in discrete MCTS system\"\"\""
+        ],
+        [
+          799,
+          "        \"\"\"Compute discrete system entropy production\"\"\""
+        ],
+        [
+          813,
+          "                    # Discrete entropy production formula"
+        ],
+        [
+          819,
+          "        \"\"\"Check detailed balance violation\"\"\""
+        ],
+        [
+          833,
+          "                    # Detailed balance would require: W_ij * p_i = W_ji * p_j"
+        ],
+        [
+          850,
+          "    \"\"\"Tests different entropy production principles\"\"\""
+        ],
+        [
+          860,
+          "            # Prefer moves that maximize entropy production"
+        ],
+        [
+          864,
+          "            # Prefer moves that keep entropy production stationary"
+        ],
+        [
+          877,
+          "        \"\"\"Determine which principle works best empirically\"\"\""
+        ],
+        [
+          899,
+          "def detect_convergence_thermodynamic(monitor, alpha=0.05):"
+        ],
+        [
+          900,
+          "    \"\"\"Detect convergence using thermodynamic criteria\"\"\""
+        ],
+        [
+          902,
+          "    # Criterion 1: Entropy production approaching zero"
+        ]
+      ],
+      "lines": 2937,
+      "member": "mcts_study/thermodynamic-mcts-guide_3.md",
+      "relevant_line_count": 187,
+      "sha256": "2fa7fa85d45c448933bc39f2bffb58fd7ca3159aaeeb710654765ecec1cf7c97"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "artifact_reconstruction_sha": "814be51042faa30ecec17f7e2a4f78689369846e59bf81541599c103834b15a7",
+  "claims": [
+    {
+      "claim": "On full legal support with normalized predictable q, exp(-Sigma) is a mean-one likelihood-ratio martingale and cumulative conditional KL is its log-ratio compensator. Actual 4320 histories, 215040 root choices, 10400 prefixes and two comparisons checked; finite log sample IFT may be as low as -314.777, no equality imposed. Score switch and action change telescope exactly.",
+      "evidence": [
+        "mqft_restore100_20261129/THEORY.md",
+        "mqft_restore100_20261129/NATIVE100.json",
+        "mqft_restore100_20261129/NATIVE100.npz",
+        "mqft_restore100_20261129/INDEPENDENT100.json"
+      ],
+      "id": "NATIVE-LR-20",
+      "items": [
+        "Q01",
+        "Q06",
+        "Q07"
+      ],
+      "limit": "Native path likelihood against a comparator, not physical time reversal, work, heat or bath entropy.",
+      "stage": 100,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For declared Gibbs-start two-quench detailed-balance refresh protocol and properly ordered reverse, exact F/R ratio exp(beta(W-DeltaF)) and Jarzynski hold. 312 reference cases on 104 authenticated score spectra, 2555904 independent auxiliary draws; independent mixture/estimator checks, work cumulants and finite dual; final sample failures retained.",
+      "evidence": [
+        "mqft_restore100_20261129/THEORY.md",
+        "mqft_restore100_20261129/THERMAL100.json",
+        "mqft_restore100_20261129/THERMAL_SAMPLES100.npz",
+        "mqft_restore100_20261129/SUMMARY100.json",
+        "mqft_restore100_20261129/INDEPENDENT100.json"
+      ],
+      "id": "THERMO-DRIVE-21",
+      "items": [
+        "Q01",
+        "Q07",
+        "Q19",
+        "Q20",
+        "Q22",
+        "Q23",
+        "Q38"
+      ],
+      "limit": "Explicit finite reference only; no native calibrated work/heat, physical bath or asymptotic large deviation inference.",
+      "stage": 100,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For scaled-spectrum periodic two-reservoir reference with equal partial refresh r and scale a, y-x=r/(2-r)(ph-pc), Wout=(a-1)d, eta=1-1/a, below Carnot in declared regime. All 624 periodic cases checked by independent iteration and analytic heat formula; finite/ideal output attenuation r/(2-r).",
+      "evidence": [
+        "mqft_restore100_20261129/THEORY.md",
+        "mqft_restore100_20261129/THERMAL100.json",
+        "mqft_restore100_20261129/SUMMARY100.json",
+        "mqft_restore100_20261129/INDEPENDENT100.json"
+      ],
+      "id": "THERMO-CYCLE-22",
+      "items": [
+        "Q03",
+        "Q04",
+        "Q06",
+        "Q07",
+        "Q38"
+      ],
+      "limit": "Reference cycle with explicit reservoirs, not actual MCTS heat engine, Carnot implementation or coherence enhancement.",
+      "stage": 100,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "NATIVE-LR-20;THERMO-DRIVE-21",
+      "id": "Q01",
+      "remaining_final_acceptance": "Specified driven protocol, signed work distributions and entropy-production rate at defined sizes, actual reverse and model-vs-native boundary.",
+      "scope": "Actual native likelihood and score ledgers plus new explicit no-feedback driven reference, exact signed work/heat, Crooks and dissipation; not a native physical bath."
+    },
+    {
+      "accepted": "THERMO-CYCLE-22",
+      "id": "Q03",
+      "remaining_final_acceptance": "Closed state cycle under specified thermal reservoirs, work/output and efficiency; switched H alone not Otto/Carnot or enhancement.",
+      "scope": "Explicit periodic scaled-spectrum two-bath Otto-type reference, 624 closed marginal cycles, work/heat and efficiency, finite versus full refresh; no physical native engine or actual Carnot cycle."
+    },
+    {
+      "accepted": "THERMO-CYCLE-22",
+      "id": "Q04",
+      "remaining_final_acceptance": "Generate animation from verified driven state/work/heat path, preserve exact temporal stages and scope; no physical native cycle.",
+      "scope": "Five exact reference cycle stages and animation, periodic closure and cumulative signed work/heat; no invented interpolation."
+    },
+    {
+      "accepted": "NATIVE-LR-20;THERMO-CYCLE-22",
+      "id": "Q06",
+      "remaining_final_acceptance": "Actual native/ideal cycle comparison needs common calibrated state variables, reservoirs and closure; reference switched-H animation explicitly separate.",
+      "scope": "Partial: reference full versus finite refresh and separate actual native score ledger, no common physical state variables/reservoirs, no native versus ideal efficiency admission."
+    },
+    {
+      "accepted": "NATIVE-LR-20;THERMO-DRIVE-21;THERMO-CYCLE-22",
+      "id": "Q07",
+      "remaining_final_acceptance": "Comprehensive nonequilibrium report with independently calibrated thermal quantities or explicit reference, uncertainty and failed criteria.",
+      "scope": "Comprehensive scoped nonequilibrium report, actual native information and score ledger, explicit reference work/heat and entropy, cyclic closure, capacity and prior feedback/quantum/response evidence; no measured bath."
+    },
+    {
+      "accepted": "THERMO-DRIVE-21",
+      "id": "Q19",
+      "remaining_final_acceptance": "Explicit forward/reverse protocol and Gibbs start, actual work and DeltaF; finite Jarzynski estimator ESS and exact reference.",
+      "scope": "Partial: independent exact F/R reference work laws, 312 cases and 4096 independent samples/direction, support-aware Crooks/Jarzynski, uncertainty and failures; native calibrated work and reverse measure absent."
+    },
+    {
+      "accepted": "THERMO-DRIVE-21",
+      "id": "Q20",
+      "remaining_final_acceptance": "Actual protocol work fluctuations, cumulants and uncertainty, no synthetic random-walk surrogate or native energy assumption.",
+      "scope": "Partial: actual reference sample trajectories, exact cumulants, component covariance and finite tilted dual; no native thermodynamic work or asymptotic rate/FDT."
+    },
+    {
+      "accepted": "THERMO-DRIVE-21",
+      "id": "Q22",
+      "remaining_final_acceptance": "Actual convergence animation with raw forward/reverse work and ESS, retain estimator failures; no forced Jarzynski agreement.",
+      "scope": "Four sample-count frames of actual independently generated F/R reference estimators and ESS, retained nonconvergence; not physical native equality."
+    },
+    {
+      "accepted": "THERMO-DRIVE-21",
+      "id": "Q23",
+      "remaining_final_acceptance": "Comprehensive work and fluctuation report, analytic exact DeltaF, finite estimates/uncertainty, identified thermodynamic system.",
+      "scope": "Comprehensive scoped declared reference work and fluctuation report; explicit Gibbs starts, exact DeltaF, independent F/R paths, finite sample uncertainty, prior feedback support correction distinct."
+    },
+    {
+      "accepted": "THERMO-DRIVE-21;THERMO-CYCLE-22",
+      "id": "Q38",
+      "remaining_final_acceptance": "Calibrated thermal energy/free energy/entropy/C or explicitly declared reference; do not identify score beta with bath T.",
+      "scope": "Explicit finite Gibbs spectrum entropy, free energy, heat capacity, occupied energy-bin counts and driven entropy production; R91/R97 thermal derivative and R93 reference response retained; no continuum microcanonical derivative or native T."
+    }
+  ],
+  "parent_convergence_sha256": "09138dc9f9a9d5ccccac82362dbec7cf7cac2c5dfb9de5cf476e028a60b5b605",
+  "parent_quality_matrix_sha256": "fcb320f4a32662d80c68e129ad1ddefebca3a205b78c3bb396e7b8e8f37d9471"
+}

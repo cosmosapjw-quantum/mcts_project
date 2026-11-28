@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE99.json",
+  "convergence_ledger": "CONVERGENCE100.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -58,7 +58,7 @@
       "to": "X-TRAIN"
     }
   ],
-  "entry": "REPLAN-04.C",
+  "entry": "REPLAN-06",
   "execution_update": "RESTORE39: source-preserving Quartz Rust + Python package migration; 4 parallel schedules + serial; Rapfi external adapter; original-target catalog. Software fixtures only, new empirical data NOT_RUN. Previous science statuses retained.",
   "field_theory_program": {
     "algorithm": {
@@ -121,7 +121,7 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R100 Q01/Q03/Q04/Q06/Q07/Q19/Q20/Q22/Q23/Q38 nonequilibrium and thermal outputs",
+    "R101 exact Q41-Q43 and legacy L-series field/mapping obligations; inspect acceptance list",
     "Direct original reconstruction; no optimizer drift",
     "Six open science claims, Q10 Q36 Q19/Q20 partial"
   ],
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE100-NONEQUILIBRIUM-THERMAL-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE101-FIELD-MAPPING-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -888,6 +888,30 @@
       "quantum_records_followup": "RESTORE25 supplies explicit Stinespring dilation and reduced states, pure global entropy identities, actual instrument/dephasing/conditional erasure, and corrected decay-rate scaling. Use nonunital Gibbs reference from RESTORE24, not projector dephasing as bath thermalization.",
       "remaining_scope": "physical score-energy/bath/temperature/hbar and phase identification absent; no native inverse or native FT, actual measurement/controller energetics unresolved; full-support coherent parallel/GPU and broader strength remain open; original nonequilibrium FDT not automatic",
       "response_selector_followup": "RESTORE35 true path-score response and independent utility; fixed contrast correction not admitted, declared complex phase/noise controls preserve diagonal utility, change coherent probe. No general quantum advantage.",
+      "restore100_followup": {
+        "accepted_subclaims": [
+          "NATIVE-LR-20",
+          "THERMO-DRIVE-21",
+          "THERMO-CYCLE-22"
+        ],
+        "artifact": "mqft_restore100_20261129/{ORIGINAL_OUTPUT_REPORT100.md,ITEM_RECONSTRUCTION100.json,CONVERGENCE100.json}",
+        "corrected_artifacts": [
+          "Q01",
+          "Q03",
+          "Q04",
+          "Q07",
+          "Q22",
+          "Q23",
+          "Q38"
+        ],
+        "evidence": "6768 raw receipts, 4320 actual native histories, 215040 selections, 10400 prefixes; 312 reference cases, 2555904 auxiliary paths, 624 periodic cycles",
+        "partial": [
+          "Q06",
+          "Q19",
+          "Q20"
+        ],
+        "remaining": "Native thermal calibration, physical work/heat/reverse not established."
+      },
       "restore37_followup": "Actual same-clock P/Q/L/B, bounded path mixture, no generic variance improvement; declared finite Gibbs reset with identical M marginals, correlation entropy term; no physical reverse, native bath or strength.",
       "restore38_followup": "mqft_restore38_20261125/ORIGINAL_CROSSWALK.json; partial new longitudinal observables and matched-opening controls; no promotion of existing unresolved physical claims or selector admission.",
       "restore66_followup": {
@@ -1528,8 +1552,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-04.R",
-  "quality_matrix": "QUALITY_MATRIX99.csv",
+  "previous_entry": "REPLAN-04.C",
+  "quality_matrix": "QUALITY_MATRIX100.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -1544,6 +1568,56 @@
     "sha256": "6a958a83567aaf337e6515eb441bffb3190459988c903a824e185cfc39f0c44c"
   },
   "research_phase": "CONVERGENCE",
+  "restore100": {
+    "CONVERGENCE100.json_sha256": "f8bfa9efb5086d0beecab926cc2b8f9c056c84a1fa73390341c531699201f8c1",
+    "DRIFT_WATCHDOG.md_sha256": "58f82dbc556ca6fb433a37aff8707a620b680a7af7c70ac5192836f07bdf3a94",
+    "INDEPENDENT100.json_sha256": "c556e079523a6f2bd30e2cf3164d93971ca73b3b5246fbb4352c52bcf2da6662",
+    "ITEM_CONVERGENCE100.json_sha256": "89d5238337312eb7914ada701992fbc9fe10cf6e6f7863602eedbdb5e3f41e23",
+    "ITEM_RECONSTRUCTION100.json_sha256": "814be51042faa30ecec17f7e2a4f78689369846e59bf81541599c103834b15a7",
+    "NATIVE100.json_sha256": "fc8a423af92f70e2a1ea8b7ebd63bdbb59083d04f04800de2c6d0ff6a71a4606",
+    "NATIVE100.npz_sha256": "3a8cd2adfd7d5a90727b907a858a19aced78c1c3260ea26e35c385c37910568d",
+    "NEXT_DYNAMICS.md_sha256": "c02a82568be7c0f4cdd0577dfdb96f2df1a74883d529870e4b1bb9d56504d6d1",
+    "ORIGINAL_OUTPUT_EVIDENCE100.csv_sha256": "c2da591d07a8619eba82283016bd7e25f49203bac5f7bf3fe8fb000ac1cba406",
+    "ORIGINAL_OUTPUT_PROGRESS100.csv_sha256": "c52a36f769ddcd78382937be5b9a5a9e2eb1d29ac382841b00add3b3654596d8",
+    "ORIGINAL_OUTPUT_REPORT100.md_sha256": "400e2ea3fb3c35c16eb5ba62c4511d902bd480fb4c0579ae8303ae56a9f89374",
+    "ORIGINAL_SOURCE100.json_sha256": "f8401aa2a45cb36489d0d570f7ae6fdde770c78cb6e7e2ee779715e28e6237f1",
+    "PLOT_INVENTORY100.csv_sha256": "e617fb6211fcb4a05d9401e5c00df3c78b3f2b038309e679ea84284479fa5338",
+    "PLOT_MANIFEST100.json_sha256": "4e018ef863ee34b2ef7d0e2729bcc52770688649f93f4b020c68c2ac8cb2fb84",
+    "PROGRESS100.json_sha256": "37b339019e071e325def9971f170c04a06ca088880aa09ecd9f1af6284ed1611",
+    "QUALITY_MATRIX100.csv_sha256": "781ae3d6432fe1f0a02938fa024b027f3493d7f7b50b5e2b9be398004c0986cf",
+    "REGISTRATION.json_sha256": "1399facbcaf54ac8c5d28a911d5c63300924f33acdb8a642b0b7b35f107030f7",
+    "SUMMARY100.json_sha256": "df412715f15f657296a849c6806b8a2b2f183fab669b7464c9be7998a2e97298",
+    "THEORY.md_sha256": "41430dec6a3a9c236e40eeecb00abed728f38aebd44941e3017be510685309f9",
+    "THEORY_REGISTERED100.md_sha256": "7fc8e7c9e1191dd4d982bf5079c3f09d315208f1a61e42e544dc1a7331e58b6d",
+    "THERMAL100.json_sha256": "c7f6210b1c52db491672c36c9163873b9e6ca6cb5e4a6d3fcee00ae263b3e3ad",
+    "THERMAL_SAMPLES100.npz_sha256": "92a0ce4b5159af4dfdd10cac28f21be470c3607ca36129fd0a03e160ab18212f",
+    "accepted_corrected_subclaims": 46,
+    "animations": 2,
+    "corrected_report_artifact_accepted": 64,
+    "cumulative_fixed_root_histories": 93336,
+    "figures": 10,
+    "final_scientific_certified": 0,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 3,
+    "new_corrected_artifacts": 7,
+    "original_evidence_items": 10,
+    "original_evidence_union_R55_R100": 121,
+    "original_obligations": 121,
+    "parent_commit": "a79789439c3bf3ca55c320ef2ac5b3083b2b5c7f",
+    "parent_dag_sha256": "0ad479321a396ae193115f17014f9d8f17970559fcae75faf4241ade8459340e",
+    "prefix_rows": 10400,
+    "reference_cases": 312,
+    "reference_cycles": 624,
+    "reference_paths": 2555904,
+    "reference_raw_paths": 2448,
+    "remaining": "57 corrected artifact obligations; Q06/Q19/Q20 partial; six open science claims; field/mapping outputs next.",
+    "retained_pairs": 762,
+    "reused_draws": 215040,
+    "reused_fixed_root_paths": 4320,
+    "status": "seven_corrected_artifacts_three_partial_three_new_scoped_claims"
+  },
   "restore41": {
     "common_backups": 10032,
     "common_root_jobs": 88,
@@ -5133,8 +5207,8 @@
     "reused_fixed_root_paths": 4320,
     "status": "five_corrected_artifacts_four_partial_three_new_scoped_claims"
   },
-  "revision": "RESTORE99_20261129",
-  "scope": "Convergence: finite categorical scaling, exact tail decomposition, noncritical null and heldout model competition",
+  "revision": "RESTORE100_20261129",
+  "scope": "Convergence: native likelihood measures, independent driven thermal reference and periodic cycles",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE99-CRITICAL-SCALING-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE100-NONEQUILIBRIUM-THERMAL-OUTPUTS"
 }

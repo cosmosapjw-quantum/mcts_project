@@ -1,0 +1,149 @@
+{
+  "animations": [
+    {
+      "clock": [
+        "cold start",
+        "scale up",
+        "hot relaxation",
+        "scale down",
+        "cold relaxation"
+      ],
+      "frame_rgb_sha256": [
+        "856e9a87b1e33bd8e639d7e318ccb0b363b2d80ea84b2b070a01919989f50665",
+        "a14dd200a9d033025ea9944e6e5a9c9b91078ddae937564a69832b2fa9355058",
+        "d70ff57567863c0ac6716bb6d5ad1344558de5d1fd655b4f8ee144083b042134",
+        "9fda38abaf0c5023d0c9330b5184379e317ec41e3d35e4542794ddb21240bb9d",
+        "5b04dc2fca731bd7ae7efdcc0e9a42539f8fc6d2c011328ea0a039fb53f9a0cf"
+      ],
+      "frames": 5,
+      "id": "Q04",
+      "path": "plots/Q04_periodic_reference_cycle.gif",
+      "sha256": "9c4b24220554fd790a0bb10a1d64c323181a56a7a799bb130e1b23075affc03b"
+    },
+    {
+      "clock": [
+        64,
+        256,
+        1024,
+        4096
+      ],
+      "frame_rgb_sha256": [
+        "9a9fdbcccfce92ee794633dcb16e025cfc45eb3d79b0606422b2ea4e3575b5a4",
+        "6f3f43478db16d56da79bea002b612b3703ccb565dbed4ab14d58e7dbf25f85b",
+        "94c06043785a816c756636a917d8aa7b54c0f0d722f0b653efc24d4d2b279b15",
+        "81ad4b0b31dbd6a636d79facc19ff44c8647638f9a8fed8adddaa4b0cbe13e85"
+      ],
+      "frames": 4,
+      "id": "Q22",
+      "path": "plots/Q22_actual_reference_Jarzynski.gif",
+      "sha256": "dad2224b3869b557ccbb6ddcb6707a4677c36a77ff9afa57391a68c46af181d6"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "Q01_native_information_ledger",
+      "ids": [
+        "Q01",
+        "Q07"
+      ],
+      "pdf_sha": "f0a91d332bb30158b2ed40469b4933ff64a229d61c4f4cbf65d7ccda1c9af463",
+      "png_sha": "0b70fb23e30b70810d53e46383a83c36364681c58226f362b3a6e9850d495af2"
+    },
+    {
+      "figure": "Q01_native_likelihood_sampling",
+      "ids": [
+        "Q01",
+        "Q07"
+      ],
+      "pdf_sha": "101305d192fe00cf04420259db3666f88f779ebc381a7a84f21872958b7e355d",
+      "png_sha": "cc65177b17920093bd42f63968b111ec707a5131381ff33d0612f1ff7257639c"
+    },
+    {
+      "figure": "Q01_reference_driven_protocol",
+      "ids": [
+        "Q01",
+        "Q07",
+        "Q23",
+        "Q38"
+      ],
+      "pdf_sha": "dd580563d82a357c7c01aa988d5a6579bee4f8b264315fb420155e619d9db039",
+      "png_sha": "ce103b6f62f905408c47de3b1b48c00af2e17ae49b5ebafa2500d2fbdb343526"
+    },
+    {
+      "figure": "Q19_reference_Crooks_work_partial",
+      "ids": [
+        "Q19",
+        "Q01",
+        "Q23"
+      ],
+      "pdf_sha": "f025e25e9253c8a5f7bb8990ccd48c5f91480706f41f8d191b9c0d8075a56b29",
+      "png_sha": "5b5c9be6c7f8ef3c3eb1bd47ec0466f7a604f577bcb142c539f05407feb57fcf"
+    },
+    {
+      "figure": "Q19_Q22_Jarzynski_sampling",
+      "ids": [
+        "Q19",
+        "Q22",
+        "Q23"
+      ],
+      "pdf_sha": "7ee0430adbc1c5883b1f8745896a01fa1883cfe1c743146a6c5c51bc30953218",
+      "png_sha": "0ac65ec69b12dbf8a2f87d509f163ae93ce66dd3e5609c19d1c726d84c5ea708"
+    },
+    {
+      "figure": "Q20_reference_work_cumulants_partial",
+      "ids": [
+        "Q20",
+        "Q23"
+      ],
+      "pdf_sha": "9f3374daec9af9c93f3393da9b055c3faaa4b4c92d9bc45a5fea1f7dea2f064c",
+      "png_sha": "8ab98f641810bfed26943d4508d220ca8d2ae76edb0a558b58dd97b9ce24db64"
+    },
+    {
+      "figure": "Q20_reference_work_trajectories_partial",
+      "ids": [
+        "Q20",
+        "Q01"
+      ],
+      "pdf_sha": "ddbbc857c0ccb843a6bf3ee50410d389fc7a0bbb96e410ba6e9098e2eca05824",
+      "png_sha": "fd5365abec3731c10ed2ce419e4eb133c51b7c93f02e412f028c37f3243fc0fa"
+    },
+    {
+      "figure": "Q03_periodic_Otto_reference",
+      "ids": [
+        "Q03",
+        "Q04",
+        "Q07"
+      ],
+      "pdf_sha": "57b27b9dff80c68a442aa59b906ecf14ac6b7c9555e7de48164dfcd5e783e4d6",
+      "png_sha": "4c83d47984c39371bdf48a27dd43cb56bdd0cb87378b8985170dc4f2432a7d91"
+    },
+    {
+      "figure": "Q06_noncomparable_native_reference_partial",
+      "ids": [
+        "Q06",
+        "Q07"
+      ],
+      "pdf_sha": "884a9452c84f4a80e2a990cc39e1b496620c9e0ccf3e288573e688253de4f3ab",
+      "png_sha": "1c0657ad212d962bdf415fbf9ba8465aab39c3f7887b1120dd389203b92ef1c0"
+    },
+    {
+      "figure": "Q38_Gibbs_capacity_entropy_DOS",
+      "ids": [
+        "Q38",
+        "Q07"
+      ],
+      "pdf_sha": "d1fd43f70012cb94bc53539f757ada036b70bf59922dda30f5a38ddb24177e69",
+      "png_sha": "7620e9f3ad38460b9b6da68a9320cf6a5ea0cba32b09e3c3f314e61f4e89bb56"
+    }
+  ],
+  "scope": "Native information ledger, independent declared thermal reference, no native calibrated work/heat.",
+  "sources": {
+    "INDEPENDENT100.json": "c556e079523a6f2bd30e2cf3164d93971ca73b3b5246fbb4352c52bcf2da6662",
+    "NATIVE100.json": "fc8a423af92f70e2a1ea8b7ebd63bdbb59083d04f04800de2c6d0ff6a71a4606",
+    "NATIVE100.npz": "3a8cd2adfd7d5a90727b907a858a19aced78c1c3260ea26e35c385c37910568d",
+    "ORIGINAL_SOURCE100.json": "f8401aa2a45cb36489d0d570f7ae6fdde770c78cb6e7e2ee779715e28e6237f1",
+    "SUMMARY100.json": "df412715f15f657296a849c6806b8a2b2f183fab669b7464c9be7998a2e97298",
+    "THERMAL100.json": "c7f6210b1c52db491672c36c9163873b9e6ca6cb5e4a6d3fcee00ae263b3e3ad",
+    "THERMAL_SAMPLES100.npz": "92a0ce4b5159af4dfdd10cac28f21be470c3607ca36129fd0a03e160ab18212f"
+  }
+}
