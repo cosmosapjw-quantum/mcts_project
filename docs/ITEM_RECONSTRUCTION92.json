@@ -1,0 +1,264 @@
+{
+  "corrected_artifacts_total": 26,
+  "items": [
+    {
+      "acceptance_contract": "Define order parameter and symmetry/field, independent L,B,density, finite-size uncertainty and spontaneous-order limit if claimed.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G06_order_parameter",
+          "ids": [
+            "G06"
+          ],
+          "pdf_sha": "0ce20f36f5edd39f747443d6721699990e0491185191a68ba3e4fc664b61d136",
+          "png_sha": "a56870cc8e7281d07300ee1f6fec2c7f8cec511d0426bdb3b3ec009fb92d7101"
+        },
+        {
+          "figure": "G06_G09_budget_discrimination",
+          "ids": [
+            "G06",
+            "G09"
+          ],
+          "pdf_sha": "0baa934993fd7a6a5a8823cfcd627bc885d30cd55206f89565d2fd906d1b3eeb",
+          "png_sha": "a419bc0b80f310103df487c16dfa8f2260511a315c87aab3ba986d6bc8d5b098"
+        }
+      ],
+      "figures": [
+        "G06_order_parameter",
+        "G06_G09_budget_discrimination"
+      ],
+      "id": "G06",
+      "method": "Actual normalized occupancy concentration, iid-collision correction, entropy, signed centered modes, five sizes and two density arms; distinguish independent budgets and prefixes; no spontaneous order.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Define order parameter and symmetry/field, independent L,B,density, finite-size uncertainty and spontaneous-order limit if claimed.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G06",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+        "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+        "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 order_parameter.png",
+        "span": [
+          279,
+          279
+        ]
+      },
+      "pdf_sha": "0ce20f36f5edd39f747443d6721699990e0491185191a68ba3e4fc664b61d136",
+      "png_sha": "a56870cc8e7281d07300ee1f6fec2c7f8cec511d0426bdb3b3ec009fb92d7101",
+      "remaining_limit": "Finite controlled ensemble only; physical critical/length/gap identification open."
+    },
+    {
+      "acceptance_contract": "Reproduce legal-pair connected covariance and fixed-total null; define correlation length only with valid nonzero-mode observable and limit.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G08_spatial_covariance",
+          "ids": [
+            "G08"
+          ],
+          "pdf_sha": "38a417690458fc94f927cf7ad61f91aa0c635f5bf17848cb430f3216ced2a754",
+          "png_sha": "4649a19cf795720982f5f7f9c03b516e5c49e48346786c65487d32dfc08387ed"
+        }
+      ],
+      "figures": [
+        "G08_spatial_covariance"
+      ],
+      "id": "G08",
+      "method": "Actual connected legal-pair covariance, ordered open-board displacement shells, fixed-total zero mode and exact uniform null; conditional geometric extent is not physical correlation length.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Reproduce legal-pair connected covariance and fixed-total null; define correlation length only with valid nonzero-mode observable and limit.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G08",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+        "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+        "source_excerpt": "\u2502   \u2502       \u251c\u2500\u2500 correlation_function.png",
+        "span": [
+          281,
+          281
+        ]
+      },
+      "pdf_sha": "38a417690458fc94f927cf7ad61f91aa0c635f5bf17848cb430f3216ced2a754",
+      "png_sha": "4649a19cf795720982f5f7f9c03b516e5c49e48346786c65487d32dfc08387ed",
+      "remaining_limit": "Finite controlled ensemble only; physical critical/length/gap identification open."
+    },
+    {
+      "acceptance_contract": "Reconstruct order, response and correlation jointly; distinguish finite crossover from common critical point and report uncertainty.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "G09_critical_summary",
+          "ids": [
+            "G09"
+          ],
+          "pdf_sha": "82da5dbc7f13a6202c0a53974a2d4912cc76d85152bcb9ce4141e1f3494e0172",
+          "png_sha": "70547612b5163ba9057001758ab1bc523ac5c87a6e3ccc90480fff752ff6e661"
+        },
+        {
+          "figure": "G06_G09_budget_discrimination",
+          "ids": [
+            "G06",
+            "G09"
+          ],
+          "pdf_sha": "0baa934993fd7a6a5a8823cfcd627bc885d30cd55206f89565d2fd906d1b3eeb",
+          "png_sha": "a419bc0b80f310103df487c16dfa8f2260511a315c87aab3ba986d6bc8d5b098"
+        }
+      ],
+      "figures": [
+        "G09_critical_summary",
+        "G06_G09_budget_discrimination"
+      ],
+      "id": "G09",
+      "method": "Joint finite order, instantaneous conditional variance, covariance and controlled inherited R87 negative crossing/held-out test, root uncertainty; no critical point.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Reconstruct order, response and correlation jointly; distinguish finite crossover from common critical point and report uncertainty.",
+        "archive": "omoknuni_quantum-main.zip",
+        "id": "G09",
+        "member": "omoknuni_quantum-main/docs/quantum_physics/STATISTICAL_MECHANICS_ANALYSIS_GUIDE.md",
+        "member_sha": "bfac951744509e0398f58a801855acb355bf9d95754c0ccbe231baf570228db6",
+        "source_excerpt": "\u2502   \u2502       \u2514\u2500\u2500 critical_summary.png",
+        "span": [
+          282,
+          282
+        ]
+      },
+      "pdf_sha": "82da5dbc7f13a6202c0a53974a2d4912cc76d85152bcb9ce4141e1f3494e0172",
+      "png_sha": "70547612b5163ba9057001758ab1bc523ac5c87a6e3ccc90480fff752ff6e661",
+      "remaining_limit": "Finite controlled ensemble only; physical critical/length/gap identification open."
+    },
+    {
+      "acceptance_contract": "Independent L and temperature/control axis with order, response and C; correlation length and critical peak/exponent only after controlled limit.",
+      "decision": "PARTIAL_CORRECTED_MODEL_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "Q02_partial_phase_diagnostics",
+          "ids": [
+            "Q02"
+          ],
+          "pdf_sha": "22bb50b77056ff521343013a794fe9e33dd535aa158cba4db5165253cf53ea3e",
+          "png_sha": "bd72fe3a1393f86e99d0da9af4e699caea53a5a4cfc66d3aff83b3903110860c"
+        }
+      ],
+      "figures": [
+        "Q02_partial_phase_diagnostics"
+      ],
+      "id": "Q02",
+      "method": "Partial: actual finite selector-beta/density/size and concentration/variance/extent; missing physical T, C, external-field protocol and phase boundary.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Independent L and temperature/control axis with order, response and C; correlation length and critical peak/exponent only after controlled limit.",
+        "archive": "quantum.zip",
+        "id": "Q02",
+        "member": "quantum/research/visualization/plot_thermodynamics.py",
+        "member_sha": "0d5926fe82f6aafa10c195001a78b9b968770fd23bcbb00c74052d9b170deffb",
+        "source_excerpt": "    def plot_phase_transitions(self, save_plots: bool = True) -> Dict[str, Any]:\n        \"\"\"Plot thermodynamic phase transitions analysis\"\"\"\n        \n        # Extract authentic phase transition data\n        data = create_authentic_physics_data(self.mcts_data, 'plot_phase_transitions')\n        \n        fig, axes = plt.subplots(2, 3, figsize=(20, 12))\n        fig.suptitle('Thermodynamic Phase Transitions Analysis', fontsize=16, fontweight='bold')\n        \n        system_sizes = data['system_sizes']\n        phase_data = data['phase_data']\n        temperatures = phase_data['temperatures']\n        \n        # 1. Order parameter evolution\n        ax1 = axes[0, 0]\n        \n        order_parameters = data['order_parameters']\n        \n        for sys_size in system_sizes:\n            if sys_size in order_parameters:\n                order_data = order_parameters[sys_size]\n                temps = order_data['temperatures']\n                order_param = order_data['order_parameter']\n                \n                ax1.plot(temps, order_param, 'o-', \n                        label=f'M(T) L={sys_size}', linewidth=2, alpha=0.8)\n        \n        ax1.set_xlabel('Temperature T')\n        ax1.set_ylabel('Order Parameter M')\n        ax1.set_title('Order Parameter vs Temperature')\n        ax1.legend()\n        ax1.grid(True, alpha=0.3)\n        \n        # 2. Heat capacity peaks\n        ax2 = axes[0, 1]\n        \n        heat_capacity_peaks = data['heat_capacity_peaks']\n        \n        for sys_size in system_sizes:\n            if sys_size in heat_capacity_peaks:\n                hc_data = heat_capacity_peaks[sys_size]\n                temps = hc_data['temperatures']\n                heat_capacity = hc_data['heat_capacity']\n                \n                ax2.plot(temps, heat_capacity, 's-', \n                        label=f'C_V L={sys_size}', linewidth=2, alpha=0.8)\n                \n                # Mark peak\n                peak_temp = hc_data['peak_temperature']\n                peak_value = hc_data['peak_value']\n                ax2.plot(peak_temp, peak_value, 'r*', markersize=15, \n                        label=f'Peak L={sys_size}' if sys_size == system_sizes[0] else \"\")\n        \n        ax2.set_xlabel('Temperature T')\n        ax2.set_ylabel('Heat Capacity C_V')\n        ax2.set_title('Heat Capacity Peaks')\n        ax2.legend()\n        ax2.grid(True, alpha=0.3)\n        \n        # 3. Correlation length divergence\n        ax3 = axes[0, 2]\n        \n        correlation_lengths = data['correlation_lengths']\n        \n        for sys_size in system_sizes:\n            if sys_size in correlation_lengths:\n                corr_data = correlation_lengths[sys_size]\n                temps = corr_data['temperatures']\n                corr_length = corr_data['correlation_length']\n                \n                ax3.semilogy(temps, corr_length, '^-', \n                            label=f'\u03be(T) L={sys_size}', linewidth=2, alpha=0.8)\n        \n        ax3.set_xlabel('Temperature T')\n        ax3.set_ylabel('Correlation Length \u03be')\n        ax3.set_title('Correlation Length Divergence')\n        ax3.legend()\n        ax3.grid(True, alpha=0.3)\n        \n        # 4. Critical temperature scaling\n        ax4 = axes[1, 0]\n        \n        critical_temperatures = data['critical_temperatures']\n        \n        if critical_temperatures:\n            sizes = list(critical_temperatures.keys())\n            T_c_values = list(critical_temperatures.values())\n            \n            ax4.plot(sizes, T_c_values, 'o-', linewidth=3, markersize=8, \n                    color='red', label='T_c(L)')\n            \n            # Theoretical finite-size scaling: T_c(L) = T_c(\u221e) + a/L\n            if len(sizes) > 2:\n                # Fit to extract T_c(\u221e)\n                inv_sizes = 1.0 / np.array(sizes)\n                fit_params = np.polyfit(inv_sizes, T_c_values, 1)\n                T_c_infinite = fit_params[1]\n                \n                fit_line = fit_params[0] * inv_sizes + fit_params[1]\n                ax4.plot(sizes, fit_line, '--', linewidth=2, color='blue',\n                        label=f'T_c(\u221e) = {T_c_infinite:.3f}')\n            \n            ax4.set_xlabel('System Size L')\n            ax4.set_ylabel('Critical Temperature T_c')\n            ax4.set_title('Critical Temperature Finite-Size Scaling')\n            ax4.legend()\n            ax4.grid(True, alpha=0.3)\n        \n        # 5. Phase diagram\n        ax5 = axes[1, 1]\n        \n        # Create temperature-field phase diagram\n        temp_range = np.linspace(0.5, 2.0, 50)\n        field_range = np.linspace(0, 1.0, 50)\n        T_grid, H_grid = np.meshgrid(temp_range, field_range)\n        \n        # Model phase boundaries\n        # Ordered phase: low T, low H\n        # Disordered phase: high T or high H\n        phase_field = np.zeros_like(T_grid)\n        \n        for i in range(len(temp_range)):\n            for j in range(len(field_range)):\n                temp = temp_range[i]\n                field = field_range[j]\n                \n                # Simple phase boundary: T_c decreases with field\n                T_c_field = 1.0 - 0.5 * field\n                \n                if temp < T_c_field:\n                    phase_field[j, i] = 1  # Ordered phase\n                else:\n                    phase_field[j, i] = 0  # Disordered phase\n        \n        contour = ax5.contourf(T_grid, H_grid, phase_field, levels=[0, 0.5, 1], \n                              colors=['lightblue', 'lightcoral'], alpha=0.8)\n        ax5.contour(T_grid, H_grid, phase_field, levels=[0.5], colors='black', linewidths=3)\n        \n        ax5.set_xlabel('Temperature T')\n        ax5.set_ylabel('External Field H')\n        ax5.set_title('Temperature-Field Phase Diagram')\n        \n        # Add phase labels\n        ax5.text(0.7, 0.2, 'Ordered\\nPhase', fontsize=12, ha='center',\n                bbox=dict(boxstyle=\"round,pad=0.3\", facecolor=\"lightblue\", alpha=0.8))\n        ax5.text(1.7, 0.8, 'Disordered\\nPhase', fontsize=12, ha='center',\n                bbox=dict(boxstyle=\"round,pad=0.3\", facecolor=\"lightcoral\", alpha=0.8))\n        \n        ax5.grid(True, alpha=0.3)\n        \n        # 6. Susceptibility divergence\n        ax6 = axes[1, 2]\n        \n        susceptibility_divergence = data['susceptibility_divergence']\n        \n        # Model susceptibility near critical point\n        temp_near_Tc = np.linspace(0.8, 1.2, 50)\n        T_c = 1.0\n        \n        susceptibilities = []\n        for temp in temp_near_Tc:\n            # \u03c7 ~ |T - T_c|^(-\u03b3)\n            gamma = susceptibility_divergence['critical_exponent']\n            reduced_temp = abs(temp - T_c)\n            if reduced_temp < 0.01:\n                reduced_temp = 0.01  # Avoid divergence\n            \n            chi = susceptibility_divergence['susceptibility'] / (reduced_temp**gamma)\n            susceptibilities.append(chi)\n        \n        ax6.semilogy(temp_near_Tc, susceptibilities, 'o-', linewidth=3, \n                    color='purple', label='\u03c7(T)')\n        \n        # Mark critical point\n        ax6.axvline(x=T_c, color='red', linestyle='--', linewidth=2, \n                   label='T_c')\n        \n        ax6.set_xlabel('Temperature T')\n        ax6.set_ylabel('Susceptibility \u03c7')\n        ax6.set_title('Susceptibility Divergence')\n        ax6.legend()\n        ax6.grid(True, alpha=0.3)\n        \n        plt.tight_layout()\n        \n        if save_plots:\n            plt.savefig(self.output_dir / 'phase_transitions.png', dpi=300, bbox_inches='tight')\n            logger.info(\"Saved phase transitions plot\")\n        \n        return {\n            'phase_data': data,\n            'critical_temperatures': critical_temperatures if 'critical_temperatures' in locals() else {},\n            'phase_transitions_detected': len(system_sizes),\n            'figure': fig\n        }",
+        "span": [
+          219,
+          413
+        ],
+        "span_sha": "f912c8f339d8440bb809d84e9531315dd6522fb75e80b8228d20e5ee7ef263d1"
+      },
+      "pdf_sha": "22bb50b77056ff521343013a794fe9e33dd535aa158cba4db5165253cf53ea3e",
+      "png_sha": "bd72fe3a1393f86e99d0da9af4e699caea53a5a4cfc66d3aff83b3903110860c",
+      "remaining_limit": "Finite controlled ensemble only; physical critical/length/gap identification open."
+    },
+    {
+      "acceptance_contract": "Compute spatial/temporal correlations at controlled L,B, frame, legal mask and independent root uncertainty; physical xi separate.",
+      "decision": "ACCEPTED_CORRECTED_SCOPED_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "Q29_spatiotemporal_correlations",
+          "ids": [
+            "Q29"
+          ],
+          "pdf_sha": "43339ed0da2d2d7dedbb92bd649d286296894fb000f42ba133201732f8ce7f59",
+          "png_sha": "51a4389076eb1e9a8dcc0386c7f8f35904359d3d3946aa4f5d4c90d5e34799f3"
+        }
+      ],
+      "figures": [
+        "Q29_spatiotemporal_correlations"
+      ],
+      "id": "Q29",
+      "method": "Actual spatial shell and nonstationary fixed-clock temporal correlation, paired root uncertainty; physical correlation length separately unidentified.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Compute spatial/temporal correlations at controlled L,B, frame, legal mask and independent root uncertainty; physical xi separate.",
+        "archive": "quantum.zip",
+        "id": "Q29",
+        "member": "quantum/research/visualization/plot_statistical_physics.py",
+        "member_sha": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+        "source_excerpt": "    def plot_correlation_functions(self, save_plots: bool = True, show_temporal: bool = True) -> Dict[str, Any]:\n        \"\"\"Plot spatial and temporal correlation functions with time evolution\"\"\"\n        \n        # Extract authentic correlation data\n        data = create_authentic_physics_data(self.mcts_data, 'plot_correlation_functions')\n        \n        if show_temporal:\n            fig, axes = plt.subplots(2, 3, figsize=(18, 12))\n            fig.suptitle('Quantum MCTS Correlation Functions with Temporal Evolution', fontsize=16, fontweight='bold')\n        else:\n            fig, axes = plt.subplots(2, 2, figsize=(15, 10))\n            fig.suptitle('Quantum MCTS Correlation Functions', fontsize=16, fontweight='bold')\n        \n        # Flatten axes for easier indexing\n        axes_flat = axes.flatten()\n        \n        # 1. Spatial correlations\n        ax1 = axes_flat[0]\n        system_sizes = list(data['spatial_correlations'].keys())[:3]  # Limit for clarity\n        distances = data['distances'][:15]  # Limit distance range\n        \n        for i, size in enumerate(system_sizes):\n            corr_data = data['spatial_correlations'][size][0]  # First time slice\n            corr_values = []\n            for d in distances:\n                if int(d) in corr_data:\n                    corr_values.append(corr_data[int(d)]['mean'])\n                else:\n                    corr_values.append(0.1 * np.exp(-d/10))  # Fallback exponential decay\n            \n            ax1.semilogy(distances, corr_values, 'o-', label=f'L={size}', alpha=0.8, linewidth=2)\n        \n        ax1.set_xlabel('Distance r')\n        ax1.set_ylabel('C(r)')\n        ax1.set_title('Spatial Correlation Functions')\n        ax1.legend()\n        ax1.grid(True, alpha=0.3)\n        \n        # 2. Correlation length analysis\n        ax2 = axes_flat[1]\n        temperatures = data['temperatures'][:20]  # Limit temperature range\n        \n        for i, size in enumerate(system_sizes):\n            # Correlation length from exponential fit\n            xi_values = []\n            for temp in temperatures:\n                # Simple model: \u03be \u221d 1/T with finite size corrections\n                xi = min(float(size)/2, 1.0/(temp + 0.1)) + np.log(float(size))\n                xi_values.append(xi)\n            \n            ax2.plot(temperatures, xi_values, 's-', label=f'L={size}', alpha=0.8, linewidth=2)\n        \n        ax2.set_xlabel('Temperature T')\n        ax2.set_ylabel('Correlation Length \u03be')\n        ax2.set_title('Correlation Length vs Temperature')\n        ax2.legend()\n        ax2.grid(True, alpha=0.3)\n        \n        # 3. Temporal correlations (if enabled)\n        if show_temporal:\n            ax3 = axes_flat[2]\n            times = np.arange(1, 11)\n            \n            for i, size in enumerate(system_sizes):\n                if size in data['temporal_correlations']:\n                    temporal_data = data['temporal_correlations'][size][0]  # First entry\n                    temporal_values = [temporal_data.get(t, 0.5 * np.exp(-t/5)) for t in times]\n                    ax3.plot(times, temporal_values, '^-', label=f'L={size}', alpha=0.8, linewidth=2)\n            \n            ax3.set_xlabel('Time \u03c4')\n            ax3.set_ylabel('C(\u03c4)')\n            ax3.set_title('Temporal Correlation Functions')\n            ax3.legend()\n            ax3.grid(True, alpha=0.3)\n            \n            # 4. Correlation matrix heatmap\n            ax4 = axes_flat[3]\n            corr_matrix = data['correlation_matrix'][:10, :10]  # Limit size for visibility\n            im = ax4.imshow(corr_matrix, cmap='RdBu_r', aspect='auto', vmin=-1, vmax=1)\n            ax4.set_title('Correlation Matrix')\n            ax4.set_xlabel('Distance Index')\n            ax4.set_ylabel('Temperature Index')\n            plt.colorbar(im, ax=ax4, label='Correlation')\n            \n            # 5. Correlation time evolution\n            ax5 = axes_flat[4]\n            time_slices = np.linspace(0, 10, 20)\n            \n            for i, size in enumerate(system_sizes[:2]):  # Limit to 2 sizes\n                corr_evolution = []\n                for t in time_slices:\n                    # Model: correlation decays and revives due to quantum dynamics\n                    corr_val = np.exp(-t/3) * (1 + 0.3 * np.sin(2*np.pi*t/5)) * float(size)/50\n                    corr_evolution.append(corr_val)\n                \n                ax5.plot(time_slices, corr_evolution, 'o-', label=f'L={size}', alpha=0.8, linewidth=2)\n            \n            ax5.set_xlabel('Evolution Time')\n            ax5.set_ylabel('Peak Correlation')\n            ax5.set_title('Correlation Time Evolution')\n            ax5.legend()\n            ax5.grid(True, alpha=0.3)\n            \n            # 6. Critical scaling\n            ax6 = axes_flat[5]\n            scaling_temps = temperatures[:15]\n            \n            for i, size in enumerate(system_sizes):\n                # Critical scaling: C(r) ~ r^(-\u03b7) near T_c\n                eta = 0.25  # Critical exponent\n                scaling_func = []\n                for temp in scaling_temps:\n                    # Distance at which correlation drops to 1/e\n                    r_scale = 1.0 / (abs(temp - temperatures[len(temperatures)//2]) + 0.1)\n                    scaling_func.append(r_scale ** (-eta))\n                \n                ax6.loglog(scaling_temps, scaling_func, 'd-', label=f'L={size}', alpha=0.8, linewidth=2)\n            \n            ax6.set_xlabel('Temperature T')\n            ax6.set_ylabel('C(r*) Scaling')\n            ax6.set_title('Critical Scaling of Correlations')\n            ax6.legend()\n            ax6.grid(True, alpha=0.3)\n        \n        else:\n            # Without temporal: just 2x2 layout\n            # 3. Critical exponent analysis\n            ax3 = axes_flat[2]\n            \n            # Extract critical exponents from correlation decay\n            exponents = []\n            size_labels = []\n            \n            for size in system_sizes:\n                # Fit exponential decay to extract correlation length\n                try:\n                    corr_data = data['spatial_correlations'][size][0]\n                    distances_fit = []\n                    correlations_fit = []\n                    \n                    for d in distances[:10]:\n                        if int(d) in corr_data:\n                            distances_fit.append(d)\n                            correlations_fit.append(corr_data[int(d)]['mean'])\n                    \n                    if len(distances_fit) > 3:\n                        # Fit C(r) = A * exp(-r/\u03be)\n                        log_corr = np.log(np.array(correlations_fit) + 1e-10)\n                        slope, intercept = np.polyfit(distances_fit, log_corr, 1)\n                        xi = -1.0 / slope if slope < 0 else 1.0\n                        exponents.append(xi)\n                        size_labels.append(size)\n                \n                except Exception as e:\n                    logger.warning(f\"Failed to fit correlation for size {size}: {e}\")\n            \n            if exponents:\n                ax3.bar(range(len(exponents)), exponents, alpha=0.7, color='skyblue')\n                ax3.set_xticks(range(len(exponents)))\n                ax3.set_xticklabels(size_labels)\n                ax3.set_xlabel('System Size L')\n                ax3.set_ylabel('Correlation Length \u03be')\n                ax3.set_title('Extracted Correlation Lengths')\n                ax3.grid(True, alpha=0.3)\n            \n            # 4. Temperature dependence\n            ax4 = axes_flat[3]\n            \n            # Plot correlation strength vs temperature\n            for i, size in enumerate(system_sizes):\n                corr_strength = []\n                for temp in temperatures[:15]:\n                    # Model correlation strength from temperature\n                    strength = 1.0 / (1.0 + temp) * np.log(float(size) + 1)\n                    corr_strength.append(strength)\n                \n                ax4.plot(temperatures[:15], corr_strength, 'o-', label=f'L={size}', alpha=0.8, linewidth=2)\n            \n            ax4.set_xlabel('Temperature T')\n            ax4.set_ylabel('Correlation Strength')\n            ax4.set_title('Temperature Dependence')\n            ax4.legend()\n            ax4.grid(True, alpha=0.3)\n        \n        plt.tight_layout()\n        \n        if save_plots:\n            plt.savefig(self.output_dir / 'correlation_functions.png', dpi=300, bbox_inches='tight')\n            logger.info(\"Saved correlation functions plot\")\n        \n        return {\n            'correlation_data': data,\n            'system_sizes': system_sizes,\n            'figure': fig\n        }",
+        "span": [
+          53,
+          247
+        ],
+        "span_sha": "0cc985a38418fc8bb1d3e352355082f6f8feb364da87caf2ae02098c7e14a071"
+      },
+      "pdf_sha": "43339ed0da2d2d7dedbb92bd649d286296894fb000f42ba133201732f8ce7f59",
+      "png_sha": "51a4389076eb1e9a8dcc0386c7f8f35904359d3d3946aa4f5d4c90d5e34799f3",
+      "remaining_limit": "Finite controlled ensemble only; physical critical/length/gap identification open."
+    },
+    {
+      "acceptance_contract": "Independent size/budget sweep for susceptibility, entropy, correlation length and gap; no universal exponent without limit.",
+      "decision": "PARTIAL_CORRECTED_MODEL_ARTIFACT",
+      "figure_hashes": [
+        {
+          "figure": "Q31_partial_finite_size",
+          "ids": [
+            "Q31"
+          ],
+          "pdf_sha": "68ce2641cca28f47673be830a809e5687b43b53ac08e872a75c9c1a63ebd6bed",
+          "png_sha": "ef56890c3edac404cc1262c83d19ee7a3b9bfd685fe22497966c638c79539381"
+        }
+      ],
+      "figures": [
+        "Q31_partial_finite_size"
+      ],
+      "id": "Q31",
+      "method": "Partial: size/budget, path action, occupancy entropy, score gap, geometric extent and variance; no quantum spectrum, entanglement, physical length or universal exponent.",
+      "original_science": "NOT_CERTIFIED",
+      "original_source": {
+        "acceptance": "Independent size/budget sweep for susceptibility, entropy, correlation length and gap; no universal exponent without limit.",
+        "archive": "quantum.zip",
+        "id": "Q31",
+        "member": "quantum/research/visualization/plot_statistical_physics.py",
+        "member_sha": "10fdfb23327e32cade268bd4718170a60889ad6de077015dfeaf2eb330b61837",
+        "source_excerpt": "    def plot_finite_size_scaling(self, save_plots: bool = True) -> Dict[str, Any]:\n        \"\"\"Plot finite-size scaling analysis with temporal evolution\"\"\"\n        \n        # Extract authentic finite-size scaling data\n        data = create_authentic_physics_data(self.mcts_data, 'plot_finite_size_scaling')\n        \n        fig, axes = plt.subplots(2, 3, figsize=(20, 12))\n        fig.suptitle('Finite-Size Scaling Analysis with Time Evolution', fontsize=16, fontweight='bold')\n        \n        system_sizes = data['system_sizes']\n        \n        # 1. Effective action scaling\n        ax1 = axes[0, 0]\n        effective_action = data['effective_action_scaling']\n        \n        # Plot scaling law\n        ax1.loglog(system_sizes, effective_action, 'o-', color='blue', linewidth=3, \n                  markersize=8, label='Data')\n        \n        # Fit power law\n        if len(system_sizes) > 2:\n            log_sizes = np.log(system_sizes)\n            log_action = np.log(effective_action)\n            slope, intercept = np.polyfit(log_sizes, log_action, 1)\n            fit_line = np.exp(intercept) * system_sizes**slope\n            ax1.loglog(system_sizes, fit_line, '--', color='red', linewidth=2, \n                      label=f'Fit: S ~ L^{{{slope:.2f}}}')\n        \n        ax1.set_xlabel('System Size L')\n        ax1.set_ylabel('Effective Action S_eff')\n        ax1.set_title('Effective Action Scaling')\n        ax1.legend()\n        ax1.grid(True, alpha=0.3)\n        \n        # 2. Entropy scaling\n        ax2 = axes[0, 1]\n        entropy_scaling = data['entropy_scaling']\n        \n        ax2.loglog(system_sizes, entropy_scaling, 's-', color='green', linewidth=3,\n                  markersize=8, label='Entropy')\n        \n        # Theoretical area law: S ~ L^{d-1}\n        if len(system_sizes) > 1:\n            area_law = entropy_scaling[0] * (system_sizes / system_sizes[0])**(1.0)  # d=2, so d-1=1\n            ax2.loglog(system_sizes, area_law, '--', color='orange', linewidth=2, \n                      label='Area Law ~ L')\n        \n        ax2.set_xlabel('System Size L')\n        ax2.set_ylabel('Entanglement Entropy S')\n        ax2.set_title('Entropy Scaling')\n        ax2.legend()\n        ax2.grid(True, alpha=0.3)\n        \n        # 3. Gap scaling\n        ax3 = axes[0, 2]\n        gap_scaling = data['gap_scaling']\n        \n        ax3.loglog(system_sizes, gap_scaling, '^-', color='purple', linewidth=3,\n                  markersize=8, label='Energy Gap')\n        \n        # Theoretical gap scaling: \u0394 ~ 1/L\n        if len(system_sizes) > 1:\n            gap_theory = gap_scaling[0] * (system_sizes[0] / system_sizes)\n            ax3.loglog(system_sizes, gap_theory, '--', color='red', linewidth=2,\n                      label='Theory ~ 1/L')\n        \n        ax3.set_xlabel('System Size L')\n        ax3.set_ylabel('Energy Gap \u0394')\n        ax3.set_title('Gap Scaling')\n        ax3.legend()\n        ax3.grid(True, alpha=0.3)\n        \n        # 4. Correlation length scaling\n        ax4 = axes[1, 0]\n        corr_length_scaling = data['correlation_length_scaling']\n        \n        ax4.plot(system_sizes, corr_length_scaling, 'd-', color='brown', linewidth=3,\n                markersize=8, label='Correlation Length')\n        \n        # Linear fit\n        if len(system_sizes) > 2:\n            slope, intercept = np.polyfit(system_sizes, corr_length_scaling, 1)\n            fit_line = slope * system_sizes + intercept\n            ax4.plot(system_sizes, fit_line, '--', color='black', linewidth=2,\n                    label=f'Fit: \u03be ~ {slope:.3f}L + {intercept:.2f}')\n        \n        ax4.set_xlabel('System Size L')\n        ax4.set_ylabel('Correlation Length \u03be')\n        ax4.set_title('Correlation Length Scaling')\n        ax4.legend()\n        ax4.grid(True, alpha=0.3)\n        \n        # 5. Susceptibility scaling\n        ax5 = axes[1, 1]\n        susceptibility_scaling = data['susceptibility_scaling']\n        \n        ax5.plot(system_sizes, susceptibility_scaling, 'h-', color='teal', linewidth=3,\n                markersize=8, label='Susceptibility')\n        \n        ax5.set_xlabel('System Size L')\n        ax5.set_ylabel('Susceptibility \u03c7')\n        ax5.set_title('Susceptibility Scaling')\n        ax5.legend()\n        ax5.grid(True, alpha=0.3)\n        \n        # 6. Scaling exponents summary\n        ax6 = axes[1, 2]\n        \n        # Extract scaling exponents\n        scaling_exponents = data['scaling_exponents']\n        exponent_names = list(scaling_exponents.keys())\n        exponent_values = [scaling_exponents[name]['exponent'] for name in exponent_names]\n        \n        bars = ax6.bar(range(len(exponent_names)), exponent_values, alpha=0.7, \n                       color=['red', 'blue', 'green', 'orange', 'purple'][:len(exponent_names)])\n        \n        ax6.set_xticks(range(len(exponent_names)))\n        ax6.set_xticklabels([name.replace('_', '\\n') for name in exponent_names], fontsize=10)\n        ax6.set_ylabel('Scaling Exponent')\n        ax6.set_title('Extracted Scaling Exponents')\n        ax6.grid(True, alpha=0.3)\n        \n        # Add value labels\n        for bar, value in zip(bars, exponent_values):\n            height = bar.get_height()\n            ax6.text(bar.get_x() + bar.get_width()/2., height + 0.02,\n                    f'{value:.2f}', ha='center', va='bottom', fontweight='bold')\n        \n        plt.tight_layout()\n        \n        if save_plots:\n            plt.savefig(self.output_dir / 'finite_size_scaling.png', dpi=300, bbox_inches='tight')\n            logger.info(\"Saved finite-size scaling plot\")\n        \n        return {\n            'scaling_data': data,\n            'scaling_exponents': scaling_exponents,\n            'figure': fig\n        }",
+        "span": [
+          352,
+          490
+        ],
+        "span_sha": "753b74a9e5c9516c942bcf8eb81baa7185824342bb52e9a5610b051694d1f2af"
+      },
+      "pdf_sha": "68ce2641cca28f47673be830a809e5687b43b53ac08e872a75c9c1a63ebd6bed",
+      "png_sha": "ef56890c3edac404cc1262c83d19ee7a3b9bfd685fe22497966c638c79539381",
+      "remaining_limit": "Finite controlled ensemble only; physical critical/length/gap identification open."
+    }
+  ],
+  "original_scientific_certifications": 0,
+  "prior_report_artifacts": [
+    "L31",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "L10",
+    "L22",
+    "L24",
+    "L21",
+    "L23",
+    "G03",
+    "G07",
+    "L16",
+    "Q21",
+    "Q32",
+    "G01",
+    "G02",
+    "G04",
+    "G05",
+    "Q05",
+    "Q08"
+  ],
+  "status": "SCOPED_CONVERGENCE"
+}

@@ -1,0 +1,67 @@
+{
+  "figures": [
+    {
+      "figure": "G06_order_parameter",
+      "ids": [
+        "G06"
+      ],
+      "pdf_sha": "0ce20f36f5edd39f747443d6721699990e0491185191a68ba3e4fc664b61d136",
+      "png_sha": "a56870cc8e7281d07300ee1f6fec2c7f8cec511d0426bdb3b3ec009fb92d7101"
+    },
+    {
+      "figure": "G08_spatial_covariance",
+      "ids": [
+        "G08"
+      ],
+      "pdf_sha": "38a417690458fc94f927cf7ad61f91aa0c635f5bf17848cb430f3216ced2a754",
+      "png_sha": "4649a19cf795720982f5f7f9c03b516e5c49e48346786c65487d32dfc08387ed"
+    },
+    {
+      "figure": "G09_critical_summary",
+      "ids": [
+        "G09"
+      ],
+      "pdf_sha": "82da5dbc7f13a6202c0a53974a2d4912cc76d85152bcb9ce4141e1f3494e0172",
+      "png_sha": "70547612b5163ba9057001758ab1bc523ac5c87a6e3ccc90480fff752ff6e661"
+    },
+    {
+      "figure": "Q29_spatiotemporal_correlations",
+      "ids": [
+        "Q29"
+      ],
+      "pdf_sha": "43339ed0da2d2d7dedbb92bd649d286296894fb000f42ba133201732f8ce7f59",
+      "png_sha": "51a4389076eb1e9a8dcc0386c7f8f35904359d3d3946aa4f5d4c90d5e34799f3"
+    },
+    {
+      "figure": "Q02_partial_phase_diagnostics",
+      "ids": [
+        "Q02"
+      ],
+      "pdf_sha": "22bb50b77056ff521343013a794fe9e33dd535aa158cba4db5165253cf53ea3e",
+      "png_sha": "bd72fe3a1393f86e99d0da9af4e699caea53a5a4cfc66d3aff83b3903110860c"
+    },
+    {
+      "figure": "Q31_partial_finite_size",
+      "ids": [
+        "Q31"
+      ],
+      "pdf_sha": "68ce2641cca28f47673be830a809e5687b43b53ac08e872a75c9c1a63ebd6bed",
+      "png_sha": "ef56890c3edac404cc1262c83d19ee7a3b9bfd685fe22497966c638c79539381"
+    },
+    {
+      "figure": "G06_G09_budget_discrimination",
+      "ids": [
+        "G06",
+        "G09"
+      ],
+      "pdf_sha": "0baa934993fd7a6a5a8823cfcd627bc885d30cd55206f89565d2fd906d1b3eeb",
+      "png_sha": "a419bc0b80f310103df487c16dfa8f2260511a315c87aab3ba986d6bc8d5b098"
+    }
+  ],
+  "scope": "95% descriptive matched-root t intervals (8 cores); no multiple-testing or physical scaling admission.",
+  "sources": {
+    "INDEPENDENT92.json": "b98417239e6488a33587204ec4e00f4298cd8bb145b2be231fad1a6e3b59faab",
+    "SCALE92.json.gz": "1f2938c48787f8cd6d45a4866d454f594bfe484888c7c909e4653ced300f68a8",
+    "SUMMARY92.json": "1548480f9221414bc249cb2e9f63f3bc92b75e7135de1497e7885dd8aef7f971"
+  }
+}

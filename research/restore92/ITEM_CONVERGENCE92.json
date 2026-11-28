@@ -1,0 +1,82 @@
+{
+  "artifact_reconstruction_sha": "6015aeac185298ecef3e40f3ec758cf5caa9bf606c02687dc07216e97d15b29e",
+  "claims": [
+    {
+      "claim": "For n fixed legal sites and B>=2 iid categorical samples, E[m(X)]=1/B+(1-1/B)m(p), hence corrected collision m*=(B m(X)-1)/(B-1) is unbiased for m(p). For adapted selectors pair probability is E[p_t(a_s)] for s<t, not an iid probability product; the correction is a realized collision statistic, not generally an unbiased adaptive concentration estimator.",
+      "evidence": [
+        "mqft_restore92_20261128/THEORY.md",
+        "mqft_restore92_20261128/SCALE92.json.gz",
+        "mqft_restore92_20261128/SUMMARY92.json",
+        "mqft_restore92_20261128/INDEPENDENT92.json"
+      ],
+      "id": "SCALE-COLLISION-04",
+      "items": [
+        "G06",
+        "G09",
+        "Q31"
+      ],
+      "limit": "Finite n,B, fixed legal support, exact iid enumeration n3 B4 two laws; actual adaptive results descriptive, no symmetry-breaking limit.",
+      "stage": 92,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "For fixed legal sites, ordered squared-displacement shell masses of predictable categorical covariance sum to zero, with nonpositive off-diagonal masses and exact distance moment -sum_d d C_d=2 mean_t Var_{p_t}(position). Empirical raw covariance splits into drift, innovation and cross, shellwise and at fixed clocks; compensated time innovations have zero population off-lag covariance without stationarity.",
+      "evidence": [
+        "mqft_restore92_20261128/THEORY.md",
+        "mqft_restore92_20261128/SCALE92.json.gz",
+        "mqft_restore92_20261128/SUMMARY92.json",
+        "mqft_restore92_20261128/INDEPENDENT92.json"
+      ],
+      "id": "SCALE-SHELL-05",
+      "items": [
+        "G08",
+        "G09",
+        "Q29",
+        "Q31"
+      ],
+      "limit": "Native finite conditional categorical laws and repeated-root sample covariance; geometric spread not physical xi; finite sample pointwise deviations not universal autocorrelation; same-agent direct methods.",
+      "stage": 92,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "SCALE-COLLISION-04",
+      "id": "G06",
+      "remaining_final_acceptance": "Define order parameter and symmetry/field, independent L,B,density, finite-size uncertainty and spontaneous-order limit if claimed.",
+      "scope": "Actual normalized occupancy concentration, iid-collision correction, entropy, signed centered modes, five sizes and two density arms; distinguish independent budgets and prefixes; no spontaneous order."
+    },
+    {
+      "accepted": "SCALE-SHELL-05",
+      "id": "G08",
+      "remaining_final_acceptance": "Reproduce legal-pair connected covariance and fixed-total null; define correlation length only with valid nonzero-mode observable and limit.",
+      "scope": "Actual connected legal-pair covariance, ordered open-board displacement shells, fixed-total zero mode and exact uniform null; conditional geometric extent is not physical correlation length."
+    },
+    {
+      "accepted": "SCALE-COLLISION-04;SCALE-SHELL-05",
+      "id": "G09",
+      "remaining_final_acceptance": "Reconstruct order, response and correlation jointly; distinguish finite crossover from common critical point and report uncertainty.",
+      "scope": "Joint finite order, instantaneous conditional variance, covariance and controlled inherited R87 negative crossing/held-out test, root uncertainty; no critical point."
+    },
+    {
+      "accepted": "",
+      "id": "Q02",
+      "remaining_final_acceptance": "Independent L and temperature/control axis with order, response and C; correlation length and critical peak/exponent only after controlled limit.",
+      "scope": "Partial: actual finite selector-beta/density/size and concentration/variance/extent; missing physical T, C, external-field protocol and phase boundary."
+    },
+    {
+      "accepted": "SCALE-SHELL-05",
+      "id": "Q29",
+      "remaining_final_acceptance": "Compute spatial/temporal correlations at controlled L,B, frame, legal mask and independent root uncertainty; physical xi separate.",
+      "scope": "Actual spatial shell and nonstationary fixed-clock temporal correlation, paired root uncertainty; physical correlation length separately unidentified."
+    },
+    {
+      "accepted": "SCALE-COLLISION-04;SCALE-SHELL-05",
+      "id": "Q31",
+      "remaining_final_acceptance": "Independent size/budget sweep for susceptibility, entropy, correlation length and gap; no universal exponent without limit.",
+      "scope": "Partial: size/budget, path action, occupancy entropy, score gap, geometric extent and variance; no quantum spectrum, entanglement, physical length or universal exponent."
+    }
+  ],
+  "parent_convergence_sha256": "d069da60ebe3a35c400f37e28df3aa869e15a7cab38057eb4c2f806d3ae15af0",
+  "parent_quality_matrix_sha256": "587a1d8705e5c7f9df8681fcafedbb97a337c07b6f7d3ec3daac71643cadd589"
+}
