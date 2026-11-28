@@ -1,0 +1,75 @@
+{
+  "artifact_reconstruction_sha": "a3c06ea19814339ee00c2c62c3bdd56a3969486a18e5ca0f6315cb17ffad34be",
+  "claims": [
+    {
+      "claim": "For a binary pointer ensemble and any POVM, classical common-overlap decomposition yields I(X:Y)<=H(X) TV(P0,P1)<=H(X) D(rho0,rho1). Together with Holevo and explicit projective candidates this bounds unrestricted accessible information. In the registered dataset the TV bound did not tighten Holevo at tolerance, and attainable candidates improved Z information in 10670 of 25920 evaluations.",
+      "evidence": [
+        "mqft_restore96_20261128/THEORY.md",
+        "mqft_restore96_20261128/DARWIN96.json",
+        "mqft_restore96_20261128/SUMMARY96.json",
+        "mqft_restore96_20261128/INDEPENDENT96.json"
+      ],
+      "id": "Q-ACCESS-11",
+      "items": [
+        "Q25",
+        "Q28"
+      ],
+      "limit": "Finite specified binary ensembles, no claimed unrestricted POVM optimum or new general theorem; no native physical objectivity.",
+      "stage": 96,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    },
+    {
+      "claim": "Exact disjoint packing from lower and upper fragment information bounds gives a certified cardinality interval. For H>1e-6 and 90% threshold, no two qualifying fragments are possible for either registered pointer in final plus81 xi1. All 18 attained two-fragment conditions are six native-repeat base81 contexts at three tags; one extra unresolved condition. System-Z has no possible two-fragment packing in any registered condition.",
+      "evidence": [
+        "mqft_restore96_20261128/THEORY.md",
+        "mqft_restore96_20261128/DARWIN96.json",
+        "mqft_restore96_20261128/SUMMARY96.json",
+        "mqft_restore96_20261128/INDEPENDENT96.json"
+      ],
+      "id": "Q-PACK-12",
+      "items": [
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q28"
+      ],
+      "limit": "Finite conditional model, not a universal no-go. Lambda0 counterfactual uses harvested plus settings; repeated tags not independent contexts; degeneracy and success weights retained.",
+      "stage": 96,
+      "status": "ACCEPTED_DERIVED_AND_CHECKED"
+    }
+  ],
+  "items": [
+    {
+      "accepted": "Q-PACK-12",
+      "id": "Q24",
+      "remaining_final_acceptance": "Adaptive complex joint channel with coupling/environment/time defined, positivity and dephased controls, higher-time operational phase verification.",
+      "scope": "Actual R81 software phase interventions and R94 conditional qubit, R95 declared adaptive prefix coherence and entropy, explicit controls; no physical bath or higher-time coherent hardware readout."
+    },
+    {
+      "accepted": "Q-ACCESS-11;Q-PACK-12",
+      "id": "Q25",
+      "remaining_final_acceptance": "Compute information accessibility on disjoint fragments with conditional records, genuine redundancy plateau/packing and independent roots.",
+      "scope": "All nonempty fragments, attainable measurement lower and Holevo/TV upper, exact disjoint packing and entropy guard; negative plus-arm result, base81 positive control retained; no actual objectivity."
+    },
+    {
+      "accepted": "Q-PACK-12",
+      "id": "Q26",
+      "remaining_final_acceptance": "Pointer stability and selection probability under defined perturbations, distinguish actual final decision, energy only with H.",
+      "scope": "Local pointer discrimination and disturbance, frozen stability and actual phase-dependent decision comparator; no calibrated pointer energy spectrum."
+    },
+    {
+      "accepted": "",
+      "id": "Q27",
+      "remaining_final_acceptance": "Actual conditional record/complex evolution animation, explicit clock and phase model, no physical time inferred.",
+      "scope": "Four-frame GIF H32,36,40,44 from verified actual conditional qubit and declared prefix data, explicit clock; static snapshot pair; no physical time calibration."
+    },
+    {
+      "accepted": "Q-ACCESS-11;Q-PACK-12",
+      "id": "Q28",
+      "remaining_final_acceptance": "Comprehensive Darwinism criteria including objectivity, plateau and redundancy uncertainty; report failures explicitly.",
+      "scope": "Objectivity diagnostic report with conditional product deviation, pointer measurement disturbance, disjoint packing, tag and lambda0 controls and success-weighted contribution; no physical redundancy or objectivity certification."
+    }
+  ],
+  "parent_convergence_sha256": "42f970b0f473268bad09987b0756547e9ecabccf52d8ac9a58746627d508cf9f",
+  "parent_quality_matrix_sha256": "fa914561b943211815f0d76dab192312bb4743d59af839221b12a5686f5e0bf2"
+}

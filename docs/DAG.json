@@ -2,7 +2,7 @@
   "active_research_charter": "docs/RESEARCH_CHARTER.md",
   "application_policy": "same-evaluator MQFT-on vs conventional baseline MCTS; conditional application only",
   "backup_policy": "DROPBOX_ONLY_VERIFIED_SNAPSHOT_NO_REDUNDANT_LOCAL_BACKUP",
-  "convergence_ledger": "CONVERGENCE95.json",
+  "convergence_ledger": "CONVERGENCE96.json",
   "dependency_semantics": "\ud654\uc0b4\ud45c\ub294 \uc6d0\ub798 self-play \uc0b0\ucd9c\ubb3c\uc744 \uc704\ud55c \uc785\ub825 \uc758\uc874\uc131\uc774\ub2e4. source \ud574\uc11d\u00b7\uae30\uc874 \uc790\ub8cc \uac80\ud1a0\u00b7\uc791\uc5c5 \ubcd1\ub82c\uc131 \ubc0f \uc644\ub8cc\uc728\uacfc \uad6c\ubd84\ud55c\ub2e4.",
   "edges": [
     {
@@ -121,7 +121,7 @@
   },
   "first_traversal_status": "all_13_nodes_have_scoped_evidence_not_all_original_claims_complete",
   "mainline_priorities": [
-    "R96 Q24-Q28 dedicated decoherence/Darwinism and accessible information",
+    "R97 Q35-Q37 Q39-Q40 entropy and partition outputs",
     "Direct original reconstruction; no optimizer drift",
     "Six open science claims, Q02/Q31 and Q19/Q20 partial"
   ],
@@ -142,7 +142,7 @@
     "sha256": "3e2402b18609dae788bebcfb1c47cb56e0436f9f34949c3484b85cb9bda12e72",
     "status": "active_for_next_research_selection"
   },
-  "next_stage_id": "MQFT-RESTORE96-DARWINISM-DEDICATED-OUTPUTS",
+  "next_stage_id": "MQFT-RESTORE97-ENTROPY-PARTITION-OUTPUTS",
   "nodes": [
     {
       "decision": "\uc7ac\uac1c \uc2dc \uccab \uc791\uc5c5",
@@ -779,6 +779,23 @@
         "evidence": "720 raw receipts; 2304 joint prefixes, 5184 controlled states, 17280 pair and 19008 cut evaluations; 432 lambda0 factorization checks",
         "partial": [],
         "remaining": "Native physical entanglement, coherent branch identification and operational Bell settings not established."
+      },
+      "restore96_followup": {
+        "accepted_subclaims": [
+          "Q-ACCESS-11",
+          "Q-PACK-12"
+        ],
+        "artifact": "mqft_restore96_20261128/{ORIGINAL_OUTPUT_REPORT96.md,ITEM_RECONSTRUCTION96.json,CONVERGENCE96.json}",
+        "corrected_artifacts": [
+          "Q24",
+          "Q25",
+          "Q26",
+          "Q27",
+          "Q28"
+        ],
+        "evidence": "4104 rehashed raw receipts; 5184 controlled states, 8640 pointer ensembles, 25920 fragment evaluations, exact packing and 4-frame animation",
+        "partial": [],
+        "remaining": "Native physical objectivity and coherent record identification not established."
       },
       "retained_evidence": "RESTORE05\uc758 joint counts\u00b7decision stability\u00b7overlap \ubc0f H=0/null \uc0ac\ub840. qubit/dephasing \uc608\uc81c\ub294 \ud45c\ud604\uc5d0 \ubbfc\uac10\ud55c \uc2e4\ud5d8\uc758 \ub300\uc870\uad70.",
       "source": "quantum_darwinism.py, plot_decoherence_darwinism.py::plot_decoherence_dynamics/plot_information_proliferation/plot_pointer_states, plot_entropy_analysis.py, envariance/pointer \ubc0f Lindblad renderer.",
@@ -1440,8 +1457,8 @@
     ],
     "state": "SOFTWARE_AUDIT_SCOPED_VERIFIED"
   },
-  "previous_entry": "REPLAN-02",
-  "quality_matrix": "QUALITY_MATRIX95.csv",
+  "previous_entry": "REPLAN-05",
+  "quality_matrix": "QUALITY_MATRIX96.csv",
   "quantum_dynamics_policy": {
     "applies_to": "all quantum nodes; actual complex propagation and von Neumann entropies, operational controls and original source correspondence",
     "inherits": "mqft_restore21_20261125/QUANTUM_REPRESENTATION_POLICY.md",
@@ -4851,8 +4868,53 @@
     "reused_fixed_root_paths": 72,
     "status": "five_corrected_original_artifacts_two_new_scoped_claims"
   },
-  "revision": "RESTORE95_20261128",
-  "scope": "Convergence: declared adaptive prefix pair/cut entanglement, concurrence and CHSH",
+  "restore96": {
+    "CONVERGENCE96.json_sha256": "3c5b3d98800a99c8f2a21c2b2192999970419d345c05609c1b253346709e840e",
+    "DARWIN96.json_sha256": "a3488ee005df8fbf0971ee334a57b8efb62ba3660de99b33ac1039e2a1ea6a80",
+    "DRIFT_WATCHDOG.md_sha256": "cee8f6254fb5f925c1a3374868c5532f5d59ebbbd22ab2c9b5cab286d4f5a4e8",
+    "INDEPENDENT96.json_sha256": "9a8b94ff77924016b85c74228360565c985a5261940fa82549935609cadb743a",
+    "ITEM_CONVERGENCE96.json_sha256": "37bfbfcf1bdc09da7ce9f1333e3d535706b3c56e0dafb68f2e3a024e884a9d48",
+    "ITEM_RECONSTRUCTION96.json_sha256": "a3c06ea19814339ee00c2c62c3bdd56a3969486a18e5ca0f6315cb17ffad34be",
+    "NEXT_DYNAMICS.md_sha256": "40ebcd57b882869c79741aa46380e1baabba79f4c445c54337fce5d6a134bfa8",
+    "ORIGINAL_OUTPUT_EVIDENCE96.csv_sha256": "5529c39933175fe5853f4e5a33873947cdadefc36b52616b1b89dd2eefb0b6ea",
+    "ORIGINAL_OUTPUT_PROGRESS96.csv_sha256": "302971fbbddf9a16e0f98d15c82680a2877ca7d43a50f4aa77aa21853feb81f7",
+    "ORIGINAL_OUTPUT_REPORT96.md_sha256": "cffba8a1f68a8fa55fbc657ba0b115746ed8891e268773cb8fb3df09ce9acc93",
+    "ORIGINAL_SOURCE96.json_sha256": "9cac2f548d922b1785a8bca3ebda31a3459a93df6ab959890786b4b15bfcdfae",
+    "PLOT_INVENTORY96.csv_sha256": "e901606f63cf68d710366392b8763a42267b2c109769e08e9910f1c220fee3ce",
+    "PLOT_MANIFEST96.json_sha256": "a64233f2a6300cb13196a745e40d4ff67f44cd7ebae0bcab5266e2adf49a37b1",
+    "PROGRESS96.json_sha256": "86b091d3092e0c6fce8647f651031b79ab08c23c93e6525869cae325e25e408b",
+    "QUALITY_MATRIX96.csv_sha256": "b6afb54d7f3f7f01340272270667b69023c23365d5ab87f53ab14bfcf173da0a",
+    "REGISTRATION.json_sha256": "b8bc2e1120c146c9ea7244ac05f0ca6ef5ec97d7a5f405c8e5eec909fe812bf7",
+    "SUMMARY96.json_sha256": "68551be580789e47cef641adcce2c4361198099cc02aac8d6d3d1a96f5282e17",
+    "THEORY.md_sha256": "42a2ef55afba159ed502c31ada3d1fcd0b00c68bc116a23da7bb5629c5c2def0",
+    "THEORY_REGISTERED96.md_sha256": "3834165242b6d582c7cfb0281653c08fc992c0202491f2a2a45c9da8cab5532d",
+    "accepted_corrected_subclaims": 36,
+    "animations": 1,
+    "controlled_prefixes": 5184,
+    "corrected_report_artifact_accepted": 44,
+    "cumulative_fixed_root_histories": 93336,
+    "diagnostic_paths": 648,
+    "figures": 6,
+    "final_scientific_certified": 0,
+    "fragment_evaluations": 25920,
+    "fresh_backups": 0,
+    "fresh_fixed_root_histories": 0,
+    "native_subagent": "NOT_RUN",
+    "new_accepted_subclaims": 2,
+    "new_corrected_artifacts": 5,
+    "original_evidence_items": 5,
+    "original_evidence_union_R55_R96": 121,
+    "original_obligations": 121,
+    "parent_commit": "03593ba04a1f685d0d762cb6986593b721214dfe",
+    "parent_dag_sha256": "39b29f8b352fe4e22d4aabc8dcb08f05b6f32ed0d3ffcde6600d96c0cd59e796",
+    "pointer_ensembles": 8640,
+    "remaining": "77 corrected artifact obligations; six open science claims, Q02/Q31 and Q19/Q20 partial; Q35-Q37 Q39-Q40 next.",
+    "retained_pairs": 726,
+    "reused_fixed_root_paths": 3456,
+    "status": "five_corrected_original_artifacts_two_new_scoped_claims"
+  },
+  "revision": "RESTORE96_20261128",
+  "scope": "Convergence: declared adaptive prefix accessible information and disjoint fragment packing",
   "status_scope": "Execution updates distinguish observed finite scope, conditional mathematical results and unresolved original deliverables.",
-  "supersedes_next": "MQFT-RESTORE95-ENTANGLEMENT-NETWORK-CONCURRENCE-BELL-OUTPUTS"
+  "supersedes_next": "MQFT-RESTORE96-DARWINISM-DEDICATED-OUTPUTS"
 }

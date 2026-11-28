@@ -1,0 +1,4 @@
+STATE 1728
+STATE 3456
+STATE 5184
+DONE 5184 {'tag_diag': 0.0, 'pointer_norm': 4.440892098500626e-16, 'conditional_trace': 6.661856318626253e-16, 'ensemble_avg': 2.220446049250313e-16, 'pointer_H': 5.516420653606247e-16, 'commuting': 1.1102230246251565e-16, 'commuting_lower': 4.440892098500626e-16, 'pure_overlap_lower': 4.440892098500626e-16, 'pure_overlap_entropy': 1.1102230246251565e-16, 'broadcast_information': 1.1102230246251565e-16, 'broadcast_product': 1.1102230246251565e-16, 'R83_H': 3.885780586188048e-16, 'R83_chi': 1.27675647831893e-15}

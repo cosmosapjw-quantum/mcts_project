@@ -1,0 +1,80 @@
+{
+  "animations": [
+    {
+      "clocks": [
+        32,
+        36,
+        40,
+        44
+      ],
+      "frame_rgb_sha256": [
+        "f50348466fd4a19506f7ec1b0438163be8705dcdf9c5b1ba4ffe0f5f22f4c0cd",
+        "bf8e5688aa834400131d41cf5a8f675b14123b33145502bb890fe53f3162277f",
+        "61493deed232fcca25e1c3d0a401ae8e8dc2096ea59dfa794bae8f9573d53cf1",
+        "2d082eeeeef4d6f45f58d9fae93e695b44c7cdb1f379d1d68cb76c589b33d4fa"
+      ],
+      "frames": 4,
+      "id": "Q27",
+      "path": "plots/Q27_decoherence_evolution.gif",
+      "sha256": "aba9c15527b1dec87f052af7359353436bc11f18157d32b7dfc4fedfe8794928"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "Q24_decoherence_dynamics",
+      "ids": [
+        "Q24"
+      ],
+      "pdf_sha": "c65374c564c5fe572d4f772fa555c2b5154f44064ef467223ad0b53a1a981f45",
+      "png_sha": "03b5780c1ca33466d90be2a83e167bdd684abd825ca652cbddc05b35235834d1"
+    },
+    {
+      "figure": "Q25_information_proliferation",
+      "ids": [
+        "Q25"
+      ],
+      "pdf_sha": "b24617bfe5a5236a063a98c6f67c91e4a1aa194048f28f4b7953731445bee88e",
+      "png_sha": "c8ad10ebcc53fddfd679378451c603eef5bbfb2ac5cf6c55de89df25c1e67309"
+    },
+    {
+      "figure": "Q25_disjoint_fragment_packing",
+      "ids": [
+        "Q25",
+        "Q28"
+      ],
+      "pdf_sha": "84dc88d59a80a900d908c4a62465e43dc4ca0f5bef1db998c326fb05477417c1",
+      "png_sha": "894307650181b9ca9d4cec74d4a8fdd044dcbaf82ad171e2b758056ede352c91"
+    },
+    {
+      "figure": "Q26_pointer_states",
+      "ids": [
+        "Q26"
+      ],
+      "pdf_sha": "136eeaedaff001ed163002ab10127879f934205a8292cc080f0f2847e0eb7201",
+      "png_sha": "9a419310865ec0680443f797cc3488931156058f9955daf7607610f8c27eff6d"
+    },
+    {
+      "figure": "Q28_objectivity_summary",
+      "ids": [
+        "Q28"
+      ],
+      "pdf_sha": "c281718a0e058ccbf2b36487ee32eb4074652dea31c8f746a22124a9bba9e02f",
+      "png_sha": "62bde83f583ae8a32de5ae3bf9db68bfb1ec64f114d4d4ff89623a21792d55ae"
+    },
+    {
+      "figure": "Q27_prefix_clock_snapshots",
+      "ids": [
+        "Q27"
+      ],
+      "pdf_sha": "b380de049a712150c138f6482500fd26c03e5e52a5964c71b940d190b9ee69b0",
+      "png_sha": "a32455425c694a790dc02307e5a3ec655c3ee9c43b72a3c2f308bd0292016875"
+    }
+  ],
+  "scope": "No physical time or calibrated bath; pointwise descriptive root intervals; explicit lower/upper info and disjoint packing",
+  "sources": {
+    "DARWIN96.json": "a3488ee005df8fbf0971ee334a57b8efb62ba3660de99b33ac1039e2a1ea6a80",
+    "INDEPENDENT96.json": "9a8b94ff77924016b85c74228360565c985a5261940fa82549935609cadb743a",
+    "ORIGINAL_SOURCE96.json": "9cac2f548d922b1785a8bca3ebda31a3459a93df6ab959890786b4b15bfcdfae",
+    "SUMMARY96.json": "68551be580789e47cef641adcce2c4361198099cc02aac8d6d3d1a96f5282e17"
+  }
+}
